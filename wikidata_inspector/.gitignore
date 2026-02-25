@@ -1,0 +1,15 @@
+# Python virtual environment
+venv/
+
+# Node.js dependencies
+node_modules/
+
+# Log and verification output files
+*.log
+verification_log*.txt
+
+# Local Claude session data
+.claude/
+
+# Local test data files
+test*.csv
