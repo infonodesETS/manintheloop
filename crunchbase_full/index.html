@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defense & Critical Resources · Investment Map</title>
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg:       #000000;
+  --surface:  #0f0f0f;
+  --border:   #262626;
+  --text:     #efefef;
+  --dim:      #7a8fa3;
+  --lead-c:   #f59e0b;
+  --follow-c: #60a5fa;
+  --hl-row:   rgba(245,158,11,0.07);
+  --font:     'Inter', 'Segoe UI', sans-serif;
+}
+
+body { background:var(--bg); color:var(--text); font-family:var(--font); overflow:hidden; }
+
+/* ── LOADING ── */
+#loading {
+  position:fixed; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:16px;
+  background:var(--bg); z-index:999;
+}
+#loading h2 { font-size:19px; color:var(--text); font-weight:500; }
+#loading p  { font-size:14px; color:var(--dim); }
+#loading pre {
+  font-size:13px; background:#111; border:1px solid var(--border);
+  padding:10px 18px; border-radius:4px; color:var(--lead-c);
+  margin-top:4px; font-family:monospace;
+}
+#loading a { color:var(--follow-c); }
+.spin {
+  width:28px; height:28px; border:2px solid var(--border);
+  border-top-color:var(--lead-c); border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* ── HEADER ── */
+#hdr {
+  position:fixed; top:0; left:0; right:0; height:60px;
+  background:var(--surface); border-bottom:1px solid var(--border);
+  display:none; align-items:center; padding:0 20px; gap:16px; z-index:200;
+}
+#hdr h1 { font-size:16px; font-weight:600; color:#fff; letter-spacing:.5px; white-space:nowrap; }
+#hdr .meta { font-size:13px; color:var(--dim); margin-left:4px; white-space:nowrap; }
+.sep { width:1px; height:22px; background:var(--border); flex-shrink:0; }
+.vbtn {
+  padding:6px 16px; font-size:13px; border:1px solid var(--border);
+  background:transparent; color:var(--dim); cursor:pointer; border-radius:4px;
+  transition:all .15s; font-family:var(--font); white-space:nowrap;
+}
+.vbtn.on { background:#0d1a2e; color:#60a5fa; border-color:#60a5fa; }
+.vbtn:hover:not(.on) { color:var(--text); border-color:#555; }
+
+/* ── LEGEND PILLS ── */
+.lpill {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; color:var(--dim); white-space:nowrap;
+}
+.ldot { width:11px; height:11px; border-radius:2px; flex-shrink:0; }
+.ml-auto { margin-left:auto; }
+
+/* ── MAIN LAYOUT ── */
+#app { position:fixed; top:60px; left:0; right:0; bottom:0; display:none; }
+
+/* ── MATRIX VIEW ── */
+#matrix-view {
+  flex:1; overflow:auto; padding:0;
+  background:var(--bg);
+}
+
+table {
+  border-collapse:collapse; min-width:100%;
+  font-size:13px;
+}
+
+/* Sticky header row */
+thead th {
+  position:sticky; top:0; z-index:10;
+  background:var(--surface);
+  border-bottom:2px solid var(--border);
+}
+
+/* Sticky first column */
+td:first-child, th:first-child {
+  position:sticky; left:0; z-index:9;
+  background:var(--surface);
+}
+thead th:first-child { z-index:11; }
+
+/* Column header — rotated company names */
+.col-hdr {
+  height:132px; vertical-align:bottom; padding-bottom:6px;
+  font-weight:500; white-space:nowrap;
+}
+.col-hdr-inner {
+  display:block;
+  transform:rotate(-50deg) translateX(-8px);
+  transform-origin:bottom left;
+  color:var(--dim);
+  font-size:12px;
+  width:120px;
+}
+.col-hdr-inner:hover { color:var(--text); cursor:default; }
+.col-hdr-inner abbr { text-decoration:none; }
+
+/* Row */
+tr:hover td { background:var(--hl-row); }
+tr:hover td:first-child { background:rgba(245,158,11,0.10); }
+
+/* Investor name cell */
+.inv-cell {
+  padding:4px 10px 4px 12px;
+  white-space:nowrap;
+  border-right:2px solid var(--border);
+  min-width:216px;
+  display:flex; align-items:center; gap:6px;
+  cursor:pointer;
+}
+.inv-rank { font-size:11px; color:#444; width:18px; text-align:right; flex-shrink:0; }
+.inv-name { flex:1; color:var(--text); font-size:13px; overflow:hidden; text-overflow:ellipsis; }
+.inv-name:hover { color:#fff; }
+.count-pill {
+  flex-shrink:0; display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:19px; border-radius:3px;
+  font-size:12px; font-weight:700;
+  background:#1a1a1a; color:#5a6a7a;
+}
+.count-pill.c1 { background:rgba(96,165,250,0.15); color:#60a5fa; }
+.count-pill.c2 { background:rgba(245,158,11,0.18); color:#f59e0b; }
+.count-pill.c3 { background:rgba(245,158,11,0.30); color:#f59e0b; }
+.count-lead { font-size:11px; color:#f59e0b; margin-left:1px; opacity:.75; }
+
+/* Investment cell */
+.inv-td { width:30px; text-align:center; padding:2px 1px; border-right:1px solid #1a1a1a; }
+
+.dot-lead {
+  display:inline-block; width:17px; height:17px; border-radius:2px;
+  background:rgba(245,158,11,0.85);
+  border:1px solid rgba(245,158,11,0.35);
+  cursor:pointer;
+  transition:transform .1s;
+  position:relative;
+}
+.dot-lead::after {
+  content:'L';
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-size:8px; font-weight:700; color:rgba(0,0,0,0.85);
+}
+.dot-lead:hover { transform:scale(1.3); }
+
+.dot-follow {
+  display:inline-block; width:17px; height:17px; border-radius:2px;
+  background:rgba(96,165,250,0.70);
+  border:1px solid rgba(96,165,250,0.30);
+  cursor:pointer;
+  transition:transform .1s;
+}
+.dot-follow:hover { transform:scale(1.3); }
+
+.dot-none { display:inline-block; width:5px; height:5px; border-radius:50%; background:#1e1e1e; }
+
+/* Row total bar */
+.bar-cell { padding:2px 10px; white-space:nowrap; border-left:2px solid var(--border); }
+.bar-track { width:72px; height:5px; background:#1a1a1a; border-radius:2px; display:inline-block; vertical-align:middle; }
+.bar-fill { height:100%; border-radius:2px; }
+
+/* ── GRAPH VIEW ── */
+#graph-view { flex:1; display:none; position:relative; }
+#graph-svg { width:100%; height:100%; }
+
+/* ── TOOLTIP ── */
+#tip {
+  position:fixed; background:rgba(10,10,10,0.97); border:1px solid var(--border);
+  padding:12px 16px; font-size:13px; pointer-events:none;
+  display:none; z-index:400; border-radius:4px;
+  box-shadow:0 4px 24px rgba(0,0,0,.6);
+  max-width:300px; line-height:1.5;
+}
+#tip .tname { color:#fff; font-weight:600; font-size:14px; margin-bottom:4px; }
+#tip .tinfo { color:var(--dim); }
+#tip .thigh { color:var(--lead-c); margin-top:3px; font-size:12px; }
+
+/* ── DETAIL PANEL ── */
+#detail {
+  width:312px; flex-shrink:0;
+  background:#080808; border-left:1px solid var(--border);
+  overflow-y:auto; padding:19px;
+  display:none;
+}
+#detail.open { display:block; }
+.dp-close {
+  float:right; background:none; border:none; color:var(--dim);
+  font-size:19px; cursor:pointer; padding:0 2px; line-height:1;
+}
+.dp-close:hover { color:var(--text); }
+.dp-title { font-size:16px; color:#fff; font-weight:600; margin-bottom:5px; padding-right:24px; line-height:1.3; }
+.dp-badge {
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:2px;
+  letter-spacing:.5px; margin-bottom:14px;
+}
+.db-inv  { background:rgba(245,158,11,.18); color:var(--lead-c); border:1px solid rgba(245,158,11,.35); }
+.db-start { background:rgba(96,165,250,.15); color:var(--follow-c); border:1px solid rgba(96,165,250,.35); }
+.dp-label { font-size:11px; color:var(--follow-c); letter-spacing:1px; text-transform:uppercase; margin:14px 0 7px; }
+.dp-list { list-style:none; }
+.dp-list li {
+  font-size:13px; padding:5px 0; border-bottom:1px solid #1a1a1a;
+  color:var(--dim); display:flex; align-items:center; justify-content:space-between; gap:6px;
+}
+.dp-list li span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lead-tag { font-size:10px; padding:1px 6px; background:rgba(245,158,11,.15); color:var(--lead-c); border:1px solid rgba(245,158,11,.3); flex-shrink:0; border-radius:2px; }
+
+/* ── D3 GRAPH ── */
+.gnode-inv circle { fill:#120e00; stroke:var(--lead-c); stroke-width:1.8; cursor:pointer; }
+.gnode-inv circle:hover { fill:#201800; }
+.gnode-inv.ghl circle { fill:#201800; filter:drop-shadow(0 0 7px var(--lead-c)); }
+.gnode-start circle { fill:#061228; stroke:var(--follow-c); stroke-width:1.3; cursor:pointer; }
+.gnode-start circle:hover { fill:#0d1e3a; }
+.gnode-start.ghl circle { fill:#0d1e3a; filter:drop-shadow(0 0 6px var(--follow-c)); }
+.glabel { font-family:var(--font); font-size:11px; fill:var(--dim); pointer-events:none; }
+.gbadge { font-family:var(--font); font-size:10px; fill:var(--lead-c); font-weight:700; pointer-events:none; }
+.glink { stroke:#2a2a2a; stroke-opacity:.9; }
+.glink.lead { stroke:rgba(245,158,11,.45); }
+.glink.ghl  { stroke:var(--follow-c); stroke-opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="spin"></div>
+  <h2>Loading investment data…</h2>
+  <p>If this doesn't load, serve via HTTP:</p>
+  <pre>cd crunchbase_full &amp;&amp; python3 -m http.server 8080</pre>
+  <p>Then open <a href="http://localhost:8080">http://localhost:8080</a></p>
+</div>
+
+<!-- HEADER -->
+<div id="hdr">
+  <h1>Investment Map</h1>
+  <span class="meta" id="hdr-sub">Defense &amp; Critical Resources</span>
+  <div class="sep"></div>
+  <button class="vbtn on" id="btn-mx"    onclick="setView('matrix')">Matrix</button>
+  <button class="vbtn"    id="btn-bi"    onclick="setView('bipartite')">Bipartite</button>
+  <button class="vbtn"    id="btn-graph" onclick="setView('graph')">Network</button>
+  <button class="vbtn"    id="btn-proj"  onclick="setView('projection')">Projection</button>
+  <div class="sep"></div>
+  <span class="lpill"><span class="ldot" style="background:rgba(245,158,11,.85)"></span>Lead investment</span>
+  <span class="lpill"><span class="ldot" style="background:rgba(96,165,250,.7)"></span>Follow investment</span>
+  <div class="ml-auto" style="font-size:13px;color:var(--dim)" id="hdr-info"></div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div id="matrix-view"></div>
+  <div id="bi-view" style="flex:1;display:none;"><svg id="bi-svg" style="width:100%;height:100%;"></svg></div>
+  <div id="graph-view"><svg id="graph-svg"></svg></div>
+  <div id="proj-view" style="flex:1;display:none;position:relative;">
+    <div id="proj-filter" style="position:absolute;top:14px;left:16px;z-index:10;display:flex;gap:6px;">
+      <button class="vbtn on" id="pf-all"   onclick="setProjFilter('all')">All edges</button>
+      <button class="vbtn"    id="pf-multi" onclick="setProjFilter('multi')">Co-invest ≥2</button>
+    </div>
+    <svg id="proj-svg" style="width:100%;height:100%;"></svg>
+  </div>
+  <div id="detail">
+    <button class="dp-close" onclick="closeDetail()">×</button>
+    <div id="dp-inner"></div>
+  </div>
+</div>
+
+<div id="tip">
+  <div class="tname" id="tn"></div>
+  <div class="tinfo" id="ti"></div>
+  <div class="thigh" id="th"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+
+// ══════════════════════════════════════════════════════
+//  LOAD CSV
+// ══════════════════════════════════════════════════════
+
+Papa.parse('database-man-in-the-loop-aziende-siti-web-csv-3-6-2026.csv', {
+  download: true,
+  header: true,
+  skipEmptyLines: true,
+  complete: function(results) {
+    initApp(results.data);
+  },
+  error: function(err) {
+    document.getElementById('loading').innerHTML = `
+      <h2 style="color:#ef4444">Cannot load CSV</h2>
+      <p>Serve this directory via HTTP:</p>
+      <pre>cd crunchbase_full &amp;&amp; python3 -m http.server 8080</pre>
+      <p>Then open <a href="http://localhost:8080" style="color:#60a5fa">http://localhost:8080</a></p>
+      <p style="font-size:12px;color:#555;margin-top:8px">${err}</p>
+    `;
+  }
+});
+
+// ══════════════════════════════════════════════════════
+//  GLOBALS (filled by initApp)
+// ══════════════════════════════════════════════════════
+
+let COMPANIES = [], RAW = [], INVESTORS = [], invMap = {}, companyMap = {};
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+
+function initApp(rows) {
+  // Build data structures
+  rows.forEach(row => {
+    const name = (row['Organization Name'] || '').trim();
+    if (!name) return;
+
+    const top5Raw  = (row['Top 5 Investors'] || '').trim();
+    const leadsRaw = (row['Lead Investors']  || '').trim();
+    if (!top5Raw) return;
+
+    const top5  = top5Raw.split(',').map(s => s.trim()).filter(Boolean);
+    const leads = leadsRaw ? leadsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
+    const leadSet = new Set(leads);
+
+    const company = {
+      id:      name,
+      loc:     (row['Headquarters Location'] || '').trim(),
+      ind:     (row['Primary Industry'] || (row['Industries'] || '').split(',')[0] || '').trim(),
+      website: (row['Website'] || '').trim(),
+      revenue: (row['Estimated Revenue Range'] || '').trim(),
+      funding: (row['Total Funding Amount (in USD)'] || '').trim(),
+      investors: [],
+      leads:     [],
+    };
+
+    top5.forEach(inv => {
+      const isLead = leadSet.has(inv);
+      RAW.push([name, inv, isLead]);
+      company.investors.push({ investor: inv, lead: isLead });
+      if (isLead) company.leads.push(inv);
+    });
+
+    COMPANIES.push(company);
+    companyMap[name] = company;
+  });
+
+  // Build investor index
+  RAW.forEach(([s, i, lead]) => {
+    if (!invMap[i]) invMap[i] = { id: i, portfolio: [], total: 0, leads: 0 };
+    invMap[i].portfolio.push({ startup: s, lead });
+    invMap[i].total++;
+    if (lead) invMap[i].leads++;
+  });
+
+  INVESTORS = Object.values(invMap).sort((a, b) => b.total - a.total || b.leads - a.leads);
+
+  // Show app
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('hdr').style.display = 'flex';
+  document.getElementById('app').style.display  = 'flex';
+
+  document.getElementById('hdr-info').textContent =
+    `${COMPANIES.length} companies · ${INVESTORS.length} investors · ${RAW.length} investments · ${RAW.filter(d => d[2]).length} lead`;
+
+  buildMatrix();
+}
+
+// ══════════════════════════════════════════════════════
+//  MATRIX VIEW
+// ══════════════════════════════════════════════════════
+
+function buildMatrix() {
+  const container = document.getElementById('matrix-view');
+  const maxTotal  = INVESTORS[0] ? INVESTORS[0].total : 1;
+
+  let html = `<table>`;
+
+  // ── THEAD ──
+  html += `<thead><tr>`;
+  html += `<th style="min-width:240px;padding:0 14px;text-align:left;vertical-align:bottom;padding-bottom:12px">
+    <span style="font-size:12px;color:var(--dim);letter-spacing:.5px">INVESTOR</span>
+    <span style="font-size:11px;color:#333;margin-left:6px"># = portfolio count</span>
+  </th>`;
+
+  COMPANIES.forEach(c => {
+    const short = c.id.length > 14 ? c.id.slice(0, 13) + '…' : c.id;
+    html += `<th class="col-hdr">
+      <span class="col-hdr-inner"><abbr title="${escAttr(c.id)} · ${escAttr(c.loc)} · ${escAttr(c.ind)}">${escHtml(short)}</abbr></span>
+    </th>`;
+  });
+
+  html += `<th style="min-width:110px;padding:0 14px;vertical-align:bottom;padding-bottom:12px;border-left:2px solid var(--border)">
+    <span style="font-size:12px;color:var(--dim)">TOTAL</span>
+  </th>`;
+  html += `</tr></thead>`;
+
+  // ── TBODY ──
+  html += `<tbody>`;
+  INVESTORS.forEach((inv, idx) => {
+    const pf = {};
+    inv.portfolio.forEach(p => pf[p.startup] = p.lead);
+
+    const cc = inv.total >= 3 ? 'c3' : inv.total === 2 ? 'c2' : inv.total === 1 ? 'c1' : '';
+    const leadLabel = inv.leads > 0
+      ? `<span class="count-lead" title="${inv.leads} lead investment${inv.leads > 1 ? 's' : ''}">↑${inv.leads}</span>`
+      : '';
+
+    html += `<tr>`;
+    html += `<td>
+      <div class="inv-cell" onclick="showInvestorDetail('${escAttr(inv.id)}')">
+        <span class="inv-rank">${idx + 1}</span>
+        <span class="inv-name">${escHtml(inv.id)}</span>
+        ${leadLabel}
+        <span class="count-pill ${cc}" title="${inv.total} investment${inv.total > 1 ? 's' : ''}">${inv.total}</span>
+      </div>
+    </td>`;
+
+    COMPANIES.forEach(c => {
+      if (c.id in pf) {
+        const isLead = pf[c.id];
+        const cls   = isLead ? 'dot-lead' : 'dot-follow';
+        const title = `${inv.id} → ${c.id} (${isLead ? 'LEAD' : 'follow'})`;
+        html += `<td class="inv-td">
+          <span class="${cls}" title="${escAttr(title)}"
+            onmouseenter="showTip(event,'${escAttr(inv.id)}','${escAttr(c.id)}',${isLead})"
+            onmouseleave="hideTip()"
+          ></span>
+        </td>`;
+      } else {
+        html += `<td class="inv-td"><span class="dot-none"></span></td>`;
+      }
+    });
+
+    const pct      = (inv.total / maxTotal * 100).toFixed(0);
+    const barColor = inv.total >= 3 ? 'var(--lead-c)' : inv.total === 2 ? '#a78bfa' : 'var(--follow-c)';
+    html += `<td class="bar-cell">
+      <span class="bar-track"><span class="bar-fill" style="width:${pct}%;background:${barColor}"></span></span>
+      <span style="font-size:12px;color:${barColor};margin-left:6px;font-weight:600">${inv.total}</span>
+    </td>`;
+
+    html += `</tr>`;
+  });
+  html += `</tbody></table>`;
+  container.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════
+//  DETAIL PANEL
+// ══════════════════════════════════════════════════════
+
+function showInvestorDetail(id) {
+  const inv = invMap[id];
+  if (!inv) return;
+  const inner = document.getElementById('dp-inner');
+
+  let html = `<div class="dp-title">${escHtml(inv.id)}</div>`;
+  html += `<div class="dp-badge db-inv">INVESTOR</div>`;
+  html += `<div style="font-size:13px;color:var(--dim);margin-bottom:4px">${inv.total} investment${inv.total > 1 ? 's' : ''}</div>`;
+  html += `<div style="font-size:13px;color:var(--lead-c);margin-bottom:14px">${inv.leads} lead investment${inv.leads !== 1 ? 's' : ''}</div>`;
+
+  html += `<div class="dp-label">Portfolio</div><ul class="dp-list">`;
+  const sorted = [...inv.portfolio].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0));
+  sorted.forEach(p => {
+    html += `<li>
+      <span>${escHtml(p.startup)}</span>
+      ${p.lead ? '<span class="lead-tag">LEAD</span>' : ''}
+    </li>`;
+  });
+  html += `</ul>`;
+
+  // Co-investors
+  const coSet = {};
+  inv.portfolio.forEach(p => {
+    const others = (companyMap[p.startup]?.investors || []).filter(x => x.investor !== id);
+    others.forEach(o => {
+      coSet[o.investor] = (coSet[o.investor] || 0) + 1;
+    });
+  });
+  const coList = Object.entries(coSet).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  if (coList.length) {
+    html += `<div class="dp-label">Co-investors</div><ul class="dp-list">`;
+    coList.forEach(([name, count]) => {
+      html += `<li><span>${escHtml(name)}</span><span style="color:var(--dim);font-size:12px">${count > 1 ? count + '×' : ''}</span></li>`;
+    });
+    html += `</ul>`;
+  }
+
+  inner.innerHTML = html;
+  document.getElementById('detail').classList.add('open');
+}
+
+function showCompanyDetail(id) {
+  const c = companyMap[id];
+  if (!c) return;
+  const inner = document.getElementById('dp-inner');
+
+  let html = `<div class="dp-title">${escHtml(c.id)}</div>`;
+  html += `<div class="dp-badge db-start">COMPANY</div>`;
+  html += `<div style="font-size:13px;color:var(--dim);margin-bottom:3px">${escHtml(c.loc)}</div>`;
+  html += `<div style="font-size:13px;color:var(--dim);margin-bottom:3px">${escHtml(c.ind)}</div>`;
+  if (c.revenue) html += `<div style="font-size:12px;color:#555;margin-bottom:14px">Rev: ${escHtml(c.revenue)}</div>`;
+  else html += `<div style="margin-bottom:14px"></div>`;
+
+  html += `<div class="dp-label">Investors (${c.investors.length})</div><ul class="dp-list">`;
+  const sorted = [...c.investors].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0));
+  sorted.forEach(x => {
+    html += `<li><span>${escHtml(x.investor)}</span>${x.lead ? '<span class="lead-tag">LEAD</span>' : ''}</li>`;
+  });
+  html += `</ul>`;
+
+  if (c.website) {
+    html += `<div class="dp-label">Website</div>`;
+    html += `<a href="${escAttr(c.website)}" target="_blank" style="font-size:13px;color:var(--follow-c);word-break:break-all">${escHtml(c.website)}</a>`;
+  }
+
+  inner.innerHTML = html;
+  document.getElementById('detail').classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detail').classList.remove('open');
+}
+
+// ══════════════════════════════════════════════════════
+//  TOOLTIP
+// ══════════════════════════════════════════════════════
+
+function showTip(e, investor, company, isLead) {
+  const t = document.getElementById('tip');
+  document.getElementById('tn').textContent = investor + ' → ' + company;
+  document.getElementById('ti').textContent = isLead ? 'Lead investment' : 'Follow investment';
+  const c = companyMap[company];
+  document.getElementById('th').textContent = c ? c.ind + ' · ' + c.loc : '';
+  t.style.display = 'block';
+  t.style.left    = (e.clientX + 16) + 'px';
+  t.style.top     = (e.clientY - 8)  + 'px';
+}
+
+function hideTip() {
+  document.getElementById('tip').style.display = 'none';
+}
+
+// ══════════════════════════════════════════════════════
+//  NETWORK GRAPH VIEW
+// ══════════════════════════════════════════════════════
+
+let sim;
+
+function buildGraph() {
+  const svg = d3.select('#graph-svg');
+  svg.selectAll('*').remove();
+
+  const W  = document.getElementById('graph-view').clientWidth;
+  const H  = document.getElementById('graph-view').clientHeight;
+  const cx = W / 2, cy = H / 2;
+
+  const R_start = Math.min(W, H) * 0.16;
+  const R_inv   = Math.min(W, H) * 0.42;
+
+  const g    = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([0.08, 5])
+    .on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  const startNodes = COMPANIES.map((c, i) => {
+    const a = (i / COMPANIES.length) * 2 * Math.PI;
+    return { ...c, type: 'startup', x: cx + R_start * Math.cos(a), y: cy + R_start * Math.sin(a) };
+  });
+  const invNodes = INVESTORS.map((inv, i) => {
+    const a = (i / INVESTORS.length) * 2 * Math.PI;
+    return { ...inv, type: 'investor', x: cx + R_inv * Math.cos(a), y: cy + R_inv * Math.sin(a) };
+  });
+
+  const nodes = [...startNodes, ...invNodes];
+  const links = RAW.map(([s, i, lead]) => ({ source: i, target: s, lead }));
+
+  const lkG = g.append('g');
+  const ndG = g.append('g');
+
+  const lk = lkG.selectAll('line').data(links).join('line')
+    .attr('class', d => `glink${d.lead ? ' lead' : ''}`)
+    .attr('stroke-width', d => d.lead ? 1.5 : 0.7);
+
+  function rInv(d)   { return 5 + Math.sqrt(d.total || 1) * 4; }
+  function rStart(d) { return 4 + Math.sqrt((d.investors || []).length) * 2; }
+  function r(d)      { return d.type === 'investor' ? rInv(d) : rStart(d); }
+
+  const nd = ndG.selectAll('g').data(nodes, d => d.id).join('g')
+    .attr('class', d => `gnode-${d.type === 'investor' ? 'inv' : 'start'}`)
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }))
+    .on('click', (e, d) => {
+      e.stopPropagation();
+      if (d.type === 'investor') showInvestorDetail(d.id);
+      else showCompanyDetail(d.id);
+      highlightNode(d.id, nd, lk);
+    })
+    .on('mouseover', (e, d) => {
+      const t = document.getElementById('tip');
+      document.getElementById('tn').textContent = d.id;
+      if (d.type === 'investor') {
+        document.getElementById('ti').textContent = `${d.total} investments · ${d.leads} lead`;
+        document.getElementById('th').textContent = d.portfolio.map(p => p.startup).join(' · ');
+      } else {
+        document.getElementById('ti').textContent = `${(d.investors || []).length} investors · ${d.loc}`;
+        document.getElementById('th').textContent = d.ind;
+      }
+      t.style.display = 'block';
+      t.style.left    = (e.clientX + 16) + 'px';
+      t.style.top     = (e.clientY - 8)  + 'px';
+    })
+    .on('mouseout', hideTip);
+
+  nd.append('circle').attr('r', r);
+  nd.append('text')
+    .attr('class', 'glabel')
+    .attr('dy', d => r(d) + 12)
+    .attr('text-anchor', 'middle')
+    .text(d => d.id.length > 16 ? d.id.slice(0, 15) + '…' : d.id);
+  nd.filter(d => d.type === 'investor' && d.total > 1)
+    .append('text')
+    .attr('class', 'gbadge')
+    .attr('dy', 4).attr('text-anchor', 'middle')
+    .text(d => d.total);
+
+  if (sim) sim.stop();
+  sim = d3.forceSimulation(nodes)
+    .force('link',   d3.forceLink(links).id(d => d.id).distance(184).strength(0.35))
+    .force('charge', d3.forceManyBody().strength(d => d.type === 'investor' ? -92 : -46))
+    .force('radial', d3.forceRadial(d => d.type === 'startup' ? R_start : R_inv, cx, cy)
+      .strength(d => d.type === 'startup' ? 0.45 : 0.22))
+    .force('col',    d3.forceCollide(d => r(d) + 7))
+    .on('tick', () => {
+      lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+      nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+
+  svg.on('click', () => {
+    nd.classed('ghl', false);
+    lkG.selectAll('line').attr('stroke-opacity', null).classed('ghl', false);
+    ndG.selectAll('circle').attr('opacity', null);
+    ndG.selectAll('text').attr('opacity', null);
+  });
+}
+
+function highlightNode(id, nd, lk) {
+  const connected = new Set([id]);
+  RAW.forEach(([s, i]) => { if (s === id || i === id) { connected.add(s); connected.add(i); } });
+
+  nd.classed('ghl', d => connected.has(d.id));
+  lk.classed('ghl', l => {
+    const s = l.source.id || l.source, t = l.target.id || l.target;
+    return s === id || t === id;
+  });
+  const parent = nd.node()?.parentNode;
+  d3.select(parent).selectAll('g:not(.ghl) circle').attr('opacity', 0.12);
+  d3.select(parent).selectAll('g:not(.ghl) text').attr('opacity', 0.12);
+  lk.filter(l => {
+    const s = l.source.id || l.source, t = l.target.id || l.target;
+    return s !== id && t !== id;
+  }).attr('stroke-opacity', 0.04);
+}
+
+// ══════════════════════════════════════════════════════
+//  BIPARTITE VIEW
+// ══════════════════════════════════════════════════════
+
+let simBi;
+
+function buildBipartite() {
+  if (simBi) simBi.stop();
+  const svg = d3.select('#bi-svg');
+  svg.selectAll('*').remove();
+
+  const W = document.getElementById('bi-view').clientWidth;
+  const H = document.getElementById('bi-view').clientHeight;
+
+  const g = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([0.08, 5]).on('zoom', e => g.attr('transform', e.transform)));
+
+  const invNodes = INVESTORS.map((inv, i) => ({
+    ...inv, type: 'investor',
+    x: W * 0.25, y: (H / (INVESTORS.length + 1)) * (i + 1),
+    _x0: W * 0.25, _y0: (H / (INVESTORS.length + 1)) * (i + 1),
+  }));
+  const startNodes = COMPANIES.map((c, i) => ({
+    ...companyMap[c.id], type: 'startup',
+    x: W * 0.72, y: (H / (COMPANIES.length + 1)) * (i + 1),
+    _x0: W * 0.72, _y0: (H / (COMPANIES.length + 1)) * (i + 1),
+  }));
+
+  const nodes = [...invNodes, ...startNodes];
+  const links = RAW.map(([s, i, lead]) => ({ source: i, target: s, lead }));
+
+  const lkG = g.append('g');
+  const ndG = g.append('g');
+
+  const lk = lkG.selectAll('line').data(links).join('line')
+    .attr('class', d => `glink${d.lead ? ' lead' : ''}`)
+    .attr('stroke-width', d => d.lead ? 1.5 : 0.7);
+
+  function rInv(d)   { return 5 + Math.sqrt(d.total || 1) * 4; }
+  function rStart(d) { return 4 + Math.sqrt((d.investors || []).length) * 2; }
+  function r(d)      { return d.type === 'investor' ? rInv(d) : rStart(d); }
+
+  const nd = ndG.selectAll('g').data(nodes, d => d.id).join('g')
+    .attr('class', d => `gnode-${d.type === 'investor' ? 'inv' : 'start'}`)
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simBi.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) simBi.alphaTarget(0); d.fx = null; d.fy = null; }))
+    .on('click', (e, d) => {
+      e.stopPropagation();
+      if (d.type === 'investor') showInvestorDetail(d.id);
+      else showCompanyDetail(d.id);
+      const conn = new Set([d.id]);
+      RAW.forEach(([s, i]) => { if (s === d.id || i === d.id) { conn.add(s); conn.add(i); } });
+      nd.classed('ghl', n => conn.has(n.id));
+      lk.classed('ghl', l => { const s = l.source.id || l.source, t = l.target.id || l.target; return s === d.id || t === d.id; });
+      ndG.selectAll('g:not(.ghl) circle').attr('opacity', 0.12);
+      ndG.selectAll('g:not(.ghl) text').attr('opacity', 0.12);
+      lkG.selectAll('line:not(.ghl)').attr('stroke-opacity', 0.04);
+    })
+    .on('mouseover', (e, d) => {
+      document.getElementById('tn').textContent = d.id;
+      if (d.type === 'investor') {
+        document.getElementById('ti').textContent = `${d.total} investments · ${d.leads} lead`;
+        document.getElementById('th').textContent = d.portfolio.map(p => p.startup).join(' · ');
+      } else {
+        document.getElementById('ti').textContent = `${(d.investors || []).length} investors · ${d.loc}`;
+        document.getElementById('th').textContent = d.ind;
+      }
+      const t = document.getElementById('tip');
+      t.style.display = 'block'; t.style.left = (e.clientX + 16) + 'px'; t.style.top = (e.clientY - 8) + 'px';
+    })
+    .on('mouseout', hideTip);
+
+  nd.append('circle').attr('r', r);
+  nd.append('text').attr('class', 'glabel')
+    .attr('dy', d => r(d) + 12).attr('text-anchor', 'middle')
+    .text(d => d.id.length > 16 ? d.id.slice(0, 15) + '…' : d.id);
+  nd.filter(d => d.type === 'investor' && d.total > 1)
+    .append('text').attr('class', 'gbadge')
+    .attr('dy', 4).attr('text-anchor', 'middle').text(d => d.total);
+
+  svg.on('click', () => {
+    nd.classed('ghl', false); lk.classed('ghl', false);
+    ndG.selectAll('circle').attr('opacity', null); ndG.selectAll('text').attr('opacity', null);
+    lkG.selectAll('line').attr('stroke-opacity', null);
+  });
+
+  simBi = d3.forceSimulation(nodes)
+    .force('link',   d3.forceLink(links).id(d => d.id).distance(140).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-55))
+    .force('x',      d3.forceX(d => d._x0).strength(0.22))
+    .force('y',      d3.forceY(d => d._y0).strength(0.06))
+    .force('col',    d3.forceCollide(d => r(d) + 5))
+    .on('tick', () => {
+      lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+      nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+}
+
+// ══════════════════════════════════════════════════════
+//  PROJECTION (investor co-investment graph)
+// ══════════════════════════════════════════════════════
+
+const coMap = {};
+let projFilter = 'all';
+let simProj;
+let CO_LINKS = [];
+
+function buildCoMap() {
+  INVESTORS.forEach(inv => {
+    inv.portfolio.forEach(p => {
+      const others = RAW.filter(d => d[0] === p.startup && d[1] !== inv.id).map(d => d[1]);
+      others.forEach(other => {
+        const key = [inv.id, other].sort().join('|||');
+        if (!coMap[key]) coMap[key] = { a: [inv.id, other].sort()[0], b: [inv.id, other].sort()[1], startups: [] };
+        if (!coMap[key].startups.includes(p.startup)) coMap[key].startups.push(p.startup);
+      });
+    });
+  });
+  CO_LINKS = Object.values(coMap);
+}
+
+function setProjFilter(f) {
+  projFilter = f;
+  document.getElementById('pf-all').classList.toggle('on',   f === 'all');
+  document.getElementById('pf-multi').classList.toggle('on', f === 'multi');
+  buildProjection(f);
+}
+
+function buildProjection(filter = 'all') {
+  if (!CO_LINKS.length) buildCoMap();
+  if (simProj) simProj.stop();
+  const svg = d3.select('#proj-svg');
+  svg.selectAll('*').remove();
+
+  const W = document.getElementById('proj-view').clientWidth;
+  const H = document.getElementById('proj-view').clientHeight;
+
+  const g    = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([0.08, 5]).on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  const nodes = INVESTORS.map(inv => ({
+    ...inv,
+    x: W / 2 + (Math.random() - 0.5) * 300,
+    y: H / 2 + (Math.random() - 0.5) * 300,
+  }));
+
+  let links = CO_LINKS.map(c => ({ source: c.a, target: c.b, weight: c.startups.length, startups: c.startups }));
+  if (filter === 'multi') links = links.filter(l => l.weight > 1);
+
+  const lkG = g.append('g');
+  const ndG = g.append('g');
+
+  const lk = lkG.selectAll('line').data(links).join('line')
+    .attr('stroke', d => d.weight > 1 ? 'rgba(245,158,11,.55)' : '#2a2a2a')
+    .attr('stroke-width', d => 0.6 + d.weight * 1.2)
+    .attr('fill', 'none')
+    .on('mouseover', (e, d) => {
+      const s = d.source.id || d.source, t = d.target.id || d.target;
+      document.getElementById('tn').textContent = `${s}  ×  ${t}`;
+      document.getElementById('ti').textContent = `${d.weight} shared investment${d.weight > 1 ? 's' : ''}`;
+      document.getElementById('th').textContent = d.startups.join(' · ');
+      const tip = document.getElementById('tip');
+      tip.style.display = 'block';
+      tip.style.left = (e.clientX + 16) + 'px';
+      tip.style.top  = (e.clientY - 8)  + 'px';
+    })
+    .on('mouseout', hideTip);
+
+  function rProj(d) { return 5 + Math.sqrt(d.total) * 4; }
+
+  const nd = ndG.selectAll('g').data(nodes, d => d.id).join('g')
+    .attr('class', 'gnode-inv')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simProj.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) simProj.alphaTarget(0); d.fx = null; d.fy = null; }))
+    .on('click', (e, d) => {
+      e.stopPropagation();
+      showInvestorDetail(d.id);
+      const connected = new Set([d.id]);
+      lk.each(l => { const s = l.source.id || l.source, t = l.target.id || l.target; if (s === d.id || t === d.id) { connected.add(s); connected.add(t); } });
+      nd.classed('ghl', n => connected.has(n.id));
+      lk.classed('ghl', l => { const s = l.source.id || l.source, t = l.target.id || l.target; return s === d.id || t === d.id; });
+      ndG.selectAll('g:not(.ghl) circle').attr('opacity', 0.12);
+      ndG.selectAll('g:not(.ghl) text').attr('opacity', 0.12);
+      lkG.selectAll('line:not(.ghl)').attr('stroke-opacity', 0.05);
+    })
+    .on('mouseover', (e, d) => {
+      document.getElementById('tn').textContent = d.id;
+      document.getElementById('ti').textContent = `${d.total} investment${d.total > 1 ? 's' : ''} · ${d.leads} lead`;
+      document.getElementById('th').textContent = d.portfolio.map(p => p.startup).join(' · ');
+      const tip = document.getElementById('tip');
+      tip.style.display = 'block'; tip.style.left = (e.clientX + 16) + 'px'; tip.style.top = (e.clientY - 8) + 'px';
+    })
+    .on('mouseout', hideTip);
+
+  nd.append('circle').attr('r', rProj);
+  nd.append('text').attr('class', 'glabel')
+    .attr('dy', d => rProj(d) + 12).attr('text-anchor', 'middle')
+    .text(d => d.id.length > 16 ? d.id.slice(0, 15) + '…' : d.id);
+  nd.filter(d => d.total > 1)
+    .append('text').attr('class', 'gbadge')
+    .attr('dy', 4).attr('text-anchor', 'middle').text(d => d.total);
+
+  svg.on('click', () => {
+    nd.classed('ghl', false); lk.classed('ghl', false);
+    ndG.selectAll('circle').attr('opacity', null); ndG.selectAll('text').attr('opacity', null);
+    lkG.selectAll('line').attr('stroke-opacity', null);
+  });
+
+  simProj = d3.forceSimulation(nodes)
+    .force('link',   d3.forceLink(links).id(d => d.id).distance(d => 60 + 50 / Math.max(d.weight, 1)).strength(0.25))
+    .force('charge', d3.forceManyBody().strength(-120))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('col',    d3.forceCollide(d => rProj(d) + 9))
+    .on('tick', () => {
+      lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+      nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+}
+
+// ══════════════════════════════════════════════════════
+//  VIEW TOGGLE
+// ══════════════════════════════════════════════════════
+
+let currentView = 'matrix';
+
+function setView(v) {
+  currentView = v;
+  const map = { mx: 'matrix', bi: 'bipartite', graph: 'graph', proj: 'projection' };
+  ['mx', 'bi', 'graph', 'proj'].forEach(k =>
+    document.getElementById(`btn-${k}`)?.classList.toggle('on', v === map[k])
+  );
+  document.getElementById('matrix-view').style.display = v === 'matrix'     ? 'block' : 'none';
+  document.getElementById('bi-view').style.display     = v === 'bipartite'  ? 'flex'  : 'none';
+  document.getElementById('graph-view').style.display  = v === 'graph'      ? 'block' : 'none';
+  document.getElementById('proj-view').style.display   = v === 'projection' ? 'block' : 'none';
+  if (v === 'bipartite')  buildBipartite();
+  if (v === 'graph')      buildGraph();
+  if (v === 'projection') buildProjection(projFilter);
+}
+
+// ══════════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════════
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return String(s).replace(/'/g,'&#39;').replace(/"/g,'&quot;');
+}
+
+</script>
+</body>
+</html>
