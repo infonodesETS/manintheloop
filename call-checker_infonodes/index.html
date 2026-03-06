@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallChecker - EU Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand { font-weight: 600; font-size: 1.3rem; }
+
+        .card {
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            border: none;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .table { font-size: 0.9rem; }
+        .table thead th {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+            font-weight: 600;
+        }
+
+        /* Log panel */
+        #logPanel {
+            background-color: #1e2a35;
+            color: #c9d1d9;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .log-line { padding: 0.1rem 0; line-height: 1.5; }
+        .log-line.ok  { color: #56d364; }
+        .log-line.err { color: #f85149; }
+        .log-line.warn { color: #e3b341; }
+        .log-line.info { color: #79c0ff; }
+
+        /* Progress */
+        .progress { height: 28px; border-radius: 0.5rem; }
+        .progress-bar { font-size: 0.85rem; font-weight: 600; }
+
+        /* Accordion link inside header */
+        .accordion-button a {
+            color: #0d6efd;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .accordion-button a:hover { text-decoration: underline !important; }
+
+        /* Project cards */
+        .project-card { border-left: 3px solid #0d6efd; }
+        .project-data-column p { margin-bottom: 0.4rem; }
+
+        .text-justify {
+            text-align: justify;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .participants-list li { line-height: 1.4; padding: 0; margin-bottom: 0; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-body { padding: 1rem; }
+            .table { font-size: 0.8rem; }
+        }
+
+        /* Status badges */
+        .badge-ongoing  { background-color: #198754; color: #fff; }
+        .badge-closed   { background-color: #6c757d; color: #fff; }
+        .badge-forth    { background-color: #0dcaf0; color: #000; }
+        .badge-default  { background-color: #6c757d; color: #fff; }
+
+        /* Zebra stripes on project list */
+        .proj-list > .card:nth-child(odd)  { background-color: #f8f9fa; }
+        .proj-list > .card:nth-child(even) { background-color: #ffffff; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+    <span class="navbar-brand">CallChecker</span>
+    <span class="text-white-50 small ms-2">EU Funding Portal – standalone</span>
+</nav>
+
+<div class="container-fluid mt-4" style="max-width:1200px;">
+
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="mb-1">Cerca per pattern di Call</h2>
+        <p class="text-muted mb-0">
+            Inserisci un topic identifier (es. <code>CERV-2024-CHAR-LITI-SPEECH</code>).
+            Il tool estrae automaticamente il pattern e cerca tutti gli anni disponibili (2021-2027)
+            chiamando direttamente le API pubbliche del Participant Portal EU.
+        </p>
+    </div>
+
+    <!-- Search form -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">Inserisci Topic Identifier</div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-10">
+                    <label for="topicInput" class="form-label">Topic Identifier</label>
+                    <input type="text" id="topicInput" class="form-control form-control-lg"
+                           placeholder="es. EDF-2024-RA-SI-MATCOMP-EC-STEP" autocomplete="off">
+                    <div class="form-text">
+                        Il pattern viene estratto rimuovendo l'anno (es. <code>EDF-YYYY-RA-SI-MATCOMP-EC-STEP</code>)
+                        e il tool cerca tutte le edizioni dal 2021 al 2027.
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button id="searchBtn" class="btn btn-primary btn-lg w-100">
+                        <span id="btnText">Avvia</span>
+                        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none ms-1" role="status"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress -->
+    <div id="progressSection" class="card mb-4 d-none">
+        <div class="card-header bg-info text-dark">Ricerca in corso...</div>
+        <div class="card-body">
+            <div class="progress mb-3">
+                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                     role="progressbar" style="width:0%">0%</div>
+            </div>
+            <p id="progressMsg" class="mb-3 text-muted small"><strong>Inizializzazione...</strong></p>
+            <div id="logPanel"></div>
+        </div>
+    </div>
+
+    <!-- Error -->
+    <div id="errorSection" class="alert alert-danger d-none" role="alert">
+        <h5 class="alert-heading">Errore</h5>
+        <p id="errorMsg" class="mb-0"></p>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsSection" class="d-none">
+
+        <!-- Summary header -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                    <div>
+                        <h5 id="patternTitle" class="mb-2"></h5>
+                        <div id="yearsbadges"></div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button id="downloadJsonBtn" class="btn btn-outline-success btn-sm">Download JSON</button>
+                        <button id="viewJsonBtn" class="btn btn-outline-info btn-sm">Vedi JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="card mb-3">
+            <div class="card-header">Vista Comparativa</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="comparisonTable" class="table table-bordered table-hover mb-0"></table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion per anno -->
+        <div class="accordion" id="yearsAccordion"></div>
+    </div>
+
+</div><!-- /container -->
+
+<!-- JSON Modal -->
+<div class="modal fade" id="jsonModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dati JSON aggregati</h5>
+                <div class="d-flex gap-2">
+                    <button id="copyJsonBtn" class="btn btn-primary btn-sm">Copia</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <pre id="jsonContent" style="white-space:pre-wrap;word-wrap:break-word;max-height:70vh;overflow-y:auto;"></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const YEARS_TO_TRY = [2027, 2026, 2025, 2024, 2023, 2022, 2021];
+
+const SEARCH_API  = 'https://api.tech.ec.europa.eu/search-api/prod/rest/search';
+const DOC_API     = 'https://api.tech.ec.europa.eu/search-api/prod/rest/document';
+const PROJECTS_API = 'https://ec.europa.eu/info/funding-tenders/opportunities/api/topicProjectsList.json';
+
+// ============================================================
+// STATE
+// ============================================================
+let currentData    = null;
+let currentPattern = null;
+let currentYears   = [];
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('searchBtn').addEventListener('click', handleSearch);
+    document.getElementById('topicInput').addEventListener('keypress', e => {
+        if (e.key === 'Enter') handleSearch();
+    });
+    document.getElementById('viewJsonBtn').addEventListener('click', showJson);
+    document.getElementById('copyJsonBtn').addEventListener('click', copyJson);
+    document.getElementById('downloadJsonBtn').addEventListener('click', downloadJson);
+});
+
+// ============================================================
+// MAIN HANDLER
+// ============================================================
+async function handleSearch() {
+    const raw = document.getElementById('topicInput').value.trim().toUpperCase();
+    if (!raw) { alert('Inserisci un topic identifier'); return; }
+
+    // Reset
+    currentData = null; currentPattern = null; currentYears = [];
+    hideEl('resultsSection');
+    hideEl('errorSection');
+    clearLog();
+
+    const pattern = extractPattern(raw);
+    if (!pattern) {
+        showError('Formato non valido. Usa: PREFIX-YYYY-SUFFIX (es. CERV-2024-CHAR-LITI-SPEECH)');
+        return;
+    }
+
+    setLoading(true);
+    showEl('progressSection');
+    setProgress(5, `Pattern trovato: ${pattern.base}`);
+
+    const found = [];
+
+    for (let i = 0; i < YEARS_TO_TRY.length; i++) {
+        const year = YEARS_TO_TRY[i];
+        const pct  = 10 + Math.round(((i + 1) / YEARS_TO_TRY.length) * 80);
+        setProgress(pct, `Ricerca anno ${year}... (${i + 1}/${YEARS_TO_TRY.length})`);
+
+        const topicId = `${pattern.prefix}-${year}-${pattern.suffix}`;
+        log(`Ricerca ${topicId}...`, 'info');
+
+        try {
+            const yearData = await scrapeYear(pattern.prefix, year, pattern.suffix);
+            if (yearData) {
+                found.push({ year: String(year), data: yearData });
+                const np = yearData.statistics.total_projects;
+                log(`Anno ${year}: trovato – ${np} progett${np === 1 ? 'o' : 'i'}`, 'ok');
+            } else {
+                log(`Anno ${year}: nessun dato`, 'warn');
+            }
+        } catch (err) {
+            log(`Anno ${year}: errore – ${err.message}`, 'err');
+        }
+    }
+
+    if (found.length === 0) {
+        setLoading(false);
+        hideEl('progressSection');
+        showError(`Nessun dato trovato per il pattern "${pattern.base}" negli anni 2021-2027.`);
+        return;
+    }
+
+    // Sort most recent first
+    found.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+
+    setProgress(100, 'Completato!');
+
+    const totalProjects = found.reduce((s, y) => s + y.data.statistics.total_projects, 0);
+    const totalPart     = found.reduce((s, y) => s + y.data.statistics.total_participants, 0);
+
+    currentPattern = pattern;
+    currentYears   = found;
+    currentData    = { pattern, years: found, summary: { total_years: found.length, years_list: found.map(y => y.year), total_projects: totalProjects, total_participants: totalPart } };
+
+    setTimeout(() => {
+        hideEl('progressSection');
+        renderResults();
+        setLoading(false);
+    }, 600);
+}
+
+// ============================================================
+// SCRAPE SINGLE YEAR
+// ============================================================
+async function scrapeYear(prefix, year, suffix) {
+    const topicIdentifier = `${prefix}-${year}-${suffix}`;
+
+    // Step 1: get topic metadata from Search API
+    const meta = await fetchTopicMeta(topicIdentifier);
+    if (!meta) return null; // topic not found for this year
+
+    const { topicId, topicDescription, budgetOverview } = meta;
+
+    // Step 2: fetch projects list
+    let projects = [];
+    try {
+        const resp = await fetch(`${PROJECTS_API}?topicId=${encodeURIComponent(topicId)}`);
+        if (resp.ok) {
+            const raw = await resp.json();
+            projects = Array.isArray(raw) ? raw : [];
+        }
+    } catch (e) {
+        log(`  Impossibile caricare lista progetti per ${topicIdentifier}: ${e.message}`, 'warn');
+    }
+
+    // Step 3: generate basic project objects
+    let processed = projects.map(p => ({
+        TITLE: p.title || '',
+        ACRONYM: p.acronym || '',
+        'PROJECT ID': p.businessIdentifier || '',
+        URL: `https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-details/${p.programId}/${p.businessIdentifier}`,
+        _endpoint: `${DOC_API}/${p.programId}${p.businessIdentifier}?apiKey=SEDIA_NONH2020_PROD`
+    }));
+
+    // Step 4: fetch details for each project (with small delay between calls)
+    const detailed = [];
+    for (let i = 0; i < processed.length; i++) {
+        const proj = processed[i];
+        try {
+            const d = await fetchProjectDetails(proj);
+            detailed.push(d);
+        } catch (e) {
+            detailed.push(proj);
+        }
+        if (i < processed.length - 1) await sleep(800);
+    }
+
+    // Step 5: fetch topic updates
+    const updates = await fetchTopicUpdates(topicIdentifier);
+
+    // Step 6: compute stats
+    let totalBudget = 0, totalEU = 0, totalPart = 0;
+    for (const p of detailed) {
+        totalBudget += parseFloat(p['Overall budget'] || 0) || 0;
+        totalEU     += parseFloat(p['EU contribution'] || 0) || 0;
+        totalPart   += (p.Participants || []).length;
+    }
+
+    return {
+        success: true,
+        topic_identifier: topicIdentifier,
+        scraping_timestamp: new Date().toISOString(),
+        call_info: {
+            topic_id: topicId,
+            topic_description: topicDescription,
+            budget_overview: budgetOverview
+        },
+        topic_updates: { total_updates: updates.length, updates },
+        statistics: {
+            total_projects: detailed.length,
+            total_participants: totalPart,
+            total_budget: totalBudget,
+            total_eu_contribution: totalEU
+        },
+        projects: detailed
+    };
+}
+
+// ============================================================
+// EU API CALLS
+// ============================================================
+async function fetchTopicMeta(topicIdentifier) {
+    const query = {
+        bool: {
+            must: [
+                { terms: { type: ['1', '2', '8'] } },
+                { term: { identifier: topicIdentifier } }
+            ]
+        }
+    };
+
+    const fd = new FormData();
+    fd.append('query', JSON.stringify(query));
+
+    const url = `${SEARCH_API}?apiKey=SEDIA&text="${encodeURIComponent(topicIdentifier)}"`;
+
+    let resp;
+    try {
+        resp = await fetch(url, { method: 'POST', body: fd });
+    } catch (e) {
+        throw new Error(`Search API non raggiungibile: ${e.message}`);
+    }
+
+    if (!resp.ok) return null;
+
+    const data = await resp.json();
+    const results = data.results || [];
+    if (results.length === 0) return null;
+
+    const meta = results[0].metadata || {};
+
+    const ccm2Id = meta.ccm2Id;
+    const topicId = ccm2Id ? (Array.isArray(ccm2Id) ? ccm2Id[0] : ccm2Id) : null;
+    if (!topicId) return null;
+
+    const descArr = meta.descriptionByte;
+    const topicDescription = descArr && descArr.length > 0 ? descArr[0] : null;
+
+    let budgetOverview = null;
+    const budgetRaw = meta.budgetOverview;
+    if (budgetRaw && budgetRaw.length > 0) {
+        try { budgetOverview = JSON.parse(budgetRaw[0]); } catch (_) {}
+    }
+
+    return { topicId, topicDescription, budgetOverview };
+}
+
+async function fetchProjectDetails(project) {
+    const resp = await fetch(project._endpoint);
+    if (!resp.ok) return project;
+
+    const data   = await resp.json();
+    const meta   = data.metadata || {};
+    const get1   = (k, def = '') => { const v = meta[k]; return (v && v.length > 0) ? v[0] : def; };
+
+    project.Status        = get1('status');
+    project['Start date'] = get1('startDate');
+    project['End date']   = get1('endDate');
+    project['Overall budget']   = normBudget(get1('overallBudget'));
+    project['EU contribution']  = normBudget(get1('euContributionAmount'));
+    project.Objective     = get1('objective');
+    project['Type of action']   = get1('typeOfAction');
+
+    // Participants
+    const partJson = get1('participants', '[]');
+    let participants = [];
+    try {
+        const raw = JSON.parse(partJson);
+        participants = raw.map(p => {
+            const cc = p.postalAddress?.countryCode;
+            const country = (cc && typeof cc === 'object') ? cc.description : (cc || '');
+            return {
+                'Organization Name': p.legalName || '',
+                PIC: String(p.pic || ''),
+                Role: p.role || '',
+                Country: country,
+                'EU Contribution': normBudget(p.eucontribution || ''),
+                Status: p.status || ''
+            };
+        });
+    } catch (_) {}
+    project.Participants = participants;
+
+    return project;
+}
+
+async function fetchTopicUpdates(topicIdentifier) {
+    const query = {
+        bool: {
+            must: [
+                { terms: { type: ['6'] } },
+                { term: { identifier: topicIdentifier } }
+            ]
+        }
+    };
+
+    const fd = new FormData();
+    fd.append('query', JSON.stringify(query));
+
+    try {
+        const resp = await fetch(`${SEARCH_API}?apiKey=SEDIA&text=***`, { method: 'POST', body: fd });
+        if (!resp.ok) return [];
+        const data    = await resp.json();
+        const results = data.results || [];
+        return results.map(u => {
+            const m = u.metadata || {};
+            return {
+                reference:   u.reference || null,
+                date:        (m.startDate || [null])[0],
+                title:       (m.title || [null])[0],
+                description: (m.description || [null])[0],
+                language:    (m.language || [null])[0]
+            };
+        }).sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
+    } catch (_) {
+        return [];
+    }
+}
+
+// ============================================================
+// RENDER RESULTS
+// ============================================================
+function renderResults() {
+    showEl('resultsSection');
+
+    const pattern = currentPattern;
+    const years   = currentYears;
+
+    // Map years data to display format
+    const yearsDisplay = years.map(y => ({
+        year:            y.year,
+        topic:           `${pattern.prefix}-${y.year}-${pattern.suffix}`,
+        callInfo:        y.data.call_info,
+        statistics:      y.data.statistics,
+        projects:        y.data.projects,
+        topicUpdates:    y.data.topic_updates
+    }));
+
+    document.getElementById('patternTitle').textContent = `Pattern: ${pattern.base}`;
+
+    // Year badges + summary
+    const totalProjects = years.reduce((s, y) => s + y.data.statistics.total_projects, 0);
+    document.getElementById('yearsbadges').innerHTML =
+        `<strong>Anni trovati:</strong> ` +
+        yearsDisplay.map(y => `<span class="badge bg-primary ms-1">${y.year}</span>`).join('') +
+        ` <span class="text-muted ms-2">(${years.length} edizioni)</span>` +
+        ` <span class="badge bg-success ms-2">${totalProjects} progetti totali</span>`;
+
+    buildComparisonTable(yearsDisplay);
+    buildAccordion(yearsDisplay);
+}
+
+// ============================================================
+// COMPARISON TABLE
+// ============================================================
+function buildComparisonTable(yearsDisplay) {
+    const table = document.getElementById('comparisonTable');
+    let html = '<thead><tr><th>Metrica</th>';
+    yearsDisplay.forEach(y => { html += `<th>${y.year}</th>`; });
+    html += '</tr></thead><tbody>';
+
+    const rows = [
+        ['Numero Progetti',  y => y.statistics.total_projects],
+        ['Partecipanti',     y => y.statistics.total_participants],
+        ['Budget Call',      y => fmtCurrency(extractCallBudget(y))],
+        ['Budget Progetti',  y => fmtCurrency(y.statistics.total_budget)],
+        ['Contributo UE',    y => fmtCurrency(y.statistics.total_eu_contribution)]
+    ];
+
+    rows.forEach(([label, fn]) => {
+        html += `<tr><td><strong>${label}</strong></td>`;
+        yearsDisplay.forEach(y => { html += `<td>${fn(y)}</td>`; });
+        html += '</tr>';
+    });
+
+    html += '</tbody>';
+    table.innerHTML = html;
+}
+
+function extractCallBudget(yearData) {
+    const ci = yearData.callInfo;
+    if (!ci || !ci.budget_overview) return 0;
+    const bm = ci.budget_overview.budgetTopicActionMap || {};
+    let total = 0;
+    const tid = yearData.topic || '';
+    for (const aid in bm) {
+        const actions = bm[aid];
+        if (!Array.isArray(actions)) continue;
+        actions.forEach(action => {
+            if ((action.action || '').toUpperCase().includes(tid.toUpperCase())) {
+                const bym = action.budgetYearMap || {};
+                for (const yr in bym) { total += parseFloat(bym[yr]) || 0; }
+            }
+        });
+    }
+    return total;
+}
+
+// ============================================================
+// ACCORDION
+// ============================================================
+function buildAccordion(yearsDisplay) {
+    const acc = document.getElementById('yearsAccordion');
+    acc.innerHTML = '';
+    yearsDisplay.forEach((yd, idx) => {
+        acc.innerHTML += createAccordionItem(yd, idx);
+    });
+}
+
+function createAccordionItem(yd, idx) {
+    const { year, topic, statistics, projects } = yd;
+    const open = idx === 0;
+    const callUrl = `https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/${topic}`;
+
+    const projectsHtml = projects.length > 0
+        ? `<div class="proj-list">${projects.map((p, i) => projectCard(p, i)).join('')}</div>`
+        : `<div class="alert alert-info">
+               <h6 class="alert-heading">Nessun progetto finanziato</h6>
+               <p class="mb-0">La call esiste ma non ha ancora progetti assegnati.</p>
+           </div>`;
+
+    return `
+    <div class="accordion-item mb-2 border rounded">
+        <h2 class="accordion-header" id="head${year}">
+            <button class="accordion-button ${open ? '' : 'collapsed'}" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#col${year}"
+                    aria-expanded="${open}" aria-controls="col${year}">
+                <strong>Anno ${year}</strong>
+                <span class="ms-3 badge bg-primary">${statistics.total_projects} progetti</span>
+                <span class="ms-2 badge bg-success">${statistics.total_participants} partecipanti</span>
+                <span class="ms-2 badge bg-info text-dark">${fmtBudgetShort(statistics.total_eu_contribution)} EU</span>
+                <a href="${callUrl}" target="_blank" class="ms-3 text-decoration-none"
+                   onclick="event.stopPropagation()">
+                    <small>Participant Portal &rarr;</small>
+                </a>
+            </button>
+        </h2>
+        <div id="col${year}" class="accordion-collapse collapse ${open ? 'show' : ''}"
+             aria-labelledby="head${year}" data-bs-parent="#yearsAccordion">
+            <div class="accordion-body">
+                <h5 class="mb-3">Progetti Finanziati</h5>
+                ${projectsHtml}
+            </div>
+        </div>
+    </div>`;
+}
+
+function projectCard(project, idx) {
+    const coordinator   = (project.Participants || []).find(p => p.Role === 'coordinator');
+    const participants  = project.Participants || [];
+
+    const partListHtml = participants.length > 0
+        ? `<div class="mt-3">
+               <strong>Tutti i Partecipanti (${participants.length}):</strong>
+               <ul class="mt-1 participants-list ps-3">
+                   ${participants.map(p => {
+                       const role = p.Role === 'coordinator' ? 'Coord.' : 'Partner';
+                       return `<li>${role}: ${escHtml(p['Organization Name'] || 'N/A')} (${p.Country || 'N/A'})</li>`;
+                   }).join('')}
+               </ul>
+           </div>`
+        : '<p class="text-muted small">Nessun partecipante disponibile</p>';
+
+    const statusClass = getStatusClass(project.Status);
+
+    return `
+    <div class="card mb-3 project-card">
+        <div class="card-header bg-light">
+            <strong>${idx + 1}. ${escHtml(project.ACRONYM || 'N/A')}</strong>
+            &nbsp;&ndash;&nbsp;${escHtml(project.TITLE || 'No title')}
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5 project-data-column">
+                    <p><strong>Contributo UE:</strong> ${fmtCurrency(project['EU contribution'])}</p>
+                    <p><strong>Budget Totale:</strong> ${fmtCurrency(project['Overall budget'])}</p>
+                    <p><strong>Partecipanti:</strong> ${participants.length}</p>
+                    <p><strong>Status:</strong> <span class="badge ${statusClass}">${escHtml(project.Status || 'N/A')}</span></p>
+                    <p><strong>Durata:</strong> ${fmtDate(project['Start date'])} &rarr; ${fmtDate(project['End date'])}</p>
+                    <p><strong>Project ID:</strong> ${escHtml(project['PROJECT ID'] || 'N/A')}</p>
+                    ${partListHtml}
+                    <div class="mt-3">
+                        ${project.URL ? `<a href="${project.URL}" target="_blank" class="btn btn-sm btn-outline-primary">Vedi su EU Portal</a>` : ''}
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="border-start ps-3">
+                        <h6 class="text-primary mb-2">Obiettivo</h6>
+                        <div style="max-height:480px;overflow-y:auto;">
+                            <p class="text-justify">${escHtml(project.Objective || 'Nessun obiettivo disponibile')}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+}
+
+// ============================================================
+// JSON MODAL
+// ============================================================
+function showJson() {
+    if (!currentData) return;
+    document.getElementById('copyJsonBtn').textContent = 'Copia';
+    document.getElementById('jsonContent').textContent = JSON.stringify(currentData, null, 2);
+    new bootstrap.Modal(document.getElementById('jsonModal')).show();
+}
+
+function copyJson() {
+    const btn = document.getElementById('copyJsonBtn');
+    navigator.clipboard.writeText(document.getElementById('jsonContent').textContent)
+        .then(() => { btn.textContent = 'Copiato!'; setTimeout(() => btn.textContent = 'Copia', 2000); })
+        .catch(() => { btn.textContent = 'Errore'; setTimeout(() => btn.textContent = 'Copia', 2000); });
+}
+
+function downloadJson() {
+    if (!currentData) return;
+    const fname = currentPattern
+        ? `${currentPattern.base}_${new Date().toISOString().split('T')[0]}.json`
+        : `callchecker_${new Date().toISOString().split('T')[0]}.json`;
+    const blob = new Blob([JSON.stringify(currentData, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fname;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+}
+
+// ============================================================
+// UI HELPERS
+// ============================================================
+function setLoading(on) {
+    document.getElementById('searchBtn').disabled = on;
+    document.getElementById('btnText').textContent = on ? 'In corso...' : 'Avvia';
+    document.getElementById('btnSpinner').classList.toggle('d-none', !on);
+}
+
+function setProgress(pct, msg) {
+    const bar = document.getElementById('progressBar');
+    bar.style.width = pct + '%';
+    bar.textContent = pct + '%';
+    document.getElementById('progressMsg').innerHTML = `<strong>${escHtml(msg)}</strong>`;
+}
+
+function showEl(id)  { document.getElementById(id).classList.remove('d-none'); }
+function hideEl(id)  { document.getElementById(id).classList.add('d-none'); }
+
+function showError(msg) {
+    document.getElementById('errorMsg').textContent = msg;
+    showEl('errorSection');
+}
+
+function log(msg, type = 'info') {
+    const panel = document.getElementById('logPanel');
+    const d = document.createElement('div');
+    d.className = `log-line ${type}`;
+    d.textContent = msg;
+    panel.appendChild(d);
+    panel.scrollTop = panel.scrollHeight;
+}
+
+function clearLog() {
+    document.getElementById('logPanel').innerHTML = '';
+}
+
+// ============================================================
+// UTILITY
+// ============================================================
+function extractPattern(identifier) {
+    const m = identifier.match(/^(.+?)-(\d{4})-(.+)$/);
+    if (!m) return null;
+    const [, prefix, year, suffix] = m;
+    return { base: `${prefix}-${suffix}`, year, prefix, suffix };
+}
+
+function normBudget(val) {
+    if (!val) return '';
+    const s = String(val).replace(/[€$,\s]/g, '');
+    return isNaN(parseFloat(s)) ? '' : s;
+}
+
+function fmtCurrency(val) {
+    if (!val && val !== 0) return '-';
+    const n = parseFloat(String(val).replace(/[€$,\s]/g, ''));
+    if (isNaN(n) || n === 0) return '-';
+    return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+}
+
+function fmtBudgetShort(val) {
+    const n = parseFloat(val);
+    if (!n || isNaN(n)) return '-';
+    return (n / 1e6).toFixed(1) + 'M €';
+}
+
+function fmtDate(ds) {
+    if (!ds) return '-';
+    try { return new Date(ds).toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' }); }
+    catch (_) { return ds; }
+}
+
+function escHtml(text) {
+    if (!text) return '';
+    return String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
+}
+
+function getStatusClass(status) {
+    if (!status) return 'badge-default';
+    const s = status.toLowerCase();
+    if (s.includes('ongoing'))   return 'badge-ongoing';
+    if (s.includes('closed') || s.includes('ended')) return 'badge-closed';
+    if (s.includes('forthcoming')) return 'badge-forth';
+    return 'badge-default';
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+</script>
+</body>
+</html>
