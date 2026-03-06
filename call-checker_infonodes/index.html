@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,30 +104,30 @@
 
     <!-- Header -->
     <div class="mb-4">
-        <h2 class="mb-1">Cerca per pattern di Call</h2>
+        <h2 class="mb-1">Search by Call Pattern</h2>
         <p class="text-muted mb-0">
-            Inserisci un topic identifier (es. <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>).
-            Il tool estrae automaticamente il pattern e cerca tutti gli anni disponibili (2021-2027)
-            chiamando direttamente le API pubbliche del Participant Portal EU.
+            Enter a topic identifier (e.g. <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>).
+            The tool automatically extracts the pattern and searches all available years (2021-2027)
+            by directly calling the public APIs of the EU Participant Portal.
         </p>
     </div>
 
     <!-- Search form -->
     <div class="card mb-4">
-        <div class="card-header bg-primary text-white">Inserisci Topic Identifier</div>
+        <div class="card-header bg-primary text-white">Enter Topic Identifier</div>
         <div class="card-body">
             <div class="row g-3 align-items-end">
                 <div class="col-md-10">
                     <label for="topicInput" class="form-label">Topic Identifier</label>
                     <input type="text" id="topicInput" class="form-control form-control-lg"
-                           placeholder="es. EDF-2024-RA-SI-MATCOMP-EC-STEP" autocomplete="off">
+                           placeholder="e.g. EDF-2024-RA-SI-MATCOMP-EC-STEP" autocomplete="off">
                     <div class="form-text">
                         Try example: <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <button id="searchBtn" class="btn btn-primary btn-lg w-100">
-                        <span id="btnText">Avvia</span>
+                        <span id="btnText">Search</span>
                         <span id="btnSpinner" class="spinner-border spinner-border-sm d-none ms-1" role="status"></span>
                     </button>
                 </div>
@@ -137,20 +137,20 @@
 
     <!-- Progress -->
     <div id="progressSection" class="card mb-4 d-none">
-        <div class="card-header bg-info text-dark">Ricerca in corso...</div>
+        <div class="card-header bg-info text-dark">Searching...</div>
         <div class="card-body">
             <div class="progress mb-3">
                 <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info"
                      role="progressbar" style="width:0%">0%</div>
             </div>
-            <p id="progressMsg" class="mb-3 text-muted small"><strong>Inizializzazione...</strong></p>
+            <p id="progressMsg" class="mb-3 text-muted small"><strong>Initializing...</strong></p>
             <div id="logPanel"></div>
         </div>
     </div>
 
     <!-- Error -->
     <div id="errorSection" class="alert alert-danger d-none" role="alert">
-        <h5 class="alert-heading">Errore</h5>
+        <h5 class="alert-heading">Error</h5>
         <p id="errorMsg" class="mb-0"></p>
     </div>
 
@@ -167,7 +167,7 @@
                     </div>
                     <div class="d-flex gap-2">
                         <button id="downloadJsonBtn" class="btn btn-outline-success btn-sm">Download JSON</button>
-                        <button id="viewJsonBtn" class="btn btn-outline-info btn-sm">Vedi JSON</button>
+                        <button id="viewJsonBtn" class="btn btn-outline-info btn-sm">View JSON</button>
                     </div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
 
         <!-- Comparison table -->
         <div class="card mb-3">
-            <div class="card-header">Vista Comparativa</div>
+            <div class="card-header">Comparison View</div>
             <div class="card-body p-0">
                 <div class="table-responsive">
                     <table id="comparisonTable" class="table table-bordered table-hover mb-0"></table>
@@ -194,9 +194,9 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Dati JSON aggregati</h5>
+                <h5 class="modal-title">Aggregated JSON Data</h5>
                 <div class="d-flex gap-2">
-                    <button id="copyJsonBtn" class="btn btn-primary btn-sm">Copia</button>
+                    <button id="copyJsonBtn" class="btn btn-primary btn-sm">Copy</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
             </div>
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================================
 async function handleSearch() {
     const raw = document.getElementById('topicInput').value.trim().toUpperCase();
-    if (!raw) { alert('Inserisci un topic identifier'); return; }
+    if (!raw) { alert('Please enter a topic identifier'); return; }
 
     // Reset
     currentData = null; currentPattern = null; currentYears = [];
@@ -253,49 +253,49 @@ async function handleSearch() {
 
     const pattern = extractPattern(raw);
     if (!pattern) {
-        showError('Formato non valido. Usa: PREFIX-YYYY-SUFFIX (es. EDF-2024-RA-SI-MATCOMP-EC-STEP)');
+        showError('Invalid format. Use: PREFIX-YYYY-SUFFIX (e.g. EDF-2024-RA-SI-MATCOMP-EC-STEP)');
         return;
     }
 
     setLoading(true);
     showEl('progressSection');
-    setProgress(5, `Pattern trovato: ${pattern.base}`);
+    setProgress(5, `Pattern found: ${pattern.base}`);
 
     const found = [];
 
     for (let i = 0; i < YEARS_TO_TRY.length; i++) {
         const year = YEARS_TO_TRY[i];
         const pct  = 10 + Math.round(((i + 1) / YEARS_TO_TRY.length) * 80);
-        setProgress(pct, `Ricerca anno ${year}... (${i + 1}/${YEARS_TO_TRY.length})`);
+        setProgress(pct, `Searching year ${year}... (${i + 1}/${YEARS_TO_TRY.length})`);
 
         const topicId = `${pattern.prefix}-${year}-${pattern.suffix}`;
-        log(`Ricerca ${topicId}...`, 'info');
+        log(`Searching ${topicId}...`, 'info');
 
         try {
             const yearData = await scrapeYear(pattern.prefix, year, pattern.suffix);
             if (yearData) {
                 found.push({ year: String(year), data: yearData });
                 const np = yearData.statistics.total_projects;
-                log(`Anno ${year}: trovato – ${np} progett${np === 1 ? 'o' : 'i'}`, 'ok');
+                log(`Year ${year}: found – ${np} project${np === 1 ? '' : 's'}`, 'ok');
             } else {
-                log(`Anno ${year}: nessun dato`, 'warn');
+                log(`Year ${year}: no data`, 'warn');
             }
         } catch (err) {
-            log(`Anno ${year}: errore – ${err.message}`, 'err');
+            log(`Year ${year}: error – ${err.message}`, 'err');
         }
     }
 
     if (found.length === 0) {
         setLoading(false);
         hideEl('progressSection');
-        showError(`Nessun dato trovato per il pattern "${pattern.base}" negli anni 2021-2027.`);
+        showError(`No data found for pattern "${pattern.base}" in years 2021-2027.`);
         return;
     }
 
     // Sort most recent first
     found.sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
-    setProgress(100, 'Completato!');
+    setProgress(100, 'Done!');
 
     const totalProjects = found.reduce((s, y) => s + y.data.statistics.total_projects, 0);
     const totalPart     = found.reduce((s, y) => s + y.data.statistics.total_participants, 0);
@@ -332,7 +332,7 @@ async function scrapeYear(prefix, year, suffix) {
             projects = Array.isArray(raw) ? raw : [];
         }
     } catch (e) {
-        log(`  Impossibile caricare lista progetti per ${topicIdentifier}: ${e.message}`, 'warn');
+        log(`  Could not load project list for ${topicIdentifier}: ${e.message}`, 'warn');
     }
 
     // Step 3: generate basic project objects
@@ -410,7 +410,7 @@ async function fetchTopicMeta(topicIdentifier) {
     try {
         resp = await fetch(url, { method: 'POST', body: fd });
     } catch (e) {
-        throw new Error(`Search API non raggiungibile: ${e.message}`);
+        throw new Error(`Search API unreachable: ${e.message}`);
     }
 
     if (!resp.ok) return null;
@@ -533,10 +533,10 @@ function renderResults() {
     // Year badges + summary
     const totalProjects = years.reduce((s, y) => s + y.data.statistics.total_projects, 0);
     document.getElementById('yearsbadges').innerHTML =
-        `<strong>Anni trovati:</strong> ` +
+        `<strong>Years found:</strong> ` +
         yearsDisplay.map(y => `<span class="badge bg-primary ms-1">${y.year}</span>`).join('') +
-        ` <span class="text-muted ms-2">(${years.length} edizioni)</span>` +
-        ` <span class="badge bg-success ms-2">${totalProjects} progetti totali</span>`;
+        ` <span class="text-muted ms-2">(${years.length} edition${years.length === 1 ? '' : 's'})</span>` +
+        ` <span class="badge bg-success ms-2">${totalProjects} total projects</span>`;
 
     buildComparisonTable(yearsDisplay);
     buildAccordion(yearsDisplay);
@@ -547,16 +547,16 @@ function renderResults() {
 // ============================================================
 function buildComparisonTable(yearsDisplay) {
     const table = document.getElementById('comparisonTable');
-    let html = '<thead><tr><th>Metrica</th>';
+    let html = '<thead><tr><th>Metric</th>';
     yearsDisplay.forEach(y => { html += `<th>${y.year}</th>`; });
     html += '</tr></thead><tbody>';
 
     const rows = [
-        ['Numero Progetti',  y => y.statistics.total_projects],
-        ['Partecipanti',     y => y.statistics.total_participants],
-        ['Budget Call',      y => fmtCurrency(extractCallBudget(y))],
-        ['Budget Progetti',  y => fmtCurrency(y.statistics.total_budget)],
-        ['Contributo UE',    y => fmtCurrency(y.statistics.total_eu_contribution)]
+        ['Projects',         y => y.statistics.total_projects],
+        ['Participants',     y => y.statistics.total_participants],
+        ['Call Budget',      y => fmtCurrency(extractCallBudget(y))],
+        ['Project Budget',   y => fmtCurrency(y.statistics.total_budget)],
+        ['EU Contribution',  y => fmtCurrency(y.statistics.total_eu_contribution)]
     ];
 
     rows.forEach(([label, fn]) => {
@@ -607,8 +607,8 @@ function createAccordionItem(yd, idx) {
     const projectsHtml = projects.length > 0
         ? `<div class="proj-list">${projects.map((p, i) => projectCard(p, i)).join('')}</div>`
         : `<div class="alert alert-info">
-               <h6 class="alert-heading">Nessun progetto finanziato</h6>
-               <p class="mb-0">La call esiste ma non ha ancora progetti assegnati.</p>
+               <h6 class="alert-heading">No funded projects</h6>
+               <p class="mb-0">The call exists but has no projects assigned yet.</p>
            </div>`;
 
     return `
@@ -617,9 +617,9 @@ function createAccordionItem(yd, idx) {
             <button class="accordion-button ${open ? '' : 'collapsed'}" type="button"
                     data-bs-toggle="collapse" data-bs-target="#col${year}"
                     aria-expanded="${open}" aria-controls="col${year}">
-                <strong>Anno ${year}</strong>
-                <span class="ms-3 badge bg-primary">${statistics.total_projects} progetti</span>
-                <span class="ms-2 badge bg-success">${statistics.total_participants} partecipanti</span>
+                <strong>Year ${year}</strong>
+                <span class="ms-3 badge bg-primary">${statistics.total_projects} projects</span>
+                <span class="ms-2 badge bg-success">${statistics.total_participants} participants</span>
                 <span class="ms-2 badge bg-info text-dark">${fmtBudgetShort(statistics.total_eu_contribution)} EU</span>
                 <a href="${callUrl}" target="_blank" class="ms-3 text-decoration-none"
                    onclick="event.stopPropagation()">
@@ -630,7 +630,7 @@ function createAccordionItem(yd, idx) {
         <div id="col${year}" class="accordion-collapse collapse ${open ? 'show' : ''}"
              aria-labelledby="head${year}" data-bs-parent="#yearsAccordion">
             <div class="accordion-body">
-                <h5 class="mb-3">Progetti Finanziati</h5>
+                <h5 class="mb-3">Funded Projects</h5>
                 ${projectsHtml}
             </div>
         </div>
@@ -643,7 +643,7 @@ function projectCard(project, idx) {
 
     const partListHtml = participants.length > 0
         ? `<div class="mt-3">
-               <strong>Tutti i Partecipanti (${participants.length}):</strong>
+               <strong>All Participants (${participants.length}):</strong>
                <ul class="mt-1 participants-list ps-3">
                    ${participants.map(p => {
                        const role = p.Role === 'coordinator' ? 'Coord.' : 'Partner';
@@ -651,7 +651,7 @@ function projectCard(project, idx) {
                    }).join('')}
                </ul>
            </div>`
-        : '<p class="text-muted small">Nessun partecipante disponibile</p>';
+        : '<p class="text-muted small">No participants available</p>';
 
     const statusClass = getStatusClass(project.Status);
 
@@ -664,22 +664,22 @@ function projectCard(project, idx) {
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5 project-data-column">
-                    <p><strong>Contributo UE:</strong> ${fmtCurrency(project['EU contribution'])}</p>
-                    <p><strong>Budget Totale:</strong> ${fmtCurrency(project['Overall budget'])}</p>
-                    <p><strong>Partecipanti:</strong> ${participants.length}</p>
+                    <p><strong>EU Contribution:</strong> ${fmtCurrency(project['EU contribution'])}</p>
+                    <p><strong>Total Budget:</strong> ${fmtCurrency(project['Overall budget'])}</p>
+                    <p><strong>Participants:</strong> ${participants.length}</p>
                     <p><strong>Status:</strong> <span class="badge ${statusClass}">${escHtml(project.Status || 'N/A')}</span></p>
-                    <p><strong>Durata:</strong> ${fmtDate(project['Start date'])} &rarr; ${fmtDate(project['End date'])}</p>
+                    <p><strong>Duration:</strong> ${fmtDate(project['Start date'])} &rarr; ${fmtDate(project['End date'])}</p>
                     <p><strong>Project ID:</strong> ${escHtml(project['PROJECT ID'] || 'N/A')}</p>
                     ${partListHtml}
                     <div class="mt-3">
-                        ${project.URL ? `<a href="${project.URL}" target="_blank" class="btn btn-sm btn-outline-primary">Vedi su EU Portal</a>` : ''}
+                        ${project.URL ? `<a href="${project.URL}" target="_blank" class="btn btn-sm btn-outline-primary">View on EU Portal</a>` : ''}
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="border-start ps-3">
-                        <h6 class="text-primary mb-2">Obiettivo</h6>
+                        <h6 class="text-primary mb-2">Objective</h6>
                         <div style="max-height:480px;overflow-y:auto;">
-                            <p class="text-justify">${escHtml(project.Objective || 'Nessun obiettivo disponibile')}</p>
+                            <p class="text-justify">${escHtml(project.Objective || 'No objective available')}</p>
                         </div>
                     </div>
                 </div>
@@ -693,7 +693,7 @@ function projectCard(project, idx) {
 // ============================================================
 function showJson() {
     if (!currentData) return;
-    document.getElementById('copyJsonBtn').textContent = 'Copia';
+    document.getElementById('copyJsonBtn').textContent = 'Copy';
     document.getElementById('jsonContent').textContent = JSON.stringify(currentData, null, 2);
     new bootstrap.Modal(document.getElementById('jsonModal')).show();
 }
@@ -701,8 +701,8 @@ function showJson() {
 function copyJson() {
     const btn = document.getElementById('copyJsonBtn');
     navigator.clipboard.writeText(document.getElementById('jsonContent').textContent)
-        .then(() => { btn.textContent = 'Copiato!'; setTimeout(() => btn.textContent = 'Copia', 2000); })
-        .catch(() => { btn.textContent = 'Errore'; setTimeout(() => btn.textContent = 'Copia', 2000); });
+        .then(() => { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); })
+        .catch(() => { btn.textContent = 'Error'; setTimeout(() => btn.textContent = 'Copy', 2000); });
 }
 
 function downloadJson() {
@@ -725,7 +725,7 @@ function downloadJson() {
 // ============================================================
 function setLoading(on) {
     document.getElementById('searchBtn').disabled = on;
-    document.getElementById('btnText').textContent = on ? 'In corso...' : 'Avvia';
+    document.getElementById('btnText').textContent = on ? 'Running...' : 'Search';
     document.getElementById('btnSpinner').classList.toggle('d-none', !on);
 }
 
@@ -788,7 +788,7 @@ function fmtBudgetShort(val) {
 
 function fmtDate(ds) {
     if (!ds) return '-';
-    try { return new Date(ds).toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' }); }
+    try { return new Date(ds).toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' }); }
     catch (_) { return ds; }
 }
 
