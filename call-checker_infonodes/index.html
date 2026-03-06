@@ -106,7 +106,7 @@
     <div class="mb-4">
         <h2 class="mb-1">Cerca per pattern di Call</h2>
         <p class="text-muted mb-0">
-            Inserisci un topic identifier (es. <code>CERV-2024-CHAR-LITI-SPEECH</code>).
+            Inserisci un topic identifier (es. <code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code>).
             Il tool estrae automaticamente il pattern e cerca tutti gli anni disponibili (2021-2027)
             chiamando direttamente le API pubbliche del Participant Portal EU.
         </p>
@@ -254,7 +254,7 @@ async function handleSearch() {
 
     const pattern = extractPattern(raw);
     if (!pattern) {
-        showError('Formato non valido. Usa: PREFIX-YYYY-SUFFIX (es. CERV-2024-CHAR-LITI-SPEECH)');
+        showError('Formato non valido. Usa: PREFIX-YYYY-SUFFIX (es. EDF-2024-RA-SI-MATCOMP-EC-STEP)');
         return;
     }
 
