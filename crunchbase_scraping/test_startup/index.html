@@ -4,19 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Defense Tech · Investment Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --bg:       #ffffff;
-  --surface:  #f8f9fb;
-  --border:   #e2e6ea;
-  --text:     #1a2530;
-  --dim:      #7a8fa3;
-  --lead-c:   #d97706;
-  --follow-c: #2563eb;
-  --hl-row:   rgba(217,119,6,0.05);
-  --font:     'Inter', 'Segoe UI', sans-serif;
+  --bg:       #000000;
+  --surface:  #0d0d0d;
+  --border:   rgb(65,67,69);
+  --text:     #ffffff;
+  --dim:      rgba(255,255,255,0.42);
+  --lead-c:   #68CCD1;
+  --follow-c: rgba(255,255,255,0.58);
+  --hl-row:   rgba(104,204,209,0.06);
+  --font:     'Barlow Condensed', 'Inter', sans-serif;
 }
 
 body { background:var(--bg); color:var(--text); font-family:var(--font); overflow:hidden; }
@@ -24,24 +27,24 @@ body { background:var(--bg); color:var(--text); font-family:var(--font); overflo
 /* ── HEADER ── */
 #hdr {
   position:fixed; top:0; left:0; right:0; height:50px;
-  background:var(--surface); border-bottom:1px solid var(--border);
+  background:var(--bg); border-bottom:1px solid var(--border);
   display:flex; align-items:center; padding:0 20px; gap:16px; z-index:200;
 }
-#hdr h1 { font-size:13px; font-weight:600; color:#111; letter-spacing:.5px; }
-#hdr .meta { font-size:11px; color:var(--dim); margin-left:4px; }
+#hdr h1 { font-size:17px; font-weight:700; color:#fff; letter-spacing:1.5px; text-transform:uppercase; }
+#hdr .meta { font-size:12px; color:var(--dim); margin-left:4px; }
 .sep { width:1px; height:20px; background:var(--border); }
 .vbtn {
-  padding:5px 14px; font-size:11px; border:1px solid var(--border);
-  background:transparent; color:var(--dim); cursor:pointer; border-radius:4px;
-  transition:all .15s; font-family:var(--font);
+  padding:5px 16px; font-size:13px; border:1px solid var(--border);
+  background:transparent; color:var(--dim); cursor:pointer; border-radius:50px;
+  transition:all .15s; font-family:var(--font); font-weight:700; letter-spacing:.3px;
 }
-.vbtn.on { background:#eff6ff; color:#2563eb; border-color:#2563eb; }
-.vbtn:hover:not(.on) { color:var(--text); border-color:#adb5bd; }
+.vbtn.on { background:#68CCD1; color:#000000; border-color:#68CCD1; }
+.vbtn:hover:not(.on) { background:var(--border); color:#fff; }
 
 /* ── LEGEND PILLS ── */
 .lpill {
   display:inline-flex; align-items:center; gap:6px;
-  font-size:11px; color:var(--dim);
+  font-size:12px; color:var(--dim);
 }
 .ldot { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
 .ml-auto { margin-left:auto; }
@@ -57,44 +60,39 @@ body { background:var(--bg); color:var(--text); font-family:var(--font); overflo
 
 table {
   border-collapse:collapse; min-width:100%;
-  font-size:11px;
+  font-size:13px;
 }
 
-/* Sticky header row */
 thead th {
   position:sticky; top:0; z-index:10;
   background:var(--surface);
   border-bottom:2px solid var(--border);
 }
 
-/* Sticky first column */
 td:first-child, th:first-child {
   position:sticky; left:0; z-index:9;
   background:var(--surface);
 }
 thead th:first-child { z-index:11; }
 
-/* Column header — rotated startup names */
 .col-hdr {
   height:110px; vertical-align:bottom; padding-bottom:6px;
-  font-weight:500; white-space:nowrap;
+  font-weight:700; white-space:nowrap;
 }
 .col-hdr-inner {
   display:block;
   transform:rotate(-50deg) translateX(-8px);
   transform-origin:bottom left;
   color:var(--dim);
-  font-size:10px;
+  font-size:11px;
   width:100px;
 }
 .col-hdr-inner:hover { color:var(--text); cursor:default; }
 .col-hdr-inner abbr { text-decoration:none; }
 
-/* Row */
 tr:hover td { background:var(--hl-row); }
-tr:hover td:first-child { background:#fef9f0; }
+tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 
-/* Investor name cell */
 .inv-cell {
   padding:3px 8px 3px 10px;
   white-space:nowrap;
@@ -103,52 +101,47 @@ tr:hover td:first-child { background:#fef9f0; }
   display:flex; align-items:center; gap:6px;
   cursor:pointer;
 }
-.inv-rank { font-size:9px; color:#cdd5dd; width:16px; text-align:right; flex-shrink:0; }
-.inv-name { flex:1; color:var(--text); font-size:11px; overflow:hidden; text-overflow:ellipsis; }
-.inv-name:hover { color:#000; }
+.inv-rank { font-size:10px; color:rgba(255,255,255,0.18); width:16px; text-align:right; flex-shrink:0; }
+.inv-name { flex:1; color:var(--text); font-size:13px; overflow:hidden; text-overflow:ellipsis; }
+.inv-name:hover { color:#fff; }
 .count-pill {
   flex-shrink:0; display:inline-flex; align-items:center; justify-content:center;
-  width:20px; height:16px; border-radius:3px;
-  font-size:10px; font-weight:700;
-  background:#f1f5f9; color:#94a3b8;
+  width:20px; height:16px; border-radius:50px;
+  font-size:11px; font-weight:700;
+  background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.28);
 }
-.count-pill.c1 { background:rgba(37,99,235,0.10); color:#2563eb; }
-.count-pill.c2 { background:rgba(217,119,6,0.14); color:#d97706; }
-.count-pill.c3 { background:rgba(217,119,6,0.24); color:#b45309; }
-.count-lead { font-size:9px; color:#d97706; margin-left:1px; opacity:.75; }
+.count-pill.c1 { background:rgba(104,204,209,0.14); color:#68CCD1; }
+.count-pill.c2 { background:rgba(104,204,209,0.24); color:#68CCD1; }
+.count-pill.c3 { background:rgba(104,204,209,0.38); color:#68CCD1; }
+.count-lead { font-size:10px; color:#68CCD1; margin-left:1px; opacity:.75; }
 
-/* Investment cell */
-.inv-td { width:28px; text-align:center; padding:2px 1px; border-right:1px solid var(--border); }
+.inv-td { width:28px; text-align:center; padding:2px 1px; border-right:1px solid rgba(65,67,69,0.4); }
 
 .dot-lead {
   display:inline-block; width:14px; height:14px; border-radius:2px;
-  background:rgba(217,119,6,0.80);
-  border:1px solid rgba(217,119,6,0.35);
-  cursor:pointer;
-  transition:transform .1s;
-  position:relative;
+  background:#68CCD1;
+  border:1px solid rgba(104,204,209,0.4);
+  cursor:pointer; transition:transform .1s; position:relative;
 }
 .dot-lead::after {
   content:'L';
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  font-size:7px; font-weight:700; color:rgba(255,255,255,0.85);
+  font-size:7px; font-weight:700; color:rgba(0,0,0,0.85);
 }
 .dot-lead:hover { transform:scale(1.3); }
 
 .dot-follow {
   display:inline-block; width:14px; height:14px; border-radius:2px;
-  background:rgba(37,99,235,0.65);
-  border:1px solid rgba(37,99,235,0.25);
-  cursor:pointer;
-  transition:transform .1s;
+  background:rgba(255,255,255,0.52);
+  border:1px solid rgba(255,255,255,0.18);
+  cursor:pointer; transition:transform .1s;
 }
 .dot-follow:hover { transform:scale(1.3); }
 
-.dot-none { display:inline-block; width:4px; height:4px; border-radius:50%; background:#e9ecef; }
+.dot-none { display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,0.07); }
 
-/* Row total bar */
 .bar-cell { padding:2px 8px; white-space:nowrap; border-left:2px solid var(--border); }
-.bar-track { width:60px; height:4px; background:var(--border); border-radius:2px; display:inline-block; vertical-align:middle; }
+.bar-track { width:60px; height:4px; background:rgba(255,255,255,0.07); border-radius:2px; display:inline-block; vertical-align:middle; }
 .bar-fill { height:100%; border-radius:2px; }
 
 /* ── GRAPH VIEW ── */
@@ -157,22 +150,21 @@ tr:hover td:first-child { background:#fef9f0; }
 
 /* ── TOOLTIP ── */
 #tip {
-  position:fixed; background:rgba(255,255,255,0.98); border:1px solid var(--border);
-  padding:10px 14px; font-size:11px; pointer-events:none;
+  position:fixed; background:#000; border:1px solid var(--border);
+  padding:10px 14px; font-size:12px; pointer-events:none;
   display:none; z-index:400; border-radius:4px;
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  box-shadow:0 4px 24px rgba(0,0,0,.9);
   max-width:260px; line-height:1.5;
 }
-#tip .tname { color:#111; font-weight:600; font-size:12px; margin-bottom:4px; }
+#tip .tname { color:#68CCD1; font-weight:700; font-size:14px; margin-bottom:4px; }
 #tip .tinfo { color:var(--dim); }
-#tip .thigh { color:var(--lead-c); margin-top:3px; font-size:10px; }
+#tip .thigh { color:rgba(255,255,255,0.3); margin-top:3px; font-size:11px; }
 
 /* ── DETAIL PANEL ── */
 #detail {
   width:260px; flex-shrink:0;
   background:var(--surface); border-left:1px solid var(--border);
-  overflow-y:auto; padding:16px;
-  display:none;
+  overflow-y:auto; padding:16px; display:none;
 }
 #detail.open { display:block; }
 .dp-close {
@@ -180,34 +172,39 @@ tr:hover td:first-child { background:#fef9f0; }
   font-size:16px; cursor:pointer; padding:0 2px; line-height:1;
 }
 .dp-close:hover { color:var(--text); }
-.dp-title { font-size:13px; color:#111; font-weight:600; margin-bottom:4px; padding-right:20px; line-height:1.3; }
+.dp-title { font-size:15px; color:#fff; font-weight:700; margin-bottom:4px; padding-right:20px; line-height:1.3; text-transform:uppercase; letter-spacing:.5px; }
 .dp-badge {
-  display:inline-block; font-size:9px; padding:2px 8px; border-radius:2px;
-  letter-spacing:.5px; margin-bottom:12px;
+  display:inline-block; font-size:10px; padding:2px 10px; border-radius:50px;
+  letter-spacing:.5px; margin-bottom:12px; font-weight:700;
 }
-.db-inv  { background:rgba(245,158,11,.12); color:var(--lead-c); border:1px solid rgba(245,158,11,.3); }
-.db-start { background:rgba(59,130,246,.12); color:var(--follow-c); border:1px solid rgba(59,130,246,.3); }
-.dp-label { font-size:9px; color:var(--follow-c); letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; }
+.db-inv  { background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); }
+.db-start { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.65); border:1px solid rgba(255,255,255,0.15); }
+.dp-label { font-size:10px; color:#68CCD1; letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; font-weight:700; }
 .dp-list { list-style:none; }
 .dp-list li {
-  font-size:11px; padding:4px 0; border-bottom:1px solid var(--border);
+  font-size:12px; padding:4px 0; border-bottom:1px solid rgba(65,67,69,0.5);
   color:var(--dim); display:flex; align-items:center; justify-content:space-between; gap:6px;
 }
 .dp-list li span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.lead-tag { font-size:8px; padding:1px 5px; background:rgba(245,158,11,.15); color:var(--lead-c); border:1px solid rgba(245,158,11,.3); flex-shrink:0; border-radius:2px; }
+.lead-tag { font-size:9px; padding:1px 6px; background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); flex-shrink:0; border-radius:50px; font-weight:700; }
 
 /* ── D3 GRAPH ── */
-.gnode-inv circle { fill:#fffbeb; stroke:var(--lead-c); stroke-width:1.8; cursor:pointer; }
-.gnode-inv circle:hover { fill:#fef3c7; }
-.gnode-inv.ghl circle { fill:#fef3c7; filter:drop-shadow(0 0 6px var(--lead-c)); }
-.gnode-start circle { fill:#eff6ff; stroke:var(--follow-c); stroke-width:1.3; cursor:pointer; }
-.gnode-start circle:hover { fill:#dbeafe; }
-.gnode-start.ghl circle { fill:#dbeafe; filter:drop-shadow(0 0 5px var(--follow-c)); }
-.glabel { font-family:var(--font); font-size:9px; fill:var(--dim); pointer-events:none; }
-.gbadge { font-family:var(--font); font-size:8px; fill:var(--lead-c); font-weight:700; pointer-events:none; }
-.glink { stroke:#d1d5db; stroke-opacity:.9; }
-.glink.lead { stroke:rgba(217,119,6,.45); }
-.glink.ghl  { stroke:var(--follow-c); stroke-opacity:1; }
+.gnode-inv circle { fill:#000; stroke:#68CCD1; stroke-width:1.8; cursor:pointer; }
+.gnode-inv circle:hover { fill:#0a1818; }
+.gnode-inv.ghl circle { fill:#0a1818; filter:drop-shadow(0 0 6px #68CCD1); }
+.gnode-start circle { fill:#000; stroke:rgba(255,255,255,0.48); stroke-width:1.3; cursor:pointer; }
+.gnode-start circle:hover { fill:#111; }
+.gnode-start.ghl circle { fill:#111; filter:drop-shadow(0 0 5px rgba(255,255,255,0.7)); }
+.glabel { font-family:var(--font); font-size:10px; fill:rgba(255,255,255,0.35); pointer-events:none; }
+.gbadge { font-family:var(--font); font-size:9px; fill:#68CCD1; font-weight:700; pointer-events:none; }
+.glink { stroke:var(--border); stroke-opacity:.6; }
+.glink.lead { stroke:rgba(104,204,209,0.55); }
+.glink.ghl  { stroke:#68CCD1; stroke-opacity:1; }
+
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background:#000; }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
 </style>
 </head>
 <body>
@@ -222,9 +219,9 @@ tr:hover td:first-child { background:#fef9f0; }
   <button class="vbtn"    id="btn-graph" onclick="setView('graph')">Network</button>
   <button class="vbtn"    id="btn-proj"  onclick="setView('projection')">Projection</button>
   <div class="sep"></div>
-  <span class="lpill"><span class="ldot" style="background:rgba(245,158,11,.85)"></span>Lead investment</span>
-  <span class="lpill"><span class="ldot" style="background:rgba(59,130,246,.7)"></span>Follow investment</span>
-  <div class="ml-auto" style="font-size:11px;color:var(--dim)" id="hdr-info"></div>
+  <span class="lpill"><span class="ldot" style="background:#68CCD1"></span>Lead investment</span>
+  <span class="lpill"><span class="ldot" style="background:rgba(255,255,255,0.52)"></span>Follow investment</span>
+  <div class="ml-auto" style="font-size:13px;color:var(--dim)" id="hdr-info"></div>
 </div>
 
 <!-- APP -->
@@ -469,10 +466,10 @@ function buildMatrix() {
     // Total bar
     const pct = (inv.total / maxTotal * 100).toFixed(0);
     const barColor = inv.total >= 3
-      ? "var(--lead-c)"
+      ? "#68CCD1"
       : inv.total === 2
-        ? "#a78bfa"
-        : "var(--follow-c)";
+        ? "rgba(104,204,209,0.6)"
+        : "rgba(255,255,255,0.4)";
     html += `<td class="bar-cell">
       <span class="bar-track"><span class="bar-fill" style="width:${pct}%;background:${barColor}"></span></span>
       <span style="font-size:10px;color:${barColor};margin-left:6px;font-weight:600">${inv.total}</span>
@@ -784,7 +781,7 @@ function buildProjection(filter="all") {
   const ndG = g.append("g");
 
   const lk = lkG.selectAll("line").data(links).join("line")
-    .attr("stroke", d => d.weight>1 ? "rgba(217,119,6,.55)" : "#d1d5db")
+    .attr("stroke", d => d.weight>1 ? "rgba(104,204,209,.55)" : "rgb(65,67,69)")
     .attr("stroke-width", d => 0.6 + d.weight*1.2)
     .attr("fill","none")
     .on("mouseover", (e,d) => {

@@ -4,31 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikidata Inspector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            overflow-y: hidden; /* Prevent double scrollbars */
+        /* ── info.nodes Design System ── */
+        :root {
+            --bs-body-bg:            #000000;
+            --bs-body-color:         rgba(255,255,255,0.82);
+            --bs-border-color:       rgb(65,67,69);
+            --bs-card-bg:            #0d0d0d;
+            --bs-card-border-color:  rgb(65,67,69);
+            --bs-primary:            #68CCD1;
+            --bs-primary-rgb:        104,204,209;
+            --bs-secondary-bg:       #111111;
+            --bs-tertiary-bg:        #0a0a0a;
+            --bs-heading-color:      #ffffff;
+            --bs-link-color:         #68CCD1;
+            --bs-link-hover-color:   #8ad8dc;
+            --bs-body-font-family:   'Barlow Condensed', 'Inter', sans-serif;
+            --bs-body-font-size:     1rem;
         }
+
+        body { overflow-y:hidden; background:#000; color:rgba(255,255,255,0.82); }
+
         .main-layout {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            height: 100vh;
+            display:grid;
+            grid-template-rows:auto 1fr;
+            height:100vh;
         }
         .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 3fr; /* 25% and 75% width */
-            overflow-y: hidden;
+            display:grid;
+            grid-template-columns:1fr 3fr;
+            overflow-y:hidden;
         }
         .scrollable-col {
-            overflow-y: auto;
-            height: calc(100vh - 100px); /* Adjust based on header height */
+            overflow-y:auto;
+            height:calc(100vh - 100px);
         }
+        .list-group-item { cursor:pointer; }
+        .list-group-item.active { font-weight:700; }
+
+        /* ── Header ── */
+        header {
+            background:#000 !important;
+            border-bottom:1px solid rgb(65,67,69) !important;
+        }
+        header h1 {
+            font-family:'Barlow Condensed', sans-serif;
+            font-weight:700;
+            font-size:1.8rem;
+            text-transform:uppercase;
+            letter-spacing:1.5px;
+            color:#ffffff;
+        }
+
+        /* ── Sidebar border ── */
+        .border-end { border-color:rgb(65,67,69) !important; }
+        .border-bottom { border-color:rgb(65,67,69) !important; }
+
+        /* ── Typography ── */
+        h6 {
+            font-family:'Barlow Condensed', sans-serif;
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:.6px;
+            color:#68CCD1;
+            font-size:.85rem;
+        }
+        p.text-muted, .text-muted { color:rgba(255,255,255,0.38) !important; }
+
+        /* ── List group (navigation) ── */
         .list-group-item {
-            cursor: pointer;
+            background-color:#0d0d0d;
+            border-color:rgb(65,67,69);
+            color:rgba(255,255,255,0.72);
+            font-family:'Barlow Condensed', sans-serif;
+            font-size:1rem;
+        }
+        .list-group-item:hover {
+            background-color:rgba(104,204,209,0.08);
+            color:#ffffff;
         }
         .list-group-item.active {
-            font-weight: bold;
+            background-color:#68CCD1;
+            border-color:#68CCD1;
+            color:#000000;
+            font-weight:700;
         }
+        .list-group-flush .list-group-item { border-right:0; border-left:0; }
+
+        /* ── Form controls ── */
+        .form-control {
+            background-color:#0d0d0d;
+            border-color:rgb(65,67,69);
+            color:#ffffff;
+            font-family:'Barlow Condensed', sans-serif;
+            font-size:1rem;
+        }
+        .form-control:focus {
+            background-color:#0d0d0d;
+            border-color:#68CCD1;
+            color:#ffffff;
+            box-shadow:0 0 0 2px rgba(104,204,209,0.2);
+        }
+        .form-control::placeholder { color:rgba(255,255,255,0.28); }
+        .form-check-input:checked { background-color:#68CCD1; border-color:#68CCD1; }
+        .form-check-label { color:rgba(255,255,255,0.55); font-family:'Barlow Condensed', sans-serif; }
+
+        /* ── Spinner ── */
+        .spinner-border.text-primary { color:#68CCD1 !important; }
+
+        /* ── Alert ── */
+        .alert-danger {
+            background-color:rgba(239,68,68,0.12);
+            border-color:rgba(239,68,68,0.3);
+            color:#fca5a5;
+        }
+
+        /* ── Results container (dynamic) ── */
+        #results-container { color:rgba(255,255,255,0.82); }
+
+        /* ── Sidebar padding ── */
+        .p-3 { color:rgba(255,255,255,0.82); }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width:5px; height:5px; }
+        ::-webkit-scrollbar-track { background:#000; }
+        ::-webkit-scrollbar-thumb { background:rgb(65,67,69); border-radius:3px; }
+        ::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
+
+        /* ── HR ── */
+        hr { border-color:rgb(65,67,69); }
     </style>
 </head>
 <body class="main-layout">
