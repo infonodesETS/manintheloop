@@ -176,9 +176,43 @@
         ::-webkit-scrollbar-track { background:#000; }
         ::-webkit-scrollbar-thumb { background:rgb(65,67,69); border-radius:3px; }
         ::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
+
+        /* ── info.nodes global nav ── */
+        #in-nav {
+            position:fixed; top:0; left:0; right:0; height:44px; z-index:9999;
+            background:#000; border-bottom:1px solid rgb(65,67,69);
+            display:flex; align-items:center; padding:0 24px; gap:24px;
+        }
+        .in-brand {
+            font-size:16px; font-weight:700; color:#fff; text-decoration:none;
+            letter-spacing:1px; text-transform:uppercase; flex-shrink:0;
+        }
+        .in-brand span { color:#68CCD1; }
+        .in-links { display:flex; gap:4px; margin-left:auto; }
+        .in-link {
+            font-size:13px; font-weight:700; color:rgba(255,255,255,0.45);
+            text-decoration:none; padding:5px 16px; border-radius:50px;
+            border:1px solid transparent; transition:all .15s; letter-spacing:.3px;
+            font-family:'Barlow Condensed',sans-serif;
+        }
+        .in-link:hover { color:#fff; border-color:rgb(65,67,69); background:rgba(255,255,255,0.05); }
+        .in-link.active { color:#000; background:#68CCD1; border-color:#68CCD1; }
+
+        /* ── Layout offset for global nav ── */
+        body { padding-top:44px; }
     </style>
 </head>
 <body>
+
+<nav id="in-nav">
+  <a href="../" class="in-brand">info<span>.</span>nodes</a>
+  <div class="in-links">
+    <a href="../crunchbase_scraping/test_startup/" class="in-link">Startup Map</a>
+    <a href="../crunchbase_full/"                  class="in-link">Investment Map</a>
+    <a href="../wikidata_inspector/"               class="in-link">Wikidata</a>
+    <a href="./"                                   class="in-link active">CallChecker</a>
+  </div>
+</nav>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
