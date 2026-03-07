@@ -995,7 +995,10 @@ function escAttr(s) {
 // ══════════════════════════════════════════════════════
 
 function clearSearchHighlight() {
-  document.querySelectorAll('tr.row-selected').forEach(r => r.classList.remove('row-selected'));
+  document.querySelectorAll('tr[data-selected]').forEach(r => {
+    delete r.dataset.selected;
+    [...r.querySelectorAll('td')].forEach(td => td.style.removeProperty('background'));
+  });
   document.querySelectorAll('.col-selected').forEach(c => c.classList.remove('col-selected'));
 }
 
@@ -1005,7 +1008,10 @@ function applySearchSelection(id, type) {
     const row = [...document.querySelectorAll('tr[data-investor]')]
       .find(tr => tr.dataset.investor === id);
     if (row) {
-      row.classList.add('row-selected');
+      row.dataset.selected = '1';
+      [...row.querySelectorAll('td')].forEach((td, i) => {
+        td.style.setProperty('background', i === 0 ? 'rgba(104,204,209,0.22)' : 'rgba(104,204,209,0.15)', 'important');
+      });
       row.scrollIntoView({ block:'center', behavior:'smooth' });
     }
     showInvestorDetail(id);
