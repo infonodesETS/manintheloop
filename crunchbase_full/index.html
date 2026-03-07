@@ -474,7 +474,7 @@ function buildMatrix() {
 
     html += `<tr data-investor="${escAttr(inv.id)}">`;
     html += `<td>
-      <div class="inv-cell" onclick="showInvestorDetail('${escAttr(inv.id)}')">
+      <div class="inv-cell" onclick="applySearchSelection('${escAttr(inv.id)}','investor')">
         <span class="inv-rank">${idx + 1}</span>
         <span class="inv-name">${escHtml(inv.id)}</span>
         ${leadLabel}

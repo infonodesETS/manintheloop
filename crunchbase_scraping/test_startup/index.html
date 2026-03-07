@@ -407,7 +407,7 @@ function buildMatrix() {
     html += `<tr data-investor="${inv.id.replace(/"/g,'&quot;')}">`;
     // Investor name cell
     html += `<td>
-      <div class="inv-cell" onclick="showInvestorDetail('${inv.id.replace(/'/g,"\\'")}')">
+      <div class="inv-cell" onclick="applySearchSelection('${inv.id.replace(/'/g,"\\'")}','investor')">
         <span class="inv-rank">${idx+1}</span>
         <span class="inv-name">${inv.id}</span>
         ${leadLabel}
