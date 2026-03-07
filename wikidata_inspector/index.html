@@ -126,6 +126,31 @@
 
         /* ── Results container (dynamic) ── */
         #results-container { color:rgba(255,255,255,0.82); }
+        #results-container .table {
+            color:rgba(255,255,255,0.82);
+            border-color:rgb(65,67,69);
+        }
+        #results-container .table th,
+        #results-container .table td {
+            background-color:#0d0d0d;
+            border-color:rgb(65,67,69);
+            color:rgba(255,255,255,0.82);
+        }
+        #results-container .table th {
+            color:#68CCD1;
+            font-family:'Barlow Condensed', sans-serif;
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:.4px;
+            white-space:nowrap;
+            width:1%;
+        }
+        #results-container .table-striped > tbody > tr:nth-of-type(odd) > * {
+            background-color:#111111;
+            color:rgba(255,255,255,0.82);
+        }
+        #results-container a { color:#68CCD1; }
+        #results-container a:hover { color:#8ad8dc; }
 
         /* ── Sidebar padding ── */
         .p-3 { color:rgba(255,255,255,0.82); }
