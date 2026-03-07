@@ -12,9 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const mainTitle = document.getElementById('main-title');
 
-    // --- Environment Detection ---
-    const isGitHubPages = window.location.hostname.includes('github.io');
-    const USE_PROXY = !isGitHubPages; // Use proxy only on localhost
+    // Always use direct Wikidata endpoints (CORS is supported)
+    const USE_PROXY = false;
 
     // --- State Management ---
     let debounceTimer;
