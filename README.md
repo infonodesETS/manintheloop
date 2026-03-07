@@ -5,7 +5,7 @@ A collection of data tools for mapping defense-tech ecosystems, built with open 
 - **[Startup Map](crunchbase_scraping/test_startup/)** — Investment matrix & network graph for 18 EU/NATO defense-tech startups
 - **[Investment Map](crunchbase_full/)** — Full investment matrix for 150+ defense & critical-resources companies (loaded from Crunchbase data)
 - **[Wikidata Inspector](wikidata_inspector/)** — Browse and inspect company data via the Wikidata knowledge graph
-- **[CallChecker](call-checker_infonodes/)** — Search EU funding calls across years via the EC Participant Portal API
+- **[EU Call Checker](call-checker_infonodes/)** — Search EU funding calls across years via the EC Participant Portal API
 
 ---
 
