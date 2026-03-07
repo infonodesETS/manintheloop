@@ -17,7 +17,7 @@
   --border:   rgb(65,67,69);
   --text:     #ffffff;
   --dim:      rgba(255,255,255,0.42);
-  --lead-c:   #68CCD1;
+  --lead-c:   #00ff41;
   --follow-c: rgba(255,255,255,0.58);
   --hl-row:   rgba(104,204,209,0.06);
   --font:     'Barlow Condensed', 'Inter', sans-serif;
@@ -39,7 +39,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--font); overflo
   background:transparent; color:var(--dim); cursor:pointer; border-radius:50px;
   transition:all .15s; font-family:var(--font); font-weight:700; letter-spacing:.3px;
 }
-.vbtn.on { background:#68CCD1; color:#000000; border-color:#68CCD1; }
+.vbtn.on { background:#00ff41; color:#000000; border-color:#00ff41; }
 .vbtn:hover:not(.on) { background:var(--border); color:#fff; }
 
 /* ── LEGEND PILLS ── */
@@ -111,16 +111,16 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   font-size:11px; font-weight:700;
   background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.28);
 }
-.count-pill.c1 { background:rgba(104,204,209,0.14); color:#68CCD1; }
-.count-pill.c2 { background:rgba(104,204,209,0.24); color:#68CCD1; }
-.count-pill.c3 { background:rgba(104,204,209,0.38); color:#68CCD1; }
-.count-lead { font-size:10px; color:#68CCD1; margin-left:1px; opacity:.75; }
+.count-pill.c1 { background:rgba(104,204,209,0.14); color:#00ff41; }
+.count-pill.c2 { background:rgba(104,204,209,0.24); color:#00ff41; }
+.count-pill.c3 { background:rgba(104,204,209,0.38); color:#00ff41; }
+.count-lead { font-size:10px; color:#00ff41; margin-left:1px; opacity:.75; }
 
 .inv-td { width:28px; text-align:center; padding:2px 1px; border-right:1px solid rgba(65,67,69,0.4); }
 
 .dot-lead {
   display:inline-block; width:14px; height:14px; border-radius:2px;
-  background:#68CCD1;
+  background:#00ff41;
   border:1px solid rgba(104,204,209,0.4);
   cursor:pointer; transition:transform .1s; position:relative;
 }
@@ -157,7 +157,7 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   box-shadow:0 4px 24px rgba(0,0,0,.9);
   max-width:260px; line-height:1.5;
 }
-#tip .tname { color:#68CCD1; font-weight:700; font-size:14px; margin-bottom:4px; }
+#tip .tname { color:#00ff41; font-weight:700; font-size:14px; margin-bottom:4px; }
 #tip .tinfo { color:var(--dim); }
 #tip .thigh { color:rgba(255,255,255,0.3); margin-top:3px; font-size:11px; }
 
@@ -178,34 +178,34 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   display:inline-block; font-size:1rem; padding:2px 10px; border-radius:50px;
   letter-spacing:.5px; margin-bottom:12px; font-weight:700;
 }
-.db-inv  { background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); }
+.db-inv  { background:rgba(104,204,209,0.12); color:#00ff41; border:1px solid rgba(104,204,209,0.3); }
 .db-start { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.65); border:1px solid rgba(255,255,255,0.15); }
-.dp-label { font-size:1rem; color:#68CCD1; letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; font-weight:700; }
+.dp-label { font-size:1rem; color:#00ff41; letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; font-weight:700; }
 .dp-list { list-style:none; }
 .dp-list li {
   font-size:1.4rem; padding:5px 0; border-bottom:1px solid rgba(65,67,69,0.5);
   color:var(--dim); display:flex; align-items:center; justify-content:space-between; gap:6px;
 }
 .dp-list li span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.lead-tag { font-size:.9rem; padding:1px 6px; background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); flex-shrink:0; border-radius:50px; font-weight:700; }
+.lead-tag { font-size:.9rem; padding:1px 6px; background:rgba(104,204,209,0.12); color:#00ff41; border:1px solid rgba(104,204,209,0.3); flex-shrink:0; border-radius:50px; font-weight:700; }
 
 /* ── D3 GRAPH ── */
-.gnode-inv circle { fill:#000; stroke:#68CCD1; stroke-width:1.8; cursor:pointer; }
+.gnode-inv circle { fill:#000; stroke:#00ff41; stroke-width:1.8; cursor:pointer; }
 .gnode-inv circle:hover { fill:#0a1818; }
-.gnode-inv.ghl circle { fill:#0a1818; filter:drop-shadow(0 0 6px #68CCD1); }
+.gnode-inv.ghl circle { fill:#0a1818; filter:drop-shadow(0 0 6px #00ff41); }
 .gnode-start circle { fill:#000; stroke:rgba(255,255,255,0.48); stroke-width:1.3; cursor:pointer; }
 .gnode-start circle:hover { fill:#111; }
 .gnode-start.ghl circle { fill:#111; filter:drop-shadow(0 0 5px rgba(255,255,255,0.7)); }
 .glabel { font-family:var(--font); font-size:10px; fill:rgba(255,255,255,0.35); pointer-events:none; }
-.gbadge { font-family:var(--font); font-size:9px; fill:#68CCD1; font-weight:700; pointer-events:none; }
+.gbadge { font-family:var(--font); font-size:9px; fill:#00ff41; font-weight:700; pointer-events:none; }
 .glink { stroke:var(--border); stroke-opacity:.6; }
 .glink.lead { stroke:rgba(104,204,209,0.55); }
-.glink.ghl  { stroke:#68CCD1; stroke-opacity:1; }
+.glink.ghl  { stroke:#00ff41; stroke-opacity:1; }
 
 ::-webkit-scrollbar { width:5px; height:5px; }
 ::-webkit-scrollbar-track { background:#000; }
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
-::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
+::-webkit-scrollbar-thumb:hover { background:#00ff41; }
 
 /* ── SEARCH ── */
 .search-wrap { position:relative; margin-left:8px; }
@@ -214,7 +214,7 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   font-family:var(--font); font-size:1.2rem; padding:4px 14px;
   border-radius:50px; outline:none; width:160px; transition:border-color .15s, width .2s;
 }
-.search-input:focus { border-color:#68CCD1; width:200px; }
+.search-input:focus { border-color:#00ff41; width:200px; }
 .search-input::placeholder { color:var(--dim); }
 .search-drop {
   position:absolute; top:calc(100% + 6px); right:0;
@@ -230,7 +230,7 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 }
 .search-item:last-child { border-bottom:none; }
 .search-item:hover, .search-item.s-active { background:rgba(104,204,209,0.08); color:#fff; }
-.si-type { font-size:.75rem; color:#68CCD1; letter-spacing:.5px; flex-shrink:0; font-weight:700; width:24px; }
+.si-type { font-size:.75rem; color:#00ff41; letter-spacing:.5px; flex-shrink:0; font-weight:700; width:24px; }
 
 /* ── MATRIX HIGHLIGHT (via search) ── */
 tr.row-selected td { background:rgba(104,204,209,0.15) !important; }
@@ -264,7 +264,7 @@ th.col-selected .col-hdr-inner { color:var(--text) !important; }
   <button class="vbtn"    id="btn-graph" onclick="setView('graph')">Network</button>
   <button class="vbtn"    id="btn-proj"  onclick="setView('projection')">Projection</button>
   <div class="sep"></div>
-  <span class="lpill"><span class="ldot" style="background:#68CCD1"></span>Lead investment</span>
+  <span class="lpill"><span class="ldot" style="background:#00ff41"></span>Lead investment</span>
   <span class="lpill"><span class="ldot" style="background:rgba(255,255,255,0.52)"></span>Follow investment</span>
   <div class="search-wrap">
     <input type="text" id="search-input" class="search-input" placeholder="Search…" autocomplete="off">
@@ -436,7 +436,7 @@ function buildMatrix() {
     // Total bar
     const pct = (inv.total / maxTotal * 100).toFixed(0);
     const barColor = inv.total >= 3
-      ? "#68CCD1"
+      ? "#00ff41"
       : inv.total === 2
         ? "rgba(104,204,209,0.6)"
         : "rgba(255,255,255,0.4)";

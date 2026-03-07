@@ -11,7 +11,7 @@
   letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0;
   font-family: 'Barlow Condensed', sans-serif;
 }
-.in-brand span { color: #68CCD1; }
+.in-brand span { color: #00ff41; }
 .in-links { display: flex; gap: 4px; margin-left: auto; align-items: center; }
 .in-link {
   font-size: 1.3rem; font-weight: 700; color: rgba(255,255,255,0.45);
@@ -20,7 +20,7 @@
   font-family: 'Barlow Condensed', sans-serif;
 }
 .in-link:hover { color: #fff; border-color: rgb(65,67,69); background: rgba(255,255,255,0.05); }
-.in-link.active { color: #000; background: #68CCD1; border-color: #68CCD1; }
+.in-link.active { color: #000; background: #00ff41; border-color: #00ff41; }
 
 /* GitHub trailing button */
 .in-sep { width: 1px; height: 20px; background: rgb(65,67,69); flex-shrink: 0; margin: 0 4px; }

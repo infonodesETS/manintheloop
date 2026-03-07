@@ -16,7 +16,7 @@
 | `--color-text-primary` | `#000000` | Titoli, testo forte |
 | `--color-text-body` | `rgba(102,102,102,1)` | Testo corpo |
 | `--color-text-inverse` | `#FFFFFF` | Testo su sfondo scuro |
-| `--color-accent` | `#68CCD1` | Accent legacy (teal) |
+| `--color-accent` | `#00ff41` | Accent legacy (teal) |
 | `--color-accent-green` | dal logo verde | Accent principale corrente |
 | `--color-border` | `rgb(65,67,69)` | Bordi bottoni |
 | `--color-btn-hover` | `rgb(65,67,69)` | Sfondo bottone al hover |

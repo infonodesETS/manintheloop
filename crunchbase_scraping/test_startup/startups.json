@@ -5,27 +5,24 @@
       "loc": "Munich, DE",
       "ind": "AI · Drones · Military",
       "investors": [
-        {
-          "name": "General Catalyst",
-          "is_lead": true
-        },
-        {
-          "name": "Lightspeed Venture Partners",
-          "is_lead": false
-        },
-        {
-          "name": "Accel",
-          "is_lead": false
-        },
-        {
-          "name": "BDT & MSD Partners",
-          "is_lead": false
-        },
-        {
-          "name": "Greenoaks",
-          "is_lead": false
-        }
-      ]
+        {"name": "General Catalyst", "is_lead": true},
+        {"name": "Lightspeed Venture Partners", "is_lead": false},
+        {"name": "Accel", "is_lead": false},
+        {"name": "BDT & MSD Partners", "is_lead": false},
+        {"name": "Greenoaks", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/helsing",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Drones, Information Technology, Military, Software",
+      "hq_full": "Munich, Bayern, Germany",
+      "description": "Helsing develops AI-powered defense tech, focusing on drones and software, to enhance military capabilities for democratic nations.",
+      "description_full": "Helsing offers artificial intelligence solutions designed to support defence operations across land, air, naval, and subsurface domains. It provides software-driven platforms that integrate with existing military hardware to enable autonomous target detection, coordination, and engagement. Key offerings include a reconnaissance-and-strike system that fuses battlefield data, an AI-enabled strike drone capable of operating in electronic warfare environments, underwater autonomous surveillance drones paired with an edge-AI classifier, and AI wingman pilots for aircraft. Helsing collaborates with governments and industry to embed its AI-driven software into defense ecosystems while maintaining structured ethical oversight over technology use.",
+      "website": "https://www.helsing.ai",
+      "founders": "Gundbert Scherf, Niklas Köhler, Torsten Reil",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "36",
+      "domain": "helsing.ai"
     }
   },
   "Quantum Systems": {
@@ -34,27 +31,24 @@
       "loc": "Gilching, DE",
       "ind": "Aerospace · AI · Drones",
       "investors": [
-        {
-          "name": "European Investment Bank",
-          "is_lead": true
-        },
-        {
-          "name": "Balderton Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Deutsche Bank",
-          "is_lead": false
-        },
-        {
-          "name": "Notion Capital",
-          "is_lead": false
-        },
-        {
-          "name": "KfW",
-          "is_lead": false
-        }
-      ]
+        {"name": "European Investment Bank", "is_lead": true},
+        {"name": "Balderton Capital", "is_lead": true},
+        {"name": "Deutsche Bank", "is_lead": false},
+        {"name": "Notion Capital", "is_lead": false},
+        {"name": "KfW", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/quantum-systems",
+      "stage": "",
+      "industries_full": "Aerospace, Artificial Intelligence (AI), Drones, Government, Manufacturing, Mapping Services",
+      "hq_full": "Gilching, Bayern, Germany",
+      "description": "Quantum Systems builds AI-powered eVTOL drones for defense, security, and surveying, specializing in aerial intelligence solutions.",
+      "description_full": "Quantum Systems provides AI-powered aerial intelligence solutions for defense and emergency services. The company designs and develops advanced aerial systems equipped with artificial intelligence to gather, analyze, and interpret data for strategic decision-making. These solutions are particularly valuable for surveillance, monitoring, and real-time information processing, enabling clients to enhance operational efficiency, safety, and effectiveness in critical operations.",
+      "website": "https://www.quantum-systems.com",
+      "founders": "Armin Busse, Florian Seibel",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "quantum-systems.com"
     }
   },
   "TEKEVER": {
@@ -63,27 +57,24 @@
       "loc": "Lisboa, PT",
       "ind": "Aerospace · Military",
       "investors": [
-        {
-          "name": "Baillie Gifford",
-          "is_lead": true
-        },
-        {
-          "name": "Iberis Capital",
-          "is_lead": false
-        },
-        {
-          "name": "National Security Strategic Investment Fund",
-          "is_lead": false
-        },
-        {
-          "name": "NATO Innovation Fund",
-          "is_lead": true
-        },
-        {
-          "name": "Crescent Cove Advisors",
-          "is_lead": false
-        }
-      ]
+        {"name": "Baillie Gifford", "is_lead": true},
+        {"name": "Iberis Capital", "is_lead": false},
+        {"name": "National Security Strategic Investment Fund", "is_lead": false},
+        {"name": "NATO Innovation Fund", "is_lead": true},
+        {"name": "Crescent Cove Advisors", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/tekever",
+      "stage": "",
+      "industries_full": "Aerospace, Information Technology, Military, Software",
+      "hq_full": "Lisboa, Lisboa, Portugal",
+      "description": "The Tekever Group is a provider of innovative technologies in Software, Aerospace, Defence, and Security Markets.",
+      "description_full": "TEKEVER is a UAS manufacturer offering surveillance-as-a-service solutions that deliver actionable data and intelligence. TEKEVER offers 3 mission-oriented product lines that include: AR3, a modular and transformable asset with an optional VTOL capability, designed for long-distance airborne operations, particularly in challenging terrain circumstances; For close-range intelligence, surveillance, and reconnaissance tasks, AR4 is the best available equipment; AR5 monitors the water with the capability of routine BRLOS operation with high-capacity satellite communications, and able to transport payloads like maritime radar. TEKEVER helps organizations to improve their business by taking advantage of better, faster, and tailor-made information.",
+      "website": "http://www.tekever.com",
+      "founders": "Nuno Cunha, Pedro Sinogas, Victor Cristina",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "tekever.com"
     }
   },
   "ICEYE": {
@@ -92,27 +83,24 @@
       "loc": "Espoo, FI",
       "ind": "SAR Satellites",
       "investors": [
-        {
-          "name": "General Catalyst",
-          "is_lead": true
-        },
-        {
-          "name": "Bpifrance",
-          "is_lead": false
-        },
-        {
-          "name": "BlackRock",
-          "is_lead": false
-        },
-        {
-          "name": "Draper Associates",
-          "is_lead": false
-        },
-        {
-          "name": "European Investment Fund",
-          "is_lead": false
-        }
-      ]
+        {"name": "General Catalyst", "is_lead": true},
+        {"name": "Bpifrance", "is_lead": false},
+        {"name": "BlackRock", "is_lead": false},
+        {"name": "Draper Associates", "is_lead": false},
+        {"name": "European Investment Fund", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/iceye",
+      "stage": "",
+      "industries_full": "Aerospace, Remote Sensing, Satellite Communication",
+      "hq_full": "Espoo, Southern Finland, Finland",
+      "description": "ICEYE operates a radar satellite constellation, providing all weather earth observation data and analytics for industries.",
+      "description_full": "ICEYE specializes in Earth observation by utilizing a synthetic aperture radar (SAR) satellite constellation to deliver near-real-time data. The company offers insights for various sectors, including insurance, natural disaster response, and maritime monitoring, enabling informed decision-making. The company sells both SAR satellite systems and dedicated tasking services, enabling organizations to deploy their own satellite missions in a matter of weeks or months.",
+      "website": "https://www.iceye.com",
+      "founders": "Pekka Laurila, Rafal Modrzewski",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "62",
+      "domain": "iceye.com"
     }
   },
   "Origin Robotics": {
@@ -121,19 +109,22 @@
       "loc": "Riga, LV",
       "ind": "Military Robotics",
       "investors": [
-        {
-          "name": "Change Ventures",
-          "is_lead": true
-        },
-        {
-          "name": "European Union",
-          "is_lead": true
-        },
-        {
-          "name": "Silicon Roundabout Ventures",
-          "is_lead": false
-        }
-      ]
+        {"name": "Change Ventures", "is_lead": true},
+        {"name": "European Union", "is_lead": true},
+        {"name": "Silicon Roundabout Ventures", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/origin-robotics",
+      "stage": "",
+      "industries_full": "Aerospace, Government, Military, Robotics",
+      "hq_full": "Riga, Riga, Latvia",
+      "description": "Defense technology company that specializes in advanced autonomous systems",
+      "description_full": "",
+      "website": "https://origin-robotics.com/",
+      "founders": "Agris Kipurs, Ilja Nevdahs",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "origin-robotics.com"
     }
   },
   "ARX Robotics": {
@@ -142,27 +133,24 @@
       "loc": "München, DE",
       "ind": "Autonomous Ground Systems",
       "investors": [
-        {
-          "name": "Speedinvest",
-          "is_lead": true
-        },
-        {
-          "name": "HV Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Robin Capital",
-          "is_lead": false
-        },
-        {
-          "name": "Omnes Capital",
-          "is_lead": false
-        },
-        {
-          "name": "NATO Innovation Fund",
-          "is_lead": true
-        }
-      ]
+        {"name": "Speedinvest", "is_lead": true},
+        {"name": "HV Capital", "is_lead": true},
+        {"name": "Robin Capital", "is_lead": false},
+        {"name": "Omnes Capital", "is_lead": false},
+        {"name": "NATO Innovation Fund", "is_lead": true}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/arx-49c3",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Autonomous Vehicles, Drones, Manufacturing, Robotics",
+      "hq_full": "München, Bayern, Germany",
+      "description": "ARX Robotics is a defense startup that develops autonomous unmanned ground systems for military and civilian applications.",
+      "description_full": "ARX Robotics is a defense startup that develops autonomous unmanned ground systems for both military and civilian applications. ARX Robotics is committed to enhancing European defense autonomy by providing modular, AI-native systems that can be rapidly deployed and adapted to various operational needs. Their dual-use technology is designed to support both military operations and civilian disaster response efforts, aligning with Europe's strategic goals for sovereignty and resilience.",
+      "website": "https://www.arx-robotics.com",
+      "founders": "Henrich Maximilian Wied, Marc A Wietfeld, Stefan Roebel",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "arx-robotics.com"
     }
   },
   "Roark Aerospace": {
@@ -170,7 +158,19 @@
       "extracting-source": "crunchbase",
       "loc": "London, UK",
       "ind": "Counter-UAS",
-      "investors": []
+      "investors": [],
+      "cb_url": "https://www.crunchbase.com/organization/roark-aerospace",
+      "stage": "",
+      "industries_full": "Drones, Manufacturing, Military",
+      "hq_full": "London, England, United Kingdom",
+      "description": "Roark Aerospace are the world's largest deployer of counter drone hardware and the pioneers of drone detection as a service.",
+      "description_full": "Roark Aerospace have manufactured and deployed over 30,000 c-uas devices globally as of 2025 with plans for a further 200,000 through 2027. These devices perform various drone detection, identification and tracking services alongside a c-uas (soft-kill) element. Roark are the pioneers of the \"drone detection as a service\" product suite, offering zero cap-ex, subscription based services for the public and private sector, focusing on delivering the base layer of a global c-uas layer.",
+      "website": "https://www.roark-aerospace.com/",
+      "founders": "",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "roark-aerospace.com"
     }
   },
   "Destinus": {
@@ -179,19 +179,22 @@
       "loc": "Katwijk, NL",
       "ind": "Hypersonic Aerospace",
       "investors": [
-        {
-          "name": "Commerzbank",
-          "is_lead": true
-        },
-        {
-          "name": "Soma Capital",
-          "is_lead": false
-        },
-        {
-          "name": "TA Ventures",
-          "is_lead": false
-        }
-      ]
+        {"name": "Commerzbank", "is_lead": true},
+        {"name": "Soma Capital", "is_lead": false},
+        {"name": "TA Ventures", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/destinus-34d1",
+      "stage": "",
+      "industries_full": "Aerospace, Autonomous Vehicles, Military, Software",
+      "hq_full": "Katwijk, Zuid-Holland, The Netherlands",
+      "description": "Destinus is a vertically integrated European manufacturer of flying systems for civil and military uses.",
+      "description_full": "Destinus is a vertically integrated European developer of flight systems for civilian and military uses.",
+      "website": "https://www.destinus.com",
+      "founders": "",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "destinus.com"
     }
   },
   "Delian": {
@@ -200,27 +203,25 @@
       "loc": "London, UK",
       "ind": "AI · National Security",
       "investors": [
-        {
-          "name": "Air Street Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Marathon Venture Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Nebular",
-          "is_lead": false
-        },
-        {
-          "name": "HCVC",
-          "is_lead": false
-        },
-        {
-          "name": "Entropy Industrial Capital",
-          "is_lead": false
-        }
-      ]
+        {"name": "Air Street Capital", "is_lead": true},
+        {"name": "Marathon Venture Capital", "is_lead": true},
+        {"name": "Nebular", "is_lead": false},
+        {"name": "HCVC", "is_lead": false},
+        {"name": "Entropy Industrial Capital", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/lambda-automata",
+      "cb_full_name": "Delian Alliance Industries",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Homeland Security, National Security",
+      "hq_full": "London, England, United Kingdom",
+      "description": "Delian builds a new defense prime to protect the West and its allies in the era of autonomous warfare",
+      "description_full": "Delian is building a new defense prime to protect the West and its allies in the era of autonomous warfare by integrating hardware and software to deliver tactical capabilities of pressing demand. Delian increases the efficiency of Western defense forces by providing the core of autonomous weapon systems and civil protection backbones.",
+      "website": "https://www.delian.ai",
+      "founders": "Dimitrios Kottas",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "delian.ai"
     }
   },
   "Arondite": {
@@ -229,23 +230,23 @@
       "loc": "London, UK",
       "ind": "Autonomous Systems SW",
       "investors": [
-        {
-          "name": "Index Ventures",
-          "is_lead": true
-        },
-        {
-          "name": "Concept Ventures",
-          "is_lead": true
-        },
-        {
-          "name": "Creator Fund",
-          "is_lead": true
-        },
-        {
-          "name": "Chris Adelsbach",
-          "is_lead": false
-        }
-      ]
+        {"name": "Index Ventures", "is_lead": true},
+        {"name": "Concept Ventures", "is_lead": true},
+        {"name": "Creator Fund", "is_lead": true},
+        {"name": "Chris Adelsbach", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/arondite",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Information Technology, Software",
+      "hq_full": "London, England, United Kingdom",
+      "description": "Arondite offers AI software to provide a unified connection across platforms, assets, robotic systems, autonomous systems and data.",
+      "description_full": "Arondite is a defence technology company building the foundational software and AI to power the autonomous age.",
+      "website": "https://arondite.com",
+      "founders": "Rob Underhill, Will Blyth",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "arondite.com"
     }
   },
   "Nordic Air Defence": {
@@ -254,27 +255,24 @@
       "loc": "Segeltorp, SE",
       "ind": "Air Defence",
       "investors": [
-        {
-          "name": "Inflection",
-          "is_lead": true
-        },
-        {
-          "name": "SNÖ Ventures",
-          "is_lead": true
-        },
-        {
-          "name": "EUDIS Business Accelerator",
-          "is_lead": true
-        },
-        {
-          "name": "Noam Perski",
-          "is_lead": false
-        },
-        {
-          "name": "Gustav Wiberg",
-          "is_lead": false
-        }
-      ]
+        {"name": "Inflection", "is_lead": true},
+        {"name": "SNÖ Ventures", "is_lead": true},
+        {"name": "EUDIS Business Accelerator", "is_lead": true},
+        {"name": "Noam Perski", "is_lead": false},
+        {"name": "Gustav Wiberg", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/nordic-air-defence",
+      "stage": "",
+      "industries_full": "",
+      "hq_full": "Segeltorp, Stockholms Lan, Sweden",
+      "description": "NAD maintains democratic values, which are essential to both societal stability and human advancement in a world that is changing quickly.",
+      "description_full": "Nordic Air Defence maintains democratic values, which are essential to both societal stability and human advancement in a world that is changing quickly.",
+      "website": "https://www.nordicairdefence.com",
+      "founders": "Karl Rosander, Oskar Heiwe",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "1",
+      "domain": "nordicairdefence.com"
     }
   },
   "Alpine Eagle": {
@@ -283,27 +281,24 @@
       "loc": "Munich, DE",
       "ind": "Defense Software",
       "investors": [
-        {
-          "name": "General Catalyst",
-          "is_lead": false
-        },
-        {
-          "name": "HTGF",
-          "is_lead": false
-        },
-        {
-          "name": "HCVC",
-          "is_lead": false
-        },
-        {
-          "name": "IQ Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Expeditions",
-          "is_lead": false
-        }
-      ]
+        {"name": "General Catalyst", "is_lead": false},
+        {"name": "HTGF", "is_lead": false},
+        {"name": "HCVC", "is_lead": false},
+        {"name": "IQ Capital", "is_lead": true},
+        {"name": "Expeditions", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/alpine-eagle",
+      "stage": "",
+      "industries_full": "Software",
+      "hq_full": "Munich, Bayern, Germany",
+      "description": "Alpine Eagle is a mix of software and hardware focused on cost efficiency.",
+      "description_full": "Alpine Eagle is a mix of software and hardware focused on cost efficiency.",
+      "website": "https://alpineeagle.com/",
+      "founders": "Jan Hendrik Boelens, Timo Breuer",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "alpineeagle.com"
     }
   },
   "Comand AI": {
@@ -312,27 +307,24 @@
       "loc": "Montréal, CA",
       "ind": "AI · Command & Control",
       "investors": [
-        {
-          "name": "Expeditions",
-          "is_lead": false
-        },
-        {
-          "name": "Kima Ventures",
-          "is_lead": false
-        },
-        {
-          "name": "Frst",
-          "is_lead": true
-        },
-        {
-          "name": "Eurazeo",
-          "is_lead": true
-        },
-        {
-          "name": "Shape VC",
-          "is_lead": false
-        }
-      ]
+        {"name": "Expeditions", "is_lead": false},
+        {"name": "Kima Ventures", "is_lead": false},
+        {"name": "Frst", "is_lead": true},
+        {"name": "Eurazeo", "is_lead": true},
+        {"name": "Shape VC", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/comand-ai",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Government, Military, National Security, Software",
+      "hq_full": "Montréal, Quebec, Canada",
+      "description": "Comand AI is a defense and security software developing AI-powered command solutions for defense operations.",
+      "description_full": "Comand AI provides advanced AI-driven capabilities for command and control in defense operations. The company focuses on enhancing human decision-making and operational readiness through innovative software solutions tailored to military needs.",
+      "website": "https://comandai.net",
+      "founders": "Loic Mougeolle",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "comand.ai"
     }
   },
   "Alta Ares": {
@@ -341,27 +333,24 @@
       "loc": "Romainville, FR",
       "ind": "Drone Surveillance",
       "investors": [
-        {
-          "name": "Bpifrance",
-          "is_lead": false
-        },
-        {
-          "name": "Kima Ventures",
-          "is_lead": false
-        },
-        {
-          "name": "Starburst Accelerator",
-          "is_lead": false
-        },
-        {
-          "name": "Apeiron Venture Capital",
-          "is_lead": false
-        },
-        {
-          "name": "Better Angle",
-          "is_lead": false
-        }
-      ]
+        {"name": "Bpifrance", "is_lead": false},
+        {"name": "Kima Ventures", "is_lead": false},
+        {"name": "Starburst Accelerator", "is_lead": false},
+        {"name": "Apeiron Venture Capital", "is_lead": false},
+        {"name": "Better Angle", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/alta-ares",
+      "stage": "",
+      "industries_full": "Artificial Intelligence (AI), Drone Management, Drones, Security",
+      "hq_full": "Romainville, Ile-de-France, France",
+      "description": "Alta Ares is a data integration surveillance service provider that utilizes drone imaging.",
+      "description_full": "",
+      "website": "https://altaares.com/",
+      "founders": "",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "altaares.com"
     }
   },
   "Intelic": {
@@ -370,11 +359,20 @@
       "loc": "Amsterdam, NL",
       "ind": "C2 · Unmanned Systems",
       "investors": [
-        {
-          "name": "Keen Venture Partners",
-          "is_lead": true
-        }
-      ]
+        {"name": "Keen Venture Partners", "is_lead": true}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/avalor-ai",
+      "stage": "",
+      "industries_full": "Aerospace, Artificial Intelligence (AI), Drones, Military",
+      "hq_full": "Amsterdam, Noord-Holland, The Netherlands",
+      "description": "Command & Control software for military unmanned systems",
+      "description_full": "Intelic builds Nexus; the command and control interface for unmanned systems, connecting them across air, land and sea to provide a common operational picture. With integrated onboard AI it enables intelligent autonomous missions even in the most demanding environments.",
+      "website": "https://www.intelic.ai/",
+      "founders": "Maurits Korthals Altes",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "intelic.ai"
     }
   },
   "XRF.ai": {
@@ -383,23 +381,23 @@
       "loc": "Telde, ES",
       "ind": "Decision Intelligence",
       "investors": [
-        {
-          "name": "K Fund",
-          "is_lead": false
-        },
-        {
-          "name": "GoHub Ventures",
-          "is_lead": false
-        },
-        {
-          "name": "JME Ventures",
-          "is_lead": false
-        },
-        {
-          "name": "EUDIS Business Accelerator",
-          "is_lead": true
-        }
-      ]
+        {"name": "K Fund", "is_lead": false},
+        {"name": "GoHub Ventures", "is_lead": false},
+        {"name": "JME Ventures", "is_lead": false},
+        {"name": "EUDIS Business Accelerator", "is_lead": true}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/the-singular-social-games",
+      "stage": "",
+      "industries_full": "Military, Ports and Harbors, Wildlife Conservation",
+      "hq_full": "Telde, Canarias, Spain",
+      "description": "XRF.ai provides critical help to decision-makers in challenging scenarios for the military, security, and emergency industries.",
+      "description_full": "XRF.ai is a valuable resource for decision-makers in challenging situations. XRF.ai simplifies complexity by displaying important information attractively and easily. XRF.ai use generative AI to learn and maximize available possibilities, ensuring clarity and trust in all decisions.",
+      "website": "https://xrf.ai",
+      "founders": "Gustavo Medina del Rosario",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "0",
+      "domain": "xrf.ai"
     }
   },
   "Unmanned Defense Systems": {
@@ -408,27 +406,24 @@
       "loc": "Vilnius, LT",
       "ind": "Military UAV",
       "investors": [
-        {
-          "name": "Coinvest Capital",
-          "is_lead": true
-        },
-        {
-          "name": "Gytenis Galkis",
-          "is_lead": false
-        },
-        {
-          "name": "Rita Sakus",
-          "is_lead": false
-        },
-        {
-          "name": "Vladas Lašas",
-          "is_lead": false
-        },
-        {
-          "name": "Martynas Kandzeras",
-          "is_lead": false
-        }
-      ]
+        {"name": "Coinvest Capital", "is_lead": true},
+        {"name": "Gytenis Galkis", "is_lead": false},
+        {"name": "Rita Sakus", "is_lead": false},
+        {"name": "Vladas Lašas", "is_lead": false},
+        {"name": "Martynas Kandzeras", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/unmanned-defense-systems",
+      "stage": "",
+      "industries_full": "Aerospace, Manufacturing, Military",
+      "hq_full": "Vilnius, Vilniaus Apskritis, Lithuania",
+      "description": "Unmanned Defense Systems researches, develops, designs, and manufactures tactical military UAV systems.",
+      "description_full": "Unmanned Defense Systems (UDS) is defense and space manufacturing company which was founded by experienced UAS and Satellite experts working in global markets. The main focus of UDS is to deliver new-generation cost-efficient UAS systems capable of complying with a doctrine of modern warfare. The team has covered areas related to autonomous systems, GNSS-denied environment navigation, AI, computer vision, and many others.",
+      "website": "https://www.unmands.com/",
+      "founders": "",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "udefenses.com"
     }
   },
   "C2Grid": {
@@ -437,19 +432,22 @@
       "loc": "Tallinn, EE",
       "ind": "AI · Situational Awareness",
       "investors": [
-        {
-          "name": "BSV Ventures",
-          "is_lead": false
-        },
-        {
-          "name": "Sunfish Partners",
-          "is_lead": true
-        },
-        {
-          "name": "Mike Oliinyk",
-          "is_lead": false
-        }
-      ]
+        {"name": "BSV Ventures", "is_lead": false},
+        {"name": "Sunfish Partners", "is_lead": true},
+        {"name": "Mike Oliinyk", "is_lead": false}
+      ],
+      "cb_url": "https://www.crunchbase.com/organization/c2grid",
+      "stage": "",
+      "industries_full": "3D Technology, Artificial Intelligence (AI), Intelligent Systems",
+      "hq_full": "Tallinn, Harjumaa, Estonia",
+      "description": "C2Grid uses AI to turn video into 3D situational awareness, boosting decision-making and safety in military and civilian operations.",
+      "description_full": "C2Grid delivers AI-powered 3D situational awareness by transforming video into interactive, multi-layered intelligence. Its technology enhances tactical and operational visibility, accelerates decision-making, and improves mission outcomes. Designed for both military and civilian use, C2Grid's solutions save time, boost efficiency, and ultimately protect lives.",
+      "website": "https://www.c2grid.com/",
+      "founders": "Rostyslav Boychuk",
+      "acquired_by": "",
+      "acquired_by_url": "",
+      "patents_granted": "",
+      "domain": "c2grid.com"
     }
   }
 }
