@@ -522,7 +522,25 @@ async function fetchTopicMeta(topicIdentifier) {
     const results = data.results || [];
     if (results.length === 0) return null;
 
-    const meta = results[0].metadata || {};
+    // Log raw results to help debug year matching
+    log(`  API returned ${results.length} result(s) for ${topicIdentifier}`, 'info');
+    results.slice(0, 3).forEach(r => {
+        const ids = r.metadata?.identifier || r.metadata?.topicCode || [];
+        const idStr = Array.isArray(ids) ? ids.join(', ') : ids;
+        log(`    → ref: ${r.reference || '?'} | identifier: ${idStr}`, 'info');
+    });
+
+    // Find the result that exactly matches the searched identifier (year-aware)
+    const idUpper = topicIdentifier.toUpperCase();
+    const match = results.find(r => {
+        const ref = (r.reference || '').toUpperCase();
+        if (ref === idUpper) return true;
+        const ids = r.metadata?.identifier || r.metadata?.topicCode || [];
+        const idArr = Array.isArray(ids) ? ids : [ids];
+        return idArr.some(id => (id || '').toUpperCase() === idUpper);
+    }) || results[0]; // fallback to first if no exact match found (log will reveal issue)
+
+    const meta = match.metadata || {};
 
     const ccm2Id = meta.ccm2Id;
     const topicId = ccm2Id ? (Array.isArray(ccm2Id) ? ccm2Id[0] : ccm2Id) : null;
