@@ -290,7 +290,15 @@
       "wikidata_id": "Q821293",
       "wikipedia_url": "https://en.wikipedia.org/wiki/Rio_Tinto_Group",
       "wikidata_url": "https://www.wikidata.org/wiki/Q821293"
-    }
+    },
+    "validation_status": [
+      {
+        "status": "merged_duplicate",
+        "author": "claude-sonnet-4-6",
+        "validation_description": "'Rio Tinto Lithium' appeared as a separate row in the source sheet and has been merged into the main 'Rio Tinto' entry with Lithium appended to main_focus. Rio Tinto Lithium is not a legally distinct entity — it refers to Rio Tinto's lithium business unit (Rincon project, Argentina). Merge is likely correct, but the dual appearance in the sheet may indicate intent to track it separately as a business unit. Confirm whether a separate entry for the Lithium division is desired.",
+        "datestamp": "20260307"
+      }
+    ]
   },
   "Tesla": {
     "20260307": {
@@ -654,7 +662,15 @@
       "wikidata_id": "Q182477",
       "wikipedia_url": "https://en.wikipedia.org/wiki/Nvidia",
       "wikidata_url": "https://www.wikidata.org/wiki/Q182477"
-    }
+    },
+    "validation_status": [
+      {
+        "status": "merged_duplicate",
+        "author": "claude-sonnet-4-6",
+        "validation_description": "Glencore appears twice in the source sheet: once as 'Mining' (sector, TAX ID CHE-106.909.694) and once as 'Tech' (same TAX ID, no main_focus). The two rows have been merged with concatenated main_focus. The 'Tech' row in the sheet contains a Wikidata ID (Q182477) that actually belongs to Nvidia — likely a spreadsheet data entry error. Manual review needed: confirm sector classification (Mining/Commodities, not Tech) and correct the Wikidata assignment.",
+        "datestamp": "20260307"
+      }
+    ]
   },
   "Origin Robotics": {
     "20260307": {
@@ -3288,7 +3304,15 @@
       "country": "Finland",
       "tax_id": "FI01124204",
       "main_focus": "Armored Vehicles"
-    }
+    },
+    "validation_status": [
+      {
+        "status": "uncertain_match",
+        "author": "claude-sonnet-4-6",
+        "validation_description": "Source sheet lists 'Patria Group' (Finnish defence and aerospace group, TAX ID FI01124204) under Defence sector. This was mapped to 'Patricomp Oy' in investments.json, which is a subsidiary of Patria Group specialising in armoured vehicle maintenance and upgrades. Patricomp Oy and Patria Group are legally distinct entities with different business scopes. Recommend: (1) rename the investments.json key from 'Patricomp Oy' to 'Patria Group', or (2) create a separate entry for Patria Group and retain Patricomp Oy independently. Do not treat them as equivalent without further verification.",
+        "datestamp": "20260307"
+      }
+    ]
   },
   "HII Mission Technologies": {
     "20260307": {
@@ -4522,7 +4546,15 @@
       "country": "Canada",
       "tax_id": "10003-8276-RT0001 (BN)",
       "main_focus": "Neodimio | Gallium"
-    }
+    },
+    "validation_status": [
+      {
+        "status": "merged_duplicate",
+        "author": "claude-sonnet-4-6",
+        "validation_description": "Two sheet rows — 'Neo Performance Mat.' (sector: Neodimio) and 'Neo Performance (Gallium)' (sector: Gallium) — were both mapped to the single investments.json key 'NeoPerformance'. main_focus has been concatenated with ' | ' separator. Neo Performance Materials Corp. is a single legal entity covering multiple critical minerals (rare earths, gallium, etc.), so the merge is likely correct. However, the sector field only retains the first row's sector (Neodimio). Consider using a multi-value sector field or splitting into sub-entries by material focus.",
+        "datestamp": "20260307"
+      }
+    ]
   },
   "Norincogroup": {
     "20260307": {
