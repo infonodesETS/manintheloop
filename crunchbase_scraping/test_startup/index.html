@@ -102,8 +102,8 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   display:flex; align-items:center; gap:6px;
   cursor:pointer;
 }
-.inv-rank { font-size:10px; color:rgba(255,255,255,0.18); width:16px; text-align:right; flex-shrink:0; }
-.inv-name { flex:1; color:var(--text); font-size:13px; overflow:hidden; text-overflow:ellipsis; }
+.inv-rank { font-size:1rem; color:rgba(255,255,255,0.18); width:20px; text-align:right; flex-shrink:0; }
+.inv-name { flex:1; color:var(--text); font-size:1.4rem; overflow:hidden; text-overflow:ellipsis; }
 .inv-name:hover { color:#fff; }
 .count-pill {
   flex-shrink:0; display:inline-flex; align-items:center; justify-content:center;
@@ -173,21 +173,21 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   font-size:16px; cursor:pointer; padding:0 2px; line-height:1;
 }
 .dp-close:hover { color:var(--text); }
-.dp-title { font-size:15px; color:#fff; font-weight:700; margin-bottom:4px; padding-right:20px; line-height:1.3; text-transform:uppercase; letter-spacing:.5px; }
+.dp-title { font-size:1.4rem; color:#fff; font-weight:700; margin-bottom:4px; padding-right:20px; line-height:1.3; text-transform:uppercase; letter-spacing:.5px; }
 .dp-badge {
-  display:inline-block; font-size:10px; padding:2px 10px; border-radius:50px;
+  display:inline-block; font-size:1rem; padding:2px 10px; border-radius:50px;
   letter-spacing:.5px; margin-bottom:12px; font-weight:700;
 }
 .db-inv  { background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); }
 .db-start { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.65); border:1px solid rgba(255,255,255,0.15); }
-.dp-label { font-size:10px; color:#68CCD1; letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; font-weight:700; }
+.dp-label { font-size:1rem; color:#68CCD1; letter-spacing:1px; text-transform:uppercase; margin:12px 0 6px; font-weight:700; }
 .dp-list { list-style:none; }
 .dp-list li {
-  font-size:12px; padding:4px 0; border-bottom:1px solid rgba(65,67,69,0.5);
+  font-size:1.4rem; padding:5px 0; border-bottom:1px solid rgba(65,67,69,0.5);
   color:var(--dim); display:flex; align-items:center; justify-content:space-between; gap:6px;
 }
 .dp-list li span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.lead-tag { font-size:9px; padding:1px 6px; background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); flex-shrink:0; border-radius:50px; font-weight:700; }
+.lead-tag { font-size:.9rem; padding:1px 6px; background:rgba(104,204,209,0.12); color:#68CCD1; border:1px solid rgba(104,204,209,0.3); flex-shrink:0; border-radius:50px; font-weight:700; }
 
 /* ── D3 GRAPH ── */
 .gnode-inv circle { fill:#000; stroke:#68CCD1; stroke-width:1.8; cursor:pointer; }
@@ -206,6 +206,37 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 ::-webkit-scrollbar-track { background:#000; }
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
 ::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
+
+/* ── SEARCH ── */
+.search-wrap { position:relative; margin-left:8px; }
+.search-input {
+  background:transparent; border:1px solid var(--border); color:var(--text);
+  font-family:var(--font); font-size:1.2rem; padding:4px 14px;
+  border-radius:50px; outline:none; width:160px; transition:border-color .15s, width .2s;
+}
+.search-input:focus { border-color:#68CCD1; width:200px; }
+.search-input::placeholder { color:var(--dim); }
+.search-drop {
+  position:absolute; top:calc(100% + 6px); right:0;
+  background:#0d0d0d; border:1px solid var(--border);
+  border-radius:6px; z-index:500; min-width:240px; display:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.9); overflow:hidden;
+}
+.search-drop.open { display:block; }
+.search-item {
+  padding:8px 12px; cursor:pointer; font-size:1.2rem;
+  color:rgba(255,255,255,0.75); display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid rgba(65,67,69,0.3);
+}
+.search-item:last-child { border-bottom:none; }
+.search-item:hover, .search-item.s-active { background:rgba(104,204,209,0.08); color:#fff; }
+.si-type { font-size:.75rem; color:#68CCD1; letter-spacing:.5px; flex-shrink:0; font-weight:700; width:24px; }
+
+/* ── MATRIX HIGHLIGHT (via search) ── */
+tr.row-selected td { background:var(--hl-row) !important; }
+tr.row-selected td:first-child { background:rgba(104,204,209,0.08) !important; }
+td.col-selected { background:rgba(104,204,209,0.05) !important; }
+th.col-selected .col-hdr-inner { color:var(--text) !important; }
 
 </style>
 </head>
@@ -235,6 +266,10 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
   <div class="sep"></div>
   <span class="lpill"><span class="ldot" style="background:#68CCD1"></span>Lead investment</span>
   <span class="lpill"><span class="ldot" style="background:rgba(255,255,255,0.52)"></span>Follow investment</span>
+  <div class="search-wrap">
+    <input type="text" id="search-input" class="search-input" placeholder="Search…" autocomplete="off">
+    <div id="search-drop" class="search-drop"></div>
+  </div>
   <div class="ml-auto" style="font-size:13px;color:var(--dim)" id="hdr-info"></div>
 </div>
 
@@ -317,6 +352,7 @@ async function loadData() {
   CO_LINKS = Object.values(coMap);
 
   buildMatrix();
+  initSearch();
 }
 
 let projFilter = "all";
@@ -345,7 +381,7 @@ function buildMatrix() {
 
   STARTUPS.forEach(s => {
     const short = s.id.length > 14 ? s.id.slice(0,13)+"…" : s.id;
-    html += `<th class="col-hdr">
+    html += `<th class="col-hdr" data-startup="${s.id.replace(/"/g,'&quot;')}">
       <span class="col-hdr-inner"><abbr title="${s.id} · ${s.loc} · ${s.ind}">${short}</abbr></span>
     </th>`;
   });
@@ -368,7 +404,7 @@ function buildMatrix() {
       ? `<span class="count-lead" title="${inv.leads} lead investment${inv.leads>1?'s':''}">↑${inv.leads}</span>`
       : "";
 
-    html += `<tr>`;
+    html += `<tr data-investor="${inv.id.replace(/"/g,'&quot;')}">`;
     // Investor name cell
     html += `<td>
       <div class="inv-cell" onclick="showInvestorDetail('${inv.id.replace(/'/g,"\\'")}')">
@@ -381,18 +417,19 @@ function buildMatrix() {
 
     // One cell per startup
     STARTUPS.forEach(s => {
+      const colAttr = `data-startup="${s.id.replace(/"/g,'&quot;')}"`;
       if (s.id in pf) {
         const isLead = pf[s.id];
         const cls = isLead ? "dot-lead" : "dot-follow";
         const title = `${inv.id} → ${s.id} (${isLead ? "LEAD" : "follow"})`;
-        html += `<td class="inv-td">
+        html += `<td class="inv-td" ${colAttr}>
           <span class="${cls}" title="${title}"
             onmouseenter="showTip(event,'${inv.id.replace(/'/g,"\\'")}','${s.id.replace(/'/g,"\\'")}',${isLead})"
             onmouseleave="hideTip()"
           ></span>
         </td>`;
       } else {
-        html += `<td class="inv-td"><span class="dot-none"></span></td>`;
+        html += `<td class="inv-td" ${colAttr}><span class="dot-none"></span></td>`;
       }
     });
 
@@ -889,6 +926,106 @@ function setView(v) {
   if (v==="bipartite")  buildBipartite();
   if (v==="graph")      buildGraph();
   if (v==="projection") buildProjection(projFilter);
+}
+
+// ══════════════════════════════════════════════════════
+//  SEARCH
+// ══════════════════════════════════════════════════════
+
+function _esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function clearSearchHighlight() {
+  document.querySelectorAll('tr.row-selected').forEach(r => r.classList.remove('row-selected'));
+  document.querySelectorAll('.col-selected').forEach(c => c.classList.remove('col-selected'));
+}
+
+function applySearchSelection(id, type) {
+  clearSearchHighlight();
+  if (type === 'investor') {
+    const row = [...document.querySelectorAll('tr[data-investor]')]
+      .find(tr => tr.dataset.investor === id);
+    if (row) {
+      row.classList.add('row-selected');
+      row.scrollIntoView({ block:'center', behavior:'smooth' });
+    }
+    showInvestorDetail(id);
+  } else {
+    [...document.querySelectorAll('td[data-startup], th[data-startup]')]
+      .filter(el => el.dataset.startup === id)
+      .forEach(el => el.classList.add('col-selected'));
+    const th = [...document.querySelectorAll('th[data-startup]')]
+      .find(el => el.dataset.startup === id);
+    if (th) th.scrollIntoView({ inline:'center', behavior:'smooth' });
+    showStartupDetail(id);
+  }
+}
+
+function initSearch() {
+  const input = document.getElementById('search-input');
+  const drop  = document.getElementById('search-drop');
+  let activeIdx = -1;
+
+  const allItems = [
+    ...INVESTORS.map(i => ({ id: i.id, type: 'investor' })),
+    ...STARTUPS.map(s  => ({ id: s.id, type: 'startup'  })),
+  ];
+
+  function renderDrop(q) {
+    const matches = allItems
+      .filter(it => it.id.toLowerCase().includes(q.toLowerCase()))
+      .slice(0, 12);
+    if (!matches.length) { drop.classList.remove('open'); return; }
+    drop.innerHTML = matches.map(m =>
+      `<div class="search-item" data-id="${_esc(m.id)}" data-type="${m.type}">
+        <span class="si-type">${m.type === 'investor' ? 'INV' : 'CO'}</span>
+        <span>${_esc(m.id)}</span>
+      </div>`
+    ).join('');
+    drop.querySelectorAll('.search-item').forEach(el => {
+      el.addEventListener('mousedown', e => {
+        e.preventDefault();
+        applySearchSelection(el.dataset.id, el.dataset.type);
+        input.value = el.dataset.id;
+        drop.classList.remove('open');
+      });
+    });
+    drop.classList.add('open');
+    activeIdx = -1;
+  }
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    if (!q) { drop.classList.remove('open'); clearSearchHighlight(); return; }
+    renderDrop(q);
+  });
+
+  input.addEventListener('keydown', e => {
+    const els = [...drop.querySelectorAll('.search-item')];
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, els.length - 1);
+      els.forEach((el, i) => el.classList.toggle('s-active', i === activeIdx));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, 0);
+      els.forEach((el, i) => el.classList.toggle('s-active', i === activeIdx));
+    } else if (e.key === 'Enter' && activeIdx >= 0 && els[activeIdx]) {
+      const el = els[activeIdx];
+      applySearchSelection(el.dataset.id, el.dataset.type);
+      input.value = el.dataset.id;
+      drop.classList.remove('open');
+    } else if (e.key === 'Escape') {
+      drop.classList.remove('open');
+      input.value = '';
+      clearSearchHighlight();
+    }
+  });
+
+  input.addEventListener('blur', () => {
+    setTimeout(() => drop.classList.remove('open'), 150);
+  });
 }
 
 </script>
