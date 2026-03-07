@@ -316,9 +316,12 @@
 // ============================================================
 const YEARS_TO_TRY = [2027, 2026, 2025, 2024, 2023, 2022, 2021];
 
-const SEARCH_API  = 'https://api.tech.ec.europa.eu/search-api/prod/rest/search';
-const DOC_API     = 'https://api.tech.ec.europa.eu/search-api/prod/rest/document';
+const CORS_PROXY   = 'https://corsproxy.io/?url=';
+const SEARCH_API   = 'https://api.tech.ec.europa.eu/search-api/prod/rest/search';
+const DOC_API      = 'https://api.tech.ec.europa.eu/search-api/prod/rest/document';
 const PROJECTS_API = 'https://ec.europa.eu/info/funding-tenders/opportunities/api/topicProjectsList.json';
+
+function proxied(url) { return CORS_PROXY + encodeURIComponent(url); }
 
 // ============================================================
 // STATE
@@ -503,11 +506,11 @@ async function fetchTopicMeta(topicIdentifier) {
         }
     };
 
-    const url = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}&pageSize=10`;
+    const rawUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}&pageSize=10`;
 
     let resp;
     try {
-        resp = await fetch(url);
+        resp = await fetch(proxied(rawUrl));
     } catch (e) {
         throw new Error(`Search API unreachable: ${e.message}`);
     }
@@ -537,7 +540,7 @@ async function fetchTopicMeta(topicIdentifier) {
 }
 
 async function fetchProjectDetails(project) {
-    const resp = await fetch(project._endpoint);
+    const resp = await fetch(proxied(project._endpoint));
     if (!resp.ok) return project;
 
     const data   = await resp.json();
@@ -586,8 +589,8 @@ async function fetchTopicUpdates(topicIdentifier) {
     };
 
     try {
-        const url = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}&pageSize=10`;
-        const resp = await fetch(url);
+        const rawUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}&pageSize=10`;
+        const resp = await fetch(proxied(rawUrl));
         if (!resp.ok) return [];
         const data    = await resp.json();
         const results = data.results || [];
