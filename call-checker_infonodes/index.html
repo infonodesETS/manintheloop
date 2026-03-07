@@ -530,15 +530,14 @@ async function fetchTopicMeta(topicIdentifier) {
         log(`    → ref: ${r.reference || '?'} | identifier: ${idStr}`, 'info');
     });
 
-    // Find the result that exactly matches the searched identifier (year-aware)
+    // Find the result that exactly matches the searched identifier (year must match)
     const idUpper = topicIdentifier.toUpperCase();
     const match = results.find(r => {
-        const ref = (r.reference || '').toUpperCase();
-        if (ref === idUpper) return true;
         const ids = r.metadata?.identifier || r.metadata?.topicCode || [];
         const idArr = Array.isArray(ids) ? ids : [ids];
         return idArr.some(id => (id || '').toUpperCase() === idUpper);
-    }) || results[0]; // fallback to first if no exact match found (log will reveal issue)
+    });
+    if (!match) return null; // This topic/year does not exist
 
     const meta = match.metadata || {};
 
