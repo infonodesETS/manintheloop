@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/nav.css">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -19,27 +20,6 @@ body {
   flex-direction:column;
   overflow:hidden;
 }
-
-/* ── GLOBAL NAV ── */
-#in-nav {
-  position:fixed; top:0; left:0; right:0; height:44px; z-index:9999;
-  background:#000; border-bottom:1px solid rgb(65,67,69);
-  display:flex; align-items:center; padding:0 24px; gap:24px;
-}
-.in-brand {
-  font-size:1.5rem; font-weight:700; color:#fff; text-decoration:none;
-  letter-spacing:1px; text-transform:uppercase; flex-shrink:0;
-}
-.in-brand span { color:#68CCD1; }
-.in-links { display:flex; gap:4px; margin-left:auto; }
-.in-link {
-  font-size:1.3rem; font-weight:700; color:rgba(255,255,255,0.45);
-  text-decoration:none; padding:5px 16px; border-radius:50px;
-  border:1px solid transparent; transition:all .15s; letter-spacing:.3px;
-  font-family:'Barlow Condensed',sans-serif;
-}
-.in-link:hover { color:#fff; border-color:rgb(65,67,69); background:rgba(255,255,255,0.05); }
-.in-link.active { color:#000; background:#68CCD1; border-color:#68CCD1; }
 
 /* ── HERO ── */
 main {
@@ -85,6 +65,8 @@ main {
     <a href="crunchbase_full/"                  class="in-link">Investment Map</a>
     <a href="wikidata_inspector/"               class="in-link">Wikidata</a>
     <a href="call-checker_infonodes/"           class="in-link">CallChecker</a>
+    <span class="in-sep"></span>
+    <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="in-link in-gh">↗ GitHub</a>
   </div>
 </nav>
 

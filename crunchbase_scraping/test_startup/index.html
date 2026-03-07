@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/nav.css">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -206,25 +207,6 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
 ::-webkit-scrollbar-thumb:hover { background:#68CCD1; }
 
-/* ── info.nodes global nav ── */
-#in-nav {
-  position:fixed; top:0; left:0; right:0; height:44px; z-index:9999;
-  background:#000; border-bottom:1px solid rgb(65,67,69);
-  display:flex; align-items:center; padding:0 24px; gap:24px;
-}
-.in-brand {
-  font-size:1.5rem; font-weight:700; color:#fff; text-decoration:none;
-  letter-spacing:1px; text-transform:uppercase; flex-shrink:0;
-}
-.in-brand span { color:#68CCD1; }
-.in-links { display:flex; gap:4px; margin-left:auto; }
-.in-link {
-  font-size:1.3rem; font-weight:700; color:rgba(255,255,255,0.45);
-  text-decoration:none; padding:5px 16px; border-radius:50px;
-  border:1px solid transparent; transition:all .15s; letter-spacing:.3px;
-}
-.in-link:hover { color:#fff; border-color:rgb(65,67,69); background:rgba(255,255,255,0.05); }
-.in-link.active { color:#000; background:#68CCD1; border-color:#68CCD1; }
 </style>
 </head>
 <body>
@@ -236,6 +218,8 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
     <a href="../../crunchbase_full/"           class="in-link">Investment Map</a>
     <a href="../../wikidata_inspector/"        class="in-link">Wikidata</a>
     <a href="../../call-checker_infonodes/"    class="in-link">CallChecker</a>
+    <span class="in-sep"></span>
+    <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="in-link in-gh">↗ GitHub</a>
   </div>
 </nav>
 
@@ -281,147 +265,66 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 // ══════════════════════════════════════════════════════
-//  DATA
+//  DATA  (loaded from startups.json)
 // ══════════════════════════════════════════════════════
 
-const STARTUPS = [
-  { id:"Helsing",                  loc:"Munich, DE",       ind:"AI · Drones · Military" },
-  { id:"Quantum Systems",          loc:"Gilching, DE",     ind:"Aerospace · AI · Drones" },
-  { id:"TEKEVER",                  loc:"Lisboa, PT",       ind:"Aerospace · Military" },
-  { id:"ICEYE",                    loc:"Espoo, FI",        ind:"SAR Satellites" },
-  { id:"Origin Robotics",          loc:"Riga, LV",        ind:"Military Robotics" },
-  { id:"ARX Robotics",             loc:"München, DE",     ind:"Autonomous Ground Systems" },
-  { id:"Roark Aerospace",          loc:"London, UK",      ind:"Counter-UAS" },
-  { id:"Destinus",                 loc:"Katwijk, NL",     ind:"Hypersonic Aerospace" },
-  { id:"Delian",                   loc:"London, UK",      ind:"AI · National Security" },
-  { id:"Arondite",                 loc:"London, UK",      ind:"Autonomous Systems SW" },
-  { id:"Nordic Air Defence",       loc:"Segeltorp, SE",   ind:"Air Defence" },
-  { id:"Alpine Eagle",             loc:"Munich, DE",      ind:"Defense Software" },
-  { id:"Comand AI",                loc:"Montréal, CA",    ind:"AI · Command & Control" },
-  { id:"Alta Ares",                loc:"Romainville, FR", ind:"Drone Surveillance" },
-  { id:"Intelic",                  loc:"Amsterdam, NL",   ind:"C2 · Unmanned Systems" },
-  { id:"XRF.ai",                   loc:"Telde, ES",       ind:"Decision Intelligence" },
-  { id:"Unmanned Defense Systems", loc:"Vilnius, LT",     ind:"Military UAV" },
-  { id:"C2Grid",                   loc:"Tallinn, EE",     ind:"AI · Situational Awareness" },
-];
+let STARTUPS = [], RAW = [], INVESTORS = [], invMap = {}, startMap = {};
 
-// [startup, investor, isLead]
-const RAW = [
-  ["Helsing","General Catalyst",true],
-  ["Helsing","Lightspeed Venture Partners",false],
-  ["Helsing","Accel",false],
-  ["Helsing","BDT & MSD Partners",false],
-  ["Helsing","Greenoaks",false],
+async function loadData() {
+  const json = await fetch('startups.json').then(r => r.json());
 
-  ["Quantum Systems","European Investment Bank",true],
-  ["Quantum Systems","Balderton Capital",true],
-  ["Quantum Systems","Deutsche Bank",false],
-  ["Quantum Systems","Notion Capital",false],
-  ["Quantum Systems","KfW",false],
+  // Reconstruct STARTUPS and RAW from tracked JSON
+  Object.entries(json).forEach(([id, snapshots]) => {
+    const date = Object.keys(snapshots).sort().at(-1);
+    const s = snapshots[date];
+    STARTUPS.push({ id, loc: s.loc, ind: s.ind });
+    (s.investors || []).forEach(inv => {
+      RAW.push([id, inv.name, inv.is_lead]);
+    });
+  });
 
-  ["TEKEVER","Baillie Gifford",true],
-  ["TEKEVER","Iberis Capital",false],
-  ["TEKEVER","National Security Strategic Investment Fund",false],
-  ["TEKEVER","NATO Innovation Fund",true],
-  ["TEKEVER","Crescent Cove Advisors",false],
+  // Build investor index
+  RAW.forEach(([s, i, lead]) => {
+    if (!invMap[i]) invMap[i] = { id:i, portfolio:[], total:0, leads:0 };
+    invMap[i].portfolio.push({ startup:s, lead });
+    invMap[i].total++;
+    if (lead) invMap[i].leads++;
+  });
 
-  ["ICEYE","General Catalyst",true],
-  ["ICEYE","Bpifrance",false],
-  ["ICEYE","BlackRock",false],
-  ["ICEYE","Draper Associates",false],
-  ["ICEYE","European Investment Fund",false],
+  // Build startup index
+  STARTUPS.forEach(s => startMap[s.id] = { ...s, investors:[], leads:[] });
+  RAW.forEach(([s, i, lead]) => {
+    startMap[s].investors.push({ investor:i, lead });
+    if (lead) startMap[s].leads.push(i);
+  });
 
-  ["Origin Robotics","Change Ventures",true],
-  ["Origin Robotics","European Union",true],
-  ["Origin Robotics","Silicon Roundabout Ventures",false],
+  INVESTORS = Object.values(invMap).sort((a,b) => b.total - a.total || b.leads - a.leads);
 
-  ["ARX Robotics","Speedinvest",true],
-  ["ARX Robotics","HV Capital",true],
-  ["ARX Robotics","Robin Capital",false],
-  ["ARX Robotics","Omnes Capital",false],
-  ["ARX Robotics","NATO Innovation Fund",true],
+  document.getElementById("hdr-info").textContent =
+    `${INVESTORS.length} investors · ${RAW.length} investments · ${RAW.filter(d=>d[2]).length} lead`;
 
-  ["Destinus","Commerzbank",true],
-  ["Destinus","Soma Capital",false],
-  ["Destinus","TA Ventures",false],
+  // Build co-investment index
+  INVESTORS.forEach(inv => {
+    inv.portfolio.forEach(p => {
+      const others = RAW.filter(d => d[0]===p.startup && d[1]!==inv.id).map(d=>d[1]);
+      others.forEach(other => {
+        const key = [inv.id, other].sort().join("|||");
+        if (!coMap[key]) coMap[key] = { a:[inv.id,other].sort()[0], b:[inv.id,other].sort()[1], startups:[] };
+        if (!coMap[key].startups.includes(p.startup)) coMap[key].startups.push(p.startup);
+      });
+    });
+  });
+  CO_LINKS = Object.values(coMap);
 
-  ["Delian","Air Street Capital",true],
-  ["Delian","Marathon Venture Capital",true],
-  ["Delian","Nebular",false],
-  ["Delian","HCVC",false],
-  ["Delian","Entropy Industrial Capital",false],
+  buildMatrix();
+}
 
-  ["Arondite","Index Ventures",true],
-  ["Arondite","Concept Ventures",true],
-  ["Arondite","Creator Fund",true],
-  ["Arondite","Chris Adelsbach",false],
+let projFilter = "all";
+let simProj;
+let CO_LINKS = [];
+const coMap = {};
 
-  ["Nordic Air Defence","Inflection",true],
-  ["Nordic Air Defence","SNÖ Ventures",true],
-  ["Nordic Air Defence","EUDIS Business Accelerator",true],
-  ["Nordic Air Defence","Noam Perski",false],
-  ["Nordic Air Defence","Gustav Wiberg",false],
-
-  ["Alpine Eagle","General Catalyst",false],
-  ["Alpine Eagle","HTGF",false],
-  ["Alpine Eagle","HCVC",false],
-  ["Alpine Eagle","IQ Capital",true],
-  ["Alpine Eagle","Expeditions",false],
-
-  ["Comand AI","Expeditions",false],
-  ["Comand AI","Kima Ventures",false],
-  ["Comand AI","Frst",true],
-  ["Comand AI","Eurazeo",true],
-  ["Comand AI","Shape VC",false],
-
-  ["Alta Ares","Bpifrance",false],
-  ["Alta Ares","Kima Ventures",false],
-  ["Alta Ares","Starburst Accelerator",false],
-  ["Alta Ares","Apeiron Venture Capital",false],
-  ["Alta Ares","Better Angle",false],
-
-  ["Intelic","Keen Venture Partners",true],
-
-  ["XRF.ai","K Fund",false],
-  ["XRF.ai","GoHub Ventures",false],
-  ["XRF.ai","JME Ventures",false],
-  ["XRF.ai","EUDIS Business Accelerator",true],
-
-  ["Unmanned Defense Systems","Coinvest Capital",true],
-  ["Unmanned Defense Systems","Gytenis Galkis",false],
-  ["Unmanned Defense Systems","Rita Sakus",false],
-  ["Unmanned Defense Systems","Vladas Lašas",false],
-  ["Unmanned Defense Systems","Martynas Kandzeras",false],
-
-  ["C2Grid","BSV Ventures",false],
-  ["C2Grid","Sunfish Partners",true],
-  ["C2Grid","Mike Oliinyk",false],
-];
-
-// ── Build index structures ──
-// investor → { portfolio: [{startup, lead}], total, leads }
-const invMap = {};
-RAW.forEach(([s,i,lead]) => {
-  if (!invMap[i]) invMap[i] = { id:i, portfolio:[], total:0, leads:0 };
-  invMap[i].portfolio.push({ startup:s, lead });
-  invMap[i].total++;
-  if (lead) invMap[i].leads++;
-});
-
-// startup → { investors: [{investor, lead}] }
-const startMap = {};
-STARTUPS.forEach(s => startMap[s.id] = { ...s, investors:[], leads:[] });
-RAW.forEach(([s,i,lead]) => {
-  startMap[s].investors.push({ investor:i, lead });
-  if (lead) startMap[s].leads.push(i);
-});
-
-// Sorted investors: most portfolio companies first
-const INVESTORS = Object.values(invMap)
-  .sort((a,b) => b.total - a.total || b.leads - a.leads);
-
-document.getElementById("hdr-info").textContent =
-  `${INVESTORS.length} investors · ${RAW.length} investments · ${RAW.filter(d=>d[2]).length} lead`;
+loadData();
 
 // ══════════════════════════════════════════════════════
 //  MATRIX VIEW
@@ -750,29 +653,8 @@ function highlightNode(id, nd, lk) {
 }
 
 // ══════════════════════════════════════════════════════
-//  VIEW TOGGLE
-// ══════════════════════════════════════════════════════
-
-// ══════════════════════════════════════════════════════
 //  PROJECTION (investor co-investment graph)
 // ══════════════════════════════════════════════════════
-
-// Build co-investment index
-const coMap = {};
-INVESTORS.forEach(inv => {
-  inv.portfolio.forEach(p => {
-    const others = RAW.filter(d => d[0]===p.startup && d[1]!==inv.id).map(d=>d[1]);
-    others.forEach(other => {
-      const key = [inv.id, other].sort().join("|||");
-      if (!coMap[key]) coMap[key] = { a:[inv.id,other].sort()[0], b:[inv.id,other].sort()[1], startups:[] };
-      if (!coMap[key].startups.includes(p.startup)) coMap[key].startups.push(p.startup);
-    });
-  });
-});
-const CO_LINKS = Object.values(coMap);
-
-let projFilter = "all";
-let simProj;
 
 function setProjFilter(f) {
   projFilter = f;
@@ -1009,8 +891,6 @@ function setView(v) {
   if (v==="projection") buildProjection(projFilter);
 }
 
-// ── Init ──
-buildMatrix();
 </script>
 </body>
 </html>
