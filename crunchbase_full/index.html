@@ -112,7 +112,7 @@ thead th:first-child { z-index:11; }
   font-size:12px;
   width:40px;
 }
-.col-hdr-inner:hover { color:var(--text); cursor:default; }
+.col-hdr-inner:hover { color:var(--text); cursor:pointer; }
 .col-hdr-inner abbr { text-decoration:none; }
 
 /* Row */
@@ -134,13 +134,13 @@ tr:hover td:first-child { background:rgba(104,204,209,0.08); }
 .count-pill {
   flex-shrink:0; display:inline-flex; align-items:center; justify-content:center;
   width:24px; height:19px; border-radius:50px;
-  font-size:12px; font-weight:700;
+  font-size:1.3rem; font-weight:700;
   background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.28);
 }
 .count-pill.c1 { background:rgba(104,204,209,0.14); color:#00ff41; }
 .count-pill.c2 { background:rgba(104,204,209,0.24); color:#00ff41; }
 .count-pill.c3 { background:rgba(104,204,209,0.38); color:#00ff41; }
-.count-lead { font-size:11px; color:#00ff41; margin-left:1px; opacity:.75; }
+.count-lead { font-size:1.3rem; color:#00ff41; margin-left:1px; opacity:.75; }
 
 /* Investment cell */
 .inv-td { width:30px; text-align:center; padding:2px 1px; border-right:1px solid rgba(65,67,69,0.4); }
@@ -350,9 +350,14 @@ fetch('investments.json')
   .then(data => {
     // Convert tracked JSON → flat rows array (compatible with initApp)
     const rows = Object.entries(data).map(([name, snapshots]) => {
-      const date = Object.keys(snapshots).sort().at(-1);
-      return { 'Organization Name': name, ...snapshots[date] };
-    });
+      // Select only the pure numeric date key (ignores _infonodes suffix and validation_status)
+      const dateKey = Object.keys(snapshots).filter(k => /^\d+$/.test(k)).sort().at(-1);
+      if (!dateKey) return null;
+      // Merge infonodes enrichment if present (supplemental, does not overwrite Crunchbase fields)
+      const infoKey = Object.keys(snapshots).find(k => k.endsWith('_infonodes'));
+      const infoData = infoKey ? snapshots[infoKey] : {};
+      return { 'Organization Name': name, ...snapshots[dateKey], ...infoData };
+    }).filter(Boolean);
     initApp(rows);
   })
   .catch(err => {
@@ -451,7 +456,7 @@ function buildMatrix() {
 
   COMPANIES.forEach(c => {
     const short = c.id.length > 14 ? c.id.slice(0, 13) + '…' : c.id;
-    html += `<th class="col-hdr" data-company="${escAttr(c.id)}">
+    html += `<th class="col-hdr" data-company="${escAttr(c.id)}" onclick="showCompanyDetail('${escAttr(c.id)}')">
       <span class="col-hdr-inner"><abbr title="${escAttr(c.id)} · ${escAttr(c.loc)} · ${escAttr(c.ind)}">${escHtml(short)}</abbr></span>
     </th>`;
   });

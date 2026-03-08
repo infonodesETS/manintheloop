@@ -206,11 +206,15 @@
 
     <!-- Header -->
     <div class="mb-4">
-        <h2 class="mb-1">Search by Call Pattern</h2>
+        <h2 class="mb-1">European Defence Fund – Search Projects by Calls</h2>
         <p class="text-muted mb-0">
-            Enter a topic identifier (e.g. <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>).
-            The tool automatically extracts the pattern and searches all available years (2021-2027)
+            Enter an EDF topic identifier (e.g. <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>).
+            This tool searches EDF calls only. It automatically extracts the pattern and searches all available years (2021-2027)
             by directly calling the public APIs of the EU Participant Portal.
+        </p>
+        <p class="mt-2 mb-0" style="font-size:.9rem;">
+            <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-proposals?isExactMatch=true&status=31094501,31094502,31094503&frameworkProgramme=44181033&order=DESC&pageNumber=1&pageSize=50&sortBy=startDate"
+               target="_blank" style="color:#00ff41;">List of calls by European Defence Fund on Funding Portal by European Commission ↗</a>
         </p>
     </div>
 
@@ -224,7 +228,7 @@
                     <input type="text" id="topicInput" class="form-control form-control-lg"
                            placeholder="e.g. EDF-2024-RA-SI-MATCOMP-EC-STEP" autocomplete="off">
                     <div class="form-text">
-                        Try example: <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>
+                        EDF calls only. Try example: <a href="javascript:void(0)" onclick="tryExample('EDF-2024-RA-SI-MATCOMP-EC-STEP')"><code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code></a>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -291,6 +295,24 @@
 
 </div><!-- /container -->
 
+<!-- EDF Only Modal -->
+<div class="modal fade" id="edfOnlyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">EDF Calls Only</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">Sorry, you can search for EDF calls only. Please enter an identifier starting with <code>EDF-</code> (e.g. <code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code>).</p>
+            </div>
+            <div class="modal-footer" style="border-color:rgb(65,67,69);">
+                <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- JSON Modal -->
 <div class="modal fade" id="jsonModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -350,6 +372,12 @@ async function handleSearch() {
     const raw = document.getElementById('topicInput').value.trim().toUpperCase();
     if (!raw) { alert('Please enter a topic identifier'); return; }
 
+    // EDF-only validation
+    if (!raw.startsWith('EDF-')) {
+        showEdfOnlyModal();
+        return;
+    }
+
     // Reset
     currentData = null; currentPattern = null; currentYears = [];
     hideEl('resultsSection');
@@ -358,7 +386,7 @@ async function handleSearch() {
 
     const pattern = extractPattern(raw);
     if (!pattern) {
-        showError('Invalid format. Use: PREFIX-YYYY-SUFFIX (e.g. EDF-2024-RA-SI-MATCOMP-EC-STEP)');
+        showError('Invalid format. Use: EDF-YYYY-SUFFIX (e.g. EDF-2024-RA-SI-MATCOMP-EC-STEP)');
         return;
     }
 
@@ -861,6 +889,10 @@ function hideEl(id)  { document.getElementById(id).classList.add('d-none'); }
 function showError(msg) {
     document.getElementById('errorMsg').textContent = msg;
     showEl('errorSection');
+}
+
+function showEdfOnlyModal() {
+    new bootstrap.Modal(document.getElementById('edfOnlyModal')).show();
 }
 
 function log(msg, type = 'info') {
