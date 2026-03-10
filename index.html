@@ -71,10 +71,29 @@ main {
 </nav>
 
 <main>
-  <div class="terminal-line">
-    Hello World! This is an Info.nodes experiment!<span class="cursor"></span>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;max-width:560px;">
+    <div class="terminal-line">
+      Hello World!
+    </div>
+    <div class="terminal-line" style="font-size:1rem;opacity:0.75;">
+      This is an experimental research to map companies working either as manufacturers or investors in the Defence field, in Europe and abroad.
+    </div>
+    <div class="terminal-line" style="font-size:1rem;opacity:0.75;">
+      <span id="co-count">…</span>
+    </div>
   </div>
 </main>
+
+<script>
+fetch('crunchbase_full/investments.json')
+  .then(r => r.json())
+  .then(data => {
+    const n = Array.isArray(data.companies) ? data.companies.length : Object.keys(data).length;
+    const date = new Date().toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+    document.getElementById('co-count').innerHTML = `Currently mapped: <b>${n} companies</b> by now (${date})<span class="cursor"></span>`;
+  })
+  .catch(() => { document.getElementById('co-count').textContent = '?'; });
+</script>
 
 </body>
 </html>
