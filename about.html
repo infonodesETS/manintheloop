@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — info.nodes experiments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/nav.css">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:#000;
+  color:#fff;
+  font-family:'Barlow Condensed','Inter',sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+main {
+  flex:1;
+  padding-top:44px;
+  max-width:780px;
+  margin:0 auto;
+  width:100%;
+  padding-left:24px;
+  padding-right:24px;
+  padding-bottom:64px;
+}
+
+.about-header {
+  padding:48px 0 32px;
+  border-bottom:1px solid rgb(65,67,69);
+  margin-bottom:40px;
+}
+
+.about-header h1 {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:#00ff41;
+  font-size:2rem;
+  font-weight:400;
+  text-shadow:0 0 12px rgba(0,255,65,0.4);
+  margin-bottom:8px;
+}
+
+.about-header .subtitle {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:rgba(0,255,65,0.5);
+  font-size:0.85rem;
+}
+
+.section {
+  margin-bottom:40px;
+}
+
+.section-title {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:#00ff41;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:16px;
+  opacity:0.7;
+}
+
+.section h2 {
+  font-size:1.6rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:16px;
+  letter-spacing:.3px;
+}
+
+.section p {
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.7);
+  line-height:1.65;
+  margin-bottom:12px;
+}
+
+.section ul {
+  list-style:none;
+  margin-bottom:12px;
+}
+
+.section ul li {
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.7);
+  line-height:1.65;
+  padding-left:1.2em;
+  position:relative;
+}
+
+.section ul li::before {
+  content:'•';
+  color:#00ff41;
+  position:absolute;
+  left:0;
+}
+
+.divider {
+  border:none;
+  border-top:1px solid rgb(65,67,69);
+  margin:40px 0;
+}
+
+.tag-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.tag {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  font-size:0.8rem;
+  color:#00ff41;
+  border:1px solid rgba(0,255,65,0.3);
+  padding:3px 10px;
+  border-radius:50px;
+  background:rgba(0,255,65,0.05);
+}
+
+.two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 32px;
+}
+
+@media(max-width:560px){
+  .two-col { grid-template-columns:1fr; }
+}
+
+.focus-item {
+  border:1px solid rgb(65,67,69);
+  border-radius:8px;
+  padding:16px;
+  background:rgba(255,255,255,0.02);
+}
+
+.focus-item .num {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:#00ff41;
+  font-size:0.75rem;
+  margin-bottom:6px;
+}
+
+.focus-item strong {
+  font-size:1.2rem;
+  color:#fff;
+  display:block;
+}
+
+.step-item {
+  display:flex;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.step-num {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:#00ff41;
+  font-size:1rem;
+  min-width:24px;
+  padding-top:2px;
+}
+
+.step-content strong {
+  font-size:1.2rem;
+  color:#fff;
+  display:block;
+  margin-bottom:4px;
+}
+
+.step-content p {
+  margin-bottom:6px;
+}
+
+.status-badge {
+  display:inline-block;
+  font-family:'JetBrains Mono','Courier New',monospace;
+  font-size:0.7rem;
+  padding:2px 8px;
+  border-radius:50px;
+  border:1px solid rgba(0,255,65,0.4);
+  color:#00ff41;
+  background:rgba(0,255,65,0.07);
+  margin-bottom:8px;
+}
+
+.companies-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4px 24px;
+}
+
+@media(max-width:560px){
+  .companies-grid { grid-template-columns:1fr; }
+}
+
+.companies-grid .row {
+  display:flex;
+  justify-content:space-between;
+  font-size:1rem;
+  color:rgba(255,255,255,0.65);
+  padding:4px 0;
+  border-bottom:1px solid rgba(65,67,69,0.4);
+}
+
+.companies-grid .row span:last-child {
+  color:rgba(0,255,65,0.6);
+  font-family:'JetBrains Mono','Courier New',monospace;
+  font-size:0.85rem;
+}
+</style>
+</head>
+<body>
+
+<nav id="in-nav">
+  <a href="./" class="in-brand">info<span>.</span>nodes</a>
+  <div class="in-links">
+    <a href="crunchbase_scraping/test_startup/" class="in-link">Startup Map</a>
+    <a href="crunchbase_full/"                  class="in-link">Investment Map</a>
+    <a href="wikidata_inspector/"               class="in-link">Wikidata</a>
+    <a href="call-checker_infonodes/"           class="in-link">EU Call Checker</a>
+    <a href="about.html"                        class="in-link active">About</a>
+    <span class="in-sep"></span>
+    <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="in-link in-gh">↗ GitHub</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="about-header">
+    <h1>Man in the Loop</h1>
+    <div class="subtitle">show of force — Davide Del Monte — www.infonodes.org — Artwork by @npprgl</div>
+  </div>
+
+  <!-- 0. Who we are -->
+  <section class="section">
+    <div class="section-title">0. Who we are</div>
+    <p>info.nodes is an Italian nonprofit organization, founded in 2019 by journalists and activists to experiment new solutions in the Italian civil society and media landscape.</p>
+    <p>We focus on social and climate justice, the impact of new technologies on human rights, and the protection of freedom of speech.</p>
+    <p>We produce investigations, connect tech-activists, researchers, and artists, develop innovative advocacy and communication formats to reach wider audiences. We also organize exhibitions, networking events, offer technical training for journalists and activists, and create investigative-based comms materials.</p>
+    <p>We love to work in collaboration with other organizations, because "no man is an island".</p>
+    <p style="margin-top:16px;"><strong style="color:#fff;">Project team:</strong> Davide Del Monte, Laura Carrer, Andrea Daniele Signorelli</p>
+    <hr class="divider">
+    <p><strong style="color:#fff;">In collaboration with:</strong><br>
+    <span style="color:rgba(255,255,255,0.7);">Datapitch — An Italian company providing support in data analysis and data visualization, thanks to their experience in database development and management, multimedia content production, and the creation of digital tools.</span></p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 1. Objective and scope -->
+  <section class="section">
+    <div class="section-title">1. Objective and scope</div>
+    <p>Identifying who truly holds the reins of autonomous weapons research and production, by reconstructing decision-making influence and investments across the entire supply chain.</p>
+    <p style="margin-top:12px;"><strong style="color:#fff;">Our ideal goal — sectors mapped by market cap:</strong></p>
+    <div class="tag-row">
+      <span class="tag">Tech ≈ $15,000B</span>
+      <span class="tag">Defence ≈ $1,000B</span>
+      <span class="tag">Mining ≈ $900B</span>
+    </div>
+    <p style="margin-top:16px;">Identify the main investors and governance relationships across Tech / Defence / Mining — including Investment Funds (BlackRock, Vanguard Group, Fidelity Investments, State Street Global Advisors, JP Morgan) and Venture Capital (a16z, Sequoia Capital, Tiger Global Management, NEA, Lightspeed Venture Partners).</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 2. The 3 main focus -->
+  <section class="section">
+    <div class="section-title">2. The 3 main focus</div>
+    <div class="two-col" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="focus-item">
+        <div class="num">01</div>
+        <strong>Start-up in Europe</strong>
+      </div>
+      <div class="focus-item">
+        <div class="num">02</div>
+        <strong>Private investors in MoT</strong>
+      </div>
+      <div class="focus-item">
+        <div class="num">03</div>
+        <strong>Public EU funding to MoT</strong>
+      </div>
+    </div>
+    <p style="margin-top:20px;">We want to highlight the significant growth of the European startup sector dedicated to the development of autonomous systems and defense technologies. One of the key questions we are investigating is which funds, companies, or individuals are investing in the sector across multiple segments of the supply chain — from raw material extraction → development of AI-based technologies → production of armaments.</p>
+    <p>If an entity is present at every stage of the chain, their power increases considerably.</p>
+    <p>Regarding the startup sector in particular, we also want to understand the role played by European institutions in financially backing and thus promoting the development of this industrial sector.</p>
+    <p style="margin-top:16px;"><strong style="color:#fff;">Sample companies tracked:</strong></p>
+    <div class="companies-grid" style="margin-top:12px;">
+      <div class="row"><span>Helsing</span><span>Germany</span></div>
+      <div class="row"><span>ARX Robotics</span><span>Germany</span></div>
+      <div class="row"><span>Quantum Systems</span><span>Germany</span></div>
+      <div class="row"><span>Destinus</span><span>Netherlands</span></div>
+      <div class="row"><span>Tekever</span><span>Portugal</span></div>
+      <div class="row"><span>Comand AI</span><span>France</span></div>
+      <div class="row"><span>Intelic (Avalor AI)</span><span>Netherlands</span></div>
+      <div class="row"><span>Arondite</span><span>United Kingdom</span></div>
+      <div class="row"><span>Origin Robotics</span><span>Latvia</span></div>
+      <div class="row"><span>Roark Aerospace</span><span>United Kingdom</span></div>
+      <div class="row"><span>Unmanned Defence Systems</span><span>Lithuania</span></div>
+      <div class="row"><span>Alpine Eagle</span><span>Germany</span></div>
+      <div class="row"><span>Alta Ares</span><span>France</span></div>
+      <div class="row"><span>C2Grid</span><span>Estonia</span></div>
+      <div class="row"><span>Delian</span><span>United Kingdom</span></div>
+      <div class="row"><span>ICEYE</span><span>Finland</span></div>
+      <div class="row"><span>Nordic Air Defence</span><span>Sweden</span></div>
+      <div class="row"><span>XRF</span><span>Spain</span></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 3. Methodology -->
+  <section class="section">
+    <div class="section-title">3. Methodology in brief</div>
+    <div class="step-item">
+      <div class="step-num">1.</div>
+      <div class="step-content">
+        <strong>Identification of companies</strong>
+        <div class="status-badge">Ongoing (test completed)</div>
+        <p>A first test list of companies was created in February. We will add a new wave of companies and other subjects (April / June).</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2.</div>
+      <div class="step-content">
+        <strong>Data collection</strong>
+        <div class="status-badge">Ongoing</div>
+        <p>We are now collecting all the information about investors.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3.</div>
+      <div class="step-content">
+        <strong>Data Analysis</strong>
+        <div class="status-badge">Testing phase</div>
+        <p>We are already «playing» with data, in order to better understand what we can extract from them. In a next phase we will try to collect information about governance and/or relationships with public universities.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4.</div>
+      <div class="step-content">
+        <strong>Research / Investigation</strong>
+        <div class="status-badge">Final phase</div>
+        <p>Once we have collected all the information and processed all the data, we will go in-depth with companies or cases that seem particularly interesting.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 4. The research -->
+  <section class="section">
+    <div class="section-title">4. The research</div>
+
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">1. Identification of companies</h2>
+    <p>We created a test list of companies based on market capitalization or economic valuation (for unlisted companies, such as startups). Additionally, we asked several Italian and international organizations to suggest names of companies they considered interesting for inclusion in the list.</p>
+    <p style="margin-top:8px;"><strong style="color:#fff;">The list is composed by:</strong></p>
+    <ul style="margin-top:8px;">
+      <li>18 European start-up companies</li>
+      <li>22 Global Tech companies</li>
+      <li>65 Global Defence companies</li>
+      <li>67 Global Mining companies</li>
+    </ul>
+    <p style="margin-top:12px;">Enrichment of the list of companies with all the subjects (companies, universities, research centers) that received European funds (EDF, Horizon, etc…).</p>
+
+    <hr class="divider">
+
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">2. Data collection</h2>
+    <p>In mid-February, we opened a one-month paid subscription on Crunchbase, one of the most well-known private databases for information on companies and investment funds. This subscription allowed us to upload our list of companies, view detailed information on them, and export the relevant data in CSV format.</p>
+    <p style="margin-top:8px;color:rgba(255,255,255,0.5);font-size:1rem;">* A direct API connection is not possible, as the cost exceeds $35,000 USD per year.</p>
+    <p style="margin-top:12px;">Datapitch developed a script to create a GitHub-hosted mini-site for info.nodes, listing every company previously identified with dedicated pages that organize their Wikipedia data according to a custom schema we designed.</p>
+
+    <hr class="divider">
+
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">3. Data analysis</h2>
+    <p>Together with Datapitch, we developed code (using Claude) to analyze the collected data and create network analysis visualizations. Our core question is: <em style="color:#00ff41;">'Who is investing money in multiple companies and across multiple interconnected sectors?'</em></p>
+    <p style="margin-top:8px;">We created a GitHub repository to host the data analysis and network visualization. We want to make all our results accessible and free for all.</p>
+
+    <hr class="divider">
+
+    <h2 style="font-size:1.3rem;margin-bottom:16px;">4. Research / Investigation</h2>
+    <p>The research team (Davide, Laura, Andrea Daniele) will analyse and investigate the most interesting information and publish a report focused on the European start-up ecosystems, the main private investors in the MoT sector, and the stream of EU funds.</p>
+    <p style="margin-top:8px;">Possibility to investigate governance connections and relationships with public universities too.</p>
+    <p style="margin-top:12px;"><strong style="color:#fff;">Proposal for a follow-up:</strong> Hackathon with P.I. using the data collected by info.nodes and DataPitch.</p>
+  </section>
+
+</main>
+
+</body>
+</html>
