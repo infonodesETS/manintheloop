@@ -191,6 +191,7 @@
     <a href="../crunchbase_full/"                  class="in-link">Investment Map</a>
     <a href="../wikidata_inspector/"               class="in-link">Wikidata</a>
     <a href="./"                                   class="in-link active">EU Call Checker</a>
+    <a href="../about.html"                        class="in-link">About</a>
     <span class="in-sep"></span>
     <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="in-link in-gh">↗ GitHub</a>
   </div>
@@ -338,12 +339,23 @@
 // ============================================================
 const YEARS_TO_TRY = [2027, 2026, 2025, 2024, 2023, 2022, 2021];
 
-const CORS_PROXY   = 'https://corsproxy.io/?url=';
+const CORS_PROXIES = [
+    url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+];
 const SEARCH_API   = 'https://api.tech.ec.europa.eu/search-api/prod/rest/search';
 const DOC_API      = 'https://api.tech.ec.europa.eu/search-api/prod/rest/document';
 const PROJECTS_API = 'https://ec.europa.eu/info/funding-tenders/opportunities/api/topicProjectsList.json';
 
-function proxied(url) { return CORS_PROXY + encodeURIComponent(url); }
+async function proxiedFetch(url) {
+    for (const mkProxy of CORS_PROXIES) {
+        try {
+            const r = await fetch(mkProxy(url));
+            if (r.status !== 403 && r.status !== 429) return r;
+        } catch (_) {}
+    }
+    throw new Error('All CORS proxies failed');
+}
 
 // ============================================================
 // STATE
@@ -534,12 +546,11 @@ async function fetchTopicMeta(topicIdentifier) {
         }
     };
 
-    const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}`;
-    const body = new URLSearchParams({ query: JSON.stringify(query) });
+    const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}`;
 
     let resp;
     try {
-        resp = await fetch(proxied(searchUrl), { method: 'POST', body });
+        resp = await proxiedFetch(searchUrl);
     } catch (e) {
         throw new Error(`Search API unreachable: ${e.message}`);
     }
@@ -586,7 +597,7 @@ async function fetchTopicMeta(topicIdentifier) {
 }
 
 async function fetchProjectDetails(project) {
-    const resp = await fetch(proxied(project._endpoint));
+    const resp = await proxiedFetch(project._endpoint);
     if (!resp.ok) return project;
 
     const data   = await resp.json();
@@ -635,9 +646,8 @@ async function fetchTopicUpdates(topicIdentifier) {
     };
 
     try {
-        const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}`;
-        const body = new URLSearchParams({ query: JSON.stringify(query) });
-        const resp = await fetch(proxied(searchUrl), { method: 'POST', body });
+        const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}`;
+        const resp = await proxiedFetch(searchUrl);
         if (!resp.ok) return [];
         const data    = await resp.json();
         const results = data.results || [];
