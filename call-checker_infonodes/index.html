@@ -339,19 +339,25 @@
 // ============================================================
 const YEARS_TO_TRY = [2027, 2026, 2025, 2024, 2023, 2022, 2021];
 
-const CORS_PROXIES = [
-    url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-    url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-];
 const SEARCH_API   = 'https://api.tech.ec.europa.eu/search-api/prod/rest/search';
 const DOC_API      = 'https://api.tech.ec.europa.eu/search-api/prod/rest/document';
 const PROJECTS_API = 'https://ec.europa.eu/info/funding-tenders/opportunities/api/topicProjectsList.json';
 
-async function proxiedFetch(url) {
-    for (const mkProxy of CORS_PROXIES) {
+// POST proxies: direct first (EU API may allow CORS), then corsproxy (works from localhost)
+// GET proxies: direct, allorigins, corsproxy
+async function proxiedFetch(url, options = {}) {
+    const isPost = (options.method || 'GET').toUpperCase() === 'POST';
+    const chain = isPost
+        ? [ u => u,
+            u => `https://corsproxy.io/?url=${encodeURIComponent(u)}` ]
+        : [ u => u,
+            u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+            u => `https://corsproxy.io/?url=${encodeURIComponent(u)}` ];
+
+    for (const mkUrl of chain) {
         try {
-            const r = await fetch(mkProxy(url));
-            if (r.status !== 403 && r.status !== 429) return r;
+            const r = await fetch(mkUrl(url), options);
+            if (r.status !== 403 && r.status !== 429 && r.status !== 408) return r;
         } catch (_) {}
     }
     throw new Error('All CORS proxies failed');
@@ -546,11 +552,12 @@ async function fetchTopicMeta(topicIdentifier) {
         }
     };
 
-    const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}`;
+    const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}`;
+    const body = new URLSearchParams({ query: JSON.stringify(query) });
 
     let resp;
     try {
-        resp = await proxiedFetch(searchUrl);
+        resp = await proxiedFetch(searchUrl, { method: 'POST', body });
     } catch (e) {
         throw new Error(`Search API unreachable: ${e.message}`);
     }
@@ -646,8 +653,9 @@ async function fetchTopicUpdates(topicIdentifier) {
     };
 
     try {
-        const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}&query=${encodeURIComponent(JSON.stringify(query))}`;
-        const resp = await proxiedFetch(searchUrl);
+        const searchUrl = `${SEARCH_API}?apiKey=SEDIA&text=${encodeURIComponent(topicIdentifier)}`;
+        const body = new URLSearchParams({ query: JSON.stringify(query) });
+        const resp = await proxiedFetch(searchUrl, { method: 'POST', body });
         if (!resp.ok) return [];
         const data    = await resp.json();
         const results = data.results || [];
