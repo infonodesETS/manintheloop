@@ -1,0 +1,210 @@
+/* ── About tab — scoped to #tab-about ── */
+#tab-about {
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+#tab-about .about-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+#tab-about .about-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+
+#tab-about .about-header h1 {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-normal);
+  text-shadow: 0 0 12px rgba(0,255,65,0.35);
+  margin-bottom: 6px;
+}
+
+#tab-about .about-header .subtitle {
+  font-family: var(--font-mono);
+  color: rgba(0,255,65,0.45);
+  font-size: var(--fs-base);
+}
+
+#tab-about .a-section { margin-bottom: 36px; }
+
+#tab-about .a-section-title {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  opacity: .65;
+}
+
+#tab-about .a-section h2 {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: .3px;
+}
+
+#tab-about .a-section p {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+#tab-about .a-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+#tab-about .a-section ul li {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  padding-left: 1.2em;
+  position: relative;
+}
+
+#tab-about .a-section ul li::before {
+  content: '•';
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+
+#tab-about .a-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+#tab-about .tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#tab-about .tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  border: 1px solid rgba(0,255,65,0.3);
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(0,255,65,0.05);
+}
+
+#tab-about .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 28px;
+}
+
+#tab-about .three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 16px;
+}
+
+@media(max-width:600px) {
+  #tab-about .two-col,
+  #tab-about .three-col { grid-template-columns: 1fr; }
+}
+
+#tab-about .focus-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+  background: rgba(255,255,255,0.02);
+}
+
+#tab-about .focus-item .num {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  margin-bottom: 4px;
+}
+
+#tab-about .focus-item strong {
+  font-size: var(--fs-body);
+  color: #fff;
+  display: block;
+}
+
+#tab-about .step-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+#tab-about .step-num {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: var(--fs-base);
+  min-width: 22px;
+  padding-top: 2px;
+}
+
+#tab-about .step-content strong {
+  font-size: var(--fs-body);
+  color: #fff;
+  display: block;
+  margin-bottom: 3px;
+}
+
+#tab-about .step-content p { margin-bottom: 4px; }
+
+#tab-about .status-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(0,255,65,0.35);
+  color: var(--accent);
+  background: rgba(0,255,65,0.06);
+  margin-bottom: 6px;
+}
+
+#tab-about .companies-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+  margin-top: 10px;
+}
+
+@media(max-width:500px) {
+  #tab-about .companies-grid { grid-template-columns: 1fr; }
+}
+
+/* ── About spacing utilities ── */
+.a-collab-text { color: rgba(255,255,255,0.6); }
+.a-note        { color: rgba(255,255,255,0.45); font-size: var(--fs-sm); margin-top: 8px; }
+.a-mt8         { margin-top:    8px; }
+.a-mt10        { margin-top:   10px; }
+.a-mt14        { margin-top:   14px; }
+.a-mb18        { margin-bottom: 18px; }
+#tab-about .a-section p strong { color: #fff; }
+
+#tab-about .companies-grid .co-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(65,67,69,0.35);
+}
+
+#tab-about .companies-grid .co-row span:last-child {
+  color: rgba(0,255,65,0.55);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}

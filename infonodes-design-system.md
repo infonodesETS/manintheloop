@@ -2,123 +2,123 @@
 
 ## Brand Identity
 
-**info.nodes** è un'organizzazione italiana no-profit fondata nel 2019 che unisce giornalismo investigativo e attivismo civico. Il brand comunica urgenza, trasparenza e impegno sociale attraverso un'estetica scura e minimale con accenti vibranti.
+**info.nodes** is an Italian non-profit organization founded in 2019, combining investigative journalism and civic activism. The brand communicates urgency, transparency and social commitment through a dark, minimal aesthetic with vibrant accents.
 
 ---
 
-## Colori
+## Colors
 
-| Token | Valore | Uso |
-|-------|--------|-----|
-| `--color-bg-primary` | `#000000` | Sfondo header, footer, sezioni principali |
-| `--color-bg-page` | `#FFFFFF` | Sfondo contenuti / body |
-| `--color-bg-surface` | `rgba(0,0,0,1)` | Card, righe alternate |
-| `--color-text-primary` | `#000000` | Titoli, testo forte |
-| `--color-text-body` | `rgba(102,102,102,1)` | Testo corpo |
-| `--color-text-inverse` | `#FFFFFF` | Testo su sfondo scuro |
-| `--color-accent` | `#00ff41` | Accent legacy (teal) |
-| `--color-accent-green` | dal logo verde | Accent principale corrente |
-| `--color-border` | `rgb(65,67,69)` | Bordi bottoni |
-| `--color-btn-hover` | `rgb(65,67,69)` | Sfondo bottone al hover |
+| Token | Value | Use |
+|-------|-------|-----|
+| `--color-bg-primary` | `#000000` | Header, footer, main section backgrounds |
+| `--color-bg-page` | `#FFFFFF` | Content / body background |
+| `--color-bg-surface` | `rgba(0,0,0,1)` | Cards, alternating rows |
+| `--color-text-primary` | `#000000` | Headings, strong text |
+| `--color-text-body` | `rgba(102,102,102,1)` | Body text |
+| `--color-text-inverse` | `#FFFFFF` | Text on dark backgrounds |
+| `--color-accent` | `#00ff41` | Legacy accent (teal) |
+| `--color-accent-green` | from logo green | Current primary accent |
+| `--color-border` | `rgb(65,67,69)` | Button borders |
+| `--color-btn-hover` | `rgb(65,67,69)` | Button background on hover |
 
-La palette è essenzialmente **bianco e nero** con il verde del logo come unico accento cromatico. L'effetto è editoriale e diretto.
-
----
-
-## Tipografia
-
-| Ruolo | Font | Peso | Dimensione |
-|-------|------|------|------------|
-| Titoli (H1/H2) | **Barlow Condensed** | 700 | 96px desktop / 50px mobile |
-| Sottotitoli (H4) | **Barlow Condensed** | 700 | 22px |
-| Corpo | **Barlow Condensed** | 400 | 18px desktop / 14px mobile |
-| Fallback corpo | **Rubik** | 300 | 16px |
-| Font di sistema | Rubik, Source Sans Pro | — | — |
-
-La scelta di **Barlow Condensed** come font dominante conferisce un tono giornalistico, compatto e moderno. I titoli sono molto grandi (96px) per massimo impatto.
+The palette is essentially **black and white** with the logo green as the only chromatic accent. The effect is editorial and direct.
 
 ---
 
-## Bottoni
+## Typography
 
-| Proprietà | Valore |
-|-----------|--------|
+| Role | Font | Weight | Size |
+|------|------|--------|------|
+| Headings (H1/H2) | **Barlow Condensed** | 700 | 96px desktop / 50px mobile |
+| Subheadings (H4) | **Barlow Condensed** | 700 | 22px |
+| Body | **Barlow Condensed** | 400 | 18px desktop / 14px mobile |
+| Body fallback | **Rubik** | 300 | 16px |
+| System font | Rubik, Source Sans Pro | — | — |
+
+The choice of **Barlow Condensed** as the dominant font gives a journalistic, compact and modern tone. Headings are very large (96px) for maximum impact.
+
+---
+
+## Buttons
+
+| Property | Value |
+|----------|-------|
 | Border radius | `50px` (pill) |
 | Border width | `1px` |
 | Border color | `rgb(65,67,69)` |
 | Background | `transparent` |
 | Text color | `rgb(65,67,69)` |
 | Font | Barlow Condensed, 700 |
-| Font size | `15px` (tutte le viewport) |
+| Font size | `15px` (all viewports) |
 | Hover bg | `rgb(65,67,69)` |
 | Hover text | `#FFFFFF` |
 | Padding | `10px 0` |
 
-Stile **ghost/outline** con transizione a pieno al hover. Forma pill per morbidezza.
+**Ghost/outline** style with full-fill transition on hover. Pill shape for softness.
 
 ---
 
 ## Layout
 
-| Parametro | Valore |
-|-----------|--------|
-| Max width contenuti | `960px` |
-| Padding riga | `40px` laterale |
-| Griglia | 12 colonne flex |
-| Gap colonne | `1.5%` |
-| Padding riga verticale | `15px` top/bottom |
+| Parameter | Value |
+|-----------|-------|
+| Max content width | `960px` |
+| Row padding | `40px` horizontal |
+| Grid | 12-column flex |
+| Column gap | `1.5%` |
+| Row vertical padding | `15px` top/bottom |
 
-Il layout è centrato con larghezza massima 960px. Le sezioni full-bleed rompono questo vincolo per gli sfondi. La griglia usa un sistema a 12 colonne con distribuzione flex.
+The layout is centered with a 960px max-width. Full-bleed sections break this constraint for backgrounds. The grid uses a 12-column flex system.
 
 ---
 
-## Componenti Chiave
+## Key Components
 
 ### Header
-- Sfondo nero pieno, sticky
-- Logo centrato (max 126px larghezza)
-- Altezza spacer: 124px desktop
+- Solid black background, sticky
+- Centered logo (max 126px width)
+- Spacer height: 124px desktop
 
-### Sezione Hero
-- Sfondo con gradiente grigio (`grey_gradient.jpg`) + attachment fixed
-- Immagine banner a piena larghezza
-- CTA centrata sotto il banner
+### Hero Section
+- Background with grey gradient (`grey_gradient.jpg`) + fixed attachment
+- Full-width banner image
+- Centered CTA below the banner
 
-### Griglia Navigazione (4 colonne)
-- 4 immagini-bottone circolari con hover grayscale
-- Link a sezioni: MARLA, Attivismo, Formazione, Inchieste
+### Navigation Grid (4 columns)
+- 4 circular image-buttons with grayscale hover
+- Links to sections: MARLA, Activism, Training, Investigations
 
-### Sezione "Chi Siamo"
-- Titolo H2 grande centrato
-- Testo giustificato corpo
-- Lista membri con icone SVG lightning bolt + nome + ruolo
+### "Who We Are" Section
+- Large centered H2 heading
+- Justified body text
+- Member list with SVG lightning bolt icons + name + role
 
 ### Footer
-- Sfondo nero
-- 4 colonne: social, donazione PayPal, contatti, documenti
-- Icone social: email + Instagram
+- Black background
+- 4 columns: social, PayPal donation, contacts, documents
+- Social icons: email + Instagram
 
 ---
 
-## Iconografia
+## Iconography
 
-- **Logo**: forma circolare con pattern a raggi/nodi (SVG inline, verde su nero)
-- **Icone membri**: fulmine stilizzato (SVG custom, ripetuto per ogni membro)
-- **Icone social**: set custom `dm-social-icons`
-
----
-
-## Effetti e Interazioni
-
-| Effetto | Dove |
-|---------|------|
-| Hover grayscale | Immagini-bottone navigazione |
-| Background fixed | Hero section (parallax) |
-| Sticky header | Header con classe `hasStickyHeader` |
-| Animazioni entrata | Elementi con `data-anim-desktop` (hidden fino a trigger) |
+- **Logo**: circular shape with ray/node pattern (inline SVG, green on black)
+- **Member icons**: stylized lightning bolt (custom SVG, repeated for each member)
+- **Social icons**: custom `dm-social-icons` set
 
 ---
 
-## Tono Visivo
+## Effects and Interactions
 
-Il design system di info.nodes trasmette: **serietà editoriale**, **urgenza giornalistica**, **trasparenza**. Il nero dominante con testo bianco e accenti verdi crea un'identità forte e riconoscibile, coerente con la missione di inchiesta e attivismo.
+| Effect | Where |
+|--------|-------|
+| Hover grayscale | Navigation image-buttons |
+| Fixed background | Hero section (parallax) |
+| Sticky header | Header with `hasStickyHeader` class |
+| Entry animations | Elements with `data-anim-desktop` (hidden until triggered) |
+
+---
+
+## Visual Tone
+
+The info.nodes design system communicates: **editorial seriousness**, **journalistic urgency**, **transparency**. The dominant black with white text and green accents creates a strong, recognisable identity consistent with the investigative and activist mission.

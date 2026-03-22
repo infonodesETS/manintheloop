@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Man in the Loop — Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/matrix.css">
+<link rel="stylesheet" href="css/graph.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/wikidata.css">
+<link rel="stylesheet" href="css/eucalls.css">
+<link rel="stylesheet" href="css/edfbrowse.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading-overlay">
+  <div class="spin"></div>
+  <div class="loading-text">loading data/database.json…</div>
+</div>
+
+<!-- TOP NAV (research groups) -->
+<div id="topnav">
+  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a><span class="brand-wip">Work in Progress — Data may contain errors, see <a href="?research=tools&tab=knownissues" class="brand-wip-link">Known Issues</a></span>
+  <span class="meta" id="nav-meta"></span>
+</div>
+
+<!-- GROUP NAV -->
+<div id="tabnav">
+  <button class="tnav-btn active" data-research="intro">Intro</button>
+  <div class="tnav-sep"></div>
+  <button class="tnav-btn" data-research="supply-chain">Supply Chain</button>
+  <button class="tnav-btn" data-research="edf">European Defence Fund</button>
+  <button class="tnav-btn" data-research="tools">Tools</button>
+  <a href="automated-investigation.html" class="tnav-btn">✨ Investigation</a>
+  <div class="tnav-sep"></div>
+  <button class="tnav-btn" data-research="about">About</button>
+  <span class="tnav-info" id="tnav-info"></span>
+  <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="tnav-gh">↗ GitHub</a>
+  <button id="legend-toggle" title="Toggle legend">▼ Legend</button>
+</div>
+
+<!-- SUB-TAB NAV -->
+<div id="subnav">
+  <div class="snav-group" data-research="supply-chain">
+    <button class="snav-btn active" data-tab="overview">Overview</button>
+    <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="map">Map</button>
+    <button class="snav-btn" data-tab="graph">Graph</button>
+    <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="companies">Companies</button>
+    <button class="snav-btn" data-tab="investors">Investors</button>
+    <button class="snav-btn" data-tab="relationships">Relationships</button>
+    <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="matrix">Matrix</button>
+  </div>
+  <div class="snav-group" data-research="edf">
+    <button class="snav-btn" data-tab="edfoverview">Overview</button>
+    <button class="snav-btn" data-tab="edfmap">Map</button>
+    <button class="snav-btn" data-tab="eucalls">EDF Calls Search</button>
+    <button class="snav-btn" data-tab="edfbrowse">EDF Beneficiaries</button>
+  </div>
+  <div class="snav-group" data-research="tools">
+    <button class="snav-btn" data-tab="wikidata">Wikidata Inspector</button>
+    <button class="snav-btn" data-tab="quality">Data Quality</button>
+    <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="knownissues">Known Issues</button>
+  </div>
+</div>
+
+<!-- LEGEND BAR -->
+<div id="legend" class="open">
+  <div id="legend-body">
+    <span class="lg-group-label">Sectors</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--defence"></span>Defence</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--mining"></span>Mining</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--tech"></span>Tech</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--startup"></span>Startup</span>
+    <span class="lg-sep"></span>
+    <span class="lg-group-label">Investors</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--fund"></span>Fund</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--govt"></span>Gov Agency</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--bank"></span>Bank</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--inst"></span>Institution</span>
+    <span class="lg-sep"></span>
+    <span class="lg-group-label">Roles</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--mfr"></span>Manufacturer</span>
+    <span class="lg-item"><span class="lg-star lg-star--dual">★</span>Dual role</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+
+  <!-- ── INTRO ──────────────────────────────────── -->
+  <div id="tab-intro" class="tab-pane active">
+    <div class="intro-wrap">
+      <div class="intro-prompt">$ man-in-the-loop --research 2025</div>
+      <div class="intro-title">Man in the Loop<span class="intro-cursor"></span></div>
+      <p class="intro-desc">
+        This is an experimental research to map companies working either as manufacturers or investors
+        in the Defence field, in Europe and abroad — including an analysis of the European Defence Fund
+        landscape, tracking which organisations receive EU public funding across the 201 EDF calls (2021–2027).
+      </p>
+      <hr class="intro-divider">
+      <div class="intro-areas">
+        <div class="intro-area">
+          <div class="intro-area-num">01 /</div>
+          <div class="intro-area-body">
+            <div class="intro-area-title">Supply Chain</div>
+            <div class="intro-area-desc">
+              Map companies, investors, and their relationships across the Defence · Mining · Tech · Startup
+              sectors. Explore the network graph, investment matrix, and geographic spread of
+              entities tracked in the infonodes database.
+            </div>
+          </div>
+        </div>
+        <div class="intro-area">
+          <div class="intro-area-num">02 /</div>
+          <div class="intro-area-body">
+            <div class="intro-area-title">European Defence Fund</div>
+            <div class="intro-area-desc">
+              Explore all 201 EDF calls (2021–2027) and the organisations that received EU funding.
+              Search calls by identifier or title, browse the 715 participating organisations by
+              country, role, and total EU contribution.
+            </div>
+          </div>
+        </div>
+        <div class="intro-area">
+          <div class="intro-area-num">03 /</div>
+          <div class="intro-area-body">
+            <div class="intro-area-title">Tools</div>
+            <div class="intro-area-desc">
+              Data transparency and enrichment tools for journalists and researchers.
+              Inspect Wikidata records for tracked companies and review data quality metrics.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OVERVIEW ─────────────────────────────── -->
+  <div id="tab-overview" class="tab-pane scrollable">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading overview…</div></div>
+    <div class="overview-grid" id="stats-grid"></div>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="stat-card">
+          <div class="section-title">Wikidata Coverage</div>
+          <div class="d-flex justify-content-between mb-1 wd-cov-row">
+            <span id="wd-cov-label"></span>
+            <span id="wd-cov-pct"></span>
+          </div>
+          <div class="prog-track"><div class="prog-fill" id="wd-cov-bar"></div></div>
+          <div class="mt-3" id="sector-breakdown"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="stat-card">
+          <div class="section-title">Top Investors by Portfolio</div>
+          <div id="top-investors-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MATRIX ────────────────────────────────── -->
+  <div id="tab-matrix" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading matrix…</div></div>
+    <div class="tbl-toolbar" id="mx-toolbar">
+      <span class="sf-label">Sector</span>
+      <button class="sf-btn active" data-sector="all">All</button>
+      <button class="sf-btn" data-sector="Defence">Defence</button>
+      <button class="sf-btn" data-sector="Mining">Mining</button>
+      <button class="sf-btn" data-sector="Tech">Tech</button>
+      <button class="sf-btn" data-sector="Startup">Startup</button>
+      <span class="tbl-count" id="mx-info"></span>
+    </div>
+    <div id="matrix-wrap">
+      <div id="matrix-scroll"></div>
+      <div id="mx-detail" class="sidebar">
+        <div id="mx-detail-header">
+          <span id="mx-detail-title" class="sl-title"></span>
+          <button class="sl-close">×</button>
+        </div>
+        <div id="mx-detail-body"><div id="mx-inner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GRAPH ─────────────────────────────────── -->
+  <div id="tab-graph" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading graph…</div></div>
+    <div id="graph-layout">
+      <div id="graph-pane">
+        <div id="graph-controls">
+          <button class="gv-btn active" id="gv-net">Network</button>
+          <button class="gv-btn"        id="gv-bi">Bipartite</button>
+          <button class="gv-btn"        id="gv-proj">Projection</button>
+          <div class="ctrl-sep"></div>
+          <button class="sf-btn active" data-sector="all">All</button>
+          <button class="sf-btn"        data-sector="Defence">Defence</button>
+          <button class="sf-btn"        data-sector="Mining">Mining</button>
+          <button class="sf-btn"        data-sector="Tech">Tech</button>
+          <button class="sf-btn"        data-sector="Startup">Startup</button>
+          <div id="proj-filter-btns" class="hidden">
+            <button class="gv-btn active" id="pf-all">All edges</button>
+            <button class="gv-btn"        id="pf-multi">Co-invest ≥2</button>
+          </div>
+          <div class="ctrl-sep"></div>
+          <button class="gv-btn active" id="gv-show-co">Companies</button>
+          <button class="gv-btn active" id="gv-show-inv">Investors</button>
+          <div class="ctrl-sep"></div>
+          <input id="graph-search" type="search" placeholder="Search nodes…" autocomplete="off">
+          <button class="gv-btn" id="gv-lead-only">Lead only</button>
+          <button class="gv-btn" id="gv-hide-iso">Hide isolated</button>
+        </div>
+        <svg id="graph-svg"></svg>
+      </div>
+      <div id="graph-detail" class="sidebar">
+        <div id="graph-detail-header">
+          <span id="graph-detail-title" class="sl-title"></span>
+          <button class="sl-close" id="graph-detail-close">×</button>
+        </div>
+        <div id="graph-detail-body">
+          <div id="graph-help">
+            <p class="gh-intro">This graph maps <strong>investment relationships</strong> between companies in the defence supply chain and their investors.</p>
+            <div class="sl-section-lbl">Three views</div>
+            <ul class="gh-list">
+              <li><strong>Network</strong> — companies at the centre, investors orbiting around them. Links connect each investor to the companies it backed.</li>
+              <li><strong>Bipartite</strong> — the same data in two parallel columns: investors on the left, companies on the right. Easier to trace a single investor's portfolio.</li>
+              <li><strong>Projection</strong> — investors only. A link between two investors means they co-invested in at least one company. Thicker lines = more shared companies.</li>
+            </ul>
+            <div class="sl-section-lbl">Shapes &amp; colours</div>
+            <ul class="gh-list">
+              <li><span class="gh-shape gh-circle"></span> <strong>Circles</strong> = companies, coloured by sector</li>
+              <li><span class="gh-shape gh-square"></span> <strong>Squares</strong> = investors, coloured by type (fund / bank / government / institution)</li>
+              <li>The number inside a square is the investor's total portfolio count</li>
+              <li>A ★ on a circle means the company is also an investor</li>
+            </ul>
+            <div class="sl-section-lbl">Interact</div>
+            <ul class="gh-list">
+              <li><strong>Click</strong> a node to highlight its connections and open this panel with details</li>
+              <li><strong>Drag</strong> nodes to rearrange; <strong>scroll</strong> to zoom</li>
+              <li><strong>Companies / Investors</strong> — toggle either type on or off to focus on one side of the network</li>
+              <li><strong>Search</strong> — type a name to dim unrelated nodes instantly</li>
+              <li><strong>Lead only</strong> — keep only edges where the investor led the round</li>
+              <li><strong>Hide isolated</strong> — remove nodes with no visible connections after other filters</li>
+            </ul>
+          </div>
+          <div id="graph-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COMPANIES ─────────────────────────────── -->
+  <div id="tab-companies" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading companies…</div></div>
+    <div class="tbl-toolbar">
+      <input class="search-input" id="co-search" placeholder="Search companies…">
+      <button class="sf-btn active" data-sector="all">All</button>
+      <button class="sf-btn" data-sector="Defence">Defence</button>
+      <button class="sf-btn" data-sector="Mining">Mining</button>
+      <button class="sf-btn" data-sector="Tech">Tech</button>
+      <button class="sf-btn" data-sector="Startup">Startup</button>
+      <span class="tbl-count" id="co-count"></span>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th class="sortable" data-sort="name">Company</th>
+          <th>Sector</th>
+          <th class="sortable" data-sort="country">Country</th>
+          <th class="sortable" data-sort="inception">Founded</th>
+          <th class="sortable" data-sort="funding">Funding</th>
+          <th>Industries</th>
+          <th class="sortable" data-sort="investors">Investors</th>
+          <th>Wikidata</th>
+          <th>Validation</th>
+        </tr></thead>
+        <tbody id="co-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── INVESTORS ──────────────────────────────── -->
+  <div id="tab-investors" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading investors…</div></div>
+    <div class="tbl-toolbar">
+      <input class="search-input" id="inv-search" placeholder="Search investors…">
+      <span class="tbl-count" id="inv-count"></span>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Investor</th>
+          <th>Type</th>
+          <th class="sortable" data-sort="total">Portfolio</th>
+          <th class="sortable" data-sort="leads">Lead</th>
+          <th>Companies</th>
+        </tr></thead>
+        <tbody id="inv-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── RELATIONSHIPS ─────────────────────────── -->
+  <div id="tab-relationships" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading relationships…</div></div>
+    <div class="tbl-toolbar">
+      <input class="search-input" id="rel-search" placeholder="Filter by company or investor…">
+      <span class="tbl-count" id="rel-count"></span>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>ID</th>
+          <th>Investor</th>
+          <th>Company</th>
+          <th>Sector</th>
+          <th>Role</th>
+        </tr></thead>
+        <tbody id="rel-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── MAP ───────────────────────────────────── -->
+  <div id="tab-map" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading supply chain map…</div></div>
+    <div id="map-layout">
+      <div id="map-main">
+        <div id="map-toolbar">
+          <label class="map-toggle-label">
+            <input type="checkbox" id="map-arc-toggle" checked>
+            Show investment arcs
+          </label>
+          <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
+          <span id="map-status" class="map-status"></span>
+        </div>
+        <div id="map-filter-bar" class="map-filter-bar hidden">
+          <span>Filtering by: <strong id="map-filter-label"></strong></span>
+          <button id="map-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
+        </div>
+        <svg id="map-svg"></svg>
+      </div>
+      <div id="map-panel" class="d-none">
+        <div id="map-panel-header">
+          <span id="map-panel-title" class="sl-title"></span>
+          <button id="map-close-panel-btn" class="sl-close">✕</button>
+        </div>
+        <div id="map-panel-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WIKIDATA INSPECTOR ─────────────────────── -->
+  <div id="tab-wikidata" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading wikidata inspector…</div></div>
+    <div id="wd-layout">
+      <div id="wd-sidebar" class="sidebar">
+        <div id="wd-sidebar-top">
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" id="wd-mode-toggle">
+            <label class="form-check-label wd-mode-label" for="wd-mode-toggle">Live Wikidata search</label>
+          </div>
+          <div id="wd-local-controls">
+            <div class="wd-country-filter-lbl">Filter by country</div>
+            <div id="wd-country-btns"></div>
+          </div>
+          <div id="wd-live-controls" class="hidden">
+            <div class="live-search-wrap">
+              <input class="search-input" id="wd-live-input" placeholder="Search Wikidata…" autocomplete="off">
+              <div class="live-drop" id="wd-live-drop"></div>
+            </div>
+          </div>
+        </div>
+        <div id="wd-company-list"></div>
+      </div>
+      <div id="wd-main">
+        <div id="wd-main-top">
+          <span id="wd-selected-label">← Select a company</span>
+          <a id="wd-external-link" href="#" target="_blank" class="hidden">↗ View on Wikidata</a>
+        </div>
+        <div id="wd-loader"><div class="spin"></div><span class="wd-loader-text">Loading...</span></div>
+        <div id="wd-error"></div>
+        <div id="wd-results"><div class="wd-placeholder">Select a company from the sidebar to inspect its Wikidata record.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATA QUALITY ───────────────────────────── -->
+  <div id="tab-quality" class="tab-pane scrollable">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading data quality…</div></div>
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="section-title">Wikidata IDs</div>
+          <div id="q-wd-stats"></div>
+          <div class="prog-track mt-2"><div class="prog-fill" id="q-wd-bar"></div></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="section-title">Validation Status</div>
+          <div id="q-val-stats"></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="section-title">Enrichment</div>
+          <div id="q-enrich-stats"></div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-card mb-3">
+      <div class="section-title">Companies missing wikidata_id</div>
+      <div id="q-missing"></div>
+    </div>
+    <div class="stat-card">
+      <div class="section-title">Open Validation Issues</div>
+      <div class="tbl-wrap tbl-wrap--lg">
+        <table>
+          <thead><tr><th>Company</th><th>Sector</th><th>Status</th><th>Description</th><th>Date</th></tr></thead>
+          <tbody id="q-val-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── EDF OVERVIEW ──────────────────────────── -->
+  <div id="tab-edfoverview" class="tab-pane scrollable">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading edf overview…</div></div>
+    <div id="eo-wrap">
+      <div class="overview-grid" id="eo-stats-grid"></div>
+      <div id="eo-rankings"></div>
+    </div>
+  </div>
+
+  <!-- ── EDF MAP ────────────────────────────────── -->
+  <div id="tab-edfmap" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading edf map…</div></div>
+    <div id="edfmap-layout">
+      <div id="edfmap-main">
+        <div id="edfmap-toolbar">
+          <label class="map-toggle-label">
+            <input type="checkbox" id="edfmap-arc-toggle" checked>
+            Show partnership arcs
+          </label>
+          <button class="tnav-btn map-ctrl-btn" id="edfmap-reset-zoom-btn">Reset zoom</button>
+          <span id="edfmap-position"></span>
+          <span id="edfmap-status" class="map-status"></span>
+        </div>
+        <div id="edfmap-filter-bar" class="map-filter-bar hidden">
+          <span>Partners of: <strong id="edfmap-filter-label"></strong></span>
+          <button id="edfmap-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
+        </div>
+        <svg id="edfmap-svg"></svg>
+      </div>
+      <div id="edfmap-panel" class="d-none">
+        <div id="edfmap-panel-header">
+          <span id="edfmap-panel-title" class="sl-title"></span>
+          <button id="edfmap-close-panel-btn" class="sl-close">✕</button>
+        </div>
+        <div id="edfmap-panel-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EU CALLS ───────────────────────────────── -->
+  <div id="tab-eucalls" class="tab-pane scrollable">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading eu calls…</div></div>
+    <div class="ec-container">
+
+      <!-- Header -->
+      <div class="mb-4">
+        <h2>European Defence Fund – Search Projects by Calls</h2>
+        <p class="text-muted mb-0 ec-header-note">
+          All <span id="ec-totalCallsCount">—</span> EDF calls (2021–2027) are mapped here — open, forthcoming and closed —
+          last updated <span id="ec-fileDate">—</span>.
+          The European Commission publishes data about funded projects only after the selection phase is complete,
+          so many calls — especially recent or open ones — will show no projects yet.
+          By default the search list shows only calls with known funded projects.
+          Toggle the filter below to browse all calls.
+        </p>
+        <p class="mt-2 mb-0 ec-header-note">
+          <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-proposals?isExactMatch=true&status=31094501,31094502,31094503&frameworkProgramme=44181033&order=DESC&pageNumber=1&pageSize=50&sortBy=startDate"
+             target="_blank">Full list of EDF calls on EU Funding Portal ↗</a>
+        </p>
+      </div>
+
+      <!-- Search form -->
+      <div class="card mb-4">
+        <div class="card-header bg-primary">Search EDF Call</div>
+        <div class="card-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-10">
+              <label for="ec-topicInput" class="form-label">Topic Identifier or Call Title</label>
+              <div class="live-search-wrap">
+                <input type="text" id="ec-topicInput" class="form-control form-control-lg"
+                       placeholder="Type identifier (EDF-2024-…) or call title…" autocomplete="off">
+                <div class="live-drop" id="ec-callDrop"></div>
+              </div>
+              <div class="form-text ec-form-footer">
+                <span id="ec-callStatusText">Loading call list…</span>
+                <label class="ec-funded-label">
+                  <input type="checkbox" id="ec-fundedOnly" checked>
+                  <span class="ec-funded-text">Funded calls only
+                    <span id="ec-fundedCount"></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button id="ec-searchBtn" class="btn btn-primary btn-lg w-100">
+                <span id="ec-btnText">Search</span>
+                <span id="ec-btnSpinner" class="spin hidden"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div id="ec-progressSection" class="card mb-4 hidden">
+        <div class="card-header bg-info">Searching…</div>
+        <div class="card-body">
+          <div class="progress mb-3">
+            <div id="ec-progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                 role="progressbar">0%</div>
+          </div>
+          <p id="ec-progressMsg" class="mb-3 text-muted small"><strong>Initializing…</strong></p>
+          <div id="ec-logPanel"></div>
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div id="ec-errorSection" class="alert alert-danger hidden" role="alert">
+        <h5 class="alert-heading">Error</h5>
+        <p id="ec-errorMsg" class="mb-0"></p>
+      </div>
+
+      <!-- Results -->
+      <div id="ec-resultsSection" class="hidden">
+
+        <!-- Summary header -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+              <div>
+                <h5 id="ec-patternTitle" class="mb-2"></h5>
+                <div id="ec-yearsbadges"></div>
+              </div>
+              <div class="d-flex gap-2">
+                <button id="ec-downloadJsonBtn" class="btn btn-outline-success btn-sm">Download JSON</button>
+                <button id="ec-viewJsonBtn" class="btn btn-outline-info btn-sm">View JSON</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="card mb-3">
+          <div class="card-header">Comparison View</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table id="ec-comparisonTable" class="table table-bordered table-hover mb-0"></table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Per-year accordion -->
+        <div class="accordion" id="ec-yearsAccordion"></div>
+
+      </div><!-- /ec-resultsSection -->
+    </div><!-- /max-width container -->
+  </div>
+
+  <!-- ── EDF BROWSE ─────────────────────────────── -->
+  <div id="tab-edfbrowse" class="tab-pane">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading edf browser…</div></div>
+    <div id="eb-header">
+      <div id="eb-toolbar">
+        <input id="eb-search" type="text" placeholder="Search organisation, country…">
+        <label id="eb-funded-label">
+          <input type="checkbox" id="eb-funded-check">
+          Funded projects only
+        </label>
+        <select id="eb-country-select"></select>
+      </div>
+      <div id="eb-stats-bar"></div>
+    </div>
+    <div id="eb-table-wrap">
+      <table id="eb-table">
+        <thead><tr>
+          <th data-sort="name">Organisation <span class="eb-arrow">↕</span></th>
+          <th data-sort="country">Country <span class="eb-arrow">↕</span></th>
+          <th data-sort="participations">Participations <span class="eb-arrow">↕</span></th>
+          <th data-sort="coordinations">Coordinator <span class="eb-arrow">↕</span></th>
+          <th data-sort="eu_total">Total EU <span class="eb-arrow">↓</span></th>
+          <th data-sort="projects_count">Projects <span class="eb-arrow">↕</span></th>
+          <th>SME</th>
+        </tr></thead>
+        <tbody id="eb-tbody"></tbody>
+      </table>
+    </div>
+    <div id="eb-footer">
+      <span id="eb-count">—</span>
+      <div id="eb-pagination"></div>
+    </div>
+  </div>
+
+  <!-- ── KNOWN ISSUES ──────────────────────────── -->
+  <div id="tab-knownissues" class="tab-pane scrollable">
+    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading known issues…</div></div>
+    <div id="knownissues-body" class="ki-body"></div>
+  </div>
+
+  <!-- ── ABOUT ──────────────────────────────────── -->
+  <div id="tab-about" class="tab-pane scrollable">
+    <div class="about-inner">
+
+      <div class="about-header">
+        <h1>Man in the Loop</h1>
+        <div class="subtitle">show of force — Davide Del Monte — www.infonodes.org — Artwork by @npprgl</div>
+      </div>
+
+      <!-- 0. Who we are -->
+      <section class="a-section">
+        <div class="a-section-title">0. Who we are</div>
+        <p>info.nodes is an Italian nonprofit organization, founded in 2019 by journalists and activists to experiment new solutions in the Italian civil society and media landscape.</p>
+        <p>We focus on social and climate justice, the impact of new technologies on human rights, and the protection of freedom of speech.</p>
+        <p>We produce investigations, connect tech-activists, researchers, and artists, develop innovative advocacy and communication formats to reach wider audiences. We also organize exhibitions, networking events, offer technical training for journalists and activists, and create investigative-based comms materials.</p>
+        <p>We love to work in collaboration with other organizations, because "no man is an island".</p>
+        <p class="a-mt14"><strong>Project team:</strong> Davide Del Monte, Laura Carrer, Andrea Daniele Signorelli</p>
+        <hr class="a-divider">
+        <p><strong>In collaboration with:</strong><br>
+        <span class="a-collab-text">Datapitch — An Italian company providing support in data analysis and data visualization, thanks to their experience in database development and management, multimedia content production, and the creation of digital tools.</span></p>
+      </section>
+
+      <hr class="a-divider">
+
+      <!-- 1. Objective and scope -->
+      <section class="a-section">
+        <div class="a-section-title">1. Objective and scope</div>
+        <p>Identifying who truly holds the reins of autonomous weapons research and production, by reconstructing decision-making influence and investments across the entire supply chain.</p>
+        <p class="a-mt10"><strong>Our ideal goal — sectors mapped by market cap:</strong></p>
+        <div class="tag-row">
+          <span class="tag">Tech ≈ $15,000B</span>
+          <span class="tag">Defence ≈ $1,000B</span>
+          <span class="tag">Mining ≈ $900B</span>
+        </div>
+        <p class="a-mt14">Identify the main investors and governance relationships across Tech / Defence / Mining — including Investment Funds (BlackRock, Vanguard Group, Fidelity Investments, State Street Global Advisors, JP Morgan) and Venture Capital (a16z, Sequoia Capital, Tiger Global Management, NEA, Lightspeed Venture Partners).</p>
+      </section>
+
+      <hr class="a-divider">
+
+      <!-- 2. The 3 main focus -->
+      <section class="a-section">
+        <div class="a-section-title">2. The 3 main focus</div>
+        <div class="three-col a-mb18">
+          <div class="focus-item">
+            <div class="num">01</div>
+            <strong>Start-up in Europe</strong>
+          </div>
+          <div class="focus-item">
+            <div class="num">02</div>
+            <strong>Private investors in MoT</strong>
+          </div>
+          <div class="focus-item">
+            <div class="num">03</div>
+            <strong>Public EU funding to MoT</strong>
+          </div>
+        </div>
+        <p>We want to highlight the significant growth of the European startup sector dedicated to the development of autonomous systems and defense technologies. One of the key questions we are investigating is which funds, companies, or individuals are investing in the sector across multiple segments of the supply chain — from raw material extraction → development of AI-based technologies → production of armaments.</p>
+        <p>If an entity is present at every stage of the chain, their power increases considerably.</p>
+        <p>Regarding the startup sector in particular, we also want to understand the role played by European institutions in financially backing and thus promoting the development of this industrial sector.</p>
+        <p class="a-mt14"><strong>Sample companies tracked:</strong></p>
+        <div class="companies-grid">
+          <div class="co-row"><span>Helsing</span><span>Germany</span></div>
+          <div class="co-row"><span>ARX Robotics</span><span>Germany</span></div>
+          <div class="co-row"><span>Quantum Systems</span><span>Germany</span></div>
+          <div class="co-row"><span>Destinus</span><span>Netherlands</span></div>
+          <div class="co-row"><span>Tekever</span><span>Portugal</span></div>
+          <div class="co-row"><span>Comand AI</span><span>France</span></div>
+          <div class="co-row"><span>Intelic (Avalor AI)</span><span>Netherlands</span></div>
+          <div class="co-row"><span>Arondite</span><span>United Kingdom</span></div>
+          <div class="co-row"><span>Origin Robotics</span><span>Latvia</span></div>
+          <div class="co-row"><span>Roark Aerospace</span><span>United Kingdom</span></div>
+          <div class="co-row"><span>Unmanned Defence Systems</span><span>Lithuania</span></div>
+          <div class="co-row"><span>Alpine Eagle</span><span>Germany</span></div>
+          <div class="co-row"><span>Alta Ares</span><span>France</span></div>
+          <div class="co-row"><span>C2Grid</span><span>Estonia</span></div>
+          <div class="co-row"><span>Delian</span><span>United Kingdom</span></div>
+          <div class="co-row"><span>ICEYE</span><span>Finland</span></div>
+          <div class="co-row"><span>Nordic Air Defence</span><span>Sweden</span></div>
+          <div class="co-row"><span>XRF</span><span>Spain</span></div>
+        </div>
+      </section>
+
+      <hr class="a-divider">
+
+      <!-- 3. Methodology -->
+      <section class="a-section">
+        <div class="a-section-title">3. Methodology in brief</div>
+        <div class="step-item">
+          <div class="step-num">1.</div>
+          <div class="step-content">
+            <strong>Identification of companies</strong>
+            <div class="status-badge">Ongoing (test completed)</div>
+            <p>A first test list of companies was created in February. We will add a new wave of companies and other subjects (April / June).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2.</div>
+          <div class="step-content">
+            <strong>Data collection</strong>
+            <div class="status-badge">Ongoing</div>
+            <p>We are now collecting all the information about investors.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3.</div>
+          <div class="step-content">
+            <strong>Data Analysis</strong>
+            <div class="status-badge">Testing phase</div>
+            <p>We are already «playing» with data, in order to better understand what we can extract from them. In a next phase we will try to collect information about governance and/or relationships with public universities.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4.</div>
+          <div class="step-content">
+            <strong>Research / Investigation</strong>
+            <div class="status-badge">Final phase</div>
+            <p>Once we have collected all the information and processed all the data, we will go in-depth with companies or cases that seem particularly interesting.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="a-divider">
+
+      <!-- 4. The research -->
+      <section class="a-section">
+        <div class="a-section-title">4. The research</div>
+
+        <h2>1. Identification of companies</h2>
+        <p>We created a test list of companies based on market capitalization or economic valuation (for unlisted companies, such as startups). Additionally, we asked several Italian and international organizations to suggest names of companies they considered interesting for inclusion in the list.</p>
+        <p class="a-mt8"><strong>The list is composed by:</strong></p>
+        <ul class="a-mt8">
+          <li>18 European start-up companies</li>
+          <li>22 Global Tech companies</li>
+          <li>65 Global Defence companies</li>
+          <li>67 Global Mining companies</li>
+        </ul>
+        <p class="a-mt10">Enrichment of the list of companies with all the subjects (companies, universities, research centers) that received European funds (EDF, Horizon, etc…).</p>
+
+        <hr class="a-divider">
+
+        <h2>2. Data collection</h2>
+        <p>In mid-February, we opened a one-month paid subscription on Crunchbase, one of the most well-known private databases for information on companies and investment funds. This subscription allowed us to upload our list of companies, view detailed information on them, and export the relevant data in CSV format.</p>
+        <p class="a-note">* A direct API connection is not possible, as the cost exceeds $35,000 USD per year.</p>
+        <p class="a-mt10">Datapitch developed a script to create a GitHub-hosted mini-site for info.nodes, listing every company previously identified with dedicated pages that organize their Wikipedia data according to a custom schema we designed.</p>
+
+        <hr class="a-divider">
+
+        <h2>3. Data analysis</h2>
+        <p>Together with Datapitch, we developed code (using Claude) to analyze the collected data and create network analysis visualizations. Our core question is: <em>'Who is investing money in multiple companies and across multiple interconnected sectors?'</em></p>
+        <p class="a-mt8">We created a GitHub repository to host the data analysis and network visualization. We want to make all our results accessible and free for all.</p>
+
+        <hr class="a-divider">
+
+        <h2>4. Research / Investigation</h2>
+        <p>The research team (Davide, Laura, Andrea Daniele) will analyse and investigate the most interesting information and publish a report focused on the European start-up ecosystems, the main private investors in the MoT sector, and the stream of EU funds.</p>
+        <p class="a-mt8">Possibility to investigate governance connections and relationships with public universities too.</p>
+        <p class="a-mt10"><strong>Proposal for a follow-up:</strong> Hackathon with P.I. using the data collected by info.nodes and DataPitch.</p>
+      </section>
+
+    </div><!-- /about-inner -->
+  </div>
+
+</div><!-- /content -->
+
+<!-- TOOLTIP -->
+<div id="tip">
+  <div class="tn" id="tip-name"></div>
+  <div class="ti" id="tip-info"></div>
+  <div class="th" id="tip-sub"></div>
+</div>
+
+<!-- Participant sidebar -->
+<div id="ec-partSidebar" class="ec-part-sidebar">
+  <div class="ec-part-sidebar-overlay" id="ec-partOverlay"></div>
+  <div class="ec-part-sidebar-panel">
+    <div class="ec-part-sidebar-header">
+      <span class="sl-title" id="ec-partTitle">—</span>
+      <button class="btn-close" id="ec-partClose"></button>
+    </div>
+    <div class="ec-part-sidebar-body" id="ec-partBody"></div>
+  </div>
+</div>
+
+<!-- EDF-only modal -->
+<div class="modal fade" id="ec-edfOnlyModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">EDF Calls Only</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-0">Sorry, you can search for EDF calls only. Please enter an identifier starting with <code>EDF-</code> (e.g. <code>EDF-2024-RA-SI-MATCOMP-EC-STEP</code>).</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JSON viewer modal -->
+<div class="modal fade" id="ec-jsonModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Aggregated JSON Data</h5>
+        <div class="d-flex gap-2">
+          <button id="ec-copyJsonBtn" class="btn btn-primary btn-sm">Copy</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <pre id="ec-jsonContent"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDF ORG SIDEBAR -->
+<div id="edf-sidebar" class="entity-sidebar">
+  <div id="edf-sidebar-overlay" class="entity-sidebar-overlay"></div>
+  <div class="entity-sidebar-panel sidebar">
+    <div class="entity-sidebar-header">
+      <span id="edf-sidebar-title" class="sl-title"></span>
+      <button id="edf-sidebar-close" class="sl-close" title="Close">✕</button>
+    </div>
+    <div id="edf-sidebar-body" class="entity-sidebar-body"></div>
+  </div>
+</div>
+
+<!-- ENTITY DETAIL SIDEBAR -->
+<div id="entity-sidebar" class="entity-sidebar">
+  <div id="entity-sidebar-overlay" class="entity-sidebar-overlay"></div>
+  <div class="entity-sidebar-panel sidebar">
+    <div class="entity-sidebar-header">
+      <span id="entity-sidebar-title" class="sl-title"></span>
+      <button id="entity-sidebar-close" class="sl-close" title="Close">✕</button>
+    </div>
+    <div id="entity-sidebar-body" class="entity-sidebar-body"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

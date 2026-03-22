@@ -1,0 +1,146 @@
+# Update Protocol — database.json Reconciliation
+
+## Purpose
+
+This document defines the rules for updating `database.json` when new data is available from Crunchbase or the infonodes team, without corrupting existing IDs, history, or validation entries.
+
+---
+
+## Guiding principles
+
+1. **IDs are permanent.** Once assigned, `IN-NNNN`, `IV-NNNN`, and `REL-NNNN` IDs must never be reused or reassigned.
+2. **History is append-only.** Never delete or modify existing history entries.
+3. **Validation survives updates.** Existing `validation[]` entries are preserved; new ones may be appended.
+4. **IDs are assigned alphabetically.** New entities get the next available sequential ID in their class.
+
+---
+
+## Adding a new company (IN entity)
+
+1. Choose the next unused `IN-NNNN` ID (check max existing + 1).
+2. Create the entity with all required fields (`id`, `name`, `type`, `roles`, `history`).
+3. Add a history entry:
+   ```json
+   {
+     "date": "YYYY-MM-DD",
+     "source": "manual",
+     "author": "your-handle",
+     "field": "*",
+     "old": null,
+     "new": null,
+     "description": "New company added: <reason>"
+   }
+   ```
+4. Add a `needs_review` validation entry for roles (until confirmed).
+5. Run `validate.py` before committing.
+
+---
+
+## Adding a new investor (IV entity)
+
+Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["investor"]`.
+
+> **Deduplication:** Before adding, search existing investor entities case-insensitively. If a match exists, use the existing ID — never create a duplicate.
+
+---
+
+## Updating an existing entity field
+
+1. Locate the entity by `id`.
+2. Update the field value.
+3. Append to `history[]`:
+   ```json
+   {
+     "date": "YYYY-MM-DD",
+     "source": "crunchbase",
+     "author": "your-handle",
+     "field": "sources.crunchbase.total_funding_usd",
+     "old": 1000000,
+     "new": 2000000,
+     "description": "Funding updated from new Crunchbase scrape"
+   }
+   ```
+4. If the field was flagged in `validation[]`, update its status to `confirmed` or add a new entry explaining resolution.
+5. Run `validate.py` before committing.
+
+---
+
+## Batch Crunchbase re-scrape reconciliation
+
+When a new full scrape is available (new date key in legacy format), follow these steps:
+
+1. **Identify changed fields** by diffing old vs. new snapshot per company.
+2. **For each changed field:**
+   - Update the value in `sources.crunchbase`
+   - Update `sources.crunchbase.extracted_at` to the new scrape date
+   - Append a history entry per changed field (or one entry with `field: "*"` if many fields changed)
+3. **For new investors** found in the scrape:
+   - Check for deduplication (case-insensitive name match)
+   - Add new IV entities and REL entries as needed
+4. **Do not delete** existing relationships — only add or update `details.lead`.
+5. Update `_updated` at the top level to today's date.
+6. Run `validate.py` before committing.
+
+---
+
+## Resolving a validation flag
+
+1. Find the entity with `validation[].status == "flagged"` or `"needs_review"`.
+2. Correct the field (e.g. set the right `wikidata_id`).
+3. Append to `history[]` documenting the correction.
+4. Change the validation entry's `status` to `"confirmed"` and add a `datestamp`.
+
+Example — correcting a bad `wikidata_id`:
+```json
+{
+  "status": "confirmed",
+  "description": "wikidata_id corrected to Q1002897 (verified against Wikidata)",
+  "author": "your-handle",
+  "datestamp": "2026-03-20"
+}
+```
+
+---
+
+## Merging a duplicate entity
+
+If the same real-world entity exists under two IDs:
+
+1. Choose the **lower ID** as canonical.
+2. Merge all sources, history (sorted by date), and validation from the duplicate into canonical.
+3. Update all relationships referencing the duplicate ID to use the canonical ID.
+4. Add a history entry on the canonical entity:
+   ```json
+   {
+     "date": "YYYY-MM-DD",
+     "source": "manual",
+     "author": "your-handle",
+     "field": "*",
+     "old": null,
+     "new": null,
+     "description": "Merged duplicate entity <duplicate-id> into this record"
+   }
+   ```
+5. **Delete** the duplicate entity from `entities[]` (IDs are never reused, so the deleted ID is permanently retired).
+6. Add a `merged_duplicate` validation entry.
+7. Run `validate.py`.
+
+---
+
+## Running validate.py
+
+```bash
+python3 refactoring/scripts/validate.py
+```
+
+All 8 checks must pass before any commit that modifies `database.json`.
+
+---
+
+## ID retirement
+
+Retired IDs (merged duplicates, deleted test entries) must be documented in a comment block at the bottom of this file:
+
+### Retired IDs
+
+*(none at v2.0 initial migration)*
