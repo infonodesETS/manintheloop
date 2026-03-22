@@ -18,7 +18,6 @@
   --legend-h:             42px;
   --subtab-h:             38px;
   --content-h:            calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h) - var(--legend-h));
-  --legend-top:           calc(var(--nav-h) + var(--tab-h) + var(--subtab-h));
 
   /* ── Entity color palette ── */
   /* Company sectors — greens */
@@ -169,18 +168,12 @@ body {
 }
 body.subnav-hidden #subnav { display: none; }
 body.subnav-hidden {
-  --legend-top: calc(var(--nav-h) + var(--tab-h));
-  --content-h:  calc(100vh - var(--nav-h) - var(--tab-h) - var(--legend-h));
+  --content-h: calc(100vh - var(--nav-h) - var(--tab-h) - var(--legend-h));
 }
-body.subnav-hidden #content { margin-top: calc(var(--tab-h) + var(--legend-h)); }
-body.subnav-hidden.legend-closed {
-  --content-h: calc(100vh - var(--nav-h) - var(--tab-h));
-}
-body.subnav-hidden.legend-closed #content { margin-top: var(--tab-h); }
+body.subnav-hidden #content { margin-top: var(--tab-h); }
 
 /* Legend hidden for non-supply-chain groups */
-body.legend-hidden #legend        { display: none; }
-body.legend-hidden #legend-toggle { display: none; }
+body.legend-hidden #legend { display: none; }
 body.legend-hidden {
   --content-h: calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
 }
@@ -213,8 +206,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .tnav-gh:hover { color: #fff; border-color: var(--grey-mid); }
 
 /* ── Content area ── */
-#content { margin-top: calc(var(--tab-h) + var(--subtab-h) + var(--legend-h)); height: var(--content-h); overflow: hidden; transition: margin-top .2s, height .2s; }
-body.legend-closed #content { margin-top: calc(var(--tab-h) + var(--subtab-h)); height: calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h)); }
+#content { margin-top: calc(var(--tab-h) + var(--subtab-h)); height: var(--content-h); overflow: hidden; }
 .tab-pane { display: none; height: 100%; position: relative; }
 .tab-pane.active { display: flex; flex-direction: column; }
 .tab-pane.scrollable { overflow-y: auto; padding: 20px; display: none; flex-direction: column; }
@@ -277,11 +269,11 @@ body.legend-closed #content { margin-top: calc(var(--tab-h) + var(--subtab-h)); 
 
 /* ── Intro tab ── */
 #tab-intro {
-  display: none; align-items: center; justify-content: center;
+  display: none; flex-direction: column; align-items: center;
   padding: 40px 24px; overflow-y: auto;
 }
 #tab-intro.active { display: flex; }
-.intro-wrap { max-width: 680px; width: 100%; }
+.intro-wrap { max-width: 680px; width: 100%; margin: auto; }
 .intro-prompt {
   font-family: var(--font-mono);
   color: rgba(0,255,65,0.45); font-size: var(--fs-sm); margin-bottom: 20px;
@@ -329,10 +321,72 @@ body.legend-closed #content { margin-top: calc(var(--tab-h) + var(--subtab-h)); 
   font-family: var(--font-mono);
   font-size: var(--fs-sm); color: rgba(0,255,65,0.5);
 }
+/* ── Intro: clickable area titles ── */
+.intro-area-nav {
+  cursor: pointer; transition: color 0.15s;
+}
+.intro-area-nav:hover { color: var(--accent); }
+.intro-area-arrow {
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  opacity: 0; margin-left: 4px; transition: opacity 0.15s;
+}
+.intro-area-nav:hover .intro-area-arrow { opacity: 1; }
+
+/* ── Intro CTA buttons ── */
+.intro-cta-row {
+  display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;
+}
+.intro-cta-btn {
+  font-family: var(--font-mono); font-size: var(--fs-base);
+  color: var(--accent); background: rgba(0,255,65,0.06);
+  border: 1px solid rgba(0,255,65,0.35); border-radius: 4px;
+  padding: 8px 18px; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.intro-cta-btn:hover {
+  background: rgba(0,255,65,0.12); border-color: rgba(0,255,65,0.65);
+}
+
+/* ── Intro context block ── */
+.intro-context {
+  margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.intro-context-label {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  color: rgba(0,255,65,0.45); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.intro-context-text {
+  font-size: var(--fs-base); color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: 14px;
+}
+.intro-sector-list {
+  list-style: none; padding: 0; margin: 0 0 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.intro-sector-list li {
+  font-size: var(--fs-base); color: var(--text-tertiary); line-height: 1.5;
+}
+.intro-sector-label {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  font-weight: var(--fw-bold); text-transform: uppercase;
+  letter-spacing: .5px; padding: 2px 7px; border-radius: 3px;
+  margin-right: 8px; display: inline-block;
+}
+.intro-sector--defence { background: rgba(170,255,221,0.12); color: var(--c-defence); }
+.intro-sector--mining  { background: rgba(85,221,170,0.12);  color: var(--c-mining); }
+.intro-sector--tech    { background: rgba(34,187,102,0.12);  color: var(--c-tech); }
+.intro-about-link {
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  color: rgba(0,255,65,0.5); background: none; border: none;
+  padding: 0; cursor: pointer; display: block; transition: color 0.15s;
+}
+.intro-about-link:hover { color: var(--accent); }
 
 /* ── Known Issues tab ── */
-#tab-knownissues.active { display: flex; justify-content: center; }
-.ki-body { max-width: 80%; width: 100%; margin: auto; }
+#tab-knownissues { overflow-y: auto; padding: 24px; }
+#tab-knownissues.active { display: flex; flex-direction: column; align-items: center; }
+.ki-body { max-width: 80%; width: 100%; }
 .ki-body h1 { font-size: var(--fs-xl); color: var(--accent); margin-bottom: 1rem; }
 .ki-body h2 { font-size: var(--fs-xl); color: var(--grey-pale); margin-top: 1.6rem; margin-bottom: .4rem; }
 .ki-body p  { font-size: var(--fs-lg); color: var(--grey-mid); line-height: 1.6; }

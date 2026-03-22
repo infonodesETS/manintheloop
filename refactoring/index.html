@@ -28,7 +28,7 @@
 
 <!-- TOP NAV (research groups) -->
 <div id="topnav">
-  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a><span class="brand-wip">Work in Progress — Data may contain errors, see <a href="?research=tools&tab=knownissues" class="brand-wip-link">Known Issues</a></span>
+  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a><span class="brand-wip">Work in Progress — Data may contain errors, see <a href="?research=data&tab=knownissues" class="brand-wip-link">Known Issues</a></span>
   <span class="meta" id="nav-meta"></span>
 </div>
 
@@ -38,13 +38,12 @@
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="supply-chain">Supply Chain</button>
   <button class="tnav-btn" data-research="edf">European Defence Fund</button>
-  <button class="tnav-btn" data-research="tools">Tools</button>
+  <button class="tnav-btn" data-research="data">Data</button>
   <a href="automated-investigation.html" class="tnav-btn">✨ Investigation</a>
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="about">About</button>
   <span class="tnav-info" id="tnav-info"></span>
   <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="tnav-gh">↗ GitHub</a>
-  <button id="legend-toggle" title="Toggle legend">▼ Legend</button>
 </div>
 
 <!-- SUB-TAB NAV -->
@@ -67,32 +66,11 @@
     <button class="snav-btn" data-tab="eucalls">EDF Calls Search</button>
     <button class="snav-btn" data-tab="edfbrowse">EDF Beneficiaries</button>
   </div>
-  <div class="snav-group" data-research="tools">
+  <div class="snav-group" data-research="data">
     <button class="snav-btn" data-tab="wikidata">Wikidata Inspector</button>
-    <button class="snav-btn" data-tab="quality">Data Quality</button>
     <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="quality">Data Quality</button>
     <button class="snav-btn" data-tab="knownissues">Known Issues</button>
-  </div>
-</div>
-
-<!-- LEGEND BAR -->
-<div id="legend" class="open">
-  <div id="legend-body">
-    <span class="lg-group-label">Sectors</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--defence"></span>Defence</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--mining"></span>Mining</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--tech"></span>Tech</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--startup"></span>Startup</span>
-    <span class="lg-sep"></span>
-    <span class="lg-group-label">Investors</span>
-    <span class="lg-item"><span class="lg-dot lg-square lg-dot--fund"></span>Fund</span>
-    <span class="lg-item"><span class="lg-dot lg-square lg-dot--govt"></span>Gov Agency</span>
-    <span class="lg-item"><span class="lg-dot lg-square lg-dot--bank"></span>Bank</span>
-    <span class="lg-item"><span class="lg-dot lg-square lg-dot--inst"></span>Institution</span>
-    <span class="lg-sep"></span>
-    <span class="lg-group-label">Roles</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--mfr"></span>Manufacturer</span>
-    <span class="lg-item"><span class="lg-star lg-star--dual">★</span>Dual role</span>
   </div>
 </div>
 
@@ -105,7 +83,7 @@
       <div class="intro-prompt">$ man-in-the-loop --research 2025</div>
       <div class="intro-title">Man in the Loop<span class="intro-cursor"></span></div>
       <p class="intro-desc">
-        This is an experimental research to map companies working either as manufacturers or investors
+        An experimental research to map <span class="gl-term" data-gl="company">companies</span> working either as manufacturers or <span class="gl-term" data-gl="investor">investors</span>
         in the Defence field, in Europe and abroad — including an analysis of the European Defence Fund
         landscape, tracking which organisations receive EU public funding across the 201 EDF calls (2021–2027).
       </p>
@@ -114,9 +92,9 @@
         <div class="intro-area">
           <div class="intro-area-num">01 /</div>
           <div class="intro-area-body">
-            <div class="intro-area-title">Supply Chain</div>
+            <div class="intro-area-title intro-area-nav" data-navigate-group="supply-chain" data-navigate-tab="overview">Supply Chain <span class="intro-area-arrow">→</span></div>
             <div class="intro-area-desc">
-              Map companies, investors, and their relationships across the Defence · Mining · Tech · Startup
+              Map <span class="gl-term" data-gl="company">companies</span>, <span class="gl-term" data-gl="investor">investors</span>, and their <span class="gl-term" data-gl="relationship">relationships</span> across the <span class="gl-term" data-gl="defence">Defence</span> · <span class="gl-term" data-gl="mining">Mining</span> · <span class="gl-term" data-gl="tech">Tech</span> · <span class="gl-term" data-gl="startup">Startup</span>
               sectors. Explore the network graph, investment matrix, and geographic spread of
               entities tracked in the infonodes database.
             </div>
@@ -125,24 +103,38 @@
         <div class="intro-area">
           <div class="intro-area-num">02 /</div>
           <div class="intro-area-body">
-            <div class="intro-area-title">European Defence Fund</div>
+            <div class="intro-area-title intro-area-nav" data-navigate-group="edf" data-navigate-tab="edfoverview">European Defence Fund <span class="intro-area-arrow">→</span></div>
             <div class="intro-area-desc">
-              Explore all 201 EDF calls (2021–2027) and the organisations that received EU funding.
-              Search calls by identifier or title, browse the 715 participating organisations by
-              country, role, and total EU contribution.
+              Explore all 201 <span class="gl-term" data-gl="edf">EDF</span> calls (2021–2027) and the organisations that received EU funding.
+              Search calls by identifier or title, browse the 715 <span class="gl-term" data-gl="participation">participating organisations</span> by
+              country, role, and total <span class="gl-term" data-gl="eu-contribution">EU contribution</span>.
             </div>
           </div>
         </div>
         <div class="intro-area">
           <div class="intro-area-num">03 /</div>
           <div class="intro-area-body">
-            <div class="intro-area-title">Tools</div>
+            <div class="intro-area-title intro-area-nav" data-navigate-group="data" data-navigate-tab="wikidata">Tools <span class="intro-area-arrow">→</span></div>
             <div class="intro-area-desc">
               Data transparency and enrichment tools for journalists and researchers.
               Inspect Wikidata records for tracked companies and review data quality metrics.
             </div>
           </div>
         </div>
+      </div>
+      <div class="intro-cta-row">
+        <button class="intro-cta-btn" data-navigate-group="supply-chain" data-navigate-tab="overview">→ Explore Supply Chain</button>
+        <button class="intro-cta-btn" data-navigate-group="edf" data-navigate-tab="edfoverview">→ European Defence Fund</button>
+      </div>
+      <div class="intro-context">
+        <div class="intro-context-label">about this research</div>
+        <p class="intro-context-text">Identifying who truly holds the reins of autonomous weapons research and production — reconstructing decision-making influence and investments across 3 interconnected sectors:</p>
+        <ul class="intro-sector-list">
+          <li><span class="intro-sector-label intro-sector--defence">Defence</span> Companies that produce weapons systems, military platforms, and defence technologies</li>
+          <li><span class="intro-sector-label intro-sector--mining">Mining</span> Extraction of critical raw materials for defence: semiconductors, rare earths, strategic metals</li>
+          <li><span class="intro-sector-label intro-sector--tech">Tech</span> Technology companies providing AI, cloud, and infrastructure to the military sector</li>
+        </ul>
+        <button class="intro-about-link" data-navigate-group="about" data-navigate-tab="">→ Full context and methodology in About</button>
       </div>
     </div>
   </div>
@@ -183,6 +175,10 @@
       <button class="sf-btn" data-sector="Tech">Tech</button>
       <button class="sf-btn" data-sector="Startup">Startup</button>
       <span class="tbl-count" id="mx-info"></span>
+      <span class="ctrl-sep"></span>
+      <span class="sf-label">Key</span>
+      <span class="badge-lead">LEAD</span><span class="mx-legend-desc">led the round</span>
+      <span class="badge-follow">follow</span><span class="mx-legend-desc">participated</span>
     </div>
     <div id="matrix-wrap">
       <div id="matrix-scroll"></div>
@@ -202,9 +198,9 @@
     <div id="graph-layout">
       <div id="graph-pane">
         <div id="graph-controls">
-          <button class="gv-btn active" id="gv-net">Network</button>
-          <button class="gv-btn"        id="gv-bi">Bipartite</button>
-          <button class="gv-btn"        id="gv-proj">Projection</button>
+          <button class="gv-btn active" id="gv-net"  title="Network — companies at centre, investors orbiting. Links connect each investor to the companies it backed.">Network</button>
+          <button class="gv-btn"        id="gv-bi"   title="Bipartite — two columns: investors on the left, companies on the right. Easier to trace a single investor's portfolio.">Bipartite</button>
+          <button class="gv-btn"        id="gv-proj" title="Projection — investors only. A link between two investors means they co-invested in at least one company. Thicker = more shared companies.">Projection</button>
           <div class="ctrl-sep"></div>
           <button class="sf-btn active" data-sector="all">All</button>
           <button class="sf-btn"        data-sector="Defence">Defence</button>
@@ -485,7 +481,7 @@
       <!-- Header -->
       <div class="mb-4">
         <h2>European Defence Fund – Search Projects by Calls</h2>
-        <p class="text-muted mb-0 ec-header-note">
+        <p class="mb-0 ec-header-note">
           All <span id="ec-totalCallsCount">—</span> EDF calls (2021–2027) are mapped here — open, forthcoming and closed —
           last updated <span id="ec-fileDate">—</span>.
           The European Commission publishes data about funded projects only after the selection phase is complete,
@@ -505,10 +501,10 @@
         <div class="card-body">
           <div class="row g-3 align-items-end">
             <div class="col-md-10">
-              <label for="ec-topicInput" class="form-label">Topic Identifier or Call Title</label>
+              <label for="ec-topicInput" class="form-label">Topic Identifier or Call Title <span class="ec-label-hint">— try: CYBER, helicopter, maritime, EDF-2023-DA-GROUND…</span></label>
               <div class="live-search-wrap">
                 <input type="text" id="ec-topicInput" class="form-control form-control-lg"
-                       placeholder="Type identifier (EDF-2024-…) or call title…" autocomplete="off">
+                       placeholder="e.g. CYBER, EDF-2023-DA-GROUND, drone, maritime…" autocomplete="off">
                 <div class="live-drop" id="ec-callDrop"></div>
               </div>
               <div class="form-text ec-form-footer">
@@ -539,7 +535,7 @@
             <div id="ec-progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info"
                  role="progressbar">0%</div>
           </div>
-          <p id="ec-progressMsg" class="mb-3 text-muted small"><strong>Initializing…</strong></p>
+          <p id="ec-progressMsg" class="mb-3 ec-progress-msg"><strong>Initializing…</strong></p>
           <div id="ec-logPanel"></div>
         </div>
       </div>
@@ -610,6 +606,7 @@
           <th data-sort="eu_total">Total EU <span class="eb-arrow">↓</span></th>
           <th data-sort="projects_count">Projects <span class="eb-arrow">↕</span></th>
           <th>SME</th>
+          <th class="eb-caret-th"></th>
         </tr></thead>
         <tbody id="eb-tbody"></tbody>
       </table>
@@ -866,6 +863,29 @@
       <button id="entity-sidebar-close" class="sl-close" title="Close">✕</button>
     </div>
     <div id="entity-sidebar-body" class="entity-sidebar-body"></div>
+  </div>
+</div>
+
+<!-- LEGEND BAR (footer) -->
+<div id="legend">
+  <div id="legend-body">
+    <span class="lg-label">Legenda</span>
+    <span class="lg-sep"></span>
+    <span class="lg-group-label">Sectors</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--defence"></span>Defence</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--mining"></span>Mining</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--tech"></span>Tech</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--startup"></span>Startup</span>
+    <span class="lg-sep"></span>
+    <span class="lg-group-label">Investors</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--fund"></span>Fund</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--govt"></span>Gov Agency</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--bank"></span>Bank</span>
+    <span class="lg-item"><span class="lg-dot lg-square lg-dot--inst"></span>Institution</span>
+    <span class="lg-sep"></span>
+    <span class="lg-group-label">Roles</span>
+    <span class="lg-item"><span class="lg-dot lg-dot--mfr"></span>Manufacturer</span>
+    <span class="lg-item"><span class="lg-star lg-star--dual">★</span>Dual role</span>
   </div>
 </div>
 

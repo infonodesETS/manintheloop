@@ -46,6 +46,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.96);b
 /* ── EXPERIMENT BANNER ── */
 .experiment-banner{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:.45rem 1rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);position:sticky;top:48px;z-index:90;}
 .experiment-banner span{color:var(--accent);}
+.back-btn{display:inline-block;margin-right:1rem;padding:1px 10px;background:var(--accent);color:#000;font-family:var(--mono);font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:50px;text-decoration:none;vertical-align:middle;}
+.back-btn:hover{background:#8ad8dc;color:#000;}
 
 /* ── HERO ── */
 .hero{min-height:100vh;padding-top:48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
@@ -237,6 +239,7 @@ footer a{color:var(--accent);}
 </nav>
 
 <div class="experiment-banner">
+  <a href="./" class="back-btn">« Back</a>
   ✨ This report has been generated through AI — <span>Claude Sonnet 4.6</span> on <span>22 March 2026</span>. It is an experimental demo to show potential investigations feasible through the project data. ✨
 </div>
 

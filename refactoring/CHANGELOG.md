@@ -66,6 +66,95 @@ All sidebar panels share the same structural classes:
 
 ---
 
+## [2026-03-22] — Intro: fix overflow verticale (content nascosto sotto navbar)
+
+### Changed — `css/base.css`
+
+- `#tab-intro`: cambiato da `flex-direction: row; align-items: center; justify-content: center` a `flex-direction: column; align-items: center` — con column-flex l'overflow finisce in basso (scrollabile), non in alto (irraggiungibile)
+- `.intro-wrap`: aggiunto `margin: auto` — centra verticalmente quando c'è spazio, collassa a 0 quando il contenuto è più alto del container (comportamento corretto per scroll)
+
+---
+
+## [2026-03-22] — Tier 4: L-A — Legenda spostata in footer bar
+
+### Changed — `index.html`, `css/base.css`, `css/components.css`, `js/main.js`
+
+- **L-A** — Legenda settori spostata da posizione inter-navbar (confusa con elementi interattivi) a footer bar fissato in basso (`position: fixed; bottom: 0`)
+- Rimosso `#legend-toggle` dalla topnav e il relativo JS handler
+- Aggiunta label "Legenda" come primo elemento della bar
+- Layout aggiornato: `#content` usa `margin-top: tab-h + subtab-h` (senza più `legend-h`); altezza rimane `100vh - nav-h - tab-h - subtab-h - legend-h` per fare spazio al footer
+- Rimosso `--legend-top` token e tutte le regole `body.legend-closed`
+- `border-bottom` → `border-top` e `top` → `bottom` su `#legend`
+
+---
+
+## [2026-03-22] — EDF Calls: leggibilità testi (TESTO 1 + TESTO 2)
+
+### Changed — `index.html`, `css/eucalls.css`
+
+- **TESTO 1** — Header note paragrafi: rimosso `text-muted` Bootstrap da `<p class="mb-0 ec-header-note">` (sovrascriveva `color` del token); `.ec-header-note` portato a `color: var(--text-primary)`; aggiunto `.ec-progress-msg` per il paragrafo di stato nella sezione progress
+- **TESTO 2** — Comparison View table: aggiunto `--bs-table-bg: transparent` e `--bs-table-striped-bg: transparent` su `.table` per evitare sfondo bianco Bootstrap; aggiunto `color: var(--text-primary); background-color: transparent` su `td`; `table-hover` row override con `!important`
+
+---
+
+## [2026-03-22] — User test (Japi): Tier 3 — 5 fix JS behaviour
+
+### Changed — `js/tabs/graph.js`, `js/tabs/map.js`, `js/tabs/eucalls.js`, `css/map.css`
+
+- **G-A** — Graph: `closeGraphDetail()` ora azzera le classi `ghl` su `_nd` e `_lk`; aggiunto listener `keydown Escape` in `initGraph()` che chiama `closeGraphDetail()` quando il tab Graph è attivo
+- **M-A** — Map filter bar: resa più prominente con `background`, `border-top/bottom`, `font-size: var(--fs-base)`, `font-family: var(--font-mono)`
+- **M-B** — Map entity filter: `filterMapByEntity()` ora toglla il filtro se l'entità cliccata è già quella attiva (`activeFilter?.id === entityId` → `clearMapFilter()`)
+- **EDF-C-C** — EDF search scope: aggiunto campo `desc` in `edfCallsList` (600 char dalla descrizione); `showDropFiltered` esteso per matchare anche su `c.desc`
+- **EDF-C-F** — (coperta da EDF-C-C) ricerca per parola chiave ora trova risultati anche nelle descrizioni dei call
+
+---
+
+## [2026-03-22] — User test (Japi): Tier 2 — 4 fix JS/HTML
+
+### Changed — `index.html`, `js/tabs/eucalls.js`, `css/eucalls.css`
+
+- **G-C** — Graph: aggiunti `title` descrittivi ai 3 bottoni Network / Bipartite / Projection
+- **EDF-M-A** — Già fixata: `edfmap.js` aveva già `zoom.transform translate(-2926,-261) scale(3.647)`. Confermata e chiusa.
+- **EDF-C-B** — EDF Calls: placeholder aggiornato con esempi concreti (`CYBER, EDF-2023-DA-GROUND, drone…`); aggiunto hint inline sulla label
+- **EDF-C-D** — Accordion rimosso: `createAccordionItem` riscritta con `ec-year-block` statico sempre visibile; aggiunto CSS `.ec-year-header` / `.ec-year-body`
+
+---
+
+## [2026-03-22] — Wikidata Inspector spostato in gruppo Data; Tools rimosso dalla navbar
+
+### Changed — `index.html`, `js/main.js`
+
+- Rimosso gruppo "Tools" dalla group nav e dal sub-nav
+- Wikidata Inspector spostato in `snav-group[data]` (primo sub-tab, default)
+- `GROUPS['data']` ora include `['wikidata','quality','knownissues']`
+- Intro area "03 / Tools" aggiornata a `data-navigate-group="data"`
+
+---
+
+## [2026-03-22] — User test (Japi): Tier 1 — 5 fix CSS/HTML
+
+### Changed — `css/components.css`, `css/graph.css`, `css/eucalls.css`, `css/edfbrowse.css`, `css/matrix.css`, `index.html`, `js/tabs/edfbrowse.js`
+
+- **C-A** — Sidebar investors: `justify-content: space-between` → `flex-start` su `.es-list li`; aggiunto `margin-left: auto` su `.badge-lead` per mantenerlo a destra quando presente
+- **G-B** — Graph toolbar: aggiunto `background: rgba(0,0,0,0.70)` + `border-radius` + `padding` + `backdrop-filter` a `#graph-controls`
+- **EDF-C-A** — EDF Calls header note: aggiunto `font-family: var(--font); color: var(--text-secondary)` su `.ec-header-note`
+- **EDF-B-B** — Beneficiaries: aggiunto `<td class="eb-caret-cell">›</td>` in ogni riga; caret accent-colored, si illumina su hover
+- **SC-MX-A** — Matrix toolbar: aggiunta legenda inline con badge `LEAD` e `follow` con testo descrittivo
+
+---
+
+## [2026-03-22] — User test (Japi): Intro & Nav globale — fix armonizzato
+
+### Changed — `index.html`, `css/base.css`, `css/components.css`, `js/main.js`, `js/glossary.js` (new)
+
+- **Pillar 1 — Intro launcher**: i 3 titoli area diventano clickabili (`data-navigate-group`); aggiunta CTA row con due pulsanti "→ Explore Supply Chain" e "→ European Defence Fund"
+- **Pillar 2 — Context block**: blocco "about this research" in fondo all'Intro con definizione breve dei 3 settori (Defence / Mining / Tech) e link "→ Full context in About"
+- **Pillar 3 — Glossary tooltips**: nuovo `js/glossary.js` con 12 termini; `.gl-term[data-gl]` applicato a 9 termini nell'Intro; tooltip CSS puro via `::after + attr(data-tooltip)`
+- **Pillar 4 — Gruppo Data in nav**: Data Quality e Known Issues spostati da Tools a nuovo gruppo "Data" nella group nav; brand-wip link aggiornato; Tools ora contiene solo Wikidata Inspector
+- Source: issue `japi-issues.md` I-A, I-B, I-C, I-D
+
+---
+
 ## [2026-03-22] — Issue 7: Graph tab — search highlight, lead-only, hide isolated
 
 ### Changed — `js/tabs/graph.js`, `js/main.js`, `js/state.js`, `index.html`, `css/graph.css`

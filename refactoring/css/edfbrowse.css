@@ -186,6 +186,9 @@
 #eb-table tbody tr.eb-row.eb-is-coord td:first-child { border-left: 2px solid rgba(0,255,65,0.25); }
 
 #eb-table td { padding: 7px 14px; vertical-align: middle; }
+.eb-caret-th { width: 24px; }
+.eb-caret-cell { color: rgba(0,255,65,0.35); font-size: var(--fs-base); text-align: center; transition: color .1s; }
+#eb-table tbody tr.eb-row:hover .eb-caret-cell { color: var(--accent); }
 
 .eb-org-name {
   font-size: var(--fs-base);

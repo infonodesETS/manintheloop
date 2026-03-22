@@ -80,9 +80,10 @@ async function loadEdfCalls(force = false) {
           edfCallsDb = json.calls;
           const list = Object.values(json.calls).map(c => ({
             identifier: c.identifier,
-            title:      c.title      || '',
-            status:     c.status     || '',
-            deadline:   c.deadline   || '',
+            title:      c.title       || '',
+            status:     c.status      || '',
+            deadline:   c.deadline    || '',
+            desc:       (c.description || '').slice(0, 600).toLowerCase(),
           }));
           applyCallsList(list);
           const ts = json._generated_at ? new Date(json._generated_at).getTime() : null;
@@ -346,7 +347,8 @@ function showDropFiltered(rawQuery) {
     ? base
     : base.filter(c =>
         c.identifier.toLowerCase().includes(q) ||
-        c.title.toLowerCase().includes(q)
+        c.title.toLowerCase().includes(q) ||
+        c.desc.includes(q)
       );
 
   if (matches.length === 0) { closeDrop(); return; }
@@ -888,7 +890,6 @@ function buildAccordion(yearsDisplay) {
 
 function createAccordionItem(yd, idx) {
   const { year, topic, statistics, projects } = yd;
-  const open    = idx === 0;
   const callUrl = `https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/${topic}`;
 
   const projectsHtml = projects.length > 0
@@ -899,26 +900,18 @@ function createAccordionItem(yd, idx) {
        </div>`;
 
   return `
-  <div class="accordion-item mb-2 border rounded">
-    <h2 class="accordion-header" id="ec-head${year}">
-      <button class="accordion-button ${open ? '' : 'collapsed'}" type="button"
-              data-bs-toggle="collapse" data-bs-target="#ec-col${year}"
-              aria-expanded="${open}" aria-controls="ec-col${year}">
-        <strong>Year ${year}</strong>
-        <span class="ms-3 badge bg-primary">${statistics.total_projects} project${statistics.total_projects === 1 ? '' : 's'}</span>
-        <span class="ms-2 badge bg-success">${statistics.total_participants} participants</span>
-        <span class="ms-2 badge bg-info text-dark">${fmtBudgetShort(statistics.total_eu_contribution)} EU</span>
-        <a href="${callUrl}" target="_blank" class="ms-3 text-decoration-none" onclick="event.stopPropagation()">
-          <small>Participant Portal &rarr;</small>
-        </a>
-      </button>
-    </h2>
-    <div id="ec-col${year}" class="accordion-collapse collapse ${open ? 'show' : ''}"
-         aria-labelledby="ec-head${year}" data-bs-parent="#ec-yearsAccordion">
-      <div class="accordion-body">
-        <h5 class="mb-3">Funded Projects</h5>
-        ${projectsHtml}
-      </div>
+  <div class="ec-year-block mb-4">
+    <div class="ec-year-header">
+      <strong>Year ${year}</strong>
+      <span class="ms-3 badge bg-primary">${statistics.total_projects} project${statistics.total_projects === 1 ? '' : 's'}</span>
+      <span class="ms-2 badge bg-success">${statistics.total_participants} participants</span>
+      <span class="ms-2 badge bg-info text-dark">${fmtBudgetShort(statistics.total_eu_contribution)} EU</span>
+      <a href="${callUrl}" target="_blank" class="ms-3 text-decoration-none">
+        <small>Participant Portal &rarr;</small>
+      </a>
+    </div>
+    <div class="ec-year-body">
+      ${projectsHtml}
     </div>
   </div>`;
 }

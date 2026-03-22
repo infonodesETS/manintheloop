@@ -1,6 +1,7 @@
 /* ══════════════════════════════════════════════════════
    MATRIX VIEW
 ══════════════════════════════════════════════════════ */
+.mx-legend-desc { font-size: var(--fs-xs); color: var(--text-muted); margin-right: 8px; }
 #matrix-wrap { display: flex; flex: 1; overflow: hidden; }
 #matrix-scroll { flex: 1; overflow: auto; }
 #matrix-scroll table { min-width: 100%; }

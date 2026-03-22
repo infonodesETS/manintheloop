@@ -118,7 +118,7 @@
 .map-toggle-label  { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--dim); cursor: pointer; user-select: none; }
 .map-ctrl-btn      { height: 26px; padding: 0 12px; font-size: var(--fs-xs); }
 .map-status        { font-size: var(--fs-xs); color: var(--text-muted); margin-left: auto; }
-.map-filter-bar    { display: flex; align-items: center; gap: 10px; padding: 5px 14px; background: #0a1a0a; border-bottom: 1px solid var(--border); font-size: var(--fs-sm); color: var(--accent); flex-shrink: 0; }
+.map-filter-bar    { display: flex; align-items: center; gap: 10px; padding: 7px 14px; background: rgba(0,255,65,0.07); border-top: 1px solid rgba(0,255,65,0.3); border-bottom: 1px solid rgba(0,255,65,0.3); font-size: var(--fs-base); color: var(--accent); flex-shrink: 0; font-family: var(--font-mono); }
 .map-filter-clear  { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-xs); padding: 2px 8px; cursor: pointer; }
 .map-filter-clear:hover { border-color: var(--accent); }
 #map-arc-toggle, #edfmap-arc-toggle { accent-color: var(--accent); }

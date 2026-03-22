@@ -18,6 +18,9 @@ function showGraphHelp() {
 export default function initGraph() {
   buildGraphView();
   showGraphHelp();
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && AppState.ui.currentTab === 'graph') closeGraphDetail();
+  });
 }
 
 export function setGraphSearch(q) {
@@ -67,6 +70,8 @@ function applyGraphSearch() {
 }
 
 export function closeGraphDetail() {
+  _nd?.classed('ghl', false);
+  _lk?.classed('ghl', false).attr('stroke-opacity', null);
   showGraphHelp();
 }
 

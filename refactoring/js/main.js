@@ -19,6 +19,7 @@ import initEdfoverview from './tabs/edfoverview.js';
 import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs } from './tabs/edfmap.js';
 import initKnownIssues from './tabs/knownissues.js';
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
+import { initGlossaryTooltips } from './glossary.js';
 
 // ── Preloader helper ──
 function hidePreloader(tabId) {
@@ -30,7 +31,7 @@ const GROUPS = {
   'intro':        { tabs: null,    defaultTab: null },
   'supply-chain': { tabs: ['overview','map','graph','companies','investors','relationships','matrix'], defaultTab: 'overview' },
   'edf':          { tabs: ['edfoverview','edfmap','eucalls','edfbrowse'], defaultTab: 'edfoverview' },
-  'tools':        { tabs: ['wikidata','quality','knownissues'],  defaultTab: 'wikidata' },
+  'data':         { tabs: ['wikidata','quality','knownissues'], defaultTab: 'wikidata' },
   'about':        { tabs: null,    defaultTab: null },
 };
 
@@ -55,8 +56,6 @@ function navigate(group, tab, push = true) {
   const hasSub = !!grp.tabs;
   document.body.classList.toggle('subnav-hidden', !hasSub);
   document.body.classList.toggle('legend-hidden', group !== 'supply-chain');
-  // Clear legend-closed when leaving supply-chain so stale offsets don't accumulate
-  if (group !== 'supply-chain') document.body.classList.remove('legend-closed');
   document.querySelectorAll('.snav-group').forEach(g =>
     g.style.display = g.dataset.research === group ? 'flex' : 'none'
   );
@@ -195,6 +194,9 @@ loadData()
     document.getElementById('tnav-info').textContent =
       `${AppState.companies.length} co · ${AppState.investors.length} inv · ${AppState.relationships.length} rel`;
 
+    // Init glossary tooltips
+    initGlossaryTooltips();
+
     // Init tabs that render immediately, then hide their preloaders
     initEntitySidebar();
 
@@ -205,6 +207,15 @@ loadData()
     initRelationships(); hidePreloader('tab-relationships');
     initWikidata();      hidePreloader('tab-wikidata');
     initQuality();       hidePreloader('tab-quality');
+
+    // Wire intro navigate buttons (CTA + area titles + context about link)
+    document.querySelectorAll('[data-navigate-group]').forEach(el => {
+      el.addEventListener('click', () => {
+        const group = el.dataset.navigateGroup;
+        const tab   = el.dataset.navigateTab || null;
+        navigate(group, tab || GROUPS[group]?.defaultTab || null, true);
+      });
+    });
 
     // Wire group buttons
     document.querySelectorAll('.tnav-btn[data-research]').forEach(b => {
@@ -313,15 +324,6 @@ loadData()
     // Wire wikidata mode toggle and live input
     document.getElementById('wd-mode-toggle').addEventListener('change', e => toggleWdMode(e.target.checked));
     document.getElementById('wd-live-input').addEventListener('input', onLiveInput);
-
-    // Wire legend toggle
-    const legendEl  = document.getElementById('legend');
-    const legendBtn = document.getElementById('legend-toggle');
-    legendBtn.addEventListener('click', () => {
-      const isOpen = legendEl.classList.toggle('open');
-      document.body.classList.toggle('legend-closed', !isOpen);
-      legendBtn.textContent = isOpen ? '▼ Legend' : '▲ Legend';
-    });
 
     document.getElementById('loading-overlay').style.display = 'none';
 

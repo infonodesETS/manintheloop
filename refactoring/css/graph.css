@@ -18,6 +18,8 @@
 #graph-controls {
   position: absolute; top: 10px; left: 12px; z-index: 10;
   display: flex; gap: 6px; flex-wrap: wrap;
+  background: rgba(0,0,0,0.70); border-radius: 8px; padding: 6px 8px;
+  backdrop-filter: blur(4px);
 }
 .gv-btn {
   padding: 4px 14px; font-size: .75rem; font-family: var(--font); font-weight: 700;

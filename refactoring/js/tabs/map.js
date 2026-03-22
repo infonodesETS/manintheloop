@@ -380,6 +380,7 @@ function showMapCountry(iso) {
 }
 
 function filterMapByEntity(entityId) {
+  if (AppState.ui.map.activeFilter?.id === entityId) { clearMapFilter(); return; }
   const { derived, relationships } = AppState;
   const { entityMap } = derived;
   const ent = entityMap[entityId];

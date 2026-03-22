@@ -188,6 +188,7 @@ function renderTable() {
       <td class="eb-num eb-bold">${fmtEuro(o.eu_total)}</td>
       <td class="eb-num">${o.projects_count}</td>
       <td>${o.sme ? '<span class="eb-sme-badge">SME</span>' : '<span class="eb-dim">—</span>'}</td>
+      <td class="eb-caret-cell">›</td>
     </tr>
   `).join('');
 
