@@ -278,7 +278,7 @@ th.sel-col .col-inner { color: #fff !important; }
 /* ── Glossary tooltips ── */
 .gl-term {
   cursor: help;
-  border-bottom: 1px dashed rgba(0,255,65,0.4);
+  border-bottom: 3px dashed rgba(0,255,65,0.4);
   position: relative;
   display: inline;
 }
@@ -308,3 +308,43 @@ th.sel-col .col-inner { color: #fff !important; }
   letter-spacing: 0;
 }
 .gl-term:hover::after { opacity: 1; }
+
+/* ── Glossary tab entries ── */
+.gl-entry {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.gl-entry-term {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+}
+.gl-entry-def {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Data files tab ── */
+.a-data-file {
+  margin-top: 20px;
+}
+.a-data-link {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,255,65,0.3);
+  padding-bottom: 1px;
+}
+.a-data-link:hover { border-bottom-color: var(--accent); color: var(--accent); }
+.a-data-desc {
+  margin-top: 6px;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

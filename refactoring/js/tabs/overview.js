@@ -2,6 +2,7 @@
 
 import { AppState } from '../state.js';
 import { esc } from '../helpers.js';
+import { GLOSSARY } from '../glossary.js';
 
 export default function initOverview() {
   renderOverview();
@@ -17,17 +18,17 @@ function renderOverview() {
   companies.forEach(c => { const s = c.sector || 'Unknown'; sectors[s] = (sectors[s] || 0) + 1; });
 
   const stats = [
-    { val: companies.length,     lbl: 'Companies'    },
-    { val: investors.length,     lbl: 'Investors'     },
-    { val: relationships.length, lbl: 'Relationships' },
-    { val: raw.filter(d => d[2]).length, lbl: 'Lead inv.' },
-    { val: `${pct}%`,            lbl: 'Wikidata cov.' },
-    ...Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ val: v, lbl: k })),
+    { val: companies.length,     lbl: 'Companies',    gl: 'company'      },
+    { val: investors.length,     lbl: 'Investors',    gl: 'investor'     },
+    { val: relationships.length, lbl: 'Relationships', gl: 'relationship' },
+    { val: raw.filter(d => d[2]).length, lbl: 'Lead inv.', gl: 'lead'   },
+    ...Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ val: v, lbl: k, gl: k.toLowerCase() })),
   ];
 
-  document.getElementById('stats-grid').innerHTML = stats.map(s =>
-    `<div class="stat-card"><div class="val">${s.val}</div><div class="lbl">${s.lbl}</div></div>`
-  ).join('');
+  document.getElementById('stats-grid').innerHTML = stats.map(s => {
+    const title = s.gl && GLOSSARY[s.gl] ? ` title="${esc(GLOSSARY[s.gl])}"` : '';
+    return `<div class="stat-card"${title}><div class="val">${s.val}</div><div class="lbl">${s.lbl}</div></div>`;
+  }).join('');
 
   document.getElementById('wd-cov-label').textContent = `${withWd} / ${companies.length} companies`;
   document.getElementById('wd-cov-pct').textContent   = `${pct}%`;

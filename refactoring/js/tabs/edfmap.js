@@ -296,7 +296,7 @@ function drawMap(world) {
     ms.g.attr('transform', e.transform);
     const k = e.transform.k;
     ms.g.selectAll('.edfmap-node').each(function(d) {
-      d3.select(this).attr('r', d.baseR / k).attr('stroke-width', 1.5 / k);
+      d3.select(this).attr('r', d.baseR / k);
     });
     ms.g.selectAll('.edfmap-label').each(function(d) {
       d3.select(this).style('font-size', (16 / k) + 'px').attr('y', d.cy + d.baseR / k + 10 / k);
@@ -310,8 +310,8 @@ function drawMap(world) {
       `tx:${e.transform.x.toFixed(0)} ty:${e.transform.y.toFixed(0)} k:${k.toFixed(3)}`;
   });
   ms.svg.call(ms.zoom);
-  // Apply initial view centered on Europe
-  ms.svg.call(ms.zoom.transform, d3.zoomIdentity.translate(-2926, -261).scale(3.647));
+  fitEdfMapView(W, H);
+  document.getElementById('edfmap-filter-bar').style.display = 'none'; // hide on init
 
   // Status
   const coCount  = Object.keys(ms.countryData).length;
@@ -322,7 +322,7 @@ function drawMap(world) {
 function drawArcs(layer, arcs) {
   if (!arcs.length) return;
   const maxW = Math.max(...arcs.map(d => d.weight), 1);
-  const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([0.8, 3.5]);
+  const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([0.3, 1.2]);
   const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.35, 0.75]);
 
   arcs.forEach(arc => {
@@ -367,13 +367,23 @@ function showCountry(iso) {
   document.getElementById('edfmap-panel-body').innerHTML = `
     <div class="sl-panel-section">
       <div class="sl-section-lbl">${cd.orgs.length} Organisations</div>
-      ${cd.orgs.map(o => `
-        <div class="edfmap-co-item clickable" data-orgkey="${esc(o.key)}">
-          <span class="edfmap-co-name">${esc(o.name)}</span>
-          <span class="edfmap-co-meta">${fmtEuro(o.eu_total)}</span>
-        </div>`).join('')}
+      <input id="edfmap-org-filter" class="edfmap-org-filter-input" type="text" placeholder="Filter organisations…" autocomplete="off">
+      <div id="edfmap-org-list">
+        ${cd.orgs.map(o => `
+          <div class="edfmap-co-item clickable" data-orgkey="${esc(o.key)}" data-name="${esc(o.name.toLowerCase())}">
+            <span class="edfmap-co-name">${esc(o.name)}</span>
+            <span class="edfmap-co-meta">${fmtEuro(o.eu_total)}</span>
+          </div>`).join('')}
+      </div>
     </div>
   `;
+
+  document.getElementById('edfmap-org-filter').addEventListener('input', function () {
+    const q = this.value.toLowerCase();
+    document.getElementById('edfmap-org-list').querySelectorAll('.edfmap-co-item').forEach(el => {
+      el.style.display = el.dataset.name.includes(q) ? '' : 'none';
+    });
+  });
 
   document.getElementById('edfmap-panel-body')
     .querySelectorAll('.edfmap-co-item.clickable')
@@ -389,7 +399,7 @@ function filterByOrg(orgKey, countryName) {
   const orgProjects = ms.orgProjectsMap[orgKey];
   if (!orgProjects?.length) return;
 
-  // Find org's own name and ISO
+  // Find org name and ISO
   let orgName = orgKey;
   let orgIso  = null;
   for (const [isoStr, cd] of Object.entries(ms.countryData)) {
@@ -397,20 +407,19 @@ function filterByOrg(orgKey, countryName) {
     if (found) { orgName = found.name; orgIso = +isoStr; break; }
   }
 
-  // Collect partner ISOs (countries this org worked with across all projects)
+  // Collect partner ISOs
   const partnerIsos = new Set();
   for (const p of orgProjects) {
     for (const i of p.partnerIsos) {
       if (i !== orgIso) partnerIsos.add(i);
     }
   }
-  // activeIsos = org's own country + all partners (for node dimming)
   const activeIsos = new Set([...partnerIsos, ...(orgIso ? [orgIso] : [])]);
 
   ms.activeFilter = { orgKey, orgName, activeIsos, orgIso, partnerIsos };
   applyFilter();
 
-  // Update sidebar to show project list for this org
+  // Drill-down: replace sidebar with org project list
   const panelBody = document.getElementById('edfmap-panel-body');
   panelBody.innerHTML = `
     <div class="sl-panel-section">
@@ -438,7 +447,6 @@ function filterByOrg(orgKey, countryName) {
   `;
 
   document.getElementById('edfmap-back-btn')?.addEventListener('click', () => {
-    // Find which country this org belongs to
     for (const [isoStr, cd] of Object.entries(ms.countryData)) {
       if (cd.orgs.find(o => o.key === orgKey)) {
         clearEdfMapFilter();
@@ -510,7 +518,42 @@ export function closeEdfMapPanel() {
 }
 
 export function resetEdfMapZoom() {
-  if (ms.svg && ms.zoom) ms.svg.transition().duration(500).call(ms.zoom.transform, d3.zoomIdentity.translate(-2926, -261).scale(3.647));
+  if (!ms.svg || !ms.zoom) return;
+  const el = document.getElementById('edfmap-svg');
+  const W  = el.clientWidth  || 900;
+  const H  = el.clientHeight || 500;
+  fitEdfMapView(W, H, true);
+}
+
+// Zoom factor applied on top of the data-fit scale (>1 = zoom in).
+// 2.5 ≈ Europe-focused: fits all EDF nodes (mostly Europe) then zooms in.
+const FOCUS_FACTOR = 0.9;
+
+function fitEdfMapView(W, H, animated = false) {
+  if (!ms.zoom || !ms.countryData || !ms.centroids) return;
+
+  // Compute bounds from centroids of countries with data — excludes world map paths
+  const pts = Object.keys(ms.countryData).map(iso => ms.centroids[+iso]).filter(Boolean);
+  if (!pts.length) return;
+
+  const xs   = pts.map(p => p[0]);
+  const ys   = pts.map(p => p[1]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs);
+  const minY = Math.min(...ys), maxY = Math.max(...ys);
+  const cx   = (minX + maxX) / 2;
+  const cy   = (minY + maxY) / 2;
+  const dx   = maxX - minX;
+  const dy   = maxY - minY;
+
+  const scale = Math.max(0.5, Math.min(8,
+    FOCUS_FACTOR * 0.85 / Math.max(dx / W, dy / H)
+  ));
+  const tx = W / 2 - scale * cx;
+  const ty = H / 2 - scale * cy;
+  const t  = d3.zoomIdentity.translate(tx, ty).scale(scale);
+
+  if (animated) ms.svg.transition().duration(500).call(ms.zoom.transform, t);
+  else          ms.svg.call(ms.zoom.transform, t);
 }
 
 export function toggleEdfMapArcs(show) {

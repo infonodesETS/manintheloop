@@ -109,7 +109,7 @@
   /* Widths */
   --sl-w-sm:     380px;   /* narrow slide-in  (participant sidebar)       */
   --sl-w-lg:     800px;   /* wide slide-in    (entity detail sidebar)     */
-  --sl-w-inline: 300px;   /* inline panels    (matrix / graph / map)      */
+  --sl-w-inline: 450px;   /* inline panels    (matrix / graph / map)      */
   /* Typography */
   --sl-title-fs:       1.56rem;   /* panel title        (--fs-lg × 1.3)         */
   --sl-section-lbl-fs: .85rem;   /* section label      (--fs-xs × 1.3)         */
@@ -255,6 +255,10 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .lg-dot--inst    { background: var(--c-inst);    }
 .lg-dot--mfr     { background: var(--grey-light);}
 .lg-star--dual   { color: var(--c-dual);         }
+
+/* ── Overview header ── */
+.ov-header { max-width: 680px; width: 100%; margin: 0 auto 28px; }
+.ov-title  { font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--text-primary); line-height: 1.1; margin: 4px 0 10px; }
 
 /* ── Overview grid ── */
 .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }

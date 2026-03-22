@@ -19,7 +19,7 @@ import initEdfoverview from './tabs/edfoverview.js';
 import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs } from './tabs/edfmap.js';
 import initKnownIssues from './tabs/knownissues.js';
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
-import { initGlossaryTooltips } from './glossary.js';
+import { initGlossaryTooltips, renderGlossaryTab } from './glossary.js';
 
 // ── Preloader helper ──
 function hidePreloader(tabId) {
@@ -31,8 +31,7 @@ const GROUPS = {
   'intro':        { tabs: null,    defaultTab: null },
   'supply-chain': { tabs: ['overview','map','graph','companies','investors','relationships','matrix'], defaultTab: 'overview' },
   'edf':          { tabs: ['edfoverview','edfmap','eucalls','edfbrowse'], defaultTab: 'edfoverview' },
-  'data':         { tabs: ['wikidata','quality','knownissues'], defaultTab: 'wikidata' },
-  'about':        { tabs: null,    defaultTab: null },
+  'about':        { tabs: ['about','knownissues','quality','wikidata','data','glossary'], defaultTab: 'about' },
 };
 
 // ── Unified navigation ──
@@ -55,7 +54,7 @@ function navigate(group, tab, push = true) {
   // Sub-nav and legend visibility (legend is supply-chain only)
   const hasSub = !!grp.tabs;
   document.body.classList.toggle('subnav-hidden', !hasSub);
-  document.body.classList.toggle('legend-hidden', group !== 'supply-chain');
+  document.body.classList.toggle('legend-hidden', resolvedTab !== 'graph');
   document.querySelectorAll('.snav-group').forEach(g =>
     g.style.display = g.dataset.research === group ? 'flex' : 'none'
   );
@@ -105,6 +104,11 @@ function navigate(group, tab, push = true) {
     if (!AppState.ui.knownissues) AppState.ui.knownissues = {};
     AppState.ui.knownissues.built = true;
     initKnownIssues().then(() => hidePreloader('tab-knownissues'));
+  }
+  if (paneId === 'glossary' && !AppState.ui.glossary?.built) {
+    if (!AppState.ui.glossary) AppState.ui.glossary = {};
+    AppState.ui.glossary.built = true;
+    renderGlossaryTab();
   }
 
   // URL — omit tab for standalone groups

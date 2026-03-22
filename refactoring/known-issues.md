@@ -15,6 +15,16 @@ To be verified.
 
 ---
 
+## #2 EDF — Total Allocated Budget (partial coverage)
+
+**Status:** Known limitation
+
+The "Total Allocated Budget" stat (€5.07B) reflects only the **120 out of 201 calls** that have budget data populated in the source (`budgetTopicActionMap`). The remaining 81 calls have no budget field in the dataset.
+
+The official EDF programme envelope for 2021–2027 is ~**€7.95B** (€5.3B development + €2.65B research). The displayed figure is consistent with partial coverage, not a calculation error.
+
+---
+
 ## #4 Companies — Missing Wikidata IDs (18/165)
 
 **Status:** Known limitation
@@ -38,15 +48,5 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 - **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership)
 
 6 investors were resolved on 2026-03-22 via SPARQL + Playwright search (see `CHANGELOG.md`).
-
----
-
-## #2 EDF — Total Allocated Budget (partial coverage)
-
-**Status:** Known limitation
-
-The "Total Allocated Budget" stat (€5.07B) reflects only the **120 out of 201 calls** that have budget data populated in the source (`budgetTopicActionMap`). The remaining 81 calls have no budget field in the dataset.
-
-The official EDF programme envelope for 2021–2027 is ~**€7.95B** (€5.3B development + €2.65B research). The displayed figure is consistent with partial coverage, not a calculation error.
 
 ---

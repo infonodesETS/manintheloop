@@ -21,3 +21,14 @@ export function initGlossaryTooltips() {
     if (def) el.setAttribute('data-tooltip', def);
   });
 }
+
+export function renderGlossaryTab() {
+  const el = document.getElementById('glossary-body');
+  if (!el) return;
+  el.innerHTML = Object.entries(GLOSSARY).map(([term, def]) =>
+    `<div class="gl-entry">
+      <span class="gl-entry-term">${term.replace(/-/g, '\u2011')}</span>
+      <span class="gl-entry-def">${def}</span>
+    </div>`
+  ).join('');
+}

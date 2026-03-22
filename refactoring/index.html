@@ -28,7 +28,7 @@
 
 <!-- TOP NAV (research groups) -->
 <div id="topnav">
-  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a><span class="brand-wip">Work in Progress — Data may contain errors, see <a href="?research=data&tab=knownissues" class="brand-wip-link">Known Issues</a></span>
+  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a><span class="brand-wip">Work in Progress — Data may contain errors, see <a href="?research=about&tab=knownissues" class="brand-wip-link">Known Issues</a></span>
   <span class="meta" id="nav-meta"></span>
 </div>
 
@@ -38,7 +38,6 @@
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="supply-chain">Supply Chain</button>
   <button class="tnav-btn" data-research="edf">European Defence Fund</button>
-  <button class="tnav-btn" data-research="data">Data</button>
   <a href="automated-investigation.html" class="tnav-btn">✨ Investigation</a>
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="about">About</button>
@@ -66,11 +65,15 @@
     <button class="snav-btn" data-tab="eucalls">EDF Calls Search</button>
     <button class="snav-btn" data-tab="edfbrowse">EDF Beneficiaries</button>
   </div>
-  <div class="snav-group" data-research="data">
+  <div class="snav-group" data-research="about">
+    <button class="snav-btn" data-tab="about">About</button>
+    <div class="snav-sep"></div>
+    <button class="snav-btn" data-tab="knownissues">Known Issues</button>
+    <button class="snav-btn" data-tab="quality">Data Quality</button>
     <button class="snav-btn" data-tab="wikidata">Wikidata Inspector</button>
     <div class="snav-sep"></div>
-    <button class="snav-btn" data-tab="quality">Data Quality</button>
-    <button class="snav-btn" data-tab="knownissues">Known Issues</button>
+    <button class="snav-btn" data-tab="data">Data</button>
+    <button class="snav-btn" data-tab="glossary">Glossary</button>
   </div>
 </div>
 
@@ -114,7 +117,7 @@
         <div class="intro-area">
           <div class="intro-area-num">03 /</div>
           <div class="intro-area-body">
-            <div class="intro-area-title intro-area-nav" data-navigate-group="data" data-navigate-tab="wikidata">Tools <span class="intro-area-arrow">→</span></div>
+            <div class="intro-area-title intro-area-nav" data-navigate-group="about" data-navigate-tab="knownissues">Data &amp; About <span class="intro-area-arrow">→</span></div>
             <div class="intro-area-desc">
               Data transparency and enrichment tools for journalists and researchers.
               Inspect Wikidata records for tracked companies and review data quality metrics.
@@ -142,6 +145,11 @@
   <!-- ── OVERVIEW ─────────────────────────────── -->
   <div id="tab-overview" class="tab-pane scrollable">
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading overview…</div></div>
+    <div class="ov-header">
+      <div class="intro-prompt">$ man-in-the-loop --supply-chain</div>
+      <div class="ov-title">Supply Chain</div>
+      <p class="intro-desc">Mapping <span class="gl-term" data-gl="company">companies</span> and <span class="gl-term" data-gl="investor">investors</span> across the <span class="gl-term" data-gl="defence">Defence</span> · <span class="gl-term" data-gl="mining">Mining</span> · <span class="gl-term" data-gl="tech">Tech</span> · <span class="gl-term" data-gl="startup">Startup</span> sectors — reconstructing who finances whom across the global defence supply chain.</p>
+    </div>
     <div class="overview-grid" id="stats-grid"></div>
     <div class="row g-3">
       <div class="col-md-6">
@@ -349,7 +357,7 @@
         </div>
         <svg id="map-svg"></svg>
       </div>
-      <div id="map-panel" class="d-none">
+      <div id="map-panel">
         <div id="map-panel-header">
           <span id="map-panel-title" class="sl-title"></span>
           <button id="map-close-panel-btn" class="sl-close">✕</button>
@@ -438,6 +446,11 @@
   <div id="tab-edfoverview" class="tab-pane scrollable">
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading edf overview…</div></div>
     <div id="eo-wrap">
+      <div class="ov-header">
+        <div class="intro-prompt">$ man-in-the-loop --edf</div>
+        <div class="ov-title">European Defence Fund</div>
+        <p class="intro-desc">Exploring all 201 <span class="gl-term" data-gl="edf">EDF</span> calls (2021–2027) and the organisations that received EU funding — tracking which countries and entities participate across research and development programmes.</p>
+      </div>
       <div class="overview-grid" id="eo-stats-grid"></div>
       <div id="eo-rankings"></div>
     </div>
@@ -785,6 +798,34 @@
     </div><!-- /about-inner -->
   </div>
 
+  <!-- ── DATA FILES ─────────────────────────────── -->
+  <div id="tab-data" class="tab-pane scrollable">
+    <div class="about-inner">
+      <section class="a-section">
+        <div class="a-section-title">Data files</div>
+        <p>All data is published as open JSON files, freely downloadable and reusable.</p>
+        <div class="a-data-file">
+          <a href="data/database.json" download class="a-data-link">↓ database.json</a>
+          <p class="a-data-desc">Supply chain entities and relationships — companies (<code>IN-NNNN</code>), investors (<code>IV-NNNN</code>), and investment relationships (<code>REL-NNNN</code>). Schema v2.0. Includes Crunchbase and Wikidata enrichment fields.</p>
+        </div>
+        <div class="a-data-file">
+          <a href="data/edf_calls.json" download class="a-data-link">↓ edf_calls.json</a>
+          <p class="a-data-desc">All 201 EDF calls (2021–2027) with funded projects and participant data, fetched from the EU Funding &amp; Tenders portal. Includes call identifiers, topic descriptions, budget, and per-participant EU contributions.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ── GLOSSARY ────────────────────────────────── -->
+  <div id="tab-glossary" class="tab-pane scrollable">
+    <div class="about-inner">
+      <section class="a-section">
+        <div class="a-section-title">Glossary</div>
+        <div id="glossary-body"></div>
+      </section>
+    </div>
+  </div>
+
 </div><!-- /content -->
 
 <!-- TOOLTIP -->
@@ -869,7 +910,7 @@
 <!-- LEGEND BAR (footer) -->
 <div id="legend">
   <div id="legend-body">
-    <span class="lg-label">Legenda</span>
+    <span class="lg-label">Legend</span>
     <span class="lg-sep"></span>
     <span class="lg-group-label">Sectors</span>
     <span class="lg-item"><span class="lg-dot lg-dot--defence"></span>Defence</span>

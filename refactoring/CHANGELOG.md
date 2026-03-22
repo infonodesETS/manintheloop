@@ -66,6 +66,114 @@ All sidebar panels share the same structural classes:
 
 ---
 
+## [2026-03-22] — EDF Map: organisation filter input in sidebar
+
+### Added — `js/tabs/edfmap.js`
+
+- Text input below "N Organisations" label — filters org rows in real-time on `input` event; non-matching rows hidden via `display: none`; matching is case-insensitive substring on org name
+
+### Added — `css/map.css`
+
+- `.edfmap-org-filter-input`: full-width input styled to match dark theme; accent border on focus
+
+---
+
+## [2026-03-22] — SC Map: sidebar UX — open by default, toggles, sector row, width
+
+### Changed — `js/tabs/map.js`
+
+- **Sidebar open by default**: `#map-panel` no longer starts hidden (`d-none` removed from HTML); `drawMap` populates it with intro title + three explanatory paragraphs on load
+- **`closeMapPanel` reset**: instead of hiding the panel, ✕ button now resets it to the intro content (panel always visible)
+- **Companies toggle**: `on/off` button (`.sf-btn`) inline in the Companies section header — hides/shows the company list without affecting arcs
+- **Flow In / Flow Out toggles moved inline**: removed top `map-flow-toggles` bar; each toggle is now a `.sf-btn` button inside its own section header (↓ Capital Flowing In / ↑ Capital Flowing Out); toggling off hides both the sidebar list and dims the corresponding arcs
+- **Sector row replaces By Sector section**: compact `Sectors: Defence (5), Startup (4), …` line at the top of panel body, sorted by count descending; uses `.map-sector-row` / `.map-sector-lbl`
+
+### Changed — `css/map.css`
+
+- Removed `.map-flow-toggles` and `.map-toggle-label` (no longer used)
+- Added `.map-sector-row` (`font-size: var(--fs-base)`) and `.map-sector-lbl` for the inline sector summary
+- Added `.map-section-hd` (`display: flex; align-items: center; gap: 8px`) for section headers with inline toggle buttons
+
+### Changed — `css/base.css`
+
+- `--sl-w-inline`: **300px → 450px** — applies to all inline panels (SC Map, EDF Map, Graph, Matrix)
+
+---
+
+## [2026-03-22] — SC Map: arc model fix, country name normalization, drill-down sidebar
+
+### Fixed — `js/tabs/map.js`
+
+- **Country alias mapping**: aggiunto supporto per nomi italiani e abbreviazioni presenti nel database (`Cile`, `Germania`, `Francia`, `Norvegia`, `Polonia`, `Belgio`, `Cina`, `Giappone`) e alias inglesi (`UK`, `USA`, `Czech Rep.`, `EAU (Dubai)`, `People's Republic of China`) in `WD_TO_ISO`
+- **ISO_TO_NAME**: ricostruito con "first-occurrence wins" (loop `for...of`) invece di `Object.fromEntries` che prendeva l'ultimo valore — ora i nomi canonici inglesi (inseriti per primi) vincono anche quando ci sono alias successivi
+- **Display names**: `cd.name` ora usa `ISO_TO_NAME[iso] || country` — tutti i paesi mostrano nomi canonici inglesi nella mappa, sidebar, tooltip (es. "Chile" non "Cile", "Germany" non "Germania")
+- **Cross-border arc pairs**: da 29 a 41 — CODELCO (Cile) ora genera archi verso UK, USA, France, Germany; altri paesi con nomi italiani/abbreviati ora inclusi correttamente
+- **Investor lookup**: `showMapCountry` ora matcha per ISO code (`WD_TO_ISO[compCountry] === iso`) invece che per stringa (`cd.name`) — robusto per tutti gli alias dello stesso paese
+- **Drill-down sidebar**: `filterMapByEntity(entityId, fromIso)` implementa sidebar a due livelli come EDF Map: click su company/investor → dettaglio entità con investors o portfolio + pulsante "← Back" che ripristina vista paese
+- Source: japi-issues.md #6 → resolved; Playwright test: `screenshots/map-chile-arcs-fixed.png`, `screenshots/map-chile-final.png`
+
+---
+
+## [2026-03-22] — SC Map: directed arcs, gradient, node sizing, centroid overrides, zoom labels, flow toggles
+
+### Changed / Added — `js/tabs/map.js`
+
+- **Directed arc model**: chiave da `[compISO, invISO].sort().join('-')` (non direzionale) a `invISO→compISO` — `src` = investitore, `tgt` = company; archi totali da 41 → 45 (directed pairs)
+- **SVG linearGradient per arco**: `gradientUnits="userSpaceOnUse"`, origine all'investitore (`src`) con `stop-opacity: 0.07`, destinazione alla company (`tgt`) con opacità scalata sul peso; usa `url(#gradId)` come stroke
+- **Node sizing by arc degree**: dimensione nodi proporzionale al numero di archi connessi (`arcDegree[src]++ / arcDegree[tgt]++`) via `d3.scaleSqrt` — rivela hub finanziari (Luxembourg, Saudi Arabia, Switzerland) vs concentrazioni di company
+- **CENTROID_OVERRIDES**: coordinate geografiche manuali per Francia (2.3, 46.2), Paesi Bassi (5.3, 52.1), Portogallo (-8.0, 39.5), UK (-2.0, 54.0), USA (-98.0, 39.5) — France centroid era sbagliato per i territori d'oltremare nel topojson
+- **Label zoom scaling**: sostituito `attr('font-size', ...)` con `style('font-size', ...)` nello zoom handler — il CSS `.map-label` sovrascriveva `attr()`; `baseFs / k` ridimensiona le label proporzionalmente allo zoom
+- **Capital Flowing In / Out sidebar**: sezioni separate per investitori esteri in company locali (↓ In) e investitori locali in company estere (↑ Out)
+- **Flow direction toggle filters**: checkbox "↓ In" e "↑ Out" nella sidebar country-detail; `updateArcVisibility()` applica `arc-dim` via `d.tgt === iso` (in) / `d.src === iso` (out); toggle renderizzati solo se la direzione esiste nel dataset (es. Saudi Arabia mostra solo "↑ Out")
+
+### Changed — `css/map.css`
+
+- `.map-arc`: rimossi `stroke` e `stroke-opacity` (ora gestiti dal gradient SVG); transizione su `opacity` invece di `stroke-opacity`
+- `.map-arc.arc-dim`: usa `opacity: 0.06` (non `stroke-opacity`) perché gradient stroke non risponde a `stroke-opacity` sull'elemento
+- `.map-label`: rimosso `font-size` dalla regola CSS — ora controllato esclusivamente da JS via `style()`
+- Aggiunta `.map-flow-toggles` per i toggle In/Out nella sidebar
+
+---
+
+## [2026-03-22] — EDF Map: rimosso transform hardcoded, fix centering
+
+### Changed — `js/tabs/edfmap.js`
+
+- Rimossi `d3.zoomIdentity.translate(-2926, -261).scale(3.647)` da init e da `resetEdfMapZoom()` — sostituiti con `d3.zoomIdentity`
+- La proiezione `geoNaturalEarth1` con `translate([W/2-100, H/2+50])` centra già il mondo correttamente; il transform aggiuntivo spostava la mappa sull'Asia
+- Source: japi-issues.md #13 → resolved
+
+---
+
+## [2026-03-22] — Overview headers: Supply Chain e EDF
+
+### Changed — `index.html`, `css/base.css`
+
+- Aggiunto blocco `.ov-header` in `tab-overview` (Supply Chain) e `tab-edfoverview` (EDF): `intro-prompt` (comando mono) + `ov-title` (titolo grande) + `intro-desc` (testo descrittivo con glossary terms)
+- `.ov-header`: `max-width: 680px; margin: 0 auto 28px` — stesso centramento di `.intro-wrap`
+- `.ov-title`: dimensionato con `--fs-stat`, coerente con la scala tipografica esistente
+
+---
+
+## [2026-03-22] — User test (Japi): session 2 — navbar, map, legend, overview
+
+### Changed — `index.html`, `js/main.js`, `js/glossary.js`, `js/tabs/map.js`, `js/tabs/overview.js`, `css/map.css`, `css/components.css`
+
+- **NAV-A** — Gruppo "Data" rimosso dalla navbar. Known Issues, Data Quality, Wikidata Inspector spostati come sub-tab di "About". `GROUPS['data']` eliminato; `GROUPS['about']` ora ha `tabs: ['about','knownissues','quality','wikidata','data','glossary']`, `defaultTab: 'about'`. (japi #22 → resolved)
+- **NAV-B** — Aggiunti due nuovi sub-tab in About: "Data" (`tab-data`) con link download a `database.json` e `edf_calls.json`; "Glossary" (`tab-glossary`) con rendering dei termini da `GLOSSARY`. `glossary.js` esporta `renderGlossaryTab()`. CSS: `.gl-entry`, `.a-data-file`, `.a-data-link`, `.a-data-desc` aggiunti a `components.css`.
+- **NAV-C** — Intro area 03: `data-navigate-group` aggiornato da `data` a `about`, label "Data & About →". Brand-wip link: `?research=data` → `?research=about`.
+- **MAP-A** — Map filter bar: `applyMapFilter()` ora chiamata a fine `drawMap()` — risolve bug per cui la bar mostrava "Filtering: [x Clear]" di default (cascading CSS: `.map-filter-bar { display: flex }` sovrascriveva `.hidden { display: none }`). (japi #6 partial)
+- **MAP-B** — Map sidebar: click su company/investor aggiunge classe `.active` con stile persistente (border-left accent + background verde). Click ripetuto toglie filtro e classe. CSS `.map-co-item.clickable.active` aggiunto in `map.css`. (japi #6 partial)
+- **LG-A** — Legend: label "Legenda" → "Legend". Visibilità ristretta a `tab=graph` (prima era visibile su tutto il gruppo supply-chain). `main.js`: `group !== 'supply-chain'` → `resolvedTab !== 'graph'`.
+- **OV-A** — Supply Chain Overview: rimossa tile "Wikidata cov. X%" da `stats[]` in `overview.js`.
+- **GL-A** — `.gl-term` border-bottom: `1px` → `3px dashed`.
+- **OV-B** — Stat tile tooltip: sostituito approccio `::after` CSS (tagliato da `overflow-y: auto`) con `title` nativo su `.stat-card`. `overview.js` importa `GLOSSARY` e imposta `title` sulla card.
+
+### Source
+`japi-issues.md` #6 (partially resolved), #22 (resolved)
+
+---
+
 ## [2026-03-22] — Intro: fix overflow verticale (content nascosto sotto navbar)
 
 ### Changed — `css/base.css`

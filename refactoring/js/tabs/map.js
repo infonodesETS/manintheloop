@@ -7,22 +7,30 @@ import { getParams, setParams } from '../url.js';
 // Wikidata country name → ISO numeric (world-atlas format)
 const WD_TO_ISO = {
   'United States':        840,
+  'USA':                  840,
   'Germany':              276,
+  'Germania':             276,
   'United Kingdom':       826,
+  'UK':                   826,
   'France':               250,
+  'Francia':              250,
   'Israel':               376,
   'Sweden':               752,
   'Norway':               578,
+  'Norvegia':             578,
   'Finland':              246,
   'Denmark':              208,
   'Netherlands':          528,
   'Belgium':              56,
+  'Belgio':               56,
   'Switzerland':          756,
   'Austria':              40,
   'Italy':                380,
   'Spain':                724,
   'Poland':               616,
+  'Polonia':              616,
   'Czech Republic':       203,
+  'Czech Rep.':           203,
   'Czechia':              203,
   'Romania':              642,
   'Estonia':              233,
@@ -33,7 +41,10 @@ const WD_TO_ISO = {
   'Turkey':               792,
   'India':                356,
   'China':                156,
+  'Cina':                 156,
+  "People's Republic of China": 156,
   'Japan':                392,
+  'Giappone':             392,
   'South Korea':          410,
   'Australia':            36,
   'Canada':               124,
@@ -41,6 +52,7 @@ const WD_TO_ISO = {
   'South Africa':         710,
   'Singapore':            702,
   'United Arab Emirates': 784,
+  'EAU (Dubai)':          784,
   'Saudi Arabia':         682,
   'Portugal':             620,
   'Greece':               300,
@@ -62,6 +74,7 @@ const WD_TO_ISO = {
   'Mexico':               484,
   'Argentina':            32,
   'Chile':                152,
+  'Cile':                 152,
   'Colombia':             170,
   'Peru':                 604,
   'New Zealand':          554,
@@ -80,7 +93,11 @@ const WD_TO_ISO = {
   'Ethiopia':             231,
 };
 
-const ISO_TO_NAME = Object.fromEntries(Object.entries(WD_TO_ISO).map(([k, v]) => [v, k]));
+// Canonical English display names (ISO → name); built from first occurrence only
+const ISO_TO_NAME = {};
+for (const [name, iso] of Object.entries(WD_TO_ISO)) {
+  if (!(iso in ISO_TO_NAME)) ISO_TO_NAME[iso] = name;
+}
 
 export default function initMap() {
   return buildMapView();
@@ -98,9 +115,18 @@ export function resetMapZoom() {
 }
 
 export function closeMapPanel() {
-  document.getElementById('map-panel').classList.add('d-none');
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
+  AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
   const p = getParams(); delete p.country; setParams(p);
+  document.getElementById('map-panel-title').textContent = 'About this map';
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">What this map shows and how to navigate it</div>
+      <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
+      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
+      <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
+    </div>
+  `;
 }
 
 export function selectMapCountryByName(name) {
@@ -128,37 +154,28 @@ function buildMapView() {
     if (!country) return;
     const iso = WD_TO_ISO[country];
     if (!iso) return;
-    if (!mapState.countryData[iso]) mapState.countryData[iso] = { name: country, companies: [] };
+    if (!mapState.countryData[iso]) mapState.countryData[iso] = { name: ISO_TO_NAME[iso] || country, companies: [] };
     mapState.countryData[iso].companies.push(c);
   });
 
-  // Build arc data: for each investor, find countries of investees
-  const invCountries = {};
+  // Build arc data: directed investor-country → company-country, weight = number of relationships
+  const pairWeight = {};
   relationships.forEach(rel => {
     const comp = entityMap[rel.target];
-    if (!comp) return;
-    const country = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
-    if (!country) return;
-    const iso = WD_TO_ISO[country];
-    if (!iso) return;
-    if (!invCountries[rel.source]) invCountries[rel.source] = new Set();
-    invCountries[rel.source].add(iso);
-  });
-
-  const pairWeight = {};
-  Object.values(invCountries).forEach(isoSet => {
-    const arr = [...isoSet];
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = i + 1; j < arr.length; j++) {
-        const key = [arr[i], arr[j]].sort().join('-');
-        pairWeight[key] = (pairWeight[key] || 0) + 1;
-      }
-    }
+    const inv  = entityMap[rel.source];
+    if (!comp || !inv) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    const invCountry  = inv.sources?.infonodes?.country  || inv.sources?.wikidata?.country;
+    const compISO = WD_TO_ISO[compCountry];
+    const invISO  = WD_TO_ISO[invCountry];
+    if (!compISO || !invISO || compISO === invISO) return;
+    const key = `${invISO}→${compISO}`;  // directed: investor → company
+    pairWeight[key] = (pairWeight[key] || 0) + 1;
   });
 
   mapState.arcData = Object.entries(pairWeight).map(([key, weight]) => {
-    const [a, b] = key.split('-').map(Number);
-    return { source_iso: a, target_iso: b, weight };
+    const [src, tgt] = key.split('→').map(Number);
+    return { src, tgt, weight };  // src = investor country, tgt = company country
   });
 
   return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
@@ -204,6 +221,20 @@ function drawMap(world) {
     if (c && !isNaN(c[0]) && !isNaN(c[1])) mapState.centroids[iso] = c;
   });
 
+  // Manual centroid overrides for countries whose topojson includes overseas territories
+  // that pull the computed centroid far from the mainland. [lon, lat] in geographic coords.
+  const CENTROID_OVERRIDES = {
+    250: [2.3,   46.2],  // France — excludes French Guiana, Martinique, Réunion etc.
+    528: [5.3,   52.1],  // Netherlands — excludes Caribbean islands
+    620: [-8.0,  39.5],  // Portugal — excludes Azores, Madeira
+    826: [-2.0,  54.0],  // United Kingdom — excludes overseas territories
+    840: [-98.0, 39.5],  // United States — balances Alaska/Hawaii pull
+  };
+  Object.entries(CENTROID_OVERRIDES).forEach(([iso, [lon, lat]]) => {
+    const projected = mapState.projection([lon, lat]);
+    if (projected && !isNaN(projected[0])) mapState.centroids[+iso] = projected;
+  });
+
   mapState.g.selectAll('.map-country')
     .data(countries.features)
     .join('path')
@@ -229,14 +260,21 @@ function drawMap(world) {
 
   // Country nodes (on top of arcs)
   const nodeLayer = mapState.g.append('g').attr('id', 'map-node-layer');
-  const maxCount = Math.max(...Object.values(mapState.countryData).map(d => d.companies.length), 1);
-  const rScale = d3.scaleSqrt().domain([0, maxCount]).range([4, 22]);
+
+  // Compute arc degree per country (number of distinct arc connections)
+  const arcDegree = {};
+  mapState.arcData.forEach(arc => {
+    arcDegree[arc.src] = (arcDegree[arc.src] || 0) + 1;
+    arcDegree[arc.tgt] = (arcDegree[arc.tgt] || 0) + 1;
+  });
+  const maxDegree = Math.max(...Object.values(arcDegree), 1);
+  const rScale = d3.scaleSqrt().domain([0, maxDegree]).range([4, 22]);
 
   Object.entries(mapState.countryData).forEach(([iso, cd]) => {
     iso = +iso;
     const c = mapState.centroids[iso];
     if (!c) return;
-    const r = rScale(cd.companies.length);
+    const r = rScale(arcDegree[iso] || 0);
     // Store baseR as datum property per the map zoom performance fix
     const circDatum = { iso, baseR: r };
     nodeLayer.append('circle')
@@ -247,14 +285,16 @@ function drawMap(world) {
       .attr('r', r)
       .on('click', (e) => { e.stopPropagation(); showMapCountry(iso); })
       .append('title')
-      .text(`${cd.name}: ${cd.companies.length} companies`);
+      .text(`${cd.name}: ${cd.companies.length} companies · ${arcDegree[iso] || 0} cross-border connections`);
 
     if (r >= 8) {
-      const lblDatum = { cy: c[1], baseR: r };
+      const baseFs = 11;
+      const lblDatum = { cy: c[1], baseR: r, baseFs };
       nodeLayer.append('text')
         .datum(lblDatum)
         .attr('class', 'map-label')
-        .attr('x', c[0]).attr('y', c[1] + r + 10)
+        .attr('x', c[0]).attr('y', c[1] + r + baseFs)
+        .style('font-size', baseFs + 'px')
         .text(cd.name);
     }
   });
@@ -271,11 +311,10 @@ function drawMap(world) {
         .attr('stroke-width', 1.5 / k);
     });
     mapState.g.selectAll('.map-label').each(function(d) {
-      const cy    = d.cy;
-      const baseR = d.baseR;
+      const fs = d.baseFs / k;
       d3.select(this)
-        .attr('font-size', 11 / k)
-        .attr('y', cy + baseR / k + 10 / k);
+        .style('font-size', fs + 'px')
+        .attr('y', d.cy + d.baseR / k + fs);
     });
     mapState.g.selectAll('.map-arc').each(function(d) {
       d3.select(this).attr('stroke-width', d.baseSw / k);
@@ -287,6 +326,19 @@ function drawMap(world) {
   const totCo = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
   document.getElementById('map-status').textContent =
     `${coCount} countries · ${totCo} companies mapped · ${mapState.arcData.length} cross-border investor pairs`;
+
+  applyMapFilter(); // initialise filter bar state (hidden by default)
+
+  // Open panel by default with intro content
+  document.getElementById('map-panel-title').textContent = 'About this map';
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">What this map shows and how to navigate it</div>
+      <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
+      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
+      <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
+    </div>
+  `;
 }
 
 function drawArcs(layer) {
@@ -294,25 +346,43 @@ function drawArcs(layer) {
   if (!mapState.arcData.length) return;
   const maxW = Math.max(...mapState.arcData.map(d => d.weight), 1);
   const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([1, 4]);
-  const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.45, 0.85]);
+  const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.55, 0.9]);
 
-  mapState.arcData.forEach(arc => {
-    const s = mapState.centroids[arc.source_iso];
-    const t = mapState.centroids[arc.target_iso];
+  // Defs for per-arc directional gradients (investor country → company country)
+  const arcColor = '#68ccd1';
+  let defs = d3.select('#map-svg').select('defs');
+  if (defs.empty()) defs = d3.select('#map-svg').insert('defs', ':first-child');
+
+  mapState.arcData.forEach((arc, i) => {
+    const s = mapState.centroids[arc.src];
+    const t = mapState.centroids[arc.tgt];
     if (!s || !t) return;
     const mx = (s[0] + t[0]) / 2;
     const my = (s[1] + t[1]) / 2 - Math.hypot(t[0] - s[0], t[1] - s[1]) * 0.3;
     const sw = strokeScale(arc.weight);
-    // Store baseSw as datum property for zoom handler
-    const arcDatum = { src: arc.source_iso, tgt: arc.target_iso, baseSw: sw };
+    const op = opacityScale(arc.weight);
+    const gradId = `map-arc-grad-${i}`;
+
+    // Gradient: transparent at source (capital flowing out), opaque at destination (flowing in)
+    defs.append('linearGradient')
+      .attr('id', gradId)
+      .attr('gradientUnits', 'userSpaceOnUse')
+      .attr('x1', s[0]).attr('y1', s[1])
+      .attr('x2', t[0]).attr('y2', t[1])
+      .call(g => {
+        g.append('stop').attr('offset', '0%')
+          .attr('stop-color', arcColor).attr('stop-opacity', 0.07);
+        g.append('stop').attr('offset', '100%')
+          .attr('stop-color', arcColor).attr('stop-opacity', op);
+      });
+
+    const arcDatum = { src: arc.src, tgt: arc.tgt, baseSw: sw };
     layer.append('path')
       .datum(arcDatum)
       .attr('class', 'map-arc')
-      .attr('data-src', arc.source_iso)
-      .attr('data-tgt', arc.target_iso)
       .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
-      .attr('stroke-width', sw)
-      .attr('stroke-opacity', opacityScale(arc.weight));
+      .attr('stroke', `url(#${gradId})`)
+      .attr('stroke-width', sw);
   });
 }
 
@@ -326,60 +396,137 @@ function showMapCountry(iso) {
   d3.select('#map-svg').selectAll('.map-country')
     .classed('selected', d => +d.id === iso);
 
+  // Show only arcs connected to this country
+  AppState.ui.map.g?.selectAll('.map-arc')
+    .classed('arc-dim', d => d.src !== iso && d.tgt !== iso);
+
   const sectorCount = {};
   cd.companies.forEach(c => {
     const s = c.sector || 'Other';
     sectorCount[s] = (sectorCount[s] || 0) + 1;
   });
 
-  const invMap2 = {};
+  // Capital flowing IN: foreign investors → companies in this country
+  const flowIn = {};
   relationships.forEach(rel => {
     const comp = entityMap[rel.target];
-    if (comp && (comp.sources?.infonodes?.country === cd.name || comp.sources?.wikidata?.country === cd.name)) {
-      const inv = entityMap[rel.source];
-      if (inv && !invMap2[rel.source]) invMap2[rel.source] = inv.name;
-    }
+    if (!comp) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    if (WD_TO_ISO[compCountry] !== iso) return;
+    const inv = entityMap[rel.source];
+    if (!inv) return;
+    const invCountry = inv.sources?.infonodes?.country || inv.sources?.wikidata?.country;
+    if (WD_TO_ISO[invCountry] === iso) return; // skip domestic
+    if (!flowIn[rel.source]) flowIn[rel.source] = inv.name;
   });
-  const invArr = Object.entries(invMap2);
+
+  // Capital flowing OUT: investors based in this country → foreign companies
+  const flowOut = {};
+  relationships.forEach(rel => {
+    const inv = entityMap[rel.source];
+    if (!inv) return;
+    const invCountry = inv.sources?.infonodes?.country || inv.sources?.wikidata?.country;
+    if (WD_TO_ISO[invCountry] !== iso) return;
+    const comp = entityMap[rel.target];
+    if (!comp) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    if (WD_TO_ISO[compCountry] === iso) return; // skip domestic
+    if (!flowOut[rel.source]) flowOut[rel.source] = inv.name;
+  });
+
+  const flowInArr  = Object.entries(flowIn);
+  const flowOutArr = Object.entries(flowOut);
+
+  const renderInvestorList = (arr) => arr.slice(0, 25).map(([id, name]) => `
+    <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
+      <span>${esc(name)}</span>
+      <span class="map-item-id">${id}</span>
+    </div>`).join('') + (arr.length > 25 ? `<div class="map-item-more">+${arr.length - 25} more</div>` : '');
+
+  const hasIn  = flowInArr.length > 0;
+  const hasOut = flowOutArr.length > 0;
+
+  const updateArcVisibility = () => {
+    const showIn  = !hasIn  || document.getElementById('map-flow-in-btn')?.classList.contains('active');
+    const showOut = !hasOut || document.getElementById('map-flow-out-btn')?.classList.contains('active');
+    AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', d => {
+      if (d.tgt === iso) return !showIn;
+      if (d.src === iso) return !showOut;
+      return true; // not connected
+    });
+  };
+
+  const sectorSummary = Object.entries(sectorCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([s, n]) => `${esc(s)} (${n})`)
+    .join(', ');
 
   document.getElementById('map-panel-title').textContent = cd.name;
   document.getElementById('map-panel-body').innerHTML = `
-    <div class="sl-panel-section">
-      <div class="sl-section-lbl">${cd.companies.length} Companies</div>
-      ${cd.companies.map(c => `
-        <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
-          <span>${esc(c.name)}</span>
-          ${sectorBadge(c.sector)}
-        </div>`).join('')}
+    <div class="map-sector-row">
+      <span class="map-sector-lbl">Sectors:</span> ${sectorSummary}
     </div>
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">By Sector</div>
-      ${Object.entries(sectorCount).sort((a, b) => b[1] - a[1]).map(([s, n]) => `
-        <div class="map-co-item">
-          <span>${sectorBadge(s)}</span>
-          <span class="map-item-count">${n}</span>
-        </div>`).join('')}
+      <div class="sl-section-lbl map-section-hd">
+        ${cd.companies.length} Companies
+        <button id="map-toggle-co" class="sf-btn active">on</button>
+      </div>
+      <div id="map-companies-list">
+        ${cd.companies.map(c => `
+          <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+            <span>${esc(c.name)}</span>
+            ${sectorBadge(c.sector)}
+          </div>`).join('')}
+      </div>
     </div>
-    ${invArr.length ? `<div class="sl-panel-section">
-      <div class="sl-section-lbl">${invArr.length} Active Investors</div>
-      ${invArr.slice(0, 25).map(([id, name]) => `
-        <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
-          <span>${esc(name)}</span>
-          <span class="map-item-id">${id}</span>
-        </div>`).join('')}
-      ${invArr.length > 25 ? `<div class="map-item-more">+${invArr.length - 25} more</div>` : ''}
+    ${hasIn ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd">
+        ↓ Capital Flowing In (${flowInArr.length})
+        <button id="map-flow-in-btn" class="sf-btn active">on</button>
+      </div>
+      <div id="map-flow-in-list">${renderInvestorList(flowInArr)}</div>
+    </div>` : ''}
+    ${hasOut ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd">
+        ↑ Capital Flowing Out (${flowOutArr.length})
+        <button id="map-flow-out-btn" class="sf-btn active">on</button>
+      </div>
+      <div id="map-flow-out-list">${renderInvestorList(flowOutArr)}</div>
     </div>` : ''}
   `;
 
+  document.getElementById('map-toggle-co')?.addEventListener('click', function () {
+    this.classList.toggle('active');
+    this.textContent = this.classList.contains('active') ? 'on' : 'off';
+    document.getElementById('map-companies-list').style.display =
+      this.classList.contains('active') ? '' : 'none';
+  });
+
+  document.getElementById('map-flow-in-btn')?.addEventListener('click', function () {
+    this.classList.toggle('active');
+    const on = this.classList.contains('active');
+    this.textContent = on ? 'on' : 'off';
+    document.getElementById('map-flow-in-list').style.display = on ? '' : 'none';
+    updateArcVisibility();
+  });
+
+  document.getElementById('map-flow-out-btn')?.addEventListener('click', function () {
+    this.classList.toggle('active');
+    const on = this.classList.contains('active');
+    this.textContent = on ? 'on' : 'off';
+    document.getElementById('map-flow-out-list').style.display = on ? '' : 'none';
+    updateArcVisibility();
+  });
+
   document.getElementById('map-panel-body').querySelectorAll('[data-action="filterMapByEntity"]').forEach(el => {
-    el.addEventListener('click', () => filterMapByEntity(el.dataset.id));
+    el.addEventListener('click', () => filterMapByEntity(el.dataset.id, iso));
   });
 
   document.getElementById('map-panel').classList.remove('d-none');
   setParams({ ...getParams(), country: cd.name });
 }
 
-function filterMapByEntity(entityId) {
+function filterMapByEntity(entityId, fromIso) {
   if (AppState.ui.map.activeFilter?.id === entityId) { clearMapFilter(); return; }
   const { derived, relationships } = AppState;
   const { entityMap } = derived;
@@ -392,14 +539,13 @@ function filterMapByEntity(entityId) {
     const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
     const ownISO = WD_TO_ISO[country];
     if (ownISO) activeISOs.add(ownISO);
+    // Highlight investor home countries
     relationships.filter(r => r.target === entityId).forEach(rel => {
-      relationships.filter(r2 => r2.source === rel.source).forEach(rel2 => {
-        const comp2 = entityMap[rel2.target];
-        if (!comp2) return;
-        const c2 = comp2.sources?.infonodes?.country || comp2.sources?.wikidata?.country;
-        const iso2 = WD_TO_ISO[c2];
-        if (iso2) activeISOs.add(iso2);
-      });
+      const inv = entityMap[rel.source];
+      if (!inv) return;
+      const invCountry = inv.sources?.infonodes?.country || inv.sources?.wikidata?.country;
+      const invISO = WD_TO_ISO[invCountry];
+      if (invISO) activeISOs.add(invISO);
     });
   } else if (entityId.startsWith('IV-')) {
     relationships.filter(r => r.source === entityId).forEach(rel => {
@@ -413,6 +559,56 @@ function filterMapByEntity(entityId) {
 
   AppState.ui.map.activeFilter = { id: entityId, name: ent.name, isos: activeISOs };
   applyMapFilter();
+
+  // Drill-down: replace sidebar with entity detail
+  const panelBody = document.getElementById('map-panel-body');
+  let detail = '';
+
+  if (entityId.startsWith('IN-')) {
+    const cb  = ent.sources?.crunchbase || {};
+    const wd  = ent.sources?.wikidata   || {};
+    const inv = relationships.filter(r => r.target === entityId).map(r => entityMap[r.source]).filter(Boolean);
+    const funding = cb.total_funding_usd ? `$${(cb.total_funding_usd / 1e6).toFixed(0)}M` : null;
+    detail = `
+      <div class="sl-section-lbl">${esc(ent.name)}</div>
+      <div class="map-detail-meta">
+        ${sectorBadge(ent.sector)}
+        ${wd.country ? `<span class="map-item-id">${esc(wd.country)}</span>` : ''}
+        ${funding ? `<span class="map-item-id">${funding}</span>` : ''}
+      </div>
+      ${inv.length ? `<div class="sl-section-lbl" style="margin-top:12px">${inv.length} Investor${inv.length !== 1 ? 's' : ''}</div>
+        ${inv.map(iv => {
+          const isLead = relationships.find(r => r.source === iv.id && r.target === entityId)?.is_lead;
+          return `<div class="map-co-item"><span>${esc(iv.name)}</span>${isLead ? '<span class="badge-lead">LEAD</span>' : ''}</div>`;
+        }).join('')}` : ''}
+    `;
+  } else {
+    const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean);
+    detail = `
+      <div class="sl-section-lbl">${esc(ent.name)}</div>
+      <div class="map-item-id" style="margin-bottom:10px">${esc(ent.type || '')}</div>
+      ${portfolio.length ? `<div class="sl-section-lbl">${portfolio.length} Portfolio Companies</div>
+        ${portfolio.map(c => `
+          <div class="map-co-item">
+            <span>${esc(c.name)}</span>
+            ${sectorBadge(c.sector)}
+          </div>`).join('')}` : ''}
+    `;
+  }
+
+  panelBody.innerHTML = `
+    <div class="sl-panel-section">
+      <div class="map-detail-header">
+        <button id="map-back-btn" class="edfmap-back-btn">← Back</button>
+      </div>
+      ${detail}
+    </div>
+  `;
+
+  document.getElementById('map-back-btn')?.addEventListener('click', () => {
+    clearMapFilter();
+    if (fromIso) showMapCountry(fromIso);
+  });
 }
 
 function applyMapFilter() {
