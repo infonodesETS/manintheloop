@@ -355,6 +355,36 @@ export function restoreEdfbrowseUrl(p) {
   if (changed) applyFilters();
 }
 
+
+export function openEdfBrowseIntro() {
+  const total   = allOrgs.length;
+  const countries = new Set(allOrgs.map(o => o.country)).size;
+  const withFunding = allOrgs.filter(o => o.eu_total > 0).length;
+  const calls = new Set(allOrgs.flatMap(o => o.projects.map(p => p.call_id))).size;
+  if (!total) return; // data not loaded yet
+  document.getElementById('edf-sidebar-title').textContent = 'EDF Beneficiaries';
+  document.getElementById('edf-sidebar-body').innerHTML = `
+    <p class="map-intro-text">
+      Organisations that participated in European Defence Fund projects, browsable by name,
+      country, and funding amount.
+    </p>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Dataset</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Organisations</span> ${total}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Countries</span> ${countries}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">With EU funding</span> ${withFunding}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">EDF calls covered</span> ${calls}</div>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">How to navigate</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Click a row</span> Open organisation detail with project list and funding breakdown</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Search</span> Filter by organisation name</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Country filter</span> Narrow to a specific country</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Funded only</span> Toggle to show only orgs with EU contribution > 0</div>
+    </div>
+  `;
+  document.getElementById('edf-sidebar').classList.add('open');
+}
 export default async function initEdfbrowse() {
   try {
     const json = await loadEdfCalls();
@@ -406,6 +436,7 @@ export default async function initEdfbrowse() {
     });
 
     rebuild();
+    openEdfBrowseIntro();
 
     // If opened directly via URL, restore filter state now (after async init resolves)
     const p = getParams();

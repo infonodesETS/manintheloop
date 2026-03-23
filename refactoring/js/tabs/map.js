@@ -115,6 +115,7 @@ export function resetMapZoom() {
 }
 
 export function closeMapPanel() {
+  document.getElementById('map-panel').classList.add('d-none');
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
   const p = getParams(); delete p.country; setParams(p);
@@ -326,6 +327,7 @@ function drawMap(world) {
   const totCo = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
   document.getElementById('map-status').textContent =
     `${coCount} countries · ${totCo} companies mapped · ${mapState.arcData.length} cross-border investor pairs`;
+  document.getElementById('map-panel').classList.remove('d-none');
 
   applyMapFilter(); // initialise filter bar state (hidden by default)
 

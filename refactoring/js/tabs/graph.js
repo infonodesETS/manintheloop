@@ -6,7 +6,7 @@ import { esc, fmtFunding, sectorBadge, typeBadge, dualBadge, tip, hideTip } from
 // Live D3 selections — updated by each build function so search can run without rebuilding
 let _nd = null, _lk = null;
 
-function showGraphHelp() {
+export function showGraphHelp() {
   const panel = document.getElementById('graph-detail');
   document.getElementById('graph-help').style.display = '';
   document.getElementById('graph-inner').style.display = 'none';

@@ -8,13 +8,13 @@ import initOverview from './tabs/overview.js';
 import initMatrix, { setMatrixSector, closeMxDetail } from './tabs/matrix.js';
 import initCompanies, { setCoSector, sortCo, renderCoTable, restoreCoUrl, openCompaniesIntro } from './tabs/companies.js';
 import initInvestors, { sortInv, renderInvTable, restoreInvUrl, openInvestorsIntro } from './tabs/investors.js';
-import initRelationships, { renderRelTable, restoreRelUrl } from './tabs/relationships.js';
-import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, setGraphSearch, setLeadOnly, setHideIsolated, setShowCompanies, setShowInvestors } from './tabs/graph.js';
+import initRelationships, { renderRelTable, restoreRelUrl, openRelationshipsIntro } from './tabs/relationships.js';
+import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, showGraphHelp, setGraphSearch, setLeadOnly, setHideIsolated, setShowCompanies, setShowInvestors } from './tabs/graph.js';
 import initMap, { toggleMapArcs, resetMapZoom, closeMapPanel, clearMapFilter, selectMapCountryByName } from './tabs/map.js';
 import initWikidata, { toggleWdMode, onLiveInput } from './tabs/wikidata.js';
 import initQuality from './tabs/quality.js';
 import initEucalls     from './tabs/eucalls.js';
-import initEdfbrowse   from './tabs/edfbrowse.js';
+import initEdfbrowse, { openEdfBrowseIntro } from './tabs/edfbrowse.js';
 import initEdfoverview from './tabs/edfoverview.js';
 import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs } from './tabs/edfmap.js';
 import initKnownIssues from './tabs/knownissues.js';
@@ -111,9 +111,16 @@ function navigate(group, tab, push = true) {
     renderGlossaryTab();
   }
 
-  // Open intro sidebars for Companies / Investors on tab switch
+  // Open intro sidebars on tab switch; close conflicting overlays
+  const edfTabs = ['edfbrowse', 'eucalls', 'edfmap', 'edfoverview'];
+  const scTabs  = ['companies', 'investors', 'relationships'];
+  if (scTabs.includes(paneId))  document.getElementById('edf-sidebar')?.classList.remove('open');
+  if (edfTabs.includes(paneId)) document.getElementById('entity-sidebar')?.classList.remove('open');
   if (paneId === 'companies') openCompaniesIntro();
   if (paneId === 'investors') openInvestorsIntro();
+  if (paneId === 'relationships') openRelationshipsIntro();
+  if (paneId === 'edfbrowse') openEdfBrowseIntro();
+  if (paneId === 'graph' && AppState.ui.graph.sim) showGraphHelp();
 
   // URL — omit tab for standalone groups
   const params = { research: group };

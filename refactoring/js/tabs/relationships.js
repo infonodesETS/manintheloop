@@ -3,7 +3,7 @@
 import { AppState } from '../state.js';
 import { esc, sectorBadge } from '../helpers.js';
 import { setParams } from '../url.js';
-import { openInvestorSidebar, openCompanySidebar } from '../detail-sidebar.js';
+import { openInvestorSidebar, openCompanySidebar, openIntroSidebar } from '../detail-sidebar.js';
 
 export default function initRelationships() {
   document.getElementById('rel-search').addEventListener('input', renderRelTable);
@@ -51,6 +51,45 @@ export function renderRelTable() {
   const params = { tab: 'relationships' };
   if (q) params.search = q;
   setParams(params);
+}
+
+export function openRelationshipsIntro() {
+  const { relationships, derived } = AppState;
+  const total   = relationships.length;
+  const leads   = relationships.filter(r => r.details?.lead).length;
+  const follows = total - leads;
+  const uniqueInv  = new Set(relationships.map(r => r.source)).size;
+  const uniqueCo   = new Set(relationships.map(r => r.target)).size;
+
+  openIntroSidebar('Relationships', `
+    <p class="map-intro-text">
+      Documented investment links between investors and defence-exposed companies
+      in the info.nodes database.
+    </p>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Dataset</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Total relationships</span> ${total}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Lead investments</span> ${leads}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Follow investments</span> ${follows}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Unique investors</span> ${uniqueInv}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Unique companies</span> ${uniqueCo}</div>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">How to navigate</div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click an investor</span>
+        Open investor detail sidebar with full portfolio
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click a company</span>
+        Open company detail sidebar with investors and data sources
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Search</span>
+        Filter by investor or company name
+      </div>
+    </div>
+  `);
 }
 
 /** Restore relationships state from URL params. */
