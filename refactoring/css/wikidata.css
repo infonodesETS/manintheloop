@@ -49,11 +49,11 @@
 .live-drop.open { display: block; }
 .live-drop-item {
   padding: 8px 12px; cursor: pointer; border-bottom: 1px solid rgba(65,67,69,0.3);
-  font-size: .85em;
+  font-size: var(--fs-body);
 }
 .live-drop-item:hover { background: rgba(104,204,209,0.08); }
 .live-drop-item .live-label { color: var(--text-primary); font-weight: var(--fw-semi); }
-.live-drop-item .live-desc  { color: var(--dim); font-size: .75em; }
+.live-drop-item .live-desc  { color: var(--dim); font-size: var(--fs-body); }
 
 /* ── Sidebar controls ── */
 .wd-mode-label         { font-size: var(--fs-sm); color: var(--dim); }

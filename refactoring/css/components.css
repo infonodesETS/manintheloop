@@ -180,7 +180,7 @@ th.sortable:hover { color: #fff; }
 }
 .entity-sidebar.open .entity-sidebar-overlay { opacity: 1; }
 .entity-sidebar-panel {
-  position: absolute; top: 0; right: 0; bottom: 0; width: var(--sl-w-lg); max-width: 95vw;
+  position: absolute; top: 0; right: 0; bottom: 0; width: var(--sl-w-inline); max-width: 95vw;
   background: var(--sl-panel-bg); border-left: 1px solid var(--border);
   display: flex; flex-direction: column;
   transform: translateX(100%); transition: var(--sl-panel-t); overflow: hidden;

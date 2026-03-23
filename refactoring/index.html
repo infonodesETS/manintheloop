@@ -463,7 +463,7 @@
       <div id="edfmap-main">
         <div id="edfmap-toolbar">
           <label class="map-toggle-label">
-            <input type="checkbox" id="edfmap-arc-toggle" checked>
+            <input type="checkbox" id="edfmap-arc-toggle">
             Show partnership arcs
           </label>
           <button class="tnav-btn map-ctrl-btn" id="edfmap-reset-zoom-btn">Reset zoom</button>
@@ -514,7 +514,7 @@
         <div class="card-body">
           <div class="row g-3 align-items-end">
             <div class="col-md-10">
-              <label for="ec-topicInput" class="form-label">Topic Identifier or Call Title <span class="ec-label-hint">— try: CYBER, helicopter, maritime, EDF-2023-DA-GROUND…</span></label>
+              <label for="ec-topicInput" class="form-label">Search EDF Calls <span class="ec-label-hint">— by title, keyword, or identifier</span></label>
               <div class="live-search-wrap">
                 <input type="text" id="ec-topicInput" class="form-control form-control-lg"
                        placeholder="e.g. CYBER, EDF-2023-DA-GROUND, drone, maritime…" autocomplete="off">
@@ -589,7 +589,7 @@
         </div>
 
         <!-- Per-year accordion -->
-        <div class="accordion" id="ec-yearsAccordion"></div>
+        <div id="ec-yearsAccordion"></div>
 
       </div><!-- /ec-resultsSection -->
     </div><!-- /max-width container -->

@@ -32,6 +32,12 @@ export function initEntitySidebar() {
   document.getElementById('entity-sidebar-close').addEventListener('click', closeEntitySidebar);
 }
 
+export function openIntroSidebar(title, html) {
+  document.getElementById('entity-sidebar-title').textContent = title;
+  document.getElementById('entity-sidebar-body').innerHTML = html;
+  _open();
+}
+
 function cbSection(cb) {
   const hasAny = cb && (cb.profile_url || cb.stage || cb.headquarters || cb.website ||
     cb.cb_rank || cb.revenue_range || cb.total_funding_usd ||

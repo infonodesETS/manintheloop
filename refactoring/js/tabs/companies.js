@@ -3,7 +3,7 @@
 import { AppState } from '../state.js';
 import { esc, fmtFunding, sectorBadge, dualBadge, wdBadge, valBadge } from '../helpers.js';
 import { setParams } from '../url.js';
-import { openCompanySidebar } from '../detail-sidebar.js';
+import { openCompanySidebar, openIntroSidebar } from '../detail-sidebar.js';
 
 export default function initCompanies() {
   document.getElementById('co-search').addEventListener('input', renderCoTable);
@@ -14,6 +14,52 @@ export default function initCompanies() {
     if (company) openCompanySidebar(company);
   });
   renderCoTable();
+}
+
+export function openCompaniesIntro() {
+  const { companies } = AppState;
+  const total = companies.length;
+  const bySector = {};
+  for (const c of companies) bySector[c.sector] = (bySector[c.sector] || 0) + 1;
+  const withInvestors = companies.filter(c => c._investors?.length).length;
+
+  const sectorRows = Object.entries(bySector)
+    .filter(([s]) => s && s !== 'null' && s !== 'undefined')
+    .sort((a, b) => b[1] - a[1])
+    .map(([s, n]) => `<div class="map-sector-row"><span class="map-sector-lbl">${s}</span> ${n}</div>`)
+    .join('');
+
+  openIntroSidebar('Companies', `
+    <p class="map-intro-text">
+      Manufacturers, tech firms, startups, and mining companies with documented defence exposure,
+      tracked in the info.nodes research database.
+    </p>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Dataset</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Total companies</span> ${total}</div>
+      ${sectorRows}
+      <div class="map-sector-row"><span class="map-sector-lbl">With investors</span> ${withInvestors}</div>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">How to navigate</div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click a row</span>
+        Open company detail: sector, founding, funding, investors, Crunchbase and Wikidata data
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Filter by sector</span>
+        Use the toolbar buttons — Defence / Mining / Tech / Startup
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Sort columns</span>
+        Click any column header to sort by name, country, founded, funding, or investor count
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Search</span>
+        Type in the search bar to filter by company name
+      </div>
+    </div>
+  `);
 }
 
 export function setCoSector(s) {

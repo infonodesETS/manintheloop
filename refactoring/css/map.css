@@ -103,6 +103,29 @@
 .edfmap-org-meta { font-size: var(--sl-desc-fs); color: var(--dim); margin-bottom: 10px; }
 .edfmap-eu-link  { color: var(--accent); font-size: var(--fs-xs); }
 
+.edfmap-partners-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.edfmap-partner-tag {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  background: rgba(104,204,209,0.07);
+  border: 1px solid rgba(104,204,209,0.18);
+  border-radius: 10px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+.edfmap-partner-count {
+  font-family: monospace;
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  margin-left: 3px;
+}
+.edfmap-partner-none { color: var(--text-faint); font-size: var(--fs-sm); }
+
 .edfmap-co-item.clickable { cursor: pointer; }
 .edfmap-co-item.clickable:hover { background: rgba(104,204,209,0.08); color: #fff; border-radius: 3px; padding-left: 4px; }
 .edfmap-co-item.clickable.active { background: rgba(0,255,65,0.1); color: var(--accent); border-radius: 3px; border-left: 2px solid var(--accent); padding-left: 4px; }
@@ -124,6 +147,20 @@
 .edfmap-role-badge.coord { background: rgba(0,255,65,0.15); color: var(--accent); }
 .edfmap-role-badge.part  { background: rgba(120,120,120,0.2);  color: #aaa; }
 .edfmap-proj-partners { font-size: 0.7rem; color: #555; line-height: 1.4; }
+
+/* ── EDF Map panel: compact overrides for eb-proj-item ── */
+#edfmap-panel .eb-proj-item        { padding: 6px 9px; }
+#edfmap-panel .eb-proj-header      { gap: 4px; margin-bottom: 2px; }
+#edfmap-panel .eb-proj-title       { font-size: var(--fs-sm); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#edfmap-panel .eb-proj-acronym     { font-size: var(--fs-sm); }
+#edfmap-panel .eb-role-badge       { font-size: var(--fs-xs); padding: 0 5px; }
+#edfmap-panel .eb-proj-status      { font-size: var(--fs-xs); padding: 0 5px; }
+#edfmap-panel .eb-proj-meta        { font-size: var(--fs-xs); gap: 8px; }
+#edfmap-panel .eb-det-row          { font-size: var(--fs-xs); }
+#edfmap-panel .eb-det-lbl          { font-size: var(--fs-xs); width: 70px; }
+#edfmap-panel .eb-det-val          { font-size: var(--fs-xs); }
+#edfmap-panel .eb-det-objective    { font-size: var(--fs-xs); max-height: 120px; }
+#edfmap-panel .eb-proj-list        { gap: 4px; }
 
 .map-intro-text { font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: 1.55; margin: 0 0 10px; }
 .map-sector-row { font-size: var(--fs-base); color: var(--text-secondary); padding: 8px 0 10px; border-bottom: 1px solid rgba(65,67,69,0.3); margin-bottom: 4px; line-height: 1.5; }

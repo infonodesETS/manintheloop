@@ -232,7 +232,7 @@ Al caricamento, la mappa EDF non è centrata sull'Europa dove si trovano i nodi.
 
 **Section:** European Defence Fund > Map
 **Type:** Feature / UX
-**Status:** Open — non implementato, confermato 2026-03-22
+**Status:** Resolved — 2026-03-23
 
 **Test 2026-03-22 (Playwright):** Confermato non implementato. Tutti i 351 elementi `.edfmap-arc` non hanno attributi `opacity`, `stroke`, o `stroke-width` inline né via `style`. La variazione di opacità in base al numero di progetti condivisi (documentata nel README: "arc opacity scales with co-project count") non è presente nel DOM corrente.
 
@@ -243,15 +243,19 @@ Gli archi di connessione tra paesi hanno tutti lo stesso peso visivo. L'utente h
 
 **Proposta:** Implementare la variazione di `opacity` o `stroke-width` sugli archi in base al numero di progetti condivisi tra le due nazioni, con un range percettibile (es. opacity 0.15–0.8).
 
+**Fix 2026-03-23:** `drawArcs()` già implementa `strokeScale` (0.3–1.2) e `opacityScale` (0.35–0.75) basati su `arc.weight` (numero di progetti in comune tra due paesi). Confermato via Playwright: tutti e 351 gli archi hanno `stroke-width` e `stroke-opacity` variabili. UX aggiuntiva: gli archi partono nascosti di default; compaiono automaticamente quando si clicca un paese (solo gli archi del paese selezionato), o globalmente tramite il toggle "Show partnership arcs".
+
 ---
 
 ## #15 — EDF Map: sidebar mostra solo le org del paese selezionato, non spiega le connessioni
 
 **Section:** European Defence Fund > Map
 **Type:** UX / Content
-**Status:** Open — confermato 2026-03-22
+**Status:** Resolved — 2026-03-23
 
 **Test 2026-03-22 (Playwright):** Confermato. Cliccando su Italia, la sidebar mostra l'elenco delle organizzazioni italiane ma non esplicita con quali paesi sono in connessione né quanti progetti condividono. Gli archi restano visibili ma non hanno tooltips. Screenshot: `15-edf-map-italy-sidebar.png`.
+
+**Fix 2026-03-23:** Aggiunta sezione "Partner Countries" inline in cima alla sidebar del paese: chip per ogni paese partner con conteggio progetti condivisi, ordinati per conteggio. Il filtro organizzazioni aggiorna in tempo reale i partner countries — mostra solo i paesi partner delle organizzazioni visibili. Screenshot: `15-edfmap-italy-partners.png`, `15-edfmap-italy-partners-filtered.png`.
 
 Dopo aver cliccato su un paese (Italia), l'utente ha visto nella sidebar solo le aziende italiane, ma gli archi mostravano connessioni con altri paesi. Non era chiaro cosa rappresentassero quelle connessioni.
 
@@ -282,9 +286,9 @@ Un testo di colore scuro con font monospace (code) appariva sotto un titolo EDF,
 
 **Section:** European Defence Fund > EDF Calls Search
 **Type:** Bug
-**Status:** Open — da verificare
+**Status:** Resolved — 2026-03-23
 
-**Test 2026-03-22 (Playwright):** Non verificato in dettaglio. La comparison view richiede la selezione di due call distinti anni — test non completato per mancanza di dati multi-anno nel flusso di test. Da rivedere manualmente.
+**Fix 2026-03-23:** Due problemi identificati e corretti: (1) la "Comparison View" card compariva anche con un solo anno trovato — nascosta via `display:none` quando `yearsDisplay.length < 2`; (2) `projectCard` conteneva inline styles e classi Bootstrap hardcoded — sostituiti con classi CSS dedicate (`.ec-part-role`, `.ec-part-country`, `.ec-no-participants`, `.ec-objective-scroll`); rimosso `bg-light` dal `card-header`; rimosso `class="accordion"` dal container `#ec-yearsAccordion`.
 
 L'utente e il conduttore hanno notato un bug attivo nella "comparison view" della ricerca EDF Calls.
 
@@ -298,7 +302,7 @@ L'utente e il conduttore hanno notato un bug attivo nella "comparison view" dell
 
 **Section:** European Defence Fund > EDF Calls Search
 **Type:** UX
-**Status:** Open — confermato 2026-03-22
+**Status:** Resolved — 2026-03-23
 
 **Test 2026-03-22 (Playwright):** Confermato. Al caricamento della tab la select dei topic identifier è chiusa. L'utente che non conosce già i codici non ha visibilità sulle opzioni disponibili prima di interagire. Screenshot: `16-eucalls-select-closed.png`.
 
@@ -330,9 +334,9 @@ L'utente ha provato a cercare per nome di arma/tecnologia (es. "drone", "helicop
 
 **Section:** European Defence Fund > EDF Calls Search (risultati di ricerca)
 **Type:** UX
-**Status:** Open — confermato 2026-03-22
+**Status:** Resolved — 2026-03-22 (session 1) / confirmed 2026-03-23
 
-**Test 2026-03-22 (Playwright):** Confermato. I risultati di ricerca mostrano le call raggruppate per anno in accordion. L'header mostra anno, numero progetti e partecipanti, ma l'espansione non aggiunge informazioni significativamente diverse. I tag accanto sono etichette non cliccabili. Screenshot: `19-eucalls-accordion-closed.png`, `20-eucalls-accordion-open.png`.
+**Fix 2026-03-22 (session 1, EDF-C-D):** `createAccordionItem` riscritta con `ec-year-block` statico sempre visibile — nessun collapse/expand. Confermato 2026-03-23: il container `#ec-yearsAccordion` aveva ancora `class="accordion"` (rimosso); `createAccordionItem` usa già `ec-year-header` + `ec-year-body` statici.
 
 Nell'area dei risultati della ricerca, un elemento (es. "anno 2024, 2 progetti, 19 partecipanti") si apre e chiude come accordion, ma l'utente non capiva perché fosse espandibile né cosa aggiungesse. Si aspettava che fosse cliccabile per navigare ai dettagli.
 
@@ -347,7 +351,7 @@ Nell'area dei risultati della ricerca, un elemento (es. "anno 2024, 2 progetti, 
 
 **Section:** European Defence Fund > EDF Beneficiaries > sidebar org
 **Type:** Feature / UX
-**Status:** Open — confermato 2026-03-22
+**Status:** Resolved — 2026-03-23
 
 **Test 2026-03-22 (Playwright):** Confermato. Nella sidebar di un'organizzazione (es. Leonardo), i progetti elencati non sono cliccabili per navigare al dettaglio. È presente un link "EC Portal →" che apre il portale EU esterno, ma non c'è navigazione interna verso il dettaglio EDF Call Search equivalente.
 
@@ -380,8 +384,7 @@ L'utente ha notato alla fine della sessione che Data Quality e Known Issues sono
 
 ---
 
-_Total: 22 issues — 15 resolved, 7 open_
+_Total: 22 issues — 20 resolved, 2 open_
 
-_Resolved: #1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #16, #19, #22_
-_Open: #14, #15, #17, #18, #20, #21_
-_Needs verification: #17, #20_
+_Resolved: #1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #15, #16, #17, #18, #19, #20, #21, #22_
+_Open: #14_

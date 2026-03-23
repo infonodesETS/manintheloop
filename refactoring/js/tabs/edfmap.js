@@ -83,18 +83,21 @@ const ms = {
   countryData:       {},  // iso → { name, orgs: [] }
   projectPartnersMap:{},  // projId → Set<iso>
   orgProjectsMap:    {},  // orgKey → [{ projId, partnerIsos: Set<iso>, projAcronym, projTitle, projUrl, callId, role, euContrib }]
+  rawCallsMap:       {},  // callId → raw call object (for project detail lookup)
   arcData:           [],  // default all-projects arcs
   centroids:         {},
   projection:        null,
   svg:               null,
   g:                 null,
   zoom:              null,
-  showArcs:          true,
+  showArcs:          false,
   activeFilter:      null, // { orgKey, orgName, activeIsos: Set<iso>, pairSet: Set<string> }
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function fmtDate(s) { return s ? s.slice(0, 10) : '—'; }
 
 function fmtEuro(n) {
   if (!n) return '—';
@@ -191,6 +194,7 @@ function buildData(callsMap) {
   ms.countryData        = countryData;
   ms.projectPartnersMap = projectPartnersMap;
   ms.orgProjectsMap     = orgProjectsMap;
+  ms.rawCallsMap        = callsMap;
   ms.arcData = Object.entries(pairWeight).map(([k, weight]) => {
     const [a, b] = k.split('-').map(Number);
     return { source_iso: a, target_iso: b, weight };
@@ -256,9 +260,10 @@ function drawMap(world) {
       return cd ? `${cd.name} — ${cd.orgs.length} organisations` : `ISO ${iso}`;
     });
 
-  // Arc layer
+  // Arc layer (hidden by default — shown when a country is selected)
   const arcLayer = ms.g.append('g').attr('id', 'edfmap-arc-layer');
   drawArcs(arcLayer, ms.arcData);
+  arcLayer.style('display', 'none');
 
   // Country nodes
   const nodeLayer = ms.g.append('g').attr('id', 'edfmap-node-layer');
@@ -313,9 +318,40 @@ function drawMap(world) {
   fitEdfMapView(W, H);
   document.getElementById('edfmap-filter-bar').style.display = 'none'; // hide on init
 
-  // Status
+  // Open sidebar by default with navigation guide
   const coCount  = Object.keys(ms.countryData).length;
   const totOrgs  = Object.values(ms.countryData).reduce((s, d) => s + d.orgs.length, 0);
+  document.getElementById('edfmap-panel-title').textContent = 'EDF Map';
+  document.getElementById('edfmap-panel-body').innerHTML = `
+    <p class="map-intro-text">
+      Organisations funded by the <strong>European Defence Fund</strong>, mapped by country.
+      Arcs show cross-border project co-partnerships.
+    </p>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Dataset</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Countries</span> ${coCount}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Organisations</span> ${totOrgs}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Cross-border pairs</span> ${ms.arcData.length}</div>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">How to navigate</div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click a country</span>
+        See all funded organisations, partner countries, and project arcs
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click an organisation</span>
+        Highlight its cross-border connections and project list
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Show partnership arcs</span>
+        Toggle all arcs globally (arcs also appear on country click)
+      </div>
+    </div>
+  `;
+  document.getElementById('edfmap-panel').classList.remove('d-none');
+
+  // Status
   setStatus(`${coCount} countries · ${totOrgs} organisations · ${ms.arcData.length} cross-border project pairs`);
 }
 
@@ -341,6 +377,26 @@ function drawArcs(layer, arcs) {
   });
 }
 
+// ── Partner countries helper ──────────────────────────────────────────────────
+function renderPartnersRow(iso, orgKeys) {
+  const el = document.getElementById('edfmap-partners-row');
+  if (!el) return;
+  const partnerCount = {};
+  for (const key of orgKeys) {
+    for (const p of (ms.orgProjectsMap[key] || [])) {
+      for (const pIso of p.partnerIsos) {
+        if (pIso !== iso) partnerCount[pIso] = (partnerCount[pIso] || 0) + 1;
+      }
+    }
+  }
+  const sorted = Object.entries(partnerCount).sort((a, b) => b[1] - a[1]);
+  if (sorted.length === 0) { el.innerHTML = '<span class="edfmap-partner-none">—</span>'; return; }
+  el.innerHTML = sorted.map(([pIso, count]) => {
+    const name = ms.countryData[+pIso]?.name || pIso;
+    return `<span class="edfmap-partner-tag">${esc(name)} <span class="edfmap-partner-count">${count}</span></span>`;
+  }).join('');
+}
+
 // ── Country panel ─────────────────────────────────────────────────────────────
 function showCountry(iso) {
   const cd = ms.countryData[iso];
@@ -359,12 +415,18 @@ function showCountry(iso) {
     .classed('edfmap-node-dim',   d => d.iso !== iso)
     .classed('edfmap-node-focus', d => d.iso === iso);
 
-  // Show only arcs that touch this country
+  // Show arc layer + highlight only arcs that touch this country
+  const arcLayerEl = document.getElementById('edfmap-arc-layer');
+  if (arcLayerEl) arcLayerEl.style.display = '';
   ms.g.selectAll('.edfmap-arc')
     .classed('edfmap-arc-dim', d => d.src !== iso && d.tgt !== iso);
 
   document.getElementById('edfmap-panel-title').textContent = cd.name;
   document.getElementById('edfmap-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:4px">Partner Countries</div>
+      <div id="edfmap-partners-row" class="edfmap-partners-row"></div>
+    </div>
     <div class="sl-panel-section">
       <div class="sl-section-lbl">${cd.orgs.length} Organisations</div>
       <input id="edfmap-org-filter" class="edfmap-org-filter-input" type="text" placeholder="Filter organisations…" autocomplete="off">
@@ -378,11 +440,18 @@ function showCountry(iso) {
     </div>
   `;
 
+  // Render initial partners row (all orgs)
+  renderPartnersRow(iso, cd.orgs.map(o => o.key));
+
   document.getElementById('edfmap-org-filter').addEventListener('input', function () {
     const q = this.value.toLowerCase();
+    const visibleKeys = [];
     document.getElementById('edfmap-org-list').querySelectorAll('.edfmap-co-item').forEach(el => {
-      el.style.display = el.dataset.name.includes(q) ? '' : 'none';
+      const visible = el.dataset.name.includes(q);
+      el.style.display = visible ? '' : 'none';
+      if (visible) visibleKeys.push(el.dataset.orgkey);
     });
+    renderPartnersRow(iso, visibleKeys);
   });
 
   document.getElementById('edfmap-panel-body')
@@ -430,21 +499,53 @@ function filterByOrg(orgKey, countryName) {
       <div class="edfmap-org-meta">
         ${partnerIsos.size} partner countries · ${orgProjects.length} project${orgProjects.length !== 1 ? 's' : ''}
       </div>
-      ${orgProjects.map(p => `
-        <div class="edfmap-proj-item">
-          <div class="edfmap-proj-acronym">${esc(p.projAcronym || p.projTitle)}</div>
-          <div class="edfmap-proj-title">${esc(p.projTitle)}</div>
-          <div class="edfmap-proj-meta">
-            <span class="edfmap-role-badge ${p.role === 'coordinator' ? 'coord' : 'part'}">${p.role}</span>
-            <span>${fmtEuro(p.euContrib)}</span>
-            ${p.projUrl ? `<a href="${esc(p.projUrl)}" target="_blank" class="edfmap-eu-link">↗ EU</a>` : ''}
+      ${orgProjects.map(p => {
+        const rawCall = ms.rawCallsMap?.[p.callId] || {};
+        const rawProj = (rawCall.projects || []).find(r => r.acronym === p.projAcronym) || {};
+        const objective   = rawProj.objective || '';
+        const totalBudget = rawProj.total_budget || rawProj.overall_budget || 0;
+        const partCount   = (rawProj.participants || []).length;
+        const status      = rawProj.status || '';
+        const inlineRows = [
+          rawCall.title ? `<div class="eb-det-row"><span class="eb-det-lbl">Call</span><span class="eb-det-val">${esc(rawCall.title)}</span></div>` : '',
+          totalBudget   ? `<div class="eb-det-row"><span class="eb-det-lbl">Total budget</span><span class="eb-det-val">${fmtEuro(totalBudget)}</span></div>` : '',
+          partCount     ? `<div class="eb-det-row"><span class="eb-det-lbl">Participants</span><span class="eb-det-val">${partCount}</span></div>` : '',
+        ].filter(Boolean).join('');
+        const detailRows = [
+          inlineRows ? `<div class="eb-det-rows-inline">${inlineRows}</div>` : '',
+          objective   ? `<div class="eb-det-objective">${esc(objective)}</div>` : '',
+        ].filter(Boolean).join('');
+        return `
+        <div class="eb-proj-item eb-proj-item--clickable">
+          <div class="eb-proj-header">
+            <span class="eb-proj-caret">›</span>
+            ${p.projAcronym ? `<span class="eb-proj-acronym">${esc(p.projAcronym)}</span>` : ''}
+            <span class="eb-proj-title">${esc(p.projTitle)}</span>
+            <span class="eb-role-badge ${p.role === 'coordinator' ? 'coord' : 'partner'}">${esc(p.role)}</span>
+            ${status ? `<span class="eb-proj-status ${status === 'Ongoing' ? 'ongoing' : 'closed'}">${esc(status)}</span>` : ''}
+            ${p.projUrl ? `<a href="${esc(p.projUrl)}" target="_blank" class="eb-ext-link" onclick="event.stopPropagation()">↗</a>` : ''}
           </div>
-          <div class="edfmap-proj-partners">
-            Partners: ${[...p.partnerIsos].map(i => ms.countryData[i]?.name || i).join(', ')}
+          <div class="eb-proj-meta">
+            <span class="eb-meta-call">${esc(p.callId)}</span>
+            ${p.euContrib ? `<span>EU: <strong>${fmtEuro(p.euContrib)}</strong></span>` : ''}
+            ${rawProj.start_date ? `<span>${fmtDate(rawProj.start_date)} → ${fmtDate(rawProj.end_date)}</span>` : ''}
           </div>
-        </div>`).join('')}
+          ${detailRows ? `<div class="eb-proj-detail">${detailRows}</div>` : ''}
+        </div>`;
+      }).join('')}
     </div>
   `;
+
+  // Wire project item expand (delegation on panel body)
+  panelBody.addEventListener('click', e => {
+    const item = e.target.closest('.eb-proj-item--clickable');
+    if (!item) return;
+    if (e.target.closest('a')) return;
+    const detail = item.querySelector('.eb-proj-detail');
+    if (!detail) return;
+    const isOpen = detail.classList.toggle('open');
+    item.querySelector('.eb-proj-caret')?.classList.toggle('open', isOpen);
+  });
 
   document.getElementById('edfmap-back-btn')?.addEventListener('click', () => {
     for (const [isoStr, cd] of Object.entries(ms.countryData)) {
@@ -473,6 +574,8 @@ function applyFilter() {
 
   bar.style.display = 'flex';
   document.getElementById('edfmap-filter-label').textContent = f.orgName;
+  const arcLayerEl2 = document.getElementById('edfmap-arc-layer');
+  if (arcLayerEl2) arcLayerEl2.style.display = '';
 
   ms.g.selectAll('.edfmap-country.has-data')
     .classed('edfmap-country-dim', d => !f.activeIsos.has(+d.id));
@@ -504,6 +607,9 @@ function resetVisuals() {
   ms.g?.selectAll('.edfmap-arc')
     .classed('edfmap-arc-dim', false);
   document.getElementById('edfmap-filter-bar').style.display = 'none';
+  // Restore arc layer to toggle state (hidden unless user explicitly enabled it)
+  const arcLayerEl = document.getElementById('edfmap-arc-layer');
+  if (arcLayerEl) arcLayerEl.style.display = ms.showArcs ? '' : 'none';
 }
 
 export function clearEdfMapFilter() {

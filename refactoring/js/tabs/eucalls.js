@@ -171,6 +171,7 @@ function applyCallsList(data) {
   edfCallsList = data;
   acReady = true;
   updateHeaderCounts();
+  showDropFiltered('');
 }
 
 function updateHeaderCounts() {
@@ -420,8 +421,8 @@ function renderDrop(matches, rawQuery) {
       : '';
     return `
     <div class="live-drop-item" data-id="${escHtml(c.identifier)}">
-      <div class="live-label">${highlight(escHtml(c.identifier), q)} ${statusDot}${deadlineStr}</div>
-      <div class="live-desc">${highlight(escHtml(c.title || '—'), q)}</div>
+      <div class="live-label">${highlight(escHtml(c.title || '—'), q)}</div>
+      <div class="live-desc">${highlight(escHtml(c.identifier), q)} ${statusDot}${deadlineStr}</div>
     </div>`;
   }).join('');
 
@@ -847,6 +848,8 @@ function renderResults() {
 
 // ── Comparison table ──
 function buildComparisonTable(yearsDisplay) {
+  const card = document.getElementById('ec-comparisonTable')?.closest('.card');
+  if (card) card.style.display = yearsDisplay.length < 2 ? 'none' : '';
   const table = document.getElementById('ec-comparisonTable');
   let html = '<thead><tr><th>Metric</th>';
   yearsDisplay.forEach(y => { html += `<th>${y.year}</th>`; });
@@ -926,20 +929,20 @@ function projectCard(project, idx) {
              const role = (p.Role || '').toLowerCase() === 'coordinator' ? 'Coord.' : 'Partner';
              const idx  = participantStore.push(p) - 1;
              return `<li>
-               <span style="opacity:.6;font-size:.8rem">${role}:</span>
+               <span class="ec-part-role">${role}:</span>
                <button class="ec-part-btn" data-pidx="${idx}">${escHtml(p['Organization Name'] || 'N/A')}</button>
-               <span style="opacity:.5;font-size:.8rem">(${escHtml(p.Country || 'N/A')})</span>
+               <span class="ec-part-country">(${escHtml(p.Country || 'N/A')})</span>
              </li>`;
            }).join('')}
          </ul>
        </div>`
-    : '<p class="text-muted small">No participants available</p>';
+    : '<p class="ec-no-participants">No participants available</p>';
 
   const sc = getStatusClass(project.Status);
 
   return `
   <div class="card mb-3 project-card">
-    <div class="card-header bg-light">
+    <div class="card-header">
       <strong>${idx + 1}. ${escHtml(project.ACRONYM || 'N/A')}</strong>
       &nbsp;–&nbsp;${escHtml(project.TITLE || 'No title')}
     </div>
@@ -960,7 +963,7 @@ function projectCard(project, idx) {
         <div class="col-md-7">
           <div class="border-start ps-3">
             <h6 class="text-primary mb-2">Objective</h6>
-            <div style="max-height:480px;overflow-y:auto">
+            <div class="ec-objective-scroll">
               <p class="text-justify">${escHtml(project.Objective || 'No objective available')}</p>
             </div>
           </div>

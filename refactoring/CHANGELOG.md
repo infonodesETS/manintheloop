@@ -66,6 +66,132 @@ All sidebar panels share the same structural classes:
 
 ---
 
+## [2026-03-23] — EDF Map: arcs off by default, sidebar open by default with navigation guide
+
+**Files:** `js/tabs/edfmap.js`, `index.html`
+
+- `ms.showArcs` initialised to `false`; arc layer starts hidden on map draw
+- `showCountry()`: always reveals arc layer when a country is clicked (only arcs touching that country)
+- `applyFilter()`: reveals arc layer when an org filter is active
+- `resetVisuals()`: hides arc layer again if toggle is off (respects `ms.showArcs`)
+- `index.html`: `edfmap-arc-toggle` checkbox unchecked by default
+- `drawMap()`: sidebar opened immediately with intro text, dataset stats, and "How to navigate" guide
+
+---
+
+## [2026-03-23] — EDF Map: project detail dropdown in org sidebar (same pattern as EDF Beneficiaries)
+
+### Changed — `js/tabs/edfmap.js`
+
+- `ms`: aggiunto `rawCallsMap` per accesso ai dati raw dei progetti
+- `buildData`: salva `callsMap` in `ms.rawCallsMap`
+- Aggiunto helper `fmtDate(s)`
+- `filterByOrg`: rendering progetti sostituito con struttura identica a EDF Beneficiaries — `eb-proj-item--clickable`, `eb-proj-header` (caret, acronym, title, role badge, status, `↗`), `eb-proj-meta` (call_id, EU contrib, date), `eb-proj-detail` (dropdown con Call title, Total budget, Participants, Objective); lookup raw project via `ms.rawCallsMap[callId].projects.find(r => r.acronym === projAcronym)`
+- Aggiunto click delegation su `panelBody` per toggle `eb-proj-detail.open` e rotazione caret
+
+### Source
+Screenshot: `edfmap-proj-dropdown.png`
+
+---
+
+## [2026-03-23] — EDF Map: Partner Countries section in country sidebar
+
+### Changed — `js/tabs/edfmap.js`
+
+- Nuova funzione `renderPartnersRow(iso, orgKeys)`: calcola i paesi partner dagli `orgProjectsMap` degli org visibili; li ordina per conteggio progetti condivisi; renderizza chip inline in `#edfmap-partners-row`
+- `showCountry`: aggiunta sezione "Partner Countries" con `#edfmap-partners-row` sopra la lista org; chiamata iniziale con tutti gli org del paese
+- Filtro org (`edfmap-org-filter`): oltre a nascondere le righe, raccoglie i `visibleKeys` e chiama `renderPartnersRow` — i partner countries si aggiornano in tempo reale mostrando solo i paesi connessi alle org filtrate
+
+### Changed — `css/map.css`
+
+- Aggiunte: `.edfmap-partners-row` (flex wrap, gap 5px), `.edfmap-partner-tag` (chip teal border-radius), `.edfmap-partner-count` (mono accent), `.edfmap-partner-none`
+
+### Source
+`japi-issues.md` #15 → resolved. Screenshot: `15-edfmap-italy-partners.png`, `15-edfmap-italy-partners-filtered.png`
+
+---
+
+## [2026-03-23] — EDF Beneficiaries: font sizes, inline detail rows, ext link style
+
+### Changed — `css/edfbrowse.css`
+
+- All row content (`eb-org-name`, `eb-org-type`, `eb-country-tag`, `eb-num`, `eb-dim`, `eb-coord-badge`, `eb-caret-cell`) → `var(--fs-body)`
+- All proj item content (`eb-proj-acronym`, `eb-proj-title`, `eb-role-badge`, `eb-proj-status`, `eb-proj-meta`, `eb-proj-caret`, `eb-proj-count`, `eb-ext-link`, `eb-det-row`, `eb-det-lbl`, `eb-det-val`, `eb-det-objective`) → `var(--fs-body)`
+- `.eb-det-rows-inline`: nuova classe wrapper — le tre righe (Call | Total budget | Participants) rese inline con separatore `|` via `::before`
+- `.eb-ext-link`: `↗` link restyled — background `var(--accent)`, colore `#000`, bold, `font-size: 1.2rem`, border-radius 3px
+
+### Changed — `js/tabs/edfbrowse.js`
+
+- `buildDrawer`: righe inline (Call, Total budget, Participants) wrappate in `eb-det-rows-inline`; objective resta sotto separata
+
+---
+
+## [2026-03-23] — EDF Beneficiaries: project detail dropdown in org sidebar
+
+### Changed — `js/tabs/edfbrowse.js`
+
+- `buildDrawer`: ogni `eb-proj-item` ora pre-genera un `eb-proj-detail` con dati dall'lookup in `rawCallsMap` — Call title, Total budget, Participants count, Objective (max 160px scroll); aggiunto `eb-proj-caret` (›) nell'header; classe `eb-proj-item--clickable`
+- `initEdfbrowse`: aggiunto click handler per delega su `#edf-sidebar` — click su `eb-proj-item--clickable` toglla `eb-proj-detail.open` e ruota il caret; i link `↗` non intercettati
+
+### Changed — `css/edfbrowse.css`
+
+- Aggiunte: `.eb-proj-item--clickable` (cursor pointer, border-left accent su hover), `.eb-proj-caret` (rotazione 90° su `.open`), `.eb-proj-detail` (hidden → `.open` display block), `.eb-det-row` / `.eb-det-lbl` / `.eb-det-val`, `.eb-det-objective` (max-height 160px, overflow-y auto)
+
+### Source
+`japi-issues.md` #21 → resolved
+
+---
+
+## [2026-03-23] — EDF Calls: comparison view fix, inline styles cleanup, accordion container
+
+### Changed — `js/tabs/eucalls.js`
+
+- `buildComparisonTable`: nasconde la card "Comparison View" quando `yearsDisplay.length < 2` (un solo anno = niente da confrontare)
+- `projectCard`: inline styles rimossi → classi CSS dedicate: `.ec-part-role`, `.ec-part-country`, `.ec-no-participants`, `.ec-objective-scroll`; rimosso `bg-light` da `card-header`
+
+### Changed — `index.html`
+
+- `#ec-yearsAccordion`: rimosso `class="accordion"` — il container non usa più Bootstrap accordion
+
+### Changed — `css/eucalls.css`
+
+- Aggiunte: `.ec-part-role` (`opacity:.6; font-size: var(--fs-sm)`), `.ec-part-country` (`opacity:.5; font-size: var(--fs-sm)`), `.ec-no-participants`, `.ec-objective-scroll` (`max-height:480px; overflow-y:auto`)
+
+### Source
+`japi-issues.md` #17 → resolved, #20 → confirmed resolved
+
+---
+
+## [2026-03-23] — EDF Calls: dropdown label, item layout, font sizes
+
+### Changed — `index.html`
+
+- Label semplificata: `Topic Identifier or Call Title — try: …` → `Search EDF Calls — by title, keyword, or identifier`
+
+### Changed — `js/tabs/eucalls.js`
+
+- `renderDrop`: invertito ordine — `live-label` ora mostra il titolo del call (prominente), `live-desc` mostra l'identifier + status dot + deadline (secondario)
+
+### Changed — `css/wikidata.css`
+
+- `.live-drop-item`: `font-size: .85em` → `var(--fs-body)`
+- `.live-drop-item .live-desc`: `font-size: .75em` → `var(--fs-body)`
+
+### Changed — `css/eucalls.css`
+
+- `.ec-header-note`: `var(--fs-sm)` → `var(--fs-body)`
+
+---
+
+## [2026-03-23] — EDF Calls: dropdown aperto di default al caricamento
+
+### Changed — `js/tabs/eucalls.js`
+
+- `applyCallsList()`: aggiunta chiamata `showDropFiltered('')` dopo `acReady = true` — il dropdown dei call si apre automaticamente quando i dati sono pronti, senza richiedere click sull'input
+- Source: japi-issues.md #18 → resolved
+
+---
+
 ## [2026-03-22] — EDF Map: organisation filter input in sidebar
 
 ### Added — `js/tabs/edfmap.js`

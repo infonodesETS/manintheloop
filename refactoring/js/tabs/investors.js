@@ -3,7 +3,7 @@
 import { AppState } from '../state.js';
 import { esc, typeBadge } from '../helpers.js';
 import { setParams } from '../url.js';
-import { openInvestorSidebar } from '../detail-sidebar.js';
+import { openInvestorSidebar, openIntroSidebar } from '../detail-sidebar.js';
 
 export default function initInvestors() {
   document.getElementById('inv-search').addEventListener('input', renderInvTable);
@@ -14,6 +14,52 @@ export default function initInvestors() {
     if (im) openInvestorSidebar(im);
   });
   renderInvTable();
+}
+
+export function openInvestorsIntro() {
+  const { investors, derived } = AppState;
+  const total = investors.length;
+  const byType = {};
+  for (const inv of investors) byType[inv.type] = (byType[inv.type] || 0) + 1;
+
+  const meta = Object.values(derived.investorMeta);
+  const totalPortfolio = meta.reduce((s, im) => s + im.total, 0);
+  const leadCount = meta.reduce((s, im) => s + im.leads, 0);
+
+  const typeRows = Object.entries(byType)
+    .filter(([t]) => t && t !== 'null' && t !== 'undefined')
+    .sort((a, b) => b[1] - a[1])
+    .map(([t, n]) => `<div class="map-sector-row"><span class="map-sector-lbl">${t}</span> ${n}</div>`)
+    .join('');
+
+  openIntroSidebar('Investors', `
+    <p class="map-intro-text">
+      Funds, banks, and government agencies with documented investment relationships
+      to defence-exposed companies in the info.nodes database.
+    </p>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Dataset</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Total investors</span> ${total}</div>
+      ${typeRows}
+      <div class="map-sector-row"><span class="map-sector-lbl">Total relationships</span> ${totalPortfolio}</div>
+      <div class="map-sector-row"><span class="map-sector-lbl">Lead investments</span> ${leadCount}</div>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">How to navigate</div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Click a row</span>
+        Open investor detail: type, portfolio companies, lead investments, Crunchbase and Wikidata data
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Sort columns</span>
+        Click Portfolio or Lead to rank investors by investment activity
+      </div>
+      <div class="map-sector-row">
+        <span class="map-sector-lbl">Search</span>
+        Type in the search bar to filter by investor name
+      </div>
+    </div>
+  `);
 }
 
 export function sortInv(key) {

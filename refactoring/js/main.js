@@ -6,8 +6,8 @@ import { getParams, setParams, setUrlReady } from './url.js';
 
 import initOverview from './tabs/overview.js';
 import initMatrix, { setMatrixSector, closeMxDetail } from './tabs/matrix.js';
-import initCompanies, { setCoSector, sortCo, renderCoTable, restoreCoUrl } from './tabs/companies.js';
-import initInvestors, { sortInv, renderInvTable, restoreInvUrl } from './tabs/investors.js';
+import initCompanies, { setCoSector, sortCo, renderCoTable, restoreCoUrl, openCompaniesIntro } from './tabs/companies.js';
+import initInvestors, { sortInv, renderInvTable, restoreInvUrl, openInvestorsIntro } from './tabs/investors.js';
 import initRelationships, { renderRelTable, restoreRelUrl } from './tabs/relationships.js';
 import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, setGraphSearch, setLeadOnly, setHideIsolated, setShowCompanies, setShowInvestors } from './tabs/graph.js';
 import initMap, { toggleMapArcs, resetMapZoom, closeMapPanel, clearMapFilter, selectMapCountryByName } from './tabs/map.js';
@@ -110,6 +110,10 @@ function navigate(group, tab, push = true) {
     AppState.ui.glossary.built = true;
     renderGlossaryTab();
   }
+
+  // Open intro sidebars for Companies / Investors on tab switch
+  if (paneId === 'companies') openCompaniesIntro();
+  if (paneId === 'investors') openInvestorsIntro();
 
   // URL — omit tab for standalone groups
   const params = { research: group };

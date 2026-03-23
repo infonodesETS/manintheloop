@@ -229,9 +229,25 @@ function buildDrawer(org) {
 
   const projsHtml = org.projects
     .sort((a, b) => b.eu_contrib - a.eu_contrib)
-    .map(p => `
-      <div class="eb-proj-item">
+    .map(p => {
+      const rawCall = rawCallsMap?.[p.call_id] || {};
+      const rawProj = (rawCall.projects || []).find(r => r.acronym === p.proj_acronym) || {};
+      const objective   = rawProj.objective || '';
+      const totalBudget = rawProj.total_budget || rawProj.overall_budget || 0;
+      const partCount   = (rawProj.participants || []).length;
+      const inlineRows = [
+        rawCall.title ? `<div class="eb-det-row"><span class="eb-det-lbl">Call</span><span class="eb-det-val">${rawCall.title}</span></div>` : '',
+        totalBudget   ? `<div class="eb-det-row"><span class="eb-det-lbl">Total budget</span><span class="eb-det-val">${fmtEuro(totalBudget)}</span></div>` : '',
+        partCount     ? `<div class="eb-det-row"><span class="eb-det-lbl">Participants</span><span class="eb-det-val">${partCount}</span></div>` : '',
+      ].filter(Boolean).join('');
+      const detailRows = [
+        inlineRows ? `<div class="eb-det-rows-inline">${inlineRows}</div>` : '',
+        objective  ? `<div class="eb-det-objective">${objective}</div>` : '',
+      ].filter(Boolean).join('');
+      return `
+      <div class="eb-proj-item eb-proj-item--clickable">
         <div class="eb-proj-header">
+          <span class="eb-proj-caret">›</span>
           ${p.proj_acronym ? `<span class="eb-proj-acronym">${p.proj_acronym}</span>` : ''}
           <span class="eb-proj-title">${p.proj_title}</span>
           <span class="eb-role-badge ${p.role === 'coordinator' ? 'coord' : 'partner'}">${p.role}</span>
@@ -243,7 +259,9 @@ function buildDrawer(org) {
           ${p.eu_contrib ? `<span>EU: <strong>${fmtEuro(p.eu_contrib)}</strong></span>` : ''}
           ${p.start_date ? `<span>${fmtDate(p.start_date)} → ${fmtDate(p.end_date)}</span>` : ''}
         </div>
-      </div>`).join('');
+        ${detailRows ? `<div class="eb-proj-detail">${detailRows}</div>` : ''}
+      </div>`;
+    }).join('');
 
   return `
     <div class="eb-drawer-inner">
@@ -362,6 +380,17 @@ export default async function initEdfbrowse() {
     // Wire sidebar close
     document.getElementById('edf-sidebar-overlay')?.addEventListener('click', closeEdfSidebar);
     document.getElementById('edf-sidebar-close')?.addEventListener('click', closeEdfSidebar);
+
+    // Wire project item expand (delegation on permanent sidebar element)
+    document.getElementById('edf-sidebar')?.addEventListener('click', e => {
+      const item = e.target.closest('.eb-proj-item--clickable');
+      if (!item) return;
+      if (e.target.closest('a')) return; // let ↗ links through
+      const detail = item.querySelector('.eb-proj-detail');
+      if (!detail) return;
+      const isOpen = detail.classList.toggle('open');
+      item.querySelector('.eb-proj-caret')?.classList.toggle('open', isOpen);
+    });
 
     // Wire sort headers
     document.querySelectorAll('#eb-table thead th[data-sort]').forEach(th => {
