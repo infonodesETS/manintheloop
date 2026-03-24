@@ -397,6 +397,36 @@ function drawArcs(layer) {
   });
 }
 
+function fitMapToISOs(isos) {
+  const mapState = AppState.ui.map;
+  const el = document.getElementById('map-svg');
+  const W = el.clientWidth;
+  const H = el.clientHeight;
+  const panelW = 450; // --sl-w-inline
+  const availW = Math.max(W - panelW, 200);
+
+  const points = [...isos].map(iso => mapState.centroids[iso]).filter(Boolean);
+  if (!points.length) return;
+
+  const pad = 80;
+  if (points.length === 1) {
+    const [cx, cy] = points[0];
+    const k = Math.min(availW / (pad * 4), H / (pad * 4), 6);
+    mapState.svg.transition().duration(700)
+      .call(mapState.zoom.transform, d3.zoomIdentity.translate(availW / 2 - k * cx, H / 2 - k * cy).scale(k));
+    return;
+  }
+
+  const xs = points.map(p => p[0]);
+  const ys = points.map(p => p[1]);
+  const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
+  const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
+  const k = Math.min(availW / (maxX - minX), H / (maxY - minY), 8);
+  const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
+  mapState.svg.transition().duration(700)
+    .call(mapState.zoom.transform, d3.zoomIdentity.translate(availW / 2 - k * midX, H / 2 - k * midY).scale(k));
+}
+
 function showMapCountry(iso) {
   const mapState = AppState.ui.map;
   const { relationships, derived } = AppState;
@@ -406,6 +436,14 @@ function showMapCountry(iso) {
 
   d3.select('#map-svg').selectAll('.map-country')
     .classed('selected', d => +d.id === iso);
+
+  // Zoom to bounding box of selected country + all arc-connected countries
+  const connectedISOs = new Set([iso]);
+  mapState.arcData.forEach(arc => {
+    if (arc.src === iso) connectedISOs.add(arc.tgt);
+    if (arc.tgt === iso) connectedISOs.add(arc.src);
+  });
+  fitMapToISOs(connectedISOs);
 
   // Show only arcs connected to this country
   AppState.ui.map.g?.selectAll('.map-arc')
