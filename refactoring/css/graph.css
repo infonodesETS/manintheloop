@@ -22,7 +22,7 @@
   backdrop-filter: blur(4px);
 }
 .gv-btn {
-  padding: 4px 14px; font-size: .75rem; font-family: var(--font); font-weight: 700;
+  padding: 4px 14px; font-size: var(--fs-sm); font-family: var(--font); font-weight: 700;
   border: 1px solid var(--border); border-radius: 50px; background: rgba(0,0,0,0.85);
   color: var(--dim); cursor: pointer; transition: all .12s;
 }
@@ -31,7 +31,7 @@
 #graph-svg, #bi-svg, #proj-svg { width: 100%; height: 100%; display: block; }
 #proj-filter-btns { gap: 6px; }
 #graph-search {
-  padding: 4px 10px; font-size: .75rem; font-family: var(--font);
+  padding: 4px 10px; font-size: var(--fs-sm); font-family: var(--font);
   border: 1px solid var(--border); border-radius: 50px;
   background: rgba(0,0,0,0.85); color: #fff; outline: none; width: 140px;
 }
@@ -75,21 +75,35 @@
 .gstar { font-size: var(--fs-svg-xs); fill: var(--c-dual); pointer-events: none; font-family: sans-serif; }
 .glabel { font-family: var(--font); font-size: var(--fs-svg-md); fill: rgba(255,255,255,0.47); pointer-events: none; }
 .gbadge { font-family: var(--font); font-size: var(--fs-svg-sm); fill: var(--accent); font-weight: var(--fw-bold); pointer-events: none; }
+.gnode-co.gdim, .gnode-inv.gdim { opacity: 0.12; pointer-events: none; }
 .glink { stroke: var(--border); stroke-opacity: .6; }
 .glink.lead { stroke: rgba(104,204,209,0.5); }
 .glink.ghl  { stroke: var(--accent); stroke-opacity: 1; }
+.glink.gdim { stroke-opacity: 0.06; }
+
+/* ── Graph initial hint overlay ── */
+#graph-hint {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.80); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; padding: 10px 18px; text-align: center;
+  font-size: var(--fs-sm); color: rgba(255,255,255,0.5);
+  pointer-events: none; z-index: 5; white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+#graph-hint.hidden { display: none; }
+.graph-hint-title { font-weight: var(--fw-bold); color: rgba(255,255,255,0.75); margin-bottom: 3px; }
 
 /* ── Graph help panel ── */
 #graph-help { padding: 0; }
 .gh-intro {
-  font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: 1.55;
+  font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: var(--lh-body);
   margin: 0 0 16px;
 }
 .gh-list {
   list-style: none; margin: 0 0 16px; padding: 0;
   display: flex; flex-direction: column; gap: 7px;
 }
-.gh-list li { font-size: var(--sl-row-val-fs); color: var(--text-secondary); line-height: 1.5; }
+.gh-list li { font-size: var(--sl-row-val-fs); color: var(--text-secondary); line-height: var(--lh-body); }
 .gh-list li strong { color: var(--text-primary); }
 .gh-shape {
   display: inline-block; vertical-align: middle;

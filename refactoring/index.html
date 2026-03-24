@@ -60,10 +60,10 @@
     <button class="snav-btn" data-tab="matrix">Matrix</button>
   </div>
   <div class="snav-group" data-research="edf">
-    <button class="snav-btn" data-tab="edfoverview">Overview</button>
-    <button class="snav-btn" data-tab="edfmap">Map</button>
-    <button class="snav-btn" data-tab="eucalls">EDF Calls Search</button>
-    <button class="snav-btn" data-tab="edfbrowse">EDF Beneficiaries</button>
+    <button class="snav-btn" data-tab="edfoverview" title="European Defence Fund — Overview">Overview</button>
+    <button class="snav-btn" data-tab="edfmap"      title="European Defence Fund — Map">Map</button>
+    <button class="snav-btn" data-tab="eucalls"     title="European Defence Fund — Calls Search">EDF Calls Search</button>
+    <button class="snav-btn" data-tab="edfbrowse"   title="European Defence Fund — Beneficiaries">EDF Beneficiaries</button>
   </div>
   <div class="snav-group" data-research="about">
     <button class="snav-btn" data-tab="about">About</button>
@@ -228,6 +228,10 @@
           <button class="gv-btn" id="gv-hide-iso">Hide isolated</button>
         </div>
         <svg id="graph-svg"></svg>
+        <div id="graph-hint">
+          <div class="graph-hint-title">All nodes are visible</div>
+          Filter by sector above, or search for a company or investor to focus the graph
+        </div>
       </div>
       <div id="graph-detail" class="sidebar">
         <div id="graph-detail-header">
@@ -802,15 +806,31 @@
   <div id="tab-data" class="tab-pane scrollable">
     <div class="about-inner">
       <section class="a-section">
-        <div class="a-section-title">Data files</div>
-        <p>All data is published as open JSON files, freely downloadable and reusable.</p>
+        <div class="a-section-title">Data sources</div>
+        <p>All data is published as open JSON files, freely downloadable and reusable. The entire application is built on top of two primary files.</p>
+
         <div class="a-data-file">
           <a href="data/database.json" download class="a-data-link">↓ database.json</a>
-          <p class="a-data-desc">Supply chain entities and relationships — companies (<code>IN-NNNN</code>), investors (<code>IV-NNNN</code>), and investment relationships (<code>REL-NNNN</code>). Schema v2.0. Includes Crunchbase and Wikidata enrichment fields.</p>
+          <p class="a-data-desc">The Supply Chain dataset. Contains companies (<code>IN-NNNN</code>), investors (<code>IV-NNNN</code>), and documented investment relationships (<code>REL-NNNN</code>). Schema v2.0.</p>
+          <ul class="a-data-meta">
+            <li><strong>Origin:</strong> manually curated from public press releases, Crunchbase, and Companies House filings</li>
+            <li><strong>Enrichment:</strong> Crunchbase (funding rounds, HQ) and Wikidata (country, description, identifiers)</li>
+            <li><strong>Scope:</strong> European defence and dual-use companies with at least one documented investor</li>
+            <li><strong>Update frequency:</strong> manually updated — no automated pipeline yet</li>
+            <li><strong>Powers:</strong> Supply Chain Overview, Map, Graph, Companies, Investors, Relationships, Matrix</li>
+          </ul>
         </div>
+
         <div class="a-data-file">
           <a href="data/edf_calls.json" download class="a-data-link">↓ edf_calls.json</a>
-          <p class="a-data-desc">All 201 EDF calls (2021–2027) with funded projects and participant data, fetched from the EU Funding &amp; Tenders portal. Includes call identifiers, topic descriptions, budget, and per-participant EU contributions.</p>
+          <p class="a-data-desc">The European Defence Fund dataset. All 201 EDF calls (2021–2027) with funded projects and per-participant EU contributions.</p>
+          <ul class="a-data-meta">
+            <li><strong>Origin:</strong> fetched from the <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/" target="_blank" class="a-ext-link">EU Funding &amp; Tenders portal ↗</a> via API</li>
+            <li><strong>Content:</strong> call identifiers, topic descriptions, project acronyms and titles, participant organisations, roles (coordinator/partner), EU contribution per participant</li>
+            <li><strong>Scope:</strong> calls with status open, forthcoming, or closed — programme 2021–2027</li>
+            <li><strong>Update frequency:</strong> fetched periodically; last update date shown in EDF Calls Search tab</li>
+            <li><strong>Powers:</strong> EDF Overview, EDF Map, EDF Calls Search, EDF Beneficiaries</li>
+          </ul>
         </div>
       </section>
     </div>

@@ -51,7 +51,7 @@ export function setShowInvestors(v) {
 function applyGraphSearch() {
   if (!_nd || !_lk) return;
   const q = AppState.ui.graph.search.trim().toLowerCase();
-  if (!q) { _nd.classed('ghl', false); _lk.classed('ghl', false); return; }
+  if (!q) { _nd.classed('ghl', false).classed('gdim', false); _lk.classed('ghl', false).classed('gdim', false); return; }
 
   const matchIds = new Set();
   _nd.each(d => { if ((d.id || '').toLowerCase().includes(q)) matchIds.add(d.id); });
@@ -237,14 +237,20 @@ function setupGraphSvg() {
 
 function gOnClick(e, d, nd, lk) {
   e.stopPropagation();
+  document.getElementById('graph-hint')?.classList.add('hidden');
   const connected = new Set([d.id]);
   AppState.derived.raw.forEach(([c, i]) => {
     if (c === d.id || i === d.id) { connected.add(c); connected.add(i); }
   });
-  nd.classed('ghl', n => connected.has(n.id));
-  lk.classed('ghl', l => {
+  nd.classed('ghl',  n => connected.has(n.id));
+  nd.classed('gdim', n => !connected.has(n.id));
+  lk.classed('ghl',  l => {
     const s = l.source.id || l.source, t = l.target.id || l.target;
     return connected.has(s) && connected.has(t);
+  });
+  lk.classed('gdim', l => {
+    const s = l.source.id || l.source, t = l.target.id || l.target;
+    return !(connected.has(s) && connected.has(t));
   });
   graphShowPanel(d);
 }
@@ -308,7 +314,7 @@ function buildNetwork() {
   appendNodeShapes(nd);
 
   svg.on('click', () => {
-    nd.classed('ghl', false); lk.classed('ghl', false).attr('stroke-opacity', null);
+    nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
     closeGraphDetail();
   });
 
@@ -382,7 +388,7 @@ function buildBipartite() {
   appendNodeShapes(nd);
 
   svg.on('click', () => {
-    nd.classed('ghl', false); lk.classed('ghl', false).attr('stroke-opacity', null);
+    nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
     closeGraphDetail();
   });
 
@@ -496,7 +502,7 @@ function buildProjection() {
       .attr('dy', 4).attr('text-anchor', 'middle').text(d.total);
   });
   svg.on('click', () => {
-    nd.classed('ghl', false); lk.classed('ghl', false).attr('stroke-opacity', null);
+    nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
     closeGraphDetail();
   });
 

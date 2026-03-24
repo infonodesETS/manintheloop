@@ -285,12 +285,15 @@ loadData()
     document.getElementById('gv-bi').addEventListener('click',   () => { setGraphView('bipartite');   setParams({ tab: 'graph', view: 'bipartite'   }); });
     document.getElementById('gv-proj').addEventListener('click', () => { setGraphView('projection');  setParams({ tab: 'graph', view: 'projection'  }); });
 
+    const dismissGraphHint = () => document.getElementById('graph-hint')?.classList.add('hidden');
+
     // Wire graph sector buttons (also update URL)
     document.querySelectorAll('#graph-controls .sf-btn').forEach(b => {
       b.addEventListener('click', () => {
         document.querySelectorAll('#graph-controls .sf-btn').forEach(x => x.classList.remove('active'));
         b.classList.add('active');
         setGraphSector(b.dataset.sector);
+        if (b.dataset.sector !== 'all') dismissGraphHint();
         const view = AppState.ui.graph.view || 'network';
         const params = { tab: 'graph', view };
         if (b.dataset.sector !== 'all') params.sector = b.dataset.sector;
@@ -303,7 +306,7 @@ loadData()
     document.getElementById('pf-multi').addEventListener('click', () => setProjFilter('multi'));
 
     // Wire graph search + toggle controls
-    document.getElementById('graph-search').addEventListener('input', e => setGraphSearch(e.target.value));
+    document.getElementById('graph-search').addEventListener('input', e => { if (e.target.value) dismissGraphHint(); setGraphSearch(e.target.value); });
     document.getElementById('gv-show-co').addEventListener('click', function() {
       const on = this.classList.toggle('active');
       setShowCompanies(on);
@@ -353,6 +356,6 @@ loadData()
   })
   .catch(err => {
     document.getElementById('loading-overlay').innerHTML =
-      `<div style="color:#ff4444;font-family:monospace;font-size:.9rem">Error: ${err.message}</div>
-       <div style="color:#555;font-size:.78rem;margin-top:8px">Serve with: python3 -m http.server 8081</div>`;
+      `<div style="color:#ff4444;font-family:monospace;font-size:var(--fs-base)">Error: ${err.message}</div>
+       <div style="color:#555;font-size:var(--fs-sm);margin-top:8px">Serve with: python3 -m http.server 8081</div>`;
   });

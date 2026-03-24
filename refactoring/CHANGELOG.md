@@ -8,61 +8,134 @@
 
 ---
 
-## Style architecture spec
+## Style architecture
 
-### CSS files and their scope
+See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CSS file scope, sidebar primitives, and rules.
 
-| File | Scope |
-|---|---|
-| `css/base.css` | `:root` tokens only — colors, spacing, typography scale, sidebar tokens. No selectors beyond `:root`, `*`, `body`, `html`. |
-| `css/components.css` | Shared UI primitives: stat cards, tables, badges, legend, tooltip, sidebar structural shells, all `.sl-*` and `.es-*` and `.dp-*` classes. |
-| `css/graph.css` | Graph tab only — `#graph-*` IDs and `.gv-*` classes. |
-| `css/matrix.css` | Matrix tab only — `#matrix-*`, `#mx-*`. |
-| `css/map.css` | Supply Chain Map and EDF Map — `#map-*`, `.map-*`, `#edfmap-*`, `.edfmap-*`. |
-| `css/wikidata.css` | Wikidata Inspector — `#wd-*`, `.wd-*`, `.live-*`. |
-| `css/eucalls.css` | EU Calls tab — `#ec-*`, `.ec-*`. |
-| `css/edfbrowse.css` | EDF Browse and EDF Overview — `#eb-*`, `.eb-*`, `#eo-*`, `.eo-*`. |
-| `css/about.css` | About tab — `#tab-about` scoped only. |
-
-### Token system (`css/base.css`)
-
-**Typography scale** — `--fs-xs` → `--fs-sm` → `--fs-base` → `--fs-body` → `--fs-lg` → `--fs-stat`
-
-**Color palette** — `--text-primary` / `--text-secondary` / `--text-tertiary` / `--text-muted` / `--text-faint` / `--dim` / `--accent`
-
-**Sidebar tokens** — all sidebar typography goes through `--sl-*`:
-- `--sl-title-fs` — panel title
-- `--sl-section-lbl-fs` — section label (uppercase accent)
-- `--sl-row-lbl-fs` — row key (uppercase dim)
-- `--sl-row-val-fs` — row value
-- `--sl-desc-fs` — description / prose text
-- `--sl-w-sm` / `--sl-w-inline` / `--sl-w-lg` — panel widths
-- `--sl-header-pad` / `--sl-body-pad` / `--sl-header-bg` / `--sl-panel-bg` / `--sl-inline-bg`
-
-### Sidebar primitives (`css/components.css`)
-
-All sidebar panels share the same structural classes:
-
-| Class | Role |
-|---|---|
-| `.sl-title` | Panel title — every sidebar header title element |
-| `.sl-close` | Panel close button — every sidebar close button |
-| `.sl-section-lbl` | Section label (UPPERCASE, accent color) |
-| `.sl-row` / `.sl-row-lbl` / `.sl-row-val` | Key–value row (inline panels) |
-| `.es-block` / `.es-row` / `.es-lbl` / `.es-val` | Key–value rows (slide-in entity sidebar) |
-| `.es-desc` | Description text |
-| `.es-list` / `.es-tag` | List and tag cloud |
-| `.dp-inv-meta` / `.dp-co-meta` / `.dp-funding` / `.dp-desc` / `.dp-links` / `.dp-link` / `.dp-co-count` | Detail panel body content (matrix + graph) |
-| `.ec-part-row` / `.ec-part-label` / `.ec-part-val` | EU Calls participant sidebar rows |
-
-### Rules
+**Quick rules:**
 
 1. **No inline `style="…"` in HTML.** All visual properties go in CSS files.
-2. **No inline styles in JS-generated HTML** except for data-driven values (dynamic width/color from runtime variables). Use CSS classes.
-3. **No hardcoded color/size literals** in CSS — always `var(--token)`.
-4. **`em` units are banned** in sidebar content. Use `rem` via `--sl-*` tokens so font sizes are independent of panel ancestry.
-5. **The `.sidebar` class** (`font-size: var(--scale-sidebar)`) is reserved for panels that explicitly use `em`-based sub-classes. New panels must not use it.
-6. **One canonical class per role** — no parallel equivalents. Removed: `.dp-close` (= `.sl-close`), `.dp-title` (= `.sl-title`), `.dp-label` (= `.sl-section-lbl`), `.entity-sidebar-title` (= `.sl-title`), `.ec-part-title` (= `.sl-title`).
+2. **No inline styles in JS-generated HTML** except for data-driven values (dynamic width/color from runtime variables). Use CSS classes or `var(--token)` in inline styles when the value is truly dynamic.
+3. **No hardcoded color/size literals** in CSS or JS — always `var(--token)`.
+4. **`em` units are banned outside `.sidebar` context.** Use `rem` via `--fs-*` tokens.
+5. **The `.sidebar` class** is reserved for panels using the em-cascade contract documented in `STYLE.md`.
+6. **One canonical class per role** — no parallel equivalents.
+
+---
+
+## [2026-03-24] — Sirogja user test: 8 more UX/accessibility fixes (batch 2)
+
+**Source:** `sirogja-issues.md` (resolved: #1, #4, #8, #11, #14, #17, #20, #21)
+
+### Changed — `js/tabs/edfmap.js`
+
+- **#8** — EDF Map arcs now have hover tooltips: "EDF partnership: [Country A] ↔ [Country B] (N shared projects)". Arc legend section added to intro panel ("Each arc connects two countries sharing at least one EDF-funded project…").
+
+### Changed — `js/tabs/map.js`
+
+- **#11** — SC Map flowing-in/out distinction improved: (a) arc hover tooltip now shows "Investor flow: [Src] → [Dst] (N connections)"; (b) sidebar section headers are now colour-coded: "Capital Flowing In" in accent green, "Capital Flowing Out" in amber (`#ff9944`) via CSS classes `.map-flow-in-hd` / `.map-flow-out-hd`.
+
+### Changed — `js/tabs/graph.js` + `js/main.js`
+
+- **#21** — SC Graph initial state: added a hint overlay (`#graph-hint`) positioned at the bottom of the graph pane with message "All nodes are visible — Filter by sector above, or search for a company or investor to focus the graph". Overlay auto-hides on first sector filter selection (non-"all"), search input, or node click.
+
+### Changed — `index.html`
+
+- **#1** — EDF acronym: EDF sub-nav buttons now have `title="European Defence Fund — [section]"` attributes so hovering reveals the full name. Glossary system (`data-gl="edf"`) already handles inline `EDF` terms in static content.
+- **#20** — About > Data tab expanded: each data file now has a full provenance block (`origin`, `content`, `scope`, `update frequency`, `powers` list). External link to EU Funding portal added.
+
+### Changed — CSS
+
+- `css/components.css`: `.lg-item` text brightened from `var(--dim)` → `var(--text-secondary)`, font raised to `var(--fs-sm)`, dot size 8→9px; `.lg-label` text to `#fff`; `.lg-group-label` to `var(--text-tertiary)` — **#14** legend more visible
+- `css/map.css`: added `.map-flow-in-hd` (accent green) and `.map-flow-out-hd` (amber) for flowing-in/out section headers — **#11**; EDF Map compact panel overrides (`#edfmap-panel .eb-det-*`) bumped from `var(--fs-xs)` → `var(--fs-sm)` for detail rows and metadata — **#17**
+- `css/map.css`: `.edfmap-org-filter-input` border raised to `rgba(255,255,255,0.3)`, background to `rgba(255,255,255,0.07)`, placeholder from `var(--text-faint)` → `var(--text-muted)` — **#4**
+- `css/graph.css`: added `#graph-hint` overlay — **#21**
+- `css/components.css`: added `.a-data-meta`, `.a-ext-link` for About > Data expanded content — **#20**
+
+---
+
+## [2026-03-24] — Sirogja user test: 8 UX/bug fixes
+
+**Source:** `sirogja-issues.md` (resolved: #2, #5, #6, #7, #12, #13, #15, #16)
+
+### Fixed — `js/tabs/edfmap.js`
+
+- **#2/#5** — EDF Map: clicking ✕ Clear on an org filter now restores the country panel (org list + partners) instead of leaving a blank sidebar. Added `ms.selectedCountry` tracking; `clearEdfMapFilter()` calls `showCountry(ms.selectedCountry)` when active. `closeEdfMapPanel()` clears `ms.selectedCountry`.
+- **#6** — EC Portal link (`↗`) changed from large green badge to a small bordered text link (`↗ EC Portal`). Applied in both `edfmap.js` and `edfbrowse.js` (project item headers). Affects all three `eb-ext-link` usages.
+- **#7** — EDF Map country panel now shows total EU contribution alongside the org count (e.g. "68 Organisations · €314M EU contribution"). Computed from `cd.orgs.reduce(sum, eu_total)` in `showCountry()`.
+
+### Fixed — `js/tabs/map.js`
+
+- **#15** — SC Map entity filter now forces arc layer visible when a filter is active (regardless of the arc toggle state), and restores to the `showArcs` state when filter is cleared. Was: arcs stayed hidden if the toggle was OFF when a filter was applied.
+- **#12** — SC Map country panel now shows an explicit italicised note ("↓ No inbound cross-border investments recorded" / "↑ No outbound…") when the corresponding flow is absent. Was: absent flow sections were silently omitted.
+
+### Fixed — `js/tabs/graph.js`
+
+- **#13** — SC Graph: clicking a node now dims all unconnected nodes and links (opacity 0.12, CSS class `gdim`). Was: only highlighted connected nodes without dimming others. Deselect (background click or search clear) restores full opacity.
+
+### Changed — `js/tabs/edfoverview.js`
+
+- **#16** — EDF Overview: top participants list items are now clickable links that navigate to EDF Beneficiaries filtered by org name (`?research=edf&tab=edfbrowse&search=<name>`). `renderBar()` accepts an optional `href` param; participant bars use it, country bars do not.
+
+### Changed — CSS
+
+- `css/edfbrowse.css`: `.eb-ext-link` restyled — `font-size: var(--fs-xs)`, `color: var(--accent)`, transparent background, border instead of filled; added `.eo-bar-link` and `.eo-bar-row--link` for clickable participant rows
+- `css/map.css`: added `.map-no-flow` (italic, faint, small) and `.edfmap-country-stats`/`.edfmap-country-budget` for country panel budget stat
+- `css/graph.css`: added `.gnode-co.gdim`, `.gnode-inv.gdim` (opacity 0.12) and `.glink.gdim` (stroke-opacity 0.06)
+
+---
+
+## [2026-03-24] — Typography: centralised font-size and line-height token system
+
+**Strategy source:** analysis of Medium and Substack type scales (√φ ≈ 1.27× / major third 1.25× ratio), matched against existing token inventory.
+
+### Added — `css/base.css`
+
+- `--lh-tight: 1.2` / `--lh-snug: 1.35` / `--lh-body: 1.55` / `--lh-loose: 1.65` — four line-height tokens covering all typographic contexts
+- Root comment updated: documents `html { font-size: 120% }` as authoritative (1rem = 19.2px, Medium-range editorial base) and 12px as the minimum floor
+- Em-cascade contract comment added to `--scale-sidebar` block
+
+### Removed — `css/base.css`
+
+- `--scale-wd-sidebar: 1.38rem` — was defined but unused throughout the codebase
+
+### Changed — `css/base.css`
+
+Sidebar typography tokens simplified to alias the main scale (no independent values):
+- `--sl-title-fs`: `1.56rem` → `var(--fs-xl)` (~31.7px, +2px)
+- `--sl-section-lbl-fs`: `.85rem` → `var(--fs-base)` (~16.8px, +0.5px)
+- `--sl-row-lbl-fs`: `.85rem` → `var(--fs-base)` (~16.8px, +0.5px)
+- `--sl-row-val-fs`: `.98rem` → `var(--fs-body)` (~19.2px, +0.4px)
+- `--sl-desc-fs`: `1.04rem` → `var(--fs-body)` (~19.2px, −0.4px)
+
+### Changed — CSS hardcoded font-sizes → tokens
+
+| File | Selector | Was | Now |
+|---|---|---|---|
+| `graph.css` | `.gv-btn` | `.75rem` | `var(--fs-sm)` |
+| `graph.css` | `#graph-search` | `.75rem` | `var(--fs-sm)` |
+| `map.css` | `.edfmap-proj-acronym` | `0.82rem` | `var(--fs-base)` |
+| `map.css` | `.edfmap-proj-title` | `0.75rem` | `var(--fs-sm)` |
+| `map.css` | `.edfmap-role-badge` | `0.65rem` | `var(--fs-xs)` |
+| `map.css` | `.edfmap-proj-partners` | `0.7rem` | `var(--fs-xs)` |
+| `edfbrowse.css` | `.eb-dr-field` | `.75em` | `var(--fs-sm)` |
+| `edfbrowse.css` | `.eb-mono` | `.78em` | `var(--fs-sm)` |
+| `edfbrowse.css` | `.eb-ext-link` | `1.2rem` | `var(--fs-lg)` |
+| `wikidata.css` | `.country-filter-btn` | `.72em` | `var(--fs-sm)` |
+
+Kept as raw values (intentional, not typographic): `18px` on `.sl-close`, `7px` on `.dot-lead::after`, `1` on stat/icon/button line-heights.
+
+### Changed — CSS hardcoded line-heights → tokens (22 instances across 7 files)
+
+`base.css`, `eucalls.css`, `map.css`, `edfbrowse.css`, `graph.css`, `components.css`, `about.css` — all hardcoded `1.1`/`1.2`/`1.4`/`1.5`/`1.55`/`1.6`/`1.65` replaced with `var(--lh-*)`.
+
+### Changed — JS inline font-sizes → `var(--token)` (16 instances across 7 files)
+
+`main.js`, `tabs/overview.js`, `tabs/matrix.js`, `tabs/quality.js`, `tabs/wikidata.js`, `tabs/edfoverview.js`, `helpers.js` — all hardcoded `.68rem`–`.9rem` literals replaced with `var(--fs-xs)`, `var(--fs-sm)`, or `var(--fs-base)`.
+
+### Also updated — style architecture spec (top of this file)
+
+Token system section updated to reflect new `--lh-*` tokens and `--sl-*` alias structure.
 
 ---
 

@@ -378,13 +378,17 @@ function drawArcs(layer) {
           .attr('stop-color', arcColor).attr('stop-opacity', op);
       });
 
+    const srcName = ISO_TO_NAME[arc.src] || `ISO ${arc.src}`;
+    const tgtName = ISO_TO_NAME[arc.tgt] || `ISO ${arc.tgt}`;
     const arcDatum = { src: arc.src, tgt: arc.tgt, baseSw: sw };
     layer.append('path')
       .datum(arcDatum)
       .attr('class', 'map-arc')
       .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
       .attr('stroke', `url(#${gradId})`)
-      .attr('stroke-width', sw);
+      .attr('stroke-width', sw)
+      .append('title')
+      .text(`Investor flow: ${srcName} → ${tgtName} (${arc.weight} connection${arc.weight !== 1 ? 's' : ''})`);
   });
 }
 
@@ -482,19 +486,19 @@ function showMapCountry(iso) {
       </div>
     </div>
     ${hasIn ? `<div class="sl-panel-section">
-      <div class="sl-section-lbl map-section-hd">
+      <div class="sl-section-lbl map-section-hd map-flow-in-hd">
         ↓ Capital Flowing In (${flowInArr.length})
         <button id="map-flow-in-btn" class="sf-btn active">on</button>
       </div>
       <div id="map-flow-in-list">${renderInvestorList(flowInArr)}</div>
-    </div>` : ''}
+    </div>` : '<div class="map-no-flow">↓ No inbound cross-border investments recorded</div>'}
     ${hasOut ? `<div class="sl-panel-section">
-      <div class="sl-section-lbl map-section-hd">
+      <div class="sl-section-lbl map-section-hd map-flow-out-hd">
         ↑ Capital Flowing Out (${flowOutArr.length})
         <button id="map-flow-out-btn" class="sf-btn active">on</button>
       </div>
       <div id="map-flow-out-list">${renderInvestorList(flowOutArr)}</div>
-    </div>` : ''}
+    </div>` : '<div class="map-no-flow">↑ No outbound cross-border investments recorded</div>'}
   `;
 
   document.getElementById('map-toggle-co')?.addEventListener('click', function () {
@@ -620,6 +624,8 @@ function applyMapFilter() {
 
   if (!f) {
     bar.style.display = 'none';
+    const arcLayerEl = document.getElementById('map-arc-layer');
+    if (arcLayerEl) arcLayerEl.style.display = ui.map.showArcs ? '' : 'none';
     mapGSel?.selectAll('.map-country').classed('country-dim', false);
     mapGSel?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
     mapGSel?.selectAll('.map-arc').classed('arc-dim', false);
@@ -628,6 +634,10 @@ function applyMapFilter() {
 
   bar.style.display = 'flex';
   document.getElementById('map-filter-label').textContent = f.name;
+
+  // Force arc layer visible when a filter is active (so connections are shown)
+  const arcLayer = document.getElementById('map-arc-layer');
+  if (arcLayer) arcLayer.style.display = '';
 
   mapGSel.selectAll('.map-country.has-data')
     .classed('country-dim', d => !f.isos.has(+d.id));

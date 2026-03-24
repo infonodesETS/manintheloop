@@ -92,6 +92,7 @@ const ms = {
   zoom:              null,
   showArcs:          false,
   activeFilter:      null, // { orgKey, orgName, activeIsos: Set<iso>, pairSet: Set<string> }
+  selectedCountry:   null, // iso of currently selected country
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -348,6 +349,13 @@ function drawMap(world) {
         Toggle all arcs globally (arcs also appear on country click)
       </div>
     </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl" style="margin-bottom:6px">Arc legend</div>
+      <div class="map-sector-row">
+        Each arc connects two countries that share at least one EDF-funded project.
+        Hover an arc to see the number of shared projects. Thicker arcs = more projects in common.
+      </div>
+    </div>
   `;
   document.getElementById('edfmap-panel').classList.remove('d-none');
 
@@ -368,12 +376,16 @@ function drawArcs(layer, arcs) {
     const mx  = (s[0] + t[0]) / 2;
     const my  = (s[1] + t[1]) / 2 - Math.hypot(t[0] - s[0], t[1] - s[1]) * 0.3;
     const sw  = strokeScale(arc.weight);
+    const srcName = ms.countryData[arc.source_iso]?.name || `ISO ${arc.source_iso}`;
+    const tgtName = ms.countryData[arc.target_iso]?.name || `ISO ${arc.target_iso}`;
     layer.append('path')
       .datum({ src: arc.source_iso, tgt: arc.target_iso, baseSw: sw })
       .attr('class', 'edfmap-arc')
       .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
       .attr('stroke-width', sw)
-      .attr('stroke-opacity', opacityScale(arc.weight));
+      .attr('stroke-opacity', opacityScale(arc.weight))
+      .append('title')
+      .text(`EDF partnership: ${srcName} ↔ ${tgtName} (${arc.weight} shared project${arc.weight !== 1 ? 's' : ''})`);
   });
 }
 
@@ -402,6 +414,8 @@ function showCountry(iso) {
   const cd = ms.countryData[iso];
   if (!cd) return;
 
+  ms.selectedCountry = iso;
+
   // Clear any active org filter
   ms.activeFilter = null;
   document.getElementById('edfmap-filter-bar').style.display = 'none';
@@ -421,6 +435,8 @@ function showCountry(iso) {
   ms.g.selectAll('.edfmap-arc')
     .classed('edfmap-arc-dim', d => d.src !== iso && d.tgt !== iso);
 
+  const countryEuTotal = cd.orgs.reduce((sum, o) => sum + (o.eu_total || 0), 0);
+
   document.getElementById('edfmap-panel-title').textContent = cd.name;
   document.getElementById('edfmap-panel-body').innerHTML = `
     <div class="sl-panel-section">
@@ -428,7 +444,10 @@ function showCountry(iso) {
       <div id="edfmap-partners-row" class="edfmap-partners-row"></div>
     </div>
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">${cd.orgs.length} Organisations</div>
+      <div class="edfmap-country-stats">
+        <span>${cd.orgs.length} Organisations</span>
+        ${countryEuTotal > 0 ? `<span class="edfmap-country-budget">${fmtEuro(countryEuTotal)} EU contribution</span>` : ''}
+      </div>
       <input id="edfmap-org-filter" class="edfmap-org-filter-input" type="text" placeholder="Filter organisations…" autocomplete="off">
       <div id="edfmap-org-list">
         ${cd.orgs.map(o => `
@@ -523,7 +542,7 @@ function filterByOrg(orgKey, countryName) {
             <span class="eb-proj-title">${esc(p.projTitle)}</span>
             <span class="eb-role-badge ${p.role === 'coordinator' ? 'coord' : 'partner'}">${esc(p.role)}</span>
             ${status ? `<span class="eb-proj-status ${status === 'Ongoing' ? 'ongoing' : 'closed'}">${esc(status)}</span>` : ''}
-            ${p.projUrl ? `<a href="${esc(p.projUrl)}" target="_blank" class="eb-ext-link" onclick="event.stopPropagation()">↗</a>` : ''}
+            ${p.projUrl ? `<a href="${esc(p.projUrl)}" target="_blank" class="eb-ext-link" onclick="event.stopPropagation()">↗ EC Portal</a>` : ''}
           </div>
           <div class="eb-proj-meta">
             <span class="eb-meta-call">${esc(p.callId)}</span>
@@ -615,11 +634,13 @@ function resetVisuals() {
 export function clearEdfMapFilter() {
   ms.activeFilter = null;
   resetVisuals();
+  if (ms.selectedCountry) showCountry(ms.selectedCountry);
 }
 
 export function closeEdfMapPanel() {
   document.getElementById('edfmap-panel').classList.add('d-none');
   ms.activeFilter = null;
+  ms.selectedCountry = null;
   resetVisuals();
 }
 
