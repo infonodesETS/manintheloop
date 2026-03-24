@@ -18,7 +18,10 @@
 #wd-main-top { padding: 10px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; gap: 10px; }
 #wd-results { flex: 1; overflow-y: auto; padding: var(--sl-body-pad); }
 #wd-loader { display: none; padding: 40px; text-align: center; }
-#wd-error { display: none; color: #ff4444; padding: 16px; background: rgba(255,68,68,0.06); border: 1px solid rgba(255,68,68,0.2); border-radius: 6px; margin: 16px; }
+#wd-error { display: none; padding: 16px; background: rgba(255,68,68,0.06); border: 1px solid rgba(255,68,68,0.2); border-radius: 6px; margin: 16px; }
+.wd-error-msg { color: #ff7777; font-size: var(--fs-base); margin-bottom: 10px; }
+.wd-retry-btn { background: none; border: 1px solid rgba(255,68,68,0.4); border-radius: 4px; color: #ff9999; font-size: var(--fs-base); padding: 4px 14px; cursor: pointer; font-family: var(--font-mono); }
+.wd-retry-btn:hover { border-color: #ff4444; color: #fff; }
 .wd-placeholder { padding: 60px 20px; text-align: center; color: var(--text-faint); font-size: var(--sl-row-val-fs); }
 .wd-field-table { width: 100%; border-collapse: collapse; }
 .wd-field-table th {

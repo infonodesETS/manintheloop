@@ -186,7 +186,10 @@ async function fetchWdData(qid, label) {
     if (err.name === 'AbortError') return; // silently ignore cancelled requests
     loader.style.display = 'none';
     errEl.style.display  = 'block';
-    errEl.textContent    = `Error: ${err.message}`;
+    errEl.innerHTML = `
+      <div class="wd-error-msg">Wikidata query failed — the endpoint may be temporarily unavailable.</div>
+      <button class="wd-retry-btn" title="Retry the SPARQL query">↻ Retry</button>`;
+    errEl.querySelector('.wd-retry-btn').addEventListener('click', () => fetchWdData(qid, label));
   }
 }
 
