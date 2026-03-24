@@ -252,7 +252,7 @@ function buildDrawer(org) {
           <span class="eb-proj-title">${p.proj_title}</span>
           <span class="eb-role-badge ${p.role === 'coordinator' ? 'coord' : 'partner'}">${p.role}</span>
           <span class="eb-proj-status ${p.status === 'Ongoing' ? 'ongoing' : 'closed'}">${p.status}</span>
-          ${p.proj_url ? `<a href="${p.proj_url}" target="_blank" class="eb-ext-link" onclick="event.stopPropagation()">↗</a>` : ''}
+          ${p.proj_url ? `<a href="${p.proj_url}" target="_blank" class="eb-ext-link" onclick="event.stopPropagation()">↗ EC Portal</a>` : ''}
         </div>
         <div class="eb-proj-meta">
           <span class="eb-meta-call">${p.call_id}</span>

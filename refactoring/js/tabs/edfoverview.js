@@ -122,10 +122,13 @@ function renderStatCard(val, lbl) {
   return `<div class="stat-card"><div class="val">${val}</div><div class="lbl">${esc(lbl)}</div></div>`;
 }
 
-function renderBar(label, value, max, extra = '', wide = false) {
+function renderBar(label, value, max, extra = '', wide = false, href = null) {
   const pct = max > 0 ? Math.round(value / max * 100) : 0;
-  return `<div class="d-flex align-items-center gap-2 mb-1">
-    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}">${esc(label)}</span>
+  const labelHtml = href
+    ? `<a href="${href}" class="eo-bar-link">${esc(label)}</a>`
+    : `<span>${esc(label)}</span>`;
+  return `<div class="eo-bar-row d-flex align-items-center gap-2 mb-1${href ? ' eo-bar-row--link' : ''}">
+    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}">${labelHtml}</span>
     <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%"></div></div>
     <span class="eo-bar-val">${value.toLocaleString()}${extra ? `<span class="eo-bar-extra"> ${extra}</span>` : ''}</span>
   </div>`;
@@ -151,7 +154,7 @@ function render(m) {
 
   if (!m.hasProjectData) {
     document.getElementById('eo-rankings').innerHTML = `
-      <div class="stat-card" style="text-align:center;padding:28px 18px;color:#555;font-size:.82rem">
+      <div class="stat-card" style="text-align:center;padding:28px 18px;color:#555;font-size:var(--fs-base)">
         No funded project data available yet — project participants will appear here once the dataset is populated.
       </div>`;
     return;
@@ -163,11 +166,12 @@ function render(m) {
     renderBar(c, d.participants, maxC, d.eu_total > 0 ? fmtEuro(d.eu_total) : '')
   ).join('');
 
-  // Participant ranking
+  // Participant ranking — label links to EDF Beneficiaries pre-filtered by org name
   const maxP   = m.topParticipants[0]?.count || 1;
-  const partHtml = m.topParticipants.map(p =>
-    renderBar(p.name, p.count, maxP, p.eu_total > 0 ? fmtEuro(p.eu_total) : '', true)
-  ).join('');
+  const partHtml = m.topParticipants.map(p => {
+    const href = `?research=edf&tab=edfbrowse&search=${encodeURIComponent(p.name)}`;
+    return renderBar(p.name, p.count, maxP, p.eu_total > 0 ? fmtEuro(p.eu_total) : '', true, href);
+  }).join('');
 
   document.getElementById('eo-rankings').innerHTML = `
     <div class="row g-3">
@@ -196,7 +200,7 @@ export default async function initEdfoverview() {
     render(metrics);
   } catch (err) {
     const wrap = document.getElementById('eo-wrap');
-    if (wrap) wrap.innerHTML = `<div style="color:#ff4444;font-size:.82rem;font-family:monospace;padding:20px">
+    if (wrap) wrap.innerHTML = `<div style="color:#ff4444;font-size:var(--fs-base);font-family:monospace;padding:20px">
       Error loading EDF data: ${esc(err.message)}</div>`;
   }
 }

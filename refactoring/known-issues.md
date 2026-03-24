@@ -50,3 +50,33 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 6 investors were resolved on 2026-03-22 via SPARQL + Playwright search (see `CHANGELOG.md`).
 
 ---
+
+## #6 EDF — Officina Stellare SPA budget discrepancy
+
+**Status:** Known data gap — moved from sirogja-issues.md #9 (2026-03-24)
+
+Filtering for Italy → Officina Stellare SPA in EDF Map shows ~€2M, while the EU portal shows €1.5M EU contribution for the same entity. The discrepancy likely stems from one of:
+
+- (a) summing EU contribution across multiple participations in the same project (duplicate counting)
+- (b) confusion between total project budget and individual EU contribution
+- (c) an error in the upstream source data
+
+Cannot be resolved without a full audit of `edf_calls.json` against the EU Funding & Tenders portal. Until then, treat individual org budget figures in EDF Map as indicative, not authoritative.
+
+---
+
+## #7 EDF — Projects with zero budgets (post-2024)
+
+**Status:** Known data gap — moved from sirogja-issues.md #10 (2026-03-24)
+
+Some organisations (e.g. Istituto Superiore di Sanità in the "Resilience" project, start date 2024) appear with all budget fields at zero. This is a known upstream data gap: the EU Funding & Tenders portal sometimes publishes project entries before financial data is finalised. Budget figures for projects starting 2024 or later should be treated as provisional.
+
+---
+
+## #8 Automated Investigation — Cyrillic text artefact
+
+**Status:** Known content issue — moved from sirogja-issues.md #19 (2026-03-24)
+
+`automated-investigation.html` is an experimental standalone page (not linked from the main app). A section contains text in Cyrillic characters, an artefact from AI-generated content used as the basis for the page. The page is not part of the production navigation and is not indexed. No fix planned until the page is reworked.
+
+---

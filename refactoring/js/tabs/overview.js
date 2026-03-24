@@ -37,9 +37,9 @@ function renderOverview() {
   const secHtml = Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([s, n]) => {
     const sp = Math.round(n / companies.length * 100);
     return `<div class="d-flex align-items-center gap-2 mb-1">
-      <span style="width:80px;font-size:.78rem;color:#888">${s}</span>
+      <span style="width:80px;font-size:var(--fs-sm);color:#888">${s}</span>
       <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${sp}%;background:var(--accent-dim)"></div></div>
-      <span style="font-family:monospace;font-size:.75rem;color:#555;width:24px;text-align:right">${n}</span>
+      <span style="font-family:monospace;font-size:var(--fs-sm);color:#555;width:24px;text-align:right">${n}</span>
     </div>`;
   }).join('');
   document.getElementById('sector-breakdown').innerHTML = secHtml;
@@ -48,9 +48,9 @@ function renderOverview() {
   document.getElementById('top-investors-list').innerHTML = top5.map(im => {
     const pct2 = Math.round(im.total / (top5[0]?.total || 1) * 100);
     return `<div class="d-flex align-items-center gap-2 mb-1">
-      <span style="width:130px;font-size:.78rem;color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(im.entity.name)}</span>
+      <span style="width:130px;font-size:var(--fs-sm);color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(im.entity.name)}</span>
       <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct2}%"></div></div>
-      <span style="font-family:monospace;font-size:.75rem;color:var(--accent);width:20px;text-align:right">${im.total}</span>
+      <span style="font-family:monospace;font-size:var(--fs-sm);color:var(--accent);width:20px;text-align:right">${im.total}</span>
     </div>`;
   }).join('');
 }

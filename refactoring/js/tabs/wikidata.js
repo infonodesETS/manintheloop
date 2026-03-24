@@ -215,7 +215,7 @@ function renderWdResults(result, qid) {
 
   let html = '';
   if (localWd) {
-    html += `<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;margin-bottom:8px">Stored in database.json</div>`;
+    html += `<div style="font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;margin-bottom:8px">Stored in database.json</div>`;
     html += '<table class="wd-field-table" style="margin-bottom:20px">';
     const localFields = [
       ['label', 'Label'], ['description', 'Description'], ['country', 'Country'], ['inception', 'Inception'],
@@ -227,7 +227,7 @@ function renderWdResults(result, qid) {
       html += `<tr><th>${label}</th><td>${typeof val === 'string' && val.startsWith('http') ? `<a href="${esc(val)}" target="_blank">${esc(val)}</a>` : esc(val)}</td></tr>`;
     });
     html += '</table>';
-    html += `<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;margin-bottom:8px">Live from Wikidata SPARQL</div>`;
+    html += `<div style="font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;margin-bottom:8px">Live from Wikidata SPARQL</div>`;
   }
 
   html += '<table class="wd-field-table">';
