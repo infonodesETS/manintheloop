@@ -76,7 +76,12 @@ function navigate(group, tab, push = true) {
 
   // Lazy-inits — hide preloader after init resolves
   if (paneId === 'graph' && !AppState.ui.graph.sim) { initGraph(); hidePreloader('tab-graph'); }
-  if (paneId === 'map'   && !AppState.ui.map.built) {
+  else if (paneId === 'graph') {
+    const gInp = document.getElementById('graph-search');
+    if (gInp) gInp.value = AppState.ui.graph.search;
+    setGraphSearch(AppState.ui.graph.search);
+  }
+  if (paneId === 'map' && !AppState.ui.map.built) {
     initMap().then(() => {
       hidePreloader('tab-map');
       if (AppState.ui.map.pendingCountry) {
@@ -84,6 +89,10 @@ function navigate(group, tab, push = true) {
         delete AppState.ui.map.pendingCountry;
       }
     });
+  } else if (paneId === 'map' && AppState.ui.map.pendingCountry) {
+    const pc = AppState.ui.map.pendingCountry;
+    delete AppState.ui.map.pendingCountry;
+    selectMapCountryByName(pc);
   }
   if (paneId === 'edfoverview' && !AppState.ui.edfoverview.built) {
     AppState.ui.edfoverview.built = true;
@@ -127,6 +136,7 @@ function navigate(group, tab, push = true) {
   if (resolvedTab) params.tab = resolvedTab;
   setParams(params, push);
 }
+AppState.navigate = navigate;
 
 // ── Restore full state from current URL params ──
 function restoreFromUrl() {

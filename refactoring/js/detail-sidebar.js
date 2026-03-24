@@ -30,6 +30,16 @@ export function closeEntitySidebar() {
 export function initEntitySidebar() {
   document.getElementById('entity-sidebar-overlay').addEventListener('click', closeEntitySidebar);
   document.getElementById('entity-sidebar-close').addEventListener('click', closeEntitySidebar);
+  document.getElementById('entity-sidebar-body').addEventListener('click', e => {
+    const btn = e.target.closest('[data-nav-tab]');
+    if (!btn) return;
+    const tab = btn.dataset.navTab;
+    const val = btn.dataset.navValue;
+    if (tab === 'map' && val) AppState.ui.map.pendingCountry = val;
+    if (tab === 'graph' && val) AppState.ui.graph.search = val;
+    closeEntitySidebar();
+    AppState.navigate?.('supply-chain', tab);
+  });
 }
 
 export function openIntroSidebar(title, html) {
@@ -178,6 +188,12 @@ export function openCompanySidebar(company) {
       </ul>`);
   }
 
+  const navBtns = [
+    country !== '—' ? `<button class="es-nav-btn" data-nav-tab="map" data-nav-value="${esc(country)}">Map: ${esc(country)} ↗</button>` : '',
+    `<button class="es-nav-btn" data-nav-tab="graph" data-nav-value="${esc(company.name)}">Graph ↗</button>`,
+  ].filter(Boolean).join('');
+  if (navBtns) html += section(`${lbl('Explore in')}<div>${navBtns}</div>`);
+
   const _estEl2 = document.getElementById('entity-sidebar-title');
   _estEl2.textContent = company.name; _estEl2.title = company.name;
   document.getElementById('entity-sidebar-body').innerHTML = html;
@@ -215,6 +231,8 @@ export function openInvestorSidebar(im) {
         ).join('')}
       </ul>`);
   }
+
+  html += section(`${lbl('Explore in')}<div><button class="es-nav-btn" data-nav-tab="graph" data-nav-value="${esc(entity.name)}">Graph ↗</button></div>`);
 
   const _estEl3 = document.getElementById('entity-sidebar-title');
   _estEl3.textContent = entity.name; _estEl3.title = entity.name;

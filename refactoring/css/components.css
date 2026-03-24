@@ -206,6 +206,13 @@ th.sortable:hover { color: #fff; }
 .es-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .es-tag { font-size: var(--sl-row-lbl-fs); background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 50px; padding: 2px 9px; color: var(--dim); }
 .es-list { list-style: none; padding: 0; margin: 0; }
+.es-nav-btn {
+  display: inline-block; margin: 3px 4px 3px 0;
+  padding: 3px 12px; font-size: var(--fs-sm); font-family: var(--font);
+  background: transparent; border: 1px solid var(--border); border-radius: 50px;
+  color: var(--dim); cursor: pointer; transition: all .1s; white-space: nowrap;
+}
+.es-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
 .es-list li { padding: 5px 0; border-bottom: 1px solid rgba(65,67,69,0.3); font-size: var(--sl-row-val-fs); color: rgba(255,255,255,0.75); display: flex; align-items: center; justify-content: flex-start; gap: 6px; flex-wrap: wrap; }
 .es-list li .badge-lead { margin-left: auto; }
 .es-list li:last-child { border-bottom: none; }
