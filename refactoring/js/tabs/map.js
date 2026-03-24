@@ -115,7 +115,6 @@ export function resetMapZoom() {
 }
 
 export function closeMapPanel() {
-  document.getElementById('map-panel').classList.add('d-none');
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
   const p = getParams(); delete p.country; setParams(p);
@@ -128,6 +127,14 @@ export function closeMapPanel() {
       <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
     </div>
   `;
+  // Reset status to global counts
+  const mapState = AppState.ui.map;
+  if (mapState.countryData) {
+    const coCount = Object.keys(mapState.countryData).length;
+    const totCo   = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
+    document.getElementById('map-status').textContent =
+      `${coCount} countries · ${totCo} companies mapped · ${mapState.arcData.length} cross-border investor pairs`;
+  }
 }
 
 export function selectMapCountryByName(name) {
@@ -139,7 +146,6 @@ export function clearMapFilter() {
   AppState.ui.map.activeFilter = null;
   applyMapFilter();
   closeMapPanel();
-  document.getElementById('map-panel').classList.remove('d-none');
 }
 
 function buildMapView() {
@@ -332,17 +338,6 @@ function drawMap(world) {
   document.getElementById('map-panel').classList.remove('d-none');
 
   applyMapFilter(); // initialise filter bar state (hidden by default)
-
-  // Open panel by default with intro content
-  document.getElementById('map-panel-title').textContent = 'About this map';
-  document.getElementById('map-panel-body').innerHTML = `
-    <div class="sl-panel-section">
-      <div class="sl-section-lbl">What this map shows and how to navigate it</div>
-      <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
-      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
-      <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
-    </div>
-  `;
 }
 
 function drawArcs(layer) {
@@ -468,6 +463,9 @@ function showMapCountry(iso) {
     .sort((a, b) => b[1] - a[1])
     .map(([s, n]) => `${esc(s)} (${n})`)
     .join(', ');
+
+  document.getElementById('map-status').textContent =
+    `${cd.companies.length} ${cd.companies.length === 1 ? 'company' : 'companies'} · ${flowInArr.length} inbound · ${flowOutArr.length} outbound flows`;
 
   document.getElementById('map-panel-title').textContent = cd.name;
   document.getElementById('map-panel-body').innerHTML = `

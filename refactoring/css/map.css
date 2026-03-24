@@ -179,4 +179,5 @@
 .map-filter-clear  { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-xs); padding: 2px 8px; cursor: pointer; }
 .map-filter-clear:hover { border-color: var(--accent); }
 #map-arc-toggle, #edfmap-arc-toggle { accent-color: var(--accent); }
+.map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); cursor: help; white-space: nowrap; }
 #edfmap-position   { font-size: var(--fs-xs); color: var(--grey-dark); font-family: var(--font-mono); }

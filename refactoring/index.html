@@ -352,6 +352,7 @@
             <input type="checkbox" id="map-arc-toggle" checked>
             Show investment flow arcs
           </label>
+          <span class="map-arc-legend" title="Arc direction: faint end = investor country (capital source) · bright end = company country (capital destination)">arc: faint→investor · bright→company</span>
           <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
           <span id="map-status" class="map-status"></span>
         </div>
@@ -361,12 +362,19 @@
         </div>
         <svg id="map-svg"></svg>
       </div>
-      <div id="map-panel" class="d-none">
+      <div id="map-panel">
         <div id="map-panel-header">
-          <span id="map-panel-title" class="sl-title"></span>
+          <span id="map-panel-title" class="sl-title">About this map</span>
           <button id="map-close-panel-btn" class="sl-close">✕</button>
         </div>
-        <div id="map-panel-body"></div>
+        <div id="map-panel-body">
+          <div class="sl-panel-section">
+            <div class="sl-section-lbl">What this map shows and how to navigate it</div>
+            <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
+            <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
+            <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
