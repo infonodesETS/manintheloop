@@ -331,6 +331,14 @@ function drawMap(world) {
   });
   mapState.svg.call(mapState.zoom);
 
+  // Click on empty SVG area → reset selection and panel
+  mapState.svg.on('click', (e) => {
+    if (e.target === mapState.svg.node() || e.target.tagName === 'path' && !e.target.classList.contains('has-data')) {
+      if (AppState.ui.map.activeFilter) clearMapFilter();
+      else closeMapPanel();
+    }
+  });
+
   const coCount = Object.keys(mapState.countryData).length;
   const totCo = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
   document.getElementById('map-status').textContent =
