@@ -20,7 +20,7 @@ export const AppState = {
     currentTab: 'overview',
     matrix: { sector: 'all' },
     companies: { sector: 'all', sort: { key: 'name', asc: true }, search: '' },
-    investors: { sort: { key: 'total', asc: false }, search: '' },
+    investors: { sort: { key: 'total', asc: false }, search: '', typeFilter: null },
     relationships: { search: '' },
     graph: {
       view: 'network',
