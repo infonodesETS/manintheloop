@@ -49,7 +49,8 @@ refactoring/
 │   ├── UPDATE_PROTOCOL.md      ← reconciliation rules for adding new data
 │   ├── spec-improvement.md     ← resolved, pending, and improvement backlog
 │   ├── issues.md               ← active data/code issues
-│   └── data-issues.md          ← in-app data issues (rendered in Tools → Data Issues tab)
+│   ├── data-issues.md          ← in-app data issues (rendered in Tools → Data Issues tab)
+│   └── andy-issues.md          ← user test session (Andy, 2026-03-24) — 23 issues, UX + bugs
 │
 ├── js/
 │   ├── main.js                 ← entry point: data bootstrap, navigate(), event wiring
