@@ -138,6 +138,8 @@ export function selectMapCountryByName(name) {
 export function clearMapFilter() {
   AppState.ui.map.activeFilter = null;
   applyMapFilter();
+  closeMapPanel();
+  document.getElementById('map-panel').classList.remove('d-none');
 }
 
 function buildMapView() {
