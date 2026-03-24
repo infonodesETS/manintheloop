@@ -12,27 +12,30 @@ function renderOverview() {
   const { companies, investors, relationships, derived } = AppState;
   const { investorMeta, raw } = derived;
 
-  const withWd = companies.filter(c => c.wikidata_id).length;
-  const pct    = Math.round(withWd / companies.length * 100);
   const sectors = {};
   companies.forEach(c => { const s = c.sector || 'Unknown'; sectors[s] = (sectors[s] || 0) + 1; });
 
-  const stats = [
-    { val: companies.length,     lbl: 'Companies',    gl: 'company'      },
-    { val: investors.length,     lbl: 'Investors',    gl: 'investor'     },
+  const entityStats = [
+    { val: companies.length,     lbl: 'Companies',     gl: 'company'      },
+    { val: investors.length,     lbl: 'Investors',     gl: 'investor'     },
     { val: relationships.length, lbl: 'Relationships', gl: 'relationship' },
-    { val: raw.filter(d => d[2]).length, lbl: 'Lead inv.', gl: 'lead'   },
-    ...Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ val: v, lbl: k, gl: k.toLowerCase() })),
   ];
+  const sectorStats = Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ val: v, lbl: k, gl: k.toLowerCase() }));
 
-  document.getElementById('stats-grid').innerHTML = stats.map(s => {
+  const makeCards = (arr) => arr.map(s => {
     const title = s.gl && GLOSSARY[s.gl] ? ` title="${esc(GLOSSARY[s.gl])}"` : '';
     return `<div class="stat-card"${title}><div class="val">${s.val}</div><div class="lbl">${s.lbl}</div></div>`;
   }).join('');
 
-  document.getElementById('wd-cov-label').textContent = `${withWd} / ${companies.length} companies`;
-  document.getElementById('wd-cov-pct').textContent   = `${pct}%`;
-  document.getElementById('wd-cov-bar').style.width   = pct + '%';
+  document.getElementById('stats-grid').innerHTML =
+    `<div class="ov-stats-group">
+       <div class="ov-stats-group-lbl">Unique entities</div>
+       <div class="overview-grid ov-stats-inner">${makeCards(entityStats)}</div>
+     </div>
+     <div class="ov-stats-group">
+       <div class="ov-stats-group-lbl">Companies by sector</div>
+       <div class="overview-grid ov-stats-inner">${makeCards(sectorStats)}</div>
+     </div>`;
 
   const secHtml = Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([s, n]) => {
     const sp = Math.round(n / companies.length * 100);

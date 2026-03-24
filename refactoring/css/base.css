@@ -281,6 +281,9 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 
 /* ── Overview grid ── */
 .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.ov-stats-group { margin-bottom: 20px; }
+.ov-stats-group-lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); font-weight: var(--fw-bold); margin-bottom: 8px; }
+.ov-stats-inner { margin-bottom: 0; }
 #eo-stats-grid { grid-template-columns: repeat(4, 1fr); }
 #eo-stats-grid .stat-card:nth-child(1),
 #eo-stats-grid .stat-card:nth-child(2) { grid-column: span 2; }
