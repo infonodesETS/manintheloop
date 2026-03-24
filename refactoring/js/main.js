@@ -187,6 +187,29 @@ function restoreFromUrl() {
       if (p.sector) {
         document.querySelector(`#graph-controls .sf-btn[data-sector="${p.sector}"]`)?.click();
       }
+      if (p.search) {
+        const inp = document.getElementById('graph-search');
+        if (inp) { inp.value = p.search; setGraphSearch(p.search); }
+      }
+      if (p.lead === '1') {
+        const btn = document.getElementById('gv-lead-only');
+        if (btn && !btn.classList.contains('active')) { btn.classList.add('active'); setLeadOnly(true); }
+      }
+      if (p.hideIso === '1') {
+        const btn = document.getElementById('gv-hide-iso');
+        if (btn && !btn.classList.contains('active')) { btn.classList.add('active'); setHideIsolated(true); }
+      }
+      if (p.hideCo === '1') {
+        const btn = document.getElementById('gv-show-co');
+        if (btn && btn.classList.contains('active')) { btn.classList.remove('active'); setShowCompanies(false); }
+      }
+      if (p.hideInv === '1') {
+        const btn = document.getElementById('gv-show-inv');
+        if (btn && btn.classList.contains('active')) { btn.classList.remove('active'); setShowInvestors(false); }
+      }
+      if (p.proj === 'multi') {
+        document.getElementById('pf-multi')?.click();
+      }
       break;
 
     case 'edfbrowse':
@@ -304,27 +327,50 @@ loadData()
       });
     });
 
-    // Wire projection filter buttons
-    document.getElementById('pf-all').addEventListener('click',   () => setProjFilter('all'));
-    document.getElementById('pf-multi').addEventListener('click', () => setProjFilter('multi'));
+    // Wire projection filter buttons (also update URL)
+    const getGraphBaseParams = () => {
+      const view   = AppState.ui.graph.view   || 'network';
+      const sector = AppState.ui.graph.sector;
+      const p = { tab: 'graph', view };
+      if (sector && sector !== 'all') p.sector = sector;
+      return p;
+    };
+    document.getElementById('pf-all').addEventListener('click', () => {
+      setProjFilter('all');
+      const p = getGraphBaseParams(); delete p.proj; setParams(p);
+    });
+    document.getElementById('pf-multi').addEventListener('click', () => {
+      setProjFilter('multi');
+      setParams({ ...getGraphBaseParams(), proj: 'multi' });
+    });
 
-    // Wire graph search + toggle controls
-    document.getElementById('graph-search').addEventListener('input', e => { if (e.target.value) dismissGraphHint(); setGraphSearch(e.target.value); });
+    // Wire graph search + toggle controls (also update URL)
+    document.getElementById('graph-search').addEventListener('input', e => {
+      if (e.target.value) dismissGraphHint();
+      setGraphSearch(e.target.value);
+      const p = getGraphBaseParams();
+      if (e.target.value) p.search = e.target.value; else delete p.search;
+      setParams(p);
+    });
     document.getElementById('gv-show-co').addEventListener('click', function() {
       const on = this.classList.toggle('active');
       setShowCompanies(on);
+      setParams({ ...getGraphBaseParams(), ...(!on ? { hideCo: '1' } : {}) });
     });
     document.getElementById('gv-show-inv').addEventListener('click', function() {
       const on = this.classList.toggle('active');
       setShowInvestors(on);
+      setParams({ ...getGraphBaseParams(), ...(!on ? { hideInv: '1' } : {}) });
     });
     document.getElementById('gv-lead-only').addEventListener('click', function() {
       const on = this.classList.toggle('active');
       setLeadOnly(on);
+      setParams({ ...getGraphBaseParams(), ...(on ? { lead: '1' } : {}) });
     });
     document.getElementById('gv-hide-iso').addEventListener('click', function() {
       const on = this.classList.toggle('active');
       setHideIsolated(on);
+      setParams({ ...getGraphBaseParams(), ...(on ? { hideIso: '1' } : {}) });
     });
 
     // Wire graph detail panel close
