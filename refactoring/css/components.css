@@ -111,7 +111,7 @@ th.sortable:hover { color: #fff; }
 /* ── Tooltip ── */
 #tip {
   position: fixed; background: rgba(8,8,8,0.97); border: 1px solid var(--border);
-  padding: 10px 14px; font-size: var(--fs-base); pointer-events: none;
+  padding: 10px 14px; font-size: var(--fs-body); pointer-events: none;
   display: none; z-index: 600; border-radius: 4px;
   box-shadow: 0 4px 24px rgba(0,0,0,.7); max-width: 280px; line-height: var(--lh-body);
 }
