@@ -319,9 +319,9 @@ loadData()
     });
 
     // Wire graph view buttons (also update URL)
-    document.getElementById('gv-net').addEventListener('click',  () => { setGraphView('network');     setParams({ tab: 'graph', view: 'network'     }); });
-    document.getElementById('gv-bi').addEventListener('click',   () => { setGraphView('bipartite');   setParams({ tab: 'graph', view: 'bipartite'   }); });
-    document.getElementById('gv-proj').addEventListener('click', () => { setGraphView('projection');  setParams({ tab: 'graph', view: 'projection'  }); });
+    document.getElementById('gv-net').addEventListener('click',  () => { setGraphView('network');    setParams(getGraphBaseParams()); });
+    document.getElementById('gv-bi').addEventListener('click',   () => { setGraphView('bipartite');  setParams(getGraphBaseParams()); });
+    document.getElementById('gv-proj').addEventListener('click', () => { setGraphView('projection'); setParams(getGraphBaseParams()); });
 
     const dismissGraphHint = () => document.getElementById('graph-hint')?.classList.add('hidden');
 
@@ -341,48 +341,45 @@ loadData()
 
     // Wire projection filter buttons (also update URL)
     const getGraphBaseParams = () => {
-      const view   = AppState.ui.graph.view   || 'network';
-      const sector = AppState.ui.graph.sector;
-      const p = { tab: 'graph', view };
-      if (sector && sector !== 'all') p.sector = sector;
+      const g = AppState.ui.graph;
+      const p = { tab: 'graph', view: g.view || 'network' };
+      if (g.sector && g.sector !== 'all') p.sector = g.sector;
+      if (g.search)        p.search  = g.search;
+      if (g.leadOnly)      p.lead    = '1';
+      if (g.hideIsolated)  p.hideIso = '1';
+      if (!g.showCompanies) p.hideCo = '1';
+      if (!g.showInvestors) p.hideInv = '1';
+      if (g.projFilter && g.projFilter !== 'all') p.proj = g.projFilter;
       return p;
     };
     document.getElementById('pf-all').addEventListener('click', () => {
-      setProjFilter('all');
-      const p = getGraphBaseParams(); delete p.proj; setParams(p);
+      setProjFilter('all'); setParams(getGraphBaseParams());
     });
     document.getElementById('pf-multi').addEventListener('click', () => {
-      setProjFilter('multi');
-      setParams({ ...getGraphBaseParams(), proj: 'multi' });
+      setProjFilter('multi'); setParams(getGraphBaseParams());
     });
 
     // Wire graph search + toggle controls (also update URL)
     document.getElementById('graph-search').addEventListener('input', e => {
       if (e.target.value) dismissGraphHint();
       setGraphSearch(e.target.value);
-      const p = getGraphBaseParams();
-      if (e.target.value) p.search = e.target.value; else delete p.search;
-      setParams(p);
+      setParams(getGraphBaseParams());
     });
     document.getElementById('gv-show-co').addEventListener('click', function() {
-      const on = this.classList.toggle('active');
-      setShowCompanies(on);
-      setParams({ ...getGraphBaseParams(), ...(!on ? { hideCo: '1' } : {}) });
+      setShowCompanies(this.classList.toggle('active'));
+      setParams(getGraphBaseParams());
     });
     document.getElementById('gv-show-inv').addEventListener('click', function() {
-      const on = this.classList.toggle('active');
-      setShowInvestors(on);
-      setParams({ ...getGraphBaseParams(), ...(!on ? { hideInv: '1' } : {}) });
+      setShowInvestors(this.classList.toggle('active'));
+      setParams(getGraphBaseParams());
     });
     document.getElementById('gv-lead-only').addEventListener('click', function() {
-      const on = this.classList.toggle('active');
-      setLeadOnly(on);
-      setParams({ ...getGraphBaseParams(), ...(on ? { lead: '1' } : {}) });
+      setLeadOnly(this.classList.toggle('active'));
+      setParams(getGraphBaseParams());
     });
     document.getElementById('gv-hide-iso').addEventListener('click', function() {
-      const on = this.classList.toggle('active');
-      setHideIsolated(on);
-      setParams({ ...getGraphBaseParams(), ...(on ? { hideIso: '1' } : {}) });
+      setHideIsolated(this.classList.toggle('active'));
+      setParams(getGraphBaseParams());
     });
 
     // Wire graph detail panel close
