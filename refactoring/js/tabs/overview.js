@@ -3,6 +3,7 @@
 import { AppState } from '../state.js';
 import { esc } from '../helpers.js';
 import { GLOSSARY } from '../glossary.js';
+import { openInvestorSidebar } from '../detail-sidebar.js';
 
 export default function initOverview() {
   renderOverview();
@@ -48,12 +49,17 @@ function renderOverview() {
   document.getElementById('sector-breakdown').innerHTML = secHtml;
 
   const top5 = Object.values(investorMeta).sort((a, b) => b.total - a.total).slice(0, 8);
-  document.getElementById('top-investors-list').innerHTML = top5.map(im => {
+  const listEl = document.getElementById('top-investors-list');
+  listEl.innerHTML = top5.map((im, i) => {
     const pct2 = Math.round(im.total / (top5[0]?.total || 1) * 100);
-    return `<div class="d-flex align-items-center gap-2 mb-1">
-      <span style="width:130px;font-size:var(--fs-sm);color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(im.entity.name)}</span>
+    return `<div class="d-flex align-items-center gap-2 mb-1 ov-inv-row" data-inv-idx="${i}" style="cursor:pointer" title="Click to view ${esc(im.entity.name)} details">
+      <span style="width:130px;font-size:var(--fs-sm);color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(im.entity.name)}">${esc(im.entity.name)}</span>
       <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct2}%"></div></div>
       <span style="font-family:monospace;font-size:var(--fs-sm);color:var(--accent);width:20px;text-align:right">${im.total}</span>
     </div>`;
   }).join('');
+  listEl.querySelectorAll('.ov-inv-row').forEach(row => {
+    const im = top5[+row.dataset.invIdx];
+    row.addEventListener('click', () => openInvestorSidebar(im));
+  });
 }
