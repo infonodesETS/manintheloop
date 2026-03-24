@@ -206,8 +206,11 @@ function restoreFromUrl() {
 loadData()
   .then(db => {
     document.getElementById('nav-meta').textContent = `updated: ${db._updated || '—'}`;
-    document.getElementById('tnav-info').textContent =
+    const tnavInfo = document.getElementById('tnav-info');
+    tnavInfo.textContent =
       `${AppState.companies.length} co · ${AppState.investors.length} inv · ${AppState.relationships.length} rel`;
+    tnavInfo.title =
+      `${AppState.companies.length} companies · ${AppState.investors.length} investors · ${AppState.relationships.length} relationships in the dataset`;
 
     // Init glossary tooltips
     initGlossaryTooltips();
