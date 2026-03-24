@@ -20,6 +20,7 @@ import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggl
 import initKnownIssues from './tabs/knownissues.js';
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
 import { initGlossaryTooltips, renderGlossaryTab } from './glossary.js';
+import { initCopyAI } from './copy-ai.js';
 
 // ── Preloader helper ──
 function hidePreloader(tabId) {
@@ -250,6 +251,7 @@ loadData()
 
     // Init tabs that render immediately, then hide their preloaders
     initEntitySidebar();
+    initCopyAI();
 
     initOverview();      hidePreloader('tab-overview');
     initMatrix();        hidePreloader('tab-matrix');
