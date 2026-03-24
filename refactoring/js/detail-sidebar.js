@@ -33,7 +33,8 @@ export function initEntitySidebar() {
 }
 
 export function openIntroSidebar(title, html) {
-  document.getElementById('entity-sidebar-title').textContent = title;
+  const _estEl = document.getElementById('entity-sidebar-title');
+  _estEl.textContent = title; _estEl.title = title;
   document.getElementById('entity-sidebar-body').innerHTML = html;
   _open();
 }
@@ -177,7 +178,8 @@ export function openCompanySidebar(company) {
       </ul>`);
   }
 
-  document.getElementById('entity-sidebar-title').textContent = company.name;
+  const _estEl2 = document.getElementById('entity-sidebar-title');
+  _estEl2.textContent = company.name; _estEl2.title = company.name;
   document.getElementById('entity-sidebar-body').innerHTML = html;
   setParams({ ...getParams(), company: company.id, name: company.name });
   _open();
@@ -214,7 +216,8 @@ export function openInvestorSidebar(im) {
       </ul>`);
   }
 
-  document.getElementById('entity-sidebar-title').textContent = entity.name;
+  const _estEl3 = document.getElementById('entity-sidebar-title');
+  _estEl3.textContent = entity.name; _estEl3.title = entity.name;
   document.getElementById('entity-sidebar-body').innerHTML = html;
   setParams({ ...getParams(), investor: entity.id, name: entity.name });
   _open();

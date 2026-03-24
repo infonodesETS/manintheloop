@@ -437,7 +437,8 @@ function showCountry(iso) {
 
   const countryEuTotal = cd.orgs.reduce((sum, o) => sum + (o.eu_total || 0), 0);
 
-  document.getElementById('edfmap-panel-title').textContent = cd.name;
+  const _edfmapTitleEl = document.getElementById('edfmap-panel-title');
+  _edfmapTitleEl.textContent = cd.name; _edfmapTitleEl.title = cd.name;
   document.getElementById('edfmap-panel-body').innerHTML = `
     <div class="sl-panel-section">
       <div class="sl-section-lbl" style="margin-bottom:4px">Partner Countries</div>

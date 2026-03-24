@@ -128,7 +128,7 @@ function renderBar(label, value, max, extra = '', wide = false, href = null) {
     ? `<a href="${href}" class="eo-bar-link">${esc(label)}</a>`
     : `<span>${esc(label)}</span>`;
   return `<div class="eo-bar-row d-flex align-items-center gap-2 mb-1${href ? ' eo-bar-row--link' : ''}">
-    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}">${labelHtml}</span>
+    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}" title="${esc(label)}">${labelHtml}</span>
     <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%"></div></div>
     <span class="eo-bar-val">${value.toLocaleString()}${extra ? `<span class="eo-bar-extra"> ${extra}</span>` : ''}</span>
   </div>`;

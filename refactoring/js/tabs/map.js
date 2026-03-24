@@ -513,7 +513,8 @@ function showMapCountry(iso) {
   document.getElementById('map-status').textContent =
     `${cd.companies.length} ${cd.companies.length === 1 ? 'company' : 'companies'} · ${flowInArr.length} inbound · ${flowOutArr.length} outbound flows`;
 
-  document.getElementById('map-panel-title').textContent = cd.name;
+  const _mapTitleEl = document.getElementById('map-panel-title');
+  _mapTitleEl.textContent = cd.name; _mapTitleEl.title = cd.name;
   document.getElementById('map-panel-body').innerHTML = `
     <p class="map-intro-text" style="margin-bottom:10px">Showing ${cd.companies.length} ${cd.companies.length === 1 ? 'company' : 'companies'} headquartered in ${esc(cd.name)}${flowInArr.length || flowOutArr.length ? `, with ${flowInArr.length} inbound and ${flowOutArr.length} outbound cross-border investor flow${(flowInArr.length + flowOutArr.length) !== 1 ? 's' : ''}.` : '.'}</p>
     <div class="map-sector-row">

@@ -99,12 +99,13 @@ function graphShowPanel(d) {
     const im = invMap[d.id] || invMap[d.entity?.name];
     if (!im) return;
     const portfolioFiltered = im.portfolio.filter(p => COMPANIES.some(c => c.name === p.company?.name));
-    document.getElementById('graph-detail-title').textContent = im.entity.name;
+    const _gTitleEl = document.getElementById('graph-detail-title');
+    _gTitleEl.textContent = im.entity.name; _gTitleEl.title = im.entity.name;
     html += typeBadge(im.entity.type);
     html += `<div class="dp-inv-meta">${im.total} investments · ${im.leads} lead</div>`;
     html += `<div class="sl-section-lbl">Portfolio (${portfolioFiltered.length})</div><ul class="es-list">`;
     [...portfolioFiltered].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(p => {
-      html += `<li><span>${esc(p.company?.name)}</span>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+      html += `<li><span title="${esc(p.company?.name)}">${esc(p.company?.name)}</span>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     });
     html += '</ul>';
     const coSet = {};
@@ -117,7 +118,7 @@ function graphShowPanel(d) {
     if (coList.length) {
       html += '<div class="sl-section-lbl">Co-investors</div><ul class="es-list">';
       coList.forEach(([n, cnt]) => {
-        html += `<li><span>${esc(n)}</span><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
+        html += `<li><span title="${esc(n)}">${esc(n)}</span><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
       });
       html += '</ul>';
     }
@@ -126,7 +127,8 @@ function graphShowPanel(d) {
     if (!c) return;
     const wd = c.sources?.wikidata;
     const cb = c.sources?.crunchbase;
-    document.getElementById('graph-detail-title').textContent = c.name;
+    const _gTitleEl2 = document.getElementById('graph-detail-title');
+    _gTitleEl2.textContent = c.name; _gTitleEl2.title = c.name;
     if (c.sector) html += `${sectorBadge(c.sector)} `;
     html += `<span class="badge-type badge-type--company">Manufacturer</span>`;
     if (c.roles?.includes('investor')) html += ` ${dualBadge()}`;
@@ -141,7 +143,7 @@ function graphShowPanel(d) {
     if (c._investors?.length) {
       html += `<div class="sl-section-lbl">Investors (${c._investors.length})</div><ul class="es-list">`;
       [...c._investors].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(x => {
-        html += `<li><span>${esc(x.name)}</span>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+        html += `<li><span title="${esc(x.name)}">${esc(x.name)}</span>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
       });
       html += '</ul>';
     }

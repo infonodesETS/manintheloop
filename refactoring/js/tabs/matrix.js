@@ -46,7 +46,7 @@ export function renderMatrix() {
       <td><div class="inv-cell" data-action="mxShowInvestor" data-name="${esc(im.entity.name)}">
         ${typeDot(im.entity.type)}
         <span class="inv-rank">${idx + 1}</span>
-        <span class="inv-name">${esc(im.entity.name)}</span>
+        <span class="inv-name" title="${esc(im.entity.name)}">${esc(im.entity.name)}</span>
         ${leadLbl}
         <span class="cnt-pill ${cc}">${im.total}</span>
       </div></td>`;
@@ -98,12 +98,13 @@ export function mxShowInvestor(name) {
   const panel = document.getElementById('mx-detail');
   const portfolioFiltered = im.portfolio.filter(p => COMPANIES.some(c => c.name === p.company?.name));
 
-  document.getElementById('mx-detail-title').textContent = name;
+  const _mxTitleEl = document.getElementById('mx-detail-title');
+  _mxTitleEl.textContent = name; _mxTitleEl.title = name;
   let html = typeBadge(im.entity.type);
   html += `<div class="dp-inv-meta">${im.total} investments · ${im.leads} lead</div>`;
   html += `<div class="sl-section-lbl">Portfolio (${portfolioFiltered.length})</div><ul class="es-list">`;
   [...portfolioFiltered].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(p => {
-    html += `<li><span>${esc(p.company?.name)}</span>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+    html += `<li><span title="${esc(p.company?.name)}">${esc(p.company?.name)}</span>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
   });
   html += '</ul>';
 
@@ -117,7 +118,7 @@ export function mxShowInvestor(name) {
   if (coList.length) {
     html += '<div class="sl-section-lbl">Co-investors</div><ul class="es-list">';
     coList.forEach(([n, cnt]) => {
-      html += `<li><span>${esc(n)}</span><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
+      html += `<li><span title="${esc(n)}">${esc(n)}</span><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
     });
     html += '</ul>';
   }
@@ -133,7 +134,8 @@ export function mxShowCompany(name) {
   if (!c) return;
   const wd = c.sources?.wikidata;
   const cb = c.sources?.crunchbase;
-  document.getElementById('mx-detail-title').textContent = name;
+  const _mxTitleEl2 = document.getElementById('mx-detail-title');
+  _mxTitleEl2.textContent = name; _mxTitleEl2.title = name;
   let html = '';
   if (c.sector) html += `${sectorBadge(c.sector)} `;
   html += `<span class="badge-type badge-type--company">Manufacturer</span>`;
@@ -158,7 +160,7 @@ export function mxShowCompany(name) {
   if (c._investors?.length) {
     html += `<div class="sl-section-lbl">Investors (${c._investors.length})</div><ul class="es-list">`;
     [...c._investors].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(x => {
-      html += `<li><span>${esc(x.name)}</span>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+      html += `<li><span title="${esc(x.name)}">${esc(x.name)}</span>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     });
     html += '</ul>';
   }

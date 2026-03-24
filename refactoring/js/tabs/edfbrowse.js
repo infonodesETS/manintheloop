@@ -178,7 +178,7 @@ function renderTable() {
     <tr class="eb-row${o.coordinations > 0 ? ' eb-is-coord' : ''}" data-key="${o.key}">
       <td>
         <span class="eb-org-name" title="${o.name}">${o.name}</span>
-        ${o.activity_type ? `<span class="eb-org-type">${o.activity_type}</span>` : ''}
+        ${o.activity_type ? `<span class="eb-org-type" title="${o.activity_type}">${o.activity_type}</span>` : ''}
       </td>
       <td><span class="eb-country-tag">${o.country}</span></td>
       <td class="eb-num eb-bold">${o.participations}</td>
@@ -213,7 +213,8 @@ function renderTable() {
 function openEdfSidebar(key) {
   const org = allOrgs.find(o => o.key === key);
   if (!org) return;
-  document.getElementById('edf-sidebar-title').textContent = org.name;
+  const _edfSbEl = document.getElementById('edf-sidebar-title');
+  _edfSbEl.textContent = org.name; _edfSbEl.title = org.name;
   document.getElementById('edf-sidebar-body').innerHTML = buildDrawer(org);
   document.getElementById('edf-sidebar').classList.add('open');
 }
