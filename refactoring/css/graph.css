@@ -10,7 +10,7 @@
 }
 #graph-detail.open { display: flex; }
 #graph-detail-header {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
   padding: var(--sl-header-pad); background: var(--sl-header-bg);
   border-bottom: 1px solid var(--border); flex-shrink: 0;
 }

@@ -154,7 +154,7 @@ th.sortable:hover { color: #fff; }
 #mx-detail { width: var(--sl-w-inline); flex-shrink: 0; background: var(--sl-inline-bg); border-left: 1px solid var(--border); overflow-y: hidden; display: none; flex-direction: column; }
 #mx-detail.open { display: flex; }
 #mx-detail-header {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
   padding: var(--sl-header-pad); background: var(--sl-header-bg);
   border-bottom: 1px solid var(--border); flex-shrink: 0;
 }
