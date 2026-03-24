@@ -4,7 +4,7 @@
 >
 > When features stabilise they may be promoted to the parent (production) repository.
 
-> **Rule for AI assistants**: Every resolved issue from `issues.md` must produce a dated entry here. Data gap issues moved to `known-issues.md` must also be recorded here. No issue is closed without a CHANGELOG entry.
+> **Rule for AI assistants**: Every resolved issue from `issues.md` must produce a dated entry here. Data gap issues moved to `data-issues.md` must also be recorded here. No issue is closed without a CHANGELOG entry.
 
 ---
 
@@ -684,9 +684,9 @@ Three new toolbar controls (all views): **Search** highlights matching nodes + n
 ### Changed — Landing page
 - Default group on load changed from `supply-chain` to `intro` (`main.js` + `index.html` active class)
 
-### Added — Tools → Known Issues sub-tab (`js/tabs/knownissues.js`, `known-issues.md`)
-- New sub-tab in Tools group renders `known-issues.md` via `marked.js` (CDN v9)
-- `known-issues.md`: in-app issue tracker; Issue #1 (EDF count mismatch), Issue #2 (budget partial coverage)
+### Added — Tools → Data Issues sub-tab (`js/tabs/knownissues.js`, `docs/data-issues.md`)
+- New sub-tab in Tools group renders `docs/data-issues.md` via `marked.js` (CDN v9)
+- `docs/data-issues.md`: in-app issue tracker; Issue #1 (EDF count mismatch), Issue #2 (budget partial coverage)
 - CSS scoped to `.ki-body`: `max-width: 80%`, `margin: auto`, font sizes scaled ×1.5
 - `marked@9` added to CDN scripts in `index.html`
 
