@@ -4,8 +4,22 @@ import { AppState } from './state.js';
 
 const TODAY = new Date().toISOString().slice(0, 10);
 
+function contextBlock() {
+  const { companies, investors, relationships } = AppState;
+  const countrySet = new Set(
+    companies.map(c => c.sources?.wikidata?.country || c.sources?.infonodes?.country).filter(Boolean)
+  );
+  return `# Man in the Loop — info.nodes Explorer
+_Paste this into ChatGPT, Claude, or any AI assistant to explore and understand the data._
+
+## About this dataset
+Man in the Loop is an independent research project tracking the European defence supply chain: companies, investors, and cross-border investment flows. The database currently covers **${companies.length} companies**, **${investors.length} investors**, and **${relationships.length} documented investment relationships** across **${countrySet.size} countries**. Data is hand-curated and enriched with Wikidata, Crunchbase, and public sources. It is a work in progress — some entries may be incomplete or require verification.
+
+`;
+}
+
 function hdr(tab) {
-  return `# Man in the Loop — info.nodes Explorer\n_Snapshot: ${TODAY} · Tab: ${tab}_\n\n`;
+  return contextBlock() + `---\n_Snapshot: ${TODAY} · Tab: ${tab}_\n\n`;
 }
 
 function footer(prompt) {
