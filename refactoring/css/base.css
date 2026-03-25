@@ -299,6 +299,12 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .prog-track { height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; }
 .prog-fill  { height: 100%; border-radius: 3px; background: var(--accent); }
 
+/* ── Geographic distribution chart ── */
+.ov-geo-legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: 10px; font-family: var(--font-mono); }
+.ov-geo-dot    { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.ov-geo-lbl    { width: 100px; font-size: var(--fs-sm); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 0; }
+.ov-geo-val    { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-muted); width: 22px; text-align: right; flex-shrink: 0; }
+
 /* ── Intro tab ── */
 #tab-intro {
   display: none; flex-direction: column; align-items: center;

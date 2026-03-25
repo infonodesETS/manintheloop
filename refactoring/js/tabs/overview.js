@@ -38,15 +38,54 @@ function renderOverview() {
        <div class="overview-grid ov-stats-inner">${makeCards(sectorStats)}</div>
      </div>`;
 
-  const secHtml = Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([s, n]) => {
-    const sp = Math.round(n / companies.length * 100);
+  // Geographic distribution chart
+  const COUNTRY_NORM = {
+    'USA': 'United States', 'Cina': 'China', "People's Republic of China": 'China',
+    'Giappone': 'Japan', 'EAU (Dubai)': 'United Arab Emirates',
+    'Polonia': 'Poland', 'Francia': 'France', 'Norvegia': 'Norway',
+    'Belgio': 'Belgium', 'Germania': 'Germany', 'Cile': 'Chile', 'UK': 'United Kingdom',
+  };
+  const WESTERN = new Set([
+    'United States','USA','United Kingdom','UK','Germany','Germania','France','Francia',
+    'Italy','Spain','Netherlands','Belgium','Belgio','Norway','Norvegia','Sweden',
+    'Finland','Denmark','Poland','Polonia','Czech Republic','Czech Rep.','Czechia',
+    'Romania','Estonia','Latvia','Lithuania','Switzerland','Austria','Portugal','Greece',
+    'Hungary','Slovakia','Luxembourg','Ireland','Cyprus','Malta','Croatia','Slovenia',
+    'Serbia','Bulgaria','North Macedonia','Albania','Canada','Australia','New Zealand',
+    'Japan','Giappone','South Korea','Israel','Turkey',
+  ]);
+  const CHINA_RU = new Set(['China','Cina',"People's Republic of China",'Russia']);
+
+  const countryCounts = {};
+  for (const c of companies) {
+    const raw = c.sources?.wikidata?.country || c.sources?.infonodes?.country || 'Unknown';
+    const ctry = COUNTRY_NORM[raw] || raw;
+    countryCounts[ctry] = (countryCounts[ctry] || 0) + 1;
+  }
+  const geoEntries = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]);
+  const geoMax = geoEntries[0]?.[1] || 1;
+
+  const alignColor = (ctry) => {
+    if (CHINA_RU.has(ctry)) return '#c0392b';
+    if (WESTERN.has(ctry)) return 'var(--accent)';
+    return 'var(--grey-mid)';
+  };
+
+  const legend = `<div class="ov-geo-legend">
+    <span class="ov-geo-dot" style="background:var(--accent)"></span>Western aligned
+    <span class="ov-geo-dot" style="background:#c0392b"></span>China / Russia
+    <span class="ov-geo-dot" style="background:var(--grey-mid)"></span>Other
+  </div>`;
+
+  const geoHtml = geoEntries.map(([ctry, n]) => {
+    const pct = Math.round(n / geoMax * 100);
     return `<div class="d-flex align-items-center gap-2 mb-1">
-      <span style="width:80px;font-size:var(--fs-sm);color:#888">${s}</span>
-      <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${sp}%;background:var(--accent-dim)"></div></div>
-      <span style="font-family:monospace;font-size:var(--fs-sm);color:#555;width:24px;text-align:right">${n}</span>
+      <span class="ov-geo-lbl">${esc(ctry)}</span>
+      <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%;background:${alignColor(ctry)}"></div></div>
+      <span class="ov-geo-val">${n}</span>
     </div>`;
   }).join('');
-  document.getElementById('sector-breakdown').innerHTML = secHtml;
+  document.getElementById('geo-breakdown').innerHTML = legend + geoHtml;
 
   const top5 = Object.values(investorMeta).sort((a, b) => b.total - a.total).slice(0, 8);
   const listEl = document.getElementById('top-investors-list');
