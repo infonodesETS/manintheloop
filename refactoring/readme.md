@@ -178,6 +178,16 @@ python3 scripts/validate.py
 
 Run from `refactoring/`. All 8 checks must pass before any commit touching `database.json`.
 
+### Updating the navbar date
+
+After every commit, update the `_updated` field at the top of `data/database.json`:
+
+```json
+{ "_updated": "YYYY-MM-DD", ... }
+```
+
+Set it to today's date. `js/main.js` reads this field at boot and renders it as `updated: YYYY-MM-DD` in the top navbar — it is the only date shown to users in the UI and signals when the dataset or app was last changed.
+
 ---
 
 ## Improving the app — spec-improvement.md

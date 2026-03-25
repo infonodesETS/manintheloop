@@ -73,6 +73,32 @@ Some organisations (e.g. Istituto Superiore di Sanità in the "Resilience" proje
 
 ---
 
+## #9 Companies — Inconsistent country name values in database
+
+**Status:** Known data quality issue
+
+Company country fields (`sources.wikidata.country`, `sources.infonodes.country`) use inconsistent naming across records — mixing English, Italian, and abbreviated forms for the same country:
+
+| Stored value | Canonical name |
+|---|---|
+| `Cina`, `People's Republic of China` | China |
+| `USA` | United States |
+| `Giappone` | Japan |
+| `EAU (Dubai)` | United Arab Emirates |
+| `Polonia` | Poland |
+| `Francia` | France |
+| `Norvegia` | Norway |
+| `Belgio` | Belgium |
+| `Germania` | Germany |
+| `Cile` | Chile |
+| `UK` | United Kingdom |
+
+These aliases are currently normalised client-side in `js/tabs/overview.js` (`COUNTRY_NORM` map) for the geographic distribution chart. The underlying `database.json` records retain the original values.
+
+**Resolution path:** Standardise all country values to English common names during the next data reconciliation pass using `scripts/validate.py` or a dedicated migration script. Until then, any new chart or filter that groups by country must apply the same normalisation.
+
+---
+
 ## #8 Automated Investigation — Cyrillic text artefact
 
 **Status:** Known content issue — moved from sirogja-issues.md #19 (2026-03-24)
