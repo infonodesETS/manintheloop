@@ -207,16 +207,21 @@
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading graph…</div></div>
     <div id="graph-layout">
       <div id="graph-pane">
+        <svg id="graph-svg"></svg>
+        <div id="graph-hint">
+          <div class="graph-hint-title">All nodes are visible</div>
+          Filter by sector below, or search for a company or investor to focus the graph
+        </div>
         <div id="graph-controls">
           <button class="gv-btn active" id="gv-net"  title="Network — companies at centre, investors orbiting. Links connect each investor to the companies it backed.">Network</button>
           <button class="gv-btn"        id="gv-bi"   title="Bipartite — two columns: investors on the left, companies on the right. Easier to trace a single investor's portfolio.">Bipartite</button>
           <button class="gv-btn"        id="gv-proj" title="Projection — investors only. A link between two investors means they co-invested in at least one company. Thicker = more shared companies.">Projection</button>
           <div class="ctrl-sep"></div>
-          <button class="sf-btn active" data-sector="all">All</button>
+          <button class="sf-btn active" data-sector="Startup">Startup</button>
           <button class="sf-btn"        data-sector="Defence">Defence</button>
           <button class="sf-btn"        data-sector="Mining">Mining</button>
           <button class="sf-btn"        data-sector="Tech">Tech</button>
-          <button class="sf-btn"        data-sector="Startup">Startup</button>
+          <button class="sf-btn"        data-sector="all">All</button>
           <div id="proj-filter-btns" class="hidden">
             <button class="gv-btn active" id="pf-all">All edges</button>
             <button class="gv-btn"        id="pf-multi">Co-invest ≥2</button>
@@ -226,13 +231,6 @@
           <button class="gv-btn active" id="gv-show-inv">Investors</button>
           <div class="ctrl-sep"></div>
           <input id="graph-search" type="search" placeholder="Search nodes…" autocomplete="off">
-          <button class="gv-btn" id="gv-lead-only">Lead only</button>
-          <button class="gv-btn" id="gv-hide-iso">Hide isolated</button>
-        </div>
-        <svg id="graph-svg"></svg>
-        <div id="graph-hint">
-          <div class="graph-hint-title">All nodes are visible</div>
-          Filter by sector above, or search for a company or investor to focus the graph
         </div>
       </div>
       <div id="graph-detail" class="sidebar">

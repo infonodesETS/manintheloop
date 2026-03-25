@@ -9,7 +9,7 @@ import initMatrix, { setMatrixSector, closeMxDetail } from './tabs/matrix.js';
 import initCompanies, { setCoSector, sortCo, renderCoTable, restoreCoUrl, openCompaniesIntro } from './tabs/companies.js';
 import initInvestors, { sortInv, renderInvTable, restoreInvUrl, openInvestorsIntro } from './tabs/investors.js';
 import initRelationships, { renderRelTable, restoreRelUrl, openRelationshipsIntro } from './tabs/relationships.js';
-import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, showGraphHelp, setGraphSearch, setLeadOnly, setHideIsolated, setShowCompanies, setShowInvestors } from './tabs/graph.js';
+import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, showGraphHelp, setGraphSearch, setShowCompanies, setShowInvestors } from './tabs/graph.js';
 import initMap, { toggleMapArcs, resetMapZoom, closeMapPanel, clearMapFilter, selectMapCountryByName } from './tabs/map.js';
 import initWikidata, { toggleWdMode, onLiveInput } from './tabs/wikidata.js';
 import initQuality from './tabs/quality.js';
@@ -196,14 +196,6 @@ function restoreFromUrl() {
         const inp = document.getElementById('graph-search');
         if (inp) { inp.value = p.search; setGraphSearch(p.search); }
       }
-      if (p.lead === '1') {
-        const btn = document.getElementById('gv-lead-only');
-        if (btn && !btn.classList.contains('active')) { btn.classList.add('active'); setLeadOnly(true); }
-      }
-      if (p.hideIso === '1') {
-        const btn = document.getElementById('gv-hide-iso');
-        if (btn && !btn.classList.contains('active')) { btn.classList.add('active'); setHideIsolated(true); }
-      }
       if (p.hideCo === '1') {
         const btn = document.getElementById('gv-show-co');
         if (btn && btn.classList.contains('active')) { btn.classList.remove('active'); setShowCompanies(false); }
@@ -333,8 +325,6 @@ loadData()
       const p = { tab: 'graph', view: g.view || 'network' };
       if (g.sector && g.sector !== 'all') p.sector = g.sector;
       if (g.search)        p.search  = g.search;
-      if (g.leadOnly)      p.lead    = '1';
-      if (g.hideIsolated)  p.hideIso = '1';
       if (!g.showCompanies) p.hideCo = '1';
       if (!g.showInvestors) p.hideInv = '1';
       if (g.projFilter && g.projFilter !== 'all') p.proj = g.projFilter;
@@ -359,14 +349,6 @@ loadData()
     });
     document.getElementById('gv-show-inv').addEventListener('click', function() {
       setShowInvestors(this.classList.toggle('active'));
-      setParams(getGraphBaseParams());
-    });
-    document.getElementById('gv-lead-only').addEventListener('click', function() {
-      setLeadOnly(this.classList.toggle('active'));
-      setParams(getGraphBaseParams());
-    });
-    document.getElementById('gv-hide-iso').addEventListener('click', function() {
-      setHideIsolated(this.classList.toggle('active'));
       setParams(getGraphBaseParams());
     });
 

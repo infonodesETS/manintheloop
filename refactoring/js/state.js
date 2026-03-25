@@ -24,7 +24,7 @@ export const AppState = {
     relationships: { search: '' },
     graph: {
       view: 'network',
-      sector: 'all',
+      sector: 'Startup',
       projFilter: 'all',
       search: '',
       leadOnly: false,

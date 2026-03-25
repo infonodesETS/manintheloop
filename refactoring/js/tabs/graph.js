@@ -16,7 +16,12 @@ export function showGraphHelp() {
 }
 
 export default function initGraph() {
+  // Apply default sector on first load
+  const s = AppState.ui.graph.sector;
+  AppState.COMPANIES = s === 'all' ? [...AppState.ALL_COMPANIES] : AppState.ALL_COMPANIES.filter(c => c.sector === s);
   buildGraphView();
+  // Dismiss hint immediately if a non-all sector is pre-selected
+  if (s !== 'all') document.getElementById('graph-hint')?.classList.add('hidden');
   showGraphHelp();
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && AppState.ui.currentTab === 'graph') closeGraphDetail();
@@ -230,8 +235,9 @@ function appendNodeShapes(nd) {
 function setupGraphSvg() {
   const svg = d3.select('#graph-svg');
   svg.selectAll('*').remove();
-  const W = document.getElementById('graph-pane').clientWidth;
-  const H = document.getElementById('graph-pane').clientHeight;
+  const svgEl = document.getElementById('graph-svg');
+  const W = svgEl.clientWidth;
+  const H = svgEl.clientHeight;
   const g = svg.append('g');
   const zoom = d3.zoom().scaleExtent([0.05, 5]).on('zoom', e => g.attr('transform', e.transform));
   svg.call(zoom);
@@ -239,9 +245,32 @@ function setupGraphSvg() {
   return { svg, g, W, H };
 }
 
+// Compute a zoom transform that fits all nodes in the viewport (bounding-box fit).
+// Mirrors map.js computeTransformForISOs logic.
+function computeGraphFit(nodes, W, H, pad = 50) {
+  const pts = nodes.filter(n => n.x != null && n.y != null);
+  if (pts.length < 2) return d3.zoomIdentity;
+  const xs = pts.map(n => n.x), ys = pts.map(n => n.y);
+  const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
+  const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
+  const k = Math.min(W / (maxX - minX), H / (maxY - minY), 3);
+  return d3.zoomIdentity
+    .translate(W / 2 - k * (minX + maxX) / 2, H / 2 - k * (minY + maxY) / 2)
+    .scale(k);
+}
+
+function applyDefaultTransform(svg, zoom, t, animate = false) {
+  AppState.ui.graph.defaultTransform = t;
+  if (animate) svg.transition().duration(500).call(zoom.transform, t);
+  else svg.call(zoom.transform, t);
+}
+
 function gOnClick(e, d, nd, lk) {
   e.stopPropagation();
   document.getElementById('graph-hint')?.classList.add('hidden');
+  // Tooltip on click mirrors mouseover (useful on touch)
+  if (d._gtype === 'investor') tip(e, d.entity?.name || d.name, `${d.total} investments · ${d.leads} lead`, d.portfolio?.slice(0, 3).map(p => p.company?.name).join(', '));
+  else tip(e, d.name, `${(d._investors || []).length} investors`, d.sector || '');
   const connected = new Set([d.id]);
   AppState.derived.raw.forEach(([c, i]) => {
     if (c === d.id || i === d.id) { connected.add(c); connected.add(i); }
@@ -263,8 +292,8 @@ function gOnClick(e, d, nd, lk) {
     const svg = d3.select('#graph-svg');
     const zoom = AppState.ui.graph.zoom;
     if (!zoom) return;
-    const W = document.getElementById('graph-pane').clientWidth;
-    const H = document.getElementById('graph-pane').clientHeight;
+    const svgEl = document.getElementById('graph-svg');
+    const W = svgEl.clientWidth, H = svgEl.clientHeight;
     const pts = [];
     nd.each(n => { if (connected.has(n.id) && n.x != null) pts.push([n.x, n.y]); });
     if (pts.length < 2) return;
@@ -316,6 +345,9 @@ function buildNetwork() {
   links = links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
   const nodes = [...coNodes, ...invNodes];
 
+  // Apply initial bounding-box fit from ring positions
+  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
     .attr('class', d => `glink${d.lead ? ' lead' : ''}`)
@@ -340,7 +372,11 @@ function buildNetwork() {
 
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    hideTip();
     closeGraphDetail();
+    const t = AppState.ui.graph.defaultTransform;
+    const z = AppState.ui.graph.zoom;
+    if (t && z) svg.transition().duration(500).call(z.transform, t);
   });
 
   _nd = nd; _lk = lk;
@@ -355,6 +391,9 @@ function buildNetwork() {
     .on('tick', () => {
       lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    })
+    .on('end', () => {
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
     });
 }
 
@@ -391,6 +430,9 @@ function buildBipartite() {
   links = links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
   const nodes = [...invNodes, ...coNodes];
 
+  // Bipartite positions are column-exact — fit immediately
+  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
     .attr('class', d => `glink${d.lead ? ' lead' : ''}`)
@@ -414,7 +456,11 @@ function buildBipartite() {
 
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    hideTip();
     closeGraphDetail();
+    const t = AppState.ui.graph.defaultTransform;
+    const z = AppState.ui.graph.zoom;
+    if (t && z) svg.transition().duration(500).call(z.transform, t);
   });
 
   _nd = nd; _lk = lk;
@@ -430,6 +476,9 @@ function buildBipartite() {
     .on('tick', () => {
       lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    })
+    .on('end', () => {
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
     });
 }
 
@@ -480,6 +529,9 @@ function buildProjection() {
       y: H / 2 + (Math.random() - 0.5) * 300,
     }));
 
+  // Apply initial fit from randomised starting positions
+  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
     .attr('stroke', d => d.weight > 1 ? 'rgba(104,204,209,.5)' : 'rgb(65,67,69)')
@@ -500,6 +552,7 @@ function buildProjection() {
       .on('end',   (e, d) => { if (!e.active) ui.graph.simProj.alphaTarget(0); d.fx = null; d.fy = null; }))
     .on('click', (e, d) => {
       e.stopPropagation();
+      tip(e, d.id, `${d.total} investments · ${d.leads} lead`);
       nd.classed('ghl', n => n.id === d.id || links.some(l => {
         const s = l.source.id || l.source, t = l.target.id || l.target;
         return (s === d.id && t === n.id) || (t === d.id && s === n.id);
@@ -526,9 +579,14 @@ function buildProjection() {
       .attr('class', `gbadge gbadge--${typeKey(d.entity?.type || d.type)}`)
       .attr('dy', 4).attr('text-anchor', 'middle').text(d.total);
   });
+
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    hideTip();
     closeGraphDetail();
+    const t = AppState.ui.graph.defaultTransform;
+    const z = AppState.ui.graph.zoom;
+    if (t && z) svg.transition().duration(500).call(z.transform, t);
   });
 
   _nd = nd; _lk = lk;
@@ -543,5 +601,8 @@ function buildProjection() {
     .on('tick', () => {
       lk.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
+    })
+    .on('end', () => {
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
     });
 }
