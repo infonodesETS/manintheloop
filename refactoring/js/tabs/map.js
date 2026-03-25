@@ -155,8 +155,6 @@ function setDefaultPanelContent() {
 }
 
 function buildMapView() {
-  AppState.ui.map.built = true;
-
   const { companies, relationships, derived } = AppState;
   const { entityMap } = derived;
   const mapState = AppState.ui.map;
@@ -201,6 +199,7 @@ function buildMapView() {
 }
 
 function drawMap(world) {
+  AppState.ui.map.built = true;
   const el = document.getElementById('map-svg');
   const W = el.clientWidth || 900;
   const H = el.clientHeight || 500;
