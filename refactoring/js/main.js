@@ -152,10 +152,18 @@ function restoreFromUrl() {
   switch (tab) {
     case 'companies':
       restoreCoUrl(p);
+      if (p.company) {
+        const co = AppState.companies.find(c => c.id === p.company);
+        if (co) openCompanySidebar(co);
+      }
       break;
 
     case 'investors':
       restoreInvUrl(p);
+      if (p.investor) {
+        const im = AppState.derived.investorMeta[p.investor];
+        if (im) openInvestorSidebar(im);
+      }
       break;
 
     case 'relationships':
@@ -173,20 +181,6 @@ function restoreFromUrl() {
       if (p.country) {
         if (AppState.ui.map.built) selectMapCountryByName(p.country);
         else AppState.ui.map.pendingCountry = p.country;
-      }
-      break;
-
-    case 'companies':
-      if (p.company) {
-        const co = AppState.companies.find(c => c.id === p.company);
-        if (co) openCompanySidebar(co);
-      }
-      break;
-
-    case 'investors':
-      if (p.investor) {
-        const im = AppState.derived.investorMeta[p.investor];
-        if (im) openInvestorSidebar(im);
       }
       break;
 

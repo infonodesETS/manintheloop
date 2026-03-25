@@ -17,12 +17,13 @@ export function getParams() {
 // Auto-inject ?research= group when only ?tab= is provided by tab-level code.
 const TAB_TO_RESEARCH = {
   intro:         'intro',
-  overview:      'supply-chain', matrix:  'supply-chain', graph:         'supply-chain',
-  companies:     'supply-chain', investors: 'supply-chain', relationships: 'supply-chain',
+  overview:      'supply-chain', matrix:        'supply-chain', graph:        'supply-chain',
+  companies:     'supply-chain', investors:     'supply-chain', relationships:'supply-chain',
   map:           'supply-chain',
-  eucalls:       'edf', edfbrowse: 'edf',
-  wikidata:      'tools', quality: 'tools',
-  about:         'about',
+  edfoverview:   'edf',          edfmap:        'edf',          eucalls:      'edf',
+  edfbrowse:     'edf',
+  about:         'about',        knownissues:   'about',        quality:      'about',
+  wikidata:      'about',        data:          'about',        glossary:     'about',
 };
 
 /**
