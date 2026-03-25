@@ -291,27 +291,6 @@ function gOnClick(e, d, nd, lk) {
     return !(connected.has(s) && connected.has(t));
   });
   graphShowPanel(d);
-
-  // Auto-zoom to bounding box of connected nodes (skip if only 1 node)
-  if (connected.size > 1) {
-    const svg = d3.select('#graph-svg');
-    const zoom = AppState.ui.graph.zoom;
-    if (!zoom) return;
-    const svgEl = document.getElementById('graph-svg');
-    const W = svgEl.clientWidth, H = svgEl.clientHeight;
-    const pts = [];
-    nd.each(n => { if (connected.has(n.id) && n.x != null) pts.push([n.x, n.y]); });
-    if (pts.length < 2) return;
-    const pad = 60;
-    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
-    const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
-    const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
-    const k = Math.min(W / (maxX - minX), H / (maxY - minY), 3);
-    const tx = W / 2 - k * (minX + maxX) / 2;
-    const ty = H / 2 - k * (minY + maxY) / 2;
-    svg.transition().duration(600)
-      .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
-  }
 }
 
 function buildNetwork() {
