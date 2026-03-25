@@ -114,8 +114,8 @@ export function resetMapZoom() {
 }
 
 export function closeMapPanel() {
-  const { svg, zoom } = AppState.ui.map;
-  if (svg && zoom) svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  const { svg, zoom, defaultTransform } = AppState.ui.map;
+  if (svg && zoom) svg.transition().duration(500).call(zoom.transform, defaultTransform || d3.zoomIdentity);
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
   AppState.ui.map.activeFilter = null;
@@ -347,6 +347,12 @@ function drawMap(world) {
   setDefaultPanelContent();
   document.getElementById('map-panel').classList.remove('d-none');
 
+  // Compute and apply the default view (fit all data countries) immediately on load.
+  // Store it so closeMapPanel / Reset Zoom can restore exactly this view.
+  const allDataISOs = new Set(Object.keys(mapState.countryData).map(Number));
+  mapState.defaultTransform = computeTransformForISOs(allDataISOs, false);
+  mapState.svg.call(mapState.zoom.transform, mapState.defaultTransform);
+
   applyMapFilter(); // initialise filter bar state (hidden by default)
 }
 
@@ -399,35 +405,40 @@ function drawArcs(layer) {
   });
 }
 
-function fitMapToISOs(isos) {
+// Compute the D3 zoom transform that fits the given ISO set into view.
+// clampMin=true prevents zooming out past k=1 (used for country clicks);
+// clampMin=false is used for the initial/default fit-to-all-data view.
+function computeTransformForISOs(isos, clampMin = true) {
   const mapState = AppState.ui.map;
   const el = document.getElementById('map-svg');
   const W = el.clientWidth;
   const H = el.clientHeight;
-  // The panel sits beside the SVG (not over it), so the full SVG width is available.
-  const availW = W;
+  const availW = W; // panel is a flex sibling, not an overlay
 
   const points = [...isos].map(iso => mapState.centroids[iso]).filter(Boolean);
-  if (!points.length) return;
+  if (!points.length) return d3.zoomIdentity;
 
   const pad = 80;
   if (points.length === 1) {
     const [cx, cy] = points[0];
     const k = Math.min(availW / (pad * 4), H / (pad * 4), 6);
-    mapState.svg.transition().duration(700)
-      .call(mapState.zoom.transform, d3.zoomIdentity.translate(availW / 2 - k * cx, H / 2 - k * cy).scale(k));
-    return;
+    return d3.zoomIdentity.translate(availW / 2 - k * cx, H / 2 - k * cy).scale(k);
   }
 
   const xs = points.map(p => p[0]);
   const ys = points.map(p => p[1]);
   const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
   const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
-  // Clamp to minimum 1 so clicking a country never zooms out past the initial view.
-  const k = Math.max(Math.min(availW / (maxX - minX), H / (maxY - minY), 8), 1);
+  let k = Math.min(availW / (maxX - minX), H / (maxY - minY), 8);
+  if (clampMin) k = Math.max(k, 1);
   const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
+  return d3.zoomIdentity.translate(availW / 2 - k * midX, H / 2 - k * midY).scale(k);
+}
+
+function fitMapToISOs(isos) {
+  const mapState = AppState.ui.map;
   mapState.svg.transition().duration(700)
-    .call(mapState.zoom.transform, d3.zoomIdentity.translate(availW / 2 - k * midX, H / 2 - k * midY).scale(k));
+    .call(mapState.zoom.transform, computeTransformForISOs(isos));
 }
 
 function showMapCountry(iso) {
@@ -662,6 +673,7 @@ function filterMapByEntity(entityId, fromIso) {
 
   AppState.ui.map.activeFilter = { id: entityId, name: ent.name, isos: activeISOs };
   applyMapFilter();
+  if (activeISOs.size > 0) fitMapToISOs(activeISOs);
 
   // Drill-down: replace sidebar with entity detail
   const panelBody = document.getElementById('map-panel-body');
