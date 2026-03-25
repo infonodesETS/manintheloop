@@ -110,13 +110,15 @@ export function toggleMapArcs(show) {
 }
 
 export function resetMapZoom() {
-  const { svg, zoom } = AppState.ui.map;
-  if (svg && zoom) svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  closeMapPanel();
 }
 
 export function closeMapPanel() {
+  const { svg, zoom } = AppState.ui.map;
+  if (svg && zoom) svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
+  AppState.ui.map.activeFilter = null;
   const p = getParams(); delete p.country; setParams(p);
   document.getElementById('map-panel-title').textContent = 'About this map';
   document.getElementById('map-panel-body').innerHTML = `
@@ -402,8 +404,8 @@ function fitMapToISOs(isos) {
   const el = document.getElementById('map-svg');
   const W = el.clientWidth;
   const H = el.clientHeight;
-  const panelW = 450; // --sl-w-inline
-  const availW = Math.max(W - panelW, 200);
+  // The panel sits beside the SVG (not over it), so the full SVG width is available.
+  const availW = W;
 
   const points = [...isos].map(iso => mapState.centroids[iso]).filter(Boolean);
   if (!points.length) return;
@@ -421,7 +423,8 @@ function fitMapToISOs(isos) {
   const ys = points.map(p => p[1]);
   const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
   const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
-  const k = Math.min(availW / (maxX - minX), H / (maxY - minY), 8);
+  // Clamp to minimum 1 so clicking a country never zooms out past the initial view.
+  const k = Math.max(Math.min(availW / (maxX - minX), H / (maxY - minY), 8), 1);
   const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
   mapState.svg.transition().duration(700)
     .call(mapState.zoom.transform, d3.zoomIdentity.translate(availW / 2 - k * midX, H / 2 - k * midY).scale(k));
