@@ -61,7 +61,12 @@ function applyGraphSearch() {
   if (!q) { _nd.classed('ghl', false).classed('gdim', false); _lk.classed('ghl', false).classed('gdim', false); return; }
 
   const matchIds = new Set();
-  _nd.each(d => { if ((d.id || '').toLowerCase().includes(q)) matchIds.add(d.id); });
+  _nd.each(d => {
+    const nameMatch = (d.id || '').toLowerCase().includes(q);
+    // Also match investors by portfolio count when query is a number
+    const countMatch = /^\d+$/.test(q) && d._gtype === 'investor' && String(d.total || '') === q;
+    if (nameMatch || countMatch) matchIds.add(d.id);
+  });
 
   const connectedIds = new Set(matchIds);
   AppState.derived.raw.forEach(([c, i]) => {
@@ -69,10 +74,15 @@ function applyGraphSearch() {
     if (matchIds.has(i)) connectedIds.add(c);
   });
 
-  _nd.classed('ghl', d => connectedIds.has(d.id));
-  _lk.classed('ghl', l => {
+  _nd.classed('ghl',  d => connectedIds.has(d.id));
+  _nd.classed('gdim', d => !connectedIds.has(d.id));
+  _lk.classed('ghl',  l => {
     const s = l.source.id || l.source, t = l.target.id || l.target;
     return connectedIds.has(s) && connectedIds.has(t) && (matchIds.has(s) || matchIds.has(t));
+  });
+  _lk.classed('gdim', l => {
+    const s = l.source.id || l.source, t = l.target.id || l.target;
+    return !(connectedIds.has(s) && connectedIds.has(t));
   });
 }
 
