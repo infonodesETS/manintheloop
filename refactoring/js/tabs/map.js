@@ -120,23 +120,7 @@ export function closeMapPanel() {
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
   AppState.ui.map.activeFilter = null;
   const p = getParams(); delete p.country; setParams(p);
-  document.getElementById('map-panel-title').textContent = 'About this map';
-  document.getElementById('map-panel-body').innerHTML = `
-    <div class="sl-panel-section">
-      <div class="sl-section-lbl">What this map shows and how to navigate it</div>
-      <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
-      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
-      <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
-    </div>
-  `;
-  // Reset status to global counts
-  const mapState = AppState.ui.map;
-  if (mapState.countryData) {
-    const coCount = Object.keys(mapState.countryData).length;
-    const totCo   = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
-    document.getElementById('map-status').textContent =
-      `${coCount} countries · ${totCo} companies mapped · ${mapState.arcData.length} cross-border investor pairs`;
-  }
+  setDefaultPanelContent();
 }
 
 export function selectMapCountryByName(name) {
@@ -150,9 +134,28 @@ export function clearMapFilter() {
   closeMapPanel();
 }
 
+function setDefaultPanelContent() {
+  const mapState = AppState.ui.map;
+  document.getElementById('map-panel-title').textContent = 'About this map';
+  let globalStats = '';
+  if (mapState.countryData) {
+    const coCount = Object.keys(mapState.countryData).length;
+    const totCo   = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
+    globalStats = `<p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} companies</strong>, with <strong>${mapState.arcData.length} cross-border investor connections</strong>.</p>`;
+  }
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">What this map shows and how to navigate it</div>
+      ${globalStats}
+      <p class="map-intro-text">Each circle represents a country with at least one company in the supply chain dataset. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs, not necessarily where more companies are headquartered.</p>
+      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end), showing the direction capital flows across borders.</p>
+      <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
+    </div>
+  `;
+}
+
 function buildMapView() {
   AppState.ui.map.built = true;
-  document.getElementById('map-status').textContent = 'Loading world map…';
 
   const { companies, relationships, derived } = AppState;
   const { entityMap } = derived;
@@ -193,7 +196,7 @@ function buildMapView() {
     .then(r => r.json())
     .then(world => drawMap(world))
     .catch(err => {
-      document.getElementById('map-status').textContent = 'Failed to load map: ' + err.message;
+      document.getElementById('map-panel-body').innerHTML = `<p class="map-intro-text" style="color:var(--accent)">Failed to load map: ${esc(err.message)}</p>`;
     });
 }
 
@@ -341,10 +344,7 @@ function drawMap(world) {
     }
   });
 
-  const coCount = Object.keys(mapState.countryData).length;
-  const totCo = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
-  document.getElementById('map-status').textContent =
-    `${coCount} countries · ${totCo} companies mapped · ${mapState.arcData.length} cross-border investor pairs`;
+  setDefaultPanelContent();
   document.getElementById('map-panel').classList.remove('d-none');
 
   applyMapFilter(); // initialise filter bar state (hidden by default)
@@ -489,6 +489,55 @@ function showMapCountry(iso) {
   const flowInArr  = Object.entries(flowIn);
   const flowOutArr = Object.entries(flowOut);
 
+  // Count investors (IV-*) headquartered in this country
+  const localInvestorCount = Object.values(entityMap).filter(e => {
+    if (!e.id?.startsWith('IV-')) return false;
+    const c = e.sources?.infonodes?.country || e.sources?.wikidata?.country;
+    return WD_TO_ISO[c] === iso;
+  }).length;
+
+  // Unique destination countries for outbound flows (local investors → foreign companies)
+  const outDestCountries = [];
+  const outDestISOs = new Set();
+  relationships.forEach(rel => {
+    const inv = entityMap[rel.source];
+    if (!inv) return;
+    const invCountry = inv.sources?.infonodes?.country || inv.sources?.wikidata?.country;
+    if (WD_TO_ISO[invCountry] !== iso) return;
+    const comp = entityMap[rel.target];
+    if (!comp) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    const compISO = WD_TO_ISO[compCountry];
+    if (compISO && compISO !== iso && !outDestISOs.has(compISO)) {
+      outDestISOs.add(compISO);
+      outDestCountries.push(ISO_TO_NAME[compISO] || compCountry);
+    }
+  });
+
+  // Build human-readable intro
+  const coStr = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
+  const entityParts = [coStr];
+  if (localInvestorCount > 0) entityParts.push(localInvestorCount === 1 ? '1 investor' : `${localInvestorCount} investors`);
+  let introText = `Showing ${entityParts.join(' and ')} headquartered in ${esc(cd.name)}.`;
+
+  if (flowInArr.length > 0 || flowOutArr.length > 0) {
+    const inCount = flowInArr.length;
+    const inPart = inCount === 0
+      ? `0 investors investing in ${esc(cd.name)} from abroad (0 inbound arcs)`
+      : `${inCount} investor${inCount !== 1 ? 's' : ''} investing in ${esc(cd.name)} from abroad (${inCount} inbound arc${inCount !== 1 ? 's' : ''})`;
+
+    const outCount = flowOutArr.length;
+    let outPart;
+    if (outCount === 0) {
+      outPart = `0 investors from ${esc(cd.name)} investing abroad (0 outbound arcs)`;
+    } else {
+      const destSample = outDestCountries.slice(0, 3).map(n => esc(n)).join(', ');
+      const destMore   = outDestCountries.length > 3 ? `… (${outDestCountries.length} countries)` : '';
+      outPart = `${outCount} investor${outCount !== 1 ? 's' : ''} from ${esc(cd.name)} investing abroad (${destSample}${destMore}: ${outCount} outbound arc${outCount !== 1 ? 's' : ''})`;
+    }
+    introText += ` Arcs show that there are ${inPart} and ${outPart}.`;
+  }
+
   const renderInvestorList = (arr) => arr.slice(0, 25).map(([id, name]) => `
     <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
       <span>${esc(name)}</span>
@@ -513,13 +562,10 @@ function showMapCountry(iso) {
     .map(([s, n]) => `${esc(s)} (${n})`)
     .join(', ');
 
-  document.getElementById('map-status').textContent =
-    `${cd.companies.length} ${cd.companies.length === 1 ? 'company' : 'companies'} · ${flowInArr.length} inbound · ${flowOutArr.length} outbound flows`;
-
   const _mapTitleEl = document.getElementById('map-panel-title');
   _mapTitleEl.textContent = cd.name; _mapTitleEl.title = cd.name;
   document.getElementById('map-panel-body').innerHTML = `
-    <p class="map-intro-text" style="margin-bottom:10px">Showing ${cd.companies.length} ${cd.companies.length === 1 ? 'company' : 'companies'} headquartered in ${esc(cd.name)}${flowInArr.length || flowOutArr.length ? `, with ${flowInArr.length} inbound and ${flowOutArr.length} outbound cross-border investor flow${(flowInArr.length + flowOutArr.length) !== 1 ? 's' : ''}.` : '.'}</p>
+    <p class="map-intro-text" style="margin-bottom:10px">${introText}</p>
     <div class="map-sector-row">
       <span class="map-sector-lbl">Sectors:</span> ${sectorSummary}
     </div>
