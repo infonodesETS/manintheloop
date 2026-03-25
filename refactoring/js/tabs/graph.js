@@ -5,6 +5,8 @@ import { esc, fmtFunding, sectorBadge, typeBadge, dualBadge, tip, hideTip } from
 
 // Live D3 selections — updated by each build function so search can run without rebuilding
 let _nd = null, _lk = null;
+// Tooltip pin state — when true, mouseout does not close the tooltip
+let _tipPinned = false;
 
 export function showGraphHelp() {
   const panel = document.getElementById('graph-detail');
@@ -183,6 +185,8 @@ export function setProjFilter(f) {
 }
 
 function buildGraphView() {
+  _tipPinned = false;
+  hideTip();
   const { graph } = AppState.ui;
   if (graph.sim)    graph.sim.stop();
   if (graph.simBi)  graph.simBi.stop();
@@ -268,7 +272,8 @@ function applyDefaultTransform(svg, zoom, t, animate = false) {
 function gOnClick(e, d, nd, lk) {
   e.stopPropagation();
   document.getElementById('graph-hint')?.classList.add('hidden');
-  // Tooltip on click mirrors mouseover (useful on touch)
+  // Tooltip pinned on click — stays open until another node is clicked or background is clicked
+  _tipPinned = true;
   if (d._gtype === 'investor') tip(e, d.entity?.name || d.name, `${d.total} investments · ${d.leads} lead`, d.portfolio?.slice(0, 3).map(p => p.company?.name).join(', '));
   else tip(e, d.name, `${(d._investors || []).length} investors`, d.sector || '');
   const connected = new Set([d.id]);
@@ -363,15 +368,17 @@ function buildNetwork() {
       .on('end',   (e, d) => { if (!e.active) ui.graph.sim.alphaTarget(0); d.fx = null; d.fy = null; }))
     .on('click', (e, d) => gOnClick(e, d, nd, lk))
     .on('mouseover', (e, d) => {
+      if (_tipPinned) return;
       if (d._gtype === 'investor') tip(e, d.entity?.name || d.name, `${d.total} investments · ${d.leads} lead`, d.portfolio.slice(0, 3).map(p => p.company?.name).join(', '));
       else tip(e, d.name, `${(d._investors || []).length} investors`, d.sector || '');
     })
-    .on('mouseout', hideTip);
+    .on('mouseout', () => { if (!_tipPinned) hideTip(); });
 
   appendNodeShapes(nd);
 
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    _tipPinned = false;
     hideTip();
     closeGraphDetail();
     const t = AppState.ui.graph.defaultTransform;
@@ -447,15 +454,17 @@ function buildBipartite() {
       .on('end',   (e, d) => { if (!e.active) ui.graph.simBi.alphaTarget(0); d.fx = null; d.fy = null; }))
     .on('click', (e, d) => gOnClick(e, d, nd, lk))
     .on('mouseover', (e, d) => {
+      if (_tipPinned) return;
       if (d._gtype === 'investor') tip(e, d.entity?.name || d.name, `${d.total} inv · ${d.leads} lead`);
       else tip(e, d.name, `${(d._investors || []).length} investors`, d.sector || '');
     })
-    .on('mouseout', hideTip);
+    .on('mouseout', () => { if (!_tipPinned) hideTip(); });
 
   appendNodeShapes(nd);
 
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    _tipPinned = false;
     hideTip();
     closeGraphDetail();
     const t = AppState.ui.graph.defaultTransform;
@@ -540,7 +549,7 @@ function buildProjection() {
       const s = d.source.id || d.source, t = d.target.id || d.target;
       tip(e, `${s} × ${t}`, `${d.weight} shared`, d.cos.join(', '));
     })
-    .on('mouseout', hideTip);
+    .on('mouseout', () => { if (!_tipPinned) hideTip(); });
 
   function rP(d) { return 5 + Math.sqrt(d.total) * 4; }
 
@@ -552,6 +561,7 @@ function buildProjection() {
       .on('end',   (e, d) => { if (!e.active) ui.graph.simProj.alphaTarget(0); d.fx = null; d.fy = null; }))
     .on('click', (e, d) => {
       e.stopPropagation();
+      _tipPinned = true;
       tip(e, d.id, `${d.total} investments · ${d.leads} lead`);
       nd.classed('ghl', n => n.id === d.id || links.some(l => {
         const s = l.source.id || l.source, t = l.target.id || l.target;
@@ -563,8 +573,8 @@ function buildProjection() {
       });
       graphShowPanel(d);
     })
-    .on('mouseover', (e, d) => tip(e, d.id, `${d.total} investments · ${d.leads} lead`))
-    .on('mouseout', hideTip);
+    .on('mouseover', (e, d) => { if (!_tipPinned) tip(e, d.id, `${d.total} investments · ${d.leads} lead`); })
+    .on('mouseout', () => { if (!_tipPinned) hideTip(); });
 
   // Projection has only investors; use rP as the size fn, wrap it to match appendNodeShapes signature
   nd.each(function(d) {
@@ -582,6 +592,7 @@ function buildProjection() {
 
   svg.on('click', () => {
     nd.classed('ghl', false).classed('gdim', false); lk.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+    _tipPinned = false;
     hideTip();
     closeGraphDetail();
     const t = AppState.ui.graph.defaultTransform;
