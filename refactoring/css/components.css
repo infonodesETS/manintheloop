@@ -161,6 +161,7 @@ th.sortable:hover { color: #fff; }
 #mx-detail-body { flex: 1; overflow-y: auto; padding: var(--sl-body-pad); }
 
 /* ── Detail panel body content (matrix + graph shared) ── */
+.gv-context   { margin: 10px 0 4px; font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid var(--border); padding-left: 8px; }
 .dp-inv-meta  { margin-top: 10px; font-size: var(--sl-row-val-fs); color: var(--text-muted); }
 .dp-co-meta   { margin-top: 8px; font-size: var(--sl-row-lbl-fs); color: var(--text-muted); }
 .dp-funding   { font-size: var(--sl-row-lbl-fs); color: var(--text-muted); margin-top: 2px; }

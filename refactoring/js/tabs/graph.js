@@ -109,6 +109,15 @@ function graphShowPanel(d) {
     const _gTitleEl = document.getElementById('graph-detail-title');
     _gTitleEl.textContent = im.entity.name; _gTitleEl.title = im.entity.name;
     html += typeBadge(im.entity.type);
+    const invCountry = im.entity.sources?.wikidata?.country || im.entity.sources?.infonodes?.country || '';
+    const pfCountries = [...new Set(portfolioFiltered.map(p => p.company?.sources?.wikidata?.country || p.company?.sources?.infonodes?.country).filter(Boolean))];
+    const typeLabel = (im.entity.type || 'investor').replace(/_/g, ' ');
+    html += `<p class="gv-context">`;
+    html += `<strong>${esc(im.entity.name)}</strong> is a ${esc(typeLabel)}`;
+    if (invCountry) html += ` based in <strong>${esc(invCountry)}</strong>`;
+    html += `. In the current view it has backed <strong>${portfolioFiltered.length}</strong> compan${portfolioFiltered.length === 1 ? 'y' : 'ies'}`;
+    if (pfCountries.length) html += ` across <strong>${pfCountries.length}</strong> countr${pfCountries.length === 1 ? 'y' : 'ies'}`;
+    html += `. Highlighted edges connect to its portfolio; shared edges with other investor nodes indicate co-investments.</p>`;
     html += `<div class="dp-inv-meta">${im.total} investments · ${im.leads} lead</div>`;
     html += `<div class="sl-section-lbl">Portfolio (${portfolioFiltered.length})</div><ul class="es-list">`;
     [...portfolioFiltered].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(p => {
@@ -139,7 +148,23 @@ function graphShowPanel(d) {
     if (c.sector) html += `${sectorBadge(c.sector)} `;
     html += `<span class="badge-type badge-type--company">Manufacturer</span>`;
     if (c.roles?.includes('investor')) html += ` ${dualBadge()}`;
-    const country   = wd?.country || '';
+    const country = wd?.country || '';
+    const invCountries = [...new Set(
+      (c._investors || []).map(x => {
+        const im2 = invMap[x.name];
+        return im2?.entity?.sources?.wikidata?.country || im2?.entity?.sources?.infonodes?.country;
+      }).filter(Boolean)
+    )];
+    html += `<p class="gv-context">`;
+    html += `<strong>${esc(c.name)}</strong> is a company`;
+    if (country) html += ` headquartered in <strong>${esc(country)}</strong>`;
+    html += `. It has received funding from <strong>${(c._investors || []).length}</strong> investor${(c._investors || []).length === 1 ? '' : 's'}`;
+    if (invCountries.length) {
+      const shown = invCountries.slice(0, 3).map(esc).join(', ');
+      const extra = invCountries.length > 3 ? ` +${invCountries.length - 3} more` : '';
+      html += ` from <strong>${shown}${extra}</strong>`;
+    }
+    html += `. Highlighted edges connect to each investor that backed it.</p>`;
     const inception = wd?.inception ? String(wd.inception).slice(0, 4) : '';
     const meta = [country, inception ? `est. ${inception}` : ''].filter(Boolean).join(' · ');
     if (meta) html += `<div class="dp-co-meta">${esc(meta)}</div>`;
