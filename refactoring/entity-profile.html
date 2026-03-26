@@ -384,6 +384,12 @@ body { overflow: auto; padding-top: 0; min-height: 100vh; background: #000; }
 .ep-cb-block .ep-src-hdr::before { background: rgba(244,161,71,.7); }
 .ep-wd-block .ep-src-hdr { color: rgba(104,204,209,.75); }
 .ep-wd-block .ep-src-hdr::before { background: rgba(104,204,209,.65); }
+.ep-src-block.ep-inf-block {
+  background: rgba(0,255,65,.03);
+  border: 1px solid rgba(0,255,65,.15);
+}
+.ep-inf-block .ep-src-hdr { color: rgba(0,255,65,.7); }
+.ep-inf-block .ep-src-hdr::before { background: rgba(0,255,65,.6); }
 
 .ep-src-ts {
   font-family: var(--font-mono); font-size: var(--fs-xs);
@@ -512,6 +518,12 @@ body { overflow: auto; padding-top: 0; min-height: 100vh; background: #000; }
         <div class="ep-card-body" id="ep-ind-body"></div>
       </div>
 
+      <!-- Tags -->
+      <div class="ep-card" id="ep-tags-card" style="display:none">
+        <div class="ep-card-hdr">Tags</div>
+        <div class="ep-card-body" id="ep-tags-body"></div>
+      </div>
+
       <!-- Investors / Portfolio -->
       <div class="ep-card" id="ep-rel-card">
         <div class="ep-card-hdr">
@@ -547,6 +559,12 @@ body { overflow: auto; padding-top: 0; min-height: 100vh; background: #000; }
       <div class="ep-src-block ep-wd-block" id="ep-wd-block">
         <div class="ep-src-hdr">Wikipedia / Wikidata</div>
         <div id="ep-wd-body"></div>
+      </div>
+
+      <!-- infonodes -->
+      <div class="ep-src-block ep-inf-block" id="ep-inf-block">
+        <div class="ep-src-hdr">infonodes</div>
+        <div id="ep-inf-body"></div>
       </div>
 
       <!-- Validation flags -->
@@ -613,9 +631,10 @@ function row(lbl, val) {
 }
 
 /* ── State ─────────────────────────────────────────────────────────────── */
-let ENTITIES = [];    // all enriched entities
-let BY_ID    = {};    // id → entity
-let REL_MAP  = {};    // id → [{rel, role:'investor'|'target', other}]
+let ENTITIES   = [];    // all enriched entities
+let BY_ID      = {};    // id → entity
+let REL_MAP    = {};    // id → [{rel, role:'investor'|'target', other}]  (investment only)
+let OTHER_RELS = {};    // id → [{rel, role:'source'|'target', other}]    (non-investment)
 
 /* ── Load ──────────────────────────────────────────────────────────────── */
 async function loadData() {
@@ -626,11 +645,17 @@ async function loadData() {
 
   // Build relationship maps
   for (const rel of db.relationships) {
-    if (rel.type !== 'investment') continue;
-    if (!REL_MAP[rel.source]) REL_MAP[rel.source] = [];
-    if (!REL_MAP[rel.target]) REL_MAP[rel.target] = [];
-    REL_MAP[rel.source].push({ rel, role:'investor', other: BY_ID[rel.target] || null });
-    REL_MAP[rel.target].push({ rel, role:'target',   other: BY_ID[rel.source] || null });
+    if (rel.type === 'investment') {
+      if (!REL_MAP[rel.source]) REL_MAP[rel.source] = [];
+      if (!REL_MAP[rel.target]) REL_MAP[rel.target] = [];
+      REL_MAP[rel.source].push({ rel, role:'investor', other: BY_ID[rel.target] || null });
+      REL_MAP[rel.target].push({ rel, role:'target',   other: BY_ID[rel.source] || null });
+    } else {
+      if (!OTHER_RELS[rel.source]) OTHER_RELS[rel.source] = [];
+      if (!OTHER_RELS[rel.target]) OTHER_RELS[rel.target] = [];
+      OTHER_RELS[rel.source].push({ rel, role:'source', other: BY_ID[rel.target] || null });
+      OTHER_RELS[rel.target].push({ rel, role:'target', other: BY_ID[rel.source] || null });
+    }
   }
 
   // Build searchable entity list
@@ -897,7 +922,12 @@ function renderProfile(entity) {
   let indHtml = '';
   if (inf?.main_focus)
     indHtml += `<p style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);margin:0 0 14px">${esc(inf.main_focus)}</p>`;
-  if (cb?.primary_industry)   indHtml += row('Primary', esc(cb.primary_industry));
+  if (cb?.primary_industry) {
+    const val = cb.primary_industry_url
+      ? `<a href="${esc(cb.primary_industry_url)}" target="_blank">${esc(cb.primary_industry)} ↗</a>`
+      : esc(cb.primary_industry);
+    indHtml += row('Primary', val);
+  }
   if (cb?.industries?.length)
     indHtml += `<div class="ep-row"><span class="ep-row-lbl">Industries</span><span class="ep-row-val"><div class="ep-tags" style="margin-top:4px">${cb.industries.map(i=>`<span class="ep-tag">${esc(i)}</span>`).join('')}</div></span></div>`;
   if (cb?.industry_groups?.length)
@@ -907,6 +937,16 @@ function renderProfile(entity) {
     indCard.style.display = '';
   } else {
     indCard.style.display = 'none';
+  }
+
+  /* Tags */
+  const tagsCard = document.getElementById('ep-tags-card');
+  const tagsBody = document.getElementById('ep-tags-body');
+  if (entity.tags?.length) {
+    tagsBody.innerHTML = `<div class="ep-tags">${entity.tags.map(t=>`<span class="ep-tag">${esc(t)}</span>`).join('')}</div>`;
+    tagsCard.style.display = '';
+  } else {
+    tagsCard.style.display = 'none';
   }
 
   /* Relationships */
@@ -926,7 +966,8 @@ function renderProfile(entity) {
       const lead = r.rel.details?.lead;
       const badge = r.other ? typeBadge(r.other.type) : '';
       const name  = r.other ? esc(r.other.name) : esc(r.rel.source);
-      return `<li>${badge}<span class="ep-elist-name">${name}</span>${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+      const relMeta = [r.rel.id, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
+      return `<li>${badge}<div style="flex:1;min-width:0;overflow:hidden"><span class="ep-elist-name" style="flex:none;display:block">${name}</span>${relMeta ? `<div class="ep-hist-meta">${esc(relMeta)}</div>` : ''}</div>${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     }).join('') + `</ul>`;
   }
 
@@ -940,14 +981,28 @@ function renderProfile(entity) {
       const badge = r.other ? sectorBadge(r.other.sector) || typeBadge(r.other.type) : '';
       const name  = r.other ? esc(r.other.name) : esc(r.rel.target);
       const country = r.other ? (r.other.sources?.infonodes?.country || r.other.sources?.wikidata?.country || '') : '';
-      return `<li>${badge}<span class="ep-elist-name">${name}</span>${country ? `<span style="font-size:var(--fs-xs);color:var(--dim)">${esc(country)}</span>` : ''}${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+      const relMeta = [r.rel.id, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
+      return `<li>${badge}<div style="flex:1;min-width:0;overflow:hidden"><span class="ep-elist-name" style="flex:none;display:block">${name}</span>${relMeta ? `<div class="ep-hist-meta">${esc(relMeta)}</div>` : ''}</div>${country ? `<span style="font-size:var(--fs-xs);color:var(--dim);flex-shrink:0">${esc(country)}</span>` : ''}${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     }).join('') + `</ul>`;
+  }
+
+  // Non-investment relationships
+  const otherRels = OTHER_RELS[entity.id] || [];
+  if (otherRels.length) {
+    relHtml += `<div class="ep-rel-group-lbl" style="margin-top:${relHtml ? '8px' : '0'}">Other (${otherRels.length})</div>`;
+    relHtml += `<ul class="ep-elist">` + otherRels.map(r => {
+      const name = r.other ? esc(r.other.name) : esc(r.role === 'source' ? r.rel.target : r.rel.source);
+      const badge = r.other ? (sectorBadge(r.other.sector) || typeBadge(r.other.type)) : '';
+      const relMeta = [r.rel.id, r.rel.type, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
+      return `<li>${badge}<div style="flex:1;min-width:0;overflow:hidden"><span class="ep-elist-name" style="flex:none;display:block">${name}</span>${relMeta ? `<div class="ep-hist-meta">${esc(relMeta)}</div>` : ''}</div></li>`;
+    }).join('') + `</ul>`;
+    relTotal += otherRels.length;
   }
 
   if (!relHtml) {
     relHdrLbl.textContent = 'Connections';
     relHdrCount.textContent = '';
-    relBody.innerHTML = `<div class="ep-na">No investment relationships recorded.</div>`;
+    relBody.innerHTML = `<div class="ep-na">No relationships recorded.</div>`;
   } else {
     const bothRoles = isCompany && asTarget.length && asInvestor.length;
     relHdrLbl.textContent = bothRoles ? 'Investors & Portfolio' : (asTarget.length ? `Investors` : `Portfolio`);
@@ -967,12 +1022,18 @@ function renderProfile(entity) {
           ? `Updated ${h.field}: ${h.old ?? 'null'} → ${h.new ?? 'null'}`
           : 'Record created'
       );
+      const hasDiff = h.description && h.field && h.field !== '*' && (h.old != null || h.new != null);
+      const truncate = v => { const s = String(v ?? 'null'); return s.length > 60 ? s.slice(0,60)+'…' : s; };
+      const diff = hasDiff
+        ? `<div class="ep-hist-meta" style="margin-top:2px">${esc(truncate(h.old))} → ${esc(truncate(h.new))}</div>`
+        : '';
       const meta = [h.field && h.field !== '*' ? h.field : null, h.source, h.author]
         .filter(Boolean).join(' · ');
       return `<li class="ep-hist-item">
         <div class="ep-hist-date">${esc(h.date||'')}</div>
         <div>
           <div class="ep-hist-desc">${esc(desc)}</div>
+          ${diff}
           ${meta ? `<div class="ep-hist-meta">${esc(meta)}</div>` : ''}
         </div>
       </li>`;
@@ -1011,6 +1072,7 @@ function renderProfile(entity) {
   const wdBody  = document.getElementById('ep-wd-body');
   if (wd) {
     let wdHtml = '';
+    if (wd.label && wd.label !== entity.name) wdHtml += row('Label', esc(wd.label));
     if (wd.description)
       wdHtml += `<div class="ep-src-desc">${esc(wd.description)}</div>`;
     if (wd.instance_of?.length)
@@ -1028,18 +1090,36 @@ function renderProfile(entity) {
     wdBlock.style.display = '';
   }
 
+  /* infonodes block */
+  const infBlock = document.getElementById('ep-inf-block');
+  const infBody  = document.getElementById('ep-inf-body');
+  if (inf) {
+    let infHtml = '';
+    if (inf.sector)       infHtml += row('Sector', esc(inf.sector));
+    if (inf.extracted_at) infHtml += `<div class="ep-src-ts">extracted ${esc(inf.extracted_at)}</div>`;
+    infBody.innerHTML = infHtml || `<div class="ep-na">infonodes record exists but no additional fields.</div>`;
+    infBlock.style.display = '';
+  } else {
+    infBody.innerHTML = `<div class="ep-na">No infonodes enrichment.</div>`;
+    infBlock.style.display = '';
+  }
+
   /* Validation flags */
   const valCard  = document.getElementById('ep-val-card');
   const valBody  = document.getElementById('ep-val-body');
   const valCount = document.getElementById('ep-val-count');
   const openFlags = (entity.validation||[]).filter(v => v.status !== 'confirmed');
   if (openFlags.length) {
-    valBody.innerHTML = openFlags.map(v =>
-      `<div class="ep-val-item">
+    valBody.innerHTML = openFlags.map(v => {
+      const meta = [v.author, v.datestamp].filter(Boolean).join(' · ');
+      return `<div class="ep-val-item">
         <span class="ep-val-badge ${esc(v.status)}">${v.status==='flagged'?'⛔':'⚠'} ${esc(v.status)}</span>
-        <span class="ep-val-desc">${esc(v.description||'')}</span>
-      </div>`
-    ).join('');
+        <div>
+          <div class="ep-val-desc">${esc(v.description||'')}</div>
+          ${meta ? `<div class="ep-hist-meta">${esc(meta)}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
     valCount.textContent = openFlags.length;
     valCard.style.display = '';
   } else {
