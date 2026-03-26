@@ -25,6 +25,7 @@ Issues are ordered roughly by the order Andy encountered them in the session.
 **Area:** Global nav bar — `#tnav-info` (top-right stat strip)
 **Type:** UX / Content
 **Priority:** Medium
+**Status: RESOLVED** — `#tnav-info` stat strip removed entirely from `index.html` (2026-03-25, commit `fix(ux): remove tnav-info stat strip`). Counters are no longer shown in the nav bar; dataset stats available in the Overview tab and the Copy for AI context block.
 
 The nav bar renders `${companies.length} co · ${investors.length} inv · ${relationships.length} rel` (see `main.js:210`). The abbreviations `co`, `inv`, `rel` are meaningless to anyone unfamiliar with the schema. Andy's immediate reaction: "non capisco niente di queste co-inv-rel".
 
@@ -77,6 +78,7 @@ Andy: "è tutta inferenza che ha fatto l'AI quando io gli dicevo fai queste cose
 **Area:** `js/tabs/overview.js` — Wikidata coverage stat
 **Type:** Content / IA
 **Priority:** High
+**Status: RESOLVED** — Wikidata coverage tile removed from SC Overview `stats[]` array in `overview.js` (2026-03-22, CHANGELOG OV-A). The tile no longer appears in the stats grid.
 
 Andy: "questo wikidata è un po'a cazzo nel senso che non deve stare qua... deve stare in una parte operazionale... quasi di metadati".
 
@@ -134,6 +136,7 @@ Action: audit all tables, chart labels, and sidebar fields for truncation withou
 **Area:** `js/tabs/map.js`
 **Type:** UX / Bug
 **Priority:** High
+**Status: RESOLVED** — `computeTransformForISOs()` and `fitMapToISOs()` implemented in `map.js` (2026-03-25, commit `fix(map): fit default zoom to data countries; zoom to entity on company click`). Default view fits all data countries; clicking a country zooms to its bounding box accounting for sidebar width. `defaultTransform` stored and restored on panel close.
 
 Andy: "è sbagliato nel senso che è come se avesse lo zoom geografico e non lo zoom legato al contesto dei pallini. Dovrebbe prendere il bounding box dei pallini e poi centrare rispetto a questo."
 
@@ -150,6 +153,7 @@ Suggested fix (Andy's own words): compute the bounding box of all active/visible
 **Area:** `js/tabs/graph.js`
 **Type:** UX / Feature
 **Priority:** Medium
+**Status: RESOLVED** — `computeGraphFit()` and `applyDefaultTransform()` implemented in `graph.js` (2026-03-25, commit `feat(graph): move controls to bottom toolbar; bbox fit; click tooltip; blank-click reset`). Bounding-box fit applied at simulation end (`sim.on('end', ...)`) with animated transition; also applied immediately for bipartite/projection views.
 
 When a user selects a country then clicks a company (e.g. Italy → Fincantieri), the graph shows only 3 connected nodes but stays at the default zoom level — making labels unreadable. Andy: "non leggo tutto il resto".
 
@@ -164,6 +168,7 @@ Andy named the D3 mechanism: "transition" + zoom rescale. In D3 v7 this is `zoom
 **Area:** `js/tabs/map.js` — `clearMapFilter()` / `#map-clear-filter-btn`
 **Type:** Bug
 **Priority:** High
+**Status: RESOLVED** — `clearMapFilter()` now calls `closeMapPanel()` after resetting `AppState.ui.map.activeFilter` (map.js:134). `closeMapPanel()` restores the default zoom transform and resets the panel to intro content.
 
 Andy had selected KGM International (an investor entity in the map panel) then pressed Clear. Expected: the panel should close and revert to the "About this map" intro state. Actual: the panel stays open showing KGM International's detail. Andy: "con clear dovrebbe spegnersi tutto e riattivarsi la parte informativa cioè quella che ce n'è nella fase di learning".
 
@@ -253,6 +258,7 @@ Suggested fix: fix the stats strip to a position that is unaffected by sidebar o
 **Area:** `js/tabs/map.js`
 **Type:** UX / Feature
 **Priority:** Medium
+**Status: RESOLVED** — SVG click handler added at `map.js:338`: click on the bare SVG canvas or a non-data path calls `clearMapFilter()` → `closeMapPanel()`, restoring full unfiltered state.
 
 Andy: "al click su un punto vuoto della mappa, il comportamento atteso dall'utente. Noi mappari faremmo così."
 
@@ -307,6 +313,7 @@ Suggested path: at minimum, align visual styles (width, typography tokens, secti
 **Area:** Global (multiple tabs)
 **Type:** Feature
 **Priority:** Low
+**Status: RESOLVED** — `js/copy-ai.js` implemented with `buildAiSnapshot()` dispatching per-tab snapshots to Markdown (Overview, Companies, Investors, Relationships, Map, Graph, Company Search). "Copy for AI" button (`#copy-ai-btn`) in the global nav bar. Context block prepended to every snapshot. `initCopyAI()` wired at boot.
 
 Andy described a pattern he implemented on a Sicilian regional assembly site: a "copy resources for AI" button that generates a structured Markdown snapshot of the current view (entity list, active filters, key data points) plus a suggested prompt. This lets users paste the context directly into an LLM for analysis.
 
@@ -327,6 +334,7 @@ This is additive and low-risk. Priority is low because it requires scoping per t
 **Area:** `index.html` — `<head>`
 **Type:** Feature
 **Priority:** Low
+**Status: PARTIALLY RESOLVED** — `og:title`, `og:description`, `og:type`, `twitter:card`, `twitter:title`, `twitter:description`, and `meta name="description"` are all present in `index.html`. Still missing: `og:image` (no social preview image) and `<link rel="canonical">`.
 
 Andy mentioned at the end of the session: "guardati pure le cose carine di SEO e di Open Graph, Twitter Card, tutti i metadati che hai."
 
@@ -396,28 +404,28 @@ Files: `js/tabs/wikidata.js`
 
 ## Summary table
 
-| ID | Area | Type | Priority | Overlaps |
-|---|---|---|---|---|
-| #01 | Nav bar `#tnav-info` counters | UX/Content | Medium | — |
-| #02 | Tooltips global | UX | Low | — |
-| #03 | SC Overview `#stats-grid` abstraction mix | UX/Content | High | — |
-| #04 | SC Overview Wikidata tile misplaced | Content/IA | High | — |
-| #05 | SC Overview chart labels truncated | UX | Medium | — |
-| #06 | SC Overview chart not clickable | UX/Feature | Medium | — |
-| #07 | Ellipsis → tooltip global | UX | Medium | — |
-| #08 | Map zoom to bounding box | UX/Bug | High | spec-improvement 3.3 |
-| #09 | Graph auto-zoom on company select | UX/Feature | Medium | spec-improvement 3.2 |
-| #10 | Map `clearMapFilter()` doesn't close panel | Bug | High | — |
-| #11 | Map arc legend disappears on country select | UX/Content | Medium | — |
-| #12 | Graph URL routing: 5 filters missing | Feature | Medium | spec-improvement 1.1 |
-| #13 | Map `#map-status` not contextual | Feature | Medium | — |
-| #14 | Map stats layout shift on panel open | UX/Bug | Medium | — |
-| #15 | Map click empty area to reset | UX/Feature | Medium | — |
-| #16 | Table tag-click filter | Feature | Medium | — |
-| #17 | Sidebar inconsistency across tabs | UX | Medium | spec-improvement 2.4 |
-| #18 | Copy as Markdown / LLM export | Feature | Low | — |
-| #19 | SEO / Open Graph metadata | Feature | Low | — |
-| #20 | Map arc toggle lacks UX rationale | UX/Content | Low | — |
-| #21 | Map country panel lacks intro sentence | UX/Content | Low | — |
-| #22 | Cross-tab navigation from company detail | Feature | Low | — |
-| #23 | Wikidata SPARQL transient error UX | Bug (intermittent) | Low | — |
+| ID | Area | Type | Priority | Status | Overlaps |
+|---|---|---|---|---|---|
+| #01 | Nav bar `#tnav-info` counters | UX/Content | Medium | ✅ RESOLVED | — |
+| #02 | Tooltips global | UX | Low | open | — |
+| #03 | SC Overview `#stats-grid` abstraction mix | UX/Content | High | open | — |
+| #04 | SC Overview Wikidata tile misplaced | Content/IA | High | ✅ RESOLVED | — |
+| #05 | SC Overview chart labels truncated | UX | Medium | open | — |
+| #06 | SC Overview chart not clickable | UX/Feature | Medium | open | — |
+| #07 | Ellipsis → tooltip global | UX | Medium | open | — |
+| #08 | Map zoom to bounding box | UX/Bug | High | ✅ RESOLVED | spec-improvement 3.3 |
+| #09 | Graph auto-zoom on company select | UX/Feature | Medium | ✅ RESOLVED | spec-improvement 3.2 |
+| #10 | Map `clearMapFilter()` doesn't close panel | Bug | High | ✅ RESOLVED | — |
+| #11 | Map arc legend disappears on country select | UX/Content | Medium | open | — |
+| #12 | Graph URL routing: 5 filters missing | Feature | Medium | open | spec-improvement 1.1 |
+| #13 | Map `#map-status` not contextual | Feature | Medium | open | — |
+| #14 | Map stats layout shift on panel open | UX/Bug | Medium | open | — |
+| #15 | Map click empty area to reset | UX/Feature | Medium | ✅ RESOLVED | — |
+| #16 | Table tag-click filter | Feature | Medium | open | — |
+| #17 | Sidebar inconsistency across tabs | UX | Medium | open | spec-improvement 2.4 |
+| #18 | Copy as Markdown / LLM export | Feature | Low | ✅ RESOLVED | — |
+| #19 | SEO / Open Graph metadata | Feature | Low | ⚠️ PARTIAL (og:image + canonical missing) | — |
+| #20 | Map arc toggle lacks UX rationale | UX/Content | Low | open | — |
+| #21 | Map country panel lacks intro sentence | UX/Content | Low | open | — |
+| #22 | Cross-tab navigation from company detail | Feature | Low | open | — |
+| #23 | Wikidata SPARQL transient error UX | Bug (intermittent) | Low | open | — |
