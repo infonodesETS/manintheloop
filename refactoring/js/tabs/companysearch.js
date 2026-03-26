@@ -13,6 +13,9 @@ function highlight(text, q) {
   const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
   return esc(text).replace(re, '<mark>$1</mark>');
 }
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
 function entityLink(other, fallback) {
   if (!other) return esc(fallback);
   return `<button class="cs-elist-link" data-entity-id="${esc(other.id)}">${esc(other.name)}</button>`;
@@ -126,7 +129,7 @@ function selectEntity(entity) {
   closeAc();
   searchEl.value = entity.name;
   AppState.ui.companysearch.entityId = entity.id;
-  setParams({ research: 'company-search', entity: entity.id }, true);
+  setParams({ research: 'company-search', entity: entity.id, 'entity-name': slugify(entity.name) }, true);
   document.getElementById('cs-hero').classList.add('compact');
   document.getElementById('cs-showing').textContent = entity.name;
   renderProfile(entity);
@@ -134,7 +137,7 @@ function selectEntity(entity) {
 
 function clearSelection() {
   AppState.ui.companysearch.entityId = null;
-  setParams({ research: 'company-search' }, true);
+  setParams({ research: 'company-search', entity: null, 'entity-name': null }, true);
   searchEl.value = '';
   document.getElementById('cs-hero').classList.remove('compact');
   document.getElementById('cs-showing').textContent = '';
