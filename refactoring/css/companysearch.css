@@ -427,6 +427,18 @@
   color: var(--text-faint);
   margin-top: 2px;
 }
+.cs-elist-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: color .1s;
+}
+.cs-elist-link:hover { color: var(--accent); }
+
 .cs-elist-country {
   font-size: var(--fs-xs);
   color: var(--dim);

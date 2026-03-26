@@ -13,6 +13,10 @@ function highlight(text, q) {
   const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
   return esc(text).replace(re, '<mark>$1</mark>');
 }
+function entityLink(other, fallback) {
+  if (!other) return esc(fallback);
+  return `<button class="cs-elist-link" data-entity-id="${esc(other.id)}">${esc(other.name)}</button>`;
+}
 function row(lbl, val) {
   return `<div class="cs-row">
     <span class="cs-row-lbl">${lbl}</span>
@@ -292,7 +296,7 @@ function renderProfile(entity) {
     relHtml += `<ul class="cs-elist">` + asTarget.map(r => {
       const lead  = r.rel.details?.lead;
       const badge = r.other ? typeBadge(r.other.type) : '';
-      const name  = r.other ? esc(r.other.name) : esc(r.rel.source);
+      const name  = entityLink(r.other, r.rel.source);
       const meta  = [r.rel.id, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
       return `<li>${badge}<div class="cs-elist-item-main"><span class="cs-elist-name">${name}</span>${meta ? `<div class="cs-elist-meta">${esc(meta)}</div>` : ''}</div>${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     }).join('') + `</ul>`;
@@ -305,7 +309,7 @@ function renderProfile(entity) {
     relHtml += `<ul class="cs-elist">` + asInvestor.map(r => {
       const lead    = r.rel.details?.lead;
       const badge   = r.other ? sectorBadge(r.other.sector) || typeBadge(r.other.type) : '';
-      const name    = r.other ? esc(r.other.name) : esc(r.rel.target);
+      const name    = entityLink(r.other, r.rel.target);
       const country = r.other ? (r.other.sources?.infonodes?.country || r.other.sources?.wikidata?.country || '') : '';
       const meta    = [r.rel.id, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
       return `<li>${badge}<div class="cs-elist-item-main"><span class="cs-elist-name">${name}</span>${meta ? `<div class="cs-elist-meta">${esc(meta)}</div>` : ''}</div>${country ? `<span class="cs-elist-country">${esc(country)}</span>` : ''}${lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
@@ -317,7 +321,7 @@ function renderProfile(entity) {
   if (otherRels.length) {
     relHtml += `<div class="cs-rel-group-lbl">Other (${otherRels.length})</div>`;
     relHtml += `<ul class="cs-elist">` + otherRels.map(r => {
-      const name  = r.other ? esc(r.other.name) : esc(r.role === 'source' ? r.rel.target : r.rel.source);
+      const name  = entityLink(r.other, r.role === 'source' ? r.rel.target : r.rel.source);
       const badge = r.other ? (sectorBadge(r.other.sector) || typeBadge(r.other.type)) : '';
       const meta  = [r.rel.id, r.rel.type, r.rel.added_at, r.rel.sources?.join(', ')].filter(Boolean).join(' · ');
       return `<li>${badge}<div class="cs-elist-item-main"><span class="cs-elist-name">${name}</span>${meta ? `<div class="cs-elist-meta">${esc(meta)}</div>` : ''}</div></li>`;
@@ -602,6 +606,12 @@ export default function initCompanySearch() {
   searchEl.addEventListener('blur', () => setTimeout(closeAc, 160));
   document.getElementById('cs-back').addEventListener('click', clearSelection);
   document.getElementById('cs-export-btn').addEventListener('click', handleExport);
+  document.getElementById('cs-rel-body').addEventListener('click', e => {
+    const link = e.target.closest('.cs-elist-link');
+    if (!link) return;
+    const entity = AppState.derived.entityMap[link.dataset.entityId];
+    if (entity) selectEntity(entity);
+  });
 }
 
 export function restoreCompanySearchUrl(p) {
