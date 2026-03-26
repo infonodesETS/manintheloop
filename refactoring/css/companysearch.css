@@ -1,5 +1,8 @@
 /* ── Company Search tab — #cs-* / .cs-* ──────────────────────────────────── */
 
+/* Override scrollable tab padding (hero and profile handle their own spacing) */
+#tab-company-search { padding: 0; }
+
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 #cs-hero {
   display: flex;
