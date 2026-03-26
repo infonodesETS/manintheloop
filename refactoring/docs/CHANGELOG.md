@@ -23,6 +23,67 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-26] — Company Search tab: full entity profile view, routing, and Intro integration
+
+### Added — `css/companysearch.css` (new file)
+
+- Full scoped stylesheet for the Company Search tab (`#cs-*` / `.cs-*` selectors only).
+- Hero layout, search input, autocomplete dropdown, profile header card, stat bar, two-column section grid, entity list with `.cs-elist-link` hover styles, history diff block, source blocks (Crunchbase / Wikidata / infonodes), validation flags.
+- `#tab-company-search { padding: 0; }` overrides `.tab-pane.scrollable` default padding so the hero fills edge-to-edge.
+
+### Added — `js/tabs/companysearch.js` (new file)
+
+- `initCompanySearch()` — wires search input (autocomplete, keyboard nav), back button, export button, and delegated click handler on `#cs-rel-body` for clickable entity links.
+- `renderProfile(entity)` — full entity profile render using `AppState.derived.relMap` and `AppState.derived.otherRelMap`; investment and non-investment relationships separated.
+- `selectEntity(entity)` — sets URL params `{ research:'company-search', entity:id, 'entity-name':slug }` and renders profile; `entity-name` is a cosmetic human-readable slug, not used by routing.
+- `clearSelection()` — removes entity/entity-name from URL and shows search hero.
+- `getSearchEntities()` — lazy-builds a deduplicated, name-sorted search list from `AppState.derived.entityMap`; cached on first call.
+- `entityLink(other, fallback)` — renders `<button class="cs-elist-link" data-entity-id="…">` for clickable entity names in connection lists; plain text fallback when entity is unknown.
+- `buildCompanySearchSnapshot()` — exported; produces rich Markdown for Copy for AI (profile data + all connections).
+- `restoreCompanySearchUrl(p)` — exported; called from `main.js` when `group === 'company-search'` to restore entity from URL on page load.
+
+### Changed — `js/state.js`
+
+- Added `relMap: {}` and `otherRelMap: {}` to `AppState.derived`.
+- Added `companysearch: { entityId: null }` to `AppState.ui`.
+
+### Changed — `js/data.js`
+
+- At end of `loadData()`: builds `relMap` (investment relationships) and `otherRelMap` (non-investment relationships) keyed by entity ID with `{ rel, role, other }` entries; stored in `AppState.derived`.
+
+### Changed — `js/main.js`
+
+- Imported `initCompanySearch` and `restoreCompanySearchUrl` from `./tabs/companysearch.js`.
+- Added `'company-search': { tabs: null, defaultTab: null }` to GROUPS.
+- `navigate()`: focuses search input when navigating to `company-search` pane.
+- `restoreFromUrl()`: calls `restoreCompanySearchUrl(p)` when `group === 'company-search'`.
+- Boot: calls `initCompanySearch()`.
+
+### Changed — `js/copy-ai.js`
+
+- Imported `buildCompanySearchSnapshot` from `./tabs/companysearch.js`.
+- Added `case 'company-search': return buildCompanySearchSnapshot();` to `buildAiSnapshot()`.
+
+### Changed — `index.html`
+
+- Added `<link rel="stylesheet" href="css/companysearch.css">`.
+- Nav: replaced `<a href="entity-profile.html">` with `<button class="tnav-btn" data-research="company-search">Company Search</button>` (second position, after Intro).
+- Added `#tab-company-search` tab pane with `class="tab-pane scrollable"`.
+- Intro: added Company Search as area `01 /` (Supply Chain→02, EDF→03, Data&About→04); added `→ Company Search` CTA button as first item in `intro-cta-row`.
+
+### Changed — `entity-profile.html`
+
+- Added all previously missing schema fields: infonodes source block, Tags card, `primary_industry` as link, `OTHER_RELS` non-investment relationships section, history old→new diff rendering, validation author/datestamp, Wikidata label row.
+- File kept as standalone page; unlinked from main nav (routing is via `?research=company-search&entity=ID`).
+
+### Fixed
+
+- Company Search tab scroll: added `scrollable` class to `#tab-company-search` pane so `overflow-y: auto` applies; `padding: 0` in CSS prevents double padding from `.tab-pane.scrollable`.
+- Clickable entity names in Investors / Portfolio connection lists: clicking navigates to that entity's profile within Company Search.
+- Entity-name URL slug: `entity-name` param appended to URL for human readability (e.g. `?research=company-search&entity=IN-0008&entity-name=alpine-eagle`); ignored by routing logic.
+
+---
+
 ## [2026-03-24] — Sirogja user test: 8 more UX/accessibility fixes (batch 2)
 
 **Source:** `sirogja-issues.md` (resolved: #1, #4, #8, #11, #14, #17, #20, #21)
