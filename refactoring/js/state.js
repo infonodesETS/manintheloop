@@ -11,9 +11,11 @@ export const AppState = {
   derived: {
     entityMap: {},
     investorMeta: {},
-    raw: [],        // [companyName, investorName, isLead] tuples
-    companyMap: {}, // name → entity
-    invMap: {},     // name → investor meta
+    raw: [],         // [companyName, investorName, isLead] tuples
+    companyMap: {},  // name → entity
+    invMap: {},      // name → investor meta
+    relMap: {},      // id → [{rel, role:'investor'|'target', other}]  (investment only)
+    otherRelMap: {}, // id → [{rel, role:'source'|'target', other}]    (non-investment)
   },
   ui: {
     currentGroup: 'supply-chain',
@@ -41,6 +43,7 @@ export const AppState = {
       list: [],
       debounce: null,
     },
+    companysearch: { entityId: null },
     edfoverview: { built: false },
     edfmap:      { built: false },
     eucalls:     { built: false },

@@ -1,6 +1,7 @@
 'use strict';
 
 import { AppState } from './state.js';
+import { buildCompanySearchSnapshot } from './tabs/companysearch.js';
 
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -153,13 +154,14 @@ function snapshotGraph() {
 export function buildAiSnapshot() {
   const tab = AppState.ui.currentTab;
   switch (tab) {
-    case 'overview':       return snapshotOverview();
-    case 'companies':      return snapshotCompanies();
-    case 'investors':      return snapshotInvestors();
-    case 'relationships':  return snapshotRelationships();
-    case 'map':            return snapshotMap();
-    case 'graph':          return snapshotGraph();
-    default:               return snapshotOverview();
+    case 'overview':        return snapshotOverview();
+    case 'companies':       return snapshotCompanies();
+    case 'investors':       return snapshotInvestors();
+    case 'relationships':   return snapshotRelationships();
+    case 'map':             return snapshotMap();
+    case 'graph':           return snapshotGraph();
+    case 'company-search':  return buildCompanySearchSnapshot();
+    default:                return snapshotOverview();
   }
 }
 

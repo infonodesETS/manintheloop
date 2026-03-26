@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/eucalls.css">
 <link rel="stylesheet" href="css/edfbrowse.css">
 <link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/companysearch.css">
 </head>
 <body>
 
@@ -42,11 +43,11 @@
 <!-- GROUP NAV -->
 <div id="tabnav">
   <button class="tnav-btn active" data-research="intro">Intro</button>
+  <button class="tnav-btn" data-research="company-search">Company Search</button>
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="supply-chain">Supply Chain</button>
   <button class="tnav-btn" data-research="edf">European Defence Fund</button>
   <a href="automated-investigation.html" class="tnav-btn">✨ Investigation</a>
-  <a href="entity-profile.html" class="tnav-btn">⬡ Entity Profile</a>
   <div class="tnav-sep"></div>
   <button class="tnav-btn" data-research="about">About</button>
 <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="tnav-gh">↗ GitHub</a>
@@ -149,6 +150,117 @@
       </div>
     </div>
   </div>
+
+  <!-- ── COMPANY SEARCH ───────────────────────── -->
+  <div id="tab-company-search" class="tab-pane">
+
+    <!-- Search hero -->
+    <div id="cs-hero">
+      <p class="cs-hero-prompt">info.nodes — defence supply chain explorer</p>
+      <p class="cs-hero-title">Search for an Entity<span class="cs-cursor"></span></p>
+      <div class="cs-search-wrap">
+        <input id="cs-search" type="text" placeholder="Company or investor name…"
+          autocomplete="off" spellcheck="false"
+          aria-label="Search entities" aria-autocomplete="list" aria-controls="cs-ac">
+        <span class="cs-search-icon">⌕</span>
+        <div id="cs-ac" role="listbox"></div>
+      </div>
+      <div class="cs-hero-foot">
+        <span class="cs-showing" id="cs-showing"></span>
+        <button id="cs-back">↩ new search</button>
+      </div>
+    </div>
+
+    <!-- Profile (hidden until entity is selected) -->
+    <div id="cs-profile">
+
+      <!-- Header card -->
+      <div class="cs-hdr-card">
+        <div class="cs-logo" id="cs-logo"></div>
+        <div class="cs-hdr-main">
+          <div class="cs-hdr-name" id="cs-name"></div>
+          <div class="cs-hdr-badges" id="cs-badges"></div>
+          <div class="cs-hdr-desc" id="cs-desc"></div>
+          <div class="cs-hdr-actions">
+            <div class="cs-ext-links" id="cs-links"></div>
+            <button id="cs-export-btn">⬡ copy for AI</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat bar -->
+      <div class="cs-stats" id="cs-stats"></div>
+
+      <!-- Two-column body -->
+      <div class="cs-cols">
+
+        <!-- LEFT -->
+        <div id="cs-left">
+          <div class="cs-card" id="cs-facts-card">
+            <div class="cs-card-hdr">Key Facts</div>
+            <div class="cs-card-body" id="cs-facts-body"></div>
+          </div>
+          <div class="cs-card" id="cs-about-card">
+            <div class="cs-card-hdr">About</div>
+            <div class="cs-card-body" id="cs-about-body"></div>
+          </div>
+          <div class="cs-card" id="cs-founders-card">
+            <div class="cs-card-hdr">Founders</div>
+            <div class="cs-card-body" id="cs-founders-body"></div>
+          </div>
+          <div class="cs-card" id="cs-ind-card">
+            <div class="cs-card-hdr">Industries &amp; Focus</div>
+            <div class="cs-card-body" id="cs-ind-body"></div>
+          </div>
+          <div class="cs-card" id="cs-tags-card">
+            <div class="cs-card-hdr">Tags</div>
+            <div class="cs-card-body" id="cs-tags-body"></div>
+          </div>
+          <div class="cs-card" id="cs-rel-card">
+            <div class="cs-card-hdr">
+              <span id="cs-rel-hdr-lbl">Connections</span>
+              <span class="cs-card-count" id="cs-rel-hdr-count"></span>
+            </div>
+            <div class="cs-card-body" id="cs-rel-body"></div>
+          </div>
+          <div class="cs-card" id="cs-hist-card">
+            <div class="cs-card-hdr">
+              <span>Change History</span>
+              <span class="cs-card-count" id="cs-hist-count"></span>
+            </div>
+            <div class="cs-hist-wrap">
+              <ul class="cs-hist" id="cs-hist-list"></ul>
+            </div>
+          </div>
+        </div><!-- /cs-left -->
+
+        <!-- RIGHT -->
+        <div id="cs-right">
+          <div class="cs-src-block cs-cb-block" id="cs-cb-block">
+            <div class="cs-src-hdr">Crunchbase</div>
+            <div id="cs-cb-body"></div>
+          </div>
+          <div class="cs-src-block cs-wd-block" id="cs-wd-block">
+            <div class="cs-src-hdr">Wikipedia / Wikidata</div>
+            <div id="cs-wd-body"></div>
+          </div>
+          <div class="cs-src-block cs-inf-block" id="cs-inf-block">
+            <div class="cs-src-hdr">infonodes</div>
+            <div id="cs-inf-body"></div>
+          </div>
+          <div class="cs-card" id="cs-val-card">
+            <div class="cs-card-hdr">
+              <span>Data Flags</span>
+              <span class="cs-card-count" id="cs-val-count"></span>
+            </div>
+            <div class="cs-card-body" id="cs-val-body"></div>
+          </div>
+        </div><!-- /cs-right -->
+
+      </div><!-- /cs-cols -->
+    </div><!-- /cs-profile -->
+
+  </div><!-- /tab-company-search -->
 
   <!-- ── OVERVIEW ─────────────────────────────── -->
   <div id="tab-overview" class="tab-pane scrollable">

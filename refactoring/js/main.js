@@ -18,6 +18,7 @@ import initEdfbrowse, { openEdfBrowseIntro } from './tabs/edfbrowse.js';
 import initEdfoverview from './tabs/edfoverview.js';
 import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs } from './tabs/edfmap.js';
 import initKnownIssues from './tabs/knownissues.js';
+import initCompanySearch, { restoreCompanySearchUrl } from './tabs/companysearch.js';
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
 import { initGlossaryTooltips, renderGlossaryTab } from './glossary.js';
 import { initCopyAI } from './copy-ai.js';
@@ -29,8 +30,9 @@ function hidePreloader(tabId) {
 
 // ── Group → sub-tab config ──
 const GROUPS = {
-  'intro':        { tabs: null,    defaultTab: null },
-  'supply-chain': { tabs: ['overview','map','graph','companies','investors','relationships','matrix'], defaultTab: 'overview' },
+  'intro':          { tabs: null, defaultTab: null },
+  'company-search': { tabs: null, defaultTab: null },
+  'supply-chain':   { tabs: ['overview','map','graph','companies','investors','relationships','matrix'], defaultTab: 'overview' },
   'edf':          { tabs: ['edfoverview','edfmap','eucalls','edfbrowse'], defaultTab: 'edfoverview' },
   'about':        { tabs: ['about','knownissues','quality','wikidata','data','glossary'], defaultTab: 'about' },
 };
@@ -110,6 +112,10 @@ function navigate(group, tab, push = true) {
     AppState.ui.edfbrowse.built = true;
     initEdfbrowse().then(() => hidePreloader('tab-edfbrowse'));
   }
+  if (paneId === 'company-search') {
+    // focus the search input when navigating to the tab
+    setTimeout(() => document.getElementById('cs-search')?.focus(), 50);
+  }
   if (paneId === 'knownissues' && !AppState.ui.knownissues?.built) {
     if (!AppState.ui.knownissues) AppState.ui.knownissues = {};
     AppState.ui.knownissues.built = true;
@@ -147,6 +153,9 @@ function restoreFromUrl() {
   const tab   = p.tab || grp.defaultTab || null;
 
   navigate(group, tab, false);
+
+  // Restore standalone group state
+  if (group === 'company-search') restoreCompanySearchUrl(p);
 
   // Restore tab-specific filter state
   switch (tab) {
@@ -232,6 +241,8 @@ loadData()
     // Init tabs that render immediately, then hide their preloaders
     initEntitySidebar();
     initCopyAI();
+
+    initCompanySearch();
 
     initOverview();      hidePreloader('tab-overview');
     initMatrix();        hidePreloader('tab-matrix');

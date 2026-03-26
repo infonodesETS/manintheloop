@@ -53,5 +53,23 @@ export async function loadData() {
   AppState.companies.forEach(c => { AppState.derived.companyMap[c.name] = c; });
   AppState.investors.forEach(i => { AppState.derived.invMap[i.name] = AppState.derived.investorMeta[i.id]; });
 
+  // Build entity rel maps (investment + other) — used by company search and detail sidebar
+  const relMap = {}, otherRelMap = {};
+  for (const rel of db.relationships) {
+    if (rel.type === 'investment') {
+      if (!relMap[rel.source]) relMap[rel.source] = [];
+      if (!relMap[rel.target]) relMap[rel.target] = [];
+      relMap[rel.source].push({ rel, role: 'investor', other: AppState.derived.entityMap[rel.target] || null });
+      relMap[rel.target].push({ rel, role: 'target',   other: AppState.derived.entityMap[rel.source] || null });
+    } else {
+      if (!otherRelMap[rel.source]) otherRelMap[rel.source] = [];
+      if (!otherRelMap[rel.target]) otherRelMap[rel.target] = [];
+      otherRelMap[rel.source].push({ rel, role: 'source', other: AppState.derived.entityMap[rel.target] || null });
+      otherRelMap[rel.target].push({ rel, role: 'target', other: AppState.derived.entityMap[rel.source] || null });
+    }
+  }
+  AppState.derived.relMap      = relMap;
+  AppState.derived.otherRelMap = otherRelMap;
+
   return db;
 }
