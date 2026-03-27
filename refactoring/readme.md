@@ -208,6 +208,20 @@ Use it to pick safe work items and avoid re-introducing already-solved problems.
 
 ---
 
+## User test issues & roadmap — infonodes-roadmap.md
+
+> **Read this for the current implementation backlog.**
+
+[`docs/infonodes-roadmap.md`](./docs/infonodes-roadmap.md) contains:
+
+- **59 issues** collected from live user test sessions (Davide, Andrea, Laura — 2026-03-27), tracked in [`docs/infonodes-issues.md`](./docs/infonodes-issues.md)
+- **12 clusters** by area of intervention
+- **11 implementation phases**, from immediate bug fixes to the macro database unification (#03)
+
+→ **[`docs/infonodes-roadmap.md`](./docs/infonodes-roadmap.md)**
+
+---
+
 ## Navigation
 
 Two-level nav: group bar (top) + sub-tab bar (second row). URL scheme: `?research=<group>&tab=<subtab>`.
