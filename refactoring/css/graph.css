@@ -21,22 +21,22 @@
 }
 .gv-btn {
   padding: 4px 14px; font-size: var(--fs-sm); font-family: var(--font); font-weight: 700;
-  border: 1px solid var(--border); border-radius: 50px; background: rgba(0,0,0,0.85);
+  border: 1px solid var(--border); border-radius: 50px; background: var(--surface-input);
   color: var(--dim); cursor: pointer; transition: all .12s;
 }
-.gv-btn:hover { border-color: var(--grey-mid); color: #fff; }
-.gv-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+.gv-btn:hover { border-color: var(--grey-mid); color: var(--text-primary); }
+.gv-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 #graph-svg, #bi-svg, #proj-svg { width: 100%; flex: 1; min-height: 0; display: block; }
 #proj-filter-btns { gap: 6px; }
 #graph-search {
   padding: 4px 10px; font-size: var(--fs-sm); font-family: var(--font);
   border: 1px solid var(--border); border-radius: 50px;
-  background: rgba(0,0,0,0.85); color: #fff; outline: none; width: 140px;
+  background: var(--surface-input); color: var(--text-primary); outline: none; width: 140px;
 }
 #graph-search:focus { border-color: var(--grey-mid); }
 #graph-search::placeholder { color: var(--dim); }
 /* ── Company nodes = circles ── */
-.gnode-co  circle { fill: #000; stroke: rgba(255,255,255,0.35); stroke-width: 1.3; cursor: pointer; }
+.gnode-co  circle { fill: var(--node-fill); stroke: var(--border); stroke-width: 1.3; cursor: pointer; }
 .gnode-co  circle:hover { fill: var(--surface2); }
 .gnode-co--Defence circle { stroke: var(--c-defence); }
 .gnode-co--Mining  circle { stroke: var(--c-mining);  }
@@ -44,8 +44,8 @@
 .gnode-co--Startup circle { stroke: var(--c-startup); }
 
 /* ── Investor nodes = squares (rect) ── */
-.gnode-inv rect { fill: #000; stroke: var(--c-fund); stroke-width: 1.8; cursor: pointer; }
-.gnode-inv rect:hover { fill: #100808; }
+.gnode-inv rect { fill: var(--node-fill); stroke: var(--c-fund); stroke-width: 1.8; cursor: pointer; }
+.gnode-inv rect:hover { fill: var(--node-fill-hover); }
 .gnode-inv--fund               rect { stroke: var(--c-fund); }
 .gnode-inv--government_agency  rect { stroke: var(--c-govt); }
 .gnode-inv--bank               rect { stroke: var(--c-bank); }
@@ -57,7 +57,7 @@
 .gnode-co--Mining.ghl  circle { filter: drop-shadow(0 0 5px var(--c-mining));  }
 .gnode-co--Tech.ghl    circle { filter: drop-shadow(0 0 5px var(--c-tech));    }
 .gnode-co--Startup.ghl circle { filter: drop-shadow(0 0 5px var(--c-startup)); }
-.gnode-inv.ghl rect { fill: #100808; }
+.gnode-inv.ghl rect { fill: var(--node-fill-hover); }
 .gnode-inv--fund.ghl               rect { filter: drop-shadow(0 0 6px var(--c-fund)); }
 .gnode-inv--government_agency.ghl  rect { filter: drop-shadow(0 0 6px var(--c-govt)); }
 .gnode-inv--bank.ghl               rect { filter: drop-shadow(0 0 6px var(--c-bank)); }
@@ -71,7 +71,7 @@
 
 /* ── Dual-role star overlay ── */
 .gstar { font-size: var(--fs-svg-xs); fill: var(--c-dual); pointer-events: none; font-family: sans-serif; }
-.glabel { font-family: var(--font); font-size: var(--fs-svg-md); fill: rgba(255,255,255,0.47); pointer-events: none; }
+.glabel { font-family: var(--font); font-size: var(--fs-svg-md); fill: var(--label-fill); pointer-events: none; }
 .gbadge { font-family: var(--font); font-size: var(--fs-svg-sm); fill: var(--accent); font-weight: var(--fw-bold); pointer-events: none; }
 .gnode-co.gdim, .gnode-inv.gdim { opacity: 0.12; pointer-events: none; }
 .glink { stroke: var(--border); stroke-opacity: .6; }
@@ -82,14 +82,14 @@
 /* ── Graph initial hint overlay ── */
 #graph-hint {
   position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-  background: rgba(0,0,0,0.80); border: 1px solid rgba(255,255,255,0.12);
+  background: var(--hint-bg); border: 1px solid var(--hint-border);
   border-radius: 8px; padding: 10px 18px; text-align: center;
-  font-size: var(--fs-sm); color: rgba(255,255,255,0.5);
+  font-size: var(--fs-sm); color: var(--hint-text);
   pointer-events: none; z-index: 5; white-space: nowrap;
   backdrop-filter: blur(4px);
 }
 #graph-hint.hidden { display: none; }
-.graph-hint-title { font-weight: var(--fw-bold); color: rgba(255,255,255,0.75); margin-bottom: 3px; }
+.graph-hint-title { font-weight: var(--fw-bold); color: var(--hint-title); margin-bottom: 3px; }
 
 /* ── Graph help panel ── */
 #graph-help { padding: 0; }
@@ -109,9 +109,9 @@
 }
 .gh-circle {
   width: 10px; height: 10px; border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.35); background: #000;
+  border: 1.5px solid var(--border); background: var(--node-fill);
 }
 .gh-square {
   width: 10px; height: 10px; border-radius: 2px;
-  border: 1.5px solid var(--c-fund); background: #000;
+  border: 1.5px solid var(--c-fund); background: var(--node-fill);
 }

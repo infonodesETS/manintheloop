@@ -59,6 +59,7 @@ refactoring/
 │   ├── edf-data.js             ← singleton fetch for edf_calls.json (cached promise, shared)
 │   ├── detail-sidebar.js       ← slide-in entity detail sidebar (companies + investors)
 │   ├── helpers.js              ← shared render helpers: esc(), fmtFunding(), badges, tip()
+│   ├── theme.js                ← dark/light toggle: applies data-theme attr, persists to localStorage
 │   ├── url.js                  ← URL param read/write, setUrlReady() guard
 │   └── tabs/                   ← one ES module per sub-tab (see JS layer below)
 │
@@ -98,6 +99,7 @@ refactoring/
 | `edf-data.js` | Singleton fetch for `edf_calls.json` | EDF data loading, caching strategy |
 | `detail-sidebar.js` | Slide-in entity sidebar (companies + investors) | Entity sidebar content, CB/Wikidata blocks |
 | `helpers.js` | Shared renderers: `esc()`, `fmtFunding()`, `sectorBadge()`, `typeBadge()`, `tip()` | Badge HTML, tooltip behaviour, funding formatting |
+| `theme.js` | Dark/light toggle — reads/writes `localStorage['mitl-theme']`, sets `data-theme` on `<html>` | Theme persistence, toggle button wiring |
 | `url.js` | URL param read/write, `setUrlReady()` guard | URL scheme, deep-link behaviour |
 
 **Tab modules** (`js/tabs/`):

@@ -99,6 +99,41 @@
   --lh-body:  1.55;
   --lh-loose: 1.65;
 
+  /* ── Semantic / theme tokens ──────────────────────────────────────────────
+     Tokens that carry meaning beyond palette; override in [data-theme="light"]
+     ──────────────────────────────────────────────────────────────────────── */
+  --bg:             #000000;        /* body / topnav / overlay background      */
+  --on-accent:      #000000;        /* text ON accent-coloured buttons          */
+  --error:          #ff4444;        /* error text (inline HTML + CSS)           */
+  --warn:           #ffaa44;        /* warning / needs-review text              */
+  --warn-border:    rgba(255,170,68,0.35); /* warn border tint (WIP badge)      */
+  --ok:             #56d364;        /* log line ok / success                    */
+  --status-err:     #f85149;        /* log line error                           */
+  --status-warn:    #e3b341;        /* log line warn / forthcoming badge        */
+  --flow-out:       #ff9944;        /* investment outflow highlight             */
+
+  /* D3 / SVG nodes */
+  --node-fill:        #000000;          /* circle / rect fill (dark = black bg) */
+  --node-fill-hover:  #100808;          /* investor rect hover fill             */
+  --label-fill:       rgba(255,255,255,0.47); /* SVG node label text fill       */
+
+  /* Map geography */
+  --map-bg:           #000000;      /* SVG background                           */
+  --map-land:         #1a1a1a;      /* country default fill                     */
+  --map-stroke:       #333333;      /* country stroke                           */
+  --map-data:         #0a2a0a;      /* country with data fill                   */
+  --map-data-hover:   #0d3d0d;      /* country with data hover                  */
+  --map-selected:     #003300;      /* selected country fill                    */
+
+  /* Input / overlay surfaces */
+  --surface-input:  #000000;        /* dark search input backgrounds            */
+  --surface-ac:     #111111;        /* autocomplete dropdown background         */
+  --tooltip-bg:     rgba(8,8,8,0.97);
+  --hint-bg:        rgba(0,0,0,0.80);
+  --hint-border:    rgba(255,255,255,0.12);
+  --hint-text:      rgba(255,255,255,0.50);
+  --hint-title:     rgba(255,255,255,0.75);
+
   /* SVG fixed sizes (pixel-based, bypasses rem cascade) */
   --fs-svg-xs:  9px;
   --fs-svg-sm: 10px;
@@ -139,7 +174,7 @@
 html { font-size: 120%; }
 *, *::before, *::after { box-sizing: border-box; }
 body {
-  background: #000;
+  background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font);
   font-size: var(--fs-body);
@@ -150,15 +185,15 @@ body {
 /* ── Navbar ── */
 #topnav {
   position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
-  background: #000; border-bottom: 1px solid var(--border);
+  background: var(--bg); border-bottom: 1px solid var(--border);
   display: flex; align-items: center; padding: 0 20px; gap: 16px; z-index: 500;
 }
 #topnav .brand { font-family: var(--font); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--accent); letter-spacing: .5px; text-decoration: none; }
 #topnav .brand span { color: var(--text-faint); }
-#topnav .brand .brand-infonodes { color: #fff; }
+#topnav .brand .brand-infonodes { color: var(--text-primary); }
 #topnav .brand .brand-dot { color: var(--accent); }
-.brand-wip { font-family: var(--font); font-size: var(--fs-xs); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .6px; color: #ffaa44; border: 1px solid rgba(255,170,68,0.35); border-radius: 50px; padding: 1px 8px; margin-left: 10px; vertical-align: middle; }
-.brand-wip-link { color: #ffaa44; text-decoration: underline; text-underline-offset: 2px; }
+.brand-wip { font-family: var(--font); font-size: var(--fs-xs); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .6px; color: var(--warn); border: 1px solid var(--warn-border); border-radius: 50px; padding: 1px 8px; margin-left: 10px; vertical-align: middle; }
+.brand-wip-link { color: var(--warn); text-decoration: underline; text-underline-offset: 2px; }
 .brand-wip-link:hover { color: #ffc266; }
 #topnav .meta  { font-size: var(--fs-sm); color: var(--text-faint); font-family: monospace; margin-left: auto; }
 
@@ -174,8 +209,8 @@ body {
   background: transparent; border: 1px solid transparent; border-radius: 4px;
   color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
 }
-.tnav-btn:hover { color: #fff; border-color: var(--border); }
-.tnav-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+.tnav-btn:hover { color: var(--text-primary); border-color: var(--border); }
+.tnav-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .tnav-sep { width: 1px; height: 20px; background: var(--border); margin: 0 6px; flex-shrink: 0; }
 
 /* ── Sub-nav (tab groups) ── */
@@ -209,7 +244,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
   background: transparent; border: 1px solid transparent; border-radius: 4px;
   color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
 }
-.snav-btn:hover { color: #fff; border-color: var(--border); }
+.snav-btn:hover { color: var(--text-primary); border-color: var(--border); }
 .snav-btn.active { background: rgba(0,255,65,0.12); color: var(--accent); border-color: rgba(0,255,65,0.3); }
 .snav-sep { width: 1px; height: 16px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
 .snav-copy-ai-btn {
@@ -228,7 +263,19 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
   color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
   display: inline-flex; align-items: center; text-decoration: none;
 }
-.tnav-gh:hover { color: #fff; border-color: var(--grey-mid); }
+.tnav-gh:hover { color: var(--text-primary); border-color: var(--grey-mid); }
+
+/* ── Theme toggle ── */
+.theme-toggle-btn {
+  height: 28px; padding: 0 12px; font-family: var(--font); font-size: var(--fs-xs);
+  font-weight: var(--fw-bold); letter-spacing: .5px; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--border); border-radius: 50px;
+  color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
+  margin-left: 10px;
+}
+.theme-toggle-btn:hover { color: var(--text-primary); border-color: var(--grey-mid); }
+[data-theme="light"] .theme-toggle-btn { color: var(--text-secondary); }
+[data-theme="light"] .theme-toggle-btn:hover { color: var(--text-primary); }
 
 /* ── Content area ── */
 #content { margin-top: calc(var(--tab-h) + var(--subtab-h)); height: var(--content-h); overflow: hidden; }
@@ -239,7 +286,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 
 /* ── Per-tab preloader ── */
 .tab-preloader {
-  position: absolute; inset: 0; background: #000;
+  position: absolute; inset: 0; background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 12px; z-index: 10;
 }
@@ -247,13 +294,13 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* ── Loading overlay ── */
 #loading-overlay {
-  position: fixed; inset: 0; background: #000;
+  position: fixed; inset: 0; background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 12px; z-index: 9999;
 }
@@ -430,3 +477,124 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .ki-body p  { font-size: var(--fs-lg); color: var(--grey-mid); line-height: var(--lh-loose); }
 .ki-body strong { color: var(--grey-pale); }
 .ki-body hr { border-color: var(--grey-dark); margin: 1.2rem 0; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME — [data-theme="light"] on <html>
+   "Declassified document" — warm paper palette, dark military-green accent.
+   All downstream CSS using var(--token) swaps automatically.
+   Additional per-component overrides follow below.
+══════════════════════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  /* ── Core surfaces ── */
+  --bs-body-bg:           #f8f7f4;
+  --bs-body-color:        rgba(0,0,0,0.90);
+  --bs-border-color:      #d0cdc8;
+  --bs-card-bg:           #eeecea;
+  --bs-card-border-color: #d0cdc8;
+
+  --accent:     #006622;
+  --accent-dim: rgba(0,80,40,0.55);
+  --surface:    #eeecea;
+  --surface2:   #e5e3e0;
+  --surface3:   #f2f0ed;
+  --border:     #d0cdc8;
+  --dim:        rgba(0,0,0,0.45);
+
+  /* ── Entity palette — darkened for light bg readability ── */
+  --c-defence:  #007744;
+  --c-mining:   #5a6a00;
+  --c-tech:     #005522;
+  --c-startup:  #003322;
+  --c-fund:     #cc2200;
+  --c-govt:     #990000;
+  --c-bank:     #770000;
+  --c-inst:     #aa2255;
+  --c-dual:     #7a5800;
+
+  /* ── Text ── */
+  --text-primary:   rgba(0,0,0,0.90);
+  --text-secondary: rgba(0,0,0,0.72);
+  --text-tertiary:  rgba(0,0,0,0.58);
+  --text-muted:     #6a6760;
+  --text-faint:     #8a8780;
+
+  /* ── Grey palette (inverted direction) ── */
+  --grey-dark:  #c0bcb4;
+  --grey-mid:   #8a8780;
+  --grey-light: #5a5855;
+  --grey-pale:  #2a2825;
+
+  /* ── Semantic ── */
+  --bg:          #f8f7f4;
+  --on-accent:   #ffffff;
+  --error:       #cc2200;
+  --warn:        #8a5c00;
+  --ok:          #1a7a30;
+  --status-err:  #cc2200;
+  --status-warn: #8a5c00;
+  --warn-border: rgba(122,68,0,0.35);  /* warn border tint — light mode        */
+  --flow-out:    #cc6600;
+
+  /* ── Sidebar tokens ── */
+  --sl-overlay-bg: rgba(0,0,0,0.35);
+  --sl-panel-bg:   #f0ede8;
+  --sl-inline-bg:  var(--surface3);
+  --sl-header-bg:  var(--surface2);
+
+  /* ── D3 / SVG ── */
+  --node-fill:       #f8f7f4;
+  --node-fill-hover: #e8e4dc;
+  --label-fill:      rgba(0,0,0,0.55);
+
+  /* ── Map geography ── */
+  --map-bg:         #dedad4;
+  --map-land:       #c8c4bc;
+  --map-stroke:     #b8b4ac;
+  --map-data:       #b8ccb8;
+  --map-data-hover: #a0b8a0;
+  --map-selected:   #7a9e7a;
+
+  /* ── Input / overlay surfaces ── */
+  --surface-input: #f0ede8;
+  --surface-ac:    #f0ede8;
+  --tooltip-bg:    rgba(248,247,244,0.97);
+  --hint-bg:       rgba(244,242,238,0.94);
+  --hint-border:   rgba(0,0,0,0.12);
+  --hint-text:     rgba(0,0,0,0.50);
+  --hint-title:    rgba(0,0,0,0.75);
+}
+
+/* ── Light: body background ── */
+[data-theme="light"] body { background: var(--bg); }
+
+/* ── Light: WIP badge hover (base color handled by --warn / --warn-border tokens) ── */
+[data-theme="light"] .brand-wip-link:hover { color: #5a3000; }
+
+/* ── Light: scrollbar ── */
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--surface2); }
+
+/* ── Light: active sub-nav (snav rgba tints → dark-green equivalents) ── */
+[data-theme="light"] .snav-btn.active { background: rgba(0,102,34,0.10); border-color: rgba(0,102,34,0.30); }
+
+/* ── Light: intro section fixes (rgba(0,255,65,…) → dark green equivalents) ── */
+[data-theme="light"] .intro-prompt     { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-title      { color: var(--accent); text-shadow: 0 0 14px rgba(0,102,34,0.18); }
+[data-theme="light"] .intro-cursor     { background: var(--accent); box-shadow: 0 0 8px rgba(0,102,34,0.35); }
+[data-theme="light"] .intro-sub        { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-desc       { border-left-color: rgba(0,102,34,0.25); }
+[data-theme="light"] .intro-area-title { color: var(--text-primary); }
+[data-theme="light"] .intro-area-tabs  { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-cta-btn    { color: var(--accent); background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.35); }
+[data-theme="light"] .intro-cta-btn:hover { background: rgba(0,102,34,0.12); border-color: rgba(0,102,34,0.65); }
+[data-theme="light"] .intro-context-label { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-about-link { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-sector--defence { background: rgba(0,119,68,0.10); }
+[data-theme="light"] .intro-sector--mining  { background: rgba(90,106,0,0.10); }
+[data-theme="light"] .intro-sector--tech    { background: rgba(0,85,34,0.10); }
+[data-theme="light"] .prog-track { background: rgba(0,0,0,0.08); }
+
+/* ── Light: known-issues tab ── */
+[data-theme="light"] .ki-body h2     { color: var(--text-primary); }
+[data-theme="light"] .ki-body p      { color: var(--text-secondary); }
+[data-theme="light"] .ki-body strong { color: var(--text-primary); }
+[data-theme="light"] .ki-body hr     { border-color: var(--border); }

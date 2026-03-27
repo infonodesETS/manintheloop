@@ -448,7 +448,7 @@ export default async function initEdfbrowse() {
   } catch (err) {
     const tbody = document.getElementById('eb-tbody');
     if (tbody) {
-      tbody.innerHTML = `<tr><td colspan="7" style="color:#ff4444;padding:20px;font-size:var(--fs-base)">
+      tbody.innerHTML = `<tr><td colspan="7" style="color:var(--error);padding:20px;font-size:var(--fs-base)">
         Error loading EDF data: ${err.message}</td></tr>`;
     }
   }

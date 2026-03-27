@@ -7,6 +7,6 @@ export default async function initKnownIssues() {
     const text = await res.text();
     body.innerHTML = window.marked.parse(text);
   } catch (err) {
-    body.innerHTML = `<p style="color:#ff4444">Failed to load docs/data-issues.md</p>`;
+    body.innerHTML = `<p style="color:var(--error)">Failed to load docs/data-issues.md</p>`;
   }
 }

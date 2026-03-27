@@ -161,7 +161,7 @@ async function deltaCheck() {
     if (newCalls.length > 0) {
       const el = document.getElementById('ec-callStatusText');
       if (el) {
-        el.innerHTML += ` · <span style="color:#e3b341;font-weight:700">⚠ ${newCalls.length} new call${newCalls.length > 1 ? 's' : ''} not in file — run fetch_edf_bulk.py --update</span>`;
+        el.innerHTML += ` · <span style="color:var(--status-warn);font-weight:700">⚠ ${newCalls.length} new call${newCalls.length > 1 ? 's' : ''} not in file — run fetch_edf_bulk.py --update</span>`;
       }
     }
   } catch (_) {}
@@ -309,7 +309,7 @@ function setCallStatus(state, timestamp = null, errMsg = '') {
       el.innerHTML = `No EDF calls found in API. · ${refresh}`;
       break;
     case 'error':
-      el.innerHTML = `<span style="color:#f85149">Could not load call list: ${escHtml(errMsg)}</span> · ${refresh}`;
+      el.innerHTML = `<span style="color:var(--status-err)">Could not load call list: ${escHtml(errMsg)}</span> · ${refresh}`;
       break;
   }
 

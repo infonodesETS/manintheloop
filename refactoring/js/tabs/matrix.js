@@ -23,7 +23,7 @@ export function renderMatrix() {
     `${COMPANIES.length} companies · ${filtered.length} investors · ${raw.filter(([c]) => COMPANIES.some(x => x.name === c)).length} investments`;
 
   let html = '<table>';
-  html += '<thead><tr><th style="min-width:210px;padding:0 12px;vertical-align:bottom;padding-bottom:10px"><span style="font-size:var(--fs-xs);color:#555;letter-spacing:.5px">INVESTOR</span></th>';
+  html += '<thead><tr><th style="min-width:210px;padding:0 12px;vertical-align:bottom;padding-bottom:10px"><span style="font-size:var(--fs-xs);color:var(--text-muted);letter-spacing:.5px">INVESTOR</span></th>';
   COMPANIES.forEach(c => {
     const short = c.name.length > 14 ? c.name.slice(0, 13) + '…' : c.name;
     const cb = c.sources?.crunchbase || {};
@@ -32,7 +32,7 @@ export function renderMatrix() {
       <span class="col-inner"><abbr title="${esc(c.name)} · ${esc(loc)}">${esc(short)}</abbr></span>
     </th>`;
   });
-  html += '<th style="min-width:90px;padding:0 10px;vertical-align:bottom;padding-bottom:10px;border-left:2px solid var(--border)"><span style="font-size:var(--fs-xs);color:#555">TOTAL</span></th></tr></thead>';
+  html += '<th style="min-width:90px;padding:0 10px;vertical-align:bottom;padding-bottom:10px;border-left:2px solid var(--border)"><span style="font-size:var(--fs-xs);color:var(--text-muted)">TOTAL</span></th></tr></thead>';
 
   html += '<tbody>';
   filtered.forEach((im, idx) => {

@@ -46,7 +46,7 @@
 #tab-about .a-section h2 {
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 14px;
   letter-spacing: .3px;
 }
@@ -135,7 +135,7 @@
 
 #tab-about .focus-item strong {
   font-size: var(--fs-body);
-  color: #fff;
+  color: var(--text-primary);
   display: block;
 }
 
@@ -155,7 +155,7 @@
 
 #tab-about .step-content strong {
   font-size: var(--fs-body);
-  color: #fff;
+  color: var(--text-primary);
   display: block;
   margin-bottom: 3px;
 }
@@ -186,13 +186,13 @@
 }
 
 /* ── About spacing utilities ── */
-.a-collab-text { color: rgba(255,255,255,0.6); }
-.a-note        { color: rgba(255,255,255,0.45); font-size: var(--fs-sm); margin-top: 8px; }
+.a-collab-text { color: var(--text-secondary); }
+.a-note        { color: var(--text-muted); font-size: var(--fs-sm); margin-top: 8px; }
 .a-mt8         { margin-top:    8px; }
 .a-mt10        { margin-top:   10px; }
 .a-mt14        { margin-top:   14px; }
 .a-mb18        { margin-bottom: 18px; }
-#tab-about .a-section p strong { color: #fff; }
+#tab-about .a-section p strong { color: var(--text-primary); }
 
 #tab-about .companies-grid .co-row {
   display: flex;
@@ -208,3 +208,11 @@
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
 }
+
+/* ── Light theme overrides ── */
+[data-theme="light"] #tab-about .about-header h1 { text-shadow: 0 0 12px rgba(0,102,34,0.18); }
+[data-theme="light"] #tab-about .about-header .subtitle { color: rgba(0,102,34,0.65); }
+[data-theme="light"] #tab-about .focus-item { background: rgba(0,0,0,0.02); }
+[data-theme="light"] #tab-about .tag { border-color: rgba(0,102,34,0.3); background: rgba(0,102,34,0.05); }
+[data-theme="light"] #tab-about .status-badge { border-color: rgba(0,102,34,0.35); background: rgba(0,102,34,0.05); }
+[data-theme="light"] #tab-about .companies-grid .co-row span:last-child { color: rgba(0,102,34,0.70); }

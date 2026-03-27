@@ -44,7 +44,7 @@ export function wdBadge(c) {
 
 export function valBadge(c) {
   const open = (c.validation || []).filter(v => v.status !== 'confirmed');
-  if (!open.length) return '<span style="color:#333;font-size:var(--fs-xs)">✓</span>';
+  if (!open.length) return '<span style="color:var(--text-tertiary);font-size:var(--fs-xs)">✓</span>';
   return open.slice(0, 2).map(v =>
     `<span class="${v.status === 'flagged' ? 'badge-val-flag' : 'badge-val-review'}">${v.status === 'flagged' ? '⛔' : '⚠'}</span>`
   ).join(' ');

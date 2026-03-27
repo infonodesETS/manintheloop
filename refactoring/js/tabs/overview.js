@@ -92,7 +92,7 @@ function renderOverview() {
   listEl.innerHTML = top5.map((im, i) => {
     const pct2 = Math.round(im.total / (top5[0]?.total || 1) * 100);
     return `<div class="d-flex align-items-center gap-2 mb-1 ov-inv-row" data-inv-idx="${i}" style="cursor:pointer" title="Click to view ${esc(im.entity.name)} details">
-      <span style="width:130px;font-size:var(--fs-sm);color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(im.entity.name)}">${esc(im.entity.name)}</span>
+      <span style="width:130px;font-size:var(--fs-sm);color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(im.entity.name)}">${esc(im.entity.name)}</span>
       <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct2}%"></div></div>
       <span style="font-family:monospace;font-size:var(--fs-sm);color:var(--accent);width:20px;text-align:right">${im.total}</span>
     </div>`;

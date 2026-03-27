@@ -113,7 +113,7 @@ One file per concern. Do not add selectors outside a file's declared scope.
 
 | File | Scope |
 |---|---|
-| `css/base.css` | `:root` tokens only — colors, spacing, typography, sidebar tokens. No selectors beyond `:root`, `*`, `body`, `html`. |
+| `css/base.css` | `:root` design tokens + app shell — nav (`#topnav`, `#tabnav`, `#subnav`), layout (`#content`, `.tab-pane`), intro tab, known-issues tab, loading overlay, legend dots. Also the `[data-theme="light"]` block with all token overrides and per-shell light fixes. |
 | `css/components.css` | Shared UI primitives: stat cards, tables, badges, legend, tooltip, sidebar structural shells, all `.sl-*`, `.es-*`, `.dp-*` classes. |
 | `css/graph.css` | Graph tab only — `#graph-*` IDs and `.gv-*` classes. |
 | `css/matrix.css` | Matrix tab only — `#matrix-*`, `#mx-*`. |
@@ -122,6 +122,7 @@ One file per concern. Do not add selectors outside a file's declared scope.
 | `css/eucalls.css` | EU Calls tab — `#ec-*`, `.ec-*`. |
 | `css/edfbrowse.css` | EDF Browse and EDF Overview — `#eb-*`, `.eb-*`, `#eo-*`, `.eo-*`. |
 | `css/about.css` | About tab — `#tab-about` scoped only. |
+| `css/companysearch.css` | Company Search tab — `#tab-companysearch`, `#cs-*`, `.cs-*`. |
 
 ---
 
@@ -133,3 +134,36 @@ One file per concern. Do not add selectors outside a file's declared scope.
 4. **`em` units are banned outside `.sidebar` context.** Use `rem` via `--fs-*` tokens so font sizes are independent of ancestry.
 5. **The `.sidebar` class** (`font-size: var(--scale-sidebar)`) is reserved for panels that explicitly use em-based sub-classes per the cascade contract above. New panels must not use it unless they follow that contract.
 6. **One canonical class per role** — no parallel equivalents. Removed: `.dp-close` (= `.sl-close`), `.dp-title` (= `.sl-title`), `.dp-label` (= `.sl-section-lbl`), `.entity-sidebar-title` (= `.sl-title`), `.ec-part-title` (= `.sl-title`).
+
+---
+
+## 5. Light mode — "Declassified Document" theme
+
+Dark mode is the default. Light mode uses a warm paper palette with a dark military-green accent.
+
+### Mechanism
+
+- **Attribute**: `data-theme="light"` on `<html>`. Dark mode = attribute absent.
+- **Persistence**: `localStorage['mitl-theme']`. Applied synchronously by an inline `<script>` in `<head>` before CSS renders (no flash).
+- **Toggle**: `#theme-toggle` button in `#topnav`, wired by `js/theme.js`.
+
+### Token overrides
+
+All semantic tokens override inside `[data-theme="light"] { … }` in `css/base.css`. Every other CSS file only needs per-component overrides for values that cannot use tokens (hardcoded `rgba()` tints referencing the dark-mode accent `#00ff41`).
+
+Key overrides:
+
+| Token | Dark | Light |
+|---|---|---|
+| `--bg` | `#000000` | `#f8f7f4` (warm paper) |
+| `--accent` | `#00ff41` (neon green) | `#006622` (military green) |
+| `--on-accent` | `#000000` | `#ffffff` |
+| `--surface` / `--surface2` / `--surface3` | dark greys | warm off-whites |
+| `--warn` | `#ffaa44` | `#8a5c00` |
+| `--warn-border` | `rgba(255,170,68,0.35)` | `rgba(122,68,0,0.35)` |
+| `--node-fill` | `#000000` | `#f8f7f4` |
+| `--map-bg` / `--map-land` | near-black | warm grey tones |
+
+### rgba() tint problem
+
+Hardcoded `rgba(0,255,65,X)` accent tints (used in `.snav-btn.active`, `.intro-*`, etc.) do not update via token override. Each is handled by an explicit `[data-theme="light"]` component rule using the dark-green equivalent `rgba(0,102,34,X)`. When adding new accent tints, always add a paired light override.

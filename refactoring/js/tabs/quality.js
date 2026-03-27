@@ -15,24 +15,24 @@ function renderQuality() {
   const withEnr = companies.filter(c => c.sources?.wikidata?.label).length;
 
   document.getElementById('q-wd-stats').innerHTML =
-    `<div style="font-size:var(--fs-base)"><span style="color:var(--accent);font-family:monospace">${withWd}</span> <span style="color:#555">with QID</span></div>
-     <div style="font-size:var(--fs-base)"><span style="color:#ff4444;font-family:monospace">${companies.length - withWd}</span> <span style="color:#555">missing</span></div>`;
+    `<div style="font-size:var(--fs-base)"><span style="color:var(--accent);font-family:monospace">${withWd}</span> <span style="color:var(--text-muted)">with QID</span></div>
+     <div style="font-size:var(--fs-base)"><span style="color:var(--error);font-family:monospace">${companies.length - withWd}</span> <span style="color:var(--text-muted)">missing</span></div>`;
   document.getElementById('q-wd-bar').style.width = pct + '%';
 
   const valCounts = {};
   companies.forEach(c => { (c.validation || []).forEach(v => { valCounts[v.status] = (valCounts[v.status] || 0) + 1; }); });
-  const statusColors = { confirmed: 'var(--accent)', needs_review: '#ffaa44', flagged: '#ff4444' };
+  const statusColors = { confirmed: 'var(--accent)', needs_review: 'var(--warn)', flagged: 'var(--error)' };
   document.getElementById('q-val-stats').innerHTML = Object.entries(valCounts).map(([s, n]) =>
-    `<div style="font-size:var(--fs-base)"><span style="color:${statusColors[s] || '#aaa'};font-family:monospace">${n}</span> <span style="color:#555">${s}</span></div>`
+    `<div style="font-size:var(--fs-base)"><span style="color:${statusColors[s] || 'var(--text-muted)'};font-family:monospace">${n}</span> <span style="color:var(--text-muted)">${s}</span></div>`
   ).join('');
 
   document.getElementById('q-enrich-stats').innerHTML =
-    `<div style="font-size:var(--fs-base)"><span style="color:var(--accent);font-family:monospace">${withEnr}</span> <span style="color:#555">Wikidata enriched</span></div>
-     <div style="font-size:var(--fs-base)"><span style="color:#555;font-family:monospace">${companies.length - withEnr}</span> <span style="color:#555">not enriched</span></div>`;
+    `<div style="font-size:var(--fs-base)"><span style="color:var(--accent);font-family:monospace">${withEnr}</span> <span style="color:var(--text-muted)">Wikidata enriched</span></div>
+     <div style="font-size:var(--fs-base)"><span style="color:var(--text-muted);font-family:monospace">${companies.length - withEnr}</span> <span style="color:var(--text-muted)">not enriched</span></div>`;
 
   const missing = companies.filter(c => !c.wikidata_id);
   document.getElementById('q-missing').innerHTML = missing.map(c =>
-    `<span style="font-size:var(--fs-xs);padding:2px 8px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:#666">${esc(c.name)}</span>`
+    `<span style="font-size:var(--fs-xs);padding:2px 8px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text-muted)">${esc(c.name)}</span>`
   ).join('');
 
   const openIssues = [];
@@ -41,8 +41,8 @@ function renderQuality() {
     <tr>
       <td style="font-size:var(--fs-base)"><strong>${esc(c.name)}</strong></td>
       <td>${sectorBadge(c.sector)}</td>
-      <td><span style="color:${v.status === 'flagged' ? '#ff4444' : '#ffaa44'};font-size:var(--fs-sm)">${v.status}</span></td>
-      <td style="font-size:var(--fs-sm);color:#555">${esc((v.description || '').slice(0, 100))}</td>
-      <td style="font-size:var(--fs-xs);color:#444;font-family:monospace">${v.datestamp || '—'}</td>
+      <td><span style="color:${v.status === 'flagged' ? 'var(--error)' : 'var(--warn)'};font-size:var(--fs-sm)">${v.status}</span></td>
+      <td style="font-size:var(--fs-sm);color:var(--text-muted)">${esc((v.description || '').slice(0, 100))}</td>
+      <td style="font-size:var(--fs-xs);color:var(--text-faint);font-family:monospace">${v.datestamp || '—'}</td>
     </tr>`).join('');
 }

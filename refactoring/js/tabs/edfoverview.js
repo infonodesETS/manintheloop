@@ -154,7 +154,7 @@ function render(m) {
 
   if (!m.hasProjectData) {
     document.getElementById('eo-rankings').innerHTML = `
-      <div class="stat-card" style="text-align:center;padding:28px 18px;color:#555;font-size:var(--fs-base)">
+      <div class="stat-card" style="text-align:center;padding:28px 18px;color:var(--text-muted);font-size:var(--fs-base)">
         No funded project data available yet — project participants will appear here once the dataset is populated.
       </div>`;
     return;
@@ -200,7 +200,7 @@ export default async function initEdfoverview() {
     render(metrics);
   } catch (err) {
     const wrap = document.getElementById('eo-wrap');
-    if (wrap) wrap.innerHTML = `<div style="color:#ff4444;font-size:var(--fs-base);font-family:monospace;padding:20px">
+    if (wrap) wrap.innerHTML = `<div style="color:var(--error);font-size:var(--fs-base);font-family:monospace;padding:20px">
       Error loading EDF data: ${esc(err.message)}</div>`;
   }
 }

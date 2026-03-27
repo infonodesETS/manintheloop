@@ -22,6 +22,7 @@ import initCompanySearch, { restoreCompanySearchUrl } from './tabs/companysearch
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
 import { initGlossaryTooltips, renderGlossaryTab } from './glossary.js';
 import { initCopyAI } from './copy-ai.js';
+import { initTheme } from './theme.js';
 
 // ── Preloader helper ──
 function hidePreloader(tabId) {
@@ -235,6 +236,9 @@ function restoreFromUrl() {
 loadData()
   .then(db => {
     document.getElementById('nav-meta').textContent = `updated: ${db._updated || '—'}`;
+    // Init theme toggle
+    initTheme();
+
     // Init glossary tooltips
     initGlossaryTooltips();
 
@@ -395,6 +399,6 @@ loadData()
   })
   .catch(err => {
     document.getElementById('loading-overlay').innerHTML =
-      `<div style="color:#ff4444;font-family:monospace;font-size:var(--fs-base)">Error: ${err.message}</div>
-       <div style="color:#555;font-size:var(--fs-sm);margin-top:8px">Serve with: python3 -m http.server 8081</div>`;
+      `<div style="color:var(--error);font-family:monospace;font-size:var(--fs-base)">Error: ${err.message}</div>
+       <div style="color:var(--text-muted);font-size:var(--fs-sm);margin-top:8px">Serve with: python3 -m http.server 8081</div>`;
   });

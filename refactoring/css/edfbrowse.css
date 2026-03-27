@@ -95,7 +95,7 @@
 #eb-search {
   width: 240px;
   padding: 5px 11px;
-  background: #000;
+  background: var(--surface-input);
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text-primary);
@@ -128,7 +128,7 @@
 /* ── Country select ── */
 #eb-country-select {
   padding: 5px 10px;
-  background: #000;
+  background: var(--surface-input);
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text-primary);
@@ -360,7 +360,7 @@ tr.eb-drawer-row > td {
 }
 .eb-role-badge.partner {
   background: rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.38);
+  color: var(--text-muted);
 }
 .eb-proj-status {
   font-size: var(--fs-body);
@@ -469,5 +469,21 @@ tr.eb-drawer-row > td {
   transition: all .12s;
 }
 .eb-pg-btn:disabled { opacity: .3; cursor: default; }
-.eb-pg-btn:not(:disabled):hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+.eb-pg-btn:not(:disabled):hover { border-color: var(--border); color: var(--text-primary); }
 .eb-pg-info { font-family: monospace; font-size: var(--fs-sm); color: var(--text-muted); }
+
+/* ── Light theme overrides ── */
+[data-theme="light"] #eb-stats-bar { background: rgba(0,102,34,0.04); border-color: rgba(0,102,34,0.12); }
+[data-theme="light"] .eb-role-badge.partner  { background: rgba(0,0,0,0.06); }
+[data-theme="light"] .eb-proj-status.closed  { background: rgba(0,0,0,0.04); }
+[data-theme="light"] .eb-drawer { border-top-color: rgba(0,102,34,0.12); }
+[data-theme="light"] .eb-coord-badge { background: rgba(0,102,34,0.10); border-color: rgba(0,102,34,0.22); }
+[data-theme="light"] .eb-proj-count  { background: rgba(0,102,34,0.08); border-color: rgba(0,102,34,0.18); }
+[data-theme="light"] .eb-ext-link    { border-color: rgba(0,102,34,0.35); }
+[data-theme="light"] .eb-ext-link:hover { background: rgba(0,102,34,0.08); }
+[data-theme="light"] .eb-proj-item   { border-left-color: rgba(0,102,34,0.22); }
+[data-theme="light"] .eb-proj-item--clickable:hover { border-left-color: rgba(0,102,34,0.55); }
+[data-theme="light"] .eb-role-badge.coord { background: rgba(0,102,34,0.09); border-color: rgba(0,102,34,0.22); }
+[data-theme="light"] .eb-proj-status.ongoing { background: rgba(0,102,34,0.08); border-color: rgba(0,102,34,0.18); }
+[data-theme="light"] .eb-mono { color: rgba(0,80,40,0.70); }
+[data-theme="light"] .eb-meta-call { color: rgba(0,80,40,0.55); }

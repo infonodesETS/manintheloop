@@ -183,7 +183,7 @@ export function openCompanySidebar(company) {
     html += section(`${lbl('Validation')}
       <ul class="es-list">
         ${issues.map(v =>
-          `<li><span style="color:${v.status === 'flagged' ? '#ff4444' : '#ffaa44'}">${esc(v.status)}</span> — ${esc(v.description)}</li>`
+          `<li><span style="color:${v.status === 'flagged' ? 'var(--error)' : 'var(--warn)'}">${esc(v.status)}</span> — ${esc(v.description)}</li>`
         ).join('')}
       </ul>`);
   }

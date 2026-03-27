@@ -9,24 +9,24 @@
 /* Status dots (open / forthcoming / closed) */
 .ec-status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: middle; margin-left: 4px; flex-shrink: 0; }
 .ec-status-dot.ec-status-open        { background: var(--accent); }
-.ec-status-dot.ec-status-forthcoming { background: #e3b341; }
+.ec-status-dot.ec-status-forthcoming { background: var(--status-warn); }
 .ec-status-dot.ec-status-closed      { background: var(--text-muted); }
 .ec-status-dot.ec-status-unknown     { background: var(--text-faint); }
 
 /* Scrollable pane extra padding */
 #tab-eucalls { padding: 24px; }
 #tab-eucalls h2 {
-  font-size: var(--fs-lg); font-weight: var(--fw-bold); color: #fff;
+  font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--text-primary);
   text-transform: uppercase; letter-spacing: .5px; margin: 0 0 6px;
 }
 
 /* Bootstrap form overrides */
 #tab-eucalls .form-control {
   background: var(--surface3); border-color: var(--border);
-  color: #fff; font-family: var(--font); font-size: var(--fs-body);
+  color: var(--text-primary); font-family: var(--font); font-size: var(--fs-body);
 }
 #tab-eucalls .form-control:focus {
-  background: var(--surface3); border-color: var(--accent); color: #fff;
+  background: var(--surface3); border-color: var(--accent); color: var(--text-primary);
   box-shadow: 0 0 0 2px rgba(0,255,65,0.12);
 }
 #tab-eucalls .form-control::placeholder { color: var(--dim); }
@@ -38,16 +38,16 @@
 
 /* Bootstrap button overrides */
 #tab-eucalls .btn { font-family: var(--font); font-weight: var(--fw-bold); border-radius: 50px; letter-spacing: .3px; }
-#tab-eucalls .btn-primary { background: var(--accent); border-color: var(--accent); color: #000; }
+#tab-eucalls .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 #tab-eucalls .btn-primary:hover,
-#tab-eucalls .btn-primary:focus  { background: #8ad8dc; border-color: #8ad8dc; color: #000; }
-#tab-eucalls .btn-primary:disabled { background: rgba(0,255,65,0.4); border-color: rgba(0,255,65,0.4); color: #000; }
+#tab-eucalls .btn-primary:focus  { background: var(--accent); border-color: var(--accent); color: var(--on-accent); filter: brightness(1.15); }
+#tab-eucalls .btn-primary:disabled { background: rgba(0,255,65,0.4); border-color: rgba(0,255,65,0.4); color: var(--on-accent); }
 #tab-eucalls .btn-outline-success { border-color: var(--accent); color: var(--accent); }
 #tab-eucalls .btn-outline-success:hover { background: var(--accent); color: #000; border-color: var(--accent); }
 #tab-eucalls .btn-outline-info { border-color: var(--border); color: var(--dim); }
-#tab-eucalls .btn-outline-info:hover { background: var(--border); color: #fff; }
+#tab-eucalls .btn-outline-info:hover { background: var(--border); color: var(--text-primary); }
 #tab-eucalls .btn-outline-primary { border-color: var(--accent); color: var(--accent); }
-#tab-eucalls .btn-outline-primary:hover { background: var(--accent); color: #000; }
+#tab-eucalls .btn-outline-primary:hover { background: var(--accent); color: var(--on-accent); }
 #tab-eucalls .btn-close { filter: invert(1); }
 
 /* Bootstrap card overrides */
@@ -57,18 +57,18 @@
 }
 #tab-eucalls .card-header {
   background: var(--surface2); border-bottom: 1px solid var(--border);
-  color: rgba(255,255,255,0.7); font-family: var(--font); font-weight: var(--fw-bold);
+  color: var(--text-secondary); font-family: var(--font); font-weight: var(--fw-bold);
   font-size: var(--fs-base); letter-spacing: .5px; text-transform: uppercase;
 }
-#tab-eucalls .card-header.bg-primary { background: var(--accent) !important; color: #000 !important; }
+#tab-eucalls .card-header.bg-primary { background: var(--accent) !important; color: var(--on-accent) !important; }
 #tab-eucalls .card-header.bg-info    { background: rgba(104,204,209,0.12) !important; color: var(--accent) !important; }
-#tab-eucalls .card-header.bg-light   { background: var(--surface2) !important; color: #fff; }
+#tab-eucalls .card-header.bg-light   { background: var(--surface2) !important; color: var(--text-primary); }
 #tab-eucalls .card-body { color: var(--text-primary); }
 
 /* Bootstrap progress overrides */
 #tab-eucalls .progress { height: 28px; border-radius: 50px; background: var(--surface2); }
 #tab-eucalls .progress-bar { font-family: var(--font); font-size: var(--fs-base); font-weight: var(--fw-bold); }
-#tab-eucalls .progress-bar.bg-info { background: var(--accent) !important; color: #000 !important; }
+#tab-eucalls .progress-bar.bg-info { background: var(--accent) !important; color: var(--on-accent) !important; }
 
 /* Bootstrap alert overrides */
 #tab-eucalls .alert-danger { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.3); color: #fca5a5; }
@@ -94,7 +94,7 @@
   border-radius: 4px !important; margin-bottom: .5rem;
 }
 #tab-eucalls .accordion-button {
-  background: var(--surface2); color: #fff;
+  background: var(--surface2); color: var(--text-primary);
   font-family: var(--font); font-weight: var(--fw-bold); font-size: var(--fs-body);
 }
 #tab-eucalls .accordion-button:not(.collapsed) {
@@ -106,7 +106,7 @@
 #tab-eucalls .accordion-collapse { background: var(--surface); }
 
 /* Bootstrap badge overrides */
-#tab-eucalls .badge.bg-primary { background: var(--accent) !important; color: #000 !important; }
+#tab-eucalls .badge.bg-primary { background: var(--accent) !important; color: var(--on-accent) !important; }
 #tab-eucalls .badge.bg-success {
   background: rgba(104,204,209,0.18) !important; color: var(--accent) !important;
   border: 1px solid rgba(104,204,209,0.3);
@@ -121,7 +121,7 @@
   border: 1px solid rgba(104,204,209,0.3) !important;
 }
 #tab-eucalls .badge-closed  { background: rgba(255,255,255,0.07) !important; color: rgba(255,255,255,0.45) !important; }
-#tab-eucalls .badge-forth   { background: rgba(255,255,255,0.12) !important; color: #fff !important; }
+#tab-eucalls .badge-forth   { background: rgba(255,255,255,0.12) !important; color: var(--text-primary) !important; }
 #tab-eucalls .badge-default { background: rgba(255,255,255,0.07) !important; color: rgba(255,255,255,0.45) !important; }
 
 /* Log panel */
@@ -131,9 +131,9 @@
   font-size: var(--fs-base); max-height: 280px; overflow-y: auto; padding: 1rem;
 }
 .ec-log-line { padding: 0.1rem 0; line-height: var(--lh-body); }
-.ec-log-line.ok   { color: #56d364; }
-.ec-log-line.err  { color: #f85149; }
-.ec-log-line.warn { color: #e3b341; }
+.ec-log-line.ok   { color: var(--ok); }
+.ec-log-line.err  { color: var(--status-err); }
+.ec-log-line.warn { color: var(--status-warn); }
 .ec-log-line.info { color: var(--accent); }
 
 /* Project cards */
@@ -150,7 +150,7 @@
 #tab-eucalls code { color: var(--accent); background: rgba(104,204,209,0.08); padding: 1px 6px; border-radius: 3px; }
 
 /* Zebra stripes on project list */
-#tab-eucalls .proj-list > .card:nth-child(odd)  { background: #0a0a0a !important; }
+#tab-eucalls .proj-list > .card:nth-child(odd)  { background: var(--surface3) !important; }
 #tab-eucalls .proj-list > .card:nth-child(even) { background: var(--surface) !important; }
 
 /* ── EU Calls modals ── */
@@ -160,7 +160,7 @@
 #ec-jsonModal .modal-header  { border-color: var(--border); }
 #ec-edfOnlyModal .modal-title,
 #ec-jsonModal .modal-title {
-  color: #fff; font-family: var(--font); font-weight: var(--fw-bold);
+  color: var(--text-primary); font-family: var(--font); font-weight: var(--fw-bold);
   font-size: var(--fs-lg); text-transform: uppercase;
 }
 #ec-edfOnlyModal .btn-close,
@@ -169,9 +169,9 @@
 #ec-jsonModal .modal-body { color: var(--text-primary); }
 #ec-edfOnlyModal .modal-footer,
 #ec-jsonModal .modal-footer { border-color: var(--border); }
-#ec-edfOnlyModal .btn-primary { background: var(--accent); border-color: var(--accent); color: #000; font-family: var(--font); font-weight: var(--fw-bold); border-radius: 50px; }
+#ec-edfOnlyModal .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-family: var(--font); font-weight: var(--fw-bold); border-radius: 50px; }
 #ec-jsonModal pre { color: var(--accent); font-size: var(--fs-base); background: transparent; }
-#ec-jsonModal .btn-primary { background: var(--accent); border-color: var(--accent); color: #000; font-family: var(--font); font-weight: var(--fw-bold); border-radius: 50px; }
+#ec-jsonModal .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-family: var(--font); font-weight: var(--fw-bold); border-radius: 50px; }
 
 /* ── Participant button in project cards ── */
 .ec-part-btn {
@@ -180,7 +180,7 @@
   cursor: pointer; text-align: left; text-decoration: underline;
   text-decoration-color: rgba(0,255,65,0.35); text-underline-offset: 2px;
 }
-.ec-part-btn:hover { color: #8ad8dc; text-decoration-color: #8ad8dc; }
+.ec-part-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
 /* ── Participant sidebar ── */
 .ec-part-sidebar {
@@ -251,6 +251,20 @@
 #ec-fundedOnly      { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
 #ec-fundedCount     { color: var(--accent); font-weight: var(--fw-bold); }
 #ec-btnSpinner      { width: 16px; height: 16px; border-width: 2px; margin-left: 6px; vertical-align: middle; }
-#ec-patternTitle    { color: #fff; text-transform: uppercase; font-size: var(--fs-body); font-weight: var(--fw-bold); }
+#ec-patternTitle    { color: var(--text-primary); text-transform: uppercase; font-size: var(--fs-body); font-weight: var(--fw-bold); }
 #ec-partClose       { filter: invert(1); }
 #ec-jsonContent     { white-space: pre-wrap; word-wrap: break-word; max-height: 70vh; overflow-y: auto; }
+
+/* ── Light theme overrides ── */
+[data-theme="light"] #tab-eucalls .btn-close,
+[data-theme="light"] #ec-edfOnlyModal .btn-close,
+[data-theme="light"] #ec-jsonModal .btn-close,
+[data-theme="light"] #ec-partClose { filter: none; }
+[data-theme="light"] #tab-eucalls .accordion-button::after { filter: none; }
+[data-theme="light"] #tab-eucalls .badge-closed,
+[data-theme="light"] #tab-eucalls .badge-default { background: rgba(0,0,0,0.07) !important; color: var(--text-muted) !important; }
+[data-theme="light"] #tab-eucalls .badge-forth   { background: rgba(0,0,0,0.07) !important; color: var(--text-primary) !important; }
+[data-theme="light"] #tab-eucalls .badge.bg-info.text-dark { background: rgba(0,0,0,0.06) !important; color: var(--text-muted) !important; }
+[data-theme="light"] #ec-callDrop mark { background: rgba(0,102,34,0.25); color: var(--text-primary); }
+[data-theme="light"] .ec-part-btn { text-decoration-color: rgba(0,102,34,0.35); }
+[data-theme="light"] .ec-part-row { border-bottom-color: rgba(0,0,0,0.06); }
