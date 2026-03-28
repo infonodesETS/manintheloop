@@ -32,7 +32,8 @@ This document defines the rules for updating `database.json` when new data is av
    }
    ```
 4. Add a `needs_review` validation entry for roles (until confirmed).
-5. Run `validate.py` before committing.
+5. Bump `_updated` at the top level of `database.json` to today's date.
+6. Run `validate.py` before committing.
 
 ---
 
@@ -41,6 +42,8 @@ This document defines the rules for updating `database.json` when new data is av
 Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["investor"]`.
 
 > **Deduplication:** Before adding, search existing investor entities case-insensitively. If a match exists, use the existing ID — never create a duplicate.
+
+Bump `_updated` at the top level of `database.json` to today's date before committing.
 
 ---
 
@@ -61,7 +64,8 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
    }
    ```
 4. If the field was flagged in `validation[]`, update its status to `confirmed` or add a new entry explaining resolution.
-5. Run `validate.py` before committing.
+5. **Bump `_updated`** at the top level of `database.json` to today's date (`YYYY-MM-DD`). This applies to every change — field updates, merges, removals, normalisation passes.
+6. Run `validate.py` before committing.
 
 ---
 
@@ -89,6 +93,8 @@ When a new full scrape is available (new date key in legacy format), follow thes
 2. Correct the field (e.g. set the right `wikidata_id`).
 3. Append to `history[]` documenting the correction.
 4. Change the validation entry's `status` to `"confirmed"` and add a `datestamp`.
+5. Bump `_updated` at the top level of `database.json` to today's date.
+6. Run `validate.py` before committing.
 
 Example — correcting a bad `wikidata_id`:
 ```json
@@ -123,7 +129,8 @@ If the same real-world entity exists under two IDs:
    ```
 5. **Delete** the duplicate entity from `entities[]` (IDs are never reused, so the deleted ID is permanently retired).
 6. Add a `merged_duplicate` validation entry.
-7. Run `validate.py`.
+7. Bump `_updated` at the top level of `database.json` to today's date.
+8. Run `validate.py`.
 
 ---
 
@@ -146,7 +153,8 @@ A relationship is spurious if it has no backing in any recognised source (CSV, C
      "description": "Removed spurious relationship: <investor> not found in any source"
    }
    ```
-5. Run `validate.py` before committing.
+5. Bump `_updated` at the top level of `database.json` to today's date.
+6. Run `validate.py` before committing.
 
 ---
 
