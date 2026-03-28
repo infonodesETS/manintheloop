@@ -125,7 +125,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/AeroVironment"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "AeroVironment",
           "description": "Company that designs and manufactures UAVs for U.S. Department of Defense and allied military services",
           "aliases": [],
@@ -188,6 +188,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q919300)",
+          "description": "sources.wikidata populated from Wikidata API (Q919300)"
         }
       ],
       "validation": [
@@ -250,7 +259,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Agnico_Eagle"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Agnico Eagle Mines",
           "description": "Canadian gold producer",
           "aliases": [
@@ -300,6 +309,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q38676)",
+          "description": "sources.wikidata populated from Wikidata API (Q38676)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -380,7 +398,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Airbus SE",
           "description": "pan-European aerospace and defence group",
           "aliases": [
@@ -444,6 +462,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2311)",
+          "description": "sources.wikidata populated from Wikidata API (Q2311)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -526,7 +553,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Albemarle_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Albemarle Corporation",
           "description": "American specialty chemicals manufacturing company",
           "aliases": [],
@@ -598,6 +625,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q127074)",
+          "description": "sources.wikidata populated from Wikidata API (Q127074)"
         }
       ],
       "validation": [
@@ -760,7 +796,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Alphabet Inc.",
           "description": "American multinational technology conglomerate",
           "aliases": [
@@ -828,6 +864,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q20800404)",
+          "description": "sources.wikidata populated from Wikidata API (Q20800404)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -1077,7 +1122,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Amazon_(company)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Amazon",
           "description": "American multinational technology company",
           "aliases": [],
@@ -1250,6 +1295,15 @@
             "investor"
           ],
           "description": "Corrected roles to valid values: manufacturer + investor"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3884)",
+          "description": "sources.wikidata populated from Wikidata API (Q3884)"
         }
       ],
       "validation": [
@@ -1341,7 +1395,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/AMD"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "AMD",
           "description": "American multinational semiconductor company",
           "aliases": [
@@ -1400,6 +1454,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q128896)",
+          "description": "sources.wikidata populated from Wikidata API (Q128896)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -1470,7 +1533,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/American_Elements"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "American Elements",
           "description": "chemical company",
           "aliases": [],
@@ -1540,6 +1603,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q4743673)",
+          "description": "sources.wikidata populated from Wikidata API (Q4743673)"
         }
       ],
       "validation": [
@@ -1600,7 +1672,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Groupe_Bull"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Groupe Bull",
           "description": "French-owned computer company",
           "aliases": [
@@ -1660,6 +1732,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1004175)",
+          "description": "sources.wikidata populated from Wikidata API (Q1004175)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -1754,7 +1835,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Anduril_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": null,
           "description": "American defense contractor",
           "aliases": [],
@@ -1816,6 +1897,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q61918830)",
+          "description": "sources.wikidata populated from Wikidata API (Q61918830)"
         }
       ],
       "validation": [
@@ -1882,7 +1972,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Anglo_American_plc"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Anglo American plc",
           "description": "British multinational mining company",
           "aliases": [
@@ -1945,6 +2035,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q541451)",
+          "description": "sources.wikidata populated from Wikidata API (Q541451)"
         }
       ],
       "validation": [
@@ -2030,7 +2129,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Apple_Inc."
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Apple Inc.",
           "description": "American multinational technology company based in Cupertino, California",
           "aliases": [],
@@ -2089,6 +2188,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q312)",
+          "description": "sources.wikidata populated from Wikidata API (Q312)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -2162,7 +2270,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Arafura_Rare_Earths"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Arafura Rare Earths",
           "description": "Australian mining company",
           "aliases": [
@@ -2221,6 +2329,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16829889)",
+          "description": "sources.wikidata populated from Wikidata API (Q16829889)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -2466,7 +2583,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Aselsan"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "ASELSAN",
           "description": "Turkish defense corporation",
           "aliases": [
@@ -2517,6 +2634,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q297600)",
+          "description": "sources.wikidata populated from Wikidata API (Q297600)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -2600,7 +2726,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/ASML_Holding"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "ASML Holding",
           "description": "Dutch company and supplier of photolithography systems",
           "aliases": [
@@ -2619,7 +2745,7 @@
           "official_website": "https://www.asml.com/",
           "isin": "NL0010273215",
           "employees": 44027,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/ASML%20Holding"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/ASML"
         }
       },
       "history": [
@@ -2661,6 +2787,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q297879)",
+          "description": "sources.wikidata populated from Wikidata API (Q297879)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -2861,7 +2996,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Babcock_International"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Babcock International",
           "description": "British multinational support services company",
           "aliases": [
@@ -2934,6 +3069,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q385426)",
+          "description": "sources.wikidata populated from Wikidata API (Q385426)"
         }
       ],
       "validation": [
@@ -3009,7 +3153,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/BAE_Systems"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "BAE Systems",
           "description": "defense, security and aerospace company",
           "aliases": [
@@ -3018,7 +3162,8 @@
           ],
           "instance_of": [
             "public company",
-            "business"
+            "business",
+            "aerospace manufacturer"
           ],
           "country": "United Kingdom",
           "inception": "1999-11-30",
@@ -3074,6 +3219,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q739416)",
+          "description": "sources.wikidata populated from Wikidata API (Q739416)"
         }
       ],
       "validation": [
@@ -3139,7 +3293,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Barrick_Mining"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Barrick Mining Corporation",
           "description": "company",
           "aliases": [],
@@ -3187,6 +3341,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q808908)",
+          "description": "sources.wikidata populated from Wikidata API (Q808908)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -3257,7 +3420,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Bayan Resources",
           "description": "Indonesian company",
           "aliases": [
@@ -3335,6 +3498,15 @@
           "old": null,
           "new": null,
           "description": "Cleared wikidata_id needs_review flag — Q96100147 confirmed correct (label, aliases, country, sector all match)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q96100147)",
+          "description": "sources.wikidata populated from Wikidata API (Q96100147)"
         }
       ],
       "validation": [
@@ -3401,7 +3573,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Baykar"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Baykar",
           "description": "Turkish tactical UAV manufacturer, private company",
           "aliases": [
@@ -3461,6 +3633,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q6023024)",
+          "description": "sources.wikidata populated from Wikidata API (Q6023024)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -3543,7 +3724,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Bharat_Electronics"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Bharat Electronics",
           "description": "business enterprise",
           "aliases": [
@@ -3593,6 +3774,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3630918)",
+          "description": "sources.wikidata populated from Wikidata API (Q3630918)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -3668,7 +3858,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/BHP"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "BHP Group",
           "description": "Australian multinational mining and metals company",
           "aliases": [
@@ -3822,6 +4012,15 @@
             "investor"
           ],
           "description": "Corrected roles to valid values: manufacturer + investor"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q625713)",
+          "description": "sources.wikidata populated from Wikidata API (Q625713)"
         }
       ],
       "validation": [
@@ -3894,7 +4093,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Broadcom"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Broadcom",
           "description": "American semiconductor company",
           "aliases": [
@@ -3954,6 +4153,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q790060)",
+          "description": "sources.wikidata populated from Wikidata API (Q790060)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -4105,7 +4313,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Aerospace_Science_and_Industry_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China Aerospace Science and Industry Corporation Limited",
           "description": "Chinese state-owned defense company",
           "aliases": [
@@ -4116,7 +4324,7 @@
             "business",
             "launch service provider"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1999",
           "headquarters": "Beijing",
           "official_website": "http://www.casic.com.cn/",
@@ -4179,6 +4387,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q10874081)",
+          "description": "sources.wikidata populated from Wikidata API (Q10874081)"
         }
       ],
       "validation": [
@@ -4257,7 +4474,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Chemring_Group"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Chemring Group",
           "description": "company",
           "aliases": [],
@@ -4328,6 +4545,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1069644)",
+          "description": "sources.wikidata populated from Wikidata API (Q1069644)"
         }
       ],
       "validation": [
@@ -4399,7 +4625,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Aerospace_Science_and_Technology_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China Aerospace Science and Technology Corporation",
           "description": "Chinese state-owned defense company",
           "aliases": [
@@ -4409,7 +4635,7 @@
             "Chinese wholly state-owned enterprise",
             "launch service provider"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1999-07-01",
           "headquarters": "Haidian District",
           "official_website": "http://www.spacechina.com/",
@@ -4472,6 +4698,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2777589)",
+          "description": "sources.wikidata populated from Wikidata API (Q2777589)"
         }
       ],
       "validation": [
@@ -4538,7 +4773,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Minmetals"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China Minmetals",
           "description": "company",
           "aliases": [
@@ -4549,7 +4784,7 @@
             "Chinese state-owned enterprise",
             "trading company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1950-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.minmetals.com/",
@@ -4621,6 +4856,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q846839)",
+          "description": "sources.wikidata populated from Wikidata API (Q846839)"
         }
       ],
       "validation": [
@@ -4681,7 +4925,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Northern_Rare_Earth"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China Northern Rare Earth (Group) High-Tech Co.,Ltd",
           "description": "Chinese resource company in Inner Mongolia",
           "aliases": [],
@@ -4752,6 +4996,15 @@
           "old": "Cina",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q55697404)",
+          "description": "sources.wikidata populated from Wikidata API (Q55697404)"
         }
       ],
       "validation": [
@@ -4818,7 +5071,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Shenhua_Energy"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China Shenhua Energy Company",
           "description": "Chinese state-owned coal mining and energy enterprise engaged in the production and sale of coal and the generation and sale of electric power",
           "aliases": [
@@ -4842,7 +5095,7 @@
             "group of companies",
             "subsidiary company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1995",
           "headquarters": "Beijing",
           "official_website": "http://www.csec.com/",
@@ -4896,6 +5149,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1073509)",
+          "description": "sources.wikidata populated from Wikidata API (Q1073509)"
         }
       ],
       "validation": [
@@ -4950,7 +5212,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Aluminum_Corporation_of_China"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Aluminum Corporation of China",
           "description": "State-owned aluminium company headquartered in Beijing, China",
           "aliases": [
@@ -4964,7 +5226,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "2001",
           "headquarters": "Beijing",
           "official_website": "http://www.chalco.com.cn/",
@@ -5036,6 +5298,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q447855)",
+          "description": "sources.wikidata populated from Wikidata API (Q447855)"
         }
       ],
       "validation": [
@@ -5102,7 +5373,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Aluminum_Corporation_of_China"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Aluminum Corporation of China",
           "description": "State-owned aluminium company headquartered in Beijing, China",
           "aliases": [
@@ -5116,7 +5387,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "2001",
           "headquarters": "Beijing",
           "official_website": "http://www.chalco.com.cn/",
@@ -5188,6 +5459,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q447855)",
+          "description": "sources.wikidata populated from Wikidata API (Q447855)"
         }
       ],
       "validation": [
@@ -5266,7 +5546,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Cisco"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Cisco",
           "description": "American multinational technology company",
           "aliases": [
@@ -5327,6 +5607,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q173395)",
+          "description": "sources.wikidata populated from Wikidata API (Q173395)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -5399,11 +5688,11 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Coal_India"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Coal India Limited",
-          "description": "company",
+          "retrieved_at": "2026-03-28",
+          "label": "Coal India",
+          "description": "Indian state-owned company",
           "aliases": [
-            "COALINDIA"
+            "Coal India Limited"
           ],
           "instance_of": [
             "business",
@@ -5448,6 +5737,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q124976)",
+          "description": "sources.wikidata populated from Wikidata API (Q124976)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -5519,7 +5817,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Codelco"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Codelco",
           "description": "Chilean copper company",
           "aliases": [],
@@ -5590,6 +5888,15 @@
           "old": "Cile",
           "new": "Chile",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1105695)",
+          "description": "sources.wikidata populated from Wikidata API (Q1105695)"
         }
       ],
       "validation": [
@@ -5658,7 +5965,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Colt_CZ_Group"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Colt CZ Group",
           "description": "Czech holding company",
           "aliases": [
@@ -5735,6 +6042,15 @@
           "old": "Czech Rep.",
           "new": "Czech Republic",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q55568528)",
+          "description": "sources.wikidata populated from Wikidata API (Q55568528)"
         }
       ],
       "validation": [
@@ -5959,7 +6275,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Almaz-Antey_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Almaz-Antey",
           "description": "Russian state-owned company in the arms industry",
           "aliases": [
@@ -6009,6 +6325,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1331507)",
+          "description": "sources.wikidata populated from Wikidata API (Q1331507)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -6075,7 +6400,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_State_Shipbuilding_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China State Shipbuilding Corporation Limited",
           "description": "Chinese state-owned shipbuilder",
           "aliases": [
@@ -6086,7 +6411,7 @@
             "shipbuilding company",
             "holding company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "2019-11-26",
           "headquarters": "Huangpu District",
           "official_website": "http://www.cssc.net.cn",
@@ -6149,6 +6474,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1073512)",
+          "description": "sources.wikidata populated from Wikidata API (Q1073512)"
         }
       ],
       "validation": [
@@ -6217,7 +6551,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Czechoslovak_Group"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Czechoslovak Group",
           "description": "Czech defense company",
           "aliases": [],
@@ -6297,6 +6631,15 @@
           "old": "Czech Rep.",
           "new": "Czech Republic",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q24708162)",
+          "description": "sources.wikidata populated from Wikidata API (Q24708162)"
         }
       ],
       "validation": [
@@ -6378,7 +6721,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Daqo_New_Energy"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "DAQO",
           "description": "Chinese company",
           "aliases": [
@@ -6451,6 +6794,15 @@
           "old": "Cina",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16973267)",
+          "description": "sources.wikidata populated from Wikidata API (Q16973267)"
         }
       ],
       "validation": [
@@ -6523,14 +6875,14 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Dassault_Aviation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Dassault Aviation",
           "description": "aerospace manufacturer in France",
           "aliases": [
             "Dassault"
           ],
           "instance_of": [
-            "organization"
+            "aerospace manufacturer"
           ],
           "country": "France",
           "inception": "1929",
@@ -6580,6 +6932,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q460487)",
+          "description": "sources.wikidata populated from Wikidata API (Q460487)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -6749,7 +7110,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Destinus"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Destinus",
           "description": "european private aerospace company",
           "aliases": [],
@@ -6795,6 +7156,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q117323559)",
+          "description": "sources.wikidata populated from Wikidata API (Q117323559)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -6868,7 +7238,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Diehl_Defence"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Diehl Defence",
           "description": "business",
           "aliases": [
@@ -6925,6 +7295,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q464834)",
+          "description": "sources.wikidata populated from Wikidata API (Q464834)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -7011,7 +7390,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Dowa_Holdings"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Dowa Holdings",
           "description": "Japanese nonferrous metals manufacturer",
           "aliases": [],
@@ -7083,6 +7462,15 @@
           "old": "Giappone",
           "new": "Japan",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q5302643)",
+          "description": "sources.wikidata populated from Wikidata API (Q5302643)"
         }
       ],
       "validation": [
@@ -7157,7 +7545,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Elbit_Systems"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Elbit Systems Ltd.",
           "description": "Israel-based defense electronics company",
           "aliases": [],
@@ -7214,6 +7602,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1325369)",
+          "description": "sources.wikidata populated from Wikidata API (Q1325369)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -7289,7 +7686,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Elkem"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Elkem",
           "description": "company",
           "aliases": [],
@@ -7359,6 +7756,15 @@
           "old": "Norvegia",
           "new": "Norway",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1331615)",
+          "description": "sources.wikidata populated from Wikidata API (Q1331615)"
         }
       ],
       "validation": [
@@ -7427,7 +7833,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Eviden",
           "description": null,
           "aliases": [],
@@ -7491,6 +7897,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q117442701)",
+          "description": "sources.wikidata populated from Wikidata API (Q117442701)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -7570,7 +7985,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Exxelia",
           "description": "electronic and mechanical components manufacturer based in Paris, France",
           "aliases": [
@@ -7627,6 +8042,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q103812026)",
+          "description": "sources.wikidata populated from Wikidata API (Q103812026)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -7704,7 +8128,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Ferroglobe",
           "description": null,
           "aliases": [],
@@ -7774,6 +8198,15 @@
           "old": "UK/Spagna",
           "new": "United Kingdom",
           "description": "Country normalised to English canonical form. Wikidata Q125144368 confirms country = United Kingdom (HQ London). Raw CSV field 'Country' not present — infonodes country was set during initial data entry as 'UK/Spagna' (bilingual). Normalised to match sources.wikidata.country."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q125144368)",
+          "description": "sources.wikidata populated from Wikidata API (Q125144368)"
         }
       ],
       "validation": [
@@ -7849,7 +8282,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Fincantieri"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Fincantieri",
           "description": "Italian shipbuilding company",
           "aliases": [
@@ -7909,6 +8342,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1327429)",
+          "description": "sources.wikidata populated from Wikidata API (Q1327429)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -7989,7 +8431,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/First_Quantum_Minerals"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "First Quantum Minerals",
           "description": "Canadian mining company",
           "aliases": [],
@@ -8046,6 +8488,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1419532)",
+          "description": "sources.wikidata populated from Wikidata API (Q1419532)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -8120,7 +8571,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Fokker_Technologies"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Fokker Technologies",
           "description": "Dutch aerospace company",
           "aliases": [],
@@ -8175,6 +8626,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q5464208)",
+          "description": "sources.wikidata populated from Wikidata API (Q5464208)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -8247,7 +8707,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Fortescue_(company)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Fortescue Metals Group",
           "description": "iron ore mining company in Western Australia",
           "aliases": [
@@ -8299,6 +8759,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1438957)",
+          "description": "sources.wikidata populated from Wikidata API (Q1438957)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -8365,7 +8834,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Freeport-McMoRan"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Freeport-McMoRan",
           "description": "producer of copper and gold",
           "aliases": [
@@ -8441,6 +8910,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1453620)",
+          "description": "sources.wikidata populated from Wikidata API (Q1453620)"
         }
       ],
       "validation": [
@@ -8518,7 +8996,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Ganfeng_Lithium"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Ganfeng Lithium",
           "description": "Chinese lithium company",
           "aliases": [
@@ -8528,7 +9006,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": null,
           "headquarters": null,
           "official_website": "https://www.ganfenglithium.com/",
@@ -8591,6 +9069,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q10954805)",
+          "description": "sources.wikidata populated from Wikidata API (Q10954805)"
         }
       ],
       "validation": [
@@ -8660,14 +9147,14 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "GCL Technology Holdings Limited",
           "description": null,
           "aliases": [],
           "instance_of": [
             "business"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": null,
           "headquarters": "Hong Kong",
           "official_website": null,
@@ -8739,6 +9226,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q124670561)",
+          "description": "sources.wikidata populated from Wikidata API (Q124670561)"
         }
       ],
       "validation": [
@@ -8812,7 +9308,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/General_Dynamics"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "General Dynamics",
           "description": "American defense manufacturing conglomerate",
           "aliases": [],
@@ -8874,6 +9370,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q502940)",
+          "description": "sources.wikidata populated from Wikidata API (Q502940)"
         }
       ],
       "validation": [
@@ -8947,7 +9452,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Glencore"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Glencore",
           "description": "metals and minerals, and energy products company",
           "aliases": [
@@ -9006,6 +9511,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q169339)",
+          "description": "sources.wikidata populated from Wikidata API (Q169339)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -9088,7 +9602,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Grupo_México"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Grupo México",
           "description": "company",
           "aliases": [
@@ -9138,6 +9652,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q623591)",
+          "description": "sources.wikidata populated from Wikidata API (Q623591)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -9206,7 +9729,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/HAVELSAN"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "HAVELSAN",
           "description": "Turkish software and systems company",
           "aliases": [],
@@ -9261,6 +9784,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q5628993)",
+          "description": "sources.wikidata populated from Wikidata API (Q5628993)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -9350,23 +9882,24 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing_(company)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-22",
+          "retrieved_at": "2026-03-28",
           "label": "Helsing",
           "description": "German company specializing in artificial intelligence for defense purposes",
           "aliases": [
             "Helsing GmbH"
           ],
           "instance_of": [
-            "company",
-            "GmbH"
+            "software company",
+            "group of companies",
+            "company"
           ],
           "country": "Germany",
           "inception": "2021",
           "headquarters": "Munich",
-          "official_website": "https://helsing.ai/",
+          "official_website": "https://helsing.ai/de",
           "isin": null,
           "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing_(company)"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing%20%28company%29"
         }
       },
       "history": [
@@ -9387,6 +9920,15 @@
           "old": null,
           "new": "Q127380521",
           "description": "Wikidata entry found (Q127380521); wikidata_id + sources.wikidata + wikipedia_url set"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q127380521)",
+          "description": "sources.wikidata populated from Wikidata API (Q127380521)"
         }
       ],
       "validation": [
@@ -9451,7 +9993,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hemlock_Semiconductor"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Hemlock Semiconductor Corporation",
           "description": "American polysilicon producer",
           "aliases": [],
@@ -9521,6 +10063,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q5712288)",
+          "description": "sources.wikidata populated from Wikidata API (Q5712288)"
         }
       ],
       "validation": [
@@ -9594,7 +10145,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hensoldt"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Hensoldt AG",
           "description": "German multinational defence electronics company",
           "aliases": [
@@ -9643,6 +10194,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q21236526)",
+          "description": "sources.wikidata populated from Wikidata API (Q21236526)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -9703,7 +10263,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Huntington Ingalls Industries",
           "description": "American shipbuilding company",
           "aliases": [
@@ -9770,6 +10330,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q7257522)",
+          "description": "sources.wikidata populated from Wikidata API (Q7257522)"
         }
       ],
       "validation": [
@@ -9833,7 +10402,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hindustan_Aeronautics_Limited"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Hindustan Aeronautics Limited",
           "description": "Indian public sector aerospace manufacturer",
           "aliases": [
@@ -9884,6 +10453,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q357095)",
+          "description": "sources.wikidata populated from Wikidata API (Q357095)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -9964,7 +10542,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Honeywell"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Honeywell International, Inc.",
           "description": "American multinational conglomerate",
           "aliases": [
@@ -10032,6 +10610,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q898208)",
+          "description": "sources.wikidata populated from Wikidata API (Q898208)"
         }
       ],
       "validation": [
@@ -10095,7 +10682,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hoshine_Silicon_Industry"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Hoshine Silicon Industry",
           "description": "Chinese Silicon Company",
           "aliases": [
@@ -10165,6 +10752,15 @@
           "old": "Cina",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q108003110)",
+          "description": "sources.wikidata populated from Wikidata API (Q108003110)"
         }
       ],
       "validation": [
@@ -10243,7 +10839,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/IBM"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "IBM",
           "description": "American multinational technology corporation",
           "aliases": [
@@ -10313,6 +10909,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q37156)",
+          "description": "sources.wikidata populated from Wikidata API (Q37156)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -10392,7 +10997,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/ICEYE"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "ICEYE",
           "description": "Finnish spacetech startup, building small size remote sensing satellite constellation",
           "aliases": [
@@ -10457,6 +11062,15 @@
           "old": "REL-0134",
           "new": null,
           "description": "Removed spurious relationship: European Investment Fund not found in any source (CSV Top 5 + Lead Investors)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q31086161)",
+          "description": "sources.wikidata populated from Wikidata API (Q31086161)"
         }
       ],
       "validation": [
@@ -10524,7 +11138,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Iluka_Resources"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Iluka Resources",
           "description": "company",
           "aliases": [
@@ -10583,6 +11197,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1117761)",
+          "description": "sources.wikidata populated from Wikidata API (Q1117761)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -10662,7 +11285,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Israel_Weapon_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Israel Weapon Industries",
           "description": "Israelian company of defense",
           "aliases": [
@@ -10719,6 +11342,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2660084)",
+          "description": "sources.wikidata populated from Wikidata API (Q2660084)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -10800,7 +11432,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/IREL_(India)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Indian Rare Earths Limited",
           "description": "government-owned corporation",
           "aliases": [],
@@ -10855,6 +11487,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q6021378)",
+          "description": "sources.wikidata populated from Wikidata API (Q6021378)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -10942,7 +11583,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Indium_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Indium corporation",
           "description": "indium manufacturer",
           "aliases": [
@@ -11014,6 +11655,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16986090)",
+          "description": "sources.wikidata populated from Wikidata API (Q16986090)"
         }
       ],
       "validation": [
@@ -11091,7 +11741,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Indra_Sistemas"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Indra Sistemas",
           "description": "Spanish defense and information tech company",
           "aliases": [
@@ -11140,6 +11790,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1661823)",
+          "description": "sources.wikidata populated from Wikidata API (Q1661823)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -11211,7 +11870,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Intel"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Intel",
           "description": "American multinational technology company",
           "aliases": [
@@ -11273,6 +11932,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q248)",
+          "description": "sources.wikidata populated from Wikidata API (Q248)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -11425,7 +12093,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Israel_Aerospace_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Israel Aerospace Industries Ltd",
           "description": "aerospace and defense manufacturer",
           "aliases": [
@@ -11485,6 +12153,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q876017)",
+          "description": "sources.wikidata populated from Wikidata API (Q876017)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -11557,7 +12234,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/KGHM_Polska_Miedź"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "KGHM Polska Miedź",
           "description": "company listed on the Polish Stock Exchange",
           "aliases": [
@@ -11633,6 +12310,15 @@
           "old": "Polonia",
           "new": "Poland",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1476710)",
+          "description": "sources.wikidata populated from Wikidata API (Q1476710)"
         }
       ],
       "validation": [
@@ -11710,7 +12396,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/KNDS"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "KNDS",
           "description": "European defence company",
           "aliases": [
@@ -11760,6 +12446,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q19966744)",
+          "description": "sources.wikidata populated from Wikidata API (Q19966744)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -11844,7 +12539,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Kobold Metals",
           "description": null,
           "aliases": [],
@@ -11905,6 +12600,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q61982942)",
+          "description": "sources.wikidata populated from Wikidata API (Q61982942)"
         }
       ],
       "validation": [
@@ -11974,7 +12678,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Kongsberg_Gruppen"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Kongsberg Gruppen",
           "description": "Norwegian defense contractor and maritime automation supplier",
           "aliases": [],
@@ -11986,7 +12690,7 @@
           "headquarters": "Kongsberg",
           "official_website": "http://www.kongsberg.com/",
           "isin": "NO0003043309",
-          "employees": 11000,
+          "employees": 14994,
           "wikipedia_url": "https://en.wikipedia.org/wiki/Kongsberg%20Gruppen"
         }
       },
@@ -12029,6 +12733,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1770909)",
+          "description": "sources.wikidata populated from Wikidata API (Q1770909)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -12115,7 +12828,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Kratos_Defense_&_Security_Solutions"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Kratos Defense & Security Solutions",
           "description": "U.S. military contractor",
           "aliases": [
@@ -12180,6 +12893,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16858667)",
+          "description": "sources.wikidata populated from Wikidata API (Q16858667)"
         }
       ],
       "validation": [
@@ -12248,7 +12970,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/L3Harris"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "L3Harris Technologies",
           "description": "company in Melbourne, United States",
           "aliases": [
@@ -12314,6 +13036,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q30291091)",
+          "description": "sources.wikidata populated from Wikidata API (Q30291091)"
         }
       ],
       "validation": [
@@ -12381,7 +13112,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Leonardo_(company)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Leonardo",
           "description": "Italian defense, security and aerospace company",
           "aliases": [
@@ -12402,7 +13133,7 @@
           "headquarters": "Rome",
           "official_website": "https://www.leonardo.com/",
           "isin": "IT0003856405",
-          "employees": 60468,
+          "employees": 62762,
           "wikipedia_url": "https://en.wikipedia.org/wiki/Leonardo%20%28company%29"
         }
       },
@@ -12460,6 +13191,15 @@
           "old": null,
           "new": null,
           "description": "Merged duplicate IV-0143 ('Leonardo Company') into this record. Raw provenance: CSV row 'Hensoldt', field 'Top 5 Investors'/'Lead Investors', value 'Leonardo Company' — a Crunchbase name variant of Leonardo S.p.A. Confirmed as same entity via Playwright Wikidata search (Q910379, https://www.wikidata.org/wiki/Q910379). REL-0122 (Leonardo Company -> Hensoldt) redirected to IN-0094."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q910379)",
+          "description": "sources.wikidata populated from Wikidata API (Q910379)"
         }
       ],
       "validation": [
@@ -12530,7 +13270,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "LIONTOWN RESOURCES LIMITED",
           "description": "Australian public company",
           "aliases": [],
@@ -12585,6 +13325,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q109625740)",
+          "description": "sources.wikidata populated from Wikidata API (Q109625740)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -12672,7 +13421,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Lockheed_Martin"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Lockheed Martin",
           "description": "US aerospace and defense manufacturer",
           "aliases": [
@@ -12681,9 +13430,7 @@
             "Lockheed"
           ],
           "instance_of": [
-            "business",
             "defense contractor",
-            "enterprise",
             "public company"
           ],
           "country": "United States",
@@ -12740,6 +13487,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q7240)",
+          "description": "sources.wikidata populated from Wikidata API (Q7240)"
         }
       ],
       "validation": [
@@ -12809,7 +13565,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Lynas"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Lynas",
           "description": "Australian rare-earths mining company",
           "aliases": [
@@ -12868,6 +13624,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q6708384)",
+          "description": "sources.wikidata populated from Wikidata API (Q6708384)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -12946,7 +13711,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Maaden"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Maaden",
           "description": "Wikimedia disambiguation page",
           "aliases": [],
@@ -13048,6 +13813,15 @@
             "investor"
           ],
           "description": "Corrected roles to valid values: manufacturer + investor"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q136990728)",
+          "description": "sources.wikidata populated from Wikidata API (Q136990728)"
         }
       ],
       "validation": [
@@ -13116,7 +13890,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/MBDA"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "MBDA",
           "description": "European developer and manufacturer of missiles",
           "aliases": [
@@ -13173,6 +13947,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1475070)",
+          "description": "sources.wikidata populated from Wikidata API (Q1475070)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -13246,7 +14029,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Melrose_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Melrose Industries",
           "description": "investment company",
           "aliases": [
@@ -13321,6 +14104,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3305280)",
+          "description": "sources.wikidata populated from Wikidata API (Q3305280)"
         }
       ],
       "validation": [
@@ -13395,7 +14187,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Meta_Platforms"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Meta",
           "description": "American multinational technology corporation",
           "aliases": [],
@@ -13453,6 +14245,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q380)",
+          "description": "sources.wikidata populated from Wikidata API (Q380)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -13549,7 +14350,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Microsoft"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Microsoft",
           "description": "American multinational technology corporation",
           "aliases": [],
@@ -13705,6 +14506,15 @@
             "investor"
           ],
           "description": "Corrected roles to valid values: manufacturer + investor"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2283)",
+          "description": "sources.wikidata populated from Wikidata API (Q2283)"
         }
       ],
       "validation": [
@@ -13782,7 +14592,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Mineral_Resources"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Mineral Resources",
           "description": "mining company in Western Australia",
           "aliases": [
@@ -13840,6 +14650,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q108541568)",
+          "description": "sources.wikidata populated from Wikidata API (Q108541568)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -13914,7 +14733,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Mitsubishi_Materials"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Mitsubishi Materials",
           "description": "company of Mitsubishi group",
           "aliases": [
@@ -13987,6 +14806,15 @@
           "old": "Giappone",
           "new": "Japan",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1423176)",
+          "description": "sources.wikidata populated from Wikidata API (Q1423176)"
         }
       ],
       "validation": [
@@ -14061,7 +14889,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "MP Materials",
           "description": "American Rare Earth materials company",
           "aliases": [],
@@ -14133,6 +14961,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q105563992)",
+          "description": "sources.wikidata populated from Wikidata API (Q105563992)"
         }
       ],
       "validation": [
@@ -14202,7 +15039,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/MTU_Aero_Engines"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "MTU Aero Engines",
           "description": "company",
           "aliases": [
@@ -14263,6 +15100,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q128929)",
+          "description": "sources.wikidata populated from Wikidata API (Q128929)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -14339,7 +15185,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Nammo"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Nammo",
           "description": "Norwegian-Finnish defence company",
           "aliases": [
@@ -14398,6 +15244,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1964355)",
+          "description": "sources.wikidata populated from Wikidata API (Q1964355)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -14474,7 +15329,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Naval_Group"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Naval Group",
           "description": "naval defence company based in France",
           "aliases": [
@@ -14533,6 +15388,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1227511)",
+          "description": "sources.wikidata populated from Wikidata API (Q1227511)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -14599,7 +15463,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": null,
           "description": null,
           "aliases": [],
@@ -14654,6 +15518,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q131896252)",
+          "description": "sources.wikidata populated from Wikidata API (Q131896252)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -14747,7 +15620,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Netflix"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Netflix",
           "description": "American subscription video on-demand over-the-top streaming service",
           "aliases": [],
@@ -14806,6 +15679,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q907311)",
+          "description": "sources.wikidata populated from Wikidata API (Q907311)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -14884,7 +15766,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Newmont"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Newmont Mining Corporation",
           "description": "American gold mining company based in Greenwood Village, Colorado. It is the world's largest gold mining corporation.",
           "aliases": [
@@ -14949,6 +15831,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1785405)",
+          "description": "sources.wikidata populated from Wikidata API (Q1785405)"
         }
       ],
       "validation": [
@@ -15009,7 +15900,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Amesys",
           "description": "French company",
           "aliases": [],
@@ -15064,6 +15955,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2843137)",
+          "description": "sources.wikidata populated from Wikidata API (Q2843137)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -15218,7 +16118,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Norinco"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "China North Industries Group Corporation Limited",
           "description": "Chinese state-owned enterprise",
           "aliases": [
@@ -15234,7 +16134,7 @@
             "Chinese state-owned enterprise",
             "conglomerate"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1980-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.norincogroup.com.cn/",
@@ -15297,6 +16197,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1538336)",
+          "description": "sources.wikidata populated from Wikidata API (Q1538336)"
         }
       ],
       "validation": [
@@ -15377,17 +16286,14 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Northrop_Grumman"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Northrop Grumman Corporation",
           "description": "American aerospace and defense technology corporation",
           "aliases": [],
           "instance_of": [
             "aerospace manufacturer",
             "defense contractor",
-            "business",
-            "enterprise",
-            "public company",
-            "organization"
+            "public company"
           ],
           "country": "United States",
           "inception": "1994-01-01",
@@ -15443,6 +16349,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q329953)",
+          "description": "sources.wikidata populated from Wikidata API (Q329953)"
         }
       ],
       "validation": [
@@ -15520,11 +16435,10 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Nvidia"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Nvidia",
           "description": "American multinational technology company",
           "aliases": [
-            "NVDA",
             "nVidia",
             "NVIDIA"
           ],
@@ -15589,6 +16503,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q182477)",
+          "description": "sources.wikidata populated from Wikidata API (Q182477)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -15680,7 +16603,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Oracle_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Oracle Corporation",
           "description": "American multinational computer corporation",
           "aliases": [
@@ -15742,6 +16665,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q19900)",
+          "description": "sources.wikidata populated from Wikidata API (Q19900)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -15909,7 +16841,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Palantir Technologies",
           "description": "American software and services company, specializing in data analysis",
           "aliases": [
@@ -15978,6 +16910,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2047336)",
+          "description": "sources.wikidata populated from Wikidata API (Q2047336)"
         }
       ],
       "validation": [
@@ -16114,7 +17055,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Polska_Grupa_Zbrojeniowa"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Polish Armaments Group",
           "description": "Polish defence company",
           "aliases": [
@@ -16174,6 +17115,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q19401271)",
+          "description": "sources.wikidata populated from Wikidata API (Q19401271)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -16256,7 +17206,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/PLS_(company)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Pilbara Minerals",
           "description": "Australian lithium mining company",
           "aliases": [
@@ -16314,6 +17264,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q56064089)",
+          "description": "sources.wikidata populated from Wikidata API (Q56064089)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -16380,7 +17339,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Plasan"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Plasan",
           "description": "company",
           "aliases": [],
@@ -16435,6 +17394,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q744498)",
+          "description": "sources.wikidata populated from Wikidata API (Q744498)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -16519,7 +17487,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Qinetiq"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "QinetiQ",
           "description": "British multinational defence technology company",
           "aliases": [
@@ -16594,6 +17562,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1759946)",
+          "description": "sources.wikidata populated from Wikidata API (Q1759946)"
         }
       ],
       "validation": [
@@ -16675,7 +17652,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Qualcomm"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Qualcomm",
           "description": "American global semiconductor company",
           "aliases": [
@@ -16737,6 +17714,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q544847)",
+          "description": "sources.wikidata populated from Wikidata API (Q544847)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -16827,7 +17813,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Quantum-Systems"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Quantum-Systems",
           "description": "German technology company for eVTOL",
           "aliases": [
@@ -16876,6 +17862,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q106298593)",
+          "description": "sources.wikidata populated from Wikidata API (Q106298593)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -16952,7 +17947,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rafael_Advanced_Defense_Systems"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Rafael Advanced Defense Systems",
           "description": "Israeli defense technology company",
           "aliases": [
@@ -17013,6 +18008,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q154610)",
+          "description": "sources.wikidata populated from Wikidata API (Q154610)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -17085,7 +18089,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/RTX_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "RTX",
           "description": "American multinational aerospace and defense conglomerate",
           "aliases": [],
@@ -17148,6 +18152,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q89368734)",
+          "description": "sources.wikidata populated from Wikidata API (Q89368734)"
         }
       ],
       "validation": [
@@ -17208,7 +18221,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Recylex (France)",
           "description": "company in Suresnes, France",
           "aliases": [],
@@ -17278,6 +18291,15 @@
           "old": "Francia",
           "new": "France",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q30292359)",
+          "description": "sources.wikidata populated from Wikidata API (Q30292359)"
         }
       ],
       "validation": [
@@ -17351,7 +18373,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rheinmetall"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Rheinmetall AG",
           "description": "automotive and defense company in Germany",
           "aliases": [
@@ -17404,6 +18426,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q161544)",
+          "description": "sources.wikidata populated from Wikidata API (Q161544)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -17480,7 +18511,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Rio Tinto Group",
           "description": "Anglo-Australian multinational mining company",
           "aliases": [
@@ -17544,6 +18575,15 @@
           "old": "Australia / UK",
           "new": "United Kingdom",
           "description": "Country normalised to English canonical form. Wikidata Q821293 lists both Australia and United Kingdom; Rio Tinto plc is incorporated in the United Kingdom (primary legal entity). sources.wikidata.country already set to 'United Kingdom' by enrich_wikidata.py. Dual-country value resolved to primary incorporation country."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q821293)",
+          "description": "sources.wikidata populated from Wikidata API (Q821293)"
         }
       ],
       "validation": [
@@ -17691,7 +18731,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Roketsan"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "ROKETSAN",
           "description": "Turkish rocket, missile R&D and production defence industry company",
           "aliases": [
@@ -17750,6 +18790,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2548367)",
+          "description": "sources.wikidata populated from Wikidata API (Q2548367)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -17835,7 +18884,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rolls-Royce_Holdings"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Rolls-Royce",
           "description": "British multinational public holding company",
           "aliases": [
@@ -17909,6 +18958,15 @@
           "old": "UK",
           "new": "United Kingdom",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q243278)",
+          "description": "sources.wikidata populated from Wikidata API (Q243278)"
         }
       ],
       "validation": [
@@ -17990,7 +19048,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Saab_AB"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Saab Group",
           "description": "Swedish aerospace and defense company",
           "aliases": [
@@ -18042,6 +19100,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q219501)",
+          "description": "sources.wikidata populated from Wikidata API (Q219501)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -18114,7 +19181,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Safran"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Safran",
           "description": "French multinational aircraft engine, rocket engine, aerospace-component, defense, and security company",
           "aliases": [
@@ -18163,6 +19230,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1886126)",
+          "description": "sources.wikidata populated from Wikidata API (Q1886126)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -18242,7 +19318,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Samsung_Electronics"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Samsung Electronics",
           "description": "South Korean multinational electronics corporation",
           "aliases": [
@@ -18310,6 +19386,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q20718)",
+          "description": "sources.wikidata populated from Wikidata API (Q20718)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -18401,7 +19486,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/SAP"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "SAP",
           "description": "German software producer",
           "aliases": [
@@ -18468,6 +19553,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q552581)",
           "description": "sources.wikidata populated from Wikidata API (Q552581)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q552581)",
+          "description": "sources.wikidata populated from Wikidata API (Q552581)"
         }
       ],
       "validation": [
@@ -18528,7 +19622,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Shenghe_Resources"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Shenghe Resources",
           "description": "Chinese partly state-owned rare earths mining and processing company",
           "aliases": [
@@ -18538,7 +19632,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": null,
           "headquarters": "Chengdu",
           "official_website": "http://www.shengheholding.com/",
@@ -18610,6 +19704,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q15916333)",
+          "description": "sources.wikidata populated from Wikidata API (Q15916333)"
         }
       ],
       "validation": [
@@ -18858,7 +19961,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Sociedad_Química_y_Minera"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Sociedad Química y Minera de Chile",
           "description": "Chilean mining and chemical enterprise",
           "aliases": [
@@ -18920,6 +20023,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3067064)",
+          "description": "sources.wikidata populated from Wikidata API (Q3067064)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -18993,7 +20105,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Southern_Copper_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Southern Copper Corporation",
           "description": "mining company",
           "aliases": [],
@@ -19055,6 +20167,15 @@
           "old": "USA / Mexico",
           "new": "United States",
           "description": "Country normalised to English canonical form. Wikidata Q7569806 confirms country = United States (Delaware corporation, HQ Phoenix AZ, NYSE: SCCO). Sources.wikidata.country already set to 'United States' by enrich_wikidata.py. Dual-country value resolved to country of incorporation."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q7569806)",
+          "description": "sources.wikidata populated from Wikidata API (Q7569806)"
         }
       ],
       "validation": [
@@ -19109,7 +20230,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tactical_Missiles_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Tactical Missiles Corporation",
           "description": "Russian Defense Company",
           "aliases": [
@@ -19168,6 +20289,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3339447)",
+          "description": "sources.wikidata populated from Wikidata API (Q3339447)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -19257,7 +20387,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tekever"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Tekever",
           "description": "communications and defense company based in Lisbon, Portugal",
           "aliases": [],
@@ -19303,6 +20433,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q24293069)",
+          "description": "sources.wikidata populated from Wikidata API (Q24293069)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -19388,7 +20527,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tesla,_Inc."
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Tesla, Inc.",
           "description": "American automotive, energy storage and solar power company",
           "aliases": [
@@ -19457,6 +20596,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q478214)",
+          "description": "sources.wikidata populated from Wikidata API (Q478214)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -19550,7 +20698,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Thales_Group"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Thales Group",
           "description": "French multinational company",
           "aliases": [
@@ -19599,6 +20747,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1161666)",
+          "description": "sources.wikidata populated from Wikidata API (Q1161666)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -19665,7 +20822,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/TKMS"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "TKMS",
           "description": "German naval vessel company",
           "aliases": [
@@ -19723,6 +20880,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q551068)",
+          "description": "sources.wikidata populated from Wikidata API (Q551068)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -19798,7 +20964,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tianqi_Lithium"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Tianqi Lithium",
           "description": "Chinese mining and manufacturing company",
           "aliases": [],
@@ -19950,6 +21116,15 @@
             "investor"
           ],
           "description": "Corrected roles to valid values: manufacturer + investor"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q55635834)",
+          "description": "sources.wikidata populated from Wikidata API (Q55635834)"
         }
       ],
       "validation": [
@@ -20024,7 +21199,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tongwei_Company"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Tongwei Company",
           "description": "Chinese energy and agricultural company",
           "aliases": [
@@ -20097,6 +21272,15 @@
           "old": "Cina",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16923900)",
+          "description": "sources.wikidata populated from Wikidata API (Q16923900)"
         }
       ],
       "validation": [
@@ -20161,7 +21345,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/TSMC"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "TSMC",
           "description": "semiconductor foundry company headquartered in Taiwan",
           "aliases": [
@@ -20231,6 +21415,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q713418)",
           "description": "sources.wikidata populated from Wikidata API (Q713418)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q713418)",
+          "description": "sources.wikidata populated from Wikidata API (Q713418)"
         }
       ],
       "validation": [
@@ -20291,7 +21484,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Turkish_Aerospace_Industries"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Turkish Aerospace Industries",
           "description": "aerospace manufacturer, largest aerospace company in Turkey",
           "aliases": [
@@ -20352,6 +21545,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2002470)",
+          "description": "sources.wikidata populated from Wikidata API (Q2002470)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -20433,7 +21635,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Umicore (United States)",
           "description": "company in Auburn Hills, United States",
           "aliases": [
@@ -20505,6 +21707,15 @@
           "old": "Belgio",
           "new": "Belgium",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q107518759)",
+          "description": "sources.wikidata populated from Wikidata API (Q107518759)"
         }
       ],
       "validation": [
@@ -20578,7 +21789,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/United_Aircraft_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "United Aircraft Corporation",
           "description": "public joint-stock company uniting the largest aircraft building enterprises of Russia",
           "aliases": [
@@ -20637,6 +21848,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1136226)",
+          "description": "sources.wikidata populated from Wikidata API (Q1136226)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -20719,7 +21939,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/United_Shipbuilding_Corporation"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "United Shipbuilding Corporation",
           "description": "open joint stock company in Russia",
           "aliases": [],
@@ -20775,6 +21995,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q4330413)",
+          "description": "sources.wikidata populated from Wikidata API (Q4330413)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -20932,7 +22161,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Uralvagonzavod"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Uralvagonzavod",
           "description": "Russian machine-building and military manufacturer",
           "aliases": [
@@ -20943,7 +22172,8 @@
           "instance_of": [
             "business",
             "enterprise",
-            "public company"
+            "public company",
+            "joint-stock company"
           ],
           "country": "Russia",
           "inception": "1936",
@@ -20993,6 +22223,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1762250)",
+          "description": "sources.wikidata populated from Wikidata API (Q1762250)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -21069,7 +22308,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Vale_S.A."
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Vale",
           "description": "multinational diversified metals and mining corporation",
           "aliases": [
@@ -21121,6 +22360,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q583268)",
+          "description": "sources.wikidata populated from Wikidata API (Q583268)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -21188,14 +22436,14 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Vital_Materials"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Vital Materials",
           "description": "Chinese refiner of minor metals",
           "aliases": [],
           "instance_of": [
             "company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": null,
           "headquarters": "Guangdong",
           "official_website": null,
@@ -21267,6 +22515,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q121407257)",
+          "description": "sources.wikidata populated from Wikidata API (Q121407257)"
         }
       ],
       "validation": [
@@ -21340,7 +22597,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Wacker_Chemie"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Wacker Chemie AG",
           "description": "German company",
           "aliases": [
@@ -21414,6 +22671,15 @@
           "old": "Germania",
           "new": "Germany",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q535517)",
+          "description": "sources.wikidata populated from Wikidata API (Q535517)"
         }
       ],
       "validation": [
@@ -21484,7 +22750,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Wheaton_Precious_Metals"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Wheaton Precious Metals",
           "description": "Canadian multinational precious metals streaming company",
           "aliases": [
@@ -21533,6 +22799,15 @@
         },
         {
           "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1747133)",
+          "description": "sources.wikidata populated from Wikidata API (Q1747133)"
+        },
+        {
+          "date": "2026-03-28",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
           "field": "sources.wikidata",
@@ -21604,14 +22879,14 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Xinte Energy Co., Ltd.",
           "description": null,
           "aliases": [],
           "instance_of": [
             "business"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": null,
           "headquarters": "Xinjiang",
           "official_website": null,
@@ -21683,6 +22958,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q124670171)",
+          "description": "sources.wikidata populated from Wikidata API (Q124670171)"
         }
       ],
       "validation": [
@@ -21830,7 +23114,7 @@
           "wikipedia_url": null
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Zhuzhou Smelter Group Co., Ltd.",
           "description": "Chinese company",
           "aliases": [
@@ -21840,7 +23124,7 @@
             "business",
             "public company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "1956",
           "headquarters": null,
           "official_website": null,
@@ -21912,6 +23196,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q20063580)",
+          "description": "sources.wikidata populated from Wikidata API (Q20063580)"
         }
       ],
       "validation": [
@@ -21984,7 +23277,7 @@
           "wikipedia_url": "https://en.wikipedia.org/wiki/Zijin_Mining"
         },
         "wikidata": {
-          "retrieved_at": "2026-03-17",
+          "retrieved_at": "2026-03-28",
           "label": "Zijin Mining Group",
           "description": "international mining group",
           "aliases": [],
@@ -21992,7 +23285,7 @@
             "Chinese state-owned enterprise",
             "mining company"
           ],
-          "country": "China",
+          "country": "People's Republic of China",
           "inception": "2000-01-01",
           "headquarters": "Longyan",
           "official_website": "http://www.zjky.cn",
@@ -22046,6 +23339,15 @@
           "old": "People's Republic of China",
           "new": "China",
           "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q202841)",
+          "description": "sources.wikidata populated from Wikidata API (Q202841)"
         }
       ],
       "validation": [
