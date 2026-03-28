@@ -25924,7 +25924,7 @@
       ],
       "name": "Enova",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q5379469",
       "sources": {
         "crunchbase": null,
         "infonodes": null,
@@ -25939,6 +25939,15 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "nelsonmau",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q5379469",
+          "description": "wikidata_id resolved via Wikidata wbsearchentities API search 'Enova SF' → Q5379469 'Enova SF' (Norwegian government enterprise). Context confirms match: IV-0080 Enova is linked as investor to Elkem (Norwegian silicon and materials company) — consistent with Enova SF's role as Norway's government agency for energy transition and industrial investment."
         }
       ],
       "validation": [],
@@ -30905,7 +30914,7 @@
       ],
       "name": "Santander",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6496310",
       "sources": {
         "crunchbase": null,
         "infonodes": null,
@@ -30920,6 +30929,15 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "nelsonmau",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6496310",
+          "description": "wikidata_id resolved via Wikidata wbsearchentities API search 'Banco Santander' → Q6496310 'Banco Santander' (bank company based in Cantabria, Spain). Context confirms match: IV-0188 is linked as investor to CODELCO (Chile) and Sigma Lithium — consistent with Banco Santander Group's Latin American investment presence. Previous search had returned Santander Consumer Bank Germany (subsidiary) as false match; confirmed correct entity is the parent group Q6496310."
         }
       ],
       "validation": [],

@@ -23,6 +23,24 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — data-issues.md #5 partial progress; #6 resolved
+
+**Source:** `data-issues.md` #5, #6
+
+### Resolved — #6 Officina Stellare budget discrepancy
+
+Full audit of `edf_calls.json` (generated 2026-03-15): exactly 1 participation for OFFICINA STELLARE SPA (PIC 935106094) in call `EDF-2023-DA-SPACE-SSA`, `eu_contribution = €1,500,000` — matching the EU portal. `edfmap.js` aggregation is correct. The ~€2M figure was not reproducible with current data; likely an artefact of a pre-March-2026 snapshot. No code change needed.
+
+### Partial progress — #5 Investors missing Wikidata IDs
+
+2 ambiguous investor names resolved via Wikidata Playwright search:
+- IV-0188 Santander → Q6496310 (Banco Santander, Spain). Previous search had returned German subsidiary as false match; confirmed correct entity is the parent group. Context: linked as investor to CODELCO and Sigma Lithium.
+- IV-0080 Enova → Q5379469 (Enova SF, Norwegian government enterprise). Context: linked as investor to Elkem (Norwegian silicon company).
+
+Remaining unresolvable: Bond, ESG, Matrix, REV, Third Point, JARE — no Wikidata entries found. Count updated: 101/240 null wikidata_id.
+
+---
+
 ## [2026-03-28] — data-issues.md #9 fully resolved; UPDATE_PROTOCOL principle #6 added
 
 **Source:** `data-issues.md` #9, `UPDATE_PROTOCOL.md`

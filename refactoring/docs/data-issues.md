@@ -41,33 +41,29 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 
 ---
 
-## #5 Investors — Missing Wikidata IDs (103/240)
+## #5 Investors — Missing Wikidata IDs (101/240)
 
 **Status:** Known limitation
 
-103 out of 240 investor entities have no `wikidata_id`. These fall into categories that are unlikely to be resolved without manual research:
+101 out of 240 investor entities have no `wikidata_id`. These fall into categories that are unlikely to be resolved without manual research:
 
 - **Niche VC funds** with no Wikidata entry (Air Street Capital, Akkadian Ventures, BSV Ventures, Coinvest Capital, Creator Fund, GoHub Ventures, HCVC, Iberis Capital, JME Ventures, K Fund, Keen Venture Partners, Marathon Venture Capital, Nebular, Robin Capital, Sahsen Ventures, Shape VC, Silicon Roundabout Ventures, SNÖ Ventures, Soma Capital, Speedinvest, Startmate, Sunfish Partners, TA Ventures, T.Capital, True Ventures, Ventura Capital, Valor Equity Partners, and others)
 - **Individual angel investors** (Chris Adelsbach, Gustav Wiberg, Gytenis Galkis, Martynas Kandzeras, Mike Oliinyk, Noam Perski, Rita Sakus, Vladas Lašas)
 - **Ambiguous single-word names** with no unambiguous Wikidata match (Bond, ESG, Matrix, REV, Third Point, JARE, Enova) — note: `Inc` was removed as a parse error entity (2026-03-28)
-- **Entities where search returned wrong/partial matches** — e.g. "Santander" returns Santander Consumer Bank (Germany), not the Santander Group; "Guotai Junan" returns only subsidiaries
-- **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership)
+- **Entities where search returned wrong/partial matches** — e.g. "Guotai Junan" returns only subsidiaries — note: `Santander` resolved to Q6496310 (Banco Santander, Spain) on 2026-03-28
+- **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership) — note: `Enova` resolved to Q5379469 (Enova SF, Norwegian government enterprise) on 2026-03-28
 
-6 investors were resolved on 2026-03-22 via SPARQL + Playwright search (see `CHANGELOG.md`).
+6 investors were resolved on 2026-03-22 via SPARQL + Playwright search (see `CHANGELOG.md`). 2 further resolved on 2026-03-28: Santander (Q6496310), Enova (Q5379469). Remaining ambiguous names (Bond, ESG, Matrix, REV, Third Point, JARE) have no Wikidata entries as of 2026-03-28.
 
 ---
 
 ## #6 EDF — Officina Stellare SPA budget discrepancy
 
-**Status:** Known data gap — moved from sirogja-issues.md #9 (2026-03-24)
+**Status:** ✓ Resolved — not reproducible with current data (2026-03-28)
 
-Filtering for Italy → Officina Stellare SPA in EDF Map shows ~€2M, while the EU portal shows €1.5M EU contribution for the same entity. The discrepancy likely stems from one of:
+Filtering for Italy → Officina Stellare SPA in EDF Map shows ~€2M, while the EU portal shows €1.5M EU contribution for the same entity.
 
-- (a) summing EU contribution across multiple participations in the same project (duplicate counting)
-- (b) confusion between total project budget and individual EU contribution
-- (c) an error in the upstream source data
-
-Cannot be resolved without a full audit of `edf_calls.json` against the EU Funding & Tenders portal. Until then, treat individual org budget figures in EDF Map as indicative, not authoritative.
+**Audit result (2026-03-28):** Full scan of `edf_calls.json` (generated 2026-03-15) finds exactly **1 participation** for OFFICINA STELLARE SPA (PIC 935106094): call `EDF-2023-DA-SPACE-SSA`, `eu_contribution = €1,500,000` — matching the EU portal exactly. The `edfmap.js` aggregation sums `pt.eu_contribution` directly (line 149); no double-counting in the current code. The ~€2M figure is not reproducible and was likely an artefact of a stale pre-March-2026 data snapshot. No code change needed.
 
 ---
 
