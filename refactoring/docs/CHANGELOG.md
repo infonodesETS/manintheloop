@@ -25,6 +25,28 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — EDF calls refresh; UPDATE_PROTOCOL EDF section added
+
+### Changed — `data/edf_calls.json`
+
+Ran `scripts/fetch_edf_bulk.py` (full mode, `--limit 5` test then full identifier refresh). Re-fetched all 201 call identifiers from the EU Participant Portal API. No new calls found since the March 15 snapshot. All existing project data preserved.
+
+| Stat | Value |
+|---|---|
+| Total calls | 201 |
+| Calls with funded projects | 64 |
+| Total projects | 78 |
+| Total participants | 1657 |
+| `_generated_at` | 2026-03-28 |
+
+**Constraint observed:** after the full-mode identifier refresh, all 201 call `status` fields were `""` (API returned empty). This means `--update` mode would find 0 calls to re-check (it relies on `status: open/forthcoming` or `projects: None`). Documented in UPDATE_PROTOCOL.
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Added `fetch_edf_bulk.py` section covering all four run modes, the `--update` status-field constraint, merge behaviour, when-to-run guidance, and commit message format.
+
+---
+
 ## [2026-03-28] — Wikidata enrichment refresh; UPDATE_PROTOCOL additions
 
 ### Changed — `data/database.json`
