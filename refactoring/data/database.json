@@ -12417,6 +12417,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q910379)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -12433,6 +12442,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q910379)",
           "description": "sources.wikidata populated from Wikidata API (Q910379)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0143 ('Leonardo Company') into this record. Evidence: same real-world entity (Leonardo S.p.A., Italian defense company, wikidata Q910379) confirmed via Playwright Wikidata search. IV-0143 was created by migrate.py from investor strings with an alternate name form. REL-0122 (Leonardo Company -> Hensoldt) redirected to this entity."
         }
       ],
       "validation": [
@@ -12441,6 +12459,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0143 ('Leonardo Company') was a duplicate created by migrate.py. Confirmed same entity via Wikidata Q910379.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -24481,66 +24505,6 @@
           "description": "Extracted from investor strings during migration"
         },
         {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q857063",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q857063)",
-          "description": "sources.wikidata populated from Wikidata API (Q857063)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0053",
-      "type": "bank",
-      "roles": [
-        "investor"
-      ],
-      "name": "Citibank",
-      "sector": null,
-      "wikidata_id": "Q857063",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Citibank",
-          "description": "American multinational bank",
-          "aliases": [
-            "Citibank, N.A.",
-            "Citibank, N. A.",
-            "Citi",
-            "National City Bank of New York"
-          ],
-          "instance_of": [
-            "credit institution",
-            "bank",
-            "business",
-            "financial institution"
-          ],
-          "country": "United States",
-          "inception": "1812",
-          "headquarters": "Sioux Falls",
-          "official_website": "https://www.citi.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Citibank"
-        }
-      },
-      "history": [
-        {
           "date": "2026-03-14",
           "source": "migration",
           "author": "migrate.py",
@@ -24566,9 +24530,43 @@
           "old": null,
           "new": "Wikidata data retrieved (Q857063)",
           "description": "sources.wikidata populated from Wikidata API (Q857063)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q857063",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q857063)",
+          "description": "sources.wikidata populated from Wikidata API (Q857063)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0053 ('Citibank') into this record. Evidence: both entities shared wikidata_id Q857063 (Citibank), confirmed via Playwright Wikidata search. 'Citi' and 'Citibank' are the same entity — different name forms used in the Crunchbase source. REL-0247 (Citibank -> Sigma Lithium) redirected here."
         }
       ],
-      "validation": [],
+      "validation": [
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0053 ('Citibank') shared wikidata_id Q857063 with IV-0052 ('Citi'). Confirmed same entity via Playwright Wikidata search.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
+        }
+      ],
       "tags": []
     },
     {
@@ -26706,6 +26704,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q5531683)",
           "description": "sources.wikidata populated from Wikidata API (Q5531683)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "description": "REL-0067 (IV-0122 'Inc' -> Broadcom) was a parse error relationship deleted. Root cause: CSV field 'General American Investors Company,Inc' was split on comma by migrate.py, creating spurious entity IV-0122 ('Inc') and REL-0067. The correct relationship is REL-0066 (this entity -> Broadcom), already present. REL-0067 deleted; IV-0122 retired."
         }
       ],
       "validation": [],
@@ -27650,61 +27657,6 @@
           "description": "Extracted from investor strings during migration"
         },
         {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q1617690",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q1617690)",
-          "description": "sources.wikidata populated from Wikidata API (Q1617690)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0118",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "HTGF (High-Tech Gruenderfonds)",
-      "sector": null,
-      "wikidata_id": "Q1617690",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "High-Tech Gründerfonds",
-          "description": "Frühphaseninvestor",
-          "aliases": [
-            "HTGF"
-          ],
-          "instance_of": [
-            "venture capital firm",
-            "public–private partnership"
-          ],
-          "country": "Germany",
-          "inception": "2005",
-          "headquarters": "Bonn",
-          "official_website": "http://www.en.high-tech-gruenderfonds.de",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/High-Tech%20Gr%C3%BCnderfonds"
-        }
-      },
-      "history": [
-        {
           "date": "2026-03-14",
           "source": "migration",
           "author": "migrate.py",
@@ -27730,9 +27682,43 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1617690)",
           "description": "sources.wikidata populated from Wikidata API (Q1617690)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1617690",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1617690)",
+          "description": "sources.wikidata populated from Wikidata API (Q1617690)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0118 ('HTGF (High-Tech Gruenderfonds)') into this record. Evidence: both entities shared wikidata_id Q1617690; IV-0118 is the full-name form of the same German early-stage VC fund (High-Tech Gründerfonds). REL-0005 (HTGF (High-Tech Gruenderfonds) -> Alpine Eagle) redirected here."
         }
       ],
-      "validation": [],
+      "validation": [
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0118 ('HTGF (High-Tech Gruenderfonds)') shared wikidata_id Q1617690 with IV-0117 ('HTGF'). Same German VC fund, different name forms.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
+        }
+      ],
       "tags": []
     },
     {
@@ -27850,34 +27836,6 @@
           "old": null,
           "new": "Wikidata data retrieved (Q48843040)",
           "description": "sources.wikidata populated from Wikidata API (Q48843040)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0122",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Inc",
-      "sector": null,
-      "wikidata_id": null,
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": null
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
         }
       ],
       "validation": [],
@@ -28877,34 +28835,6 @@
         "investor"
       ],
       "name": "Kortschak Investments L.P.",
-      "sector": null,
-      "wikidata_id": null,
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": null
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0143",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Leonardo Company",
       "sector": null,
       "wikidata_id": null,
       "sources": {
@@ -33572,7 +33502,7 @@
     {
       "id": "REL-0005",
       "type": "investment",
-      "source": "IV-0118",
+      "source": "IV-0117",
       "target": "IN-0008",
       "details": {
         "lead": false
@@ -34427,20 +34357,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0067",
-      "type": "investment",
-      "source": "IV-0122",
-      "target": "IN-0030",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "crunchbase"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0068",
       "type": "investment",
       "source": "IV-0038",
@@ -35205,7 +35121,7 @@
     {
       "id": "REL-0122",
       "type": "investment",
-      "source": "IV-0143",
+      "source": "IN-0094",
       "target": "IN-0073",
       "details": {
         "lead": true
@@ -36959,7 +36875,7 @@
     {
       "id": "REL-0247",
       "type": "investment",
-      "source": "IV-0053",
+      "source": "IV-0052",
       "target": "IN-0141",
       "details": {
         "lead": false

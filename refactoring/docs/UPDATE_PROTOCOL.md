@@ -185,3 +185,8 @@ Retired IDs (merged duplicates, deleted test entries) must be documented in a co
 | IV-0151 | entity | Merged into IN-0098 (Ma'aden) — duplicate created by migrate.py from investor strings | 2026-03-28 |
 | IV-0153 | entity | Merged into IN-0102 (Microsoft) — duplicate created by migrate.py from investor strings | 2026-03-28 |
 | IV-0221 | entity | Merged into IN-0149 (Tianqi Lithium) — duplicate created by migrate.py from investor strings | 2026-03-28 |
+| IV-0143 | entity | Merged into IN-0094 (Leonardo) — 'Leonardo Company' confirmed same entity via Playwright Wikidata search (Q910379) | 2026-03-28 |
+| IV-0053 | entity | Merged into IV-0052 (Citi) — 'Citibank' same entity; both had wikidata_id Q857063, confirmed via Playwright | 2026-03-28 |
+| IV-0118 | entity | Merged into IV-0117 (HTGF) — 'HTGF (High-Tech Gruenderfonds)' full-name form of same fund; both had wikidata_id Q1617690 | 2026-03-28 |
+| IV-0122 | entity | Parse error — 'Inc' was suffix of 'General American Investors Company,Inc' split on comma by migrate.py | 2026-03-28 |
+| REL-0067 | relationship | Parse error — spurious rel from IV-0122 ('Inc') -> Broadcom; REL-0066 already correctly represents this | 2026-03-28 |
