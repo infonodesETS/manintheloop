@@ -1,8 +1,10 @@
 # CHANGELOG — refactoring/
 
-> **Note on versioning**: `refactoring/` is intentionally excluded from the parent repository's git tracking (listed in `.gitignore`). It is the active development branch of the Manintheloop explorer. This file serves as a manual changelog to track changes, decisions, and state — replacing git history for this directory.
+> **Note on versioning**: `refactoring/` is tracked in the single `infonodesETS/manintheloop` git repository. Two branches:
+> - `main` — production; deployed via GitHub Pages at `https://infonodesets.github.io/manintheloop/`
+> - `dev` — active development; merged into `main` when features stabilise
 >
-> When features stabilise they may be promoted to the parent (production) repository.
+> This file is the human-readable change log for `refactoring/`. It complements git history with context, decisions, and data provenance that commit messages alone cannot capture.
 
 > **Rule for AI assistants**: Every resolved issue from `issues.md` must produce a dated entry here. Data gap issues moved to `data-issues.md` must also be recorded here. No issue is closed without a CHANGELOG entry.
 
@@ -20,6 +22,80 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 4. **`em` units are banned outside `.sidebar` context.** Use `rem` via `--fs-*` tokens.
 5. **The `.sidebar` class** is reserved for panels using the em-cascade contract documented in `STYLE.md`.
 6. **One canonical class per role** — no parallel equivalents.
+
+---
+
+## [2026-03-28] — data-issues.md #5 partial progress; #6 resolved
+
+**Source:** `data-issues.md` #5, #6
+
+### Resolved — #6 Officina Stellare budget discrepancy
+
+Full audit of `edf_calls.json` (generated 2026-03-15): exactly 1 participation for OFFICINA STELLARE SPA (PIC 935106094) in call `EDF-2023-DA-SPACE-SSA`, `eu_contribution = €1,500,000` — matching the EU portal. `edfmap.js` aggregation is correct. The ~€2M figure was not reproducible with current data; likely an artefact of a pre-March-2026 snapshot. No code change needed.
+
+### Partial progress — #5 Investors missing Wikidata IDs
+
+2 ambiguous investor names resolved via Wikidata Playwright search:
+- IV-0188 Santander → Q6496310 (Banco Santander, Spain). Previous search had returned German subsidiary as false match; confirmed correct entity is the parent group. Context: linked as investor to CODELCO and Sigma Lithium.
+- IV-0080 Enova → Q5379469 (Enova SF, Norwegian government enterprise). Context: linked as investor to Elkem (Norwegian silicon company).
+
+Remaining unresolvable: Bond, ESG, Matrix, REV, Third Point, JARE — no Wikidata entries found. Count updated: 101/240 null wikidata_id.
+
+---
+
+## [2026-03-28] — data-issues.md #9 fully resolved; UPDATE_PROTOCOL principle #6 added
+
+**Source:** `data-issues.md` #9, `UPDATE_PROTOCOL.md`
+
+### Resolved — #9 Multi-country and ambiguous country values
+
+The 4 remaining non-standard country values in `database.json` were resolved via Wikidata Playwright lookup and normalised with full provenance history entries:
+
+| Entity | Old | New | Evidence |
+|---|---|---|---|
+| IN-0059 Ferroglobe | `UK/Spagna` | `United Kingdom` | Q125144368 — HQ London |
+| IN-0131 Rio Tinto | `Australia / UK` | `United Kingdom` | Q821293 — Rio Tinto plc, UK primary incorporation |
+| IN-0143 Southern Copper Corporation | `USA / Mexico` | `United States` | Q7569806 — Delaware corp, HQ Phoenix AZ |
+| IV-0088 European Union | `internationality` | `European Union` | Q458 — supranational entity |
+
+`#5` investor count updated: 240 total entities, 103 with null `wikidata_id` (was 242/105 before entity merges).
+
+### UPDATE_PROTOCOL: principle #6 added
+
+Every `database.json` change must produce an **atomic, dedicated git commit** with a message naming affected entities, fields, and reason. Git log serves as external audit trail independent of in-JSON history. `validate.py` must pass before every push.
+
+---
+
+## [2026-03-28] — data-issues.md #1 resolved: EDF count mismatch explained
+
+**Source:** `data-issues.md` #1
+
+### Resolved — #1 EDF calls with projects: 63 vs 64
+
+Root cause: `edfoverview.js` filters `eu_contribution > 0` (→ 63), `eucalls.js` counts `projects.length > 0` (→ 64). The 1-call discrepancy is `EDF-2022-FPA-MCBRN-MCM`, which has a project entry with null `eu_contribution`. Both counts are correct given their respective filter semantics. Labels are accurate. No code change needed.
+
+---
+
+## [2026-03-28] — data-issues.md #10, #11 resolved; #8, #12 removed
+
+**Source:** `data-issues.md` #8, #10, #11, #12
+
+### Resolved — #10 Anduril investors audit
+
+Cross-checked all investor relationships in `database.json` against `raw-data/database-man-in-the-loop-aziende-siti-web-csv-3-6-2026.csv` (Top 5 Investors + Lead Investors fields). All 11 Anduril investor relationships are backed by the CSV source. The concern about "extra" investors was valid but the data is correct — Crunchbase exports both Top 5 and Lead Investors, and migrate.py imported all of them. No relationships removed. Cross-check also identified 4 spurious relationships across other entities (REL-0009, REL-0017, REL-0094, REL-0134) which were removed following the UPDATE_PROTOCOL spurious relationship procedure.
+
+### Resolved — #11 Company name and country inconsistencies
+
+- **Country names:** 69 fields normalised to canonical English forms across 59 entities (Cina→China, USA→United States, UK→United Kingdom, Giappone→Japan, etc.). Multi-country and ambiguous values (`Australia / UK`, `UK/Spagna`, `USA / Mexico`, `internationality`) deferred — tracked in `data-issues.md #9`.
+- **Company name variants:** Full audit of `database.json` against CSV raw data. Resolved by merging 8 duplicate entities: IV-0010 (Amazon), IV-0031 (BHP), IV-0051 (Ma'aden), IV-0053 (Citibank), IV-0118 (HTGF High-Tech Gruenderfonds), IV-0122 (Inc — parse error), IV-0143 (Leonardo Company), IV-0153 (Microsoft), IV-0221 (Tianqi Lithium). All merges confirmed via Wikidata and raw CSV provenance. Retired IDs documented in `UPDATE_PROTOCOL.md`.
+
+### Removed — #8 Cyrillic artefact in automated-investigation.html
+
+`automated-investigation.html` was deleted from the repository (2026-03-28). Issue is moot.
+
+### Removed — #12 Disclaimer for low-data countries
+
+Deferred indefinitely — no UI work planned for this sprint. Removed from active issues.
 
 ---
 

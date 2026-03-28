@@ -1,6 +1,6 @@
 {
   "_schema": "2.0",
-  "_updated": "2026-03-26",
+  "_updated": "2026-03-28",
   "entities": [
     {
       "id": "IN-0001",
@@ -38,7 +38,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "EAU (Dubai)",
+          "country": "United Arab Emirates",
           "tax_id": null,
           "main_focus": "partner/distributor for Nexa Technologies in the Middle East and Africa, often cited in investigative reports as the vehicle used to sell the \"Eagle\" (and later \"Cerebro\") systems to regimes like Egypt",
           "wikipedia_url": null
@@ -54,6 +54,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "EAU (Dubai)",
+          "new": "United Arab Emirates",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -110,7 +119,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "95-2705790 (EIN)",
           "main_focus": "Loitering Munitions (Switchblade), Small Unmanned Aircraft (Raven).",
           "wikipedia_url": "https://en.wikipedia.org/wiki/AeroVironment"
@@ -170,6 +179,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q919300)",
           "description": "sources.wikidata populated from Wikidata API (Q919300)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -502,7 +520,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "54-1692118 (EIN)",
           "main_focus": "Lithium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Albemarle_Corporation"
@@ -571,6 +589,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q127074)",
           "description": "sources.wikidata populated from Wikidata API (Q127074)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -632,7 +659,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "81-1153200 (EIN)",
           "main_focus": "Gallium",
           "wikipedia_url": null
@@ -648,6 +675,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -878,6 +914,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0009",
+          "new": null,
+          "description": "Removed spurious relationship: HTGF not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -975,7 +1020,8 @@
       "id": "IN-0010",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Amazon",
       "sector": "Tech",
@@ -1088,6 +1134,15 @@
           "description": "Corrected QID: Q380 was the wrong entity's ID (systematic chain-shift contamination from legacy data). Correct ID Q3884 confirmed by Wikidata API. See refactoring/issues.md Issue 1 & Issue 6."
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'Amazon' from the CSV raw data (row: 'Amazon', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0010 for it. Crunchbase listed Amazon as one of its own Top 5 investors, which is a data artefact. This also generated the self-referencing REL-0017 (Amazon → Amazon), later removed as spurious (2026-03-28)."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -1104,6 +1159,97 @@
           "old": null,
           "new": "Wikidata data retrieved (Q3884)",
           "description": "sources.wikidata populated from Wikidata API (Q3884)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q3884",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3884)",
+          "description": "sources.wikidata populated from Wikidata API (Q3884)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0010 ('Amazon', investor entity) into this record. Raw provenance: CSV row 'Amazon', fields 'Top 5 Investors'/'Lead Investors', value 'Amazon' — Crunchbase listed Amazon as its own investor (data artefact). migrate.py created IV-0010 as a separate investor entity, not recognising IN-0010 already existed. REL-0017 (self-reference) deleted. Confirmed same entity (Amazon Inc, Q3884) via shared wikidata_id Q3884."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0017",
+          "new": null,
+          "description": "Removed spurious self-referencing relationship (Amazon -> Amazon) created during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -1124,6 +1270,12 @@
           "description": "wikidata_id Q3884 verified correct via Wikidata API label match",
           "author": "fix_qid_shift.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0010 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0010",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -1312,7 +1464,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "95-4672725 (EIN)",
           "main_focus": "Gallium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/American_Elements"
@@ -1379,6 +1531,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q4743673)",
           "description": "sources.wikidata populated from Wikidata API (Q4743673)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -1587,7 +1748,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Tech",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "68-0551851",
           "main_focus": null,
           "wikipedia_url": "https://en.wikipedia.org/wiki/Anduril_Industries"
@@ -1646,6 +1807,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q61918830)",
           "description": "sources.wikidata populated from Wikidata API (Q61918830)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -1706,7 +1876,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB 805 2374 88 (VAT)",
           "main_focus": "Copper, Iron Ore, PGM (Platinum), Diamonds. | Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Anglo_American_plc"
@@ -1766,6 +1936,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q541451)",
           "description": "sources.wikidata populated from Wikidata API (Q541451)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -2676,7 +2855,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB341235123",
           "main_focus": "Naval Support",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Babcock_International"
@@ -2746,6 +2925,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q385426)",
           "description": "sources.wikidata populated from Wikidata API (Q385426)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -2815,7 +3003,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB454178652",
           "main_focus": "Land / Naval / Air",
           "wikipedia_url": "https://en.wikipedia.org/wiki/BAE_Systems"
@@ -2877,6 +3065,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q739416)",
           "description": "sources.wikidata populated from Wikidata API (Q739416)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -3418,7 +3615,8 @@
       "id": "IN-0029",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "BHP",
       "sector": "Mining",
@@ -3517,6 +3715,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q625713)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'BHP' from the CSV raw data (row: 'KoBold Metals', field: 'Top 5 Investors') and created a separate investor entity IV-0031 for it, not recognising BHP (IN-0029) already existed as a company entity."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -3533,6 +3740,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q625713)",
           "description": "sources.wikidata populated from Wikidata API (Q625713)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q625713",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q625713)",
+          "description": "sources.wikidata populated from Wikidata API (Q625713)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0031 ('BHP', investor entity) into this record. Raw provenance: CSV row 'KoBold Metals', field 'Top 5 Investors', value 'BHP'. migrate.py created IV-0031 not recognising IN-0029 (BHP company entity) already existed. Confirmed same entity (BHP Group, Q625713) via shared wikidata_id Q625713. REL-0144 (BHP → KoBold Metals) redirected to IN-0029."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -3541,6 +3830,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0031 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0029",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -3821,7 +4116,7 @@
             "business",
             "launch service provider"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1999",
           "headquarters": "Beijing",
           "official_website": "http://www.casic.com.cn/",
@@ -3875,6 +4170,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q10874081)",
           "description": "sources.wikidata populated from Wikidata API (Q10874081)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -3947,7 +4251,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB238510834",
           "main_focus": "Sensors / Energetics",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Chemring_Group"
@@ -4015,6 +4319,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1069644)",
           "description": "sources.wikidata populated from Wikidata API (Q1069644)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4096,7 +4409,7 @@
             "Chinese wholly state-owned enterprise",
             "launch service provider"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1999-07-01",
           "headquarters": "Haidian District",
           "official_website": "http://www.spacechina.com/",
@@ -4150,6 +4463,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q2777589)",
           "description": "sources.wikidata populated from Wikidata API (Q2777589)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4210,7 +4532,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91110000101683015B (USCC)",
           "main_focus": "Neodimio",
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Minmetals"
@@ -4227,7 +4549,7 @@
             "Chinese state-owned enterprise",
             "trading company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1950-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.minmetals.com/",
@@ -4281,6 +4603,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q846839)",
           "description": "sources.wikidata populated from Wikidata API (Q846839)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4335,7 +4675,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "911502007014631349 (USCC)",
           "main_focus": "Neodimio",
           "wikipedia_url": "https://en.wikipedia.org/wiki/China_Northern_Rare_Earth"
@@ -4403,6 +4743,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q55697404)",
           "description": "sources.wikidata populated from Wikidata API (Q55697404)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4493,7 +4842,7 @@
             "group of companies",
             "subsidiary company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1995",
           "headquarters": "Beijing",
           "official_website": "http://www.csec.com/",
@@ -4538,6 +4887,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1073509)",
           "description": "sources.wikidata populated from Wikidata API (Q1073509)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4586,7 +4944,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91110000710928925H (USCC)",
           "main_focus": "Gallium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Aluminum_Corporation_of_China"
@@ -4606,7 +4964,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2001",
           "headquarters": "Beijing",
           "official_website": "http://www.chalco.com.cn/",
@@ -4660,6 +5018,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q447855)",
           "description": "sources.wikidata populated from Wikidata API (Q447855)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -4720,7 +5096,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91110000710928925H (USCC)",
           "main_focus": "Neodimio",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Aluminum_Corporation_of_China"
@@ -4740,7 +5116,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2001",
           "headquarters": "Beijing",
           "official_website": "http://www.chalco.com.cn/",
@@ -4794,6 +5170,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q447855)",
           "description": "sources.wikidata populated from Wikidata API (Q447855)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -5119,7 +5513,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cile",
+          "country": "Chile",
           "tax_id": "61.703.000-4 (RUT)",
           "main_focus": "Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Codelco"
@@ -5187,6 +5581,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1105695)",
           "description": "sources.wikidata populated from Wikidata API (Q1105695)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cile",
+          "new": "Chile",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -5249,7 +5652,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "Czech Rep.",
+          "country": "Czech Republic",
           "tax_id": "CZ29159056",
           "main_focus": "Small Arms",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Colt_CZ_Group"
@@ -5323,6 +5726,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q55568528)",
           "description": "sources.wikidata populated from Wikidata API (Q55568528)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Czech Rep.",
+          "new": "Czech Republic",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -5674,7 +6086,7 @@
             "shipbuilding company",
             "holding company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2019-11-26",
           "headquarters": "Huangpu District",
           "official_website": "http://www.cssc.net.cn",
@@ -5728,6 +6140,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1073512)",
           "description": "sources.wikidata populated from Wikidata API (Q1073512)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -5790,7 +6211,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "Czech Rep.",
+          "country": "Czech Republic",
           "tax_id": "CZ03487042",
           "main_focus": "Land Systems / Ammo",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Czechoslovak_Group"
@@ -5867,6 +6288,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q24708162)",
           "description": "sources.wikidata populated from Wikidata API (Q24708162)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Czech Rep.",
+          "new": "Czech Republic",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -5942,7 +6372,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "9131000066935314X3 (USCC)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Daqo_New_Energy"
@@ -6012,6 +6442,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q16973267)",
           "description": "sources.wikidata populated from Wikidata API (Q16973267)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -6233,6 +6672,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0094",
+          "new": null,
+          "description": "Removed spurious relationship: Entropy Industrial Capital not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -6557,7 +7005,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Giappone",
+          "country": "Japan",
           "tax_id": "3010001037341 (TID)",
           "main_focus": "Gallium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Dowa_Holdings"
@@ -6626,6 +7074,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q5302643)",
           "description": "sources.wikidata populated from Wikidata API (Q5302643)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Giappone",
+          "new": "Japan",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -6826,7 +7283,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Norvegia",
+          "country": "Norway",
           "tax_id": "NO911382008 (VAT)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Elkem"
@@ -6893,6 +7350,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1331615)",
           "description": "sources.wikidata populated from Wikidata API (Q1331615)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Norvegia",
+          "new": "Norway",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -7232,7 +7698,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "UK/Spagna",
+          "country": "United Kingdom",
           "tax_id": "ESA15003666 (VAT)",
           "main_focus": "Silicon",
           "wikipedia_url": null
@@ -7299,6 +7765,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q125144368)",
           "description": "sources.wikidata populated from Wikidata API (Q125144368)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK/Spagna",
+          "new": "United Kingdom",
+          "description": "Country normalised to English canonical form. Wikidata Q125144368 confirms country = United Kingdom (HQ London). Raw CSV field 'Country' not present — infonodes country was set during initial data entry as 'UK/Spagna' (bilingual). Normalised to match sources.wikidata.country."
         }
       ],
       "validation": [
@@ -7884,7 +8359,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "74-1325110 (EIN)",
           "main_focus": "Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Freeport-McMoRan"
@@ -7957,6 +8432,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1453620)",
           "description": "sources.wikidata populated from Wikidata API (Q1453620)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -8044,7 +8528,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": null,
           "official_website": "https://www.ganfenglithium.com/",
@@ -8098,6 +8582,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q10954805)",
           "description": "sources.wikidata populated from Wikidata API (Q10954805)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -8161,7 +8654,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91320500785867375H (USCC)",
           "main_focus": "Silicon",
           "wikipedia_url": null
@@ -8174,7 +8667,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Hong Kong",
           "official_website": null,
@@ -8228,6 +8721,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q124670561)",
           "description": "sources.wikidata populated from Wikidata API (Q124670561)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -8295,7 +8806,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "52-0545220 (EIN)",
           "main_focus": "Abrams Tanks, Nuclear Submarines (Electric Boat), Gulfstream Jets.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/General_Dynamics"
@@ -8354,6 +8865,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q502940)",
           "description": "sources.wikidata populated from Wikidata API (Q502940)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -8925,7 +9445,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "38-1647413 (EIN)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hemlock_Semiconductor"
@@ -8992,6 +9512,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q5712288)",
           "description": "sources.wikidata populated from Wikidata API (Q5712288)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -9168,7 +9697,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "90-0607005 (EIN)",
           "main_focus": "Largest US military shipbuilder (Aircraft carriers and submarines).",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
@@ -9232,6 +9761,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q7257522)",
           "description": "sources.wikidata populated from Wikidata API (Q7257522)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -9420,7 +9958,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "22-2640650 (EIN)",
           "main_focus": "Avionics, Aircraft Engines, Tactical Guidance, Building Automation.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Honeywell"
@@ -9485,6 +10023,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q898208)",
           "description": "sources.wikidata populated from Wikidata API (Q898208)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -9542,7 +10089,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91330400782386349H (USCC)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Hoshine_Silicon_Industry"
@@ -9609,6 +10156,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q108003110)",
           "description": "sources.wikidata populated from Wikidata API (Q108003110)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -9892,6 +10448,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q31086161)",
           "description": "sources.wikidata populated from Wikidata API (Q31086161)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0134",
+          "new": null,
+          "description": "Removed spurious relationship: European Investment Fund not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -10371,7 +10936,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "15-0210510 (EIN)",
           "main_focus": "Gallium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Indium_Corporation"
@@ -10440,6 +11005,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q16986090)",
           "description": "sources.wikidata populated from Wikidata API (Q16986090)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -10977,7 +11551,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Polonia",
+          "country": "Poland",
           "tax_id": "PL6920000013 (VAT)",
           "main_focus": "Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/KGHM_Polska_Miedź"
@@ -11050,6 +11624,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1476710)",
           "description": "sources.wikidata populated from Wikidata API (Q1476710)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Polonia",
+          "new": "Poland",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -11255,7 +11838,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "US 1907824",
           "main_focus": "Use of AI to find metals",
           "wikipedia_url": null
@@ -11313,6 +11896,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q61982942)",
           "description": "sources.wikidata populated from Wikidata API (Q61982942)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -11517,7 +12109,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "13-3818604",
           "main_focus": "UAVs",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Kratos_Defense_&_Security_Solutions"
@@ -11579,6 +12171,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q16858667)",
           "description": "sources.wikidata populated from Wikidata API (Q16858667)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -11641,7 +12242,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "34-0276860 (EIN)",
           "main_focus": "Tactical Communications, Electronic Warfare, Satellite Sensors.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/L3Harris"
@@ -11704,6 +12305,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q30291091)",
           "description": "sources.wikidata populated from Wikidata API (Q30291091)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -11816,6 +12426,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q910379)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'Leonardo Company' from the CSV raw data (row: 'Hensoldt', field: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0143 for it, not recognising it as a Crunchbase name variant of the already-existing Leonardo S.p.A. (IN-0094). IV-0143 was later confirmed as a duplicate and merged into IN-0094 on 2026-03-28 (see merge entry below)."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -11832,6 +12451,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q910379)",
           "description": "sources.wikidata populated from Wikidata API (Q910379)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0143 ('Leonardo Company') into this record. Raw provenance: CSV row 'Hensoldt', field 'Top 5 Investors'/'Lead Investors', value 'Leonardo Company' — a Crunchbase name variant of Leonardo S.p.A. Confirmed as same entity via Playwright Wikidata search (Q910379, https://www.wikidata.org/wiki/Q910379). REL-0122 (Leonardo Company -> Hensoldt) redirected to IN-0094."
         }
       ],
       "validation": [
@@ -11840,6 +12468,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0143 ('Leonardo Company') was a duplicate created by migrate.py. Confirmed same entity via Wikidata Q910379.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -12032,7 +12666,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "52-1893632 (EIN)",
           "main_focus": "F-35 Fighter Jets, Missiles, Missile Defense (THAAD), Space Systems.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Lockheed_Martin"
@@ -12097,6 +12731,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q7240)",
           "description": "sources.wikidata populated from Wikidata API (Q7240)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -12253,7 +12896,8 @@
       "id": "IN-0098",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Ma’aden",
       "sector": "Mining",
@@ -12338,6 +12982,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q136990728)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'Ma’aden' from the CSV raw data (row: 'Vale', field: 'Top 5 Investors') and created a separate investor entity IV-0151 for it, not recognising Ma’aden (IN-0098) already existed as a company entity. Note: CSV uses straight apostrophe (Ma'aden); database uses curly apostrophe (Ma’aden)."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -12354,6 +13007,47 @@
           "old": null,
           "new": "Wikidata data retrieved (Q136990728)",
           "description": "sources.wikidata populated from Wikidata API (Q136990728)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6721006",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q6721006)",
+          "description": "sources.wikidata populated from Wikidata API (Q6721006)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0151 ('Ma’aden', investor entity) into this record. Raw provenance: CSV row 'Vale', field 'Top 5 Investors', value 'Ma’aden'. migrate.py created IV-0151 not recognising IN-0098 (Ma’aden company entity) already existed. Confirmed same entity (Ma’aden, Q6721006) via shared wikidata_id Q6721006. REL-0290 (Ma’aden → Vale) redirected to IN-0098."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "manufacturer"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -12362,6 +13056,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0151 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0098",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -12540,7 +13240,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB852106725",
           "main_focus": "Aerospace Components",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Melrose_Industries"
@@ -12612,6 +13312,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q3305280)",
           "description": "sources.wikidata populated from Wikidata API (Q3305280)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -12772,7 +13481,8 @@
       "id": "IN-0102",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Microsoft",
       "sector": "Tech",
@@ -12888,6 +13598,15 @@
           "description": "Corrected QID: Q312 was the wrong entity's ID (systematic chain-shift contamination from legacy data). Correct ID Q2283 confirmed by Wikidata API. See refactoring/issues.md Issue 1 & Issue 6."
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'Microsoft' from the CSV raw data (row: 'Apple', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0153 for it, not recognising Microsoft (IN-0102) already existed as a company entity."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -12904,6 +13623,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q2283)",
           "description": "sources.wikidata populated from Wikidata API (Q2283)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2283",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2283)",
+          "description": "sources.wikidata populated from Wikidata API (Q2283)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0153 ('Microsoft', investor entity) into this record. Raw provenance: CSV row 'Apple', fields 'Top 5 Investors'/'Lead Investors', value 'Microsoft'. migrate.py created IV-0153 not recognising IN-0102 (Microsoft company entity) already existed. Confirmed same entity (Microsoft, Q2283) via shared wikidata_id Q2283. REL-0038 (Microsoft → Apple) redirected to IN-0102."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -12918,6 +13719,12 @@
           "description": "wikidata_id Q2283 verified correct via Wikidata API label match",
           "author": "fix_qid_shift.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0153 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0102",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -13101,7 +13908,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Giappone",
+          "country": "Japan",
           "tax_id": "7010001008767 (TID)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Mitsubishi_Materials"
@@ -13171,6 +13978,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1423176)",
           "description": "sources.wikidata populated from Wikidata API (Q1423176)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Giappone",
+          "new": "Japan",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -13239,7 +14055,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "82-1327150 (EIN)",
           "main_focus": "Neodimio",
           "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials"
@@ -13308,6 +14124,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q105563992)",
           "description": "sources.wikidata populated from Wikidata API (Q105563992)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -14053,7 +14878,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "84-0263435 (EIN)",
           "main_focus": "World's largest Gold producer; Copper.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Newmont"
@@ -14115,6 +14940,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1785405)",
           "description": "sources.wikidata populated from Wikidata API (Q1785405)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -14400,7 +15234,7 @@
             "Chinese state-owned enterprise",
             "conglomerate"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1980-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.norincogroup.com.cn/",
@@ -14454,6 +15288,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1538336)",
           "description": "sources.wikidata populated from Wikidata API (Q1538336)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -14528,7 +15371,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "95-1055798 (EIN)",
           "main_focus": "B-21 Stealth Bomber, Global Hawk UAVs, Space Technology, Cyber Security.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Northrop_Grumman"
@@ -14591,6 +15434,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q329953)",
           "description": "sources.wikidata populated from Wikidata API (Q329953)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -15051,7 +15903,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Tech",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "81-5460515",
           "main_focus": null,
           "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir"
@@ -15117,6 +15969,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q2047336)",
           "description": "sources.wikidata populated from Wikidata API (Q2047336)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -15652,7 +16513,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB752718160",
           "main_focus": "Defense R&D / Tech",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Qinetiq"
@@ -15724,6 +16585,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1759946)",
           "description": "sources.wikidata populated from Wikidata API (Q1759946)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -16209,7 +17079,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "USA",
+          "country": "United States",
           "tax_id": "06-0570975",
           "main_focus": "Missile defense (Patriot), Aircraft engines (Pratt & Whitney), Avionics, and Intelligence systems.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/RTX_Corporation"
@@ -16269,6 +17139,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q89368734)",
           "description": "sources.wikidata populated from Wikidata API (Q89368734)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -16323,7 +17202,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Francia",
+          "country": "France",
           "tax_id": "FR53428751522 (VAT)",
           "main_focus": "Gallium",
           "wikipedia_url": null
@@ -16390,6 +17269,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q30292359)",
           "description": "sources.wikidata populated from Wikidata API (Q30292359)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Francia",
+          "new": "France",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -16586,7 +17474,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Australia / UK",
+          "country": "United Kingdom",
           "tax_id": "96 004 458 404 (ABN)",
           "main_focus": "Iron Ore, Aluminum, Copper, and Lithium. | Lithium | Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)"
@@ -16647,6 +17535,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q821293)",
           "description": "sources.wikidata populated from Wikidata API (Q821293)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Australia / UK",
+          "new": "United Kingdom",
+          "description": "Country normalised to English canonical form. Wikidata Q821293 lists both Australia and United Kingdom; Rio Tinto plc is incorporated in the United Kingdom (primary legal entity). sources.wikidata.country already set to 'United Kingdom' by enrich_wikidata.py. Dual-country value resolved to primary incorporation country."
         }
       ],
       "validation": [
@@ -16932,7 +17829,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Defence",
-          "country": "UK",
+          "country": "United Kingdom",
           "tax_id": "GB135249673",
           "main_focus": "Engines / Nuclear",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rolls-Royce_Holdings"
@@ -17003,6 +17900,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q243278)",
           "description": "sources.wikidata populated from Wikidata API (Q243278)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK",
+          "new": "United Kingdom",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -17616,7 +18522,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91510000201889851F (USCC)",
           "main_focus": "Neodimio",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Shenghe_Resources"
@@ -17632,7 +18538,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Chengdu",
           "official_website": "http://www.shengheholding.com/",
@@ -17686,6 +18592,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q15916333)",
           "description": "sources.wikidata populated from Wikidata API (Q15916333)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -18063,7 +18987,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA / Mexico",
+          "country": "United States",
           "tax_id": "13-3849074 (EIN)",
           "main_focus": "One of the world's largest Copper producers. | Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Southern_Copper_Corporation"
@@ -18122,6 +19046,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q7569806)",
           "description": "sources.wikidata populated from Wikidata API (Q7569806)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA / Mexico",
+          "new": "United States",
+          "description": "Country normalised to English canonical form. Wikidata Q7569806 confirms country = United States (Delaware corporation, HQ Phoenix AZ, NYSE: SCCO). Sources.wikidata.country already set to 'United States' by enrich_wikidata.py. Dual-country value resolved to country of incorporation."
         }
       ],
       "validation": [
@@ -18818,7 +19751,8 @@
       "id": "IN-0149",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Tianqi Lithium",
       "sector": "Mining",
@@ -18909,6 +19843,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "migrate.py extracted the string 'Tianqi Lithium' from the CSV raw data (row: 'Sociedad Quimica Y Minera (SQM)', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0221 for it, not recognising Tianqi Lithium (IN-0149) already existed as a company entity."
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -18925,6 +19868,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q55635834)",
           "description": "sources.wikidata populated from Wikidata API (Q55635834)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q55635834",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q55635834)",
+          "description": "sources.wikidata populated from Wikidata API (Q55635834)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0221 ('Tianqi Lithium', investor entity) into this record. Raw provenance: CSV row 'Sociedad Quimica Y Minera (SQM)', fields 'Top 5 Investors'/'Lead Investors', value 'Tianqi Lithium'. migrate.py created IV-0221 not recognising IN-0149 (Tianqi Lithium company entity) already existed. Confirmed same entity (Tianqi Lithium, Q55635834) via shared wikidata_id Q55635834. REL-0251 (Tianqi Lithium → SQM) redirected to IN-0149."
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -18939,6 +19964,12 @@
           "description": "wikidata_id Q55635834 assigned via name-matching from inspector list — confirm correct entity",
           "author": "apply_inspector_ids.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0221 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0149",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -18987,7 +20018,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91510000201913164M (USCC)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Tongwei_Company"
@@ -19057,6 +20088,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q16923900)",
           "description": "sources.wikidata populated from Wikidata API (Q16923900)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -19387,7 +20427,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Belgio",
+          "country": "Belgium",
           "tax_id": "BE0401574852 (VAT)",
           "main_focus": "Gallium",
           "wikipedia_url": null
@@ -19456,6 +20496,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q107518759)",
           "description": "sources.wikidata populated from Wikidata API (Q107518759)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Belgio",
+          "new": "Belgium",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -20133,7 +21182,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91440101741873138N (USCC)",
           "main_focus": "Gallium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Vital_Materials"
@@ -20146,7 +21195,7 @@
           "instance_of": [
             "company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Guangdong",
           "official_website": null,
@@ -20200,6 +21249,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q121407257)",
           "description": "sources.wikidata populated from Wikidata API (Q121407257)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -20267,7 +21334,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Germania",
+          "country": "Germany",
           "tax_id": "DE128944933 (VAT)",
           "main_focus": "Silicon",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Wacker_Chemie"
@@ -20338,6 +21405,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q535517)",
           "description": "sources.wikidata populated from Wikidata API (Q535517)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Germania",
+          "new": "Germany",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -20522,7 +21598,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "91650100670233066H (USCC)",
           "main_focus": "Silicon",
           "wikipedia_url": null
@@ -20535,7 +21611,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Xinjiang",
           "official_website": null,
@@ -20589,6 +21665,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q124670171)",
           "description": "sources.wikidata populated from Wikidata API (Q124670171)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -20730,7 +21824,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Cina",
+          "country": "China",
           "tax_id": "9143020072255745XG (USCC)",
           "main_focus": "Gallium",
           "wikipedia_url": null
@@ -20746,7 +21840,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1956",
           "headquarters": null,
           "official_website": null,
@@ -20800,6 +21894,24 @@
           "old": null,
           "new": "Wikidata data retrieved (Q20063580)",
           "description": "sources.wikidata populated from Wikidata API (Q20063580)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Cina",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -20880,7 +21992,7 @@
             "Chinese state-owned enterprise",
             "mining company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2000-01-01",
           "headquarters": "Longyan",
           "official_website": "http://www.zjky.cn",
@@ -20925,6 +22037,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q202841)",
           "description": "sources.wikidata populated from Wikidata API (Q202841)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [
@@ -21261,70 +22382,6 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0010",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Amazon",
-      "sector": null,
-      "wikidata_id": "Q3884",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Amazon",
-          "description": "American multinational technology company",
-          "aliases": [],
-          "instance_of": [
-            "enterprise",
-            "business",
-            "public company",
-            "very large online platform"
-          ],
-          "country": "United States",
-          "inception": "1994-07-05",
-          "headquarters": "Seattle",
-          "official_website": "https://www.amazon.com/",
-          "isin": "US0231351067",
-          "employees": 1500000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Amazon%20%28company%29"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q3884",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q3884)",
-          "description": "sources.wikidata populated from Wikidata API (Q3884)"
         }
       ],
       "validation": [],
@@ -22493,78 +23550,6 @@
       "tags": []
     },
     {
-      "id": "IV-0031",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "BHP",
-      "sector": null,
-      "wikidata_id": "Q625713",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "BHP Group",
-          "description": "Australian multinational mining and metals company",
-          "aliases": [
-            "BHP",
-            "BHP Billiton",
-            "BHP Group Plc",
-            "BHP Group Limited",
-            "BHP Billiton Ltd",
-            "Broken Hill Proprietary Company",
-            "BHP Group Ltd"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company",
-            "organization"
-          ],
-          "country": "Australia",
-          "inception": "2001-01-01",
-          "headquarters": "Melbourne",
-          "official_website": "https://www.bhp.com/",
-          "isin": "AU000000BHP4",
-          "employees": 47044,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/BHP"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q625713",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q625713)",
-          "description": "sources.wikidata populated from Wikidata API (Q625713)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0032",
       "type": "fund",
       "roles": [
@@ -23331,7 +24316,7 @@
             "enterprise",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1987-04-08",
           "headquarters": "Shenzhen",
           "official_website": "https://www.cmbchina.com",
@@ -23367,6 +24352,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1073327)",
           "description": "sources.wikidata populated from Wikidata API (Q1073327)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [],
@@ -23535,68 +24529,8 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Citi' from the CSV raw data (CSV rows 'Tesla' and 'Oracle', field 'Top 5 Investors', value 'Citi') and created investor entity IV-0052 for it."
         },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q857063",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q857063)",
-          "description": "sources.wikidata populated from Wikidata API (Q857063)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0053",
-      "type": "bank",
-      "roles": [
-        "investor"
-      ],
-      "name": "Citibank",
-      "sector": null,
-      "wikidata_id": "Q857063",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Citibank",
-          "description": "American multinational bank",
-          "aliases": [
-            "Citibank, N.A.",
-            "Citibank, N. A.",
-            "Citi",
-            "National City Bank of New York"
-          ],
-          "instance_of": [
-            "credit institution",
-            "bank",
-            "business",
-            "financial institution"
-          ],
-          "country": "United States",
-          "inception": "1812",
-          "headquarters": "Sioux Falls",
-          "official_website": "https://www.citi.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Citibank"
-        }
-      },
-      "history": [
         {
           "date": "2026-03-14",
           "source": "migration",
@@ -23604,7 +24538,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Citibank' from the CSV raw data (CSV row 'Sigma Lithium', field 'Top 5 Investors', value 'Citibank') and created a separate investor entity IV-0053 for it, not recognising 'Citi' (IV-0052) already existed as the same entity."
         },
         {
           "date": "2026-03-17",
@@ -23623,9 +24557,43 @@
           "old": null,
           "new": "Wikidata data retrieved (Q857063)",
           "description": "sources.wikidata populated from Wikidata API (Q857063)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q857063",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q857063)",
+          "description": "sources.wikidata populated from Wikidata API (Q857063)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0053 ('Citibank') into this record. Raw provenance of IV-0052: CSV rows 'Tesla' and 'Oracle', field 'Top 5 Investors', value 'Citi'. Raw provenance of IV-0053: CSV row 'Sigma Lithium', field 'Top 5 Investors', value 'Citibank'. Both 'Citi' and 'Citibank' refer to the same entity (Citibank, Q857063), confirmed via Playwright Wikidata search — both shared wikidata_id Q857063. REL-0247 (Citibank → Sigma Lithium) redirected to IV-0052."
         }
       ],
-      "validation": [],
+      "validation": [
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0053 ('Citibank') shared wikidata_id Q857063 with IV-0052 ('Citi'). Confirmed same entity via Playwright Wikidata search.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
+        }
+      ],
       "tags": []
     },
     {
@@ -23916,7 +24884,7 @@
             "business",
             "commercial organization"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2011",
           "headquarters": "Ningde",
           "official_website": "https://www.catl.com",
@@ -23952,6 +24920,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q18653563)",
           "description": "sources.wikidata populated from Wikidata API (Q18653563)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [],
@@ -24947,7 +25924,7 @@
       ],
       "name": "Enova",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q5379469",
       "sources": {
         "crunchbase": null,
         "infonodes": null,
@@ -24962,6 +25939,15 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "nelsonmau",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q5379469",
+          "description": "wikidata_id resolved via Wikidata wbsearchentities API search 'Enova SF' → Q5379469 'Enova SF' (Norwegian government enterprise). Context confirms match: IV-0080 Enova is linked as investor to Elkem (Norwegian silicon and materials company) — consistent with Enova SF's role as Norway's government agency for energy transition and industrial investment."
         }
       ],
       "validation": [],
@@ -25328,7 +26314,7 @@
             "supranational union",
             "confederation"
           ],
-          "country": "internationality",
+          "country": "European Union",
           "inception": "1993-11-01",
           "headquarters": "Brussels",
           "official_website": "https://european-union.europa.eu/",
@@ -25364,6 +26350,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q458)",
           "description": "sources.wikidata populated from Wikidata API (Q458)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "internationality",
+          "new": "European Union",
+          "description": "Country normalised from non-standard value 'internationality'. The European Union (Q458) is a supranational entity; the Wikidata API returned 'internationality' as the country property. Set to 'European Union' as the canonical geographic grouping for UI display purposes."
         }
       ],
       "validation": [],
@@ -25735,7 +26730,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted 'General American Investors Company' from the CSV raw data (row: 'Broadcom', field: 'Top 5 Investors', raw value: 'General American Investors Company,Inc'). The comma in the raw string caused migrate.py to split it into two tokens: 'General American Investors Company' (this entity, IV-0097) and 'Inc' (IV-0122, a parse error). IV-0122 was later deleted and REL-0067 removed (2026-03-28)."
         },
         {
           "date": "2026-03-17",
@@ -25754,6 +26749,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q5531683)",
           "description": "sources.wikidata populated from Wikidata API (Q5531683)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "description": "REL-0067 (IV-0122 'Inc' -> Broadcom) was a parse error relationship deleted. Root cause: CSV field 'General American Investors Company,Inc' was split on comma by migrate.py, creating spurious entity IV-0122 ('Inc') and REL-0067. The correct relationship is REL-0066 (this entity -> Broadcom), already present. REL-0067 deleted; IV-0122 retired."
         }
       ],
       "validation": [],
@@ -26695,63 +27699,8 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py created investor entity IV-0117 ('HTGF') as an abbreviated form of the investor string found in the CSV raw data (CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)'). The full-name form 'HTGF (High-Tech Gruenderfonds)' was also created separately as IV-0118, resulting in a duplicate."
         },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q1617690",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q1617690)",
-          "description": "sources.wikidata populated from Wikidata API (Q1617690)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0118",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "HTGF (High-Tech Gruenderfonds)",
-      "sector": null,
-      "wikidata_id": "Q1617690",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "High-Tech Gründerfonds",
-          "description": "Frühphaseninvestor",
-          "aliases": [
-            "HTGF"
-          ],
-          "instance_of": [
-            "venture capital firm",
-            "public–private partnership"
-          ],
-          "country": "Germany",
-          "inception": "2005",
-          "headquarters": "Bonn",
-          "official_website": "http://www.en.high-tech-gruenderfonds.de",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/High-Tech%20Gr%C3%BCnderfonds"
-        }
-      },
-      "history": [
         {
           "date": "2026-03-14",
           "source": "migration",
@@ -26759,7 +27708,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted 'HTGF (High-Tech Gruenderfonds)' from the CSV raw data (CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)') and created investor entity IV-0118 for it — a duplicate of IV-0117 ('HTGF') already created from the same source string."
         },
         {
           "date": "2026-03-17",
@@ -26778,9 +27727,43 @@
           "old": null,
           "new": "Wikidata data retrieved (Q1617690)",
           "description": "sources.wikidata populated from Wikidata API (Q1617690)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1617690",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q1617690)",
+          "description": "sources.wikidata populated from Wikidata API (Q1617690)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate IV-0118 ('HTGF (High-Tech Gruenderfonds)') into this record. Raw provenance of both entities: CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)'. migrate.py created IV-0117 ('HTGF') as an abbreviation and IV-0118 as the full form from the same CSV string — resulting in two separate investor entities for the same fund. Confirmed same entity (High-Tech Gründerfonds, Q1617690) via shared wikidata_id Q1617690. REL-0005 (HTGF (High-Tech Gruenderfonds) → Alpine Eagle) redirected to IV-0117."
         }
       ],
-      "validation": [],
+      "validation": [
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0118 ('HTGF (High-Tech Gruenderfonds)') shared wikidata_id Q1617690 with IV-0117 ('HTGF'). Same German VC fund, different name forms.",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
+        }
+      ],
       "tags": []
     },
     {
@@ -26904,34 +27887,6 @@
       "tags": []
     },
     {
-      "id": "IV-0122",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Inc",
-      "sector": null,
-      "wikidata_id": null,
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": null
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0123",
       "type": "fund",
       "roles": [
@@ -27020,7 +27975,7 @@
             "financial institution",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1984-01-01",
           "headquarters": "Beijing",
           "official_website": "https://www.icbc.com.cn",
@@ -27056,6 +28011,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q26463)",
           "description": "sources.wikidata populated from Wikidata API (Q26463)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [],
@@ -27938,34 +28902,6 @@
       "tags": []
     },
     {
-      "id": "IV-0143",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Leonardo Company",
-      "sector": null,
-      "wikidata_id": null,
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": null
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0144",
       "type": "government_agency",
       "roles": [
@@ -28297,72 +29233,6 @@
       "tags": []
     },
     {
-      "id": "IV-0151",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Ma’aden",
-      "sector": null,
-      "wikidata_id": "Q6721006",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Maaden",
-          "description": "Saudi mining company",
-          "aliases": [
-            "Maʿaden",
-            "Saudi Arabian Mining"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company"
-          ],
-          "country": "Saudi Arabia",
-          "inception": "1997-03-23",
-          "headquarters": "Riyadh",
-          "official_website": "https://www.maaden.com.sa/",
-          "isin": "SA123GA0ITH7",
-          "employees": 6149,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Maaden%20%28company%29"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q6721006",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q6721006)",
-          "description": "sources.wikidata populated from Wikidata API (Q6721006)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0152",
       "type": "fund",
       "roles": [
@@ -28430,71 +29300,6 @@
           "old": null,
           "new": "Wikidata data retrieved (Q27530)",
           "description": "sources.wikidata populated from Wikidata API (Q27530)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0153",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Microsoft",
-      "sector": null,
-      "wikidata_id": "Q2283",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Microsoft",
-          "description": "American multinational technology corporation",
-          "aliases": [],
-          "instance_of": [
-            "software company",
-            "business",
-            "technology company",
-            "public company",
-            "organization"
-          ],
-          "country": "United States",
-          "inception": "1975-04-04",
-          "headquarters": "Redmond",
-          "official_website": "https://www.microsoft.com/",
-          "isin": "US5949181045",
-          "employees": 228000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Microsoft"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q2283",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q2283)",
-          "description": "sources.wikidata populated from Wikidata API (Q2283)"
         }
       ],
       "validation": [],
@@ -30109,7 +30914,7 @@
       ],
       "name": "Santander",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6496310",
       "sources": {
         "crunchbase": null,
         "infonodes": null,
@@ -30124,6 +30929,15 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "nelsonmau",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6496310",
+          "description": "wikidata_id resolved via Wikidata wbsearchentities API search 'Banco Santander' → Q6496310 'Banco Santander' (bank company based in Cantabria, Spain). Context confirms match: IV-0188 is linked as investor to CODELCO (Chile) and Sigma Lithium — consistent with Banco Santander Group's Latin American investment presence. Previous search had returned Santander Consumer Bank Germany (subsidiary) as false match; confirmed correct entity is the parent group Q6496310."
         }
       ],
       "validation": [],
@@ -31365,7 +32179,7 @@
             "conglomerate",
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1998-11-12",
           "headquarters": "Maling",
           "official_website": "https://www.tencent.com/",
@@ -31401,6 +32215,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q860580)",
           "description": "sources.wikidata populated from Wikidata API (Q860580)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "description": "Normalised country name to canonical English form"
         }
       ],
       "validation": [],
@@ -31551,67 +32374,6 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0221",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Tianqi Lithium",
-      "sector": null,
-      "wikidata_id": "Q55635834",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Tianqi Lithium",
-          "description": "Chinese mining and manufacturing company",
-          "aliases": [],
-          "instance_of": [
-            "mining company"
-          ],
-          "country": null,
-          "inception": null,
-          "headquarters": null,
-          "official_website": "https://www.tianqilithium.com/",
-          "isin": "CNE100005F09",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Tianqi%20Lithium"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q55635834",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q55635834)",
-          "description": "sources.wikidata populated from Wikidata API (Q55635834)"
         }
       ],
       "validation": [],
@@ -32794,7 +33556,7 @@
     {
       "id": "REL-0005",
       "type": "investment",
-      "source": "IV-0118",
+      "source": "IV-0117",
       "target": "IN-0008",
       "details": {
         "lead": false
@@ -32845,20 +33607,6 @@
       },
       "sources": [
         "crunchbase",
-        "startups"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
-      "id": "REL-0009",
-      "type": "investment",
-      "source": "IV-0117",
-      "target": "IN-0008",
-      "details": {
-        "lead": false
-      },
-      "sources": [
         "startups"
       ],
       "added_at": "2026-03-14",
@@ -32957,20 +33705,6 @@
       "id": "REL-0016",
       "type": "investment",
       "source": "IV-0141",
-      "target": "IN-0010",
-      "details": {
-        "lead": true
-      },
-      "sources": [
-        "crunchbase"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
-      "id": "REL-0017",
-      "type": "investment",
-      "source": "IV-0010",
       "target": "IN-0010",
       "details": {
         "lead": true
@@ -33264,7 +33998,7 @@
     {
       "id": "REL-0038",
       "type": "investment",
-      "source": "IV-0153",
+      "source": "IN-0102",
       "target": "IN-0016",
       "details": {
         "lead": true
@@ -33677,20 +34411,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0067",
-      "type": "investment",
-      "source": "IV-0122",
-      "target": "IN-0030",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "crunchbase"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0068",
       "type": "investment",
       "source": "IV-0038",
@@ -34062,20 +34782,6 @@
       },
       "sources": [
         "crunchbase"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
-      "id": "REL-0094",
-      "type": "investment",
-      "source": "IV-0081",
-      "target": "IN-0051",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "startups"
       ],
       "added_at": "2026-03-14",
       "author": "migrate.py"
@@ -34469,7 +35175,7 @@
     {
       "id": "REL-0122",
       "type": "investment",
-      "source": "IV-0143",
+      "source": "IN-0094",
       "target": "IN-0073",
       "details": {
         "lead": true
@@ -34639,20 +35345,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0134",
-      "type": "investment",
-      "source": "IV-0087",
-      "target": "IN-0079",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "startups"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0135",
       "type": "investment",
       "source": "IV-0170",
@@ -34782,7 +35474,7 @@
     {
       "id": "REL-0144",
       "type": "investment",
-      "source": "IV-0031",
+      "source": "IN-0029",
       "target": "IN-0090",
       "details": {
         "lead": false
@@ -36237,7 +36929,7 @@
     {
       "id": "REL-0247",
       "type": "investment",
-      "source": "IV-0053",
+      "source": "IV-0052",
       "target": "IN-0141",
       "details": {
         "lead": false
@@ -36293,7 +36985,7 @@
     {
       "id": "REL-0251",
       "type": "investment",
-      "source": "IV-0221",
+      "source": "IN-0149",
       "target": "IN-0142",
       "details": {
         "lead": true
@@ -36849,7 +37541,7 @@
     {
       "id": "REL-0290",
       "type": "investment",
-      "source": "IV-0151",
+      "source": "IN-0098",
       "target": "IN-0158",
       "details": {
         "lead": false

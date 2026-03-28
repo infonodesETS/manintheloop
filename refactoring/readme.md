@@ -2,7 +2,7 @@
 
 Standalone web application for exploring the defence supply chain, European Defence Fund landscape, and related entity/investment data. Lives entirely inside `refactoring/` with no dependency on any other tool in the repository.
 
-> **Development status**: active development branch. Changes tracked in [`CHANGELOG.md`](./CHANGELOG.md). When features stabilise they are promoted to the parent (production) repository.
+> **Development status**: active development on `dev` branch. Changes tracked in [`CHANGELOG.md`](./CHANGELOG.md). Merged to `main` when stable — `main` is deployed via GitHub Pages at `https://infonodesets.github.io/manintheloop/`.
 > **Build status**: Under Construction — UI and data subject to change. Known issues documented in [`docs/data-issues.md`](./docs/data-issues.md).
 
 ---
@@ -36,7 +36,6 @@ Routing is URL-based (`?research=<group>&tab=<subtab>`), managed by `js/main.js`
 refactoring/
 │
 ├── index.html                  ← SPA shell: nav structure, tab panes, legend, loading overlay
-├── automated-investigation.html ← [EXPERIMENT] standalone long-form page, not linked from index
 │
 ├── data/
 │   ├── database.json           ← schema v2.0 — entities (IN-*, IV-*) + relationships (REL-*)
@@ -160,7 +159,9 @@ The app reads two files at runtime. Neither is bundled — they are fetched as J
 |---|---|
 | **IDs are permanent** | `IN-NNNN`, `IV-NNNN`, `REL-NNNN` are never reused or reassigned once created |
 | **History is append-only** | Never delete or modify existing `history[]` entries — only append |
+| **Full provenance required** | Every history entry must cite raw source file, row, field, and exact value |
 | **Validate before committing** | Run `python3 scripts/validate.py` — all 8 checks must pass |
+| **Atomic git commits** | One logical change per commit; git log = external audit trail independent of in-JSON history |
 | **Deduplication before adding** | Search existing entities (case-insensitive) before creating a new one |
 | **IDs assigned sequentially** | New entities get `max(existing) + 1` in their class |
 
@@ -209,14 +210,11 @@ Use it to pick safe work items and avoid re-introducing already-solved problems.
 
 ---
 
-## User test issues & roadmap — infonodes-roadmap.md
+## User test issues
 
 > **Read this for the current implementation backlog.**
 
-[`docs/infonodes-roadmap.md`](./docs/infonodes-roadmap.md) contains:
-
-- Issues collected from live user test sessions (Davide, Andrea, Laura — 2026-03-27), tracked in [`docs/infonodes-issues.md`](./docs/infonodes-issues.md)
-- Many issues resolved as of 2026-03-28; see [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) for the full history
+[`docs/infonodes-issues.md`](./docs/infonodes-issues.md) tracks issues collected from live user test sessions (Davide, Andrea, Laura — 2026-03-27). Many resolved as of 2026-03-28; see [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) for the full history.
 
 → **[`docs/infonodes-issues.md`](./docs/infonodes-issues.md)**
 
@@ -247,12 +245,3 @@ Two-level nav: group bar (top) + sub-tab bar (second row). URL scheme: `?researc
 | Barlow Condensed | — | Primary UI font (Google Fonts) |
 | JetBrains Mono | — | Monospace accent font (Google Fonts) |
 
----
-
-## Experimental pages
-
-### `automated-investigation.html`
-
-Standalone long-form investigative page — a narrative report generated directly from the same data. Uses the same design system (Barlow Condensed, JetBrains Mono, green-accent terminal palette) but presents data as a scrollable editorial investigation with chapters, charts, a D3 network graph, and entity profiles.
-
-**Not linked from `index.html`.** Access directly via `/automated-investigation.html`.
