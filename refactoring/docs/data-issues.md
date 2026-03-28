@@ -4,23 +4,6 @@ _Permanent data limitations and unresolvable gaps. Issues moved here from `issue
 
 ---
 
-## #1 EDF — Count Mismatch
-
-**Status:** ✓ Resolved — root cause identified (2026-03-28)
-
-In European Defence Fund overview, calls with projects are **63**.
-In EDF Call Search, calls with projects are **64**.
-
-**Root cause:** The two tabs use different filters:
-- `edfoverview.js` counts calls where at least one project has `eu_contribution > 0` → **63**
-- `eucalls.js` counts calls where `projects.length > 0` regardless of contribution → **64**
-
-The 1-call discrepancy is `EDF-2022-FPA-MCBRN-MCM` ("European defence medical countermeasures alliance"), which has 1 project entry but `eu_contribution` is null/empty in the source data.
-
-**Not a bug.** The overview stat is labelled "Calls with Funded Projects" (eu_contribution filter is intentional). The call search shows all calls with project entries. The discrepancy is consistent with the data gap in #7 (projects with zero/null budgets). No code change needed — the labels are accurate.
-
----
-
 ## #2 EDF — Total Allocated Budget (partial coverage)
 
 **Status:** Known limitation
@@ -49,21 +32,11 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 
 - **Niche VC funds** with no Wikidata entry (Air Street Capital, Akkadian Ventures, BSV Ventures, Coinvest Capital, Creator Fund, GoHub Ventures, HCVC, Iberis Capital, JME Ventures, K Fund, Keen Venture Partners, Marathon Venture Capital, Nebular, Robin Capital, Sahsen Ventures, Shape VC, Silicon Roundabout Ventures, SNÖ Ventures, Soma Capital, Speedinvest, Startmate, Sunfish Partners, TA Ventures, T.Capital, True Ventures, Ventura Capital, Valor Equity Partners, and others)
 - **Individual angel investors** (Chris Adelsbach, Gustav Wiberg, Gytenis Galkis, Martynas Kandzeras, Mike Oliinyk, Noam Perski, Rita Sakus, Vladas Lašas)
-- **Ambiguous single-word names** with no unambiguous Wikidata match (Bond, ESG, Matrix, REV, Third Point, JARE, Enova) — note: `Inc` was removed as a parse error entity (2026-03-28)
-- **Entities where search returned wrong/partial matches** — e.g. "Guotai Junan" returns only subsidiaries — note: `Santander` resolved to Q6496310 (Banco Santander, Spain) on 2026-03-28
-- **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership) — note: `Enova` resolved to Q5379469 (Enova SF, Norwegian government enterprise) on 2026-03-28
+- **Ambiguous single-word names** with no unambiguous Wikidata match (Bond, ESG, Matrix, REV, Third Point, JARE) — note: `Inc` was removed as a parse error entity (2026-03-28); `Santander` resolved to Q6496310 (2026-03-28)
+- **Entities where search returned wrong/partial matches** — e.g. "Guotai Junan" returns only subsidiaries
+- **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership) — note: `Enova` resolved to Q5379469 (Enova SF) on 2026-03-28
 
-6 investors were resolved on 2026-03-22 via SPARQL + Playwright search (see `CHANGELOG.md`). 2 further resolved on 2026-03-28: Santander (Q6496310), Enova (Q5379469). Remaining ambiguous names (Bond, ESG, Matrix, REV, Third Point, JARE) have no Wikidata entries as of 2026-03-28.
-
----
-
-## #6 EDF — Officina Stellare SPA budget discrepancy
-
-**Status:** ✓ Resolved — not reproducible with current data (2026-03-28)
-
-Filtering for Italy → Officina Stellare SPA in EDF Map shows ~€2M, while the EU portal shows €1.5M EU contribution for the same entity.
-
-**Audit result (2026-03-28):** Full scan of `edf_calls.json` (generated 2026-03-15) finds exactly **1 participation** for OFFICINA STELLARE SPA (PIC 935106094): call `EDF-2023-DA-SPACE-SSA`, `eu_contribution = €1,500,000` — matching the EU portal exactly. The `edfmap.js` aggregation sums `pt.eu_contribution` directly (line 149); no double-counting in the current code. The ~€2M figure is not reproducible and was likely an artefact of a stale pre-March-2026 data snapshot. No code change needed.
+6 investors resolved 2026-03-22 via SPARQL + Playwright. 2 further resolved 2026-03-28: Santander (Q6496310), Enova (Q5379469). Remaining ambiguous names (Bond, ESG, Matrix, REV, Third Point, JARE) have no Wikidata entries as of 2026-03-28.
 
 ---
 
@@ -72,55 +45,3 @@ Filtering for Italy → Officina Stellare SPA in EDF Map shows ~€2M, while the
 **Status:** Known data gap — moved from sirogja-issues.md #10 (2026-03-24)
 
 Some organisations (e.g. Istituto Superiore di Sanità in the "Resilience" project, start date 2024) appear with all budget fields at zero. This is a known upstream data gap: the EU Funding & Tenders portal sometimes publishes project entries before financial data is finalised. Budget figures for projects starting 2024 or later should be treated as provisional.
-
----
-
-## #9 Companies — Inconsistent country name values in database
-
-**Status:** ✓ Fully resolved (2026-03-28)
-
-Company country fields (`sources.wikidata.country`, `sources.infonodes.country`) use inconsistent naming across records — mixing English, Italian, and abbreviated forms for the same country:
-
-| Stored value | Canonical name |
-|---|---|
-| `Cina`, `People's Republic of China` | China |
-| `USA` | United States |
-| `Giappone` | Japan |
-| `EAU (Dubai)` | United Arab Emirates |
-| `Polonia` | Poland |
-| `Francia` | France |
-| `Norvegia` | Norway |
-| `Belgio` | Belgium |
-| `Germania` | Germany |
-| `Cile` | Chile |
-| `UK` | United Kingdom |
-
-These aliases are currently normalised client-side in `js/tabs/overview.js` (`COUNTRY_NORM` map) for the geographic distribution chart. The underlying `database.json` records retain the original values.
-
-**Resolution path:** Standardise all country values to English common names during the next data reconciliation pass using `scripts/validate.py` or a dedicated migration script. Until then, any new chart or filter that groups by country must apply the same normalisation.
-
-**Fully resolved (2026-03-28):** All country aliases normalised directly in `database.json` with full provenance history entries. Multi-country and ambiguous values resolved as follows:
-
-| Old value | Entity | New value | Evidence |
-|---|---|---|---|
-| `UK/Spagna` | IN-0059 Ferroglobe | `United Kingdom` | Q125144368 — HQ London, UK incorporation |
-| `Australia / UK` | IN-0131 Rio Tinto | `United Kingdom` | Q821293 — primary legal entity is Rio Tinto plc (UK) |
-| `USA / Mexico` | IN-0143 Southern Copper Corporation | `United States` | Q7569806 — Delaware corporation, HQ Phoenix AZ |
-| `internationality` | IV-0088 European Union | `European Union` | Q458 — supranational entity; canonical geographic grouping |
-
-Also: `Czech Rep.` → `Czech Republic` and `UK` → `United Kingdom` were normalised (2026-03-28).
-
----
-
-
-## #13 UI — Entity ID (IV-0143) non auto-esplicativo (ex infonodes-issues #59)
-
-**Status:** ✓ Resolved — moved from infonodes-issues.md #59 (2026-03-28)
-
-Laura ha visto l'ID "IV0143" nella scheda di un fondo e ha chiesto cosa fosse, pensando inizialmente fosse un identificatore utente. Gli ID interni del database (`IN-*`, `IV-*`) non hanno una label esplicativa nell'interfaccia.
-
-> "IV0143? È un identificatore di utenti."
-
-**Fix applied:** Added `title="Database ID — internal identifier for this entity"` tooltip to `.cs-hdr-id` span in `companysearch.js` (2026-03-28).
-
----
