@@ -12423,7 +12423,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "Extracted from investor strings during migration. Raw source: CSV row 'Hensoldt', field 'Top 5 Investors' and 'Lead Investors', value 'Leonardo Company'. This name form differs from the canonical 'Leonardo' (IN-0094) used in the primary company record. The two were later confirmed as the same entity and merged (see 2026-03-28 entry)."
         },
         {
           "date": "2026-03-17",
@@ -12450,7 +12450,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate IV-0143 ('Leonardo Company') into this record. Evidence: same real-world entity (Leonardo S.p.A., Italian defense company, wikidata Q910379) confirmed via Playwright Wikidata search. IV-0143 was created by migrate.py from investor strings with an alternate name form. REL-0122 (Leonardo Company -> Hensoldt) redirected to this entity."
+          "description": "Merged duplicate IV-0143 ('Leonardo Company') into this record. Raw provenance: CSV row 'Hensoldt', field 'Top 5 Investors'/'Lead Investors', value 'Leonardo Company' — a Crunchbase name variant of Leonardo S.p.A. Confirmed as same entity via Playwright Wikidata search (Q910379, https://www.wikidata.org/wiki/Q910379). REL-0122 (Leonardo Company -> Hensoldt) redirected to IN-0094."
         }
       ],
       "validation": [

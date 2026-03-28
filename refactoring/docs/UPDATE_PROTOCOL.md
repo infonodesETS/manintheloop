@@ -12,6 +12,11 @@ This document defines the rules for updating `database.json` when new data is av
 2. **History is append-only.** Never delete or modify existing history entries.
 3. **Validation survives updates.** Existing `validation[]` entries are preserved; new ones may be appended.
 4. **IDs are assigned alphabetically.** New entities get the next available sequential ID in their class.
+5. **Full provenance is required.** Every history entry must be traceable back to its raw source. This means:
+   - Specify the **raw source file** (e.g. `CSV`, `investments.json`, `Wikidata API`)
+   - Specify the **exact row/field/value** that originated the data (e.g. `CSV row 'Hensoldt', field 'Top 5 Investors', value 'Leonardo Company'`)
+   - When data is corrected or merged, reference both the **original raw entry** and the **evidence used** to confirm the change (e.g. Wikidata URL, Playwright search result)
+   - Users must be able to reconstruct the full data lineage from raw source to current state by reading the history.
 
 ---
 
