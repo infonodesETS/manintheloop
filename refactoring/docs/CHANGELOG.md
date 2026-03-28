@@ -23,6 +23,39 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — data-issues.md #1 resolved: EDF count mismatch explained
+
+**Source:** `data-issues.md` #1
+
+### Resolved — #1 EDF calls with projects: 63 vs 64
+
+Root cause: `edfoverview.js` filters `eu_contribution > 0` (→ 63), `eucalls.js` counts `projects.length > 0` (→ 64). The 1-call discrepancy is `EDF-2022-FPA-MCBRN-MCM`, which has a project entry with null `eu_contribution`. Both counts are correct given their respective filter semantics. Labels are accurate. No code change needed.
+
+---
+
+## [2026-03-28] — data-issues.md #10, #11 resolved; #8, #12 removed
+
+**Source:** `data-issues.md` #8, #10, #11, #12
+
+### Resolved — #10 Anduril investors audit
+
+Cross-checked all investor relationships in `database.json` against `raw-data/database-man-in-the-loop-aziende-siti-web-csv-3-6-2026.csv` (Top 5 Investors + Lead Investors fields). All 11 Anduril investor relationships are backed by the CSV source. The concern about "extra" investors was valid but the data is correct — Crunchbase exports both Top 5 and Lead Investors, and migrate.py imported all of them. No relationships removed. Cross-check also identified 4 spurious relationships across other entities (REL-0009, REL-0017, REL-0094, REL-0134) which were removed following the UPDATE_PROTOCOL spurious relationship procedure.
+
+### Resolved — #11 Company name and country inconsistencies
+
+- **Country names:** 69 fields normalised to canonical English forms across 59 entities (Cina→China, USA→United States, UK→United Kingdom, Giappone→Japan, etc.). Multi-country and ambiguous values (`Australia / UK`, `UK/Spagna`, `USA / Mexico`, `internationality`) deferred — tracked in `data-issues.md #9`.
+- **Company name variants:** Full audit of `database.json` against CSV raw data. Resolved by merging 8 duplicate entities: IV-0010 (Amazon), IV-0031 (BHP), IV-0051 (Ma'aden), IV-0053 (Citibank), IV-0118 (HTGF High-Tech Gruenderfonds), IV-0122 (Inc — parse error), IV-0143 (Leonardo Company), IV-0153 (Microsoft), IV-0221 (Tianqi Lithium). All merges confirmed via Wikidata and raw CSV provenance. Retired IDs documented in `UPDATE_PROTOCOL.md`.
+
+### Removed — #8 Cyrillic artefact in automated-investigation.html
+
+`automated-investigation.html` was deleted from the repository (2026-03-28). Issue is moot.
+
+### Removed — #12 Disclaimer for low-data countries
+
+Deferred indefinitely — no UI work planned for this sprint. Removed from active issues.
+
+---
+
 ## [2026-03-28] — Matrix removed; issues backlog pruned; docs aligned
 
 **Source:** `infonodes-issues.md` #15, #48 + housekeeping

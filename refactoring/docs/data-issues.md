@@ -6,12 +6,18 @@ _Permanent data limitations and unresolvable gaps. Issues moved here from `issue
 
 ## #1 EDF — Count Mismatch
 
-**Status:** To be verified
+**Status:** ✓ Resolved — root cause identified (2026-03-28)
 
 In European Defence Fund overview, calls with projects are **63**.
 In EDF Call Search, calls with projects are **64**.
 
-To be verified.
+**Root cause:** The two tabs use different filters:
+- `edfoverview.js` counts calls where at least one project has `eu_contribution > 0` → **63**
+- `eucalls.js` counts calls where `projects.length > 0` regardless of contribution → **64**
+
+The 1-call discrepancy is `EDF-2022-FPA-MCBRN-MCM` ("European defence medical countermeasures alliance"), which has 1 project entry but `eu_contribution` is null/empty in the source data.
+
+**Not a bug.** The overview stat is labelled "Calls with Funded Projects" (eu_contribution filter is intentional). The call search shows all calls with project entries. The discrepancy is consistent with the data gap in #7 (projects with zero/null budgets). No code change needed — the labels are accurate.
 
 ---
 
@@ -43,7 +49,7 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 
 - **Niche VC funds** with no Wikidata entry (Air Street Capital, Akkadian Ventures, BSV Ventures, Coinvest Capital, Creator Fund, GoHub Ventures, HCVC, Iberis Capital, JME Ventures, K Fund, Keen Venture Partners, Marathon Venture Capital, Nebular, Robin Capital, Sahsen Ventures, Shape VC, Silicon Roundabout Ventures, SNÖ Ventures, Soma Capital, Speedinvest, Startmate, Sunfish Partners, TA Ventures, T.Capital, True Ventures, Ventura Capital, Valor Equity Partners, and others)
 - **Individual angel investors** (Chris Adelsbach, Gustav Wiberg, Gytenis Galkis, Martynas Kandzeras, Mike Oliinyk, Noam Perski, Rita Sakus, Vladas Lašas)
-- **Ambiguous single-word names** with no unambiguous Wikidata match (Bond, ESG, Inc, Matrix, REV, Third Point, JARE, Enova)
+- **Ambiguous single-word names** with no unambiguous Wikidata match (Bond, ESG, Matrix, REV, Third Point, JARE, Enova) — note: `Inc` was removed as a parse error entity (2026-03-28)
 - **Entities where search returned wrong/partial matches** — e.g. "Santander" returns Santander Consumer Bank (Germany), not the Santander Group; "Guotai Junan" returns only subsidiaries
 - **Government/institutional entities** with no direct Wikidata hit (Department of Defense's Office of Strategic Capital, NATO DIANA, NATO Innovation Fund, National Security Strategic Investment Fund, Transition énergétique Québec, Business.gov.au, Solent Local Enterprise Partnership)
 
@@ -110,51 +116,6 @@ Also add: `Czech Rep.` → `Czech Republic` was normalised; `UK` → `United Kin
 
 ---
 
-## #8 Automated Investigation — Cyrillic text artefact
-
-**Status:** Known content issue — moved from sirogja-issues.md #19 (2026-03-24)
-
-`automated-investigation.html` is an experimental standalone page (not linked from the main app). A section contains text in Cyrillic characters, an artefact from AI-generated content used as the basis for the page. The page is not part of the production navigation and is not indexed. No fix planned until the page is reworked.
-
----
-
-## #10 Companies — Anduril: più investitori del previsto (ex infonodes-issues #05)
-
-**Status:** Open — moved from infonodes-issues.md #05 (2026-03-28)
-
-Su Company Search, Anduril mostra oltre 10 investitori. L'export da Crunchbase dovrebbe contenerne solo 5. Stessa anomalia osservata su iSci nel Graph (compare BlackRock non atteso).
-
-> "noi dovremmo avere soltanto 5 investitori, su Company Search Anduril invece compaiono oltre 10, bisogna capire da dove arrivano"
-
-**Azione:** Audit di `database.json` per verificare quante relazioni `REL-*` puntano ad Anduril e da dove provengono. Verificare se il problema è nella fase di migrazione da `investments.json` o in un import successivo.
-
----
-
-## #11 Companies/Investors — Inconsistenze nomi aziende e paesi (ex infonodes-issues #06)
-
-**Status:** Partially tracked — moved from infonodes-issues.md #06 (2026-03-28)
-
-Nel database si trovano varianti non riconciliate dello stesso soggetto: "Leonardo" vs "Leonardo SPA" come company name; "China" vs "Cina" come country value. Necessario un passaggio sistematico di sanity check e normalizzazione.
-
-> "alle volte c'è scritto Leonardo, alle volte Leonardo SPA [...] alle volte China con la H, alle volte Cina in italiano"
-
-**Note:** Country aliases are already tracked in `data-issues.md #9` and normalised client-side via `COUNTRY_NORM`. Company name variants are not yet systematically addressed.
-
-**Azione:** Eseguire `python3 scripts/validate.py` e integrare controlli di normalizzazione. Fare una passata manuale sui campi `name` e `sources.infonodes.country`.
-
----
-
-## #12 Global — Disclaimer per paesi con dati limitati (Cina, Russia, Arabia Saudita) (ex infonodes-issues #58)
-
-**Status:** Open — moved from infonodes-issues.md #58 (2026-03-28)
-
-Structural limitation: Crunchbase coverage for countries with low corporate transparency (China, Russia, Saudi Arabia) is sparse or absent. Users who click entities from these countries find little data and no explanation.
-
-> "le aziende da cui abbiamo preso i dati su Crunchbase a seconda del paese dove sono e della trasparenza di quel paese possiamo avere dati o no. Quindi Cina, Russia, Saudi Arabia, difficile avere dati."
-
-**Proposta:** Add a contextual note when viewing entities from these countries, or when selecting them on the map: "Data for companies headquartered in [country] may be limited due to low public availability of corporate information." Could be a tooltip on the country name or a line in the entity card.
-
----
 
 ## #13 UI — Entity ID (IV-0143) non auto-esplicativo (ex infonodes-issues #59)
 
