@@ -81,7 +81,7 @@ Some organisations (e.g. Istituto Superiore di Sanità in the "Resilience" proje
 
 ## #9 Companies — Inconsistent country name values in database
 
-**Status:** Known data quality issue
+**Status:** ✓ Fully resolved (2026-03-28)
 
 Company country fields (`sources.wikidata.country`, `sources.infonodes.country`) use inconsistent naming across records — mixing English, Italian, and abbreviated forms for the same country:
 

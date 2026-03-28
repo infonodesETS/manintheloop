@@ -23,6 +23,29 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — data-issues.md #9 fully resolved; UPDATE_PROTOCOL principle #6 added
+
+**Source:** `data-issues.md` #9, `UPDATE_PROTOCOL.md`
+
+### Resolved — #9 Multi-country and ambiguous country values
+
+The 4 remaining non-standard country values in `database.json` were resolved via Wikidata Playwright lookup and normalised with full provenance history entries:
+
+| Entity | Old | New | Evidence |
+|---|---|---|---|
+| IN-0059 Ferroglobe | `UK/Spagna` | `United Kingdom` | Q125144368 — HQ London |
+| IN-0131 Rio Tinto | `Australia / UK` | `United Kingdom` | Q821293 — Rio Tinto plc, UK primary incorporation |
+| IN-0143 Southern Copper Corporation | `USA / Mexico` | `United States` | Q7569806 — Delaware corp, HQ Phoenix AZ |
+| IV-0088 European Union | `internationality` | `European Union` | Q458 — supranational entity |
+
+`#5` investor count updated: 240 total entities, 103 with null `wikidata_id` (was 242/105 before entity merges).
+
+### UPDATE_PROTOCOL: principle #6 added
+
+Every `database.json` change must produce an **atomic, dedicated git commit** with a message naming affected entities, fields, and reason. Git log serves as external audit trail independent of in-JSON history. `validate.py` must pass before every push.
+
+---
+
 ## [2026-03-28] — data-issues.md #1 resolved: EDF count mismatch explained
 
 **Source:** `data-issues.md` #1
