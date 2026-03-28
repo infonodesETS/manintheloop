@@ -127,6 +127,29 @@ If the same real-world entity exists under two IDs:
 
 ---
 
+## Removing a spurious relationship
+
+A relationship is spurious if it has no backing in any recognised source (CSV, Crunchbase scrape, or manual infonodes entry). Spurious relationships may only be deleted after cross-checking against the raw source.
+
+1. **Verify** the relationship is absent from all known sources (CSV Top 5, Lead Investors, manual additions).
+2. **Delete** the `REL-NNNN` entry from `relationships[]`.
+3. **Retire the ID** — add it to the "Retired IDs" section at the bottom of this file with the reason.
+4. **Document** the removal in the target entity's `history[]`:
+   ```json
+   {
+     "date": "YYYY-MM-DD",
+     "source": "manual",
+     "author": "your-handle",
+     "field": "relationships",
+     "old": "REL-NNNN",
+     "new": null,
+     "description": "Removed spurious relationship: <investor> not found in any source"
+   }
+   ```
+5. Run `validate.py` before committing.
+
+---
+
 ## Running validate.py
 
 ```bash
@@ -143,4 +166,14 @@ Retired IDs (merged duplicates, deleted test entries) must be documented in a co
 
 ### Retired IDs
 
-*(none at v2.0 initial migration)*
+| ID | Type | Reason | Date |
+|---|---|---|---|
+| REL-0009 | relationship | Spurious — HTGF -> Alpine Eagle not in any source | 2026-03-28 |
+| REL-0017 | relationship | Spurious — Amazon -> Amazon self-reference created during migration | 2026-03-28 |
+| REL-0094 | relationship | Spurious — Entropy Industrial Capital -> Delian Alliance Industries not in any source | 2026-03-28 |
+| REL-0134 | relationship | Spurious — European Investment Fund -> ICEYE not in any source | 2026-03-28 |
+| IV-0010 | entity | Merged into IN-0010 (Amazon) — duplicate created by migrate.py from investor strings | 2026-03-28 |
+| IV-0031 | entity | Merged into IN-0029 (BHP) — duplicate created by migrate.py from investor strings | 2026-03-28 |
+| IV-0151 | entity | Merged into IN-0098 (Ma'aden) — duplicate created by migrate.py from investor strings | 2026-03-28 |
+| IV-0153 | entity | Merged into IN-0102 (Microsoft) — duplicate created by migrate.py from investor strings | 2026-03-28 |
+| IV-0221 | entity | Merged into IN-0149 (Tianqi Lithium) — duplicate created by migrate.py from investor strings | 2026-03-28 |

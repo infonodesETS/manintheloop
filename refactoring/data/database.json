@@ -878,6 +878,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0009",
+          "new": null,
+          "description": "Removed spurious relationship: HTGF not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -975,7 +984,8 @@
       "id": "IN-0010",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Amazon",
       "sector": "Tech",
@@ -1088,6 +1098,15 @@
           "description": "Corrected QID: Q380 was the wrong entity's ID (systematic chain-shift contamination from legacy data). Correct ID Q3884 confirmed by Wikidata API. See refactoring/issues.md Issue 1 & Issue 6."
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -1104,6 +1123,97 @@
           "old": null,
           "new": "Wikidata data retrieved (Q3884)",
           "description": "sources.wikidata populated from Wikidata API (Q3884)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q3884",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q3884)",
+          "description": "sources.wikidata populated from Wikidata API (Q3884)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate entity IV-0010 into this record"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0017",
+          "new": null,
+          "description": "Removed spurious self-referencing relationship (Amazon -> Amazon) created during migration"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -1124,6 +1234,12 @@
           "description": "wikidata_id Q3884 verified correct via Wikidata API label match",
           "author": "fix_qid_shift.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0010 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0010",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -3418,7 +3534,8 @@
       "id": "IN-0029",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "BHP",
       "sector": "Mining",
@@ -3517,6 +3634,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q625713)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -3533,6 +3659,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q625713)",
           "description": "sources.wikidata populated from Wikidata API (Q625713)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q625713",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q625713)",
+          "description": "sources.wikidata populated from Wikidata API (Q625713)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate entity IV-0031 into this record"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -3541,6 +3749,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0031 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0029",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -6233,6 +6447,15 @@
           "old": null,
           "new": null,
           "description": "Initial migration from investments.json v1"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0094",
+          "new": null,
+          "description": "Removed spurious relationship: Entropy Industrial Capital not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -9892,6 +10115,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q31086161)",
           "description": "sources.wikidata populated from Wikidata API (Q31086161)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "relationships",
+          "old": "REL-0134",
+          "new": null,
+          "description": "Removed spurious relationship: European Investment Fund not found in any source (CSV Top 5 + Lead Investors)"
         }
       ],
       "validation": [
@@ -12253,7 +12485,8 @@
       "id": "IN-0098",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Ma’aden",
       "sector": "Mining",
@@ -12338,6 +12571,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q136990728)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -12354,6 +12596,47 @@
           "old": null,
           "new": "Wikidata data retrieved (Q136990728)",
           "description": "sources.wikidata populated from Wikidata API (Q136990728)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6721006",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q6721006)",
+          "description": "sources.wikidata populated from Wikidata API (Q6721006)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate entity IV-0151 into this record"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "manufacturer"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -12362,6 +12645,12 @@
           "description": "roles inferred from Investor Type only",
           "author": "migrate.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0151 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0098",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -12772,7 +13061,8 @@
       "id": "IN-0102",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Microsoft",
       "sector": "Tech",
@@ -12888,6 +13178,15 @@
           "description": "Corrected QID: Q312 was the wrong entity's ID (systematic chain-shift contamination from legacy data). Correct ID Q2283 confirmed by Wikidata API. See refactoring/issues.md Issue 1 & Issue 6."
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -12904,6 +13203,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q2283)",
           "description": "sources.wikidata populated from Wikidata API (Q2283)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2283",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q2283)",
+          "description": "sources.wikidata populated from Wikidata API (Q2283)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate entity IV-0153 into this record"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -12918,6 +13299,12 @@
           "description": "wikidata_id Q2283 verified correct via Wikidata API label match",
           "author": "fix_qid_shift.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0153 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0102",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -18818,7 +19205,8 @@
       "id": "IN-0149",
       "type": "company",
       "roles": [
-        "manufacturer"
+        "manufacturer",
+        "investor"
       ],
       "name": "Tianqi Lithium",
       "sector": "Mining",
@@ -18909,6 +19297,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834)"
         },
         {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Extracted from investor strings during migration"
+        },
+        {
           "date": "2026-03-17",
           "source": "wikidata",
           "author": "enrich_wikidata.py",
@@ -18925,6 +19322,88 @@
           "old": null,
           "new": "Wikidata data retrieved (Q55635834)",
           "description": "sources.wikidata populated from Wikidata API (Q55635834)"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "playwright_search",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q55635834",
+          "description": "wikidata_id found via Wikidata wbsearchentities API search"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q55635834)",
+          "description": "sources.wikidata populated from Wikidata API (Q55635834)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "company",
+            "roles": [
+              "manufacturer"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "type+roles",
+          "old": {
+            "type": "fund",
+            "roles": [
+              "investor"
+            ]
+          },
+          "new": {
+            "type": "company",
+            "roles": [
+              "company",
+              "investor"
+            ]
+          },
+          "description": "Corrected type and roles: entity is a company that also appears as investor in the dataset"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Merged duplicate entity IV-0221 into this record"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "company",
+            "investor"
+          ],
+          "new": [
+            "manufacturer",
+            "investor"
+          ],
+          "description": "Corrected roles to valid values: manufacturer + investor"
         }
       ],
       "validation": [
@@ -18939,6 +19418,12 @@
           "description": "wikidata_id Q55635834 assigned via name-matching from inspector list — confirm correct entity",
           "author": "apply_inspector_ids.py",
           "datestamp": "2026-03-14"
+        },
+        {
+          "status": "merged_duplicate",
+          "description": "IV-0221 was a duplicate created by migrate.py from investor strings; merged into canonical IN-0149",
+          "author": "nelsonmau",
+          "datestamp": "2026-03-28"
         }
       ],
       "tags": []
@@ -21267,70 +21752,6 @@
       "tags": []
     },
     {
-      "id": "IV-0010",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Amazon",
-      "sector": null,
-      "wikidata_id": "Q3884",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Amazon",
-          "description": "American multinational technology company",
-          "aliases": [],
-          "instance_of": [
-            "enterprise",
-            "business",
-            "public company",
-            "very large online platform"
-          ],
-          "country": "United States",
-          "inception": "1994-07-05",
-          "headquarters": "Seattle",
-          "official_website": "https://www.amazon.com/",
-          "isin": "US0231351067",
-          "employees": 1500000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Amazon%20%28company%29"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q3884",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q3884)",
-          "description": "sources.wikidata populated from Wikidata API (Q3884)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0011",
       "type": "fund",
       "roles": [
@@ -22487,78 +22908,6 @@
           "old": null,
           "new": null,
           "description": "Extracted from investor strings during migration"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0031",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "BHP",
-      "sector": null,
-      "wikidata_id": "Q625713",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "BHP Group",
-          "description": "Australian multinational mining and metals company",
-          "aliases": [
-            "BHP",
-            "BHP Billiton",
-            "BHP Group Plc",
-            "BHP Group Limited",
-            "BHP Billiton Ltd",
-            "Broken Hill Proprietary Company",
-            "BHP Group Ltd"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company",
-            "organization"
-          ],
-          "country": "Australia",
-          "inception": "2001-01-01",
-          "headquarters": "Melbourne",
-          "official_website": "https://www.bhp.com/",
-          "isin": "AU000000BHP4",
-          "employees": 47044,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/BHP"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q625713",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q625713)",
-          "description": "sources.wikidata populated from Wikidata API (Q625713)"
         }
       ],
       "validation": [],
@@ -28297,72 +28646,6 @@
       "tags": []
     },
     {
-      "id": "IV-0151",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Ma’aden",
-      "sector": null,
-      "wikidata_id": "Q6721006",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Maaden",
-          "description": "Saudi mining company",
-          "aliases": [
-            "Maʿaden",
-            "Saudi Arabian Mining"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company"
-          ],
-          "country": "Saudi Arabia",
-          "inception": "1997-03-23",
-          "headquarters": "Riyadh",
-          "official_website": "https://www.maaden.com.sa/",
-          "isin": "SA123GA0ITH7",
-          "employees": 6149,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Maaden%20%28company%29"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q6721006",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q6721006)",
-          "description": "sources.wikidata populated from Wikidata API (Q6721006)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0152",
       "type": "fund",
       "roles": [
@@ -28430,71 +28713,6 @@
           "old": null,
           "new": "Wikidata data retrieved (Q27530)",
           "description": "sources.wikidata populated from Wikidata API (Q27530)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
-      "id": "IV-0153",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Microsoft",
-      "sector": null,
-      "wikidata_id": "Q2283",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Microsoft",
-          "description": "American multinational technology corporation",
-          "aliases": [],
-          "instance_of": [
-            "software company",
-            "business",
-            "technology company",
-            "public company",
-            "organization"
-          ],
-          "country": "United States",
-          "inception": "1975-04-04",
-          "headquarters": "Redmond",
-          "official_website": "https://www.microsoft.com/",
-          "isin": "US5949181045",
-          "employees": 228000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Microsoft"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q2283",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q2283)",
-          "description": "sources.wikidata populated from Wikidata API (Q2283)"
         }
       ],
       "validation": [],
@@ -31557,67 +31775,6 @@
       "tags": []
     },
     {
-      "id": "IV-0221",
-      "type": "fund",
-      "roles": [
-        "investor"
-      ],
-      "name": "Tianqi Lithium",
-      "sector": null,
-      "wikidata_id": "Q55635834",
-      "sources": {
-        "crunchbase": null,
-        "infonodes": null,
-        "wikidata": {
-          "retrieved_at": "2026-03-17",
-          "label": "Tianqi Lithium",
-          "description": "Chinese mining and manufacturing company",
-          "aliases": [],
-          "instance_of": [
-            "mining company"
-          ],
-          "country": null,
-          "inception": null,
-          "headquarters": null,
-          "official_website": "https://www.tianqilithium.com/",
-          "isin": "CNE100005F09",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Tianqi%20Lithium"
-        }
-      },
-      "history": [
-        {
-          "date": "2026-03-14",
-          "source": "migration",
-          "author": "migrate.py",
-          "field": "*",
-          "old": null,
-          "new": null,
-          "description": "Extracted from investor strings during migration"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "playwright_search",
-          "field": "wikidata_id",
-          "old": null,
-          "new": "Q55635834",
-          "description": "wikidata_id found via Wikidata wbsearchentities API search"
-        },
-        {
-          "date": "2026-03-17",
-          "source": "wikidata",
-          "author": "enrich_wikidata.py",
-          "field": "sources.wikidata",
-          "old": null,
-          "new": "Wikidata data retrieved (Q55635834)",
-          "description": "sources.wikidata populated from Wikidata API (Q55635834)"
-        }
-      ],
-      "validation": [],
-      "tags": []
-    },
-    {
       "id": "IV-0222",
       "type": "government_agency",
       "roles": [
@@ -32851,20 +33008,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0009",
-      "type": "investment",
-      "source": "IV-0117",
-      "target": "IN-0008",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "startups"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0010",
       "type": "investment",
       "source": "IV-0036",
@@ -32957,20 +33100,6 @@
       "id": "REL-0016",
       "type": "investment",
       "source": "IV-0141",
-      "target": "IN-0010",
-      "details": {
-        "lead": true
-      },
-      "sources": [
-        "crunchbase"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
-      "id": "REL-0017",
-      "type": "investment",
-      "source": "IV-0010",
       "target": "IN-0010",
       "details": {
         "lead": true
@@ -33264,7 +33393,7 @@
     {
       "id": "REL-0038",
       "type": "investment",
-      "source": "IV-0153",
+      "source": "IN-0102",
       "target": "IN-0016",
       "details": {
         "lead": true
@@ -34067,20 +34196,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0094",
-      "type": "investment",
-      "source": "IV-0081",
-      "target": "IN-0051",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "startups"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0095",
       "type": "investment",
       "source": "IV-0056",
@@ -34639,20 +34754,6 @@
       "author": "migrate.py"
     },
     {
-      "id": "REL-0134",
-      "type": "investment",
-      "source": "IV-0087",
-      "target": "IN-0079",
-      "details": {
-        "lead": false
-      },
-      "sources": [
-        "startups"
-      ],
-      "added_at": "2026-03-14",
-      "author": "migrate.py"
-    },
-    {
       "id": "REL-0135",
       "type": "investment",
       "source": "IV-0170",
@@ -34782,7 +34883,7 @@
     {
       "id": "REL-0144",
       "type": "investment",
-      "source": "IV-0031",
+      "source": "IN-0029",
       "target": "IN-0090",
       "details": {
         "lead": false
@@ -36293,7 +36394,7 @@
     {
       "id": "REL-0251",
       "type": "investment",
-      "source": "IV-0221",
+      "source": "IN-0149",
       "target": "IN-0142",
       "details": {
         "lead": true
@@ -36849,7 +36950,7 @@
     {
       "id": "REL-0290",
       "type": "investment",
-      "source": "IV-0151",
+      "source": "IN-0098",
       "target": "IN-0158",
       "details": {
         "lead": false
