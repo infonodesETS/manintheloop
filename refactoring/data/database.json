@@ -12423,7 +12423,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration. Raw source: CSV row 'Hensoldt', field 'Top 5 Investors' and 'Lead Investors', value 'Leonardo Company'. This name form differs from the canonical 'Leonardo' (IN-0094) used in the primary company record. The two were later confirmed as the same entity and merged (see 2026-03-28 entry)."
+          "description": "migrate.py extracted the string 'Leonardo Company' from the CSV raw data (row: 'Hensoldt', field: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0143 for it, not recognising it as a Crunchbase name variant of the already-existing Leonardo S.p.A. (IN-0094). IV-0143 was later confirmed as a duplicate and merged into IN-0094 on 2026-03-28 (see merge entry below)."
         },
         {
           "date": "2026-03-17",
