@@ -97,6 +97,17 @@ These aliases are currently normalised client-side in `js/tabs/overview.js` (`CO
 
 **Resolution path:** Standardise all country values to English common names during the next data reconciliation pass using `scripts/validate.py` or a dedicated migration script. Until then, any new chart or filter that groups by country must apply the same normalisation.
 
+**Partially resolved (2026-03-28):** All single-country aliases above were normalised directly in `database.json` with history entries. The following multi-country and ambiguous values were skipped and remain open:
+
+| Stored value | Entity | Notes |
+|---|---|---|
+| `Australia / UK` | TBD | Dual-country — primary country unclear |
+| `UK/Spagna` | TBD | Dual-country — primary country unclear |
+| `USA / Mexico` | TBD | Dual-country — primary country unclear |
+| `internationality` | TBD | Non-standard value — needs canonical form |
+
+Also add: `Czech Rep.` → `Czech Republic` was normalised; `UK` → `United Kingdom` was normalised.
+
 ---
 
 ## #8 Automated Investigation — Cyrillic text artefact
