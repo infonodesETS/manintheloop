@@ -5,7 +5,7 @@
 #graph-pane { display: flex; flex-direction: column; flex: 1; min-width: 0; position: relative; }
 #graph-detail {
   width: var(--sl-w-inline); flex-shrink: 0;
-  background: var(--sl-inline-bg); border-left: 1px solid var(--border);
+  background: var(--sl-inline-bg); border-right: 1px solid var(--border);
   overflow-y: hidden; display: none; flex-direction: column;
 }
 #graph-detail.open { display: flex; }
@@ -17,7 +17,7 @@
 #graph-detail-body { flex: 1; overflow-y: auto; padding: var(--sl-body-pad); }
 #graph-controls {
   display: flex; gap: 6px; flex-wrap: wrap; align-items: center; flex-shrink: 0;
-  background: var(--surface); border-top: 1px solid var(--border); padding: 6px 10px;
+  background: var(--surface); border-top: 1px solid var(--border); padding: 6px 10px; margin-right: 5%;
 }
 .gv-btn {
   padding: 4px 14px; font-size: var(--fs-sm); font-family: var(--font); font-weight: 700;
@@ -28,6 +28,14 @@
 .gv-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 #graph-svg, #bi-svg, #proj-svg { width: 100%; flex: 1; min-height: 0; display: block; }
 #proj-filter-btns { gap: 6px; }
+#graph-filter-float {
+  position: absolute; top: 10px; right: 10px; z-index: 10;
+  width: fit-content; display: flex; flex-direction: column; gap: 6px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 10px; box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+#graph-sector-btns { display: flex; flex-direction: column; gap: 4px; }
+#proj-filter-btns { display: none !important; }
 #graph-search {
   padding: 4px 10px; font-size: var(--fs-sm); font-family: var(--font);
   border: 1px solid var(--border); border-radius: 50px;
@@ -84,7 +92,7 @@
   position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
   background: var(--hint-bg); border: 1px solid var(--hint-border);
   border-radius: 8px; padding: 10px 18px; text-align: center;
-  font-size: var(--fs-sm); color: var(--hint-text);
+  font-size: var(--fs-base); color: var(--hint-text);
   pointer-events: none; z-index: 5; white-space: nowrap;
   backdrop-filter: blur(4px);
 }

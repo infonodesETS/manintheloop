@@ -833,7 +833,7 @@ function renderResults() {
     topicUpdates: y.data.topic_updates
   }));
 
-  document.getElementById('ec-patternTitle').textContent = `Pattern: ${currentPattern.base}`;
+  document.getElementById('ec-patternTitle').textContent = currentPattern.base;
 
   const totalProjects = currentYears.reduce((s, y) => s + y.data.statistics.total_projects, 0);
   document.getElementById('ec-yearsbadges').innerHTML =

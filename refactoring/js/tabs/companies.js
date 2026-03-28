@@ -64,6 +64,8 @@ export function openCompaniesIntro() {
 
 export function setCoSector(s) {
   AppState.ui.companies.sector = s;
+  document.querySelectorAll('#tab-companies .sf-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.sector === s));
   renderCoTable();
 }
 

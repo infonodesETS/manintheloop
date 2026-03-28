@@ -17,7 +17,7 @@
   --tab-h:                46px;
   --legend-h:             42px;
   --subtab-h:             38px;
-  --content-h:            calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h) - var(--legend-h));
+  --content-h:            calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
 
   /* ── Entity color palette ── */
   /* Company sectors — greens */
@@ -48,7 +48,7 @@
   --text-secondary: rgba(255,255,255,0.80);
   --text-tertiary:  rgba(255,255,255,0.70);
   --text-muted:     #7a7a7a;
-  --text-faint:     #6b6b6b;
+  --text-faint:     #757575;
 
   /* Grey palette (+15% HSL lightness from originals)
      ──────────────────────────────────────────────────────────
@@ -67,7 +67,7 @@
      ─────────────────────────────────────────────────────────────────────────
      Token       rem     ~px*   Usage
      ─────────── ──────  ─────  ───────────────────────────────────────────────
-     --fs-xs     .65     12.5   micro: badges, ids, stat labels, tiny UI
+     --fs-xs     .70     13.4   micro: badges, ids, stat labels, tiny UI
      --fs-sm     .75     14.4   caption: nav meta, table headers, chips
      --fs-base   .875    16.8   base: buttons, inputs, tooltips, form labels
      --fs-body   1.00    19.2   body: primary reading/UI text
@@ -75,9 +75,9 @@
      --fs-xl     1.65    31.7   display: hero, h1, h2 headings
      --fs-stat   2.00    38.4   stat: dashboard big numbers
      * at html font-size: 120% (1rem = 19.2px — Medium-range editorial base)
-     * minimum floor: 12px (--fs-xs). Nothing in the UI goes below this.
+     * minimum floor: 13px (--fs-xs). Nothing in the UI goes below this.
      ───────────────────────────────────────────────────────────────────────── */
-  --fs-xs:   .65rem;
+  --fs-xs:   .70rem;
   --fs-sm:   .75rem;
   --fs-base: .875rem;
   --fs-body: 1rem;
@@ -124,6 +124,7 @@
   --map-data:         #0a2a0a;      /* country with data fill                   */
   --map-data-hover:   #0d3d0d;      /* country with data hover                  */
   --map-selected:     #003300;      /* selected country fill                    */
+  --map-arc-color:    #40e8f0;      /* arc gradient color                       */
 
   /* Input / overlay surfaces */
   --surface-input:  #000000;        /* dark search input backgrounds            */
@@ -137,7 +138,7 @@
   /* SVG fixed sizes (pixel-based, bypasses rem cascade) */
   --fs-svg-xs:  9px;
   --fs-svg-sm: 10px;
-  --fs-svg-md: 11px;
+  --fs-svg-md: 13px;
 
   /* Container scaling (em-cascade base for panel/sidebar content)
      .sidebar sets font-size: var(--scale-sidebar) = 1.2rem (~23px).
@@ -178,6 +179,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font);
   font-size: var(--fs-body);
+  font-weight: 400;
   padding-top: var(--nav-h);
   overflow: hidden;
 }
@@ -221,7 +223,7 @@ body {
 }
 body.subnav-hidden #subnav { display: none; }
 body.subnav-hidden {
-  --content-h: calc(100vh - var(--nav-h) - var(--tab-h) - var(--legend-h));
+  --content-h: calc(100vh - var(--nav-h) - var(--tab-h));
 }
 body.subnav-hidden #content { margin-top: var(--tab-h); }
 
@@ -315,6 +317,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .hidden       { display: none; }
 .loading-text { color: var(--text-faint); font-size: var(--fs-xs); font-family: var(--font-mono); }
 .ctrl-sep     { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex-shrink: 0; align-self: center; }
+.ctrl-group-lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .8px; color: var(--text-faint); font-weight: var(--fw-bold); white-space: nowrap; flex-shrink: 0; padding-right: 2px; }
 
 /* ── Legend dot/star colors ── */
 .lg-dot--defence { background: var(--c-defence); }
@@ -474,7 +477,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .ki-body { max-width: 80%; width: 100%; }
 .ki-body h1 { font-size: var(--fs-xl); color: var(--accent); margin-bottom: 1rem; }
 .ki-body h2 { font-size: var(--fs-xl); color: var(--grey-pale); margin-top: 1.6rem; margin-bottom: .4rem; }
-.ki-body p  { font-size: var(--fs-lg); color: var(--grey-mid); line-height: var(--lh-loose); }
+.ki-body p  { font-size: var(--fs-body); color: var(--grey-mid); line-height: var(--lh-loose); }
 .ki-body strong { color: var(--grey-pale); }
 .ki-body hr { border-color: var(--grey-dark); margin: 1.2rem 0; }
 
@@ -498,7 +501,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
   --surface2:   #e5e3e0;
   --surface3:   #f2f0ed;
   --border:     #d0cdc8;
-  --dim:        rgba(0,0,0,0.45);
+  --dim:        rgba(0,0,0,0.60);
 
   /* ── Entity palette — darkened for light bg readability ── */
   --c-defence:  #007744;
@@ -516,7 +519,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
   --text-secondary: rgba(0,0,0,0.72);
   --text-tertiary:  rgba(0,0,0,0.58);
   --text-muted:     #6a6760;
-  --text-faint:     #8a8780;
+  --text-faint:     #6c6966;
 
   /* ── Grey palette (inverted direction) ── */
   --grey-dark:  #c0bcb4;
@@ -547,12 +550,13 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
   --label-fill:      rgba(0,0,0,0.55);
 
   /* ── Map geography ── */
-  --map-bg:         #dedad4;
-  --map-land:       #c8c4bc;
-  --map-stroke:     #b8b4ac;
-  --map-data:       #b8ccb8;
-  --map-data-hover: #a0b8a0;
-  --map-selected:   #7a9e7a;
+  --map-bg:         #d4d0ca;
+  --map-land:       #bfbbb3;
+  --map-stroke:     #aeaaa2;
+  --map-data:       #8ab88a;
+  --map-data-hover: #72a872;
+  --map-selected:   #4a7a4a;
+  --map-arc-color:  #0d6aaa;
 
   /* ── Input / overlay surfaces ── */
   --surface-input: #f0ede8;

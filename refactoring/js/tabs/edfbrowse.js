@@ -210,17 +210,27 @@ function renderTable() {
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 
-function openEdfSidebar(key) {
+export function openEdfSidebar(key) {
   const org = allOrgs.find(o => o.key === key);
   if (!org) return;
   const _edfSbEl = document.getElementById('edf-sidebar-title');
   _edfSbEl.textContent = org.name; _edfSbEl.title = org.name;
   document.getElementById('edf-sidebar-body').innerHTML = buildDrawer(org);
   document.getElementById('edf-sidebar').classList.add('open');
+  // Sync URL
+  const base = { tab: 'edfbrowse' };
+  if (searchTerm) base.search = searchTerm;
+  if (activeCountry !== 'all') base.country = activeCountry;
+  const slug = org.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  setParams({ ...base, entity: encodeURIComponent(key), 'entity-name': slug });
 }
 
 function closeEdfSidebar() {
   document.getElementById('edf-sidebar').classList.remove('open');
+  // Remove entity from URL, keep other filters
+  const p = getParams();
+  delete p.entity; delete p['entity-name'];
+  setParams(p);
 }
 
 function buildDrawer(org) {
@@ -323,6 +333,22 @@ function rebuild() {
   applyFilters();
 }
 
+// ── Snapshot for Export-for-AI ────────────────────────────────────────────────
+
+export function buildSnapshot() {
+  const filters = [];
+  if (activeCountry !== 'all') filters.push(`country: ${activeCountry}`);
+  if (searchTerm) filters.push(`search: "${searchTerm}"`);
+  if (fundedOnly) filters.push('funded projects only');
+  const lines = filtered.slice(0, 100).map(o =>
+    `- **${o.name}** | ${o.country || '—'} | ${fmtEuro(o.eu_total)} EU funding | ${o.project_count} project${o.project_count !== 1 ? 's' : ''}`
+  ).join('\n');
+  const trunc = filtered.length > 100 ? `\n_(showing 100 of ${filtered.length})_` : '';
+  return `## EDF Beneficiaries (${filtered.length} organisations)\n\n` +
+    (filters.length ? `**Filters:** ${filters.join(' · ')}\n\n` : '') +
+    lines + trunc;
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 /** Restore edfbrowse state from URL params (called after init completes). */
@@ -354,6 +380,10 @@ export function restoreEdfbrowseUrl(p) {
     changed = true;
   }
   if (changed) applyFilters();
+  if (p.entity) {
+    const key = decodeURIComponent(p.entity);
+    openEdfSidebar(key);
+  }
 }
 
 

@@ -26,7 +26,7 @@ export const AppState = {
     relationships: { search: '' },
     graph: {
       view: 'network',
-      sector: 'Startup',
+      sector: 'all',
       projFilter: 'all',
       search: '',
       leadOnly: false,
@@ -36,6 +36,7 @@ export const AppState = {
       sim: null,
       simBi: null,
       simProj: null,
+      selectedEntityId: null,
     },
     wikidata: {
       selectedCountry: null,
@@ -45,13 +46,13 @@ export const AppState = {
     },
     companysearch: { entityId: null },
     edfoverview: { built: false },
-    edfmap:      { built: false },
+    edfmap:      { built: false, pendingCountry: null },
     eucalls:     { built: false },
-    edfbrowse:   { built: false },
+    edfbrowse:   { built: false, pendingSearch: null, pendingOrgKey: null },
     map: {
       built: false,
       activeFilter: null,
-      showArcs: true,
+      showArcs: false,
       zoom: null,
       svg: null,
       g: null,
@@ -59,6 +60,8 @@ export const AppState = {
       countryData: {},
       arcData: [],
       centroids: {},
+      selectedIso: null,
+      selectedFlows: null,
     },
   },
 };

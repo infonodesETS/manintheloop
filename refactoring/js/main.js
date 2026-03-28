@@ -5,22 +5,22 @@ import { loadData } from './data.js';
 import { getParams, setParams, setUrlReady } from './url.js';
 
 import initOverview from './tabs/overview.js';
-import initMatrix, { setMatrixSector, closeMxDetail } from './tabs/matrix.js';
 import initCompanies, { setCoSector, sortCo, renderCoTable, restoreCoUrl, openCompaniesIntro } from './tabs/companies.js';
 import initInvestors, { sortInv, renderInvTable, restoreInvUrl, openInvestorsIntro } from './tabs/investors.js';
 import initRelationships, { renderRelTable, restoreRelUrl, openRelationshipsIntro } from './tabs/relationships.js';
-import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, showGraphHelp, setGraphSearch, setShowCompanies, setShowInvestors } from './tabs/graph.js';
+import initGraph, { setGraphView, setGraphSector, setProjFilter, closeGraphDetail, pauseGraph, resumeGraph, showGraphHelp, setGraphSearch, setShowCompanies, setShowInvestors, selectGraphEntity } from './tabs/graph.js';
 import initMap, { toggleMapArcs, resetMapZoom, closeMapPanel, clearMapFilter, selectMapCountryByName } from './tabs/map.js';
 import initWikidata, { toggleWdMode, onLiveInput } from './tabs/wikidata.js';
 import initQuality from './tabs/quality.js';
 import initEucalls     from './tabs/eucalls.js';
-import initEdfbrowse, { openEdfBrowseIntro } from './tabs/edfbrowse.js';
+import initEdfbrowse, { openEdfBrowseIntro, restoreEdfbrowseUrl, openEdfSidebar } from './tabs/edfbrowse.js';
 import initEdfoverview from './tabs/edfoverview.js';
-import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs } from './tabs/edfmap.js';
+import initEdfMap, { clearEdfMapFilter, closeEdfMapPanel, resetEdfMapZoom, toggleEdfMapArcs, selectEdfMapCountryByName } from './tabs/edfmap.js';
 import initKnownIssues from './tabs/knownissues.js';
 import initCompanySearch, { restoreCompanySearchUrl } from './tabs/companysearch.js';
 import { initEntitySidebar, openCompanySidebar, openInvestorSidebar } from './detail-sidebar.js';
 import { initGlossaryTooltips, renderGlossaryTab } from './glossary.js';
+import { hideTip } from './helpers.js';
 import { initCopyAI } from './copy-ai.js';
 import { initTheme } from './theme.js';
 
@@ -33,7 +33,7 @@ function hidePreloader(tabId) {
 const GROUPS = {
   'intro':          { tabs: null, defaultTab: null },
   'company-search': { tabs: null, defaultTab: null },
-  'supply-chain':   { tabs: ['overview','map','graph','companies','investors','relationships','matrix'], defaultTab: 'overview' },
+  'supply-chain':   { tabs: ['overview','map','graph','companies','investors','relationships'], defaultTab: 'overview' },
   'edf':          { tabs: ['edfoverview','edfmap','eucalls','edfbrowse'], defaultTab: 'edfoverview' },
   'about':        { tabs: ['about','knownissues','quality','wikidata','data','glossary'], defaultTab: 'about' },
 };
@@ -75,7 +75,7 @@ function navigate(group, tab, push = true) {
   );
 
   // Graph pause / resume
-  if (prevTab === 'graph' && paneId !== 'graph') pauseGraph();
+  if (prevTab === 'graph' && paneId !== 'graph') { pauseGraph(); hideTip(); }
   if (paneId === 'graph' && prevTab !== 'graph' && AppState.ui.graph.sim) resumeGraph();
 
   // Lazy-inits — hide preloader after init resolves
@@ -104,14 +104,43 @@ function navigate(group, tab, push = true) {
   }
   if (paneId === 'edfmap' && !AppState.ui.edfmap.built) {
     AppState.ui.edfmap.built = true;
-    initEdfMap().then(() => hidePreloader('tab-edfmap'));
+    initEdfMap().then(() => {
+      hidePreloader('tab-edfmap');
+      if (AppState.ui.edfmap.pendingCountry) {
+        selectEdfMapCountryByName(AppState.ui.edfmap.pendingCountry);
+        AppState.ui.edfmap.pendingCountry = null;
+      }
+    });
+  } else if (paneId === 'edfmap' && AppState.ui.edfmap.pendingCountry) {
+    const pc = AppState.ui.edfmap.pendingCountry;
+    AppState.ui.edfmap.pendingCountry = null;
+    selectEdfMapCountryByName(pc);
   }
   if (paneId === 'eucalls' && !AppState.ui.eucalls.built) {
     initEucalls(); AppState.ui.eucalls.built = true; hidePreloader('tab-eucalls');
   }
   if (paneId === 'edfbrowse' && !AppState.ui.edfbrowse.built) {
     AppState.ui.edfbrowse.built = true;
-    initEdfbrowse().then(() => hidePreloader('tab-edfbrowse'));
+    initEdfbrowse().then(() => {
+      hidePreloader('tab-edfbrowse');
+      if (AppState.ui.edfbrowse.pendingOrgKey) {
+        openEdfSidebar(AppState.ui.edfbrowse.pendingOrgKey);
+        AppState.ui.edfbrowse.pendingOrgKey = null;
+      } else if (AppState.ui.edfbrowse.pendingSearch) {
+        restoreEdfbrowseUrl({ search: AppState.ui.edfbrowse.pendingSearch });
+        AppState.ui.edfbrowse.pendingSearch = null;
+      }
+    });
+  } else if (paneId === 'edfbrowse') {
+    if (AppState.ui.edfbrowse.pendingOrgKey) {
+      const key = AppState.ui.edfbrowse.pendingOrgKey;
+      AppState.ui.edfbrowse.pendingOrgKey = null;
+      openEdfSidebar(key);
+    } else if (AppState.ui.edfbrowse.pendingSearch) {
+      const ps = AppState.ui.edfbrowse.pendingSearch;
+      AppState.ui.edfbrowse.pendingSearch = null;
+      restoreEdfbrowseUrl({ search: ps });
+    }
   }
   if (paneId === 'company-search') {
     // focus the search input when navigating to the tab
@@ -136,7 +165,7 @@ function navigate(group, tab, push = true) {
   if (paneId === 'companies') openCompaniesIntro();
   if (paneId === 'investors') openInvestorsIntro();
   if (paneId === 'relationships') openRelationshipsIntro();
-  if (paneId === 'edfbrowse') openEdfBrowseIntro();
+  if (paneId === 'edfbrowse' && !AppState.ui.edfbrowse.pendingSearch && !AppState.ui.edfbrowse.pendingOrgKey) openEdfBrowseIntro();
   if (paneId === 'graph' && AppState.ui.graph.sim) showGraphHelp();
 
   // URL — omit tab for standalone groups
@@ -180,13 +209,6 @@ function restoreFromUrl() {
       restoreRelUrl(p);
       break;
 
-    case 'matrix':
-      if (p.sector) {
-        const btn = document.querySelector(`#tab-matrix .sf-btn[data-sector="${p.sector}"]`);
-        if (btn) btn.click();
-      }
-      break;
-
     case 'map':
       if (p.country) {
         if (AppState.ui.map.built) selectMapCountryByName(p.country);
@@ -200,7 +222,7 @@ function restoreFromUrl() {
         document.getElementById(map[p.view] || 'gv-net')?.click();
       }
       if (p.sector) {
-        document.querySelector(`#graph-controls .sf-btn[data-sector="${p.sector}"]`)?.click();
+        document.querySelector(`#graph-sector-btns .sf-btn[data-sector="${p.sector}"]`)?.click();
       }
       if (p.search) {
         const inp = document.getElementById('graph-search');
@@ -217,10 +239,24 @@ function restoreFromUrl() {
       if (p.proj === 'multi') {
         document.getElementById('pf-multi')?.click();
       }
+      if (p.entity) {
+        selectGraphEntity(p.entity);
+      }
+      break;
+
+    case 'edfmap':
+      if (p.country) {
+        if (AppState.ui.edfmap.built) selectEdfMapCountryByName(p.country);
+        else AppState.ui.edfmap.pendingCountry = p.country;
+      }
       break;
 
     case 'edfbrowse':
-      // Lazy-init async tab: restoreEdfbrowseUrl is called at the end of initEdfbrowse()
+      if (p.search || p.country || p.funded || p.sort || p.entity) {
+        if (AppState.ui.edfbrowse.built) restoreEdfbrowseUrl(p);
+        else if (p.entity) AppState.ui.edfbrowse.pendingOrgKey = decodeURIComponent(p.entity);
+        else if (p.search) AppState.ui.edfbrowse.pendingSearch = p.search;
+      }
       break;
 
     case 'eucalls':
@@ -249,7 +285,6 @@ loadData()
     initCompanySearch();
 
     initOverview();      hidePreloader('tab-overview');
-    initMatrix();        hidePreloader('tab-matrix');
     initCompanies();     hidePreloader('tab-companies');
     initInvestors();     hidePreloader('tab-investors');
     initRelationships(); hidePreloader('tab-relationships');
@@ -283,18 +318,6 @@ loadData()
       b.addEventListener('click', () => navigate(AppState.ui.currentGroup, b.dataset.tab, true));
     });
 
-    // Wire matrix sector buttons
-    document.querySelectorAll('#tab-matrix .sf-btn').forEach(b => {
-      b.addEventListener('click', () => {
-        document.querySelectorAll('#tab-matrix .sf-btn').forEach(x => x.classList.remove('active'));
-        b.classList.add('active');
-        setMatrixSector(b.dataset.sector);
-        setParams({ tab: 'matrix', ...(b.dataset.sector !== 'all' ? { sector: b.dataset.sector } : {}) });
-      });
-    });
-    document.getElementById('mx-detail').querySelector('.sl-close')
-      .addEventListener('click', closeMxDetail);
-
     // Wire companies sector buttons
     document.querySelectorAll('#tab-companies .sf-btn').forEach(b => {
       b.addEventListener('click', () => {
@@ -321,9 +344,9 @@ loadData()
     const dismissGraphHint = () => document.getElementById('graph-hint')?.classList.add('hidden');
 
     // Wire graph sector buttons (also update URL)
-    document.querySelectorAll('#graph-controls .sf-btn').forEach(b => {
+    document.querySelectorAll('#graph-sector-btns .sf-btn').forEach(b => {
       b.addEventListener('click', () => {
-        document.querySelectorAll('#graph-controls .sf-btn').forEach(x => x.classList.remove('active'));
+        document.querySelectorAll('#graph-sector-btns .sf-btn').forEach(x => x.classList.remove('active'));
         b.classList.add('active');
         setGraphSector(b.dataset.sector);
         if (b.dataset.sector !== 'all') dismissGraphHint();

@@ -4,6 +4,7 @@ import { AppState } from '../state.js';
 import { esc } from '../helpers.js';
 import { GLOSSARY } from '../glossary.js';
 import { openInvestorSidebar } from '../detail-sidebar.js';
+import { setCoSector } from './companies.js';
 
 export default function initOverview() {
   renderOverview();
@@ -23,9 +24,11 @@ function renderOverview() {
   ];
   const sectorStats = Object.entries(sectors).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ val: v, lbl: k, gl: k.toLowerCase() }));
 
-  const makeCards = (arr) => arr.map(s => {
+  const makeCards = (arr, isSector = false) => arr.map(s => {
     const title = s.gl && GLOSSARY[s.gl] ? ` title="${esc(GLOSSARY[s.gl])}"` : '';
-    return `<div class="stat-card"${title}><div class="val">${s.val}</div><div class="lbl">${s.lbl}</div></div>`;
+    const cls = isSector ? 'stat-card stat-card--link' : 'stat-card';
+    const data = isSector ? ` data-sector="${esc(s.lbl)}"` : '';
+    return `<div class="${cls}"${title}${data}><div class="val">${s.val}</div><div class="lbl">${s.lbl}</div></div>`;
   }).join('');
 
   document.getElementById('stats-grid').innerHTML =
@@ -34,9 +37,17 @@ function renderOverview() {
        <div class="overview-grid ov-stats-inner">${makeCards(entityStats)}</div>
      </div>
      <div class="ov-stats-group">
-       <div class="ov-stats-group-lbl">Companies by sector</div>
-       <div class="overview-grid ov-stats-inner">${makeCards(sectorStats)}</div>
+       <div class="ov-stats-group-lbl">Companies by sector <span class="ov-stats-hint">(click to filter)</span></div>
+       <div class="overview-grid ov-stats-inner">${makeCards(sectorStats, true)}</div>
      </div>`;
+
+  document.getElementById('stats-grid').querySelectorAll('.stat-card--link[data-sector]').forEach(card => {
+    card.addEventListener('click', () => {
+      const sector = card.dataset.sector;
+      AppState.navigate?.('supply-chain', 'companies');
+      setCoSector(sector);
+    });
+  });
 
   // Geographic distribution chart
   const COUNTRY_NORM = {
@@ -45,16 +56,26 @@ function renderOverview() {
     'Polonia': 'Poland', 'Francia': 'France', 'Norvegia': 'Norway',
     'Belgio': 'Belgium', 'Germania': 'Germany', 'Cile': 'Chile', 'UK': 'United Kingdom',
   };
-  const WESTERN = new Set([
-    'United States','USA','United Kingdom','UK','Germany','Germania','France','Francia',
-    'Italy','Spain','Netherlands','Belgium','Belgio','Norway','Norvegia','Sweden',
-    'Finland','Denmark','Poland','Polonia','Czech Republic','Czech Rep.','Czechia',
-    'Romania','Estonia','Latvia','Lithuania','Switzerland','Austria','Portugal','Greece',
-    'Hungary','Slovakia','Luxembourg','Ireland','Cyprus','Malta','Croatia','Slovenia',
-    'Serbia','Bulgaria','North Macedonia','Albania','Canada','Australia','New Zealand',
-    'Japan','Giappone','South Korea','Israel','Turkey',
+  const EUROPE = new Set([
+    'United Kingdom','UK','Germany','Germania','France','Francia','Italy','Spain',
+    'Netherlands','Belgium','Belgio','Norway','Norvegia','Sweden','Finland','Denmark',
+    'Poland','Polonia','Czech Republic','Czech Rep.','Czechia','Romania','Estonia',
+    'Latvia','Lithuania','Switzerland','Austria','Portugal','Greece','Hungary','Slovakia',
+    'Luxembourg','Ireland','Cyprus','Malta','Croatia','Slovenia','Serbia','Bulgaria',
+    'North Macedonia','Albania','Moldova','Belarus','Russia','Ukraine','Turkey',
   ]);
-  const CHINA_RU = new Set(['China','Cina',"People's Republic of China",'Russia']);
+  const AMERICAS = new Set([
+    'United States','USA','Canada','Brazil','Mexico','Argentina','Chile','Cile','Colombia','Peru',
+  ]);
+  const ASIA_PAC = new Set([
+    'China','Cina',"People's Republic of China",'Japan','Giappone','South Korea','India',
+    'Australia','New Zealand','Singapore','Malaysia','Thailand','Vietnam','Philippines',
+    'Indonesia','Bangladesh','Pakistan','Kazakhstan',
+  ]);
+  const MENA = new Set([
+    'Israel','Saudi Arabia','United Arab Emirates','EAU (Dubai)','Egypt','Morocco','Tunisia',
+  ]);
+  const AFRICA = new Set(['South Africa','Nigeria','Kenya','Ethiopia']);
 
   const countryCounts = {};
   for (const c of companies) {
@@ -65,15 +86,21 @@ function renderOverview() {
   const geoEntries = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]);
   const geoMax = geoEntries[0]?.[1] || 1;
 
-  const alignColor = (ctry) => {
-    if (CHINA_RU.has(ctry)) return '#c0392b';
-    if (WESTERN.has(ctry)) return 'var(--accent)';
+  const continentColor = (ctry) => {
+    if (EUROPE.has(ctry))   return '#5b8dd9';
+    if (AMERICAS.has(ctry)) return '#f0944d';
+    if (ASIA_PAC.has(ctry)) return '#9b6dd6';
+    if (MENA.has(ctry))     return '#e8c44a';
+    if (AFRICA.has(ctry))   return '#5dbe8a';
     return 'var(--grey-mid)';
   };
 
   const legend = `<div class="ov-geo-legend">
-    <span class="ov-geo-dot" style="background:var(--accent)"></span>Western aligned
-    <span class="ov-geo-dot" style="background:#c0392b"></span>China / Russia
+    <span class="ov-geo-dot" style="background:#5b8dd9"></span>Europe
+    <span class="ov-geo-dot" style="background:#f0944d"></span>Americas
+    <span class="ov-geo-dot" style="background:#9b6dd6"></span>Asia-Pacific
+    <span class="ov-geo-dot" style="background:#e8c44a"></span>Middle East
+    <span class="ov-geo-dot" style="background:#5dbe8a"></span>Africa
     <span class="ov-geo-dot" style="background:var(--grey-mid)"></span>Other
   </div>`;
 
@@ -81,7 +108,7 @@ function renderOverview() {
     const pct = Math.round(n / geoMax * 100);
     return `<div class="d-flex align-items-center gap-2 mb-1">
       <span class="ov-geo-lbl">${esc(ctry)}</span>
-      <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%;background:${alignColor(ctry)}"></div></div>
+      <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%;background:${continentColor(ctry)}"></div></div>
       <span class="ov-geo-val">${n}</span>
     </div>`;
   }).join('');

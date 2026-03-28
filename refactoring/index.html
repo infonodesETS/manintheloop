@@ -7,18 +7,17 @@
 <title>Man in the Loop — Explorer</title>
 <meta name="description" content="Explore the defence supply chain: map companies, investors, and relationships across Defence, Mining, Tech, and Startup sectors. Includes European Defence Fund call data (2021–2027).">
 <meta property="og:title" content="Man in the Loop — info.nodes Explorer">
-<meta property="og:description" content="Mapping who finances whom across the global defence supply chain. Supply chain network, investment matrix, EDF funding data.">
+<meta property="og:description" content="Mapping who finances whom across the global defence supply chain. Supply chain network, EDF funding data.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Man in the Loop — info.nodes Explorer">
-<meta name="twitter:description" content="Mapping who finances whom across the global defence supply chain. Supply chain network, investment matrix, EDF funding data.">
+<meta name="twitter:description" content="Mapping who finances whom across the global defence supply chain. Supply chain network, EDF funding data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/matrix.css">
 <link rel="stylesheet" href="css/graph.css">
 <link rel="stylesheet" href="css/map.css">
 <link rel="stylesheet" href="css/wikidata.css">
@@ -67,7 +66,6 @@
     <button class="snav-btn" data-tab="investors">Investors</button>
     <button class="snav-btn" data-tab="relationships">Relationships</button>
     <div class="snav-sep"></div>
-    <button class="snav-btn" data-tab="matrix">Matrix</button>
   </div>
   <div class="snav-group" data-research="edf">
     <button class="snav-btn" data-tab="edfoverview" title="European Defence Fund — Overview">Overview</button>
@@ -85,7 +83,7 @@
     <button class="snav-btn" data-tab="data">Data</button>
     <button class="snav-btn" data-tab="glossary">Glossary</button>
   </div>
-  <button id="copy-ai-btn" class="snav-copy-ai-btn" title="Copy this view as Markdown and paste it into ChatGPT, Claude, or any AI assistant to explore and understand the data">Copy for AI</button>
+  <button id="copy-ai-btn" class="snav-copy-ai-btn" title="Export data filtered here to paste into Mistral, Claude, ChatGPT to ask for an explanation">Export in .md format</button>
 </div>
 
 <!-- CONTENT -->
@@ -119,7 +117,7 @@
             <div class="intro-area-title intro-area-nav" data-navigate-group="supply-chain" data-navigate-tab="overview">Supply Chain <span class="intro-area-arrow">→</span></div>
             <div class="intro-area-desc">
               Map <span class="gl-term" data-gl="company">companies</span>, <span class="gl-term" data-gl="investor">investors</span>, and their <span class="gl-term" data-gl="relationship">relationships</span> across the <span class="gl-term" data-gl="defence">Defence</span> · <span class="gl-term" data-gl="mining">Mining</span> · <span class="gl-term" data-gl="tech">Tech</span> · <span class="gl-term" data-gl="startup">Startup</span>
-              sectors. Explore the network graph, investment matrix, and geographic spread of
+              sectors. Explore the network graph and geographic spread of
               entities tracked in the infonodes database.
             </div>
           </div>
@@ -301,64 +299,10 @@
   </div>
 
   <!-- ── MATRIX ────────────────────────────────── -->
-  <div id="tab-matrix" class="tab-pane">
-    <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading matrix…</div></div>
-    <div class="tbl-toolbar" id="mx-toolbar">
-      <span class="sf-label">Sector</span>
-      <button class="sf-btn active" data-sector="all">All</button>
-      <button class="sf-btn" data-sector="Defence">Defence</button>
-      <button class="sf-btn" data-sector="Mining">Mining</button>
-      <button class="sf-btn" data-sector="Tech">Tech</button>
-      <button class="sf-btn" data-sector="Startup">Startup</button>
-      <span class="tbl-count" id="mx-info"></span>
-      <span class="ctrl-sep"></span>
-      <span class="sf-label">Key</span>
-      <span class="badge-lead">LEAD</span><span class="mx-legend-desc">led the round</span>
-      <span class="badge-follow">follow</span><span class="mx-legend-desc">participated</span>
-    </div>
-    <div id="matrix-wrap">
-      <div id="matrix-scroll"></div>
-      <div id="mx-detail" class="sidebar">
-        <div id="mx-detail-header">
-          <span id="mx-detail-title" class="sl-title"></span>
-          <button class="sl-close" title="Close">✕</button>
-        </div>
-        <div id="mx-detail-body"><div id="mx-inner"></div></div>
-      </div>
-    </div>
-  </div>
-
   <!-- ── GRAPH ─────────────────────────────────── -->
   <div id="tab-graph" class="tab-pane">
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading graph…</div></div>
     <div id="graph-layout">
-      <div id="graph-pane">
-        <svg id="graph-svg"></svg>
-        <div id="graph-hint">
-          <div class="graph-hint-title">All nodes are visible</div>
-          Filter by sector below, or search for a company or investor to focus the graph
-        </div>
-        <div id="graph-controls">
-          <button class="gv-btn active" id="gv-net"  title="Network — companies at centre, investors orbiting. Links connect each investor to the companies it backed.">Network</button>
-          <button class="gv-btn"        id="gv-bi"   title="Bipartite — two columns: investors on the left, companies on the right. Easier to trace a single investor's portfolio.">Bipartite</button>
-          <button class="gv-btn"        id="gv-proj" title="Projection — investors only. A link between two investors means they co-invested in at least one company. Thicker = more shared companies.">Projection</button>
-          <div class="ctrl-sep"></div>
-          <button class="sf-btn active" data-sector="Startup">Startup</button>
-          <button class="sf-btn"        data-sector="Defence">Defence</button>
-          <button class="sf-btn"        data-sector="Mining">Mining</button>
-          <button class="sf-btn"        data-sector="Tech">Tech</button>
-          <button class="sf-btn"        data-sector="all">All</button>
-          <div id="proj-filter-btns" class="hidden">
-            <button class="gv-btn active" id="pf-all">All edges</button>
-            <button class="gv-btn"        id="pf-multi">Co-invest ≥2</button>
-          </div>
-          <div class="ctrl-sep"></div>
-          <button class="gv-btn active" id="gv-show-co">Companies</button>
-          <button class="gv-btn active" id="gv-show-inv">Investors</button>
-          <div class="ctrl-sep"></div>
-          <input id="graph-search" type="search" placeholder="Search nodes…" autocomplete="off">
-        </div>
-      </div>
       <div id="graph-detail" class="sidebar">
         <div id="graph-detail-header">
           <span id="graph-detail-title" class="sl-title"></span>
@@ -391,6 +335,35 @@
             </ul>
           </div>
           <div id="graph-inner"></div>
+        </div>
+      </div>
+      <div id="graph-pane">
+        <svg id="graph-svg"></svg>
+        <div id="graph-hint">
+          <div class="graph-hint-title">All nodes are visible</div>
+          Filter by sector or search for a company or investor to focus the graph
+        </div>
+        <div id="graph-filter-float">
+          <input id="graph-search" type="search" placeholder="Search nodes…" autocomplete="off">
+          <div id="graph-sector-btns">
+            <button class="sf-btn"        data-sector="Startup">Startup</button>
+            <button class="sf-btn"        data-sector="Defence">Defence</button>
+            <button class="sf-btn"        data-sector="Mining">Mining</button>
+            <button class="sf-btn"        data-sector="Tech">Tech</button>
+            <button class="sf-btn active" data-sector="all">All</button>
+          </div>
+          <div id="proj-filter-btns" class="hidden">
+            <button class="gv-btn active" id="pf-all">All edges</button>
+            <button class="gv-btn"        id="pf-multi">Co-invest ≥2</button>
+          </div>
+        </div>
+        <div id="graph-controls">
+          <span class="ctrl-group-lbl">View</span>
+          <button class="gv-btn active" id="gv-net"  title="Network — companies at centre, investors orbiting. Links connect each investor to the companies it backed.">Network</button>
+          <button class="gv-btn"        id="gv-bi"   title="Bipartite — two columns: investors on the left, companies on the right. Easier to trace a single investor's portfolio.">Bipartite</button>
+          <button class="gv-btn"        id="gv-proj" title="Projection — investors only. A link between two investors means they co-invested in at least one company. Thicker = more shared companies.">Projection</button>
+          <button class="gv-btn active" id="gv-show-co" style="display:none">Companies</button>
+          <button class="gv-btn active" id="gv-show-inv" style="display:none">Investors</button>
         </div>
       </div>
     </div>
@@ -472,21 +445,6 @@
   <div id="tab-map" class="tab-pane">
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading supply chain map…</div></div>
     <div id="map-layout">
-      <div id="map-main">
-        <div id="map-toolbar">
-          <label class="map-toggle-label" title="Hide investment flow arcs to see country relationships more clearly when the map is crowded">
-            <input type="checkbox" id="map-arc-toggle" checked>
-            Show investment flow arcs
-          </label>
-          <span class="map-arc-legend" title="Arc direction: faint end = investor country (capital source) · bright end = company country (capital destination)">arc: faint→investor · bright→company</span>
-          <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
-        </div>
-        <div id="map-filter-bar" class="map-filter-bar hidden">
-          <span>Filtering by: <strong id="map-filter-label"></strong></span>
-          <button id="map-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
-        </div>
-        <svg id="map-svg"></svg>
-      </div>
       <div id="map-panel" class="sidebar">
         <div id="map-panel-header">
           <span id="map-panel-title" class="sl-title">About this map</span>
@@ -500,6 +458,21 @@
             <p class="map-intro-text">Click a country circle or a shaded country area to explore its companies and investor relationships. Use the toggles above the map to show or hide arcs.</p>
           </div>
         </div>
+      </div>
+      <div id="map-main">
+        <div id="map-toolbar">
+          <label class="map-toggle-label" title="Hide investment flow arcs to see country relationships more clearly when the map is crowded">
+            <input type="checkbox" id="map-arc-toggle">
+            Show investment flow arcs
+          </label>
+          <span class="map-arc-legend" title="Arc direction: faint end = investor country (capital source) · bright end = company country (capital destination)">arc: faint→investor · bright→company</span>
+          <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
+        </div>
+        <div id="map-filter-bar" class="map-filter-bar hidden">
+          <span>Filtering by: <strong id="map-filter-label"></strong></span>
+          <button id="map-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
+        </div>
+        <svg id="map-svg"></svg>
       </div>
     </div>
   </div>
@@ -597,6 +570,13 @@
   <div id="tab-edfmap" class="tab-pane">
     <div class="tab-preloader"><div class="spin"></div><div class="loading-text">loading edf map…</div></div>
     <div id="edfmap-layout">
+      <div id="edfmap-panel" class="d-none sidebar">
+        <div id="edfmap-panel-header">
+          <span id="edfmap-panel-title" class="sl-title"></span>
+          <button id="edfmap-close-panel-btn" class="sl-close">✕</button>
+        </div>
+        <div id="edfmap-panel-body"></div>
+      </div>
       <div id="edfmap-main">
         <div id="edfmap-toolbar">
           <label class="map-toggle-label">
@@ -612,13 +592,6 @@
           <button id="edfmap-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
         </div>
         <svg id="edfmap-svg"></svg>
-      </div>
-      <div id="edfmap-panel" class="d-none sidebar">
-        <div id="edfmap-panel-header">
-          <span id="edfmap-panel-title" class="sl-title"></span>
-          <button id="edfmap-close-panel-btn" class="sl-close">✕</button>
-        </div>
-        <div id="edfmap-panel-body"></div>
       </div>
     </div>
   </div>
@@ -1076,10 +1049,6 @@
     <span class="lg-item"><span class="lg-dot lg-square lg-dot--govt"></span>Gov Agency</span>
     <span class="lg-item"><span class="lg-dot lg-square lg-dot--bank"></span>Bank</span>
     <span class="lg-item"><span class="lg-dot lg-square lg-dot--inst"></span>Institution</span>
-    <span class="lg-sep"></span>
-    <span class="lg-group-label">Roles</span>
-    <span class="lg-item"><span class="lg-dot lg-dot--mfr"></span>Manufacturer</span>
-    <span class="lg-item"><span class="lg-star lg-star--dual">★</span>Dual role</span>
   </div>
 </div>
 

@@ -3,6 +3,11 @@
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 6px; padding: 14px 18px;
 }
+.stat-card[title] { cursor: help; }
+.stat-card--link { cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.stat-card--link:hover { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.stat-card--link:hover .lbl { color: var(--accent); }
+.ov-stats-hint { font-size: var(--fs-xs); color: var(--text-faint); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 4px; }
 .stat-card .val { font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--accent); font-family: monospace; line-height: 1; }
 .stat-card .lbl { font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-top: 4px; }
 
@@ -71,16 +76,17 @@ th.sortable:hover { color: var(--text-primary); }
 
 /* ── Legend bottom bar ── */
 #legend {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 450;
+  position: fixed; bottom: 0; right: 0; z-index: 450;
   background: var(--surface); border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   display: flex; align-items: center;
   height: var(--legend-h);
   padding: 0 14px;
   font-family: var(--font); font-size: var(--fs-base);
-  overflow: hidden;
+  width: fit-content;
 }
 #legend-body {
-  display: flex; align-items: center; gap: 0; flex: 1; overflow: hidden;
+  display: flex; align-items: center; gap: 0;
 }
 .lg-label {
   font-size: var(--fs-sm); color: var(--text-primary); text-transform: uppercase;
@@ -151,7 +157,7 @@ th.sortable:hover { color: var(--text-primary); }
 .sl-row-val { font-size: var(--sl-row-val-fs); color: var(--text-primary); word-break: break-word; }
 
 /* ── Matrix detail panel ── */
-#mx-detail { width: var(--sl-w-inline); flex-shrink: 0; background: var(--sl-inline-bg); border-left: 1px solid var(--border); overflow-y: hidden; display: none; flex-direction: column; }
+#mx-detail { width: var(--sl-w-inline); flex-shrink: 0; background: var(--sl-inline-bg); border-right: 1px solid var(--border); overflow-y: hidden; display: none; flex-direction: column; }
 #mx-detail.open { display: flex; }
 #mx-detail-header {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -171,9 +177,21 @@ th.sortable:hover { color: var(--text-primary); }
 .dp-link      { color: var(--dim); font-size: var(--sl-row-lbl-fs); }
 .dp-co-count  { font-size: var(--fs-xs); color: var(--text-faint); }
 .es-list li span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gv-entity-link {
+  background: none; border: none; padding: 0;
+  color: var(--text-secondary); font-size: inherit; font-family: inherit;
+  cursor: pointer; text-align: left;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.gv-entity-link:hover { color: var(--accent); text-decoration: underline; }
 
 /* ── Entity detail sidebar ── */
-.entity-sidebar { position: fixed; inset: 0; z-index: var(--sl-z); pointer-events: none; }
+.entity-sidebar {
+  position: fixed;
+  top: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h));
+  left: 0; right: 0; bottom: 0;
+  z-index: var(--sl-z); pointer-events: none;
+}
 .entity-sidebar.open { pointer-events: all; }
 .entity-sidebar-overlay {
   position: absolute; inset: 0; background: var(--sl-overlay-bg); opacity: 0;
@@ -181,10 +199,10 @@ th.sortable:hover { color: var(--text-primary); }
 }
 .entity-sidebar.open .entity-sidebar-overlay { opacity: 1; }
 .entity-sidebar-panel {
-  position: absolute; top: 0; right: 0; bottom: 0; width: var(--sl-w-inline); max-width: 95vw;
-  background: var(--sl-panel-bg); border-left: 1px solid var(--border);
+  position: absolute; top: 0; left: 0; bottom: 0; width: var(--sl-w-inline); max-width: 95vw;
+  background: var(--sl-panel-bg); border-right: 1px solid var(--border);
   display: flex; flex-direction: column;
-  transform: translateX(100%); transition: var(--sl-panel-t); overflow: hidden;
+  transform: translateX(-100%); transition: var(--sl-panel-t); overflow: hidden;
 }
 .entity-sidebar.open .entity-sidebar-panel { transform: translateX(0); }
 .entity-sidebar-header {

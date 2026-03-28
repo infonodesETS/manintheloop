@@ -23,6 +23,260 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — Matrix removed; issues backlog pruned; docs aligned
+
+**Source:** `infonodes-issues.md` #15, #48 + housekeeping
+**Resolved:** #15, #48; deleted #01, #02, #03, #04, #14, #16, #17, #18, #22, #30, #33, #51, #53, #54; marked #21 ✅
+
+### Removed — Matrix tab
+
+- `index.html`: removed `<link css/matrix.css>`, Matrix nav button, entire `#tab-matrix` pane
+- `index.html`: removed "investment matrix" from meta descriptions and intro copy
+- `js/main.js`: removed `initMatrix`/`setMatrixSector`/`closeMxDetail` import, `'matrix'` from supply-chain tabs array, `case 'matrix'` from `restoreFromUrl`, `initMatrix()` call, matrix sector button + close button wiring
+- `js/tabs/matrix.js` and `css/matrix.css` retained as archive files (not loaded)
+
+### Changed — `docs/infonodes-issues.md`
+
+- Deleted 14 issues: #01 #02 #03 #04 #14 #16 #17 #18 #22 #30 #33 #51 #53 #54 (editorial/architectural decisions deferred indefinitely or duplicates)
+- Marked resolved: #15, #21, #48
+- Applied missing `✅ RESOLVED` titles to 21 previously-resolved issues: #10 #11 #12 #23 #24 #25 #26 #27 #28 #34 #35 #36 #37 #38 #39 #41 #43 #45 #47 #49 #52
+
+### Changed — `docs/STYLE.md`
+
+- Removed `css/matrix.css` from CSS file scope table
+
+### Changed — `readme.md`
+
+- File map: added `infonodes-issues.md`, `infonodes-roadmap.md`; added `companysearch.css`; removed `matrix.css`
+- Tab modules table: added `companysearch.js`; removed `matrix.js`
+- Navigation table: removed Matrix from Supply Chain sub-tabs
+- Roadmap section: removed stale issue count
+
+---
+
+## [2026-03-28] — SC Map: arcs hidden by default, outbound-only on click, higher contrast
+
+**Source:** `infonodes-issues.md` #08, #09, #42
+**Resolved:** #08, #09, #42
+
+### Changed — `js/state.js`
+- `map.showArcs`: `true` → `false` — arcs off by default
+
+### Changed — `js/tabs/map.js`
+- Arc layer initialised with `display:none` — hidden until country click or global toggle
+- `showMapCountry()`: shows arc layer on click; dims all arcs where `d.src !== iso` (outbound only) **#09**
+- `closeMapPanel()`: restores arc layer visibility based on `showArcs` toggle state
+- `drawArcs()`: stroke range `[1,4]` → `[1.5,5]`; opacity range `[0.55,0.9]` → `[0.75,1.0]`; faint gradient end `0.07` → `0.18` **#08**
+
+### Changed — `css/base.css`
+- `--map-arc-color` dark: `#68ccd1` → `#40e8f0` (more saturated cyan) **#08**
+- `--map-arc-color` light: `#0a5080` → `#0d6aaa` (brighter blue) **#08**
+
+### Changed — `index.html`
+- `#map-arc-toggle`: removed `checked` attribute — checkbox unchecked by default **#42**
+
+---
+
+## [2026-03-28] — Graph view: layout overhaul, routing, auto-fit, drag pin, export
+
+**Source:** `infonodes-issues.md` #44, #55, #57, #60 + additional bug fixes and polish
+**Resolved:** #44, #55, #57, #60
+
+### Changed — `index.html`
+
+- `#graph-filter-float` added inside `#graph-pane`: contains `#graph-search` (search input) and `#graph-sector-btns` (sector filter buttons). Positioned absolute top-right of the graph pane. **#57**
+- `#graph-controls` now contains only the View buttons (Network / Bipartite / Projection). Companies/Investors toggle buttons hidden with `style="display:none"`.
+- `#legend` restructured: "Roles" section (Manufacturer + Dual role items) removed. Legend is now right-aligned and compact.
+- Default active sector button changed from `Startup` to `All`.
+
+### Changed — `css/graph.css`
+
+- `#graph-filter-float`: `position: absolute; top: 10px; right: 10px; z-index: 10; width: fit-content` — floating filter box anchored top-right. **#57**
+- `#graph-sector-btns`: `flex-direction: column` — sector buttons stacked vertically.
+- `#proj-filter-btns`: `display: none !important` — "All edges / Co-invest ≥2" filters permanently hidden.
+- `#graph-controls`: `margin-right: 5%` — visual gap between view controls and legend.
+
+### Changed — `css/components.css`
+
+- `#legend`: `left: 0` removed; `right: 0; width: fit-content; border-left` — legend now compact and right-aligned, no longer spanning full viewport width.
+- `#legend-body`: `flex: 1` → `width: auto`.
+
+### Changed — `css/base.css`
+
+- `--content-h`: removed `- var(--legend-h)` from all variants (default, `subnav-hidden`). Content now fills full available height since the legend is no longer a full-width bar. Eliminates the black gap below graph view.
+- `--fs-svg-md`: `11px` → `13px` — graph node labels (`.glabel`) are now larger.
+
+### Changed — `js/tabs/graph.js`
+
+- **#60** — `graphShowPanel()` calls `setParams()` with `entity=<id>&entity-name=<slug>` after opening the detail panel. URL reflects selected node.
+- **#60** — `closeGraphDetail()` deletes `entity` and `entity-name` from URL. Also fixed: now clears both `ghl` **and** `gdim` classes (previously only `ghl` was cleared, leaving nodes permanently dimmed after Escape/close).
+- **#60** — `selectGraphEntity(id)` exported: finds entity by ID in `companyMap`/`invMap` and calls `graphShowPanel`. Used by `restoreFromUrl()` to reopen the panel on page load.
+- **#55** — Added `svgFit(nodes)` helper: always re-reads live `clientWidth`/`clientHeight` from `#graph-svg`. All simulation `on('end')` callbacks now use `svgFit(nodes)` instead of stale closed-over `W`/`H`. Initial bounding-box fit wrapped in `requestAnimationFrame`.
+- **#44** — Drag `on('end')` handler changed from `d.fx = null; d.fy = null` to `d.fx = d.x; d.fy = d.y` across network, bipartite, and projection. Nodes stay pinned at drop position. **#44**
+- Imported `getParams`, `setParams` from `../url.js`.
+
+### Changed — `js/main.js`
+
+- **#60** — `restoreFromUrl()` case `'graph'`: added `if (p.entity) selectGraphEntity(p.entity)` — restores selected node on page load.
+- Imported `selectGraphEntity` from `./tabs/graph.js`.
+- Sector button selector updated from `#graph-controls .sf-btn` → `#graph-sector-btns .sf-btn` (3 occurrences).
+
+### Changed — `js/state.js`
+
+- `graph.sector` default: `'Startup'` → `'all'` — graph now shows all companies on fresh load with no sector param. Fixes "looks like a selected node" bug (only Startup subset was shown).
+
+### Changed — `js/copy-ai.js`
+
+- Graph snapshot: visible companies now render hierarchically — each company lists its investors as indented sub-items (`  - Investor1: Name (LEAD)`). Previously only flat company names were exported.
+
+### Changed — `docs/STYLE.md`
+
+- `--fs-svg-md` value updated: `11px` → `13px`.
+
+---
+
+## [2026-03-28] — #40: all panels moved to left side, full-height overlay fix, width harmonization
+
+**Source:** `infonodes-issues.md` #40
+**Resolved:** #40
+
+### Changed — `css/components.css`
+
+- `#mx-detail`: `border-left` → `border-right` (Matrix panel now on left).
+- `.entity-sidebar` wrapper: `inset: 0` → `top: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h)); left: 0; right: 0; bottom: 0` — overlay no longer covers topnav/tab bars. Fixes full-height issue reported for Companies and EDF Browse.
+- `.entity-sidebar-panel`: `top:0; right:0` → `top:0; left:0`, `translateX(100%)` → `translateX(-100%)`, `border-left` → `border-right` — panel slides in from left.
+
+### Changed — `css/graph.css`
+
+- `#graph-detail`: `border-left` → `border-right`.
+
+### Changed — `css/map.css`
+
+- `#map-panel`, `#edfmap-panel`: `border-left` → `border-right`.
+
+### Changed — `css/eucalls.css`
+
+- `.ec-part-sidebar` wrapper: same `top: calc(...)` fix as `.entity-sidebar`.
+- `.ec-part-sidebar-panel`: moved to left, `translateX(-100%)` slide, `border-right`, width changed from `--sl-w-sm` (380px) to `--sl-w-inline` (450px) — harmonizes with all other panels.
+
+### Changed — `index.html`
+
+- `#matrix-wrap`: `#mx-detail` moved before `#matrix-scroll` (left side).
+- `#graph-layout`: `#graph-detail` moved before `#graph-pane` (left side).
+- `#map-layout`: `#map-panel` moved before `#map-main` (left side).
+- `#edfmap-layout`: `#edfmap-panel` moved before `#edfmap-main` (left side).
+- Note: `#wd-sidebar` (Wikidata) was already on the left (`border-right`) — no change needed.
+
+---
+
+## [2026-03-28] — Navigation: clickable stat cards, EDF overview bar charts, edfmap/edfbrowse routing
+
+**Source:** `infonodes-issues.md` #32 + new feature work
+**Resolved:** #32
+
+### Added — `js/tabs/overview.js`
+
+- **#32** — Sector stat cards ("Companies by sector") are now clickable: clicking navigates to the Companies tab with that sector pre-filtered. Cards get `stat-card--link` class and `data-sector` attribute. Added "(click to filter)" hint in section label.
+
+### Added — `js/tabs/edfoverview.js`
+
+- Stat cards with natural navigation targets are now clickable (`stat-card--link`): "EDF Calls" → EU Calls tab, "Calls with Funded Projects" → EU Calls tab, "Funded Projects" → EDF Beneficiaries, "Unique Participants" → EDF Beneficiaries.
+- "Countries by Participations" bar chart: each row is now clickable — navigates to EDF Map focused on the selected country.
+- "Top Participants by Projects" bar chart: each row is now clickable — navigates to EDF Beneficiaries pre-filtered by organisation name. Replaced `<a href>` label links with full-row JS delegation.
+- Added "(click to explore)" hints on both chart section titles.
+- Imported `AppState` to support programmatic navigation.
+
+### Added — `js/tabs/edfmap.js`
+
+- Exported `selectEdfMapCountryByName(name)`: looks up a country by display name in `ms.countryData` and calls `showCountry(iso)`. Used for routing and cross-tab navigation.
+
+### Changed — `js/state.js`
+
+- `AppState.ui.edfmap`: added `pendingCountry: null` — stores a country name to select after lazy-init completes.
+- `AppState.ui.edfbrowse`: added `pendingSearch: null` — stores a search string to apply after lazy-init completes.
+- `AppState.ui.companies.sector`: `setCoSector()` now also updates `.sf-btn` active state, fixing the button highlight when navigating from Overview sector cards.
+
+### Changed — `js/tabs/companies.js`
+
+- `setCoSector(s)`: added `.sf-btn` active class toggle so the sector filter button is visually activated when called programmatically (e.g. from Overview cards).
+
+### Changed — `js/main.js`
+
+- Imported `selectEdfMapCountryByName` from `edfmap.js` and `restoreEdfbrowseUrl` from `edfbrowse.js`.
+- `navigate()`: added pending country/search consumption for `edfmap` and `edfbrowse` panes — mirrors the existing `pendingCountry` pattern for SC Map.
+- `restoreFromUrl()`: added `case 'edfmap'` — restores `?country=X` param on page load (pending if not yet built). Fixed `case 'edfbrowse'` — restores URL params even when tab is already built; falls back to `pendingSearch` for not-yet-built state.
+
+### Changed — `css/components.css`
+
+- Added `.stat-card--link`: `cursor: pointer` + hover border/box-shadow accent + label accent color on hover.
+- Added `.ov-stats-hint`: small inline hint label for "(click to filter / explore)".
+
+### Changed — `css/edfbrowse.css`
+
+- `.eo-bar-row--link:hover`: background highlight + accent label color on hover.
+- Removed `.eo-bar-link` / `.eo-bar-link:hover` — no longer used (replaced by full-row JS delegation).
+
+---
+
+## [2026-03-28] — Accessibility & UX polish: typography, contrast, map interaction, country palette
+
+**Source:** `infonodes-issues.md` user test sessions (Laura, Davide, Andrea — 2026-03-27)
+**Resolved:** #35 (partial), #36, #37, #39, #41, #43, #45, #49, #52, #59 + font-size token reassignment sweep
+
+### Changed — `css/base.css`
+
+- **`--fs-xs`** bumped from `.65rem` (~12.5px) to `.70rem` (~13.4px). New minimum floor: 13px. Inline comment and STYLE.md updated.
+- **`--text-faint`** dark mode: `#6b6b6b` → `#757575` (contrast on `#000000`: 4.26:1 → 4.84:1 — now passes WCAG AA).
+- **`--text-faint`** light mode: `#8a8780` → `#6c6966` (contrast on `#f8f7f4`: 2.97:1 → 4.63:1 — now passes WCAG AA). **#36**
+- **`--dim`** light mode: `rgba(0,0,0,0.45)` → `rgba(0,0,0,0.60)` (contrast ~3.27:1 → ~5.09:1 — fixes all inactive nav button text in light mode). **#36**
+- **`--map-arc-color`** token added (dark: `#68ccd1`, light: `#0a5080`). SC Map reads this at draw time via `getComputedStyle`; arc gradients now theme-aware. **#41**
+- Light mode map tokens improved for country contrast: `--map-bg` `#dedad4→#d4d0ca`, `--map-land` `#c8c4bc→#bfbbb3`, `--map-data` `#b8ccb8→#8ab88a`, `--map-data-hover` `#a0b8a0→#72a872`, `--map-selected` `#7a9e7a→#4a7a4a`. **#41**
+- `.ki-body p` font-size: `var(--fs-lg)` → `var(--fs-body)` — Data Issues tab body text aligned to scale. **#52**
+- Added `.ctrl-group-lbl` utility class: xs, uppercase, bold, `--text-faint`, for toolbar group labels.
+
+### Changed — `css/companysearch.css` — font-size token reassignment
+
+Interactive elements bumped from `--fs-xs` → `--fs-sm`: `#cs-back`, `.cs-ext-link`, `#cs-export-btn`, `.cs-tag`, `.cs-card-hdr`, `.cs-rel-group-lbl`, `.cs-src-hdr`.
+Reading content bumped from `--fs-sm` → `--fs-base`: `.cs-hist-desc`, `.cs-src-desc`.
+
+### Changed — `css/map.css`
+
+- Light mode override added: `[data-theme="light"] .edfmap-arc { stroke: rgba(10,80,128,0.55) }` — EDF Map arcs now visible in light mode. **#41**
+- Interactive elements bumped from `--fs-xs` → `--fs-sm`: `.edfmap-back-btn`, `.edfmap-eu-link`, `.map-ctrl-btn`, `.map-filter-clear`.
+
+### Changed — `css/graph.css`
+
+- `#graph-hint` text: `--fs-sm` → `--fs-base`.
+
+### Changed — `css/edfbrowse.css`
+
+- `.eb-ext-link` (drawer link): `--fs-xs` → `--fs-sm`.
+- Form/input elements bumped from `--fs-sm` → `--fs-base`: `#eb-search`, `#eb-funded-label`, `#eb-country-select`, `.eb-pg-btn`.
+
+### Changed — `js/tabs/map.js`
+
+- **#43** — SVG background click handler: replaced fragile `e.target === svg.node() || tagName === 'path' && !has-data` condition with `!classList.contains('has-data') && !classList.contains('map-node')`. Clicking empty ocean, background, or non-data country now reliably deselects.
+- Arc color now reads `--map-arc-color` CSS token via `getComputedStyle` at draw time (theme-aware). **#41**
+
+### Changed — `js/tabs/edfmap.js`
+
+- **#49** — SVG background click handler added after zoom setup: clicking empty area calls `clearEdfMapFilter()` if a filter is active, else `closeEdfMapPanel()`. Mirrors SC Map behavior.
+
+### Changed — `js/tabs/companysearch.js`
+
+- **#37** — Validation flags card (`#cs-val-card`) always hidden. Internal `needs_review` / `flagged` metadata no longer exposed to end users.
+- **#59** — Entity ID `<span class="cs-hdr-id">` now has `title="Database ID — internal identifier for this entity"`.
+
+### Changed — `js/tabs/overview.js`
+
+- **#39** — Geographic breakdown: replaced politically-connoted Western/China-Russia palette with continent-based coloring. New sets: `EUROPE` (#5b8dd9 blue), `AMERICAS` (#f0944d orange), `ASIA_PAC` (#9b6dd6 purple), `MENA` (#e8c44a amber), `AFRICA` (#5dbe8a teal). `alignColor()` renamed `continentColor()`. Legend updated to show continent names.
+
+### Changed — `index.html`
+
+- **#45** — Graph toolbar: added `<span class="ctrl-group-lbl">View</span>` before Network/Bipartite/Projection buttons and `<span class="ctrl-group-lbl">Sector</span>` before sector filter buttons. Existing `ctrl-sep` divider between groups is now flanked by labeled groups.
+
+---
+
 ## [2026-03-26] — Company Search tab: full entity profile view, routing, and Intro integration
 
 ### Added — `css/companysearch.css` (new file)

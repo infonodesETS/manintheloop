@@ -1,7 +1,9 @@
 'use strict';
 
 import { AppState } from '../state.js';
+import { getParams, setParams } from '../url.js';
 import { esc, fmtFunding, sectorBadge, typeBadge, dualBadge, tip, hideTip } from '../helpers.js';
+import { openCompanySidebar, openInvestorSidebar } from '../detail-sidebar.js';
 
 // Live D3 selections — updated by each build function so search can run without rebuilding
 let _nd = null, _lk = null;
@@ -87,9 +89,20 @@ function applyGraphSearch() {
 }
 
 export function closeGraphDetail() {
-  _nd?.classed('ghl', false);
-  _lk?.classed('ghl', false).attr('stroke-opacity', null);
+  _nd?.classed('ghl', false).classed('gdim', false);
+  _lk?.classed('ghl', false).classed('gdim', false).attr('stroke-opacity', null);
+  AppState.ui.graph.selectedEntityId = null;
   showGraphHelp();
+  const urlP = getParams();
+  if (urlP.entity) { delete urlP.entity; delete urlP['entity-name']; setParams(urlP); }
+}
+
+export function selectGraphEntity(id) {
+  const { companyMap, invMap } = AppState.derived;
+  const co = Object.values(companyMap).find(c => c.id === id);
+  if (co) { graphShowPanel({ _gtype: 'company', name: co.name, id: co.id }); return; }
+  const im = Object.values(invMap).find(m => m.entity.id === id);
+  if (im) { graphShowPanel({ _gtype: 'investor', id: im.entity.name, entity: im.entity }); }
 }
 
 export function pauseGraph() {
@@ -115,6 +128,7 @@ function graphShowPanel(d) {
   if (d._gtype === 'investor') {
     const im = invMap[d.id] || invMap[d.entity?.name];
     if (!im) return;
+    AppState.ui.graph.selectedEntityId = im.entity.id;
     const portfolioFiltered = im.portfolio.filter(p => COMPANIES.some(c => c.name === p.company?.name));
     const _gTitleEl = document.getElementById('graph-detail-title');
     _gTitleEl.textContent = im.entity.name; _gTitleEl.title = im.entity.name;
@@ -131,7 +145,7 @@ function graphShowPanel(d) {
     html += `<div class="dp-inv-meta">${im.total} investments · ${im.leads} lead</div>`;
     html += `<div class="sl-section-lbl">Portfolio (${portfolioFiltered.length})</div><ul class="es-list">`;
     [...portfolioFiltered].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(p => {
-      html += `<li><span title="${esc(p.company?.name)}">${esc(p.company?.name)}</span>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+      html += `<li><button class="gv-entity-link" data-etype="company" data-ename="${esc(p.company?.name)}">${esc(p.company?.name)}</button>${p.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
     });
     html += '</ul>';
     const coSet = {};
@@ -144,13 +158,14 @@ function graphShowPanel(d) {
     if (coList.length) {
       html += '<div class="sl-section-lbl">Co-investors</div><ul class="es-list">';
       coList.forEach(([n, cnt]) => {
-        html += `<li><span title="${esc(n)}">${esc(n)}</span><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
+        html += `<li><button class="gv-entity-link" data-etype="investor" data-ename="${esc(n)}">${esc(n)}</button><span class="dp-co-count">${cnt > 1 ? cnt + '×' : ''}</span></li>`;
       });
       html += '</ul>';
     }
   } else {
     const c = companyMap[d.name || d.id];
     if (!c) return;
+    AppState.ui.graph.selectedEntityId = c.id;
     const wd = c.sources?.wikidata;
     const cb = c.sources?.crunchbase;
     const _gTitleEl2 = document.getElementById('graph-detail-title');
@@ -185,7 +200,7 @@ function graphShowPanel(d) {
     if (c._investors?.length) {
       html += `<div class="sl-section-lbl">Investors (${c._investors.length})</div><ul class="es-list">`;
       [...c._investors].sort((a, b) => (b.lead ? 1 : 0) - (a.lead ? 1 : 0)).forEach(x => {
-        html += `<li><span title="${esc(x.name)}">${esc(x.name)}</span>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
+        html += `<li><button class="gv-entity-link" data-etype="investor" data-ename="${esc(x.name)}">${esc(x.name)}</button>${x.lead ? '<span class="badge-lead">LEAD</span>' : ''}</li>`;
       });
       html += '</ul>';
     }
@@ -195,6 +210,25 @@ function graphShowPanel(d) {
   document.getElementById('graph-inner').style.display = '';
   document.getElementById('graph-detail-close').style.display = '';
   document.getElementById('graph-inner').innerHTML = html;
+  document.getElementById('graph-inner').querySelectorAll('.gv-entity-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const { companyMap, invMap } = AppState.derived;
+      if (btn.dataset.etype === 'company') {
+        const co = companyMap[btn.dataset.ename];
+        if (co) openCompanySidebar(co);
+      } else {
+        const im = invMap[btn.dataset.ename];
+        if (im) openInvestorSidebar(im);
+      }
+    });
+  });
+  const urlP = getParams();
+  if (AppState.ui.graph.selectedEntityId) {
+    urlP.entity = AppState.ui.graph.selectedEntityId;
+    const name = document.getElementById('graph-detail-title')?.textContent || '';
+    urlP['entity-name'] = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  setParams(urlP);
   panel.classList.add('open');
 }
 
@@ -203,6 +237,7 @@ export function setGraphView(v) {
   ['net', 'bi', 'proj'].forEach(k => document.getElementById('gv-' + k)?.classList.remove('active'));
   document.getElementById('gv-' + { network: 'net', bipartite: 'bi', projection: 'proj' }[v])?.classList.add('active');
   document.getElementById('proj-filter-btns').style.display = v === 'projection' ? 'flex' : 'none';
+  closeGraphDetail();
   buildGraphView();
 }
 
@@ -298,6 +333,12 @@ function computeGraphFit(nodes, W, H, pad = 50) {
     .scale(k);
 }
 
+// Always uses live SVG dimensions — avoids stale closure W/H.
+function svgFit(nodes) {
+  const el = document.getElementById('graph-svg');
+  return computeGraphFit(nodes, el.clientWidth, el.clientHeight);
+}
+
 function applyDefaultTransform(svg, zoom, t, animate = false) {
   AppState.ui.graph.defaultTransform = t;
   if (animate) svg.transition().duration(500).call(zoom.transform, t);
@@ -365,7 +406,7 @@ function buildNetwork() {
   const nodes = [...coNodes, ...invNodes];
 
   // Apply initial bounding-box fit from ring positions
-  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+  requestAnimationFrame(() => applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes)));
 
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
@@ -379,7 +420,7 @@ function buildNetwork() {
     .call(d3.drag()
       .on('start', (e, d) => { if (!e.active) ui.graph.sim.alphaTarget(0.1).restart(); d.fx = d.x; d.fy = d.y; })
       .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
-      .on('end',   (e, d) => { if (!e.active) ui.graph.sim.alphaTarget(0); d.fx = null; d.fy = null; }))
+      .on('end',   (e, d) => { if (!e.active) ui.graph.sim.alphaTarget(0); d.fx = d.x; d.fy = d.y; }))
     .on('click', (e, d) => gOnClick(e, d, nd, lk))
     .on('mouseover', (e, d) => {
       if (_tipPinned) return;
@@ -414,7 +455,7 @@ function buildNetwork() {
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
     })
     .on('end', () => {
-      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes), true);
     });
 }
 
@@ -452,7 +493,7 @@ function buildBipartite() {
   const nodes = [...invNodes, ...coNodes];
 
   // Bipartite positions are column-exact — fit immediately
-  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+  requestAnimationFrame(() => applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes)));
 
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
@@ -465,7 +506,7 @@ function buildBipartite() {
     .call(d3.drag()
       .on('start', (e, d) => { if (!e.active) ui.graph.simBi.alphaTarget(0.1).restart(); d.fx = d.x; d.fy = d.y; })
       .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
-      .on('end',   (e, d) => { if (!e.active) ui.graph.simBi.alphaTarget(0); d.fx = null; d.fy = null; }))
+      .on('end',   (e, d) => { if (!e.active) ui.graph.simBi.alphaTarget(0); d.fx = d.x; d.fy = d.y; }))
     .on('click', (e, d) => gOnClick(e, d, nd, lk))
     .on('mouseover', (e, d) => {
       if (_tipPinned) return;
@@ -501,7 +542,7 @@ function buildBipartite() {
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
     })
     .on('end', () => {
-      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes), true);
     });
 }
 
@@ -553,7 +594,7 @@ function buildProjection() {
     }));
 
   // Apply initial fit from randomised starting positions
-  applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H));
+  requestAnimationFrame(() => applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes)));
 
   const lkG = g.append('g'), ndG = g.append('g');
   const lk = lkG.selectAll('line').data(links).join('line')
@@ -572,7 +613,7 @@ function buildProjection() {
     .call(d3.drag()
       .on('start', (e, d) => { if (!e.active) ui.graph.simProj.alphaTarget(0.1).restart(); d.fx = d.x; d.fy = d.y; })
       .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
-      .on('end',   (e, d) => { if (!e.active) ui.graph.simProj.alphaTarget(0); d.fx = null; d.fy = null; }))
+      .on('end',   (e, d) => { if (!e.active) ui.graph.simProj.alphaTarget(0); d.fx = d.x; d.fy = d.y; }))
     .on('click', (e, d) => {
       e.stopPropagation();
       _tipPinned = true;
@@ -628,6 +669,6 @@ function buildProjection() {
       nd.attr('transform', d => `translate(${d.x},${d.y})`);
     })
     .on('end', () => {
-      applyDefaultTransform(svg, AppState.ui.graph.zoom, computeGraphFit(nodes, W, H), true);
+      applyDefaultTransform(svg, AppState.ui.graph.zoom, svgFit(nodes), true);
     });
 }

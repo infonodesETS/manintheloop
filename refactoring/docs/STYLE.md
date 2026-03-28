@@ -14,21 +14,30 @@ html { font-size: 120%; }  /* 1rem = 19.2px */
 
 The 120% root is a deliberate design decision placing body text at ~19.2px — in Medium's editorial range (18px). It is not a mistake. Do not override it.
 
-**Minimum floor: `--fs-xs` (~12.5px). Nothing in the UI goes below this.**
+**Minimum floor: `--fs-xs` (~13.4px). Nothing in the UI goes below this.**
 
 ### Font-size tokens
 
 | Token | rem | ~px | Usage |
 |---|---|---|---|
-| `--fs-xs` | `.65rem` | ~12.5 | Badges, IDs, stat labels, tiny UI |
-| `--fs-sm` | `.75rem` | ~14.4 | Nav meta, table headers, chips |
-| `--fs-base` | `.875rem` | ~16.8 | Buttons, inputs, tooltips, form labels |
+| `--fs-xs` | `.70rem` | ~13.4 | Badges, IDs, stat labels, micro labels — **not** for interactive elements or prose |
+| `--fs-sm` | `.75rem` | ~14.4 | Nav meta, table headers, chips, interactive controls |
+| `--fs-base` | `.875rem` | ~16.8 | Buttons, inputs, tooltips, form labels, reading content in panels |
 | `--fs-body` | `1rem` | ~19.2 | Primary reading / UI text |
 | `--fs-lg` | `1.2rem` | ~23.0 | Sidebar titles, section h2 |
 | `--fs-xl` | `1.65rem` | ~31.7 | Page headings, panel titles |
 | `--fs-stat` | `2rem` | ~38.4 | Dashboard big numbers |
 
 Scale ratio between adjacent steps: ~1.15–1.25× (approximates the major third / √φ band validated by Medium and Substack).
+
+### Token assignment rules
+
+`--fs-xs` is for purely decorative or non-interactive micro elements only: badges, pill chips, IDs, stat card labels, UPPERCASE section group labels with `letter-spacing`. **Never use `--fs-xs` for:**
+- Interactive elements (buttons, links, clickable tags, controls)
+- Content descriptions, history entries, source blocks
+- Structural headers that organize readable content
+
+`--fs-sm` covers secondary interactive elements and structural labels. `--fs-base` is the minimum for any element the user reads or acts on in a panel or sidebar.
 
 ### Line-height tokens
 
@@ -47,7 +56,7 @@ Reference: Medium body lh 1.50, Substack body lh 1.60. `--lh-body: 1.55` splits 
 |---|---|---|
 | `--fs-svg-xs` | `9px` | Graph ★ star overlay |
 | `--fs-svg-sm` | `10px` | Graph investor badge number |
-| `--fs-svg-md` | `11px` | Graph node label |
+| `--fs-svg-md` | `13px` | Graph node label |
 
 SVG sizes are intentionally in `px` — D3 transforms scale the SVG viewport and rem would not behave correctly inside it.
 
@@ -91,6 +100,10 @@ All sidebar typography aliases the main scale. Change the main token, all sideba
 | `--sl-inline-bg` | `var(--surface3)` | Inline panel background |
 | `--sl-header-bg` | `var(--surface2)` | Header strip |
 
+### Panel positioning convention
+
+All detail panels and slide-in sidebars are anchored to the **left** side of the content area. This applies to: Graph `#graph-detail`, SC Map `#map-panel`, EDF Map `#edfmap-panel`, Matrix `#mx-detail`, EU Calls participant sidebar `.ec-part-sidebar-panel`, entity slide-in `.entity-sidebar-panel`. Do not place new panels on the right.
+
 ### Sidebar primitive classes (`css/components.css`)
 
 | Class | Role |
@@ -104,6 +117,8 @@ All sidebar typography aliases the main scale. Change the main token, all sideba
 | `.es-list` / `.es-tag` | List and tag cloud |
 | `.dp-inv-meta` / `.dp-co-meta` / `.dp-funding` / `.dp-desc` / `.dp-links` / `.dp-link` / `.dp-co-count` | Detail panel body content (matrix + graph) |
 | `.ec-part-row` / `.ec-part-label` / `.ec-part-val` | EU Calls participant sidebar rows |
+| `.ctrl-group-lbl` | Toolbar group label — xs, uppercase, bold, `--text-faint`. Use before a group of related controls (e.g. "View", "Sector"). |
+| `.ov-stats-hint` | Small "(click to filter / explore)" hint label below section headings in Overview. |
 
 ---
 
@@ -116,7 +131,6 @@ One file per concern. Do not add selectors outside a file's declared scope.
 | `css/base.css` | `:root` design tokens + app shell — nav (`#topnav`, `#tabnav`, `#subnav`), layout (`#content`, `.tab-pane`), intro tab, known-issues tab, loading overlay, legend dots. Also the `[data-theme="light"]` block with all token overrides and per-shell light fixes. |
 | `css/components.css` | Shared UI primitives: stat cards, tables, badges, legend, tooltip, sidebar structural shells, all `.sl-*`, `.es-*`, `.dp-*` classes. |
 | `css/graph.css` | Graph tab only — `#graph-*` IDs and `.gv-*` classes. |
-| `css/matrix.css` | Matrix tab only — `#matrix-*`, `#mx-*`. |
 | `css/map.css` | Supply Chain Map and EDF Map — `#map-*`, `.map-*`, `#edfmap-*`, `.edfmap-*`. |
 | `css/wikidata.css` | Wikidata Inspector — `#wd-*`, `.wd-*`, `.live-*`. |
 | `css/eucalls.css` | EU Calls tab — `#ec-*`, `.ec-*`. |
@@ -153,16 +167,22 @@ All semantic tokens override inside `[data-theme="light"] { … }` in `css/base.
 
 Key overrides:
 
-| Token | Dark | Light |
-|---|---|---|
-| `--bg` | `#000000` | `#f8f7f4` (warm paper) |
-| `--accent` | `#00ff41` (neon green) | `#006622` (military green) |
-| `--on-accent` | `#000000` | `#ffffff` |
-| `--surface` / `--surface2` / `--surface3` | dark greys | warm off-whites |
-| `--warn` | `#ffaa44` | `#8a5c00` |
-| `--warn-border` | `rgba(255,170,68,0.35)` | `rgba(122,68,0,0.35)` |
-| `--node-fill` | `#000000` | `#f8f7f4` |
-| `--map-bg` / `--map-land` | near-black | warm grey tones |
+| Token | Dark | Light | Notes |
+|---|---|---|---|
+| `--bg` | `#000000` | `#f8f7f4` | warm paper |
+| `--accent` | `#00ff41` | `#006622` | neon → military green |
+| `--on-accent` | `#000000` | `#ffffff` | |
+| `--surface` / `--surface2` / `--surface3` | dark greys | warm off-whites | |
+| `--text-faint` | `#757575` | `#6c6966` | WCAG AA on respective backgrounds |
+| `--dim` | `rgba(255,255,255,0.53)` | `rgba(0,0,0,0.60)` | nav inactive buttons — passes AA |
+| `--warn` | `#ffaa44` | `#8a5c00` | |
+| `--warn-border` | `rgba(255,170,68,0.35)` | `rgba(122,68,0,0.35)` | |
+| `--node-fill` | `#000000` | `#f8f7f4` | |
+| `--map-bg` | `#000000` | `#d4d0ca` | |
+| `--map-land` | `#1a1a1a` | `#bfbbb3` | |
+| `--map-data` | `#0a2a0a` | `#8ab88a` | countries with data — higher contrast in light |
+| `--map-selected` | `#003300` | `#4a7a4a` | |
+| `--map-arc-color` | `#40e8f0` | `#0d6aaa` | read by SC Map JS at draw time via `getComputedStyle` |
 
 ### rgba() tint problem
 

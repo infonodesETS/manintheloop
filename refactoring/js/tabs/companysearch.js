@@ -39,7 +39,16 @@ function getSearchEntities() {
       e.sources?.infonodes?.country,
       e.sources?.wikidata?.country,
       e.sources?.crunchbase?.domain,
+      e.sources?.crunchbase?.primary_industry,
+      ...(e.sources?.crunchbase?.industries     || []),
+      ...(e.sources?.crunchbase?.industry_groups || []),
+      ...(e.tags || []),
     ].filter(Boolean).join(' ').toLowerCase(),
+    _desc: (
+      e.sources?.crunchbase?.description ||
+      e.sources?.crunchbase?.description_full ||
+      e.sources?.wikidata?.description || ''
+    ).toLowerCase(),
   }));
   return SEARCH_ENTITIES;
 }
@@ -57,16 +66,17 @@ function closeAc() {
 
 function renderAc(raw) {
   const q = raw.trim().toLowerCase();
-  if (!q) { closeAc(); return; }
+  if (!q) { renderSuggestions(); return; }
 
-  const scored = getSearchEntities().map(({ e, _key }) => {
+  const scored = getSearchEntities().map(({ e, _key, _desc }) => {
     const n = e.name.toLowerCase();
-    let s = 0;
+    let s = 0, descMatch = false;
     if (n === q)               s = 200;
     else if (n.startsWith(q))  s = 100;
     else if (n.includes(q))    s = 60;
     else if (_key.includes(q)) s = 20;
-    return { e, s };
+    else if (_desc.includes(q)) { s = 15; descMatch = true; }
+    return { e, s, descMatch };
   }).filter(x => x.s > 0).sort((a, b) => b.s - a.s || a.e.name.localeCompare(b.e.name));
 
   if (!scored.length) {
@@ -84,14 +94,25 @@ function renderAc(raw) {
   function renderGroup(label, items, limit) {
     if (!items.length) return;
     html += `<div class="cs-ac-group">${label}</div>`;
-    for (const { e } of items.slice(0, limit)) {
+    for (const { e, descMatch } of items.slice(0, limit)) {
       const country = e.sources?.infonodes?.country || e.sources?.wikidata?.country || '';
       const badge = e.sector ? sectorBadge(e.sector) : typeBadge(e.type);
+      let snippet = '';
+      if (descMatch) {
+        const fullDesc = e.sources?.crunchbase?.description || e.sources?.crunchbase?.description_full || e.sources?.wikidata?.description || '';
+        const idx = fullDesc.toLowerCase().indexOf(q);
+        if (idx >= 0) {
+          const start = Math.max(0, idx - 30);
+          const end   = Math.min(fullDesc.length, idx + q.length + 60);
+          snippet = `<span class="cs-ac-desc">${start > 0 ? '…' : ''}${esc(fullDesc.slice(start, idx))}<mark>${esc(fullDesc.slice(idx, idx + q.length))}</mark>${esc(fullDesc.slice(idx + q.length, end))}${end < fullDesc.length ? '…' : ''}</span>`;
+        }
+      }
       html += `<div class="cs-ac-item" role="option" data-idx="${acFlatList.length}">
         ${badge}
         <span class="cs-ac-name">${highlight(e.name, raw)}</span>
         ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
         <span class="cs-ac-id">${esc(e.id)}</span>
+        ${snippet}
       </div>`;
       acFlatList.push(e);
     }
@@ -103,6 +124,33 @@ function renderAc(raw) {
   acEl.innerHTML = html;
   acEl.classList.add('open');
 
+  acEl.querySelectorAll('.cs-ac-item').forEach(el => {
+    el.addEventListener('mousedown', ev => {
+      ev.preventDefault();
+      const idx = Number(el.dataset.idx);
+      if (acFlatList[idx]) selectEntity(acFlatList[idx]);
+    });
+  });
+}
+
+function renderSuggestions() {
+  const pool = getSearchEntities();
+  const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 20);
+  acFlatList = [];
+  let html = '<div class="cs-ac-group">Try one of these…</div>';
+  for (const { e } of shuffled) {
+    const country = e.sources?.infonodes?.country || e.sources?.wikidata?.country || '';
+    const badge = e.sector ? sectorBadge(e.sector) : typeBadge(e.type);
+    html += `<div class="cs-ac-item" role="option" data-idx="${acFlatList.length}">
+      ${badge}
+      <span class="cs-ac-name">${esc(e.name)}</span>
+      ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+      <span class="cs-ac-id">${esc(e.id)}</span>
+    </div>`;
+    acFlatList.push(e);
+  }
+  acEl.innerHTML = html;
+  acEl.classList.add('open');
   acEl.querySelectorAll('.cs-ac-item').forEach(el => {
     el.addEventListener('mousedown', ev => {
       ev.preventDefault();
@@ -173,7 +221,7 @@ function renderProfile(entity) {
   if (entity.sector) badges += sectorBadge(entity.sector);
   if (!isCompany || !entity.sector) badges += typeBadge(entity.type);
   if (isDual) badges += dualBadge();
-  badges += `<span class="cs-hdr-id">${esc(entity.id)}</span>`;
+  badges += `<span class="cs-hdr-id" title="Database ID — internal identifier for this entity">${esc(entity.id)}</span>`;
   document.getElementById('cs-badges').innerHTML = badges;
 
   /* Short description */
@@ -209,11 +257,17 @@ function renderProfile(entity) {
   if (cb?.revenue_range)      stats.push({ v: esc(cb.revenue_range),                l: 'Revenue' });
   if (cb?.patents_granted != null && cb.patents_granted !== '')
                               stats.push({ v: cb.patents_granted,                   l: 'Patents' });
-  if (isCompany && asTarget.length) stats.push({ v: asTarget.length,               l: 'Investors' });
-  if (asInvestor.length)      stats.push({ v: asInvestor.length,                   l: 'Portfolio' });
+  if (isCompany && asTarget.length) stats.push({ v: asTarget.length,               l: 'Investors',  anchor: 'cs-rel-card' });
+  if (asInvestor.length)      stats.push({ v: asInvestor.length,                   l: 'Portfolio',  anchor: 'cs-rel-card' });
   statsEl.innerHTML = stats.map(s =>
-    `<div class="cs-stat"><div class="cs-stat-val">${s.v}</div><div class="cs-stat-lbl">${s.l}</div></div>`
+    `<div class="cs-stat${s.anchor ? ' cs-stat--link' : ''}" ${s.anchor ? `data-anchor="${s.anchor}"` : ''}><div class="cs-stat-val">${s.v}</div><div class="cs-stat-lbl">${s.l}</div></div>`
   ).join('');
+  statsEl.querySelectorAll('.cs-stat--link').forEach(el => {
+    el.addEventListener('click', () => {
+      const target = document.getElementById(el.dataset.anchor);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
   statsEl.style.display = stats.length ? '' : 'none';
 
   /* Key facts */
@@ -270,9 +324,9 @@ function renderProfile(entity) {
     indHtml += row('Primary', val);
   }
   if (cb?.industries?.length)
-    indHtml += `<div class="cs-row"><span class="cs-row-lbl">Industries</span><span class="cs-row-val"><div class="cs-tags">${cb.industries.map(i => `<span class="cs-tag">${esc(i)}</span>`).join('')}</div></span></div>`;
+    indHtml += `<div class="cs-row"><span class="cs-row-lbl">Industries</span><span class="cs-row-val"><div class="cs-tags">${cb.industries.map(i => `<button class="cs-tag" data-query="${esc(i)}">${esc(i)}</button>`).join('')}</div></span></div>`;
   if (cb?.industry_groups?.length)
-    indHtml += `<div class="cs-row"><span class="cs-row-lbl">Groups</span><span class="cs-row-val"><div class="cs-tags">${cb.industry_groups.map(g => `<span class="cs-tag">${esc(g)}</span>`).join('')}</div></span></div>`;
+    indHtml += `<div class="cs-row"><span class="cs-row-lbl">Groups</span><span class="cs-row-val"><div class="cs-tags">${cb.industry_groups.map(g => `<button class="cs-tag" data-query="${esc(g)}">${esc(g)}</button>`).join('')}</div></span></div>`;
   if (indHtml) { document.getElementById('cs-ind-body').innerHTML = indHtml; indCard.style.display = ''; }
   else indCard.style.display = 'none';
 
@@ -280,7 +334,7 @@ function renderProfile(entity) {
   const tagsCard = document.getElementById('cs-tags-card');
   if (entity.tags?.length) {
     document.getElementById('cs-tags-body').innerHTML =
-      `<div class="cs-tags">${entity.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join('')}</div>`;
+      `<div class="cs-tags">${entity.tags.map(t => `<button class="cs-tag" data-query="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
     tagsCard.style.display = '';
   } else {
     tagsCard.style.display = 'none';
@@ -424,27 +478,8 @@ function renderProfile(entity) {
     infBody.innerHTML = `<div class="cs-na">No infonodes enrichment.</div>`;
   }
 
-  /* Validation flags */
-  const valCard  = document.getElementById('cs-val-card');
-  const valBody  = document.getElementById('cs-val-body');
-  const valCount = document.getElementById('cs-val-count');
-  const openFlags = (entity.validation || []).filter(v => v.status !== 'confirmed');
-  if (openFlags.length) {
-    valBody.innerHTML = openFlags.map(v => {
-      const meta = [v.author, v.datestamp].filter(Boolean).join(' · ');
-      return `<div class="cs-val-item">
-        <span class="cs-val-badge ${esc(v.status)}">${v.status === 'flagged' ? '⛔' : '⚠'} ${esc(v.status)}</span>
-        <div>
-          <div class="cs-val-desc">${esc(v.description || '')}</div>
-          ${meta ? `<div class="cs-hist-meta">${esc(meta)}</div>` : ''}
-        </div>
-      </div>`;
-    }).join('');
-    valCount.textContent = openFlags.length;
-    valCard.style.display = '';
-  } else {
-    valCard.style.display = 'none';
-  }
+  /* Validation flags — hidden from end users */
+  document.getElementById('cs-val-card').style.display = 'none';
 
   document.getElementById('tab-company-search').scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -594,6 +629,7 @@ export default function initCompanySearch() {
   searchEl = document.getElementById('cs-search');
   acEl     = document.getElementById('cs-ac');
 
+  searchEl.addEventListener('focus',  () => { if (!searchEl.value.trim()) renderSuggestions(); });
   searchEl.addEventListener('input',  () => { acKbd = -1; renderAc(searchEl.value); });
   searchEl.addEventListener('keydown', e => {
     if (!acEl.classList.contains('open')) return;
@@ -614,6 +650,13 @@ export default function initCompanySearch() {
     if (!link) return;
     const entity = AppState.derived.entityMap[link.dataset.entityId];
     if (entity) selectEntity(entity);
+  });
+  document.getElementById('cs-profile').addEventListener('click', e => {
+    const tag = e.target.closest('.cs-tag[data-query]');
+    if (!tag) return;
+    searchEl.value = tag.dataset.query;
+    renderAc(tag.dataset.query);
+    searchEl.focus();
   });
 }
 

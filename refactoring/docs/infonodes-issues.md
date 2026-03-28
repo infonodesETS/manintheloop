@@ -23,92 +23,7 @@ Issues are grouped by user and numbered globally in the order they emerged durin
 
 ---
 
-### #01 — Intro page: testi da riscrivere per chiarezza orientativa
 
-**Area:** Intro — `#tab-intro`
-**Type:** Content
-**Priority:** High
-
-La pagina intro deve comunicare immediatamente: che informazioni ci sono, dove trovarle, come trovarle. I testi attuali sono strutturalmente ok ma non assolvono questa funzione orientativa. Servono testi esplicativi scritti da Davide.
-
-> "la pagina in cui chi arriva deve capire immediatamente che informazioni può trovare, dove può trovarle e come trovarle"
-
-**Proposta:** Testi brevi e direzionali per ciascuna delle 3 aree principali (CTA già presenti). Lavoro editoriale, non tecnico.
-
----
-
-### #02 — Intro vs. Company Search come landing page default
-
-**Area:** Routing — `js/main.js`, `js/url.js`
-**Type:** Feature (da validare)
-**Priority:** Low
-
-Davide ha sollevato se abbia più senso far atterrare l'utente direttamente su Company Search ("arrivi e subito fai qualcosa") invece che su una pagina intro. Non è una decisione tecnica ma di design dell'esperienza.
-
-> "la pagina in cui atterri potrebbe essere banalmente un'altra, tipo company search"
-
-**Note:** Segnalata come "possibile feature da validare". Mantenere intro come default per ora; rivalutare dopo test ulteriori.
-
----
-
-### #03 — Architettura: unificare EDF e Supply Chain in un unico database
-
-**Area:** Architettura dati — `data/database.json`, `data/edf_calls.json`, `js/data.js`, `js/edf-data.js`
-**Type:** Architectural
-**Priority:** High
-
-EDF non deve essere un gruppo separato nella navigazione: è una fonte di dati, non una categoria concettuale distinta. Il database deve essere unico. Per ogni entità si indica la fonte di provenienza (Crunchbase, EDF, team infonodes), ma l'utente non percepisce la separazione.
-
-> "European Defense Fund per noi è una fonte di dati, non deve essere un gruppo separato [...] ci sarà un unico database che raccoglie tutto"
-
-**Impatto:** Richiede:
-- Fusione dei due file JSON in un database unificato con campo `source` per entità
-- Riorganizzazione della navigazione (EDF non sarà più un gruppo)
-- Refactoring di `js/edf-data.js` e `js/data.js`
-
-**Note:** Questo è il cambiamento macro più impattante. Va pianificato separatamente.
-
----
-
-### #04 — Rinominare il gruppo "Supply Chain"
-
-**Area:** Nav — `index.html`, `js/main.js`
-**Type:** Content / UX
-**Priority:** Low
-
-"Supply Chain" come label di gruppo non è sufficientemente esplicita per un nuovo utente. Davide suggerisce un nome più diretto tipo "Explore Supply Chain" o simile.
-
-**Note:** Da decidere insieme al team dopo aver definito la nuova architettura informativa (#03).
-
----
-
-### #05 — Data: Anduril mostra più di 5 investitori (attesi solo 5 da Crunchbase)
-
-**Area:** Data — `data/database.json`, Company Search, Graph
-**Type:** Data
-**Priority:** High
-
-Su Company Search, Anduril mostra oltre 10 investitori. L'export da Crunchbase dovrebbe contenerne solo 5. Stessa anomalia osservata su iSci nel Graph (compare BlackRock non atteso).
-
-> "noi dovremmo avere soltanto 5 investitori, su Company Search Anduril invece compaiono oltre 10, bisogna capire da dove arrivano"
-
-**Azione:** Audit di `database.json` per verificare quante relazioni `REL-*` puntano ad Anduril e da dove provengono. Verificare se il problema è nella fase di migrazione da `investments.json` o in un import successivo.
-
----
-
-### #06 — Data: inconsistenze nei nomi aziende e paesi
-
-**Area:** Data — `data/database.json`
-**Type:** Data
-**Priority:** High
-
-Nel database si trovano varianti non riconciliate dello stesso soggetto: "Leonardo" vs "Leonardo SPA" come company name; "China" vs "Cina" come country value. Necessario un passaggio sistematico di sanity check e normalizzazione.
-
-> "alle volte c'è scritto Leonardo, alle volte Leonardo SPA [...] alle volte China con la H, alle volte Cina in italiano"
-
-**Azione:** Eseguire `python3 scripts/validate.py` e integrare controlli di normalizzazione. Fare una passata manuale sui campi `name` e `sources.infonodes.country`.
-
----
 
 ### #07 — Supply Chain Map: legenda degli archi assente o incomprensibile
 
@@ -124,7 +39,7 @@ Gli archi colorati sulla mappa non sono auto-esplicativi. Il significato del gra
 
 ---
 
-### #08 — Supply Chain Map: colori degli archi troppo chiari, poco leggibili
+### #08 — Supply Chain Map: colori degli archi troppo chiari, poco leggibili ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `css/map.css`
 **Type:** UX
@@ -136,9 +51,11 @@ Il colore degli archi è troppo tenue, specialmente in dark mode. L'esempio cita
 
 **Proposta:** Aumentare l'opacità/saturazione degli archi. Verificare token `--map-arc-*` in `css/map.css` o `css/base.css`.
 
+**Status:** ✓ Resolved — 2026-03-28 — Arc color boosted: dark mode `#68ccd1` → `#40e8f0`, light mode `#0a5080` → `#0d6aaa`. Stroke range `[1,4]` → `[1.5,5]`. Opacity range `[0.55,0.9]` → `[0.75,1.0]`. Faint end `0.07` → `0.18`. Gradient direction effect preserved.
+
 ---
 
-### #09 — Supply Chain Map: mostrare una sola direzione di flusso per click paese
+### #09 — Supply Chain Map: mostrare una sola direzione di flusso per click paese ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** UX / Feature
@@ -152,9 +69,11 @@ Quando si clicca un paese si vedono sia i flussi in uscita che in entrata, crean
 
 **Files:** `js/tabs/map.js`, `css/map.css`
 
+**Status:** ✓ Resolved — 2026-03-28 — On country click, only outbound arcs shown (`d.src === iso`). Covered by #42 implementation.
+
 ---
 
-### #10 — Supply Chain Map: testo del panel paese non chiaro
+### #10 — Supply Chain Map: testo del panel paese non chiaro ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** Content / UX
@@ -166,9 +85,11 @@ La descrizione mostrata nel panel quando si seleziona un paese (es. "Japan showi
 
 **Proposta:** Riscrivere il testo con formula tipo: "X aziende con sede in Japan · Y investitori che finanziano aziende in Japan".
 
+**Status:** ✓ Resolved — 2026-03-28 — Rewritten to concise two-line format: `"X companies · Y local investors headquartered in [Country].<br>↓ N foreign investors funding companies here · ↑ M from [Country] investing abroad (…)"`.
+
 ---
 
-### #11 — Supply Chain Map bug: chiusura sidebar senza clear lascia mappa in stato inconsistente
+### #11 — Supply Chain Map bug: chiusura sidebar senza clear lascia mappa in stato inconsistente ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** Bug
@@ -182,9 +103,11 @@ Ripro: selezionare un paese → cliccare un'entità nel panel → si apre la sid
 
 **Files:** `js/tabs/map.js`, `js/detail-sidebar.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Added `setSidebarCloseHook(fn)` to `detail-sidebar.js`; map sets `clearMapFilter` as hook before opening any entity sidebar, so closing the sidebar restores clean map state.
+
 ---
 
-### #12 — Graph: tooltip persiste navigando ad altre tab
+### #12 — Graph: tooltip persiste navigando ad altre tab ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`
 **Type:** Bug
@@ -195,6 +118,8 @@ Il tooltip del nodo nel grafo rimane visibile anche dopo aver navigato ad altra 
 > "era rimasto il tooltip del grafo, quindi se clicchi in grafo il tooltip rimane aperto anche su altre pagine"
 
 **Fix:** Aggiungere cleanup del tooltip nel listener di navigazione in `main.js` (o nell'uscita dal tab graph). Verificare come `tip()` in `js/helpers.js` inserisce/rimuove il tooltip.
+
+**Status:** ✓ Resolved — 2026-03-28 — `hideTip()` imported and called on graph exit in `js/main.js`.
 
 ---
 
@@ -212,21 +137,7 @@ Con il dataset attuale (165 aziende) i colori tono su tono funzionano visivament
 
 ---
 
-### #14 — Companies + Investors: unire in tab "Players" con filtro tipo
-
-**Area:** Supply Chain → Companies, Investors — `js/tabs/companies.js`, `js/tabs/investors.js`
-**Type:** Feature
-**Priority:** Medium
-
-Companies e Investors sono due tab separate con struttura quasi identica. Davide propone di unirle in un'unica tab "Players" (o nome da definire) con un filtro che permetta di vedere tutti / solo companies / solo investors.
-
-> "si potrebbe fare un unico players con i filtri [...] inserire investors dentro l'attuale pagina companies, inserendo un ulteriore filtro"
-
-**Files:** `js/tabs/companies.js`, `js/tabs/investors.js`, `index.html`, `js/main.js`
-
----
-
-### #15 — Matrix: candidato alla rimozione nella release finale
+### #15 — Matrix: candidato alla rimozione nella release finale ✅ RESOLVED
 
 **Area:** Supply Chain → Matrix — `js/tabs/matrix.js`
 **Type:** Feature (decision)
@@ -236,47 +147,7 @@ Matrix è un'altra visualizzazione dei dati già accessibili altrove. Con miglia
 
 > "Matrix si può anche eliminare nella release finale [...] se non è utile la mettiamo in una qualche sandbox"
 
-**Note:** Non rimuovere subito. Prima fare un tentativo di renderla più compatta e utile; se non funziona, rimuoverla. Vedi anche #49 (Laura).
-
----
-
-### #16 — EDF Beneficiaries sidebar: difficile da leggere, da ripulire
-
-**Area:** EDF → Beneficiaries — `js/tabs/edfbrowse.js`, `css/edfbrowse.css`
-**Type:** UX
-**Priority:** Medium
-
-La sidebar che si apre cliccando un'azienda in EDF Beneficiaries è confusionaria: troppe informazioni, layout poco leggibile, informazioni non gerarchizzate.
-
-> "la sidebar secondo me è poco chiara, bisogna un attimo sistemarla, ci sono informazioni anche, bisogna un po' ripulirla, si legge male"
-
-**Proposta:** Gerarchizzare le informazioni: prima dati identificativi, poi lista progetti, poi dettaglio progetto selezionato. Vedi anche #47 (Laura) che propone di espandere la sidebar a modal/fullpage.
-
----
-
-### #17 — EDF Beneficiaries: aggiungere filtro capofila vs. partecipante
-
-**Area:** EDF → Beneficiaries — `js/tabs/edfbrowse.js`
-**Type:** Feature
-**Priority:** Medium
-
-Nel dettaglio di un'azienda EDF si vedono tutti i progetti, ma non è possibile filtrare solo quelli in cui è capofila (coordinatore) vs. semplice partecipante.
-
-> "non puoi filtrare capofila da partecipante, questo è rilevante"
-
-**Cross-ref:** #31 (Andrea solleva lo stesso punto)
-
----
-
-### #18 — About: riscrivere con info team, fonti di finanziamento, metodologia
-
-**Area:** About — `index.html` (#tab-about), `js/main.js`
-**Type:** Content
-**Priority:** Medium
-
-La sezione About nella release intermedia/finale deve contenere: chi è InfoNode, chi è DataPitch, biografie del team (con consenso privacy), chi ha finanziato il progetto (Privacy International), ringraziamenti ai beta tester. Non deve essere ridondante con la Intro.
-
-> "inseriremo magari una descrizione di chi è InfoNode, chi è DataPitch e del team che ha lavorato a questo progetto [...] informazioni di trasparenza"
+**Status:** ✓ Resolved — 2026-03-28 — Matrix tab removed from navigation, tab pane removed from `index.html`, `css/matrix.css` unlinked, `initMatrix`/`setMatrixSector`/`closeMxDetail` import and all wiring removed from `main.js`. Files `js/tabs/matrix.js` and `css/matrix.css` retained as archive only.
 
 ---
 
@@ -308,7 +179,7 @@ I dati Wikidata storati nel database sono un sottoinsieme limitato. Wikidata Ins
 
 ---
 
-### #21 — "Copy for AI": label non autoesplicativa
+### #21 — "Copy for AI": label non autoesplicativa ✅ RESOLVED
 
 **Area:** Global — tutti i tab con il pulsante Copy for AI (`js/copy-ai.js`)
 **Type:** UX / Content
@@ -322,27 +193,16 @@ L'etichetta "Copy for AI" non comunica chiaramente cosa fa il pulsante. Un utent
 
 **Proposta:** Aggiungere un tooltip esplicativo al hover + eventualmente cambiare la label. Esempio: "Esporta dati → analizza con AI".
 
----
-
-### #22 — EDF Calls Search: candidato alla rimozione/occultamento nella release finale
-
-**Area:** EDF → Calls Search — `js/tabs/eucalls.js`
-**Type:** Feature (decision)
-**Priority:** Low
-
-EDF Calls Search è uno strumento prevalentemente interno. Davide suggerisce di oscurarlo nella release finale, come per Matrix (#15).
-
-> "questo secondo me è più uno strumento interno nostro, non so se vale la pena lasciarlo"
-
-**Proposta:** Nascondere dalla nav nella release finale con una variabile di configurazione; mantenere il codice per uso interno.
+**Status:** ✓ Resolved — 2026-03-28 — Label → "Export in .md format"; title → "Export data filtered here to paste into Mistral, Claude, ChatGPT to ask for an explanation". Export is now fully contextual per tab: map exports selected country + flows, graph exports selected node or visible companies, EDF tabs use dedicated snapshot builders.
 
 ---
+
 
 ## Andrea
 
 ---
 
-### #23 — Company Search: stato vuoto senza suggerimenti, difficile onboarding
+### #23 — Company Search: stato vuoto senza suggerimenti, difficile onboarding ✅ RESOLVED
 
 **Area:** Company Search — `js/tabs/companysearch.js`, `css/companysearch.css`
 **Type:** UX
@@ -356,9 +216,11 @@ Arrivando su Company Search l'utente vede solo un campo di testo vuoto senza alc
 
 **Files:** `js/tabs/companysearch.js`, `css/companysearch.css`
 
+**Status:** ✓ Resolved — 2026-03-28 — `renderSuggestions()` shows 20 random entities in the existing `#cs-ac` dropdown on input focus (empty state). Also extended search to match descriptions: `_desc` field added to entity index; description matches score 15 with inline snippet shown. `.cs-ac-desc` CSS added.
+
 ---
 
-### #24 — Company Search: tag sector/industry non cliccabili per filtrare
+### #24 — Company Search: tag sector/industry non cliccabili per filtrare ✅ RESOLVED
 
 **Area:** Company Search — `js/tabs/companysearch.js`
 **Type:** UX / Feature
@@ -370,9 +232,11 @@ Nella scheda entità i tag industry (es. "Artificial Intelligence", "Military") 
 
 **Proposta:** Rendere i badge industry/sector in Company Search cliccabili per lanciare una ricerca filtrata per quel tag.
 
+**Status:** ✓ Resolved — 2026-03-28 — Industries, industry groups, and entity tags converted to `<button class="cs-tag" data-query="...">`. Click populates search input and opens dropdown. Tags also added to `_key` in search index so results are accurate.
+
 ---
 
-### #25 — Supply Chain Map: nomi aziende nel panel paese non collegati alla scheda entità
+### #25 — Supply Chain Map: nomi aziende nel panel paese non collegati alla scheda entità ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** UX / Bug
@@ -386,9 +250,11 @@ Nel panel laterale che si apre cliccando un paese sulla mappa, i nomi delle azie
 
 **Files:** `js/tabs/map.js`, `js/detail-sidebar.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Added `↗` button to each entity row in map country panel; wires to `openCompanySidebar` / `openInvestorSidebar`. Hover-reveal via `.map-item-open` CSS.
+
 ---
 
-### #26 — Graph: nomi investitori nel side panel entità non cliccabili
+### #26 — Graph: nomi investitori nel side panel entità non cliccabili ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`
 **Type:** UX / Feature
@@ -402,9 +268,11 @@ Nel panel di dettaglio che si apre cliccando un nodo nel grafo (es. Nordic Air D
 
 **Proposta:** Rendere i nomi investitori nel graph detail panel dei link/button che aprono la scheda dell'entità in Company Search o tramite `detail-sidebar.js`.
 
+**Status:** ✓ Resolved — 2026-03-28 — Entity names in graph panel (portfolio companies, investors, co-investors) converted to `.gv-entity-link` buttons with event delegation → `openCompanySidebar` / `openInvestorSidebar`.
+
 ---
 
-### #27 — Graph Projection: side panel mostra contesto sbagliato (dettaglio entità invece di cluster)
+### #27 — Graph Projection: side panel mostra contesto sbagliato (dettaglio entità invece di cluster) ✅ RESOLVED
 
 **Area:** Supply Chain → Graph (Projection mode) — `js/tabs/graph.js`
 **Type:** Bug / UX
@@ -416,9 +284,11 @@ In modalità Projection il panel laterale mostra ancora il dettaglio di una sing
 
 **Proposta:** Al cambio modalità (Network → Bipartite → Projection) chiudere il panel aperto precedentemente e mostrare il panel contestuale al modo selezionato.
 
+**Status:** ✓ Resolved — 2026-03-28 — `closeGraphDetail()` called at the top of `setGraphView()` in `js/tabs/graph.js`.
+
 ---
 
-### #28 — Graph Projection: nomi portfolio nel panel non cliccabili
+### #28 — Graph Projection: nomi portfolio nel panel non cliccabili ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`
 **Type:** UX
@@ -430,13 +300,17 @@ Nel panel che si apre cliccando un nodo investitore in Projection, i nomi delle 
 
 **Cross-ref:** #26 (stesso pattern)
 
+**Status:** ✓ Resolved — 2026-03-28 — Same fix as #26; `graphShowPanel` is shared across all modes including Projection.
+
 ---
 
-### #29 — Copy for AI: output non contestuale alla view/filtro attivo
+### #29 — Copy for AI: output non contestuale alla view/filtro attivo ✅ RESOLVED
 
 **Area:** Global — `js/copy-ai.js`
 **Type:** Feature
 **Priority:** High
+
+**Status:** ✓ Resolved — 2026-03-28 — `buildAiSnapshot()` now dispatches per active tab. Map exports selected country + flows; graph exports selected node detail (portfolio or investors) or filtered company list; companies/investors/relationships export active filters + search; EDF tabs use dedicated `buildSnapshot()` functions from `edfbrowse.js` and `edfmap.js`. Button renamed "Export in .md format".
 
 "Copy for AI" esporta sempre un dump generale del dataset. Non tiene conto del tab attivo, dei filtri applicati, o della selezione corrente. L'utente si aspetta che esporti esattamente ciò che sta guardando in quel momento.
 
@@ -448,17 +322,6 @@ Nel panel che si apre cliccando un nodo investitore in Projection, i nomi delle 
 
 ---
 
-### #30 — EDF Beneficiaries: nessun filtro capofila vs. partecipante
-
-**Area:** EDF → Beneficiaries — `js/tabs/edfbrowse.js`
-**Type:** Feature
-**Priority:** Medium
-
-Vedi #17 (Davide). Andrea ha sollevato lo stesso punto.
-
-**Cross-ref:** #17
-
----
 
 ### #31 — Navigazione: vicoli ciechi diffusi in tutto il sito
 
@@ -476,9 +339,12 @@ Il problema principale identificato da Andrea: in molti punti la navigazione si 
 
 **Files:** diffuso — `js/tabs/graph.js`, `js/tabs/map.js`, `js/tabs/edfbrowse.js`, `js/tabs/relationships.js`
 
+**Partial progress — 2026-03-28:**
+- EDF Browse: clicking an org row now opens its detail drawer and syncs URL (`?entity=KEY&entity-name=slug`). Closing the drawer removes entity from URL. Page load with entity param restores the open drawer. Cross-tab navigation from EDF Overview "Top Participants" chart opens the drawer directly via `pendingOrgKey` (not via search field).
+
 ---
 
-### #32 — Supply Chain Overview: stat card non cliccabili per filtrare
+### #32 — Supply Chain Overview: stat card non cliccabili per filtrare ✅ RESOLVED
 
 **Area:** Supply Chain → Overview — `js/tabs/overview.js`
 **Type:** UX / Feature
@@ -496,21 +362,8 @@ Le stat card nell'Overview (es. "22 Tech", "65 Defense") non sono cliccabili. L'
 
 ---
 
-### #33 — Company Search: link al sito ufficiale dell'azienda — decisione editoriale
 
-**Area:** Company Search — `js/tabs/companysearch.js`
-**Type:** Content / UX (decisione)
-**Priority:** Low
-
-Laura mette in discussione l'utilità di linkare al sito ufficiale dell'azienda (es. Leonardo.com). Per entità di grandi dimensioni il sito è facilmente trovabile; per entità più piccole potrebbe avere senso. Wikipedia invece ha più valore informativo.
-
-> "non lo so, non la metterei io, francamente [...] Wikipedia invece magari può avere più senso"
-
-**Proposta:** Rimuovere il link al sito ufficiale, mantenere Wikipedia + Crunchbase come fonti esterne. Oppure spostarlo in fondo alla scheda come "external links" secondari.
-
----
-
-### #34 — "Copy for AI": label non autoesplicativa, rinominare
+### #34 — "Copy for AI": label non autoesplicativa, rinominare ✅ RESOLVED
 
 **Area:** Global — `js/copy-ai.js`, tutti i tab
 **Type:** UX / Content
@@ -524,9 +377,11 @@ Laura propone label alternative più chiare: "Export data", "Explained with AI",
 
 **Proposta:** Rinominare il pulsante in qualcosa come "Esporta per AI" o "Analizza con AI" + aggiungere un breve tooltip che spiega il workflow (copia → apri chatbot → incolla).
 
+**Status:** ✓ Resolved — 2026-03-28 — Same fix as #21.
+
 ---
 
-### #35 — Font: peso troppo sottile (thin), difficile da leggere
+### #35 — Font: peso troppo sottile (thin), difficile da leggere ✅ RESOLVED
 
 **Area:** Global — `css/base.css`, font stack
 **Type:** UX / Accessibility
@@ -540,9 +395,11 @@ Il font Barlow Condensed in variante thin usato per le descrizioni e il body tex
 
 **Files:** `css/base.css`
 
+**Status:** ✓ Resolved — 2026-03-28 — `--fs-xs` bumped to `.70rem`; `body { font-weight: 400; }` set in `css/base.css`.
+
 ---
 
-### #36 — Light mode: contrasto colori insufficiente per testo
+### #36 — Light mode: contrasto colori insufficiente per testo ✅ RESOLVED
 
 **Area:** Global light mode — `css/base.css` (`[data-theme="light"]`)
 **Type:** UX / Accessibility
@@ -556,9 +413,11 @@ In light mode il testo grigio su sfondo grigio chiaro ha contrasto insufficiente
 
 **Files:** `css/base.css`
 
+**Status:** ✓ Resolved — 2026-03-28 — `--text-faint` light darkened to `#6c6966` (WCAG AA), `--dim` light raised to `rgba(0,0,0,0.60)` for nav buttons.
+
 ---
 
-### #37 — Validation flags "needs review" visibili agli utenti finali
+### #37 — Validation flags "needs review" visibili agli utenti finali ✅ RESOLVED
 
 **Area:** Company Search — `js/tabs/companysearch.js`, schede entità
 **Type:** UX / Content
@@ -575,9 +434,11 @@ I flag di validazione interna ("needs review", "roles inferred from investor typ
 
 **Files:** `js/tabs/companysearch.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Validation flags card hidden (`display:none`) in `companysearch.js`.
+
 ---
 
-### #38 — Supply Chain Overview: tooltip Relationships difficile da scoprire
+### #38 — Supply Chain Overview: tooltip Relationships difficile da scoprire ✅ RESOLVED
 
 **Area:** Supply Chain → Overview — `js/tabs/overview.js`, `js/helpers.js`
 **Type:** UX
@@ -589,9 +450,11 @@ Il tooltip sulla stat card "Relationships" richiede un movimento preciso del cur
 
 **Proposta:** Rendere il trigger del tooltip meno sensibile (area più ampia) o aggiungere un'icona `?` visibile che al click/hover mostra la spiegazione.
 
+**Status:** ✓ Resolved — 2026-03-28 — `cursor: help` added to `.stat-card[title]` in `css/components.css`; Portfolio stat card in Company Search made clickable to jump to connections section.
+
 ---
 
-### #39 — Supply Chain Overview: colori paesi — connotazione politica indesiderata
+### #39 — Supply Chain Overview: colori paesi — connotazione politica indesiderata ✅ RESOLVED
 
 **Area:** Supply Chain → Overview (country breakdown) — `js/tabs/overview.js`, `css/components.css`
 **Type:** UX / Content
@@ -603,13 +466,17 @@ I colori usati per il breakdown per paese (rosso per Cina e Russia, blu per paes
 
 **Proposta:** Usare una palette neutrale basata su continenti (Europa, Asia, Americhe, ecc.) senza associazioni cromatiche politiche. Oppure usare un colore unico con intensità proporzionale al numero di entità.
 
+**Status:** ✓ Resolved — 2026-03-28 — Replaced political coloring with continent palette (Europe/Americas/Asia-Pacific/MENA/Africa) in `js/tabs/overview.js`.
+
 ---
 
-### #40 — Sidebar/panel: posizionare a sinistra invece che a destra
+### #40 — Sidebar/panel: posizionare a sinistra invece che a destra ✅ RESOLVED
 
 **Area:** Global — tutti i panel laterali (`js/detail-sidebar.js`, `js/tabs/map.js`, `js/tabs/graph.js`, `js/tabs/edfbrowse.js`)
 **Type:** UX
 **Priority:** Medium
+
+**Status:** ✓ Resolved — 2026-03-28 — All panels moved to left. Inline panels (`#map-panel`, `#edfmap-panel`, `#graph-detail`, `#mx-detail`) reordered in DOM before main content and changed `border-left` → `border-right`. Fixed overlay sidebars (`.entity-sidebar`, `.ec-part-sidebar`) moved to left with `translateX(-100%)` slide animation and `border-right`. Overlay wrappers fixed to start at `calc(nav-h + tab-h + subtab-h)` to stop covering navbar. Width harmonized: `ec-part-sidebar` changed from `--sl-w-sm` to `--sl-w-inline` (450px) across all panels.
 
 Tutti i panel laterali si aprono a destra. Laura (e poi confermato da tutti) preferisce sinistra per ragioni di UX consolidate: Google Maps ha il panel a sinistra, la lettura occidentale va da sinistra a destra, il braccio destro rimane libero per interagire con la mappa/grafo.
 
@@ -621,7 +488,7 @@ Tutti i panel laterali si aprono a destra. Laura (e poi confermato da tutti) pre
 
 ---
 
-### #41 — Supply Chain Map light mode: colori slavati, poco contrasto
+### #41 — Supply Chain Map light mode: colori slavati, poco contrasto ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `css/map.css`, `css/base.css` (`[data-theme="light"]`)
 **Type:** UX
@@ -635,9 +502,11 @@ In light mode la mappa Supply Chain ha colori "slavati" (poco contrastati). I pu
 
 **Proposta:** Rivedere `--map-bg`, `--map-land`, `--map-arc-*` nella sezione light di `css/base.css`. Portare i colori mappa in light mode ad avere almeno lo stesso livello di contrasto della dark mode.
 
+**Status:** ✓ Resolved — 2026-03-28 — Added `--map-bg`, `--map-land`, `--map-data`, `--map-selected` light overrides + new `--map-arc-color` token read by SC Map JS at draw time via `getComputedStyle`.
+
 ---
 
-### #42 — Supply Chain Map: interazione semplificata (solo paesi sorgente, click rivela destinazioni)
+### #42 — Supply Chain Map: interazione semplificata (solo paesi sorgente, click rivela destinazioni) ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** UX / Feature
@@ -651,9 +520,11 @@ Laura propone un modello di interazione più semplice e direzionale: inizialment
 
 **Note:** Le due proposte (Davide e Laura) sono compatibili. Una possibile sintesi: default = mostra solo paesi sorgente; click paese = mostra archi in uscita + evidenzia destinazioni; bottone toggle "Mostra flussi in entrata" per invertire la vista.
 
+**Status:** ✓ Resolved — 2026-03-28 — Arcs hidden by default (`showArcs: false`, arc layer `display:none` on init, checkbox unchecked). On country click, arc layer shown with only outbound arcs (`d.src === iso`). On deselect/close, arc layer hides again unless global toggle is checked. Mirrors EDF Map interaction pattern.
+
 ---
 
-### #43 — Supply Chain Map: click area vuota per deselezionare il paese
+### #43 — Supply Chain Map: click area vuota per deselezionare il paese ✅ RESOLVED
 
 **Area:** Supply Chain → Map — `js/tabs/map.js`
 **Type:** UX
@@ -667,9 +538,11 @@ Per deselezionare un paese bisogna cliccare la X nella sidebar. L'utente si aspe
 
 **Files:** `js/tabs/map.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — SVG click handler added in `js/tabs/map.js` using `classList.contains` check.
+
 ---
 
-### #44 — Graph Projection: la gravità non lascia i nodi dove li trascina l'utente
+### #44 — Graph Projection: la gravità non lascia i nodi dove li trascina l'utente ✅ RESOLVED
 
 **Area:** Supply Chain → Graph (Projection) — `js/tabs/graph.js`
 **Type:** UX / Bug
@@ -683,9 +556,11 @@ Dopo aver trascinato un nodo manualmente, la simulazione fisica lo riporta indie
 
 **Files:** `js/tabs/graph.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Drag `on('end')` handler now sets `d.fx = d.x; d.fy = d.y` instead of `d.fx = null; d.fy = null` across all three views (network, bipartite, projection). Nodes stay pinned at drop position; simulation cools down normally.
+
 ---
 
-### #45 — Graph: barra filtri confusa, nessun separatore tra tipo vista e tipo settore
+### #45 — Graph: barra filtri confusa, nessun separatore tra tipo vista e tipo settore ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`, `css/graph.css`
 **Type:** UX
@@ -698,6 +573,8 @@ I controlli nella toolbar del Graph (Network / Bipartite / Projection / All / St
 **Proposta:** Aggiungere un separatore visivo (divisore + label "Vista" / "Settore") nella toolbar. Oppure due gruppi di pulsanti distinti con label di gruppo.
 
 **Files:** `css/graph.css`, `index.html`
+
+**Status:** ✓ Resolved — 2026-03-28 — Added `<span class="ctrl-group-lbl">` labels ("View" / "Sector") and `.ctrl-sep` divider in `index.html`; `.ctrl-group-lbl` utility added to `css/base.css`.
 
 ---
 
@@ -717,7 +594,7 @@ La sidebar laterale che si apre cliccando un'azienda in EDF Beneficiaries contie
 
 ---
 
-### #47 — EDF Calls Search: rimuovere label "pattern:" dai risultati
+### #47 — EDF Calls Search: rimuovere label "pattern:" dai risultati ✅ RESOLVED
 
 **Area:** EDF → Calls Search — `js/tabs/eucalls.js`
 **Type:** Bug / Content
@@ -731,9 +608,11 @@ Nei risultati di ricerca di EDF Calls, il nome del progetto è preceduto da "pat
 
 **Files:** `js/tabs/eucalls.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Removed `"Pattern: "` prefix from `ec-patternTitle` in `js/tabs/eucalls.js` line 836.
+
 ---
 
-### #48 — Supply Chain Matrix: rimuovere o semplificare significativamente
+### #48 — Supply Chain Matrix: rimuovere o semplificare significativamente ✅ RESOLVED
 
 **Area:** Supply Chain → Matrix — `js/tabs/matrix.js`
 **Type:** Feature (decision)
@@ -743,11 +622,11 @@ Nei risultati di ricerca di EDF Calls, il nome del progetto è preceduto da "pat
 
 Laura: "che cazzo è? Non si capisce. Sono le stesse informazioni di prima in un'altra forma."
 
-Consenso emerso dalla sessione: tentare prima una versione più compatta e leggibile; se non funziona, rimuoverla dalla nav finale.
+**Status:** ✓ Resolved — 2026-03-28 — Matrix removed. See #15.
 
 ---
 
-### #49 — EDF Map: click area vuota per deselezionare il paese
+### #49 — EDF Map: click area vuota per deselezionare il paese ✅ RESOLVED
 
 **Area:** EDF → Map — `js/tabs/edfmap.js`
 **Type:** UX
@@ -761,15 +640,17 @@ Stesso problema di #43 (Supply Chain Map). Per deselezionare un paese nella EDF 
 
 **Files:** `js/tabs/edfmap.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — SVG click handler added in `js/tabs/edfmap.js`, mirroring the SC Map fix.
+
 ---
 
-### #50 — Company Search: scheda fondo — numero portfolio non spiega quali aziende
-
-
+### #50 — Company Search: scheda fondo — numero portfolio non spiega quali aziende ✅ RESOLVED
 
 **Area:** Company Search — `js/tabs/companysearch.js`
 **Type:** UX
 **Priority:** Medium
+
+**Status:** ✓ Resolved — already implemented. Portfolio (and Investors) stat cards are `.cs-stat--link` with `cursor:pointer`, accent hover border, and a `scrollIntoView` click handler targeting `#cs-rel-card` (the Connections section). Implementation confirmed in `js/tabs/companysearch.js` lines 260–270 and `css/companysearch.css`.
 
 Sulla scheda di un investitore/fondo, il campo "Portfolio: 1" non è cliccabile né espande per mostrare quale/quali aziende sono in portfolio. L'utente deve scorrere fino alla sezione "Connections" per trovarlo, e il collegamento non è ovvio.
 
@@ -787,21 +668,8 @@ Le seguenti issue sono emerse da una rilettura approfondita dei transcript. Attr
 
 ---
 
-### #51 — [Davide] Investigation page: riproporre come sezione pubblicazione ricerca
 
-**Area:** `automated-investigation.html`, nav — `index.html`, `js/main.js`
-**Type:** Feature / Content
-**Priority:** Low
-
-Davide chiede esplicitamente di rimuovere la pagina Investigation nella sua forma attuale (generata automaticamente). Nella release finale quella sezione diventerà il luogo dove pubblicare inchieste, report e output di ricerca prodotti dal team infonodes.
-
-> "Investigation è figo, ma lo togliamo [...] diventerà la sezione in cui pubblichiamo la ricerca o eventuali altri output di inchiesta, di ricerca che dal nostro progetto verranno fuori"
-
-**Proposta:** Rimuovere `automated-investigation.html` dalla nav. Creare un placeholder per la sezione "Ricerca / Reports" nel menu principale, inizialmente vuoto o con un "coming soon".
-
----
-
-### #52 — [Davide] Data Issues tab: armonizzare dimensione font con le altre pagine
+### #52 — [Davide] Data Issues tab: armonizzare dimensione font con le altre pagine ✅ RESOLVED
 
 **Area:** About → Data Issues — `js/tabs/knownissues.js`, `css/about.css`
 **Type:** UX
@@ -815,37 +683,12 @@ Davide ha notato che il font della tab Data Issues ha dimensioni diverse rispett
 
 **Files:** `css/about.css`, `js/tabs/knownissues.js`
 
----
-
-### #53 — [Davide] Data Quality tab: tenere e risistemare per trasparenza metodologica
-
-**Area:** About → Data Quality — `js/tabs/quality.js`
-**Type:** Content / Feature
-**Priority:** Low
-
-Davide inizialmente la ritiene inutile, poi rivaluta: il valore è mostrare con trasparenza come i dati sono stati trattati. Va mantenuta e aggiornata, non rimossa.
-
-> "il valore qual è? Che tu fai vedere con un po' di più trasparenza come hai trattato i dati [...] se vuoi la risistemiamo, ma la teniamo"
-
-**Proposta:** Revisionare il contenuto di Data Quality con una narrativa chiara sulla metodologia di raccolta, verifica e aggiornamento dei dati. Renderla leggibile per un utente esterno, non solo per il team.
+**Status:** ✓ Resolved — 2026-03-28 — `.ki-body p` font-size reduced from `--fs-lg` to `--fs-body` in `css/base.css`.
 
 ---
 
-### #54 — [Davide] Wikidata Inspector: dare più prominenza nella navigazione
 
-**Area:** Nav — `index.html`, `js/main.js`
-**Type:** UX / Feature
-**Priority:** Low
-
-Wikidata Inspector è attualmente nascosto in fondo alla sezione About. Davide propone di dargli più visibilità nel menu principale, in vista della fusione dei gruppi (EDF + Supply Chain → unico gruppo, che libera spazio nella nav).
-
-> "Wikidata Inspector, se lo vogliamo tenere o lo togliamo fuori [...] lo terrei, forse gli darei anche rilevanza inserendolo nel menu in alto"
-
-**Note:** Da rivalutare dopo la riorganizzazione della nav conseguente al merge dei gruppi (#03 e #04).
-
----
-
-### #55 — [Andrea] Graph: nessun auto-zoom dopo cambio filtro settore
+### #55 — [Andrea] Graph: nessun auto-zoom dopo cambio filtro settore ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`
 **Type:** UX / Bug
@@ -859,13 +702,17 @@ Dopo aver applicato un filtro settore (es. Startup) o cambiato modalità, il gra
 
 **Files:** `js/tabs/graph.js`
 
+**Status:** ✓ Resolved — 2026-03-28 — Added `svgFit(nodes)` helper that always re-reads live `clientWidth`/`clientHeight` from `#graph-svg`. All three views now use `svgFit` in simulation `on('end')` callbacks (animated re-center). Initial bounding-box fit wrapped in `requestAnimationFrame` so the SVG has its final dimensions before the transform is applied.
+
 ---
 
-### #56 — [Andrea] Graph Bipartite: modalità difficile da capire senza contesto
+### #56 — [Andrea] Graph Bipartite: modalità difficile da capire senza contesto ✅ RESOLVED
 
 **Area:** Supply Chain → Graph (Bipartite mode) — `js/tabs/graph.js`
 **Type:** UX / Content
 **Priority:** Medium
+
+**Status:** ✓ Resolved — already implemented. `setGraphView()` calls `closeGraphDetail()` → `showGraphHelp()` on every view switch, which always opens the detail panel with "How to explore" content (including the Bipartite description). The panel resets to help on Network/Bipartite/Projection switches regardless of prior state.
 
 La modalità Bipartite è quella meno intuitiva delle tre. Il principio (due colonne: investitori a sinistra, aziende a destra, archi = investimento) non è immediatamente chiaro dal solo titolo.
 
@@ -877,7 +724,7 @@ La modalità Bipartite è quella meno intuitiva delle tre. Il principio (due col
 
 ---
 
-### #57 — [Andrea] Graph: panel "How to explore" a destra, controlli a sinistra/basso — incoerenza spaziale
+### #57 — [Andrea] Graph: panel "How to explore" a destra, controlli a sinistra/basso — incoerenza spaziale ✅ RESOLVED
 
 **Area:** Supply Chain → Graph — `js/tabs/graph.js`, layout
 **Type:** UX
@@ -891,32 +738,21 @@ Il panel "How to explore" (che spiega le modalità e come usarle) appare a destr
 
 **Cross-ref:** #40 (sidebar a sinistra), #45 (separatore tra tipo vista e settore)
 
+**Status:** ✓ Resolved — 2026-03-28 — "How to explore" panel moved to left (#40). Sector + Search filters moved into `#graph-filter-float` floating box anchored top-right of `#graph-pane`. View controls remain in `#graph-controls` bottom-left. Companies/Investors toggles hidden (`display:none`). Legend moved to bottom-right (fit-content). Result: controls spatially cluster in two logical zones (filters top-right, view mode bottom-left) with the help panel on the left.
+
 ---
 
-### #58 — [Laura] Disclaimer copertura dati per paesi non trasparenti (Cina, Russia, Arabia Saudita)
 
-**Area:** Global — Company Search, Supply Chain Map, EDF Map
-**Type:** Content / UX
+### #60 — Graph: clicking a node does not update URL routing ✅ RESOLVED
+
+**Area:** Supply Chain → Graph — `js/tabs/graph.js`
+**Type:** Bug
 **Priority:** Medium
 
-Un limite strutturale del dataset: i dati Crunchbase per paesi con scarsa trasparenza societaria (Cina, Russia, Arabia Saudita) sono incompleti o assenti. L'utente che clicca su queste entità trova poco e non capisce perché.
+Clicking a node in the graph opens the detail panel but does not update the URL (`?entity=...` or similar). Navigating via the sidepanel works correctly. This means direct links to a graph + selected node are not shareable, and the Export button cannot reflect the selected node unless the user arrived via the sidebar.
 
-> "c'è un grosso limite che non sta a noi [...] le aziende da cui abbiamo preso i dati su Crunchbase a seconda del paese dove sono e della trasparenza di quel paese possiamo avere dati o no. Quindi Cina, Russia, Saudi Arabia, difficile avere dati."
+> Reported during Export-for-AI session 2026-03-28.
 
-**Proposta:** Aggiungere una nota contestuale quando si visualizza un'entità di questi paesi, o quando si seleziona il paese sulla mappa: "I dati per aziende con sede in [paese] possono essere limitati per scarsa disponibilità pubblica di informazioni societarie." Potrebbe essere un tooltip sul nome del paese o una riga nella scheda entità.
+**Files:** `js/tabs/graph.js`, `js/url.js`
 
----
-
-### #59 — [Laura] Entity ID (IV-0143) visualizzato senza spiegazione — sembra un ID utente
-
-**Area:** Company Search — `js/tabs/companysearch.js`
-**Type:** UX / Content
-**Priority:** Low
-
-Laura ha visto l'ID "IV0143" nella scheda di un fondo e ha chiesto cosa fosse, pensando inizialmente fosse un identificatore utente. Gli ID interni del database (`IN-*`, `IV-*`) non hanno una label esplicativa nell'interfaccia.
-
-> "IV0143? È un identificatore di utenti."
-
-**Proposta:** Aggiungere una label o tooltip sull'ID: es. mostrare come "ID: IV-0143" con tooltip "Identificatore interno del database infonodes". In alternativa, nascondere completamente l'ID dall'interfaccia utente e tenerlo solo nel codice/export.
-
-**Files:** `js/tabs/companysearch.js`
+**Status:** ✓ Resolved — 2026-03-28 — `graphShowPanel()` now calls `setParams()` with `entity=<id>&entity-name=<slug>` after opening the panel. `closeGraphDetail()` removes both params. `selectGraphEntity(id)` exported from `graph.js`; `restoreFromUrl()` case `'graph'` calls it when `p.entity` is present. Import `getParams`/`setParams` added to `graph.js`.

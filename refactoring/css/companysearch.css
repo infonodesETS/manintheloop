@@ -108,7 +108,7 @@
 
 #cs-back {
   font-family: var(--font-mono);
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--dim);
   background: none;
   border: 1px solid var(--border);
@@ -144,7 +144,7 @@
   border-bottom: 1px solid rgba(65,67,69,0.4);
 }
 .cs-ac-item {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px;
   padding: 9px 16px;
   cursor: pointer;
   border-bottom: 1px solid rgba(65,67,69,0.25);
@@ -161,6 +161,16 @@
 }
 .cs-ac-name mark { background: none; color: var(--accent); font-weight: var(--fw-bold); }
 .cs-ac-country { font-size: var(--fs-xs); color: var(--dim); flex-shrink: 0; }
+.cs-ac-desc {
+  display: block;
+  width: 100%;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  line-height: var(--lh-snug);
+  margin-top: 3px;
+  font-style: italic;
+}
+.cs-ac-desc mark { background: none; color: var(--accent); font-weight: var(--fw-bold); font-style: normal; }
 .cs-ac-id {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
@@ -245,7 +255,7 @@
 .cs-ext-links { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .cs-ext-link {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   font-family: var(--font-mono);
   color: var(--dim);
   border: 1px solid var(--border);
@@ -263,7 +273,7 @@
 
 #cs-export-btn {
   font-family: var(--font-mono);
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--dim);
   background: none;
   border: 1px solid var(--border);
@@ -287,6 +297,13 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 16px 20px;
+}
+.cs-stat--link {
+  cursor: pointer;
+}
+.cs-stat--link:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
 }
 .cs-stat-val {
   font-size: var(--fs-stat);
@@ -323,7 +340,7 @@
   padding: 9px 18px;
   background: var(--surface2);
   border-bottom: 1px solid var(--border);
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   text-transform: uppercase;
   letter-spacing: 1.1px;
   color: var(--accent);
@@ -372,12 +389,22 @@
 /* ── Tags ────────────────────────────────────────────────────────────────── */
 .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
 .cs-tag {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
   border-radius: 50px;
   padding: 2px 10px;
   color: var(--dim);
+  font-family: inherit;
+  cursor: default;
+}
+button.cs-tag[data-query] {
+  cursor: pointer;
+}
+button.cs-tag[data-query]:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,255,65,.06);
 }
 
 /* ── Founders ────────────────────────────────────────────────────────────── */
@@ -448,7 +475,7 @@
 
 /* ── Relationship sub-header ─────────────────────────────────────────────── */
 .cs-rel-group-lbl {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent);
@@ -474,7 +501,7 @@
   padding-top: 2px;
 }
 .cs-hist-desc {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--text-secondary);
   line-height: var(--lh-snug);
 }
@@ -496,7 +523,7 @@
 .cs-inf-block { background: rgba(0,255,65,.03);   border: 1px solid rgba(0,255,65,.15); }
 
 .cs-src-hdr {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .7px;
@@ -523,7 +550,7 @@
   margin-top: 10px;
 }
 .cs-src-desc {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--text-secondary);
   line-height: var(--lh-body);
   margin-bottom: 10px;

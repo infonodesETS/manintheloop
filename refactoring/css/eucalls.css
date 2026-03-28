@@ -184,7 +184,10 @@
 
 /* ── Participant sidebar ── */
 .ec-part-sidebar {
-  position: fixed; inset: 0; z-index: var(--sl-z); pointer-events: none;
+  position: fixed;
+  top: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h));
+  left: 0; right: 0; bottom: 0;
+  z-index: var(--sl-z); pointer-events: none;
 }
 .ec-part-sidebar.open { pointer-events: all; }
 
@@ -196,11 +199,11 @@
 .ec-part-sidebar.open .ec-part-sidebar-overlay { opacity: 1; }
 
 .ec-part-sidebar-panel {
-  position: absolute; top: 0; right: 0; bottom: 0;
-  width: var(--sl-w-sm); max-width: 95vw;
-  background: var(--sl-panel-bg); border-left: 1px solid var(--border);
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: var(--sl-w-inline); max-width: 95vw;
+  background: var(--sl-panel-bg); border-right: 1px solid var(--border);
   display: flex; flex-direction: column;
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: var(--sl-panel-t);
   overflow: hidden;
 }

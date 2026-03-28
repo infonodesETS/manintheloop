@@ -48,9 +48,10 @@ refactoring/
 │   ├── SCHEMA.md               ← database.json schema v2.0 field specification
 │   ├── UPDATE_PROTOCOL.md      ← reconciliation rules for adding new data
 │   ├── spec-improvement.md     ← resolved, pending, and improvement backlog
-│   ├── issues.md               ← active data/code issues
-│   ├── data-issues.md          ← in-app data issues (rendered in Tools → Data Issues tab)
-│   └── andy-issues.md          ← user test session (Andy, 2026-03-24) — 23 issues, UX + bugs
+│   ├── infonodes-issues.md     ← user test issues tracker (Davide, Andrea, Laura — 2026-03-27)
+│   ├── andy-issues.md          ← user test session (Andy, 2026-03-24) — separate tracker
+│   ├── issues.md               ← legacy general issues (pre-user-test)
+│   └── data-issues.md          ← in-app data issues (rendered in Tools → Data Issues tab)
 │
 ├── js/
 │   ├── main.js                 ← entry point: data bootstrap, navigate(), event wiring
@@ -67,12 +68,12 @@ refactoring/
 │   ├── base.css                ← :root design tokens ONLY — typography, colors, spacing, sidebar tokens
 │   ├── components.css          ← shared primitives: stat cards, tables, badges, sidebar shells
 │   ├── graph.css               ← Graph tab (#graph-*, .gv-*)
-│   ├── matrix.css              ← Matrix tab (#matrix-*, #mx-*)
 │   ├── map.css                 ← Supply Chain Map + EDF Map (#map-*, .map-*, #edfmap-*, .edfmap-*)
 │   ├── wikidata.css            ← Wikidata Inspector (#wd-*, .wd-*, .live-*)
 │   ├── eucalls.css             ← EDF Calls Search (#ec-*, .ec-*)
 │   ├── edfbrowse.css           ← EDF Beneficiaries + EDF Overview (#eb-*, .eb-*, #eo-*, .eo-*)
-│   └── about.css               ← About tab (#tab-about scoped)
+│   ├── about.css               ← About tab (#tab-about scoped)
+│   └── companysearch.css       ← Company Search tab (#tab-companysearch, #cs-*, .cs-*)
 │
 ├── scripts/
 │   ├── fetch_edf_bulk.py       ← fetches all EDF calls + projects → data/edf_calls.json
@@ -112,7 +113,6 @@ refactoring/
 | `companies.js` | Companies table | Supply Chain |
 | `investors.js` | Investors table | Supply Chain |
 | `relationships.js` | Relationships table | Supply Chain |
-| `matrix.js` | Investment matrix | Supply Chain |
 | `edfoverview.js` | EDF Overview | European Defence Fund |
 | `edfmap.js` | EDF Map | European Defence Fund |
 | `eucalls.js` | EDF Calls Search | European Defence Fund |
@@ -120,6 +120,7 @@ refactoring/
 | `wikidata.js` | Wikidata Inspector | About / Tools |
 | `quality.js` | Data Quality | About / Tools |
 | `knownissues.js` | Data Issues (renders `docs/data-issues.md`) | About / Tools |
+| `companysearch.js` | Company Search | _(standalone group)_ |
 
 ---
 
@@ -214,11 +215,10 @@ Use it to pick safe work items and avoid re-introducing already-solved problems.
 
 [`docs/infonodes-roadmap.md`](./docs/infonodes-roadmap.md) contains:
 
-- **59 issues** collected from live user test sessions (Davide, Andrea, Laura — 2026-03-27), tracked in [`docs/infonodes-issues.md`](./docs/infonodes-issues.md)
-- **12 clusters** by area of intervention
-- **11 implementation phases**, from immediate bug fixes to the macro database unification (#03)
+- Issues collected from live user test sessions (Davide, Andrea, Laura — 2026-03-27), tracked in [`docs/infonodes-issues.md`](./docs/infonodes-issues.md)
+- Many issues resolved as of 2026-03-28; see [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) for the full history
 
-→ **[`docs/infonodes-roadmap.md`](./docs/infonodes-roadmap.md)**
+→ **[`docs/infonodes-issues.md`](./docs/infonodes-issues.md)**
 
 ---
 
@@ -229,7 +229,7 @@ Two-level nav: group bar (top) + sub-tab bar (second row). URL scheme: `?researc
 | Group | Sub-tabs |
 |---|---|
 | **Intro** | _(standalone)_ |
-| **Supply Chain** | Overview · Map · Graph · Companies · Investors · Relationships · Matrix |
+| **Supply Chain** | Overview · Map · Graph · Companies · Investors · Relationships |
 | **European Defence Fund** | Overview · Map · EDF Calls Search · EDF Beneficiaries |
 | **About** | About · Data Issues · Data Quality · Wikidata Inspector · Data · Glossary |
 

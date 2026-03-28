@@ -2,6 +2,8 @@
 
 import { AppState } from './state.js';
 import { buildCompanySearchSnapshot } from './tabs/companysearch.js';
+import { buildSnapshot as buildEdfBrowseSnapshot } from './tabs/edfbrowse.js';
+import { buildSnapshot as buildEdfMapSnapshot } from './tabs/edfmap.js';
 
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -112,13 +114,18 @@ function snapshotRelationships() {
 }
 
 function snapshotMap() {
-  const { countryData, activeFilter } = AppState.ui.map;
-  if (activeFilter && countryData[activeFilter]) {
-    const cd = countryData[activeFilter];
-    const companies = cd.companies.map(c => `- **${c.name}** | ${c.sector || '—'}`).join('\n');
-    return hdr('Map') +
-      `## Country: ${cd.name}\n\n- Companies: ${cd.companies.length}\n- Inbound investor flows: ${(cd.flowsIn || []).length}\n- Outbound investor flows: ${(cd.flowsOut || []).length}\n\n### Companies headquartered here\n${companies}` +
-      footer(`Analyse the companies headquartered in ${cd.name}: what sectors are present? Who invests in them?`);
+  const { countryData, selectedIso, selectedFlows, activeFilter } = AppState.ui.map;
+  if (selectedIso && countryData[selectedIso]) {
+    const cd  = countryData[selectedIso];
+    const cos = cd.companies.map(c => `- **${c.name}** | ${c.sector || '—'}`).join('\n');
+    const fi  = (selectedFlows?.flowIn  || []).map(([, name]) => `- ${name}`).join('\n');
+    const fo  = (selectedFlows?.flowOut || []).map(([, name]) => `- ${name}`).join('\n');
+    let md = hdr('Map') + `## Country: ${cd.name}\n\n`;
+    md += `### Companies headquartered here (${cd.companies.length})\n${cos || '—'}\n\n`;
+    if (fi) md += `### Foreign investors funding companies in ${cd.name}\n${fi}\n\n`;
+    if (fo) md += `### Investors from ${cd.name} investing abroad\n${fo}\n\n`;
+    if (activeFilter) md += `_Active entity filter: ${activeFilter.name}_\n\n`;
+    return md + footer(`Analyse the companies and investment flows for ${cd.name}: what sectors are present? Who funds them from abroad?`);
   }
   // No country selected — dump all countries with data
   const entries = Object.values(countryData)
@@ -132,23 +139,57 @@ function snapshotMap() {
 
 function snapshotGraph() {
   const { graph } = AppState.ui;
-  const { companies, investors } = AppState;
+  const { companies, investors, derived } = AppState;
+  const { entityMap, investorMeta } = derived;
   const filters = [];
   if (graph.sector !== 'all') filters.push(`sector: ${graph.sector}`);
   if (graph.search) filters.push(`search: "${graph.search}"`);
   if (graph.leadOnly) filters.push('lead investments only');
   if (graph.hideIsolated) filters.push('isolated nodes hidden');
 
+  let md = hdr('Graph') + (filters.length ? `**Active filters:** ${filters.join(' · ')}\n\n` : '');
+
+  // If a node panel is open, export that entity's detail
+  if (graph.selectedEntityId) {
+    const entity = entityMap[graph.selectedEntityId];
+    if (entity) {
+      if (entity.id.startsWith('IV-')) {
+        const im = investorMeta[entity.id];
+        if (im) {
+          const pfLines = im.portfolio.slice(0, 30).map(p => `- ${p.company?.name || '?'}${p.lead ? ' (LEAD)' : ''}`).join('\n');
+          md += `## Selected investor: ${entity.name}\n\n`;
+          md += `- Type: ${entity.type || '—'}\n`;
+          md += `- Country: ${entity.sources?.wikidata?.country || entity.sources?.infonodes?.country || '—'}\n`;
+          md += `- Total investments: ${im.total} (${im.leads} lead)\n\n`;
+          md += `### Portfolio (${im.portfolio.length})\n${pfLines}${im.portfolio.length > 30 ? `\n_(showing 30 of ${im.portfolio.length})_` : ''}\n\n`;
+        }
+      } else {
+        const wd = entity.sources?.wikidata;
+        const cb = entity.sources?.crunchbase;
+        const investors_list = (entity._investors || []).map(x => `- ${x.name}${x.lead ? ' (LEAD)' : ''}`).join('\n');
+        md += `## Selected company: ${entity.name}\n\n`;
+        md += `- Sector: ${entity.sector || '—'}\n`;
+        md += `- Country: ${wd?.country || entity.sources?.infonodes?.country || '—'}\n`;
+        if (cb?.total_funding_usd) md += `- Total funding: $${(cb.total_funding_usd / 1e6).toFixed(1)}M\n`;
+        if (cb?.description) md += `\n${cb.description}\n`;
+        md += `\n### Investors (${(entity._investors || []).length})\n${investors_list || '—'}\n\n`;
+      }
+      return md + footer(`Analyse this entity's role in the defence supply chain network. Who are its key investors or portfolio companies?`);
+    }
+  }
+
   const visibleCos = graph.sector !== 'all'
     ? companies.filter(c => c.sector === graph.sector)
     : companies;
-  const coLines = visibleCos.slice(0, 100).map(c => `- ${c.name} (${c.sector || '—'})`).join('\n');
-
-  return hdr('Graph') +
-    (filters.length ? `**Active filters:** ${filters.join(' · ')}\n\n` : '') +
-    `## Visible companies (${visibleCos.length})\n${coLines}${visibleCos.length > 100 ? `\n_(showing 100 of ${visibleCos.length})_` : ''}\n\n` +
-    `## Investors in dataset: ${investors.length}` +
-    footer('Analyse the network structure of these companies and their investors. What clusters or hubs are most prominent?');
+  const coLines = visibleCos.slice(0, 100).map(c => {
+    const invs = (c._investors || []);
+    const invLines = invs.map((x, i) => `  - Investor${i + 1}: ${x.name}${x.lead ? ' (LEAD)' : ''}`).join('\n');
+    return `- ${c.name} (${c.sector || '—'})${invLines ? '\n' + invLines : ''}`;
+  }).join('\n');
+  md += `## View: ${graph.view} · Visible companies (${visibleCos.length})\n${coLines}`;
+  if (visibleCos.length > 100) md += `\n_(showing 100 of ${visibleCos.length})_`;
+  md += `\n\n## Investors in dataset: ${investors.length}`;
+  return md + footer('Analyse the network structure of these companies and their investors. What clusters or hubs are most prominent?');
 }
 
 export function buildAiSnapshot() {
@@ -161,6 +202,9 @@ export function buildAiSnapshot() {
     case 'map':             return snapshotMap();
     case 'graph':           return snapshotGraph();
     case 'company-search':  return buildCompanySearchSnapshot();
+    case 'edfbrowse':       return hdr('EDF Beneficiaries') + buildEdfBrowseSnapshot() + footer('Analyse these EDF beneficiaries: which organisations received the most funding? What countries are best represented?');
+    case 'edfmap':          return hdr('EDF Map') + buildEdfMapSnapshot() + footer('Analyse the EDF funding flows shown here. Which countries and organisations are most active?');
+    case 'edfoverview':     return snapshotOverview();
     default:                return snapshotOverview();
   }
 }
@@ -182,6 +226,6 @@ export function initCopyAI() {
       document.body.removeChild(ta);
       btn.textContent = 'Copied!';
     }
-    setTimeout(() => { btn.textContent = 'Copy for AI'; }, 2000);
+    setTimeout(() => { btn.textContent = 'Export in .md format'; }, 2000);
   });
 }

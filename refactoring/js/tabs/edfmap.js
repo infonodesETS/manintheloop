@@ -316,6 +316,14 @@ function drawMap(world) {
       `tx:${e.transform.x.toFixed(0)} ty:${e.transform.y.toFixed(0)} k:${k.toFixed(3)}`;
   });
   ms.svg.call(ms.zoom);
+  // Click on empty SVG area → deselect country/org
+  ms.svg.on('click', e => {
+    const t = e.target;
+    if (!t.classList?.contains('has-data') && !t.classList?.contains('edfmap-node')) {
+      if (ms.activeFilter) clearEdfMapFilter();
+      else closeEdfMapPanel();
+    }
+  });
   fitEdfMapView(W, H);
   document.getElementById('edfmap-filter-bar').style.display = 'none'; // hide on init
 
@@ -632,6 +640,27 @@ function resetVisuals() {
   if (arcLayerEl) arcLayerEl.style.display = ms.showArcs ? '' : 'none';
 }
 
+export function buildSnapshot() {
+  if (ms.activeFilter) {
+    const f = ms.activeFilter;
+    const partnerIsos = [...(f.partnerIsos || [])];
+    const partnerNames = partnerIsos.map(iso => ms.countryData[+iso]?.name || iso).join(', ') || '—';
+    return `## EDF Map — Organisation: ${f.orgName}\n\n- HQ country: ${ms.countryData[f.orgIso]?.name || f.orgIso || '—'}\n- Partner countries: ${partnerNames}`;
+  }
+  if (ms.selectedCountry) {
+    const cd = ms.countryData[ms.selectedCountry];
+    if (cd) {
+      const orgs = [...cd.orgs.values()].map(o => `- **${o.name}** | ${fmtEuro(o.eu_total)} | ${o.project_count} project${o.project_count !== 1 ? 's' : ''}`).join('\n');
+      return `## EDF Map — Country: ${cd.name}\n\n${orgs || '—'}`;
+    }
+  }
+  const entries = Object.values(ms.countryData)
+    .filter(cd => cd.orgs?.size)
+    .sort((a, b) => b.orgs.size - a.orgs.size);
+  const lines = entries.map(cd => `- **${cd.name}**: ${cd.orgs.size} organisation${cd.orgs.size !== 1 ? 's' : ''}`).join('\n');
+  return `## EDF Map — Global view (${entries.length} countries)\n\n${lines}`;
+}
+
 export function clearEdfMapFilter() {
   ms.activeFilter = null;
   resetVisuals();
@@ -682,6 +711,11 @@ function fitEdfMapView(W, H, animated = false) {
 
   if (animated) ms.svg.transition().duration(500).call(ms.zoom.transform, t);
   else          ms.svg.call(ms.zoom.transform, t);
+}
+
+export function selectEdfMapCountryByName(name) {
+  const entry = Object.entries(ms.countryData).find(([, cd]) => cd.name === name);
+  if (entry) showCountry(+entry[0]);
 }
 
 export function toggleEdfMapArcs(show) {

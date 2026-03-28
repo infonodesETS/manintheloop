@@ -1,6 +1,7 @@
 'use strict';
 
 import { loadEdfCalls } from '../edf-data.js';
+import { AppState } from '../state.js';
 
 // ── EDF Overview — on-the-fly metrics from edf_calls.json ─────────────────
 
@@ -81,6 +82,7 @@ function computeMetrics(callsMap) {
         const key  = pt.pic || `${pt.organization_name}||${pt.country || ''}`;
         if (!participantMap[key]) {
           participantMap[key] = {
+            key,
             name:    pt.organization_name || '—',
             country: pt.country || '—',
             count:   0,
@@ -118,17 +120,17 @@ function computeMetrics(callsMap) {
 
 // ── Render ─────────────────────────────────────────────────────────────────
 
-function renderStatCard(val, lbl) {
-  return `<div class="stat-card"><div class="val">${val}</div><div class="lbl">${esc(lbl)}</div></div>`;
+function renderStatCard(val, lbl, tab = null) {
+  const cls = tab ? 'stat-card stat-card--link' : 'stat-card';
+  const data = tab ? ` data-nav-tab="${tab}"` : '';
+  return `<div class="${cls}"${data}><div class="val">${val}</div><div class="lbl">${esc(lbl)}</div></div>`;
 }
 
-function renderBar(label, value, max, extra = '', wide = false, href = null) {
+function renderBar(label, value, max, extra = '', wide = false, navData = null) {
   const pct = max > 0 ? Math.round(value / max * 100) : 0;
-  const labelHtml = href
-    ? `<a href="${href}" class="eo-bar-link">${esc(label)}</a>`
-    : `<span>${esc(label)}</span>`;
-  return `<div class="eo-bar-row d-flex align-items-center gap-2 mb-1${href ? ' eo-bar-row--link' : ''}">
-    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}" title="${esc(label)}">${labelHtml}</span>
+  const dataAttr = navData ? ` data-nav="${esc(JSON.stringify(navData))}"` : '';
+  return `<div class="eo-bar-row d-flex align-items-center gap-2 mb-1${navData ? ' eo-bar-row--link' : ''}"${dataAttr}>
+    <span class="eo-bar-label${wide ? ' eo-bar-label--wide' : ''}" title="${esc(label)}">${esc(label)}</span>
     <div class="prog-track flex-grow-1"><div class="prog-fill" style="width:${pct}%"></div></div>
     <span class="eo-bar-val">${value.toLocaleString()}${extra ? `<span class="eo-bar-extra"> ${extra}</span>` : ''}</span>
   </div>`;
@@ -143,14 +145,18 @@ function render(m) {
   // Row 2: Calls with Funded Projects | Budget of Calls with Funded Projects
   // Row 3: Funded Projects | Unique Participants
   const cards = [
-    renderStatCard(m.callCount.toLocaleString(), 'European Defence Fund Calls'),
+    renderStatCard(m.callCount.toLocaleString(), 'European Defence Fund Calls', 'eucalls'),
     m.budgetAvailable ? renderStatCard(fmtEuro(m.totalBudget), 'Total Allocated Budget *') : renderStatCard('—', 'Total Allocated Budget'),
-    renderStatCard(m.callsWithProjects.toLocaleString(), 'Calls with Funded Projects'),
+    renderStatCard(m.callsWithProjects.toLocaleString(), 'Calls with Funded Projects', 'eucalls'),
     renderStatCard(fmtEuro(m.totalEuContribution) || '—', 'Total EU Contribution'),
-    renderStatCard(m.fundedProjectCount.toLocaleString(), 'Funded Projects'),
-    renderStatCard(m.uniqueParticipants.toLocaleString(), 'Unique Participants'),
+    renderStatCard(m.fundedProjectCount.toLocaleString(), 'Funded Projects', 'edfbrowse'),
+    renderStatCard(m.uniqueParticipants.toLocaleString(), 'Unique Participants', 'edfbrowse'),
   ];
-  document.getElementById('eo-stats-grid').innerHTML = cards.join('');
+  const statsGrid = document.getElementById('eo-stats-grid');
+  statsGrid.innerHTML = cards.join('');
+  statsGrid.querySelectorAll('.stat-card--link[data-nav-tab]').forEach(card => {
+    card.addEventListener('click', () => AppState.navigate?.('edf', card.dataset.navTab));
+  });
 
   if (!m.hasProjectData) {
     document.getElementById('eo-rankings').innerHTML = `
@@ -160,34 +166,47 @@ function render(m) {
     return;
   }
 
-  // Country ranking
+  // Country ranking — click navigates to EDF Map focused on that country
   const maxC   = m.topCountries[0]?.[1].participants || 1;
   const ctryHtml = m.topCountries.slice(0, 20).map(([c, d]) =>
-    renderBar(c, d.participants, maxC, d.eu_total > 0 ? fmtEuro(d.eu_total) : '')
+    renderBar(c, d.participants, maxC, d.eu_total > 0 ? fmtEuro(d.eu_total) : '', false, { tab: 'edfmap', country: c })
   ).join('');
 
-  // Participant ranking — label links to EDF Beneficiaries pre-filtered by org name
+  // Participant ranking — click navigates to EDF Beneficiaries pre-filtered by org name
   const maxP   = m.topParticipants[0]?.count || 1;
-  const partHtml = m.topParticipants.map(p => {
-    const href = `?research=edf&tab=edfbrowse&search=${encodeURIComponent(p.name)}`;
-    return renderBar(p.name, p.count, maxP, p.eu_total > 0 ? fmtEuro(p.eu_total) : '', true, href);
-  }).join('');
+  const partHtml = m.topParticipants.map(p =>
+    renderBar(p.name, p.count, maxP, p.eu_total > 0 ? fmtEuro(p.eu_total) : '', true, { tab: 'edfbrowse', orgKey: p.key })
+  ).join('');
 
-  document.getElementById('eo-rankings').innerHTML = `
+  const rankingsEl = document.getElementById('eo-rankings');
+  rankingsEl.innerHTML = `
     <div class="row g-3">
       <div class="col-md-4">
         <div class="stat-card">
-          <div class="section-title">Countries by Participations</div>
+          <div class="section-title">Countries by Participations <span class="ov-stats-hint">(click to explore)</span></div>
           <div id="eo-country-bars" class="mt-2">${ctryHtml}</div>
         </div>
       </div>
       <div class="col-md-8">
         <div class="stat-card">
-          <div class="section-title">Top Participants by Projects</div>
+          <div class="section-title">Top Participants by Projects <span class="ov-stats-hint">(click to explore)</span></div>
           <div id="eo-part-bars" class="mt-2">${partHtml}</div>
         </div>
       </div>
     </div>`;
+
+  rankingsEl.querySelectorAll('.eo-bar-row--link[data-nav]').forEach(row => {
+    row.addEventListener('click', () => {
+      const nav = JSON.parse(row.dataset.nav);
+      if (nav.country) {
+        AppState.ui.edfmap.pendingCountry = nav.country;
+        AppState.navigate?.('edf', 'edfmap');
+      } else if (nav.orgKey) {
+        AppState.ui.edfbrowse.pendingOrgKey = nav.orgKey;
+        AppState.navigate?.('edf', 'edfbrowse');
+      }
+    });
+  });
 }
 
 // ── Init ───────────────────────────────────────────────────────────────────

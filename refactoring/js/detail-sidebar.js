@@ -22,9 +22,13 @@ function _open() {
   document.getElementById('entity-sidebar').classList.add('open');
 }
 
+let _closeHook = null;
+export function setSidebarCloseHook(fn) { _closeHook = fn; }
+
 export function closeEntitySidebar() {
   document.getElementById('entity-sidebar').classList.remove('open');
   const p = getParams(); delete p.company; delete p.investor; delete p.name; setParams(p);
+  if (_closeHook) { _closeHook(); _closeHook = null; }
 }
 
 export function initEntitySidebar() {

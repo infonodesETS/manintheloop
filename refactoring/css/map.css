@@ -28,7 +28,7 @@
   pointer-events: none; text-anchor: middle;
 }
 #map-panel {
-  width: var(--sl-w-inline); border-left: 1px solid var(--border);
+  width: var(--sl-w-inline); border-right: 1px solid var(--border);
   display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
   background: var(--sl-inline-bg);
 }
@@ -71,7 +71,7 @@
   pointer-events: none; text-anchor: middle;
 }
 #edfmap-panel {
-  width: var(--sl-w-inline); border-left: 1px solid var(--border);
+  width: var(--sl-w-inline); border-right: 1px solid var(--border);
   display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
   background: var(--sl-inline-bg);
 }
@@ -90,6 +90,14 @@
 .map-item-count { font-size: var(--sl-row-val-fs); color: var(--text-muted); }
 .map-item-id    { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); }
 .map-item-more  { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 4px; }
+.map-entity-name {
+  background: none; border: none; padding: 0;
+  font-size: inherit; font-family: inherit; color: var(--text-primary);
+  cursor: pointer; text-align: left;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: 1 1 0; min-width: 0;
+}
+.map-entity-name:hover { color: var(--accent); text-decoration: underline; }
 .map-no-flow    { font-size: var(--fs-xs); color: var(--text-faint); font-style: italic; padding: 4px 0 2px; }
 .edfmap-org-filter-input {
   width: 100%; box-sizing: border-box; margin: 6px 0 8px;
@@ -100,9 +108,9 @@
 .edfmap-org-filter-input:focus { border-color: var(--accent); background: var(--surface2); }
 .edfmap-org-filter-input::placeholder { color: var(--text-muted); }
 .edfmap-org-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-.edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-xs); padding: 1px 8px; cursor: pointer; }
+.edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
 .edfmap-org-meta { font-size: var(--sl-desc-fs); color: var(--dim); margin-bottom: 10px; }
-.edfmap-eu-link  { color: var(--accent); font-size: var(--fs-xs); }
+.edfmap-eu-link  { color: var(--accent); font-size: var(--fs-sm); }
 
 .edfmap-partners-row {
   display: flex;
@@ -173,9 +181,9 @@
 .map-section-hd { display: flex; align-items: center; gap: 8px; }
 
 /* ── Map / EDF Map toolbar shared classes ── */
-.map-ctrl-btn      { height: 26px; padding: 0 12px; font-size: var(--fs-xs); }
+.map-ctrl-btn      { height: 26px; padding: 0 12px; font-size: var(--fs-sm); }
 .map-filter-bar    { display: flex; align-items: center; gap: 10px; padding: 7px 14px; background: rgba(0,255,65,0.07); border-top: 1px solid rgba(0,255,65,0.3); border-bottom: 1px solid rgba(0,255,65,0.3); font-size: var(--fs-base); color: var(--accent); flex-shrink: 0; font-family: var(--font-mono); }
-.map-filter-clear  { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-xs); padding: 2px 8px; cursor: pointer; }
+.map-filter-clear  { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
 .map-filter-clear:hover { border-color: var(--accent); }
 #map-arc-toggle, #edfmap-arc-toggle { accent-color: var(--accent); }
 .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); cursor: help; white-space: nowrap; }
@@ -185,3 +193,4 @@
 [data-theme="light"] .map-filter-bar  { background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.25); }
 [data-theme="light"] .map-filter-clear { border-color: rgba(0,102,34,0.3); }
 [data-theme="light"] .edfmap-partner-tag { background: rgba(0,80,40,0.06); border-color: rgba(0,80,40,0.18); }
+[data-theme="light"] .edfmap-arc { stroke: rgba(10,80,128,0.55); }

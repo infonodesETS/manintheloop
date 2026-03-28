@@ -3,6 +3,7 @@
 import { AppState } from '../state.js';
 import { esc, sectorBadge } from '../helpers.js';
 import { getParams, setParams } from '../url.js';
+import { openCompanySidebar, openInvestorSidebar, setSidebarCloseHook } from '../detail-sidebar.js';
 
 // Wikidata country name → ISO numeric (world-atlas format)
 const WD_TO_ISO = {
@@ -118,7 +119,11 @@ export function closeMapPanel() {
   if (svg && zoom) svg.transition().duration(500).call(zoom.transform, defaultTransform || d3.zoomIdentity);
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   AppState.ui.map.g?.selectAll('.map-arc').classed('arc-dim', false);
+  const arcLayerEl = document.getElementById('map-arc-layer');
+  if (arcLayerEl) arcLayerEl.style.display = AppState.ui.map.showArcs ? '' : 'none';
   AppState.ui.map.activeFilter = null;
+  AppState.ui.map.selectedIso   = null;
+  AppState.ui.map.selectedFlows = null;
   const p = getParams(); delete p.country; setParams(p);
   setDefaultPanelContent();
 }
@@ -267,9 +272,10 @@ function drawMap(world) {
       return cd ? `${cd.name} — ${cd.companies.length} companies` : ISO_TO_NAME[iso] || `ISO ${iso}`;
     });
 
-  // Arc layer — visible by default
+  // Arc layer — hidden by default, shown on country click or toggle
   const arcLayer = mapState.g.append('g').attr('id', 'map-arc-layer');
   drawArcs(arcLayer);
+  arcLayer.style('display', 'none');
 
   // Country nodes (on top of arcs)
   const nodeLayer = mapState.g.append('g').attr('id', 'map-node-layer');
@@ -337,7 +343,8 @@ function drawMap(world) {
 
   // Click on empty SVG area → reset selection and panel
   mapState.svg.on('click', (e) => {
-    if (e.target === mapState.svg.node() || e.target.tagName === 'path' && !e.target.classList.contains('has-data')) {
+    const t = e.target;
+    if (!t.classList?.contains('has-data') && !t.classList?.contains('map-node')) {
       if (AppState.ui.map.activeFilter) clearMapFilter();
       else closeMapPanel();
     }
@@ -359,11 +366,11 @@ function drawArcs(layer) {
   const mapState = AppState.ui.map;
   if (!mapState.arcData.length) return;
   const maxW = Math.max(...mapState.arcData.map(d => d.weight), 1);
-  const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([1, 4]);
-  const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.55, 0.9]);
+  const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([1.5, 5]);
+  const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.75, 1.0]);
 
   // Defs for per-arc directional gradients (investor country → company country)
-  const arcColor = '#68ccd1';
+  const arcColor = getComputedStyle(document.documentElement).getPropertyValue('--map-arc-color').trim() || '#68ccd1';
   let defs = d3.select('#map-svg').select('defs');
   if (defs.empty()) defs = d3.select('#map-svg').insert('defs', ':first-child');
 
@@ -385,7 +392,7 @@ function drawArcs(layer) {
       .attr('x2', t[0]).attr('y2', t[1])
       .call(g => {
         g.append('stop').attr('offset', '0%')
-          .attr('stop-color', arcColor).attr('stop-opacity', 0.07);
+          .attr('stop-color', arcColor).attr('stop-opacity', 0.18);
         g.append('stop').attr('offset', '100%')
           .attr('stop-color', arcColor).attr('stop-opacity', op);
       });
@@ -458,9 +465,11 @@ function showMapCountry(iso) {
   });
   fitMapToISOs(connectedISOs);
 
-  // Show only arcs connected to this country
+  // Show outbound arcs only (this country as investor → foreign companies)
+  const arcLayerEl = document.getElementById('map-arc-layer');
+  if (arcLayerEl) arcLayerEl.style.display = '';
   AppState.ui.map.g?.selectAll('.map-arc')
-    .classed('arc-dim', d => d.src !== iso && d.tgt !== iso);
+    .classed('arc-dim', d => d.src !== iso);
 
   const sectorCount = {};
   cd.companies.forEach(c => {
@@ -499,6 +508,9 @@ function showMapCountry(iso) {
   const flowInArr  = Object.entries(flowIn);
   const flowOutArr = Object.entries(flowOut);
 
+  AppState.ui.map.selectedIso   = iso;
+  AppState.ui.map.selectedFlows = { flowIn: flowInArr, flowOut: flowOutArr };
+
   // Count investors (IV-*) headquartered in this country
   const localInvestorCount = Object.values(entityMap).filter(e => {
     if (!e.id?.startsWith('IV-')) return false;
@@ -526,31 +538,27 @@ function showMapCountry(iso) {
 
   // Build human-readable intro
   const coStr = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
-  const entityParts = [coStr];
-  if (localInvestorCount > 0) entityParts.push(localInvestorCount === 1 ? '1 investor' : `${localInvestorCount} investors`);
-  let introText = `Showing ${entityParts.join(' and ')} headquartered in ${esc(cd.name)}.`;
+  const localInvStr = localInvestorCount > 0
+    ? ` · ${localInvestorCount} local investor${localInvestorCount !== 1 ? 's' : ''}`
+    : '';
+  let introText = `${coStr}${localInvStr} headquartered in ${esc(cd.name)}.`;
 
   if (flowInArr.length > 0 || flowOutArr.length > 0) {
-    const inCount = flowInArr.length;
-    const inPart = inCount === 0
-      ? `0 investors investing in ${esc(cd.name)} from abroad (0 inbound arcs)`
-      : `${inCount} investor${inCount !== 1 ? 's' : ''} investing in ${esc(cd.name)} from abroad (${inCount} inbound arc${inCount !== 1 ? 's' : ''})`;
-
+    const inCount  = flowInArr.length;
     const outCount = flowOutArr.length;
-    let outPart;
-    if (outCount === 0) {
-      outPart = `0 investors from ${esc(cd.name)} investing abroad (0 outbound arcs)`;
-    } else {
+    const parts = [];
+    if (inCount > 0)  parts.push(`↓ ${inCount} foreign investor${inCount !== 1 ? 's' : ''} funding companies here`);
+    if (outCount > 0) {
       const destSample = outDestCountries.slice(0, 3).map(n => esc(n)).join(', ');
-      const destMore   = outDestCountries.length > 3 ? `… (${outDestCountries.length} countries)` : '';
-      outPart = `${outCount} investor${outCount !== 1 ? 's' : ''} from ${esc(cd.name)} investing abroad (${destSample}${destMore}: ${outCount} outbound arc${outCount !== 1 ? 's' : ''})`;
+      const destMore   = outDestCountries.length > 3 ? ` +${outDestCountries.length - 3} more` : '';
+      parts.push(`↑ ${outCount} from ${esc(cd.name)} investing abroad (${destSample}${destMore})`);
     }
-    introText += ` Arcs show that there are ${inPart} and ${outPart}.`;
+    introText += `<br>${parts.join(' · ')}`;
   }
 
   const renderInvestorList = (arr) => arr.slice(0, 25).map(([id, name]) => `
     <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
-      <span>${esc(name)}</span>
+      <button class="map-entity-name" data-action="openEntity" data-id="${esc(id)}" data-etype="investor">${esc(name)}</button>
       <span class="map-item-id">${id}</span>
     </div>`).join('') + (arr.length > 25 ? `<div class="map-item-more">+${arr.length - 25} more</div>` : '');
 
@@ -587,7 +595,7 @@ function showMapCountry(iso) {
       <div id="map-companies-list">
         ${cd.companies.map(c => `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
-            <span>${esc(c.name)}</span>
+            <button class="map-entity-name" data-action="openEntity" data-id="${esc(c.id)}" data-etype="company">${esc(c.name)}</button>
             ${sectorBadge(c.sector)}
           </div>`).join('')}
       </div>
@@ -633,6 +641,20 @@ function showMapCountry(iso) {
 
   document.getElementById('map-panel-body').querySelectorAll('[data-action="filterMapByEntity"]').forEach(el => {
     el.addEventListener('click', () => filterMapByEntity(el.dataset.id, iso));
+  });
+
+  document.getElementById('map-panel-body').querySelectorAll('[data-action="openEntity"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const { entityMap, investorMeta } = AppState.derived;
+      if (btn.dataset.etype === 'company') {
+        const co = entityMap[btn.dataset.id];
+        if (co) { setSidebarCloseHook(clearMapFilter); openCompanySidebar(co); }
+      } else {
+        const im = investorMeta[btn.dataset.id];
+        if (im) { setSidebarCloseHook(clearMapFilter); openInvestorSidebar(im); }
+      }
+    });
   });
 
   document.getElementById('map-panel').classList.remove('d-none');
