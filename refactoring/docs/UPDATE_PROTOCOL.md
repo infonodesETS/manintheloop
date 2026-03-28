@@ -108,6 +108,54 @@ Any script that modifies `database.json` in-place should be previewed before the
 
 ---
 
+## EDF calls refresh (`fetch_edf_bulk.py`)
+
+`scripts/fetch_edf_bulk.py` fetches all EDF calls + funded projects + participants from the EU Participant Portal API and writes `data/edf_calls.json`. Unlike `database.json`, this file is **fully generated** — no history entries, no IDs to protect, fully regenerable from the API. No backup/restore protocol is required.
+
+### Modes
+
+| Mode | Command | What it does |
+|---|---|---|
+| Full | `python3 scripts/fetch_edf_bulk.py` | Phase 1: re-fetches all call identifiers + metadata from the API; merges with existing project data (preserving it). Phase 2: fetches project details for **all** calls. Slow — budget several hours for 201 calls. |
+| `--update` | `python3 scripts/fetch_edf_bulk.py --update` | Skips Phase 1 (uses existing call list). Re-checks only calls where `projects is None` or `status` contains `open`/`forthcoming`. Fast. |
+| `--reenrich` | `python3 scripts/fetch_edf_bulk.py --reenrich` | Skips Phase 1. Re-fetches project details for all calls that already have projects. Use after script changes or to refresh participant/budget data. |
+| `--limit N` | add `--limit N` to any mode | Stops Phase 2 after N calls. Useful for testing API availability before a full run. |
+
+### Which mode to use
+
+- **Routine refresh** (checking for new awards on known calls): `--update`. Only useful when some calls have `status: open/forthcoming` or `projects: None`.
+- **Checking for new calls** (new EDF programme year published): full mode. Phase 1 re-fetches the identifier list and picks up new calls.
+- **After a long gap** (months): full mode, to get fresh metadata for all calls.
+- **Testing only** (verifying API is up): `--limit 5` (runs full mode, limited to 5 calls in Phase 2).
+
+### Constraint: `--update` relies on `status` field
+
+`--update` uses the `status` field (`open`, `forthcoming`, `closed`) to decide which calls to re-check. If the API returns empty status values — which can happen depending on query format — all statuses resolve to `""` and `--update` finds nothing to do. In that case, fall back to full mode or `--reenrich`.
+
+> Observed 2026-03-28: after a `--limit 5` full-mode test run, all 201 call statuses were `""`. `--update` would have found 0 calls to re-check. The `--limit 5` run had already refreshed the call identifier list, confirmed no new calls since March 15, and preserved all project data — so the file was effectively current.
+
+### Merge behaviour
+
+In full mode, Phase 1 fetches fresh call metadata but **preserves existing `projects` and `_projects_fetched_at`** from the prior file. Existing project data is never deleted. Phase 2 then re-fetches project details only for calls in scope (all calls in full mode, subset in `--update`/`--reenrich`).
+
+### When to run
+
+- After new EDF programme calls open (typically mid-year)
+- After new project awards are published (check EU Funding & Tenders portal)
+- Periodically (every 1–2 months) to pick up finalised budgets for recent projects
+
+### Commit message format
+
+```
+data: refresh edf_calls.json — <N> calls, <N> with awards, <N> projects, <N> participants (YYYY-MM-DD)
+
+<brief note on what changed vs prior snapshot>
+
+Script: scripts/fetch_edf_bulk.py [--update | --reenrich | full]
+```
+
+---
+
 ## Batch Crunchbase re-scrape reconciliation
 
 When a new full scrape is available (new date key in legacy format), follow these steps:
