@@ -25,6 +25,54 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — Wikidata enrichment refresh; UPDATE_PROTOCOL additions
+
+### Changed — `data/database.json`
+
+Ran `scripts/enrich_wikidata.py` to refresh `sources.wikidata` for all 145 company entities with a confirmed `wikidata_id`. 26 entities updated, 119 unchanged, 0 failures. `_updated` bumped to 2026-03-28. All 8 `validate.py` checks passed.
+
+Notable field-level changes:
+
+| Entity | Field | Old | New |
+|---|---|---|---|
+| IN-0032 CASIC | country | `China` | `People's Republic of China` |
+| IN-0034 China Aerospace S&T | country | `China` | `People's Republic of China` |
+| IN-0035 China Minmetals | country | `China` | `People's Republic of China` |
+| IN-0037 China Shenhua Energy | country | `China` | `People's Republic of China` |
+| IN-0038 Chinalco (Gallium) | country | `China` | `People's Republic of China` |
+| IN-0039 Chinalco Rare Earth | country | `China` | `People's Republic of China` |
+| IN-0047 CSSC | country | `China` | `People's Republic of China` |
+| IN-0065 Ganfeng Lithium | country | `China` | `People's Republic of China` |
+| IN-0066 GCL Technology | country | `China` | `People's Republic of China` |
+| IN-0114 Norincogroup | country | `China` | `People's Republic of China` |
+| IN-0139 Shenghe Resources | country | `China` | `People's Republic of China` |
+| IN-0159 Vital Materials | country | `China` | `People's Republic of China` |
+| IN-0162 Xinte Energy | country | `China` | `People's Republic of China` |
+| IN-0164 Zhuzhou Smelter Group | country | `China` | `People's Republic of China` |
+| IN-0165 Zijin Mining | country | `China` | `People's Republic of China` |
+| IN-0024 BAE Systems | instance_of | `public company, business` | added `aerospace manufacturer` |
+| IN-0050 Dassault Aviation | instance_of | `organization` | `aerospace manufacturer` |
+| IN-0096 Lockheed Martin | instance_of | removed `business, enterprise` | upstream Wikidata cleanup |
+| IN-0115 Northrop Grumman | instance_of | removed `business, enterprise, organization` | upstream Wikidata cleanup |
+| IN-0157 Uralvagonzavod | instance_of | added `joint-stock company` | — |
+| IN-0091 Kongsberg | employees | `11000` | `14994` |
+| IN-0094 Leonardo | employees | `60468` | `62762` |
+| IN-0041 Coal India | label/description/aliases | `Coal India Limited` / `company` | `Coal India` / `Indian state-owned company` |
+| IN-0021 ASML | wikipedia_url | `…/ASML%20Holding` | `…/ASML` |
+| IN-0071 Helsing | official_website | `https://helsing.ai/` | `https://helsing.ai/de` (locale URL — noted; canonical root preferred) |
+| IN-0071 Helsing | instance_of | `company, GmbH` | `software company, group of companies, company` |
+| IN-0116 NVIDIA | aliases | included `NVDA` | `NVDA` removed (upstream Wikidata edit) |
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Three additions to formalise the script-execution workflow:
+
+- **Guiding principle #6** — `sources.wikidata` is a script-managed cache; never edit manually. Correct upstream on Wikidata or record in `sources.infonodes`.
+- **Safe script execution section** — backup → run → compare → restore → confirm → re-run protocol for any in-place script; note that `.bak` must never be committed.
+- **Wikidata enrichment re-run section** — documents script scope (companies only), full-block overwrite semantics, review checklist (country labels, `instance_of` pruning, locale URLs, employee counts), and commit message format.
+
+---
+
 ## [2026-03-28] — data-issues.md #5 partial progress; #6 resolved
 
 **Source:** `data-issues.md` #5, #6
