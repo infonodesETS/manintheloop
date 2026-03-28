@@ -1,8 +1,10 @@
 # CHANGELOG — refactoring/
 
-> **Note on versioning**: `refactoring/` is intentionally excluded from the parent repository's git tracking (listed in `.gitignore`). It is the active development branch of the Manintheloop explorer. This file serves as a manual changelog to track changes, decisions, and state — replacing git history for this directory.
+> **Note on versioning**: `refactoring/` is tracked in the single `infonodesETS/manintheloop` git repository. Two branches:
+> - `main` — production; deployed via GitHub Pages at `https://infonodesets.github.io/manintheloop/`
+> - `dev` — active development; merged into `main` when features stabilise
 >
-> When features stabilise they may be promoted to the parent (production) repository.
+> This file is the human-readable change log for `refactoring/`. It complements git history with context, decisions, and data provenance that commit messages alone cannot capture.
 
 > **Rule for AI assistants**: Every resolved issue from `issues.md` must produce a dated entry here. Data gap issues moved to `data-issues.md` must also be recorded here. No issue is closed without a CHANGELOG entry.
 

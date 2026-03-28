@@ -2,7 +2,7 @@
 
 Standalone web application for exploring the defence supply chain, European Defence Fund landscape, and related entity/investment data. Lives entirely inside `refactoring/` with no dependency on any other tool in the repository.
 
-> **Development status**: active development branch. Changes tracked in [`CHANGELOG.md`](./CHANGELOG.md). When features stabilise they are promoted to the parent (production) repository.
+> **Development status**: active development on `dev` branch. Changes tracked in [`CHANGELOG.md`](./CHANGELOG.md). Merged to `main` when stable — `main` is deployed via GitHub Pages at `https://infonodesets.github.io/manintheloop/`.
 > **Build status**: Under Construction — UI and data subject to change. Known issues documented in [`docs/data-issues.md`](./docs/data-issues.md).
 
 ---
