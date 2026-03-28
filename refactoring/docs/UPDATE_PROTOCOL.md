@@ -9,7 +9,7 @@ This document defines the rules for updating `database.json` when new data is av
 ## Guiding principles
 
 1. **IDs are permanent.** Once assigned, `IN-NNNN`, `IV-NNNN`, and `REL-NNNN` IDs must never be reused or reassigned.
-2. **History is append-only.** Never delete or modify existing history entries.
+2. **History is append-only.** Never delete existing history entries. Modification of an existing entry is only permitted to **add missing provenance** to auto-generated descriptions (e.g. vague migrate.py entries like "Extracted from investor strings during migration") — in this case the description may be expanded with raw source details. No information may be removed.
 3. **Validation survives updates.** Existing `validation[]` entries are preserved; new ones may be appended.
 4. **IDs are assigned alphabetically.** New entities get the next available sequential ID in their class.
 5. **Full provenance is required.** Every history entry must be traceable back to its raw source. This means:

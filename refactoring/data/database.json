@@ -1140,7 +1140,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Amazon' from the CSV raw data (row: 'Amazon', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0010 for it. Crunchbase listed Amazon as one of its own Top 5 investors, which is a data artefact. This also generated the self-referencing REL-0017 (Amazon → Amazon), later removed as spurious (2026-03-28)."
         },
         {
           "date": "2026-03-17",
@@ -1225,7 +1225,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate entity IV-0010 into this record"
+          "description": "Merged duplicate IV-0010 ('Amazon', investor entity) into this record. Raw provenance: CSV row 'Amazon', fields 'Top 5 Investors'/'Lead Investors', value 'Amazon' — Crunchbase listed Amazon as its own investor (data artefact). migrate.py created IV-0010 as a separate investor entity, not recognising IN-0010 already existed. REL-0017 (self-reference) deleted. Confirmed same entity (Amazon Inc, Q3884) via shared wikidata_id Q3884."
         },
         {
           "date": "2026-03-28",
@@ -3721,7 +3721,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'BHP' from the CSV raw data (row: 'KoBold Metals', field: 'Top 5 Investors') and created a separate investor entity IV-0031 for it, not recognising BHP (IN-0029) already existed as a company entity."
         },
         {
           "date": "2026-03-17",
@@ -3806,7 +3806,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate entity IV-0031 into this record"
+          "description": "Merged duplicate IV-0031 ('BHP', investor entity) into this record. Raw provenance: CSV row 'KoBold Metals', field 'Top 5 Investors', value 'BHP'. migrate.py created IV-0031 not recognising IN-0029 (BHP company entity) already existed. Confirmed same entity (BHP Group, Q625713) via shared wikidata_id Q625713. REL-0144 (BHP → KoBold Metals) redirected to IN-0029."
         },
         {
           "date": "2026-03-28",
@@ -12979,7 +12979,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Ma’aden' from the CSV raw data (row: 'Vale', field: 'Top 5 Investors') and created a separate investor entity IV-0151 for it, not recognising Ma’aden (IN-0098) already existed as a company entity. Note: CSV uses straight apostrophe (Ma'aden); database uses curly apostrophe (Ma’aden)."
         },
         {
           "date": "2026-03-17",
@@ -13024,7 +13024,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate entity IV-0151 into this record"
+          "description": "Merged duplicate IV-0151 ('Ma’aden', investor entity) into this record. Raw provenance: CSV row 'Vale', field 'Top 5 Investors', value 'Ma’aden'. migrate.py created IV-0151 not recognising IN-0098 (Ma’aden company entity) already existed. Confirmed same entity (Ma’aden, Q6721006) via shared wikidata_id Q6721006. REL-0290 (Ma’aden → Vale) redirected to IN-0098."
         },
         {
           "date": "2026-03-28",
@@ -13595,7 +13595,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Microsoft' from the CSV raw data (row: 'Apple', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0153 for it, not recognising Microsoft (IN-0102) already existed as a company entity."
         },
         {
           "date": "2026-03-17",
@@ -13680,7 +13680,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate entity IV-0153 into this record"
+          "description": "Merged duplicate IV-0153 ('Microsoft', investor entity) into this record. Raw provenance: CSV row 'Apple', fields 'Top 5 Investors'/'Lead Investors', value 'Microsoft'. migrate.py created IV-0153 not recognising IN-0102 (Microsoft company entity) already existed. Confirmed same entity (Microsoft, Q2283) via shared wikidata_id Q2283. REL-0038 (Microsoft → Apple) redirected to IN-0102."
         },
         {
           "date": "2026-03-28",
@@ -19822,7 +19822,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Tianqi Lithium' from the CSV raw data (row: 'Sociedad Quimica Y Minera (SQM)', fields: 'Top 5 Investors' and 'Lead Investors') and created a separate investor entity IV-0221 for it, not recognising Tianqi Lithium (IN-0149) already existed as a company entity."
         },
         {
           "date": "2026-03-17",
@@ -19907,7 +19907,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate entity IV-0221 into this record"
+          "description": "Merged duplicate IV-0221 ('Tianqi Lithium', investor entity) into this record. Raw provenance: CSV row 'Sociedad Quimica Y Minera (SQM)', fields 'Top 5 Investors'/'Lead Investors', value 'Tianqi Lithium'. migrate.py created IV-0221 not recognising IN-0149 (Tianqi Lithium company entity) already existed. Confirmed same entity (Tianqi Lithium, Q55635834) via shared wikidata_id Q55635834. REL-0251 (Tianqi Lithium → SQM) redirected to IN-0149."
         },
         {
           "date": "2026-03-28",
@@ -24502,7 +24502,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Citi' from the CSV raw data (CSV rows 'Tesla' and 'Oracle', field 'Top 5 Investors', value 'Citi') and created investor entity IV-0052 for it."
         },
         {
           "date": "2026-03-14",
@@ -24511,7 +24511,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted the string 'Citibank' from the CSV raw data (CSV row 'Sigma Lithium', field 'Top 5 Investors', value 'Citibank') and created a separate investor entity IV-0053 for it, not recognising 'Citi' (IV-0052) already existed as the same entity."
         },
         {
           "date": "2026-03-17",
@@ -24556,7 +24556,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate IV-0053 ('Citibank') into this record. Evidence: both entities shared wikidata_id Q857063 (Citibank), confirmed via Playwright Wikidata search. 'Citi' and 'Citibank' are the same entity — different name forms used in the Crunchbase source. REL-0247 (Citibank -> Sigma Lithium) redirected here."
+          "description": "Merged duplicate IV-0053 ('Citibank') into this record. Raw provenance of IV-0052: CSV rows 'Tesla' and 'Oracle', field 'Top 5 Investors', value 'Citi'. Raw provenance of IV-0053: CSV row 'Sigma Lithium', field 'Top 5 Investors', value 'Citibank'. Both 'Citi' and 'Citibank' refer to the same entity (Citibank, Q857063), confirmed via Playwright Wikidata search — both shared wikidata_id Q857063. REL-0247 (Citibank → Sigma Lithium) redirected to IV-0052."
         }
       ],
       "validation": [
@@ -26685,7 +26685,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted 'General American Investors Company' from the CSV raw data (row: 'Broadcom', field: 'Top 5 Investors', raw value: 'General American Investors Company,Inc'). The comma in the raw string caused migrate.py to split it into two tokens: 'General American Investors Company' (this entity, IV-0097) and 'Inc' (IV-0122, a parse error). IV-0122 was later deleted and REL-0067 removed (2026-03-28)."
         },
         {
           "date": "2026-03-17",
@@ -27654,7 +27654,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py created investor entity IV-0117 ('HTGF') as an abbreviated form of the investor string found in the CSV raw data (CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)'). The full-name form 'HTGF (High-Tech Gruenderfonds)' was also created separately as IV-0118, resulting in a duplicate."
         },
         {
           "date": "2026-03-14",
@@ -27663,7 +27663,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Extracted from investor strings during migration"
+          "description": "migrate.py extracted 'HTGF (High-Tech Gruenderfonds)' from the CSV raw data (CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)') and created investor entity IV-0118 for it — a duplicate of IV-0117 ('HTGF') already created from the same source string."
         },
         {
           "date": "2026-03-17",
@@ -27708,7 +27708,7 @@
           "field": "*",
           "old": null,
           "new": null,
-          "description": "Merged duplicate IV-0118 ('HTGF (High-Tech Gruenderfonds)') into this record. Evidence: both entities shared wikidata_id Q1617690; IV-0118 is the full-name form of the same German early-stage VC fund (High-Tech Gründerfonds). REL-0005 (HTGF (High-Tech Gruenderfonds) -> Alpine Eagle) redirected here."
+          "description": "Merged duplicate IV-0118 ('HTGF (High-Tech Gruenderfonds)') into this record. Raw provenance of both entities: CSV row 'Alpine Eagle', field 'Top 5 Investors', value 'HTGF (High-Tech Gruenderfonds)'. migrate.py created IV-0117 ('HTGF') as an abbreviation and IV-0118 as the full form from the same CSV string — resulting in two separate investor entities for the same fund. Confirmed same entity (High-Tech Gründerfonds, Q1617690) via shared wikidata_id Q1617690. REL-0005 (HTGF (High-Tech Gruenderfonds) → Alpine Eagle) redirected to IV-0117."
         }
       ],
       "validation": [
