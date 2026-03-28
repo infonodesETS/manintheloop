@@ -17,6 +17,11 @@ This document defines the rules for updating `database.json` when new data is av
    - Specify the **exact row/field/value** that originated the data (e.g. `CSV row 'Hensoldt', field 'Top 5 Investors', value 'Leonardo Company'`)
    - When data is corrected or merged, reference both the **original raw entry** and the **evidence used** to confirm the change (e.g. Wikidata URL, Playwright search result)
    - Users must be able to reconstruct the full data lineage from raw source to current state by reading the history.
+6. **Every data change must produce a dedicated git commit.** A commit that modifies `database.json` must:
+   - Be **atomic** — one logical change per commit (e.g. one merge, one normalisation pass, one batch field update). Do not bundle unrelated data edits into a single commit.
+   - Include a **commit message** that names the entities affected, the fields changed, and the reason (e.g. `data: normalise country fields — IN-0059, IN-0131, IN-0143, IV-0088`).
+   - The git log thus serves as an **external audit trail** independent of the in-JSON history. If the two ever diverge, the git log is the tiebreaker for when a change was made.
+   - Run `validate.py` and confirm all 8 checks pass **before** committing. A commit that breaks validation must never be pushed.
 
 ---
 

@@ -41,11 +41,11 @@ ARX Robotics, Advanced Middle East Systems (AMES), Alcoa Warrick (US subsidiary)
 
 ---
 
-## #5 Investors — Missing Wikidata IDs (105/242)
+## #5 Investors — Missing Wikidata IDs (103/240)
 
 **Status:** Known limitation
 
-105 out of 242 investor entities have no `wikidata_id`. These fall into categories that are unlikely to be resolved without manual research:
+103 out of 240 investor entities have no `wikidata_id`. These fall into categories that are unlikely to be resolved without manual research:
 
 - **Niche VC funds** with no Wikidata entry (Air Street Capital, Akkadian Ventures, BSV Ventures, Coinvest Capital, Creator Fund, GoHub Ventures, HCVC, Iberis Capital, JME Ventures, K Fund, Keen Venture Partners, Marathon Venture Capital, Nebular, Robin Capital, Sahsen Ventures, Shape VC, Silicon Roundabout Ventures, SNÖ Ventures, Soma Capital, Speedinvest, Startmate, Sunfish Partners, TA Ventures, T.Capital, True Ventures, Ventura Capital, Valor Equity Partners, and others)
 - **Individual angel investors** (Chris Adelsbach, Gustav Wiberg, Gytenis Galkis, Martynas Kandzeras, Mike Oliinyk, Noam Perski, Rita Sakus, Vladas Lašas)
@@ -103,16 +103,16 @@ These aliases are currently normalised client-side in `js/tabs/overview.js` (`CO
 
 **Resolution path:** Standardise all country values to English common names during the next data reconciliation pass using `scripts/validate.py` or a dedicated migration script. Until then, any new chart or filter that groups by country must apply the same normalisation.
 
-**Partially resolved (2026-03-28):** All single-country aliases above were normalised directly in `database.json` with history entries. The following multi-country and ambiguous values were skipped and remain open:
+**Fully resolved (2026-03-28):** All country aliases normalised directly in `database.json` with full provenance history entries. Multi-country and ambiguous values resolved as follows:
 
-| Stored value | Entity | Notes |
-|---|---|---|
-| `Australia / UK` | TBD | Dual-country — primary country unclear |
-| `UK/Spagna` | TBD | Dual-country — primary country unclear |
-| `USA / Mexico` | TBD | Dual-country — primary country unclear |
-| `internationality` | TBD | Non-standard value — needs canonical form |
+| Old value | Entity | New value | Evidence |
+|---|---|---|---|
+| `UK/Spagna` | IN-0059 Ferroglobe | `United Kingdom` | Q125144368 — HQ London, UK incorporation |
+| `Australia / UK` | IN-0131 Rio Tinto | `United Kingdom` | Q821293 — primary legal entity is Rio Tinto plc (UK) |
+| `USA / Mexico` | IN-0143 Southern Copper Corporation | `United States` | Q7569806 — Delaware corporation, HQ Phoenix AZ |
+| `internationality` | IV-0088 European Union | `European Union` | Q458 — supranational entity; canonical geographic grouping |
 
-Also add: `Czech Rep.` → `Czech Republic` was normalised; `UK` → `United Kingdom` was normalised.
+Also: `Czech Rep.` → `Czech Republic` and `UK` → `United Kingdom` were normalised (2026-03-28).
 
 ---
 

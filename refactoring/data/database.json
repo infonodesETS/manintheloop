@@ -7698,7 +7698,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "UK/Spagna",
+          "country": "United Kingdom",
           "tax_id": "ESA15003666 (VAT)",
           "main_focus": "Silicon",
           "wikipedia_url": null
@@ -7765,6 +7765,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q125144368)",
           "description": "sources.wikidata populated from Wikidata API (Q125144368)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "UK/Spagna",
+          "new": "United Kingdom",
+          "description": "Country normalised to English canonical form. Wikidata Q125144368 confirms country = United Kingdom (HQ London). Raw CSV field 'Country' not present — infonodes country was set during initial data entry as 'UK/Spagna' (bilingual). Normalised to match sources.wikidata.country."
         }
       ],
       "validation": [
@@ -17465,7 +17474,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "Australia / UK",
+          "country": "United Kingdom",
           "tax_id": "96 004 458 404 (ABN)",
           "main_focus": "Iron Ore, Aluminum, Copper, and Lithium. | Lithium | Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)"
@@ -17526,6 +17535,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q821293)",
           "description": "sources.wikidata populated from Wikidata API (Q821293)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "Australia / UK",
+          "new": "United Kingdom",
+          "description": "Country normalised to English canonical form. Wikidata Q821293 lists both Australia and United Kingdom; Rio Tinto plc is incorporated in the United Kingdom (primary legal entity). sources.wikidata.country already set to 'United Kingdom' by enrich_wikidata.py. Dual-country value resolved to primary incorporation country."
         }
       ],
       "validation": [
@@ -18969,7 +18987,7 @@
         "infonodes": {
           "extracted_at": "2026-03-07",
           "sector": "Mining",
-          "country": "USA / Mexico",
+          "country": "United States",
           "tax_id": "13-3849074 (EIN)",
           "main_focus": "One of the world's largest Copper producers. | Copper",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Southern_Copper_Corporation"
@@ -19028,6 +19046,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q7569806)",
           "description": "sources.wikidata populated from Wikidata API (Q7569806)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": "USA / Mexico",
+          "new": "United States",
+          "description": "Country normalised to English canonical form. Wikidata Q7569806 confirms country = United States (Delaware corporation, HQ Phoenix AZ, NYSE: SCCO). Sources.wikidata.country already set to 'United States' by enrich_wikidata.py. Dual-country value resolved to country of incorporation."
         }
       ],
       "validation": [
@@ -26278,7 +26305,7 @@
             "supranational union",
             "confederation"
           ],
-          "country": "internationality",
+          "country": "European Union",
           "inception": "1993-11-01",
           "headquarters": "Brussels",
           "official_website": "https://european-union.europa.eu/",
@@ -26314,6 +26341,15 @@
           "old": null,
           "new": "Wikidata data retrieved (Q458)",
           "description": "sources.wikidata populated from Wikidata API (Q458)"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.wikidata.country",
+          "old": "internationality",
+          "new": "European Union",
+          "description": "Country normalised from non-standard value 'internationality'. The European Union (Q458) is a supranational entity; the Wikidata API returned 'internationality' as the country property. Set to 'European Union' as the canonical geographic grouping for UI display purposes."
         }
       ],
       "validation": [],
