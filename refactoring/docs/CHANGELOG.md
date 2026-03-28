@@ -25,6 +25,76 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-28] — EDF calls refresh; UPDATE_PROTOCOL EDF section added
+
+### Changed — `data/edf_calls.json`
+
+Ran `scripts/fetch_edf_bulk.py` (full mode, `--limit 5` test then full identifier refresh). Re-fetched all 201 call identifiers from the EU Participant Portal API. No new calls found since the March 15 snapshot. All existing project data preserved.
+
+| Stat | Value |
+|---|---|
+| Total calls | 201 |
+| Calls with funded projects | 64 |
+| Total projects | 78 |
+| Total participants | 1657 |
+| `_generated_at` | 2026-03-28 |
+
+**Constraint observed:** after the full-mode identifier refresh, all 201 call `status` fields were `""` (API returned empty). This means `--update` mode would find 0 calls to re-check (it relies on `status: open/forthcoming` or `projects: None`). Documented in UPDATE_PROTOCOL.
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Added `fetch_edf_bulk.py` section covering all four run modes, the `--update` status-field constraint, merge behaviour, when-to-run guidance, and commit message format.
+
+---
+
+## [2026-03-28] — Wikidata enrichment refresh; UPDATE_PROTOCOL additions
+
+### Changed — `data/database.json`
+
+Ran `scripts/enrich_wikidata.py` to refresh `sources.wikidata` for all 145 company entities with a confirmed `wikidata_id`. 26 entities updated, 119 unchanged, 0 failures. `_updated` bumped to 2026-03-28. All 8 `validate.py` checks passed.
+
+Notable field-level changes:
+
+| Entity | Field | Old | New |
+|---|---|---|---|
+| IN-0032 CASIC | country | `China` | `People's Republic of China` |
+| IN-0034 China Aerospace S&T | country | `China` | `People's Republic of China` |
+| IN-0035 China Minmetals | country | `China` | `People's Republic of China` |
+| IN-0037 China Shenhua Energy | country | `China` | `People's Republic of China` |
+| IN-0038 Chinalco (Gallium) | country | `China` | `People's Republic of China` |
+| IN-0039 Chinalco Rare Earth | country | `China` | `People's Republic of China` |
+| IN-0047 CSSC | country | `China` | `People's Republic of China` |
+| IN-0065 Ganfeng Lithium | country | `China` | `People's Republic of China` |
+| IN-0066 GCL Technology | country | `China` | `People's Republic of China` |
+| IN-0114 Norincogroup | country | `China` | `People's Republic of China` |
+| IN-0139 Shenghe Resources | country | `China` | `People's Republic of China` |
+| IN-0159 Vital Materials | country | `China` | `People's Republic of China` |
+| IN-0162 Xinte Energy | country | `China` | `People's Republic of China` |
+| IN-0164 Zhuzhou Smelter Group | country | `China` | `People's Republic of China` |
+| IN-0165 Zijin Mining | country | `China` | `People's Republic of China` |
+| IN-0024 BAE Systems | instance_of | `public company, business` | added `aerospace manufacturer` |
+| IN-0050 Dassault Aviation | instance_of | `organization` | `aerospace manufacturer` |
+| IN-0096 Lockheed Martin | instance_of | removed `business, enterprise` | upstream Wikidata cleanup |
+| IN-0115 Northrop Grumman | instance_of | removed `business, enterprise, organization` | upstream Wikidata cleanup |
+| IN-0157 Uralvagonzavod | instance_of | added `joint-stock company` | — |
+| IN-0091 Kongsberg | employees | `11000` | `14994` |
+| IN-0094 Leonardo | employees | `60468` | `62762` |
+| IN-0041 Coal India | label/description/aliases | `Coal India Limited` / `company` | `Coal India` / `Indian state-owned company` |
+| IN-0021 ASML | wikipedia_url | `…/ASML%20Holding` | `…/ASML` |
+| IN-0071 Helsing | official_website | `https://helsing.ai/` | `https://helsing.ai/de` (locale URL — noted; canonical root preferred) |
+| IN-0071 Helsing | instance_of | `company, GmbH` | `software company, group of companies, company` |
+| IN-0116 NVIDIA | aliases | included `NVDA` | `NVDA` removed (upstream Wikidata edit) |
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Three additions to formalise the script-execution workflow:
+
+- **Guiding principle #6** — `sources.wikidata` is a script-managed cache; never edit manually. Correct upstream on Wikidata or record in `sources.infonodes`.
+- **Safe script execution section** — backup → run → compare → restore → confirm → re-run protocol for any in-place script; note that `.bak` must never be committed.
+- **Wikidata enrichment re-run section** — documents script scope (companies only), full-block overwrite semantics, review checklist (country labels, `instance_of` pruning, locale URLs, employee counts), and commit message format.
+
+---
+
 ## [2026-03-28] — data-issues.md #5 partial progress; #6 resolved
 
 **Source:** `data-issues.md` #5, #6
@@ -401,7 +471,7 @@ Reading content bumped from `--fs-sm` → `--fs-base`: `.cs-hist-desc`, `.cs-src
 - Added `#tab-company-search` tab pane with `class="tab-pane scrollable"`.
 - Intro: added Company Search as area `01 /` (Supply Chain→02, EDF→03, Data&About→04); added `→ Company Search` CTA button as first item in `intro-cta-row`.
 
-### Changed — `entity-profile.html`
+### Changed — `entity-profile.html` _(deleted 2026-03-28 — superseded by Company Search tab)_
 
 - Added all previously missing schema fields: infonodes source block, Tags card, `primary_industry` as link, `OTHER_RELS` non-investment relationships section, history old→new diff rendering, validation author/datestamp, Wikidata label row.
 - File kept as standalone page; unlinked from main nav (routing is via `?research=company-search&entity=ID`).
@@ -547,11 +617,11 @@ Token system section updated to reflect new `--lh-*` tokens and `--sl-*` alias s
 
 ### Changed — `js/tabs/edfmap.js`
 
-- `ms`: aggiunto `rawCallsMap` per accesso ai dati raw dei progetti
-- `buildData`: salva `callsMap` in `ms.rawCallsMap`
-- Aggiunto helper `fmtDate(s)`
-- `filterByOrg`: rendering progetti sostituito con struttura identica a EDF Beneficiaries — `eb-proj-item--clickable`, `eb-proj-header` (caret, acronym, title, role badge, status, `↗`), `eb-proj-meta` (call_id, EU contrib, date), `eb-proj-detail` (dropdown con Call title, Total budget, Participants, Objective); lookup raw project via `ms.rawCallsMap[callId].projects.find(r => r.acronym === projAcronym)`
-- Aggiunto click delegation su `panelBody` per toggle `eb-proj-detail.open` e rotazione caret
+- `ms`: added `rawCallsMap` for access to raw project data
+- `buildData`: stores `callsMap` in `ms.rawCallsMap`
+- Added `fmtDate(s)` helper
+- `filterByOrg`: project rendering replaced with structure identical to EDF Beneficiaries — `eb-proj-item--clickable`, `eb-proj-header` (caret, acronym, title, role badge, status, `↗`), `eb-proj-meta` (call_id, EU contrib, date), `eb-proj-detail` (dropdown with Call title, Total budget, Participants, Objective); raw project lookup via `ms.rawCallsMap[callId].projects.find(r => r.acronym === projAcronym)`
+- Added click delegation on `panelBody` to toggle `eb-proj-detail.open` and rotate caret
 
 ### Source
 Screenshot: `edfmap-proj-dropdown.png`
@@ -562,13 +632,13 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/edfmap.js`
 
-- Nuova funzione `renderPartnersRow(iso, orgKeys)`: calcola i paesi partner dagli `orgProjectsMap` degli org visibili; li ordina per conteggio progetti condivisi; renderizza chip inline in `#edfmap-partners-row`
-- `showCountry`: aggiunta sezione "Partner Countries" con `#edfmap-partners-row` sopra la lista org; chiamata iniziale con tutti gli org del paese
-- Filtro org (`edfmap-org-filter`): oltre a nascondere le righe, raccoglie i `visibleKeys` e chiama `renderPartnersRow` — i partner countries si aggiornano in tempo reale mostrando solo i paesi connessi alle org filtrate
+- New `renderPartnersRow(iso, orgKeys)` function: computes partner countries from `orgProjectsMap` of visible orgs; sorts by shared project count; renders inline chips in `#edfmap-partners-row`
+- `showCountry`: added "Partner Countries" section with `#edfmap-partners-row` above the org list; initial call uses all orgs for the country
+- Org filter (`edfmap-org-filter`): in addition to hiding rows, collects `visibleKeys` and calls `renderPartnersRow` — partner countries update in real time showing only countries connected to filtered orgs
 
 ### Changed — `css/map.css`
 
-- Aggiunte: `.edfmap-partners-row` (flex wrap, gap 5px), `.edfmap-partner-tag` (chip teal border-radius), `.edfmap-partner-count` (mono accent), `.edfmap-partner-none`
+- Added: `.edfmap-partners-row` (flex wrap, gap 5px), `.edfmap-partner-tag` (chip teal border-radius), `.edfmap-partner-count` (mono accent), `.edfmap-partner-none`
 
 ### Source
 `japi-issues.md` #15 → resolved. Screenshot: `15-edfmap-italy-partners.png`, `15-edfmap-italy-partners-filtered.png`
@@ -581,12 +651,12 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 - All row content (`eb-org-name`, `eb-org-type`, `eb-country-tag`, `eb-num`, `eb-dim`, `eb-coord-badge`, `eb-caret-cell`) → `var(--fs-body)`
 - All proj item content (`eb-proj-acronym`, `eb-proj-title`, `eb-role-badge`, `eb-proj-status`, `eb-proj-meta`, `eb-proj-caret`, `eb-proj-count`, `eb-ext-link`, `eb-det-row`, `eb-det-lbl`, `eb-det-val`, `eb-det-objective`) → `var(--fs-body)`
-- `.eb-det-rows-inline`: nuova classe wrapper — le tre righe (Call | Total budget | Participants) rese inline con separatore `|` via `::before`
-- `.eb-ext-link`: `↗` link restyled — background `var(--accent)`, colore `#000`, bold, `font-size: 1.2rem`, border-radius 3px
+- `.eb-det-rows-inline`: new wrapper class — the three rows (Call | Total budget | Participants) rendered inline with `|` separator via `::before`
+- `.eb-ext-link`: `↗` link restyled — background `var(--accent)`, color `#000`, bold, `font-size: 1.2rem`, border-radius 3px
 
 ### Changed — `js/tabs/edfbrowse.js`
 
-- `buildDrawer`: righe inline (Call, Total budget, Participants) wrappate in `eb-det-rows-inline`; objective resta sotto separata
+- `buildDrawer`: inline rows (Call, Total budget, Participants) wrapped in `eb-det-rows-inline`; objective remains below separately
 
 ---
 
@@ -594,12 +664,12 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/edfbrowse.js`
 
-- `buildDrawer`: ogni `eb-proj-item` ora pre-genera un `eb-proj-detail` con dati dall'lookup in `rawCallsMap` — Call title, Total budget, Participants count, Objective (max 160px scroll); aggiunto `eb-proj-caret` (›) nell'header; classe `eb-proj-item--clickable`
-- `initEdfbrowse`: aggiunto click handler per delega su `#edf-sidebar` — click su `eb-proj-item--clickable` toglla `eb-proj-detail.open` e ruota il caret; i link `↗` non intercettati
+- `buildDrawer`: every `eb-proj-item` now pre-generates a `eb-proj-detail` with data from `rawCallsMap` lookup — Call title, Total budget, Participants count, Objective (max 160px scroll); added `eb-proj-caret` (›) in header; class `eb-proj-item--clickable`
+- `initEdfbrowse`: added click handler delegated on `#edf-sidebar` — click on `eb-proj-item--clickable` toggles `eb-proj-detail.open` and rotates caret; `↗` links are not intercepted
 
 ### Changed — `css/edfbrowse.css`
 
-- Aggiunte: `.eb-proj-item--clickable` (cursor pointer, border-left accent su hover), `.eb-proj-caret` (rotazione 90° su `.open`), `.eb-proj-detail` (hidden → `.open` display block), `.eb-det-row` / `.eb-det-lbl` / `.eb-det-val`, `.eb-det-objective` (max-height 160px, overflow-y auto)
+- Added: `.eb-proj-item--clickable` (cursor pointer, border-left accent on hover), `.eb-proj-caret` (90° rotation on `.open`), `.eb-proj-detail` (hidden → `.open` display block), `.eb-det-row` / `.eb-det-lbl` / `.eb-det-val`, `.eb-det-objective` (max-height 160px, overflow-y auto)
 
 ### Source
 `japi-issues.md` #21 → resolved
@@ -610,16 +680,16 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/eucalls.js`
 
-- `buildComparisonTable`: nasconde la card "Comparison View" quando `yearsDisplay.length < 2` (un solo anno = niente da confrontare)
-- `projectCard`: inline styles rimossi → classi CSS dedicate: `.ec-part-role`, `.ec-part-country`, `.ec-no-participants`, `.ec-objective-scroll`; rimosso `bg-light` da `card-header`
+- `buildComparisonTable`: hides the "Comparison View" card when `yearsDisplay.length < 2` (single year = nothing to compare)
+- `projectCard`: inline styles removed → dedicated CSS classes: `.ec-part-role`, `.ec-part-country`, `.ec-no-participants`, `.ec-objective-scroll`; `bg-light` removed from `card-header`
 
 ### Changed — `index.html`
 
-- `#ec-yearsAccordion`: rimosso `class="accordion"` — il container non usa più Bootstrap accordion
+- `#ec-yearsAccordion`: removed `class="accordion"` — container no longer uses Bootstrap accordion
 
 ### Changed — `css/eucalls.css`
 
-- Aggiunte: `.ec-part-role` (`opacity:.6; font-size: var(--fs-sm)`), `.ec-part-country` (`opacity:.5; font-size: var(--fs-sm)`), `.ec-no-participants`, `.ec-objective-scroll` (`max-height:480px; overflow-y:auto`)
+- Added: `.ec-part-role` (`opacity:.6; font-size: var(--fs-sm)`), `.ec-part-country` (`opacity:.5; font-size: var(--fs-sm)`), `.ec-no-participants`, `.ec-objective-scroll` (`max-height:480px; overflow-y:auto`)
 
 ### Source
 `japi-issues.md` #17 → resolved, #20 → confirmed resolved
@@ -630,11 +700,11 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `index.html`
 
-- Label semplificata: `Topic Identifier or Call Title — try: …` → `Search EDF Calls — by title, keyword, or identifier`
+- Label simplified: `Topic Identifier or Call Title — try: …` → `Search EDF Calls — by title, keyword, or identifier`
 
 ### Changed — `js/tabs/eucalls.js`
 
-- `renderDrop`: invertito ordine — `live-label` ora mostra il titolo del call (prominente), `live-desc` mostra l'identifier + status dot + deadline (secondario)
+- `renderDrop`: order inverted — `live-label` now shows call title (prominent), `live-desc` shows identifier + status dot + deadline (secondary)
 
 ### Changed — `css/wikidata.css`
 
@@ -651,7 +721,7 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/eucalls.js`
 
-- `applyCallsList()`: aggiunta chiamata `showDropFiltered('')` dopo `acReady = true` — il dropdown dei call si apre automaticamente quando i dati sono pronti, senza richiedere click sull'input
+- `applyCallsList()`: added `showDropFiltered('')` call after `acReady = true` — the calls dropdown opens automatically when data is ready, without requiring a click on the input
 - Source: japi-issues.md #18 → resolved
 
 ---
@@ -694,12 +764,12 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Fixed — `js/tabs/map.js`
 
-- **Country alias mapping**: aggiunto supporto per nomi italiani e abbreviazioni presenti nel database (`Cile`, `Germania`, `Francia`, `Norvegia`, `Polonia`, `Belgio`, `Cina`, `Giappone`) e alias inglesi (`UK`, `USA`, `Czech Rep.`, `EAU (Dubai)`, `People's Republic of China`) in `WD_TO_ISO`
-- **ISO_TO_NAME**: ricostruito con "first-occurrence wins" (loop `for...of`) invece di `Object.fromEntries` che prendeva l'ultimo valore — ora i nomi canonici inglesi (inseriti per primi) vincono anche quando ci sono alias successivi
-- **Display names**: `cd.name` ora usa `ISO_TO_NAME[iso] || country` — tutti i paesi mostrano nomi canonici inglesi nella mappa, sidebar, tooltip (es. "Chile" non "Cile", "Germany" non "Germania")
-- **Cross-border arc pairs**: da 29 a 41 — CODELCO (Cile) ora genera archi verso UK, USA, France, Germany; altri paesi con nomi italiani/abbreviati ora inclusi correttamente
-- **Investor lookup**: `showMapCountry` ora matcha per ISO code (`WD_TO_ISO[compCountry] === iso`) invece che per stringa (`cd.name`) — robusto per tutti gli alias dello stesso paese
-- **Drill-down sidebar**: `filterMapByEntity(entityId, fromIso)` implementa sidebar a due livelli come EDF Map: click su company/investor → dettaglio entità con investors o portfolio + pulsante "← Back" che ripristina vista paese
+- **Country alias mapping**: added support for Italian names and abbreviations in database (`Cile`, `Germania`, `Francia`, `Norvegia`, `Polonia`, `Belgio`, `Cina`, `Giappone`) and English aliases (`UK`, `USA`, `Czech Rep.`, `EAU (Dubai)`, `People's Republic of China`) in `WD_TO_ISO`
+- **ISO_TO_NAME**: rebuilt with "first-occurrence wins" (`for...of` loop) instead of `Object.fromEntries` which took the last value — canonical English names (inserted first) now win even when later aliases exist
+- **Display names**: `cd.name` now uses `ISO_TO_NAME[iso] || country` — all countries show canonical English names in map, sidebar, tooltips (e.g. "Chile" not "Cile", "Germany" not "Germania")
+- **Cross-border arc pairs**: from 29 to 41 — CODELCO (Chile) now generates arcs to UK, USA, France, Germany; other countries with Italian/abbreviated names now included correctly
+- **Investor lookup**: `showMapCountry` now matches by ISO code (`WD_TO_ISO[compCountry] === iso`) instead of string (`cd.name`) — robust for all aliases of the same country
+- **Drill-down sidebar**: `filterMapByEntity(entityId, fromIso)` implements two-level sidebar like EDF Map: click on company/investor → entity detail with investors or portfolio + "← Back" button that restores country view
 - Source: japi-issues.md #6 → resolved; Playwright test: `screenshots/map-chile-arcs-fixed.png`, `screenshots/map-chile-final.png`
 
 ---
@@ -708,20 +778,20 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed / Added — `js/tabs/map.js`
 
-- **Directed arc model**: chiave da `[compISO, invISO].sort().join('-')` (non direzionale) a `invISO→compISO` — `src` = investitore, `tgt` = company; archi totali da 41 → 45 (directed pairs)
-- **SVG linearGradient per arco**: `gradientUnits="userSpaceOnUse"`, origine all'investitore (`src`) con `stop-opacity: 0.07`, destinazione alla company (`tgt`) con opacità scalata sul peso; usa `url(#gradId)` come stroke
-- **Node sizing by arc degree**: dimensione nodi proporzionale al numero di archi connessi (`arcDegree[src]++ / arcDegree[tgt]++`) via `d3.scaleSqrt` — rivela hub finanziari (Luxembourg, Saudi Arabia, Switzerland) vs concentrazioni di company
-- **CENTROID_OVERRIDES**: coordinate geografiche manuali per Francia (2.3, 46.2), Paesi Bassi (5.3, 52.1), Portogallo (-8.0, 39.5), UK (-2.0, 54.0), USA (-98.0, 39.5) — France centroid era sbagliato per i territori d'oltremare nel topojson
-- **Label zoom scaling**: sostituito `attr('font-size', ...)` con `style('font-size', ...)` nello zoom handler — il CSS `.map-label` sovrascriveva `attr()`; `baseFs / k` ridimensiona le label proporzionalmente allo zoom
-- **Capital Flowing In / Out sidebar**: sezioni separate per investitori esteri in company locali (↓ In) e investitori locali in company estere (↑ Out)
-- **Flow direction toggle filters**: checkbox "↓ In" e "↑ Out" nella sidebar country-detail; `updateArcVisibility()` applica `arc-dim` via `d.tgt === iso` (in) / `d.src === iso` (out); toggle renderizzati solo se la direzione esiste nel dataset (es. Saudi Arabia mostra solo "↑ Out")
+- **Directed arc model**: key changed from `[compISO, invISO].sort().join('-')` (undirected) to `invISO→compISO` — `src` = investor, `tgt` = company; total arcs from 41 → 45 (directed pairs)
+- **SVG linearGradient per arc**: `gradientUnits="userSpaceOnUse"`, origin at investor (`src`) with `stop-opacity: 0.07`, destination at company (`tgt`) with opacity scaled by weight; uses `url(#gradId)` as stroke
+- **Node sizing by arc degree**: node size proportional to number of connected arcs (`arcDegree[src]++ / arcDegree[tgt]++`) via `d3.scaleSqrt` — reveals financial hubs (Luxembourg, Saudi Arabia, Switzerland) vs company concentrations
+- **CENTROID_OVERRIDES**: manual geographic coordinates for France (2.3, 46.2), Netherlands (5.3, 52.1), Portugal (-8.0, 39.5), UK (-2.0, 54.0), USA (-98.0, 39.5) — France centroid was incorrect due to overseas territories in the topojson
+- **Label zoom scaling**: replaced `attr('font-size', ...)` with `style('font-size', ...)` in zoom handler — CSS `.map-label` was overriding `attr()`; `baseFs / k` rescales labels proportionally to zoom
+- **Capital Flowing In / Out sidebar**: separate sections for foreign investors in local companies (↓ In) and local investors in foreign companies (↑ Out)
+- **Flow direction toggle filters**: "↓ In" and "↑ Out" checkboxes in country-detail sidebar; `updateArcVisibility()` applies `arc-dim` via `d.tgt === iso` (in) / `d.src === iso` (out); toggles rendered only if the direction exists in the dataset (e.g. Saudi Arabia shows only "↑ Out")
 
 ### Changed — `css/map.css`
 
-- `.map-arc`: rimossi `stroke` e `stroke-opacity` (ora gestiti dal gradient SVG); transizione su `opacity` invece di `stroke-opacity`
-- `.map-arc.arc-dim`: usa `opacity: 0.06` (non `stroke-opacity`) perché gradient stroke non risponde a `stroke-opacity` sull'elemento
-- `.map-label`: rimosso `font-size` dalla regola CSS — ora controllato esclusivamente da JS via `style()`
-- Aggiunta `.map-flow-toggles` per i toggle In/Out nella sidebar
+- `.map-arc`: removed `stroke` and `stroke-opacity` (now managed by SVG gradient); transition on `opacity` instead of `stroke-opacity`
+- `.map-arc.arc-dim`: uses `opacity: 0.06` (not `stroke-opacity`) because gradient stroke does not respond to `stroke-opacity` on the element
+- `.map-label`: removed `font-size` from CSS rule — now controlled exclusively by JS via `style()`
+- Added `.map-flow-toggles` for In/Out toggles in sidebar
 
 ---
 
@@ -729,8 +799,8 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/edfmap.js`
 
-- Rimossi `d3.zoomIdentity.translate(-2926, -261).scale(3.647)` da init e da `resetEdfMapZoom()` — sostituiti con `d3.zoomIdentity`
-- La proiezione `geoNaturalEarth1` con `translate([W/2-100, H/2+50])` centra già il mondo correttamente; il transform aggiuntivo spostava la mappa sull'Asia
+- Removed `d3.zoomIdentity.translate(-2926, -261).scale(3.647)` from init and from `resetEdfMapZoom()` — replaced with `d3.zoomIdentity`
+- The `geoNaturalEarth1` projection with `translate([W/2-100, H/2+50])` already centres the world correctly; the additional transform was shifting the map to Asia
 - Source: japi-issues.md #13 → resolved
 
 ---
@@ -739,9 +809,9 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `index.html`, `css/base.css`
 
-- Aggiunto blocco `.ov-header` in `tab-overview` (Supply Chain) e `tab-edfoverview` (EDF): `intro-prompt` (comando mono) + `ov-title` (titolo grande) + `intro-desc` (testo descrittivo con glossary terms)
-- `.ov-header`: `max-width: 680px; margin: 0 auto 28px` — stesso centramento di `.intro-wrap`
-- `.ov-title`: dimensionato con `--fs-stat`, coerente con la scala tipografica esistente
+- Added `.ov-header` block to `tab-overview` (Supply Chain) and `tab-edfoverview` (EDF): `intro-prompt` (mono command) + `ov-title` (large title) + `intro-desc` (descriptive text with glossary terms)
+- `.ov-header`: `max-width: 680px; margin: 0 auto 28px` — same centring as `.intro-wrap`
+- `.ov-title`: sized with `--fs-stat`, consistent with existing typographic scale
 
 ---
 
@@ -749,15 +819,15 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `index.html`, `js/main.js`, `js/glossary.js`, `js/tabs/map.js`, `js/tabs/overview.js`, `css/map.css`, `css/components.css`
 
-- **NAV-A** — Gruppo "Data" rimosso dalla navbar. Known Issues, Data Quality, Wikidata Inspector spostati come sub-tab di "About". `GROUPS['data']` eliminato; `GROUPS['about']` ora ha `tabs: ['about','knownissues','quality','wikidata','data','glossary']`, `defaultTab: 'about'`. (japi #22 → resolved)
-- **NAV-B** — Aggiunti due nuovi sub-tab in About: "Data" (`tab-data`) con link download a `database.json` e `edf_calls.json`; "Glossary" (`tab-glossary`) con rendering dei termini da `GLOSSARY`. `glossary.js` esporta `renderGlossaryTab()`. CSS: `.gl-entry`, `.a-data-file`, `.a-data-link`, `.a-data-desc` aggiunti a `components.css`.
-- **NAV-C** — Intro area 03: `data-navigate-group` aggiornato da `data` a `about`, label "Data & About →". Brand-wip link: `?research=data` → `?research=about`.
-- **MAP-A** — Map filter bar: `applyMapFilter()` ora chiamata a fine `drawMap()` — risolve bug per cui la bar mostrava "Filtering: [x Clear]" di default (cascading CSS: `.map-filter-bar { display: flex }` sovrascriveva `.hidden { display: none }`). (japi #6 partial)
-- **MAP-B** — Map sidebar: click su company/investor aggiunge classe `.active` con stile persistente (border-left accent + background verde). Click ripetuto toglie filtro e classe. CSS `.map-co-item.clickable.active` aggiunto in `map.css`. (japi #6 partial)
-- **LG-A** — Legend: label "Legenda" → "Legend". Visibilità ristretta a `tab=graph` (prima era visibile su tutto il gruppo supply-chain). `main.js`: `group !== 'supply-chain'` → `resolvedTab !== 'graph'`.
-- **OV-A** — Supply Chain Overview: rimossa tile "Wikidata cov. X%" da `stats[]` in `overview.js`.
+- **NAV-A** — "Data" group removed from navbar. Known Issues, Data Quality, Wikidata Inspector moved as sub-tabs of "About". `GROUPS['data']` deleted; `GROUPS['about']` now has `tabs: ['about','knownissues','quality','wikidata','data','glossary']`, `defaultTab: 'about'`. (japi #22 → resolved)
+- **NAV-B** — Added two new sub-tabs in About: "Data" (`tab-data`) with download links to `database.json` and `edf_calls.json`; "Glossary" (`tab-glossary`) rendering terms from `GLOSSARY`. `glossary.js` exports `renderGlossaryTab()`. CSS: `.gl-entry`, `.a-data-file`, `.a-data-link`, `.a-data-desc` added to `components.css`.
+- **NAV-C** — Intro area 03: `data-navigate-group` updated from `data` to `about`, label "Data & About →". Brand-wip link: `?research=data` → `?research=about`.
+- **MAP-A** — Map filter bar: `applyMapFilter()` now called at end of `drawMap()` — fixes bug where bar showed "Filtering: [x Clear]" by default (cascading CSS: `.map-filter-bar { display: flex }` overrode `.hidden { display: none }`). (japi #6 partial)
+- **MAP-B** — Map sidebar: clicking a company/investor adds `.active` class with persistent style (border-left accent + green background). Repeated click removes filter and class. CSS `.map-co-item.clickable.active` added in `map.css`. (japi #6 partial)
+- **LG-A** — Legend: label "Legenda" → "Legend". Visibility restricted to `tab=graph` (previously visible across the entire supply-chain group). `main.js`: `group !== 'supply-chain'` → `resolvedTab !== 'graph'`.
+- **OV-A** — Supply Chain Overview: removed "Wikidata cov. X%" tile from `stats[]` in `overview.js`.
 - **GL-A** — `.gl-term` border-bottom: `1px` → `3px dashed`.
-- **OV-B** — Stat tile tooltip: sostituito approccio `::after` CSS (tagliato da `overflow-y: auto`) con `title` nativo su `.stat-card`. `overview.js` importa `GLOSSARY` e imposta `title` sulla card.
+- **OV-B** — Stat tile tooltip: replaced `::after` CSS approach (clipped by `overflow-y: auto`) with native `title` on `.stat-card`. `overview.js` imports `GLOSSARY` and sets `title` on the card.
 
 ### Source
 `japi-issues.md` #6 (partially resolved), #22 (resolved)
@@ -799,11 +869,11 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `js/tabs/graph.js`, `js/tabs/map.js`, `js/tabs/eucalls.js`, `css/map.css`
 
-- **G-A** — Graph: `closeGraphDetail()` ora azzera le classi `ghl` su `_nd` e `_lk`; aggiunto listener `keydown Escape` in `initGraph()` che chiama `closeGraphDetail()` quando il tab Graph è attivo
-- **M-A** — Map filter bar: resa più prominente con `background`, `border-top/bottom`, `font-size: var(--fs-base)`, `font-family: var(--font-mono)`
-- **M-B** — Map entity filter: `filterMapByEntity()` ora toglla il filtro se l'entità cliccata è già quella attiva (`activeFilter?.id === entityId` → `clearMapFilter()`)
-- **EDF-C-C** — EDF search scope: aggiunto campo `desc` in `edfCallsList` (600 char dalla descrizione); `showDropFiltered` esteso per matchare anche su `c.desc`
-- **EDF-C-F** — (coperta da EDF-C-C) ricerca per parola chiave ora trova risultati anche nelle descrizioni dei call
+- **G-A** — Graph: `closeGraphDetail()` now clears `ghl` classes on `_nd` and `_lk`; added `keydown Escape` listener in `initGraph()` that calls `closeGraphDetail()` when Graph tab is active
+- **M-A** — Map filter bar: made more prominent with `background`, `border-top/bottom`, `font-size: var(--fs-base)`, `font-family: var(--font-mono)`
+- **M-B** — Map entity filter: `filterMapByEntity()` now clears the filter if the clicked entity is already active (`activeFilter?.id === entityId` → `clearMapFilter()`)
+- **EDF-C-C** — EDF search scope: added `desc` field to `edfCallsList` (600 chars from description); `showDropFiltered` extended to match on `c.desc` as well
+- **EDF-C-F** — (covered by EDF-C-C) keyword search now finds results in call descriptions too
 
 ---
 
@@ -811,21 +881,21 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `index.html`, `js/tabs/eucalls.js`, `css/eucalls.css`
 
-- **G-C** — Graph: aggiunti `title` descrittivi ai 3 bottoni Network / Bipartite / Projection
-- **EDF-M-A** — Già fixata: `edfmap.js` aveva già `zoom.transform translate(-2926,-261) scale(3.647)`. Confermata e chiusa.
-- **EDF-C-B** — EDF Calls: placeholder aggiornato con esempi concreti (`CYBER, EDF-2023-DA-GROUND, drone…`); aggiunto hint inline sulla label
-- **EDF-C-D** — Accordion rimosso: `createAccordionItem` riscritta con `ec-year-block` statico sempre visibile; aggiunto CSS `.ec-year-header` / `.ec-year-body`
+- **G-C** — Graph: added descriptive `title` attributes to the 3 Network / Bipartite / Projection buttons
+- **EDF-M-A** — Already fixed: `edfmap.js` already had `zoom.transform translate(-2926,-261) scale(3.647)`. Confirmed and closed.
+- **EDF-C-B** — EDF Calls: placeholder updated with concrete examples (`CYBER, EDF-2023-DA-GROUND, drone…`); added inline hint on label
+- **EDF-C-D** — Accordion removed: `createAccordionItem` rewritten with static `ec-year-block` always visible; added CSS `.ec-year-header` / `.ec-year-body`
 
 ---
 
-## [2026-03-22] — Wikidata Inspector spostato in gruppo Data; Tools rimosso dalla navbar
+## [2026-03-22] — Wikidata Inspector moved to Data group; Tools removed from navbar
 
 ### Changed — `index.html`, `js/main.js`
 
-- Rimosso gruppo "Tools" dalla group nav e dal sub-nav
-- Wikidata Inspector spostato in `snav-group[data]` (primo sub-tab, default)
-- `GROUPS['data']` ora include `['wikidata','quality','knownissues']`
-- Intro area "03 / Tools" aggiornata a `data-navigate-group="data"`
+- Removed "Tools" group from group nav and sub-nav
+- Wikidata Inspector moved to `snav-group[data]` (first sub-tab, default)
+- `GROUPS['data']` now includes `['wikidata','quality','knownissues']`
+- Intro area "03 / Tools" updated to `data-navigate-group="data"`
 
 ---
 
@@ -833,11 +903,11 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `css/components.css`, `css/graph.css`, `css/eucalls.css`, `css/edfbrowse.css`, `css/matrix.css`, `index.html`, `js/tabs/edfbrowse.js`
 
-- **C-A** — Sidebar investors: `justify-content: space-between` → `flex-start` su `.es-list li`; aggiunto `margin-left: auto` su `.badge-lead` per mantenerlo a destra quando presente
-- **G-B** — Graph toolbar: aggiunto `background: rgba(0,0,0,0.70)` + `border-radius` + `padding` + `backdrop-filter` a `#graph-controls`
-- **EDF-C-A** — EDF Calls header note: aggiunto `font-family: var(--font); color: var(--text-secondary)` su `.ec-header-note`
-- **EDF-B-B** — Beneficiaries: aggiunto `<td class="eb-caret-cell">›</td>` in ogni riga; caret accent-colored, si illumina su hover
-- **SC-MX-A** — Matrix toolbar: aggiunta legenda inline con badge `LEAD` e `follow` con testo descrittivo
+- **C-A** — Sidebar investors: `justify-content: space-between` → `flex-start` on `.es-list li`; added `margin-left: auto` on `.badge-lead` to keep it right-aligned when present
+- **G-B** — Graph toolbar: added `background: rgba(0,0,0,0.70)` + `border-radius` + `padding` + `backdrop-filter` to `#graph-controls`
+- **EDF-C-A** — EDF Calls header note: added `font-family: var(--font); color: var(--text-secondary)` to `.ec-header-note`
+- **EDF-B-B** — Beneficiaries: added `<td class="eb-caret-cell">›</td>` in every row; caret accent-colored, highlights on hover
+- **SC-MX-A** — Matrix toolbar: added inline legend with `LEAD` and `follow` badges with descriptive text
 
 ---
 
@@ -845,10 +915,10 @@ Screenshot: `edfmap-proj-dropdown.png`
 
 ### Changed — `index.html`, `css/base.css`, `css/components.css`, `js/main.js`, `js/glossary.js` (new)
 
-- **Pillar 1 — Intro launcher**: i 3 titoli area diventano clickabili (`data-navigate-group`); aggiunta CTA row con due pulsanti "→ Explore Supply Chain" e "→ European Defence Fund"
-- **Pillar 2 — Context block**: blocco "about this research" in fondo all'Intro con definizione breve dei 3 settori (Defence / Mining / Tech) e link "→ Full context in About"
-- **Pillar 3 — Glossary tooltips**: nuovo `js/glossary.js` con 12 termini; `.gl-term[data-gl]` applicato a 9 termini nell'Intro; tooltip CSS puro via `::after + attr(data-tooltip)`
-- **Pillar 4 — Gruppo Data in nav**: Data Quality e Known Issues spostati da Tools a nuovo gruppo "Data" nella group nav; brand-wip link aggiornato; Tools ora contiene solo Wikidata Inspector
+- **Pillar 1 — Intro launcher**: the 3 area titles become clickable (`data-navigate-group`); added CTA row with two buttons "→ Explore Supply Chain" and "→ European Defence Fund"
+- **Pillar 2 — Context block**: "about this research" block at bottom of Intro with brief definition of the 3 sectors (Defence / Mining / Tech) and "→ Full context in About" link
+- **Pillar 3 — Glossary tooltips**: new `js/glossary.js` with 12 terms; `.gl-term[data-gl]` applied to 9 terms in Intro; pure CSS tooltip via `::after + attr(data-tooltip)`
+- **Pillar 4 — Data group in nav**: Data Quality and Known Issues moved from Tools to new "Data" group in group nav; brand-wip link updated; Tools now contains only Wikidata Inspector
 - Source: issue `japi-issues.md` I-A, I-B, I-C, I-D
 
 ---
@@ -908,7 +978,7 @@ Three new toolbar controls (all views): **Search** highlights matching nodes + n
 
 ---
 
-## [2026-03-21] — `automated-investigation.html` — experimental standalone investigation page
+## [2026-03-21] — `automated-investigation.html` — experimental standalone investigation page _(deleted 2026-03-28)_
 
 ### Added
 - `automated-investigation.html`: standalone long-form investigative page, **experiment only** — not linked from `index.html` or the navigation. Access via direct URL path.
@@ -1023,12 +1093,6 @@ Three new toolbar controls (all views): **Search** highlights matching nodes + n
 
 ---
 
-## [unreleased]
-
-### Planned
-- Consider periodic cron / reminder to re-run `fetch_edf_bulk.py` as new EDF calls are published
-
----
 
 ## [2026-03-17] — Investor Wikidata enrichment + sidebar Crunchbase block
 
@@ -1219,14 +1283,6 @@ Three new toolbar controls (all views): **Search** highlights matching nodes + n
 ### Changed — Country filter in EDF Browse
 - Replaced country filter chips (`.eb-chip` row) with an inline `<select>` element (`#eb-country-select`), positioned after the funded-only toggle in the toolbar
 - Select options include participation counts; list is rebuilt on every `rebuild()` call to reflect the current funded/unfunded dataset
-
-### Known gaps in EDF Browse (potential future additions)
-- Flag emoji per country
-- Multi-select country filter
-- Cross-reference with `database.json`: "In DB" badge + filter toggle
-- Cross-reference with investor relationships: badge + filter toggle
-- Categories column (AIR, NAVAL, CYBER…) per organisation
-- Stats bar: SME count, matched in DB, with investor data
 
 ---
 

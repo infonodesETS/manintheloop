@@ -17,7 +17,8 @@ This document defines the rules for updating `database.json` when new data is av
    - Specify the **exact row/field/value** that originated the data (e.g. `CSV row 'Hensoldt', field 'Top 5 Investors', value 'Leonardo Company'`)
    - When data is corrected or merged, reference both the **original raw entry** and the **evidence used** to confirm the change (e.g. Wikidata URL, Playwright search result)
    - Users must be able to reconstruct the full data lineage from raw source to current state by reading the history.
-6. **Every data change must produce a dedicated git commit.** A commit that modifies `database.json` must:
+6. **`sources.wikidata` is a script-managed cache, not a curated source.** It is overwritten in full every time `enrich_wikidata.py` runs. Never manually edit fields inside `sources.wikidata` — those edits will be silently lost on the next enrichment run. If a Wikidata value is wrong, correct it upstream on Wikidata itself, or record the correct value in `sources.infonodes` and annotate `history[]`.
+7. **Every data change must produce a dedicated git commit.** A commit that modifies `database.json` must:
    - Be **atomic** — one logical change per commit (e.g. one merge, one normalisation pass, one batch field update). Do not bundle unrelated data edits into a single commit.
    - Include a **commit message** that names the entities affected, the fields changed, and the reason (e.g. `data: normalise country fields — IN-0059, IN-0131, IN-0143, IV-0088`).
    - The git log thus serves as an **external audit trail** independent of the in-JSON history. If the two ever diverge, the git log is the tiebreaker for when a change was made.
@@ -79,6 +80,82 @@ Bump `_updated` at the top level of `database.json` to today's date before commi
 
 ---
 
+## Safe script execution (dry-run protocol)
+
+Any script that modifies `database.json` in-place should be previewed before the result is committed. The standard workflow:
+
+1. **Backup** the file before running:
+   ```bash
+   cp data/database.json data/database.json.bak
+   ```
+2. **Run** the script (it modifies `database.json` directly — there is no built-in dry-run flag):
+   ```bash
+   python3 scripts/<script>.py
+   ```
+3. **Compare** before/after to extract field-level changes. A Python diff against the backup is more readable than a raw `git diff` for large JSON files.
+4. **Restore** the original immediately after inspection:
+   ```bash
+   cp data/database.json.bak data/database.json
+   ```
+5. **Review** the extracted changes. Flag anything that requires human judgment before accepting (see notes in each script section below).
+6. **Re-run** the script once confirmed, then validate and commit.
+7. **Remove** the backup:
+   ```bash
+   rm data/database.json.bak
+   ```
+
+> The backup file must never be committed. Add `data/database.json.bak` to `.gitignore` if it is not already excluded.
+
+---
+
+## EDF calls refresh (`fetch_edf_bulk.py`)
+
+`scripts/fetch_edf_bulk.py` fetches all EDF calls + funded projects + participants from the EU Participant Portal API and writes `data/edf_calls.json`. Unlike `database.json`, this file is **fully generated** — no history entries, no IDs to protect, fully regenerable from the API. No backup/restore protocol is required.
+
+### Modes
+
+| Mode | Command | What it does |
+|---|---|---|
+| Full | `python3 scripts/fetch_edf_bulk.py` | Phase 1: re-fetches all call identifiers + metadata from the API; merges with existing project data (preserving it). Phase 2: fetches project details for **all** calls. Slow — budget several hours for 201 calls. |
+| `--update` | `python3 scripts/fetch_edf_bulk.py --update` | Skips Phase 1 (uses existing call list). Re-checks only calls where `projects is None` or `status` contains `open`/`forthcoming`. Fast. |
+| `--reenrich` | `python3 scripts/fetch_edf_bulk.py --reenrich` | Skips Phase 1. Re-fetches project details for all calls that already have projects. Use after script changes or to refresh participant/budget data. |
+| `--limit N` | add `--limit N` to any mode | Stops Phase 2 after N calls. Useful for testing API availability before a full run. |
+
+### Which mode to use
+
+- **Routine refresh** (checking for new awards on known calls): `--update`. Only useful when some calls have `status: open/forthcoming` or `projects: None`.
+- **Checking for new calls** (new EDF programme year published): full mode. Phase 1 re-fetches the identifier list and picks up new calls.
+- **After a long gap** (months): full mode, to get fresh metadata for all calls.
+- **Testing only** (verifying API is up): `--limit 5` (runs full mode, limited to 5 calls in Phase 2).
+
+### Constraint: `--update` relies on `status` field
+
+`--update` uses the `status` field (`open`, `forthcoming`, `closed`) to decide which calls to re-check. If the API returns empty status values — which can happen depending on query format — all statuses resolve to `""` and `--update` finds nothing to do. In that case, fall back to full mode or `--reenrich`.
+
+> Observed 2026-03-28: after a `--limit 5` full-mode test run, all 201 call statuses were `""`. `--update` would have found 0 calls to re-check. The `--limit 5` run had already refreshed the call identifier list, confirmed no new calls since March 15, and preserved all project data — so the file was effectively current.
+
+### Merge behaviour
+
+In full mode, Phase 1 fetches fresh call metadata but **preserves existing `projects` and `_projects_fetched_at`** from the prior file. Existing project data is never deleted. Phase 2 then re-fetches project details only for calls in scope (all calls in full mode, subset in `--update`/`--reenrich`).
+
+### When to run
+
+- After new EDF programme calls open (typically mid-year)
+- After new project awards are published (check EU Funding & Tenders portal)
+- Periodically (every 1–2 months) to pick up finalised budgets for recent projects
+
+### Commit message format
+
+```
+data: refresh edf_calls.json — <N> calls, <N> with awards, <N> projects, <N> participants (YYYY-MM-DD)
+
+<brief note on what changed vs prior snapshot>
+
+Script: scripts/fetch_edf_bulk.py [--update | --reenrich | full]
+```
+
+---
+
 ## Batch Crunchbase re-scrape reconciliation
 
 When a new full scrape is available (new date key in legacy format), follow these steps:
@@ -94,6 +171,43 @@ When a new full scrape is available (new date key in legacy format), follow thes
 4. **Do not delete** existing relationships — only add or update `details.lead`.
 5. Update `_updated` at the top level to today's date.
 6. Run `validate.py` before committing.
+
+---
+
+## Wikidata enrichment re-run
+
+`scripts/enrich_wikidata.py` refreshes `sources.wikidata` for all company entities that have a confirmed `wikidata_id`. It does **not** touch investor entities.
+
+### What the script does
+
+- Fetches Wikidata properties P31, P17, P571, P159, P856, P946, P1128 and the `enwiki` sitelink for each entity in batches of 50.
+- **Overwrites the entire `sources.wikidata` block** for each matched entity — it is not a field-by-field merge. Any manual edits to `sources.wikidata` will be lost on re-run.
+- Appends one `history[]` entry per entity (regardless of how many fields changed within the block).
+- Bumps `_updated` at the top level to today's date.
+
+### When to re-run
+
+Re-run when Wikidata data is stale (typically after a batch of new `wikidata_id` values are confirmed, or periodically to pick up upstream corrections). Check the `retrieved_at` field in `sources.wikidata` to see when data was last fetched.
+
+### Procedure
+
+Follow the [safe script execution](#safe-script-execution-dry-run-protocol) steps above. When reviewing the diff, pay attention to:
+
+- **`country` label changes** — Wikidata sometimes changes labels (e.g. `"China"` ↔ `"People's Republic of China"`). These are cosmetically different but may affect UI string-matching; verify the change is acceptable.
+- **`instance_of` list changes** — Wikidata editors frequently add or remove items from `instance_of`. Check whether removed items represent a meaningful data loss before accepting.
+- **`official_website` locale URLs** — Wikidata occasionally stores locale-specific URLs (e.g. `example.com/de`) as the primary website. Prefer the canonical root URL; correct manually in `sources.infonodes.website` if needed rather than in `sources.wikidata` (which will be overwritten on re-run).
+- **`employees` counts** — treat as approximate; Wikidata figures lag behind official reports.
+
+### Commit message format
+
+```
+data: refresh sources.wikidata — <N> companies updated (YYYY-MM-DD)
+
+<brief description of notable changes>
+
+Script: scripts/enrich_wikidata.py
+Validation: all 8 checks passed.
+```
 
 ---
 

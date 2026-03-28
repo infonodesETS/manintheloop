@@ -164,6 +164,7 @@ The app reads two files at runtime. Neither is bundled — they are fetched as J
 | **Atomic git commits** | One logical change per commit; git log = external audit trail independent of in-JSON history |
 | **Deduplication before adding** | Search existing entities (case-insensitive) before creating a new one |
 | **IDs assigned sequentially** | New entities get `max(existing) + 1` in their class |
+| **`sources.wikidata` is a cache** | Never edit manually — overwritten on every `enrich_wikidata.py` run |
 
 ### Operations covered
 
@@ -173,6 +174,9 @@ The app reads two files at runtime. Neither is bundled — they are fetched as J
 - **Batch Crunchbase re-scrape** — diff old vs. new snapshot, update `sources.crunchbase`, append per-field history
 - **Resolving a validation flag** — correct the field, append history, set `status: "confirmed"`
 - **Merging a duplicate** — lower ID wins; merge history + sources; update all REL references; retire higher ID
+- **Safe script execution** — backup → run → compare → restore → confirm → re-run (for any in-place script)
+- **Wikidata enrichment re-run** — `enrich_wikidata.py`; companies only; dry-run protocol required; review checklist in UPDATE_PROTOCOL
+- **EDF calls refresh** — `fetch_edf_bulk.py`; generated file, no backup needed; mode selection depends on call status availability
 
 ### Running validation
 
