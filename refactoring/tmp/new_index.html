@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/companysearch.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/companysearch.css">
   <style>
     html { font-size: 120%; scrollbar-gutter: stable; }
     body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); overflow: auto; padding-top: 0; }
@@ -424,8 +424,8 @@ let EDF  = null;  // edf_calls.json (lazy)
 
 async function loadData() {
   const [dbRes, orgsRes] = await Promise.all([
-    fetch('data/database.json'),
-    fetch('data/edf_orgs.json'),
+    fetch('../data/database.json'),
+    fetch('../data/edf_orgs.json'),
   ]);
   DB   = await dbRes.json();
   ORGS = await orgsRes.json();
@@ -433,7 +433,7 @@ async function loadData() {
 
 async function loadEdf() {
   if (EDF) return EDF;
-  const res = await fetch('data/edf_calls.json');
+  const res = await fetch('../data/edf_calls.json');
   EDF = await res.json();
   return EDF;
 }
