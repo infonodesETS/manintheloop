@@ -132,6 +132,15 @@
     .cs-stat.edf-stat .cs-stat-val { color: rgba(100,160,255,.9); }
     .cs-stat.edf-stat { border-color: rgba(100,160,255,.25); }
 
+    /* ── cs-left card palettes ── */
+    /* EDF card → blue */
+    #cs-edf-card { background: rgba(100,160,255,.02); border-color: rgba(100,160,255,.22); }
+    #cs-edf-card .cs-card-hdr { color: rgba(100,160,255,.8); border-bottom-color: rgba(100,160,255,.15); background: rgba(100,160,255,.04); }
+    #cs-edf-card .cs-card-count { color: rgba(100,160,255,.5); }
+    /* DB / relationship / history cards → INF green (border + background tint, header already uses --accent) */
+    #cs-db-card, #cs-rel-card, #cs-hist-card { background: rgba(0,255,65,.02); border-color: rgba(0,255,65,.15); }
+    #cs-db-card .cs-card-hdr, #cs-rel-card .cs-card-hdr, #cs-hist-card .cs-card-hdr { border-bottom-color: rgba(0,255,65,.12); background: rgba(0,255,65,.03); }
+
     /* ── EDF source block (mirrors cs-cb/wd/inf-block from companysearch.css) ── */
     .cs-edf-block { background: rgba(100,160,255,.04); border: 1px solid rgba(100,160,255,.18); }
     .cs-edf-block .cs-src-hdr         { color: rgba(100,160,255,.8); }
