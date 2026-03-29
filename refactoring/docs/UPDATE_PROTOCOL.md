@@ -156,6 +156,74 @@ Script: scripts/fetch_edf_bulk.py [--update | --reenrich | full]
 
 ---
 
+## EDF org index (`build_edf_orgs.py`)
+
+`scripts/build_edf_orgs.py` builds `data/edf_orgs.json` — a flat, PIC-keyed registry of all unique organisations that appear in `data/edf_calls.json`. It is the crosswalk layer between EDF participants and `database.json` entities.
+
+### What it does
+
+1. Reads all participants from `edf_calls.json`, deduplicates by PIC (EU Participant ID — 100% coverage).
+2. Aggregates per-org stats: total EU contribution, project count, call count, coordinator count.
+3. Auto-matches against `database.json` via three tiers:
+   - **Tier 1 — `exact_norm`**: normalised name equality (strips legal suffixes, punctuation, single-char tokens)
+   - **Tier 2 — `subset_tokens`**: all ≥2 tokens of the DB entity name appear in the EDF name (subsidiary detection — e.g. `BAE Systems` ⊆ `BAE Systems Hagglunds`)
+   - **Tier 3 — `prefix_brand`**: DB entity has one significant token of length ≥5 that is the first token of the EDF name (e.g. `THALES` → all `THALES *` subsidiaries)
+4. Preserves any `db_id` from a previous run (confirmed matches survive regeneration).
+5. Saves `data/edf_orgs.json`.
+
+### Crosswalk fields
+
+Each org record in `edf_orgs.json` has three crosswalk fields:
+
+| Field | Values | Meaning |
+|---|---|---|
+| `db_id` | `IN-*`, `IV-*`, or `null` | Linked `database.json` entity |
+| `match_method` | `"auto_name"`, `"manual"`, `null` | How the link was established |
+| `match_confidence` | `"suggested"`, `"confirmed"`, `null` | Human review status |
+
+Auto-matched entries start as `"suggested"`. Promote to `"confirmed"` manually after verification.
+
+### Confirming a suggested match
+
+1. Open `data/edf_orgs.json`.
+2. Find the entry by PIC or legal name.
+3. Set `"match_confidence": "confirmed"`.
+4. Optionally update `"match_method": "manual"` if the match was hand-verified.
+5. Save. The confirmed mapping will survive all future regenerations.
+
+To **reject** a wrong auto-match: set `"db_id": null`, `"match_method": null`, `"match_confidence": null`. The entry will then be excluded from the preserve list on the next run.
+
+### Modes
+
+| Mode | Command | What it does |
+|---|---|---|
+| Default | `python3 scripts/build_edf_orgs.py` | Full rebuild; preserves all existing `db_id` mappings |
+| `--reset` | `python3 scripts/build_edf_orgs.py --reset` | Full rebuild; clears all `db_id` mappings (fresh auto-match only) |
+| `--stats` | `python3 scripts/build_edf_orgs.py --stats` | Prints match summary; does not write output |
+
+### When to run
+
+- After every `fetch_edf_bulk.py` run (new participants may appear)
+- After manually adding new entities to `database.json` (new auto-matches may become possible)
+
+### Key properties
+
+- `data/edf_orgs.json` is **fully regenerable** from `edf_calls.json` + `database.json`. No backup/restore protocol needed.
+- `database.json` is **never modified** by this script.
+- `validate.py` is **not affected** (operates on `database.json` only).
+
+### Commit message format
+
+```
+data: rebuild edf_orgs.json — <N> orgs, <N> matched (YYYY-MM-DD)
+
+<brief note on what changed vs prior snapshot>
+
+Script: scripts/build_edf_orgs.py [--reset]
+```
+
+---
+
 ## Batch Crunchbase re-scrape reconciliation
 
 When a new full scrape is available (new date key in legacy format), follow these steps:

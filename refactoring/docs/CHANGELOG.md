@@ -25,6 +25,35 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-29] — EDF org index introduced (`edf_orgs.json`)
+
+### Added — `scripts/build_edf_orgs.py`
+
+New script that generates `data/edf_orgs.json` — a flat, PIC-keyed registry of all unique organisations appearing in `edf_calls.json`. Serves as the crosswalk between the 794 EDF participant organisations and `database.json` entities.
+
+Key design decisions:
+- **PIC as primary key** — EU Participant ID has 100% coverage across all EDF participant records and is stable across API refreshes.
+- **Three-tier auto-matching**: exact normalised name → subset token match (subsidiary detection) → prefix brand match (single-brand entities like Thales, Airbus, Leonardo).
+- **Merge logic** — confirmed `db_id` mappings from previous runs are always preserved, so regenerating after an EDF refresh never loses human-verified links.
+- **`database.json` untouched** — no schema changes, `validate.py` passes unchanged.
+
+### Added — `data/edf_orgs.json`
+
+Initial build: 794 unique orgs (by PIC), 91 auto-matched to `database.json` entities (`match_confidence: "suggested"`). All matches are subsidiaries or direct name matches of known defence entities (Airbus, Thales, Rheinmetall, Safran, Leonardo, BAE Systems, etc.).
+
+| Stat | Value |
+|---|---|
+| Total orgs | 794 |
+| Auto-matched (`suggested`) | 91 |
+| Confirmed | 0 (pending human review) |
+| `_generated_at` | 2026-03-29 |
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Added full section documenting `build_edf_orgs.py`: modes, crosswalk fields, confirm/reject workflow, when to run, commit message format.
+
+---
+
 ## [2026-03-28] — EDF calls refresh; UPDATE_PROTOCOL EDF section added
 
 ### Changed — `data/edf_calls.json`
