@@ -21,7 +21,7 @@
     /* ── Source badge for EDF-only / DB-only / merged ── */
     .src-badge {
       font-family: var(--font-mono);
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       border-radius: 3px;
       padding: 1px 7px;
       white-space: nowrap;
@@ -49,14 +49,14 @@
     }
     .edf-proj-meta {
       font-family: var(--font-mono);
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       color: var(--text-faint);
       display: flex; gap: 12px; flex-wrap: wrap;
       overflow-wrap: break-word;
       word-break: break-word;
     }
     .edf-proj-role {
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       font-family: var(--font-mono);
       padding: 1px 8px;
       border-radius: 3px;
@@ -75,14 +75,14 @@
     }
     .edf-loading {
       font-family: var(--font-mono);
-      font-size: var(--fs-sm);
+      font-size: var(--fs-body);
       color: var(--text-faint);
       padding: 20px 0;
       text-align: center;
     }
     .edf-load-btn {
       font-family: var(--font-mono);
-      font-size: var(--fs-sm);
+      font-size: var(--fs-body);
       color: rgba(100,160,255,.85);
       background: rgba(100,160,255,.08);
       border: 1px solid rgba(100,160,255,.3);
@@ -95,7 +95,7 @@
 
     /* ── Match badge in autocomplete ── */
     .cs-ac-match {
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       font-family: var(--font-mono);
       color: rgba(255,215,0,.7);
       flex-shrink: 0;
@@ -109,7 +109,7 @@
     }
     .filter-pill {
       font-family: var(--font-mono);
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       border-radius: 50px;
       padding: 3px 12px;
       cursor: pointer;
@@ -123,7 +123,7 @@
     .filter-pill:hover:not(.active) { border-color: var(--grey-mid); color: var(--text-secondary); }
     .filter-lbl {
       font-family: var(--font-mono);
-      font-size: var(--fs-xs);
+      font-size: var(--fs-body);
       color: var(--text-faint);
       white-space: nowrap;
     }
@@ -150,8 +150,112 @@
     .cs-ext-link.cs-eu       { border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.8); }
     .cs-ext-link.cs-eu:hover { border-color: rgba(100,160,255,.9);  color: rgba(100,160,255,1); }
 
+    /* ── Autocomplete dropdown height ── */
+    #cs-ac { max-height: 680px; }
+
     /* ── surface-ac fallback if not in base.css ── */
     :root { --surface-ac: #2a2a2a; }
+
+    /* ── Static elements ── */
+    #cs-clear {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: var(--dim);
+      font-size: calc(var(--fs-body) * 1.2); line-height: 1; padding: 2px 4px;
+      display: none;
+    }
+    #cs-eu-status {
+      display: flex; align-items: center; gap: 7px; margin-top: 6px;
+      font-family: var(--font-mono); font-size: var(--fs-body);
+    }
+    #cs-left { min-width: 0; }
+    #cs-edf-card, #cs-db-card, #cs-rel-card, #cs-hist-card { display: none; }
+    #cs-loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 60vh; font-family: var(--font-mono);
+      color: var(--text-faint); font-size: var(--fs-body);
+    }
+
+    /* ── Sector / type badges ── */
+    .badge { font-size: var(--fs-body); font-family: var(--font-mono); padding: 1px 8px; border-radius: 3px; }
+    .badge-defence    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-mining     { background: rgba(85,221,170,.1);  border: 1px solid rgba(85,221,170,.33);  color: #55ddaa; }
+    .badge-tech       { background: rgba(34,187,102,.1);  border: 1px solid rgba(34,187,102,.33);  color: #22bb66; }
+    .badge-startup    { background: rgba(0,119,68,.1);    border: 1px solid rgba(0,119,68,.33);    color: #007744; }
+    .badge-fund       { background: rgba(255,136,136,.1); border: 1px solid rgba(255,136,136,.33); color: #ff8888; }
+    .badge-gov        { background: rgba(255,51,51,.1);   border: 1px solid rgba(255,51,51,.33);   color: #ff3333; }
+    .badge-bank       { background: rgba(170,0,0,.1);     border: 1px solid rgba(170,0,0,.33);     color: #aa0000; }
+    .badge-institution{ background: rgba(255,153,187,.1); border: 1px solid rgba(255,153,187,.33); color: #ff99bb; }
+    .badge-company    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-default    { background: rgba(136,136,136,.1); border: 1px solid rgba(136,136,136,.3);  color: #888; }
+
+    /* ── Merged match badge in header ── */
+    .cs-hdr-id--match { color: rgba(255,215,0,.6); }
+
+    /* ── EU status line ── */
+    .eu-flag           { height: 14px; width: auto; vertical-align: middle; border-radius: 2px; }
+    .eu-flag--inactive { filter: grayscale(1); opacity: .35; }
+    .eu-status-funded   { color: rgba(100,160,255,.85); }
+    .eu-status-unfunded { color: var(--text-faint); }
+
+    /* ── EDF identity block ── */
+    .edf-identity-block { margin-bottom: 14px; }
+
+    /* ── Inline value states ── */
+    .val-yes { color: var(--accent); }
+
+    /* ── EDF project objective ── */
+    .edf-proj-desc {
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin: 6px 0 4px;
+    }
+
+    /* ── EDF participants list ── */
+    .edf-participants { display: none; list-style: none; padding: 0; margin: 8px 0 0; }
+    .edf-participants.open { display: block; }
+    .edf-participant-item {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(65,67,69,.15);
+    }
+    .edf-participant-item:last-child { border-bottom: none; }
+    .edf-participant-btn {
+      background: none; border: none; cursor: pointer;
+      color: rgba(100,160,255,.85);
+      font-family: var(--font); font-size: var(--fs-body);
+      text-align: left; padding: 0;
+    }
+    .edf-participant-btn:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+    .edf-participant-country {
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint);
+    }
+    .edf-part-contrib {
+      font-family: var(--font-mono); font-size: var(--fs-body);
+      color: rgba(100,160,255,.9); font-weight: var(--fw-bold);
+      margin-left: auto;
+    }
+
+    /* ── EDF project portal link ── */
+    .edf-proj-link { color: rgba(100,160,255,.8); }
+
+    /* ── Relationship "more" overflow item ── */
+    .cs-list-more { color: var(--text-faint); font-size: var(--fs-body); }
+
+    /* ── Change history list ── */
+    .hist-list  { list-style: none; padding: 0; margin: 0; }
+    .hist-item  { padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.2); }
+    .hist-meta  { display: flex; gap: 8px; align-items: baseline; margin-bottom: 3px; }
+    .hist-date  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); white-space: nowrap; }
+    .hist-field { font-family: var(--font-mono); font-size: var(--fs-body); padding: 0 5px; border-radius: 2px; background: rgba(0,255,65,.06); border: 1px solid rgba(0,255,65,.15); color: rgba(0,255,65,.6); }
+    .hist-source{ font-size: var(--fs-body); color: var(--text-faint); }
+    .hist-desc  { font-size: var(--fs-body); color: var(--text-secondary); }
+    .hist-diff  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); margin-top: 3px; }
+    .hist-old   { color: rgba(255,100,100,.7); }
+    .hist-new   { color: rgba(100,255,100,.7); }
+
+    /* ── Error state ── */
+    .cs-error { color: var(--error, #f44); font-family: var(--font-mono); font-size: var(--fs-body); }
   </style>
 </head>
 <body>
@@ -164,7 +268,7 @@
 
     <div class="cs-search-wrap">
       <input id="cs-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
-      <button id="cs-clear" title="Clear search" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--dim);font-size:calc(var(--fs-sm)*1.2);line-height:1;padding:2px 4px;display:none" aria-label="Clear search">×</button>
+      <button id="cs-clear" title="Clear search" aria-label="Clear search">×</button>
       <div id="cs-ac" role="listbox"></div>
     </div>
 
@@ -191,7 +295,7 @@
       <div class="cs-hdr-main">
         <div class="cs-hdr-name" id="cs-name"></div>
         <div class="cs-hdr-badges" id="cs-badges"></div>
-        <div id="cs-eu-status" style="display:flex;align-items:center;gap:7px;margin-top:6px;font-family:var(--font-mono);font-size:var(--fs-xs);"></div>
+        <div id="cs-eu-status"></div>
         <div class="cs-hdr-desc" id="cs-desc"></div>
         <div class="cs-hdr-actions">
           <div class="cs-ext-links" id="cs-links"></div>
@@ -206,10 +310,10 @@
     <div class="cs-cols">
 
       <!-- Left column -->
-      <div id="cs-left" style="min-width:0">
+      <div id="cs-left">
 
         <!-- EDF activity (shown when org has EDF data) -->
-        <div class="cs-card edf-section" id="cs-edf-card" style="display:none">
+        <div class="cs-card edf-section" id="cs-edf-card">
           <div class="cs-card-hdr">
             European Defence Fund
             <span class="cs-card-count" id="cs-edf-count"></span>
@@ -218,13 +322,13 @@
         </div>
 
         <!-- DB details (shown when org is in database.json) -->
-        <div class="cs-card" id="cs-db-card" style="display:none">
+        <div class="cs-card" id="cs-db-card">
           <div class="cs-card-hdr">Organisation details</div>
           <div class="cs-card-body" id="cs-db-body"></div>
         </div>
 
         <!-- Relationships (shown for DB entities) -->
-        <div class="cs-card" id="cs-rel-card" style="display:none">
+        <div class="cs-card" id="cs-rel-card">
           <div class="cs-card-hdr">
             Investment relationships
             <span class="cs-card-count" id="cs-rel-count"></span>
@@ -233,7 +337,7 @@
         </div>
 
         <!-- Change history (shown for DB entities with history) -->
-        <div class="cs-card" id="cs-hist-card" style="display:none">
+        <div class="cs-card" id="cs-hist-card">
           <div class="cs-card-hdr">
             Change history
             <span class="cs-card-count" id="cs-hist-count"></span>
@@ -250,9 +354,7 @@
   </div>
 
   <!-- Loading indicator -->
-  <div id="cs-loading" style="display:flex;align-items:center;justify-content:center;height:60vh;font-family:var(--font-mono);color:var(--text-faint);font-size:var(--fs-sm);">
-    Loading data…
-  </div>
+  <div id="cs-loading">Loading data…</div>
 
 </div>
 <script type="module">
@@ -288,17 +390,17 @@ function row(lbl, val) {
 }
 
 // ── Source/type badges ────────────────────────────────────────────────────────
-const SECTOR_COLORS = { Defence:'#aaffdd', Mining:'#55ddaa', Tech:'#22bb66', Startup:'#007744' };
-const TYPE_COLORS   = { fund:'#ff8888', government_agency:'#ff3333', bank:'#aa0000', institution:'#ff99bb', company:'#aaffdd' };
+const SECTOR_CLASS = { Defence:'defence', Mining:'mining', Tech:'tech', Startup:'startup' };
+const TYPE_CLASS   = { fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company' };
 
 function sectorBadge(s) {
-  const c = SECTOR_COLORS[s] || '#888';
-  return `<span style="font-size:var(--fs-xs);font-family:var(--font-mono);padding:1px 8px;border-radius:3px;background:${c}1a;border:1px solid ${c}55;color:${c}">${esc(s)}</span>`;
+  const cls = SECTOR_CLASS[s] || 'default';
+  return `<span class="badge badge-${cls}">${esc(s)}</span>`;
 }
 function typeBadge(t) {
-  const c = TYPE_COLORS[t] || '#888';
+  const cls = TYPE_CLASS[t] || 'default';
   const label = t?.replace(/_/g,' ') || t;
-  return `<span style="font-size:var(--fs-xs);font-family:var(--font-mono);padding:1px 8px;border-radius:3px;background:${c}1a;border:1px solid ${c}55;color:${c}">${esc(label)}</span>`;
+  return `<span class="badge badge-${cls}">${esc(label)}</span>`;
 }
 function srcBadge(kind) {
   const map = {
@@ -337,7 +439,7 @@ async function loadEdf() {
 }
 
 // ── Build unified registry ────────────────────────────────────────────────────
-// Each entry: { id, name, kind, pic?, dbEntity?, edfOrg? }
+// Each entry: { id, name, kind, country, pic?, dbEntity?, edfOrg? }
 let REGISTRY = [];
 let ENTITY_MAP = {};  // id → dbEntity
 
@@ -373,6 +475,7 @@ function buildRegistry() {
           pic:      org.pic,
           dbEntity,
           edfOrg:   org,
+          country:  org.country || dbEntity.sources?.infonodes?.country || dbEntity.sources?.wikidata?.country || '',
           _key: [
             dbEntity.name, org.legal_name,
             org.country,
@@ -393,6 +496,7 @@ function buildRegistry() {
       pic:     org.pic,
       dbEntity: null,
       edfOrg:  org,
+      country: org.country || '',
       _key: [org.legal_name, org.country, org.activity_type].filter(Boolean).join(' ').toLowerCase(),
     });
   }
@@ -407,6 +511,7 @@ function buildRegistry() {
         pic:      null,
         dbEntity: e,
         edfOrg:   null,
+        country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
         _key: [
           e.name,
           e.sources?.crunchbase?.headquarters,
@@ -429,9 +534,16 @@ function buildRegistry() {
     push(r.source, 'investor', r.target);
     push(r.target, 'target',   r.source);
   }
+
+  // Build PIC lookup map
+  PIC_MAP = {};
+  for (const item of REGISTRY) {
+    if (item.pic) PIC_MAP[String(item.pic)] = item;
+  }
 }
 
 let REL_MAP = {};
+let PIC_MAP = {};  // pic string → registry item
 
 // ── Search & autocomplete ─────────────────────────────────────────────────────
 let activeFilter = 'all';
@@ -460,10 +572,14 @@ function renderAc(raw) {
   const pool = filteredRegistry();
   const scored = pool.map(item => {
     const n = item.name.toLowerCase();
+    const c = (item.country || '').toLowerCase();
     let s = 0;
     if (n === q)               s = 200;
     else if (n.startsWith(q))  s = 100;
     else if (n.includes(q))    s = 60;
+    else if (c === q)          s = 40;
+    else if (c.startsWith(q))  s = 30;
+    else if (c.includes(q))    s = 25;
     else if (item._key.includes(q)) s = 20;
     return { item, s };
   }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
@@ -475,19 +591,28 @@ function renderAc(raw) {
     return;
   }
 
+  // Country-mode: query exactly matches a country value for 3+ orgs
+  const exactCountryMatches = scored.filter(x => (x.item.country || '').toLowerCase() === q).length;
+  const countryMode = exactCountryMatches >= 3;
+  const groupLimit  = countryMode ? Infinity : null; // null → per-kind defaults below
+
   const merged  = scored.filter(x => x.item.kind === 'merged');
   const dbOnly  = scored.filter(x => x.item.kind === 'db-only');
   const edfOnly = scored.filter(x => x.item.kind === 'edf-only');
   acList = [];
   let html = '';
 
+  if (countryMode) {
+    html += `<div class="cs-ac-group">${scored.length} organisations · ${esc(raw)}</div>`;
+  }
+
   function renderGroup(label, items, limit) {
     if (!items.length) return;
     html += `<div class="cs-ac-group">${label}</div>`;
-    for (const { item } of items.slice(0, limit)) {
+    const slice = limit === Infinity ? items : items.slice(0, limit);
+    for (const { item } of slice) {
       const e   = item.dbEntity;
       const org = item.edfOrg;
-      const country = e?.sources?.infonodes?.country || e?.sources?.wikidata?.country || org?.country || '';
       let badge = '';
       if (e?.sector)     badge = sectorBadge(e.sector);
       else if (e?.type)  badge = typeBadge(e.type);
@@ -495,7 +620,7 @@ function renderAc(raw) {
         ${srcBadge(item.kind)}
         ${badge}
         <span class="cs-ac-name">${highlight(item.name, raw)}</span>
-        ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+        ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
         ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
         ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
       </div>`;
@@ -503,9 +628,9 @@ function renderAc(raw) {
     }
   }
 
-  renderGroup('DB + EDF', merged, 8);
-  renderGroup('DB only', dbOnly, 8);
-  renderGroup('EDF only', edfOnly, 12);
+  renderGroup('DB + EDF', merged, groupLimit ?? 8);
+  renderGroup('DB only',  dbOnly,  groupLimit ?? 8);
+  renderGroup('EDF only', edfOnly, groupLimit ?? 12);
 
   acEl.innerHTML = html;
   acEl.classList.add('open');
@@ -623,16 +748,16 @@ function renderProfile(item) {
   if (e?.id)
     badges += `<span class="cs-hdr-id" title="Database ID">${esc(e.id)}</span>`;
   if (item.kind === 'merged' && org?.match_method)
-    badges += `<span class="cs-hdr-id" style="color:rgba(255,215,0,.6)" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
+    badges += `<span class="cs-hdr-id cs-hdr-id--match" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
   document.getElementById('cs-badges').innerHTML = badges;
 
   // ── EU status (new line below badges)
   const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
   const euEl = document.getElementById('cs-eu-status');
   if (hasEdf) {
-    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" style="height:14px;width:auto;vertical-align:middle;border-radius:2px"><span style="color:rgba(100,160,255,.85)">Funded by European Commission</span>`;
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag"><span class="eu-status-funded">Funded by European Commission</span>`;
   } else {
-    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" style="height:14px;width:auto;vertical-align:middle;border-radius:2px;filter:grayscale(1);opacity:.35"><span style="color:var(--text-faint)">Not funded by European Commission</span>`;
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag eu-flag--inactive"><span class="eu-status-unfunded">Not funded by European Commission</span>`;
   }
 
   // ── Description
@@ -714,7 +839,7 @@ function renderEdfSection(item) {
   const countEl = document.getElementById('cs-edf-count');
 
   if (!item.edfOrg) { card.style.display = 'none'; return; }
-  card.style.display = '';
+  card.style.display = 'block';
 
   const org = item.edfOrg;
   const s   = org.stats;
@@ -722,14 +847,14 @@ function renderEdfSection(item) {
   let html = '';
 
   // Org identity block
-  html += `<div style="margin-bottom:14px">`;
+  html += `<div class="edf-identity-block">`;
   if (org.legal_name !== item.name)
     html += row('Legal name', esc(org.legal_name));
   html += row('Country', esc(org.country) + (org.city ? ` — ${esc(org.city)}` : ''));
   html += row('Activity type', esc(org.activity_type));
   html += row('Org type', esc(org.org_type));
   if (org.sme != null)
-    html += row('SME', org.sme ? '<span style="color:var(--accent)">Yes</span>' : 'No');
+    html += row('SME', org.sme ? '<span class="val-yes">Yes</span>' : 'No');
   html += `</div>`;
 
   // Projects — lazy load
@@ -782,28 +907,73 @@ function renderEdfProjects(pic) {
   }
 
   let html = `<ul class="edf-projects">`;
-  for (const { call, proj, participation } of found) {
-    const eu    = fmtEur(participation.eu_contribution);
-    const role  = participation.role || '';
-    const start = (proj.start_date || '').slice(0,10);
-    const end   = (proj.end_date   || '').slice(0,10);
-    const totalEu = fmtEur(proj.eu_contribution);
+  for (let i = 0; i < found.length; i++) {
+    const { call, proj, participation } = found[i];
+    const eu       = fmtEur(participation.eu_contribution);
+    const role     = participation.role || '';
+    const start    = (proj.start_date || '').slice(0,10);
+    const end      = (proj.end_date   || '').slice(0,10);
+    const totalEu  = fmtEur(proj.eu_contribution);
+    const partCount = (proj.participants || []).length;
     html += `<li class="edf-proj-item">
       <div class="edf-proj-title">
         ${proj.acronym ? `<strong>${esc(proj.acronym)}</strong> — ` : ''}${esc(proj.title)}
       </div>
+      ${proj.objective ? `<div class="edf-proj-desc">${esc(proj.objective)}</div>` : ''}
       <div class="edf-proj-meta">
         <span>${esc(call.identifier)}</span>
         ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
         ${eu ? `<span>org share: <span class="edf-contrib">${eu}</span></span>` : ''}
         ${totalEu ? `<span>project total: ${esc(totalEu)}</span>` : ''}
         ${start ? `<span>${start}${end ? ' → '+end : ''}</span>` : ''}
-        ${proj.url ? `<a href="${esc(proj.url)}" target="_blank" style="color:rgba(100,160,255,.8)">EU Portal ↗</a>` : ''}
+        ${proj.url ? `<a href="${esc(proj.url)}" target="_blank" class="edf-proj-link">EU Portal ↗</a>` : ''}
       </div>
+      ${partCount > 0 ? `<button class="edf-load-btn" data-proj-idx="${i}">Load ${partCount} participant${partCount !== 1 ? 's' : ''}</button>` : ''}
+      <ul class="edf-participants" id="edf-parts-${i}"></ul>
     </li>`;
   }
   html += `</ul>`;
   listEl.innerHTML = html;
+
+  // Bind participant load/toggle buttons
+  listEl.querySelectorAll('[data-proj-idx]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.projIdx);
+      const { proj } = found[idx];
+      const partsEl = document.getElementById(`edf-parts-${idx}`);
+      if (partsEl.classList.contains('open')) {
+        partsEl.classList.remove('open');
+        partsEl.innerHTML = '';
+        btn.textContent = `Load ${(proj.participants||[]).length} participant${(proj.participants||[]).length !== 1 ? 's' : ''}`;
+        return;
+      }
+      renderProjectParticipants(partsEl, proj.participants || []);
+      partsEl.classList.add('open');
+      btn.textContent = 'Hide participants';
+    });
+  });
+}
+
+function renderProjectParticipants(partsEl, participants) {
+  let html = '';
+  for (const p of participants) {
+    const eu = fmtEur(p.eu_contribution);
+    const role = p.role || '';
+    html += `<li class="edf-participant-item">
+      <button class="edf-participant-btn" data-pic="${esc(String(p.pic || ''))}">${esc(p.organization_name)}</button>
+      ${role ? `<span class="edf-proj-role ${role.toLowerCase()}">${esc(role)}</span>` : ''}
+      ${p.country ? `<span class="edf-participant-country">${esc(p.country)}</span>` : ''}
+      ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+    </li>`;
+  }
+  partsEl.innerHTML = html;
+
+  partsEl.querySelectorAll('.edf-participant-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = PIC_MAP[btn.dataset.pic];
+      if (item) selectItem(item);
+    });
+  });
 }
 
 // ── DB section ────────────────────────────────────────────────────────────────
@@ -811,7 +981,7 @@ function renderDbSection(item) {
   const card = document.getElementById('cs-db-card');
   const body = document.getElementById('cs-db-body');
   if (!item.dbEntity) { card.style.display = 'none'; return; }
-  card.style.display = '';
+  card.style.display = 'block';
 
   const e   = item.dbEntity;
   const inf = e.sources?.infonodes;
@@ -846,7 +1016,7 @@ function renderRelSection(item) {
   const asTarget   = rels.filter(r => r.role === 'target');
   if (!rels.length) { card.style.display = 'none'; return; }
 
-  card.style.display = '';
+  card.style.display = 'block';
   countEl.textContent = `${rels.length}`;
 
   let html = '';
@@ -866,7 +1036,7 @@ function renderRelSection(item) {
       </li>`;
     }
     if (items.length > 30)
-      html += `<li style="color:var(--text-faint);font-size:var(--fs-sm)">… and ${items.length - 30} more</li>`;
+      html += `<li class="cs-list-more">… and ${items.length - 30} more</li>`;
     html += `</ul>`;
   }
   relList('As investor →', asInvestor);
@@ -882,20 +1052,20 @@ function renderHistSection(item) {
   const countEl = document.getElementById('cs-hist-count');
   const hist    = item.dbEntity?.history;
   if (!hist?.length) { card.style.display = 'none'; return; }
-  card.style.display = '';
+  card.style.display = 'block';
   countEl.textContent = hist.length;
 
   const entries = [...hist].reverse(); // newest first
-  let html = `<ol style="list-style:none;padding:0;margin:0">`;
+  let html = `<ol class="hist-list">`;
   for (const h of entries) {
-    html += `<li style="padding:8px 0;border-bottom:1px solid rgba(65,67,69,.2)">
-      <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:3px">
-        <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);white-space:nowrap">${esc(h.date)}</span>
-        ${h.field && h.field !== '*' ? `<span style="font-family:var(--font-mono);font-size:var(--fs-xs);padding:0 5px;border-radius:2px;background:rgba(0,255,65,.06);border:1px solid rgba(0,255,65,.15);color:rgba(0,255,65,.6)">${esc(h.field)}</span>` : ''}
-        <span style="font-size:var(--fs-xs);color:var(--text-faint)">${esc(h.source || '')}</span>
+    html += `<li class="hist-item">
+      <div class="hist-meta">
+        <span class="hist-date">${esc(h.date)}</span>
+        ${h.field && h.field !== '*' ? `<span class="hist-field">${esc(h.field)}</span>` : ''}
+        <span class="hist-source">${esc(h.source || '')}</span>
       </div>
-      <div style="font-size:var(--fs-sm);color:var(--text-secondary)">${esc(h.description || '')}</div>
-      ${(h.old != null || h.new != null) ? `<div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);margin-top:3px">${h.old != null ? `<span style="color:rgba(255,100,100,.7)">${esc(String(h.old))}</span> → ` : ''}${h.new != null ? `<span style="color:rgba(100,255,100,.7)">${esc(String(h.new))}</span>` : ''}</div>` : ''}
+      <div class="hist-desc">${esc(h.description || '')}</div>
+      ${(h.old != null || h.new != null) ? `<div class="hist-diff">${h.old != null ? `<span class="hist-old">${esc(String(h.old))}</span> → ` : ''}${h.new != null ? `<span class="hist-new">${esc(String(h.new))}</span>` : ''}</div>` : ''}
     </li>`;
   }
   html += `</ol>`;
@@ -1039,9 +1209,7 @@ async function init() {
 
   } catch (err) {
     document.getElementById('cs-loading').innerHTML =
-      `<div style="color:var(--error,#f44);font-family:var(--font-mono);font-size:var(--fs-sm)">
-        Error loading data: ${esc(String(err))}
-      </div>`;
+      `<div class="cs-error">Error loading data: ${esc(String(err))}</div>`;
     console.error(err);
   }
 }

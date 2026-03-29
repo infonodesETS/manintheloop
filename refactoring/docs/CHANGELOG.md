@@ -25,6 +25,34 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-29] — `new_index.html` unified registry: search, EDF detail, style cleanup
+
+### Changed — `new_index.html`
+
+#### Inline CSS audit (style purity)
+All `style="…"` attributes removed from HTML markup and JS template literals. Every visual property now lives in the page's `<style>` block:
+- Static elements (`#cs-clear`, `#cs-eu-status`, `#cs-left`, `#cs-loading`, card defaults) converted to ID/class rules.
+- Dynamic badges (`sectorBadge`, `typeBadge`) rewritten from inline color interpolation to a class-map approach (`badge-defence`, `badge-mining`, etc.), eliminating the last data-driven inline styles.
+- Change history, EU flag, SME indicator, match badge, participant link, "…and N more" — all converted to named classes.
+- JS `el.style.display` property assignments (runtime show/hide toggles) retained as-is — these are not inline HTML attributes and are the correct tool for dynamic visibility.
+- Card show logic corrected: `card.style.display = ''` → `'block'` after moving default `display:none` from HTML attributes to CSS (reverting to CSS value was incorrectly hiding cards).
+
+#### Country search / filter
+- Each registry entry now carries an explicit `country` field (resolved from `edfOrg.country`, `infonodes.country`, or `wikidata.country` depending on kind).
+- `renderAc` scores country matches as a dedicated tier: exact=40, startsWith=30, includes=25 — between name matches (60) and generic `_key` matches (20).
+- **Country mode**: when 3+ results have an exact country match for the query, per-group limits (8/12) are removed and a header shows the total count (`"N organisations · France"`). Results within country mode are still sorted by score, so name matches float above pure country results.
+
+#### EDF project detail enhancements
+- `proj.objective` rendered below the project title as `.edf-proj-desc` (correct field name confirmed from `edf_calls.json` schema).
+- "Load N participants" toggle button added per project. Clicking expands a participant list (`.edf-participants.open`); clicking again collapses and clears it.
+- Each participant row shows: clickable name, role badge, country, EU contribution. Clicking the name navigates to that org's full profile via `PIC_MAP` lookup (`O(1)`, built once in `buildRegistry`).
+
+#### Other
+- `#cs-ac { max-height: 680px }` added to `<style>`.
+- All `var(--fs-xs)` and `var(--fs-sm)` occurrences in the page replaced with `var(--fs-body)`. This is a deliberate readability decision for the unified registry test build and does not affect the design system spec in `STYLE.md`.
+
+---
+
 ## [2026-03-29] — EDF org index introduced (`edf_orgs.json`)
 
 ### Added — `scripts/build_edf_orgs.py`
