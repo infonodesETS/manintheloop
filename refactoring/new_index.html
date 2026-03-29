@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/companysearch.css">
   <style>
-    html { font-size: 120%; }
-    body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); }
+    html { font-size: 120%; scrollbar-gutter: stable; }
+    body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); overflow: auto; padding-top: 0; }
 
     /* ── Page shell ── */
     #app { min-height: 100vh; display: flex; flex-direction: column; }
@@ -43,12 +43,16 @@
       color: var(--text-primary);
       font-weight: var(--fw-semi);
       margin-bottom: 4px;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .edf-proj-meta {
       font-family: var(--font-mono);
       font-size: var(--fs-xs);
       color: var(--text-faint);
       display: flex; gap: 12px; flex-wrap: wrap;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .edf-proj-role {
       font-size: var(--fs-xs);
@@ -141,7 +145,7 @@
 
     <div class="cs-search-wrap">
       <input id="cs-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
-      <span class="cs-search-icon">⌕</span>
+      <button id="cs-clear" title="Clear search" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--dim);font-size:calc(var(--fs-sm)*1.2);line-height:1;padding:2px 4px;display:none" aria-label="Clear search">×</button>
       <div id="cs-ac" role="listbox"></div>
     </div>
 
@@ -168,6 +172,7 @@
       <div class="cs-hdr-main">
         <div class="cs-hdr-name" id="cs-name"></div>
         <div class="cs-hdr-badges" id="cs-badges"></div>
+        <div id="cs-eu-status" style="display:flex;align-items:center;gap:7px;margin-top:6px;font-family:var(--font-mono);font-size:var(--fs-xs);"></div>
         <div class="cs-hdr-desc" id="cs-desc"></div>
         <div class="cs-hdr-actions">
           <div class="cs-ext-links" id="cs-links"></div>
@@ -182,12 +187,12 @@
     <div class="cs-cols">
 
       <!-- Left column -->
-      <div id="cs-left">
+      <div id="cs-left" style="min-width:0">
 
         <!-- EDF activity (shown when org has EDF data) -->
         <div class="cs-card edf-section" id="cs-edf-card" style="display:none">
           <div class="cs-card-hdr">
-            EDF Activity
+            European Defence Fund
             <span class="cs-card-count" id="cs-edf-count"></span>
           </div>
           <div class="cs-card-body" id="cs-edf-body"></div>
@@ -545,6 +550,7 @@ function selectItem(item) {
   currentItem = item;
   closeAc();
   searchEl.value = item.name;
+  document.getElementById('cs-clear').style.display = '';
   document.getElementById('cs-hero').classList.add('compact');
   document.getElementById('cs-showing').textContent = item.name;
   renderProfile(item);
@@ -553,6 +559,7 @@ function selectItem(item) {
 function clearSelection() {
   currentItem = null;
   searchEl.value = '';
+  document.getElementById('cs-clear').style.display = 'none';
   document.getElementById('cs-hero').classList.remove('compact');
   document.getElementById('cs-showing').textContent = '';
   document.getElementById('cs-profile').classList.remove('visible');
@@ -590,6 +597,15 @@ function renderProfile(item) {
   if (item.kind === 'merged' && org?.match_method)
     badges += `<span class="cs-hdr-id" style="color:rgba(255,215,0,.6)" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
   document.getElementById('cs-badges').innerHTML = badges;
+
+  // ── EU status (new line below badges)
+  const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
+  const euEl = document.getElementById('cs-eu-status');
+  if (hasEdf) {
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" style="height:14px;width:auto;vertical-align:middle;border-radius:2px"><span style="color:rgba(100,160,255,.85)">Funded by European Commission</span>`;
+  } else {
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" style="height:14px;width:auto;vertical-align:middle;border-radius:2px;filter:grayscale(1);opacity:.35"><span style="color:var(--text-faint)">Not funded by European Commission</span>`;
+  }
 
   // ── Description
   const desc = cb?.description || wd?.description || '';
@@ -906,6 +922,23 @@ async function init() {
 
     searchEl = document.getElementById('cs-search');
     acEl     = document.getElementById('cs-ac');
+
+    // Clear (×) button
+    const clearBtn = document.getElementById('cs-clear');
+    searchEl.addEventListener('input', () => {
+      clearBtn.style.display = searchEl.value ? '' : 'none';
+    });
+    clearBtn.addEventListener('click', () => {
+      if (currentItem) {
+        clearSelection();
+      } else {
+        searchEl.value = '';
+        clearBtn.style.display = 'none';
+        closeAc();
+        searchEl.focus();
+        renderSuggestions();
+      }
+    });
 
     // Search input events
     searchEl.addEventListener('input', () => renderAc(searchEl.value));
