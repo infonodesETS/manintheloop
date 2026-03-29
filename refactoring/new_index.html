@@ -213,6 +213,15 @@
           <div class="cs-card-body" id="cs-rel-body"></div>
         </div>
 
+        <!-- Change history (shown for DB entities with history) -->
+        <div class="cs-card" id="cs-hist-card" style="display:none">
+          <div class="cs-card-hdr">
+            Change history
+            <span class="cs-card-count" id="cs-hist-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-hist-body"></div>
+        </div>
+
       </div>
 
       <!-- Right column (source blocks) -->
@@ -672,6 +681,9 @@ function renderProfile(item) {
   // ── Relationships
   renderRelSection(item);
 
+  // ── Change history
+  renderHistSection(item);
+
   // ── Right column (source blocks)
   renderSources(item);
 }
@@ -788,15 +800,17 @@ function renderDbSection(item) {
   const wd  = e.sources?.wikidata;
 
   let html = '';
-  if (inf?.country)    html += row('Country', esc(inf.country));
-  if (inf?.main_focus) html += row('Focus', esc(inf.main_focus));
-  if (inf?.tax_id)     html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
-  if (wd?.inception)   html += row('Founded', esc(String(wd.inception).slice(0,4)));
+  const country = inf?.country || wd?.country || cb?.headquarters;
+  if (country)          html += row('Country', esc(inf?.country || wd?.country));
+  if (inf?.main_focus)  html += row('Focus', esc(inf.main_focus));
+  if (wd?.isin)         html += row('ISIN', `<code>${esc(wd.isin)}</code>`);
+  if (inf?.tax_id)      html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
+  if (wd?.inception)    html += row('Founded', esc(String(wd.inception).slice(0,4)));
   if (wd?.headquarters) html += row('HQ', esc(wd.headquarters));
   if (cb?.headquarters && cb.headquarters !== wd?.headquarters)
     html += row('HQ (CB)', esc(cb.headquarters));
-  if (e.roles?.length) html += row('Roles', e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join(' '));
-  if (e.tags?.length)  html += row('Tags', e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join(' '));
+  if (e.roles?.length)  html += row('Roles', e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join(' '));
+  if (e.tags?.length)   html += row('Tags', e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join(' '));
 
   body.innerHTML = html || '<div class="cs-na">No additional details.</div>';
 }
@@ -839,6 +853,33 @@ function renderRelSection(item) {
   relList('As investor →', asInvestor);
   relList('← Investors', asTarget);
 
+  body.innerHTML = html;
+}
+
+// ── Change history section ────────────────────────────────────────────────────
+function renderHistSection(item) {
+  const card    = document.getElementById('cs-hist-card');
+  const body    = document.getElementById('cs-hist-body');
+  const countEl = document.getElementById('cs-hist-count');
+  const hist    = item.dbEntity?.history;
+  if (!hist?.length) { card.style.display = 'none'; return; }
+  card.style.display = '';
+  countEl.textContent = hist.length;
+
+  const entries = [...hist].reverse(); // newest first
+  let html = `<ol style="list-style:none;padding:0;margin:0">`;
+  for (const h of entries) {
+    html += `<li style="padding:8px 0;border-bottom:1px solid rgba(65,67,69,.2)">
+      <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:3px">
+        <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);white-space:nowrap">${esc(h.date)}</span>
+        ${h.field && h.field !== '*' ? `<span style="font-family:var(--font-mono);font-size:var(--fs-xs);padding:0 5px;border-radius:2px;background:rgba(0,255,65,.06);border:1px solid rgba(0,255,65,.15);color:rgba(0,255,65,.6)">${esc(h.field)}</span>` : ''}
+        <span style="font-size:var(--fs-xs);color:var(--text-faint)">${esc(h.source || '')}</span>
+      </div>
+      <div style="font-size:var(--fs-sm);color:var(--text-secondary)">${esc(h.description || '')}</div>
+      ${(h.old != null || h.new != null) ? `<div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);margin-top:3px">${h.old != null ? `<span style="color:rgba(255,100,100,.7)">${esc(String(h.old))}</span> → ` : ''}${h.new != null ? `<span style="color:rgba(100,255,100,.7)">${esc(String(h.new))}</span>` : ''}</div>` : ''}
+    </li>`;
+  }
+  html += `</ol>`;
   body.innerHTML = html;
 }
 
