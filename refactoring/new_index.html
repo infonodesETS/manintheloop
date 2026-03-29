@@ -70,7 +70,7 @@
       color: rgba(255,215,0,.85);
     }
     .edf-contrib {
-      color: var(--accent);
+      color: rgba(100,160,255,.9);
       font-weight: var(--fw-bold);
     }
     .edf-loading {
@@ -131,6 +131,15 @@
     /* ── EDF stat color ── */
     .cs-stat.edf-stat .cs-stat-val { color: rgba(100,160,255,.9); }
     .cs-stat.edf-stat { border-color: rgba(100,160,255,.25); }
+
+    /* ── EDF source block (mirrors cs-cb/wd/inf-block from companysearch.css) ── */
+    .cs-edf-block { background: rgba(100,160,255,.04); border: 1px solid rgba(100,160,255,.18); }
+    .cs-edf-block .cs-src-hdr         { color: rgba(100,160,255,.8); }
+    .cs-edf-block .cs-src-hdr::before { background: rgba(100,160,255,.7); }
+
+    /* ── EU Portal external link ── */
+    .cs-ext-link.cs-eu       { border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.8); }
+    .cs-ext-link.cs-eu:hover { border-color: rgba(100,160,255,.9);  color: rgba(100,160,255,1); }
 
     /* ── surface-ac fallback if not in base.css ── */
     :root { --surface-ac: #2a2a2a; }
@@ -634,7 +643,7 @@ function renderProfile(item) {
   if (e?.wikidata_id)
     links += `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`;
   if (org?.eu_url)
-    links += `<a class="cs-ext-link" style="border-color:rgba(100,160,255,.35);color:rgba(100,160,255,.8)" href="${esc(org.eu_url)}" target="_blank">EU Portal ↗</a>`;
+    links += `<a class="cs-ext-link cs-eu" href="${esc(org.eu_url)}" target="_blank">EU Portal ↗</a>`;
   if (org?.web_link) {
     const url = org.web_link.startsWith('http') ? org.web_link : `https://${org.web_link}`;
     links += `<a class="cs-ext-link" href="${esc(url)}" target="_blank">${esc(org.web_link.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
@@ -894,11 +903,8 @@ function renderSources(item) {
 
   // EDF source block
   if (org) {
-    html += `<div class="cs-src-block" style="background:rgba(100,160,255,.04);border:1px solid rgba(100,160,255,.18)">
-      <div class="cs-src-hdr" style="color:rgba(100,160,255,.8)">
-        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(100,160,255,.7);flex-shrink:0"></span>
-        EDF / EU Funding
-      </div>`;
+    html += `<div class="cs-src-block cs-edf-block">
+      <div class="cs-src-hdr">EDF / EU Funding</div>`;
     const s = org.stats;
     const euFmt = fmtEur(s?.total_eu_contribution);
     if (euFmt) html += row('EU contribution', `<span class="edf-contrib">${euFmt}</span>`);
