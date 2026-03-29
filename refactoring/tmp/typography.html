@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MITL — Style Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/companysearch.css">
+<style>
+  /* ── Style reference overrides ──────────────────────────────────────── */
+  body {
+    overflow: auto !important;
+    padding-top: 0 !important;
+  }
+
+  /* Page shell */
+  .sr-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  /* Topbar */
+  .sr-topbar {
+    position: sticky; top: 0; z-index: 900;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 32px; margin-bottom: 48px;
+  }
+  .sr-topbar-brand {
+    font-family: var(--font); font-weight: var(--fw-bold);
+    font-size: var(--fs-lg); color: var(--accent); letter-spacing: .5px;
+  }
+  .sr-topbar-brand span { color: var(--text-faint); }
+  .sr-topbar-sub {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    color: var(--text-faint); letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Section headings */
+  .sr-section {
+    margin-bottom: 64px;
+  }
+  .sr-section-title {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs); font-weight: var(--fw-bold);
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--accent); margin-bottom: 6px;
+    border-bottom: 1px solid rgba(0,255,65,0.2);
+    padding-bottom: 8px;
+  }
+  [data-theme="light"] .sr-section-title {
+    border-bottom-color: rgba(0,102,34,0.2);
+  }
+  .sr-section-desc {
+    font-size: var(--fs-sm); color: var(--text-faint);
+    margin-bottom: 24px; font-family: var(--font-mono);
+  }
+
+  /* Subsection */
+  .sr-sub {
+    margin-bottom: 32px;
+  }
+  .sr-sub-label {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--text-faint); font-weight: var(--fw-bold);
+    margin-bottom: 12px; font-family: var(--font-mono);
+  }
+
+  /* Token table */
+  .sr-token-table {
+    width: 100%; border-collapse: collapse;
+    font-size: var(--fs-sm); margin-bottom: 8px;
+  }
+  .sr-token-table th {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .8px;
+    color: var(--text-faint); padding: 6px 10px; text-align: left;
+    border-bottom: 1px solid var(--border); font-weight: var(--fw-bold);
+  }
+  .sr-token-table td {
+    padding: 7px 10px; border-bottom: 1px solid rgba(65,67,69,0.25);
+    vertical-align: middle;
+  }
+  .sr-token-table tr:last-child td { border-bottom: none; }
+  .sr-token-name {
+    font-family: var(--font-mono); color: var(--accent); font-size: var(--fs-xs);
+  }
+  [data-theme="light"] .sr-token-name { color: var(--accent); }
+  .sr-token-val {
+    font-family: var(--font-mono); color: var(--text-faint); font-size: var(--fs-xs);
+  }
+
+  /* Typography specimen row */
+  .sr-type-row {
+    display: flex; align-items: baseline; gap: 20px;
+    padding: 16px 0; border-bottom: 1px solid rgba(65,67,69,0.2);
+  }
+  .sr-type-row:last-child { border-bottom: none; }
+  .sr-type-meta {
+    width: 160px; flex-shrink: 0;
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    color: var(--text-faint); line-height: 1.4;
+  }
+  .sr-type-meta strong { display: block; color: var(--accent); }
+  .sr-type-sample { flex: 1; color: var(--text-primary); }
+
+  /* Color swatches */
+  .sr-swatches {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;
+  }
+  .sr-swatch {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    width: 80px;
+  }
+  .sr-swatch-color {
+    width: 100%; height: 40px; border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  [data-theme="light"] .sr-swatch-color { border-color: rgba(0,0,0,0.08); }
+  .sr-swatch-name {
+    font-family: var(--font-mono); font-size: 10px; color: var(--text-faint);
+    text-align: center; word-break: break-all;
+  }
+
+  /* Demo containers */
+  .sr-demo {
+    background: var(--surface3); border: 1px solid var(--border);
+    border-radius: 6px; padding: 20px; margin-bottom: 8px;
+  }
+  .sr-demo--dark {
+    background: #0d0d0d; border-color: var(--border);
+  }
+  .sr-demo-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .sr-demo-row:last-child { margin-bottom: 0; }
+
+  /* Nav preview containers */
+  .sr-nav-demo {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden; margin-bottom: 8px;
+  }
+  .sr-nav-topbar {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 20px; gap: 16px;
+    height: var(--nav-h);
+  }
+  .sr-nav-tabbar {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 12px; gap: 2px;
+    height: var(--tab-h);
+  }
+  .sr-nav-subbar {
+    background: var(--surface3); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 12px; gap: 2px;
+    height: var(--subtab-h);
+  }
+
+  /* Sidebar preview */
+  .sr-sidebar-demo {
+    background: #0d0d0d; border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden; max-width: 440px;
+  }
+  .sr-sidebar-hdr {
+    background: var(--surface2); border-bottom: 1px solid var(--border);
+    padding: .9rem 1.25rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .sr-sidebar-body { padding: 1.25rem; }
+
+  /* Stat card grid */
+  .sr-stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr));
+    gap: 12px; margin-bottom: 8px;
+  }
+
+  /* Intro demo */
+  .sr-intro-demo {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; padding: 32px 24px;
+    max-width: 520px;
+  }
+
+  /* Inline code */
+  .sr-code {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    color: var(--accent); background: rgba(0,255,65,0.06);
+    border: 1px solid rgba(0,255,65,0.15); border-radius: 3px;
+    padding: 1px 5px;
+  }
+  [data-theme="light"] .sr-code {
+    background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.15);
+  }
+
+  /* Progress bar demo */
+  .sr-prog-row { margin-bottom: 8px; }
+  .sr-prog-label { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); margin-bottom: 3px; }
+
+  /* Table of contents */
+  .sr-toc {
+    background: var(--surface3); border: 1px solid var(--border);
+    border-radius: 6px; padding: 20px 24px; margin-bottom: 48px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 24px;
+  }
+  .sr-toc a {
+    font-family: var(--font); font-size: var(--fs-base);
+    color: var(--accent); text-decoration: none;
+    display: block; padding: 3px 0;
+  }
+  .sr-toc a:hover { text-decoration: underline; }
+  .sr-toc-title {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--text-faint); font-weight: var(--fw-bold);
+    font-family: var(--font-mono); margin-bottom: 12px; grid-column: span 2;
+  }
+
+  /* Spacing demo */
+  .sr-spacing-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; }
+  .sr-spacing-block {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .sr-spacing-box {
+    background: rgba(0,255,65,0.15); border: 1px solid rgba(0,255,65,0.3);
+  }
+  [data-theme="light"] .sr-spacing-box {
+    background: rgba(0,102,34,0.15); border-color: rgba(0,102,34,0.3);
+  }
+
+  /* Divider */
+  .sr-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+  /* Scrollbar still themed */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="sr-topbar">
+  <div>
+    <div class="sr-topbar-brand">Man in the Loop <span>—</span> Style Reference</div>
+  </div>
+  <div class="sr-topbar-sub">design system · typography · components</div>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" title="Switch theme">◑ LIGHT</button>
+</div>
+
+<div class="sr-page">
+
+  <!-- INTRO HEADER -->
+  <div style="margin-bottom: 40px;">
+    <div class="intro-prompt">$ man-in-the-loop --style-reference</div>
+    <div style="font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin: 6px 0 12px;">Design System</div>
+    <p style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); max-width: 540px; border-left: 2px solid rgba(0,255,65,0.2); padding-left: 16px;">
+      Visual audit of all typography tokens, color palette, UI components, and CSS primitives used across the explorer.
+      Dark mode is the default; toggle light mode with the button above.
+    </p>
+  </div>
+
+  <!-- TOC -->
+  <nav class="sr-toc">
+    <div class="sr-toc-title">Contents</div>
+    <a href="#sec-typography">01 · Typography Scale</a>
+    <a href="#sec-colors">02 · Color Palette</a>
+    <a href="#sec-nav">03 · Navigation</a>
+    <a href="#sec-badges">04 · Badges &amp; Pills</a>
+    <a href="#sec-statcards">05 · Stat Cards</a>
+    <a href="#sec-tables">06 · Tables</a>
+    <a href="#sec-sidebar">07 · Sidebar Primitives</a>
+    <a href="#sec-intro">08 · Intro &amp; Terminal UI</a>
+    <a href="#sec-inputs">09 · Inputs &amp; Controls</a>
+    <a href="#sec-buttons">10 · Buttons</a>
+    <a href="#sec-legend">11 · Legend &amp; Type Dots</a>
+    <a href="#sec-misc">12 · Misc Utilities</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 01 · TYPOGRAPHY -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-typography">
+    <div class="sr-section-title">01 · Typography Scale</div>
+    <div class="sr-section-desc">html { font-size: 120% } → 1rem = 19.2px. Primary font: Barlow Condensed. Mono: JetBrains Mono.</div>
+
+    <!-- Font size scale -->
+    <div class="sr-sub">
+      <div class="sr-sub-label">Font-size tokens — Barlow Condensed</div>
+      <div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-stat</strong>2rem · ~38px<br>stat numbers</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--accent); line-height: 1;">142</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-xl</strong>1.65rem · ~31.7px<br>headings, panel titles</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight);">Supply Chain Overview</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-lg</strong>1.2rem · ~23px<br>sidebar titles, section h2</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-snug);">Man in the Loop — info.nodes</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-body</strong>1rem · ~19.2px<br>primary reading / UI text</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-body); color: var(--text-primary); line-height: var(--lh-body);">Mapping companies, investors, and their relationships across the Defence · Mining · Tech · Startup sectors — reconstructing who finances whom across the global defence supply chain.</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-base</strong>.875rem · ~16.8px<br>buttons, inputs, labels</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-base); color: var(--text-secondary); line-height: var(--lh-body);">Data transparency and enrichment tools for journalists and researchers. Inspect Wikidata records for tracked companies and review data quality metrics.</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-sm</strong>.75rem · ~14.4px<br>nav meta, table headers, chips</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; line-height: var(--lh-snug);">GEOGRAPHIC DISTRIBUTION · TOP INVESTORS BY PORTFOLIO</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-xs</strong>.70rem · ~13.4px<br>badges, IDs, micro labels</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-xs); color: var(--text-faint); text-transform: uppercase; letter-spacing: .8px; line-height: var(--lh-snug);">IN-0042 · REL-0099 · UPDATED 2026-03-29 · WIKIDATA Q123456</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mono scale -->
+    <div class="sr-sub">
+      <div class="sr-sub-label">Monospace — JetBrains Mono</div>
+      <div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-xl mono</strong>hero titles</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-xl); font-family: var(--font-mono); color: var(--accent); font-weight: var(--fw-normal); text-shadow: 0 0 14px rgba(0,255,65,0.35);">Man in the Loop<span style="display:inline-block;width:.5em;height:1em;background:var(--accent);margin-left:3px;vertical-align:text-bottom;box-shadow:0 0 8px rgba(0,255,65,0.6);"></span></div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-base mono</strong>CTA / links</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-base); font-family: var(--font-mono); color: var(--accent);">→ Explore Supply Chain · → European Defence Fund</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-sm mono</strong>meta / nav</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-sm); font-family: var(--font-mono); color: var(--text-faint);">updated: 2026-03-29 · 142 companies · 89 investors</div>
+        </div>
+        <div class="sr-type-row">
+          <div class="sr-type-meta"><strong>--fs-xs mono</strong>prompts, labels</div>
+          <div class="sr-type-sample" style="font-size: var(--fs-xs); font-family: var(--font-mono); color: rgba(0,255,65,0.45); letter-spacing: 2px; text-transform: uppercase;">$ man-in-the-loop --research 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Line heights -->
+    <div class="sr-sub">
+      <div class="sr-sub-label">Line-height tokens</div>
+      <table class="sr-token-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Usage</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="sr-token-name">--lh-tight</span></td>
+            <td><span class="sr-token-val">1.2</span></td>
+            <td style="color:var(--text-secondary);font-size:var(--fs-sm);">Headings, large display</td>
+            <td><span style="font-size: var(--fs-xl); line-height: 1.2; color: var(--text-primary); display:block;">Supply Chain<br>Overview</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr-token-name">--lh-snug</span></td>
+            <td><span class="sr-token-val">1.35</span></td>
+            <td style="color:var(--text-secondary);font-size:var(--fs-sm);">Sub-headings, UI labels</td>
+            <td><span style="font-size: var(--fs-base); line-height: 1.35; color: var(--text-secondary); display:block;">European Defence Fund<br>Beneficiaries overview</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr-token-name">--lh-body</span></td>
+            <td><span class="sr-token-val">1.55</span></td>
+            <td style="color:var(--text-secondary);font-size:var(--fs-sm);">Primary reading text</td>
+            <td><span style="font-size: var(--fs-base); line-height: 1.55; color: var(--text-secondary); display:block;">Identifying who truly holds the reins of autonomous weapons research and production — reconstructing decision-making influence.</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr-token-name">--lh-loose</span></td>
+            <td><span class="sr-token-val">1.65</span></td>
+            <td style="color:var(--text-secondary);font-size:var(--fs-sm);">Captions, sidebar rows</td>
+            <td><span style="font-size: var(--fs-sm); line-height: 1.65; color: var(--text-tertiary); display:block;">Extraction of critical raw materials for defence:<br>semiconductors, rare earths, strategic metals.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Weights -->
+    <div class="sr-sub">
+      <div class="sr-sub-label">Font weights</div>
+      <div class="sr-demo-row">
+        <div>
+          <span style="font-size: var(--fs-lg); font-weight: 400; color: var(--text-primary);">Normal 400</span>
+          <div style="font-size:var(--fs-xs);color:var(--text-faint);font-family:var(--font-mono);margin-top:2px;">--fw-normal</div>
+        </div>
+        <div>
+          <span style="font-size: var(--fs-lg); font-weight: 600; color: var(--text-primary);">Semi-bold 600</span>
+          <div style="font-size:var(--fs-xs);color:var(--text-faint);font-family:var(--font-mono);margin-top:2px;">--fw-semi</div>
+        </div>
+        <div>
+          <span style="font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary);">Bold 700</span>
+          <div style="font-size:var(--fs-xs);color:var(--text-faint);font-family:var(--font-mono);margin-top:2px;">--fw-bold</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 02 · COLORS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-colors">
+    <div class="sr-section-title">02 · Color Palette</div>
+    <div class="sr-section-desc">Dark mode default. Light mode via [data-theme="light"]. Toggle above.</div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Accent &amp; Semantic</div>
+      <div class="sr-swatches">
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--accent);"></div><div class="sr-swatch-name">--accent</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--bg);border:1px solid var(--border);"></div><div class="sr-swatch-name">--bg</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--surface);"></div><div class="sr-swatch-name">--surface</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--surface2);"></div><div class="sr-swatch-name">--surface2</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--surface3);"></div><div class="sr-swatch-name">--surface3</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--error);"></div><div class="sr-swatch-name">--error</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--warn);"></div><div class="sr-swatch-name">--warn</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--ok);"></div><div class="sr-swatch-name">--ok</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--flow-out);"></div><div class="sr-swatch-name">--flow-out</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-dual);"></div><div class="sr-swatch-name">--c-dual</div></div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Company sectors — greens</div>
+      <div class="sr-swatches">
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-defence);"></div><div class="sr-swatch-name">--c-defence</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-mining);"></div><div class="sr-swatch-name">--c-mining</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-tech);"></div><div class="sr-swatch-name">--c-tech</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-startup);"></div><div class="sr-swatch-name">--c-startup</div></div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Investor types — reds</div>
+      <div class="sr-swatches">
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-fund);"></div><div class="sr-swatch-name">--c-fund</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-govt);"></div><div class="sr-swatch-name">--c-govt</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-bank);"></div><div class="sr-swatch-name">--c-bank</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--c-inst);"></div><div class="sr-swatch-name">--c-inst</div></div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Text colors</div>
+      <div class="sr-demo" style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:var(--fs-body);color:var(--text-primary);">text-primary — Mapping companies and investors across the defence supply chain. <span class="sr-token-name">--text-primary</span></div>
+        <div style="font-size:var(--fs-body);color:var(--text-secondary);">text-secondary — Data transparency and enrichment tools for journalists. <span class="sr-token-name">--text-secondary</span></div>
+        <div style="font-size:var(--fs-body);color:var(--text-tertiary);">text-tertiary — Technology companies providing AI, cloud, and infrastructure. <span class="sr-token-name">--text-tertiary</span></div>
+        <div style="font-size:var(--fs-body);color:var(--text-muted);">text-muted — GEOGRAPHIC DISTRIBUTION · 142 COMPANIES <span class="sr-token-name">--text-muted</span></div>
+        <div style="font-size:var(--fs-body);color:var(--text-faint);">text-faint — updated: 2026-03-29 · IN-0042 <span class="sr-token-name">--text-faint</span></div>
+        <div style="font-size:var(--fs-body);color:var(--dim);">dim — inactive buttons, nav labels <span class="sr-token-name">--dim</span></div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Grey palette</div>
+      <div class="sr-swatches">
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--grey-dark);"></div><div class="sr-swatch-name">--grey-dark<br>#595959</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--grey-mid);"></div><div class="sr-swatch-name">--grey-mid<br>#b0b0b0</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--grey-light);"></div><div class="sr-swatch-name">--grey-light<br>#d0d0d0</div></div>
+        <div class="sr-swatch"><div class="sr-swatch-color" style="background:var(--grey-pale);"></div><div class="sr-swatch-name">--grey-pale<br>#f0f0f0</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 03 · NAVIGATION -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-nav">
+    <div class="sr-section-title">03 · Navigation</div>
+    <div class="sr-section-desc">Three-bar nav: topnav (brand) · tabnav (groups) · subnav (sub-tabs)</div>
+
+    <div class="sr-nav-demo">
+      <!-- Top nav -->
+      <div class="sr-nav-topbar">
+        <a href="#" class="brand" style="text-decoration:none;">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+        <span class="brand-wip">Work in Progress — <a href="#" class="brand-wip-link">Data Issues</a></span>
+        <span class="meta" style="margin-left:auto;">updated: 2026-03-29</span>
+        <button class="theme-toggle-btn" style="pointer-events:none;">◑ LIGHT</button>
+      </div>
+      <!-- Group nav -->
+      <div class="sr-nav-tabbar">
+        <button class="tnav-btn active">Intro</button>
+        <button class="tnav-btn">Company Search</button>
+        <div class="tnav-sep"></div>
+        <button class="tnav-btn">Supply Chain</button>
+        <button class="tnav-btn">European Defence Fund</button>
+        <div class="tnav-sep"></div>
+        <button class="tnav-btn">About</button>
+        <a href="#" class="tnav-gh" style="margin-left:auto;">↗ GitHub</a>
+      </div>
+      <!-- Sub-tab nav -->
+      <div class="sr-nav-subbar">
+        <div class="snav-group">
+          <button class="snav-btn active">Overview</button>
+          <div class="snav-sep"></div>
+          <button class="snav-btn">Map</button>
+          <button class="snav-btn">Graph</button>
+          <div class="snav-sep"></div>
+          <button class="snav-btn">Companies</button>
+          <button class="snav-btn">Investors</button>
+          <button class="snav-btn">Relationships</button>
+        </div>
+        <button class="snav-copy-ai-btn" style="margin-left:auto;">Export in .md format</button>
+      </div>
+    </div>
+
+    <div class="sr-sub" style="margin-top:24px;">
+      <div class="sr-sub-label">Button states</div>
+      <div class="sr-demo">
+        <div class="sr-demo-row">
+          <button class="tnav-btn">Default</button>
+          <button class="tnav-btn active">Active</button>
+          <div class="tnav-sep"></div>
+          <button class="snav-btn">Sub Default</button>
+          <button class="snav-btn active">Sub Active</button>
+          <div class="snav-sep"></div>
+          <button class="snav-copy-ai-btn">Export .md</button>
+          <button class="theme-toggle-btn">◑ LIGHT</button>
+        </div>
+        <div class="sr-demo-row">
+          <span class="ctrl-group-lbl">View</span>
+          <button class="sf-btn">All</button>
+          <button class="sf-btn active">Defence</button>
+          <button class="sf-btn">Mining</button>
+          <button class="sf-btn">Tech</button>
+          <button class="sf-btn">Startup</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 04 · BADGES & PILLS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-badges">
+    <div class="sr-section-title">04 · Badges &amp; Pills</div>
+    <div class="sr-section-desc">All badge variants — sector, type, WD, WIP, lead/follow, validation flags.</div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Company sector badges (.badge-sector)</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="badge-sector badge-Defence">Defence</span>
+        <span class="badge-sector badge-Mining">Mining</span>
+        <span class="badge-sector badge-Tech">Tech</span>
+        <span class="badge-sector badge-Startup">Startup</span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Investor type badges (.badge-type)</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="badge-type badge-type--fund">Fund</span>
+        <span class="badge-type badge-type--government_agency">Government Agency</span>
+        <span class="badge-type badge-type--bank">Bank</span>
+        <span class="badge-type badge-type--institution">Institution</span>
+        <span class="badge-type badge-type--company">Company</span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Special badges</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="badge-dual">★ Dual-role</span>
+        <span class="badge-wd">Q12345678</span>
+        <span class="badge-miss">missing QID</span>
+        <span class="badge-lead">Lead investor</span>
+        <span class="badge-follow">Follow-on</span>
+        <span class="brand-wip">Work in Progress</span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Validation flag badges</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="badge-val-review">⚠ needs review</span>
+        <span class="badge-val-flag">✕ flagged</span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Intro sector labels (.intro-sector-label)</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="intro-sector-label intro-sector--defence">Defence</span>
+        <span class="intro-sector-label intro-sector--mining">Mining</span>
+        <span class="intro-sector-label intro-sector--tech">Tech</span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Entity tags (.es-tag)</div>
+      <div class="sr-demo sr-demo-row" style="font-size: var(--scale-sidebar);">
+        <span class="es-tag">autonomous systems</span>
+        <span class="es-tag">defence tech</span>
+        <span class="es-tag">AI</span>
+        <span class="es-tag">NATO</span>
+        <span class="es-tag">dual-use</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 05 · STAT CARDS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-statcards">
+    <div class="sr-section-title">05 · Stat Cards</div>
+    <div class="sr-section-desc">.stat-card · .stat-card--link · val · lbl</div>
+
+    <div class="sr-stat-grid">
+      <div class="stat-card">
+        <div class="val">142</div>
+        <div class="lbl">Companies</div>
+      </div>
+      <div class="stat-card stat-card--link">
+        <div class="val">89</div>
+        <div class="lbl">Investors <span class="ov-stats-hint">(click)</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="val">367</div>
+        <div class="lbl">Relationships</div>
+      </div>
+      <div class="stat-card stat-card--link">
+        <div class="val">201</div>
+        <div class="lbl">EDF Calls</div>
+      </div>
+      <div class="stat-card">
+        <div class="val">715</div>
+        <div class="lbl">Beneficiaries</div>
+      </div>
+      <div class="stat-card">
+        <div class="val">€4.2B</div>
+        <div class="lbl">EU Contribution</div>
+      </div>
+    </div>
+
+    <!-- Section title usage -->
+    <div class="sr-sub" style="margin-top: 24px;">
+      <div class="sr-sub-label">.section-title usage in cards</div>
+      <div class="sr-demo">
+        <div class="stat-card">
+          <div class="section-title">Geographic Distribution</div>
+          <div style="color:var(--text-secondary);font-size:var(--fs-base);margin-top:8px;">FR · DE · UK · IT · SE · PL · NL · ES…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 06 · TABLES -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-tables">
+    <div class="sr-section-title">06 · Tables</div>
+    <div class="sr-section-desc">thead th · tbody td · sortable · tbl-toolbar · search-input · tbl-count</div>
+
+    <div class="sr-demo" style="padding: 0; overflow: hidden;">
+      <div class="tbl-toolbar">
+        <input class="search-input" type="text" placeholder="Search companies…">
+        <span class="ctrl-group-lbl">Sector</span>
+        <button class="sf-btn active">All</button>
+        <button class="sf-btn">Defence</button>
+        <button class="sf-btn">Mining</button>
+        <span class="tbl-count" style="margin-left:auto;">142 entities</span>
+      </div>
+      <div style="max-height: 260px; overflow: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th class="sortable">Name ↕</th>
+              <th class="sortable">Sector ↕</th>
+              <th class="sortable">Country ↕</th>
+              <th class="sortable">Founded ↕</th>
+              <th>Investors</th>
+              <th>Wikidata</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--text-primary);">Rheinmetall AG</strong></td>
+              <td><span class="badge-sector badge-Defence">Defence</span></td>
+              <td>DE</td>
+              <td>1889</td>
+              <td><span style="color:var(--accent);font-family:monospace;">4</span></td>
+              <td><span class="badge-wd">Q38414</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text-primary);">Palantir Technologies</strong></td>
+              <td><span class="badge-sector badge-Tech">Tech</span></td>
+              <td>US</td>
+              <td>2003</td>
+              <td><span style="color:var(--accent);font-family:monospace;">7</span></td>
+              <td><span class="badge-wd">Q2543678</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text-primary);">MP Materials</strong></td>
+              <td><span class="badge-sector badge-Mining">Mining</span></td>
+              <td>US</td>
+              <td>2017</td>
+              <td><span style="color:var(--accent);font-family:monospace;">2</span></td>
+              <td><span class="badge-miss">missing</span></td>
+            </tr>
+            <tr class="sel-row">
+              <td><strong style="color:var(--accent);">Anduril Industries</strong></td>
+              <td><span class="badge-sector badge-Startup">Startup</span></td>
+              <td>US</td>
+              <td>2017</td>
+              <td><span style="color:var(--accent);font-family:monospace;">9</span></td>
+              <td><span class="badge-wd">Q113370858</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text-primary);">Safran Group</strong></td>
+              <td><span class="badge-sector badge-Defence">Defence</span></td>
+              <td>FR</td>
+              <td>1924</td>
+              <td><span style="color:var(--accent);font-family:monospace;">3</span></td>
+              <td><span class="badge-wd">Q493740</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 07 · SIDEBAR PRIMITIVES -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-sidebar">
+    <div class="sr-section-title">07 · Sidebar Primitives</div>
+    <div class="sr-section-desc">sl-* classes (shared panel), es-* classes (entity detail), sidebar em-cascade at var(--scale-sidebar) = 1.2rem</div>
+
+    <div class="sr-demo-row" style="align-items:flex-start;gap:20px;flex-wrap:wrap;">
+
+      <!-- Entity slide-in preview -->
+      <div class="sr-sidebar-demo sidebar" style="flex:1;min-width:280px;max-width:400px;">
+        <div class="sr-sidebar-hdr">
+          <div class="sl-title">Rheinmetall AG</div>
+          <button class="sl-close">✕</button>
+        </div>
+        <div class="sr-sidebar-body">
+          <div class="es-header-meta">
+            <span class="badge-sector badge-Defence">Defence</span>
+            <span class="badge-dual">★ Dual-role</span>
+            <span class="es-id">IN-0042</span>
+          </div>
+          <div class="sl-section-lbl">Key Facts</div>
+          <div class="es-block">
+            <div class="es-row"><div class="es-lbl">Country</div><div class="es-val">Germany · DE</div></div>
+            <div class="es-row"><div class="es-lbl">Founded</div><div class="es-val">1889</div></div>
+            <div class="es-row"><div class="es-lbl">HQ</div><div class="es-val">Düsseldorf</div></div>
+            <div class="es-row"><div class="es-lbl">Total Funding</div><div class="es-val" style="color:var(--accent);">€4.2B</div></div>
+          </div>
+          <div class="sl-section-lbl">About</div>
+          <div class="es-desc">German defence and automotive supplier. One of Europe's largest arms manufacturers, producing ammunition, armoured vehicles, and military electronics.</div>
+          <div class="sl-section-lbl">Tags</div>
+          <div class="es-tags">
+            <span class="es-tag">ammunition</span>
+            <span class="es-tag">armoured vehicles</span>
+            <span class="es-tag">defence tech</span>
+            <span class="es-tag">NATO</span>
+          </div>
+          <!-- Wikidata block -->
+          <div class="es-wd-block">
+            <div class="es-wd-header">Wikidata</div>
+            <div class="es-row"><div class="es-lbl">QID</div><div class="es-val"><span class="badge-wd">Q38414</span></div></div>
+            <div class="es-desc es-wd-desc">German armaments and automotive supplier headquartered in Düsseldorf.</div>
+            <div class="es-wd-updated">updated: 2026-03-01</div>
+          </div>
+          <!-- Crunchbase block -->
+          <div class="es-cb-block">
+            <div class="es-cb-header">Crunchbase</div>
+            <div class="es-row"><div class="es-lbl">Rank</div><div class="es-val">12,450</div></div>
+            <div class="es-row"><div class="es-lbl">IPO</div><div class="es-val">Listed · Frankfurt</div></div>
+            <div class="es-cb-updated">scraped: 2026-02-15</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inline panel preview -->
+      <div class="sr-sidebar-demo sidebar" style="flex:1;min-width:260px;max-width:360px;">
+        <div class="sr-sidebar-hdr">
+          <div class="sl-title">Investment Detail</div>
+          <button class="sl-close">✕</button>
+        </div>
+        <div class="sr-sidebar-body">
+          <div class="sl-section-lbl">Investor</div>
+          <div class="sl-row"><div class="sl-row-lbl">Name</div><div class="sl-row-val">Founders Fund</div></div>
+          <div class="sl-row"><div class="sl-row-lbl">Type</div><div class="sl-row-val"><span class="badge-type badge-type--fund">Fund</span></div></div>
+          <div class="sl-row"><div class="sl-row-lbl">Country</div><div class="sl-row-val">US</div></div>
+          <div class="sl-section-lbl">Investment</div>
+          <div class="sl-row"><div class="sl-row-lbl">Round</div><div class="sl-row-val">Series C</div></div>
+          <div class="sl-row"><div class="sl-row-lbl">Amount</div><div class="sl-row-val" style="color:var(--accent);">$200M</div></div>
+          <div class="sl-row"><div class="sl-row-lbl">Role</div><div class="sl-row-val"><span class="badge-lead">Lead</span></div></div>
+          <div class="sl-row"><div class="sl-row-lbl">Date</div><div class="sl-row-val">2023-06-14</div></div>
+          <div class="dp-desc">Part of a broader series to expand autonomous drone production for NATO-affiliated clients.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- es-nav-btn -->
+    <div class="sr-sub" style="margin-top:24px;">
+      <div class="sr-sub-label">.es-nav-btn — entity navigation buttons</div>
+      <div class="sr-demo sr-demo-row" style="font-size:var(--scale-sidebar);">
+        <button class="es-nav-btn">→ View in Supply Chain</button>
+        <button class="es-nav-btn">→ Open in Graph</button>
+        <button class="es-nav-btn">↗ Wikidata</button>
+        <button class="es-nav-btn">↗ Crunchbase</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 08 · INTRO & TERMINAL UI -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-intro">
+    <div class="sr-section-title">08 · Intro &amp; Terminal UI</div>
+    <div class="sr-section-desc">intro-* classes — the typewriter/terminal aesthetic of the landing page</div>
+
+    <div class="sr-intro-demo">
+      <div class="intro-prompt">$ man-in-the-loop --research 2025</div>
+      <div class="intro-title">Man in the Loop<span class="intro-cursor"></span></div>
+      <p class="intro-desc">
+        An experimental research to map <span class="gl-term" data-tooltip="An entity in the defence supply chain tracked in the infonodes database.">companies</span> working either as manufacturers or
+        <span class="gl-term" data-tooltip="A financial entity providing capital to tracked companies.">investors</span>
+        in the Defence field, in Europe and abroad.
+      </p>
+      <hr class="intro-divider">
+      <div class="intro-areas">
+        <div class="intro-area">
+          <div class="intro-area-num">01 /</div>
+          <div class="intro-area-body">
+            <div class="intro-area-title">Company Search →</div>
+            <div class="intro-area-desc">Look up any individual company or investor in the database. View funding, founders, sector, investors, portfolio connections.</div>
+          </div>
+        </div>
+        <div class="intro-area">
+          <div class="intro-area-num">02 /</div>
+          <div class="intro-area-body">
+            <div class="intro-area-title">Supply Chain →</div>
+            <div class="intro-area-desc">Map companies, investors, and their relationships across Defence · Mining · Tech · Startup sectors.</div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-cta-row">
+        <button class="intro-cta-btn">→ Company Search</button>
+        <button class="intro-cta-btn">→ Explore Supply Chain</button>
+        <button class="intro-cta-btn">→ European Defence Fund</button>
+      </div>
+      <div class="intro-context">
+        <div class="intro-context-label">about this research</div>
+        <p class="intro-context-text">Identifying who truly holds the reins of autonomous weapons research and production.</p>
+        <ul class="intro-sector-list">
+          <li><span class="intro-sector-label intro-sector--defence">Defence</span> Companies that produce weapons systems, military platforms, and defence technologies</li>
+          <li><span class="intro-sector-label intro-sector--mining">Mining</span> Extraction of critical raw materials for defence: semiconductors, rare earths, strategic metals</li>
+          <li><span class="intro-sector-label intro-sector--tech">Tech</span> Technology companies providing AI, cloud, and infrastructure to the military sector</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 09 · INPUTS & CONTROLS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-inputs">
+    <div class="sr-section-title">09 · Inputs &amp; Controls</div>
+    <div class="sr-section-desc">search-input · cs-search (hero variant) · autocomplete shell</div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Table search input (.search-input)</div>
+      <div class="sr-demo">
+        <input class="search-input" type="text" placeholder="Search companies…" style="display:block;">
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Company Search hero input (#cs-search)</div>
+      <div class="sr-demo" style="background:var(--bg);">
+        <div class="cs-search-wrap">
+          <input id="cs-search" type="text" placeholder="Company or investor name…" autocomplete="off">
+          <span class="cs-search-icon">⌕</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Progress bars (.prog-track · .prog-fill)</div>
+      <div class="sr-demo" style="display:flex;flex-direction:column;gap:10px;max-width:360px;">
+        <div class="sr-prog-row">
+          <div class="sr-prog-label">Defence · 68 companies</div>
+          <div class="prog-track"><div class="prog-fill" style="width:68%;"></div></div>
+        </div>
+        <div class="sr-prog-row">
+          <div class="sr-prog-label">Mining · 24 companies</div>
+          <div class="prog-track"><div class="prog-fill" style="width:24%;background:var(--c-mining);"></div></div>
+        </div>
+        <div class="sr-prog-row">
+          <div class="sr-prog-label">Tech · 38 companies</div>
+          <div class="prog-track"><div class="prog-fill" style="width:38%;background:var(--c-tech);"></div></div>
+        </div>
+        <div class="sr-prog-row">
+          <div class="sr-prog-label">Startup · 12 companies</div>
+          <div class="prog-track"><div class="prog-fill" style="width:12%;background:var(--c-startup);"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 10 · BUTTONS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-buttons">
+    <div class="sr-section-title">10 · Buttons</div>
+    <div class="sr-section-desc">All interactive button styles across the app</div>
+
+    <div class="sr-demo">
+      <div class="sr-demo-row">
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">CTA (.intro-cta-btn)</div>
+          <button class="intro-cta-btn">→ Company Search</button>
+        </div>
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">About link (.intro-about-link)</div>
+          <button class="intro-about-link">→ Full context and methodology in About</button>
+        </div>
+      </div>
+      <hr class="sr-divider" style="margin:16px 0;">
+      <div class="sr-demo-row">
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Group nav (.tnav-btn)</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            <button class="tnav-btn">Supply Chain</button>
+            <button class="tnav-btn active">Active</button>
+          </div>
+        </div>
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Sub-tab (.snav-btn)</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            <button class="snav-btn">Map</button>
+            <button class="snav-btn active">Active</button>
+          </div>
+        </div>
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Sector filter (.sf-btn)</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            <button class="sf-btn">All</button>
+            <button class="sf-btn active">Defence</button>
+          </div>
+        </div>
+      </div>
+      <hr class="sr-divider" style="margin:16px 0;">
+      <div class="sr-demo-row">
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Entity nav (.es-nav-btn)</div>
+          <button class="es-nav-btn">→ View in Graph</button>
+          <button class="es-nav-btn">↗ Wikidata</button>
+        </div>
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Export (.snav-copy-ai-btn)</div>
+          <button class="snav-copy-ai-btn">Export in .md format</button>
+        </div>
+        <div>
+          <div class="sr-sub-label" style="margin-bottom:6px;">Theme (.theme-toggle-btn)</div>
+          <button class="theme-toggle-btn">◑ LIGHT</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 11 · LEGEND & TYPE DOTS -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-legend">
+    <div class="sr-section-title">11 · Legend &amp; Type Dots</div>
+    <div class="sr-section-desc">Legend bar · type-dot (circles for companies, squares for investors) · lg-* classes</div>
+
+    <!-- Legend bar preview -->
+    <div class="sr-demo" style="padding:0;overflow:hidden;">
+      <div id="legend-body" style="display:flex;align-items:center;gap:0;padding:0 14px;height:42px;background:var(--surface);border-bottom:1px solid var(--border);">
+        <span class="lg-group-label">Companies</span>
+        <span class="lg-item"><span class="lg-dot lg-dot--defence"></span>Defence</span>
+        <span class="lg-item"><span class="lg-dot lg-dot--mining"></span>Mining</span>
+        <span class="lg-item"><span class="lg-dot lg-dot--tech"></span>Tech</span>
+        <span class="lg-item"><span class="lg-dot lg-dot--startup"></span>Startup</span>
+        <span class="lg-sep"></span>
+        <span class="lg-group-label">Investors</span>
+        <span class="lg-item"><span class="lg-dot lg-square lg-dot--fund"></span>Fund</span>
+        <span class="lg-item"><span class="lg-dot lg-square lg-dot--govt"></span>Gov. Agency</span>
+        <span class="lg-item"><span class="lg-dot lg-square lg-dot--bank"></span>Bank</span>
+        <span class="lg-item"><span class="lg-dot lg-square lg-dot--inst"></span>Institution</span>
+        <span class="lg-sep"></span>
+        <span class="lg-item"><span class="lg-star lg-star--dual">★</span>Dual-role</span>
+      </div>
+    </div>
+
+    <!-- Type dots standalone -->
+    <div class="sr-sub" style="margin-top:20px;">
+      <div class="sr-sub-label">Type dots — circles (companies) · squares (investors)</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="type-dot type-dot--Defence"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Defence</span>
+        <span class="type-dot type-dot--Mining"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Mining</span>
+        <span class="type-dot type-dot--Tech"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Tech</span>
+        <span class="type-dot type-dot--Startup"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Startup</span>
+        <span style="width:1px;height:16px;background:var(--border);"></span>
+        <span class="type-dot type-dot--fund"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Fund</span>
+        <span class="type-dot type-dot--government_agency"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Gov</span>
+        <span class="type-dot type-dot--bank"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Bank</span>
+        <span class="type-dot type-dot--institution"></span>
+        <span style="font-size:var(--fs-xs);color:var(--text-faint);">Institution</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 12 · MISC UTILITIES -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="sr-section" id="sec-misc">
+    <div class="sr-section-title">12 · Misc Utilities</div>
+    <div class="sr-section-desc">Glossary terms · tooltips · scrollbar · separators · gv-context / dp-desc</div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Glossary tooltip (.gl-term — hover to preview)</div>
+      <div class="sr-demo" style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);padding-bottom:32px;">
+        An experimental research to map <span class="gl-term" data-tooltip="An entity in the defence supply chain tracked in the infonodes database with an IN-NNNN identifier.">companies</span> working as manufacturers or
+        <span class="gl-term" data-tooltip="A financial entity (fund, bank, government agency, institution) providing capital to tracked companies.">investors</span>
+        in the <span class="gl-term" data-tooltip="Military and security technology: weapons systems, platforms, electronics, dual-use technologies.">Defence</span> field,
+        tracking <span class="gl-term" data-tooltip="European Defence Fund — EU programme funding collaborative defence R&D (2021–2027).">EDF</span>
+        calls and beneficiaries.
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Description / context blocks</div>
+      <div class="sr-demo">
+        <div class="dp-desc">German defence and automotive supplier. One of Europe's largest arms manufacturers, producing ammunition, armoured vehicles, and military electronics for NATO markets.</div>
+        <div class="gv-context" style="margin-top:12px;">Part of the broader European defence industrial base — Rheinmetall has significantly expanded production capacity since 2022 in response to NATO rearmament demand.</div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Separators</div>
+      <div class="sr-demo sr-demo-row">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:var(--fs-xs);color:var(--text-faint);">tnav-sep</span>
+          <div class="tnav-sep"></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-faint);">snav-sep</span>
+          <div class="snav-sep"></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-faint);">lg-sep</span>
+          <div class="lg-sep"></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-faint);">ctrl-sep</span>
+          <div class="ctrl-sep"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Tooltip (#tip shell)</div>
+      <div class="sr-demo">
+        <div id="tip" style="display:block;position:static;max-width:280px;">
+          <div class="tn">Rheinmetall AG</div>
+          <div class="ti">Defence · Germany</div>
+          <div class="th">4 investors · €4.2B total funding</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">WIP / build-status strip</div>
+      <div class="sr-demo sr-demo-row">
+        <span class="brand-wip">Work in Progress — Data may contain errors, see <a href="#" class="brand-wip-link">Data Issues</a></span>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Loader spinner (.spin)</div>
+      <div class="sr-demo sr-demo-row">
+        <div class="spin"></div>
+        <div class="loading-text">loading data/database.json…</div>
+      </div>
+    </div>
+
+    <div class="sr-sub">
+      <div class="sr-sub-label">Inline code reference</div>
+      <div class="sr-demo" style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);">
+        Entity IDs: <span class="sr-code">IN-0042</span>, <span class="sr-code">IV-0017</span>, <span class="sr-code">REL-0099</span>.
+        Run <span class="sr-code">python3 scripts/validate.py</span> before committing. Schema version <span class="sr-code">v2.0</span>.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div style="border-top:1px solid var(--border);padding-top:24px;margin-top:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);">Man in the Loop — info.nodes · Style Reference · 2026-03-29</span>
+    <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);">css/base.css · components.css · companysearch.css</span>
+  </div>
+
+</div><!-- /sr-page -->
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  if (isLight) {
+    html.removeAttribute('data-theme');
+    localStorage.removeItem('mitl-theme');
+    document.getElementById('theme-toggle').textContent = '◑ LIGHT';
+  } else {
+    html.setAttribute('data-theme', 'light');
+    localStorage.setItem('mitl-theme', 'light');
+    document.getElementById('theme-toggle').textContent = '◑ DARK';
+  }
+}
+// Sync toggle label on load
+(function() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = isLight ? '◑ DARK' : '◑ LIGHT';
+})();
+</script>
+</body>
+</html>

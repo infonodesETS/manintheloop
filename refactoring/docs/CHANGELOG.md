@@ -25,6 +25,63 @@ See [`STYLE.md`](./STYLE.md) for the full living specification: token tables, CS
 
 ---
 
+## [2026-03-29] — `new_index.html` unified registry: search, EDF detail, style cleanup
+
+### Changed — `new_index.html`
+
+#### Inline CSS audit (style purity)
+All `style="…"` attributes removed from HTML markup and JS template literals. Every visual property now lives in the page's `<style>` block:
+- Static elements (`#cs-clear`, `#cs-eu-status`, `#cs-left`, `#cs-loading`, card defaults) converted to ID/class rules.
+- Dynamic badges (`sectorBadge`, `typeBadge`) rewritten from inline color interpolation to a class-map approach (`badge-defence`, `badge-mining`, etc.), eliminating the last data-driven inline styles.
+- Change history, EU flag, SME indicator, match badge, participant link, "…and N more" — all converted to named classes.
+- JS `el.style.display` property assignments (runtime show/hide toggles) retained as-is — these are not inline HTML attributes and are the correct tool for dynamic visibility.
+- Card show logic corrected: `card.style.display = ''` → `'block'` after moving default `display:none` from HTML attributes to CSS (reverting to CSS value was incorrectly hiding cards).
+
+#### Country search / filter
+- Each registry entry now carries an explicit `country` field (resolved from `edfOrg.country`, `infonodes.country`, or `wikidata.country` depending on kind).
+- `renderAc` scores country matches as a dedicated tier: exact=40, startsWith=30, includes=25 — between name matches (60) and generic `_key` matches (20).
+- **Country mode**: when 3+ results have an exact country match for the query, per-group limits (8/12) are removed and a header shows the total count (`"N organisations · France"`). Results within country mode are still sorted by score, so name matches float above pure country results.
+
+#### EDF project detail enhancements
+- `proj.objective` rendered below the project title as `.edf-proj-desc` (correct field name confirmed from `edf_calls.json` schema).
+- "Load N participants" toggle button added per project. Clicking expands a participant list (`.edf-participants.open`); clicking again collapses and clears it.
+- Each participant row shows: clickable name, role badge, country, EU contribution. Clicking the name navigates to that org's full profile via `PIC_MAP` lookup (`O(1)`, built once in `buildRegistry`).
+
+#### Other
+- `#cs-ac { max-height: 680px }` added to `<style>`.
+- All `var(--fs-xs)` and `var(--fs-sm)` occurrences in the page replaced with `var(--fs-body)`. This is a deliberate readability decision for the unified registry test build and does not affect the design system spec in `STYLE.md`.
+
+---
+
+## [2026-03-29] — EDF org index introduced (`edf_orgs.json`)
+
+### Added — `scripts/build_edf_orgs.py`
+
+New script that generates `data/edf_orgs.json` — a flat, PIC-keyed registry of all unique organisations appearing in `edf_calls.json`. Serves as the crosswalk between the 794 EDF participant organisations and `database.json` entities.
+
+Key design decisions:
+- **PIC as primary key** — EU Participant ID has 100% coverage across all EDF participant records and is stable across API refreshes.
+- **Three-tier auto-matching**: exact normalised name → subset token match (subsidiary detection) → prefix brand match (single-brand entities like Thales, Airbus, Leonardo).
+- **Merge logic** — confirmed `db_id` mappings from previous runs are always preserved, so regenerating after an EDF refresh never loses human-verified links.
+- **`database.json` untouched** — no schema changes, `validate.py` passes unchanged.
+
+### Added — `data/edf_orgs.json`
+
+Initial build: 794 unique orgs (by PIC), 91 auto-matched to `database.json` entities (`match_confidence: "suggested"`). All matches are subsidiaries or direct name matches of known defence entities (Airbus, Thales, Rheinmetall, Safran, Leonardo, BAE Systems, etc.).
+
+| Stat | Value |
+|---|---|
+| Total orgs | 794 |
+| Auto-matched (`suggested`) | 91 |
+| Confirmed | 0 (pending human review) |
+| `_generated_at` | 2026-03-29 |
+
+### Changed — `docs/UPDATE_PROTOCOL.md`
+
+Added full section documenting `build_edf_orgs.py`: modes, crosswalk fields, confirm/reject workflow, when to run, commit message format.
+
+---
+
 ## [2026-03-28] — EDF calls refresh; UPDATE_PROTOCOL EDF section added
 
 ### Changed — `data/edf_calls.json`

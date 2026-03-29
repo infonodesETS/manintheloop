@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Man in the Loop — Who Profits From Europe's War Machine? | info.nodes</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+:root {
+  --black:     #000000;
+  --white:     rgba(255,255,255,0.95);
+  --accent:    #00ff41;
+  --accent-dim:rgba(0,255,65,0.18);
+  --gold:      #b8913c;
+  --surface:   #0d0d0d;
+  --surface2:  #111111;
+  --border:    rgb(105,105,105);
+  --dim:       rgba(255,255,255,0.45);
+  --mono:      'JetBrains Mono','Courier New',monospace;
+  --sans:      'Barlow Condensed','Inter',sans-serif;
+  /* Entity palette — matches index.html */
+  --c-defence: #aaffdd;
+  --c-mining:  #55ddaa;
+  --c-tech:    #22bb66;
+  --c-startup: #00ff41;
+  --c-fund:    #ff8888;
+  --c-govt:    #ff3333;
+  --c-bank:    #aa0000;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:120%;}
+body{background:var(--black);color:var(--white);font-family:var(--sans);overflow-x:hidden;letter-spacing:.01em;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:stretch;height:48px;}
+.nav-logo{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;padding:0 1.5rem;display:flex;align-items:center;border-right:1px solid var(--border);white-space:nowrap;color:var(--dim);}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;overflow-x:auto;flex:1;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:0 1rem;display:flex;align-items:center;gap:.4rem;color:var(--dim);border-right:1px solid var(--border);transition:color .2s,background .2s;white-space:nowrap;}
+.nav-link:hover{color:var(--white);background:#0a0a0a;}
+.nav-link.active{color:var(--accent);border-bottom:2px solid var(--accent);}
+.nav-num{color:var(--accent);}
+
+/* ── EXPERIMENT BANNER ── */
+.experiment-banner{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:.45rem 1rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);position:sticky;top:48px;z-index:90;}
+.experiment-banner span{color:var(--accent);}
+.back-btn{display:inline-block;margin-right:1rem;padding:1px 10px;background:var(--accent);color:#000;font-family:var(--mono);font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:50px;text-decoration:none;vertical-align:middle;}
+.back-btn:hover{background:#8ad8dc;color:#000;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding-top:48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(0,255,65,.025) 59px,rgba(0,255,65,.025) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(0,255,65,.015) 59px,rgba(0,255,65,.015) 60px);}
+.hero-inner{max-width:1100px;margin:0 auto;padding:5rem 2.5rem 4rem;}
+.kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+.kicker::before{content:'';width:36px;height:1px;background:var(--accent);}
+h1{font-family:var(--sans);font-size:clamp(2.4rem,6vw,5rem);font-weight:700;line-height:1.0;letter-spacing:.02em;text-transform:uppercase;margin-bottom:1.8rem;}
+h1 em{font-style:normal;color:var(--accent);}
+.standfirst{font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.6);max-width:620px;margin-bottom:3rem;font-weight:300;}
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;}
+.hero-stat{border-left:2px solid var(--accent);padding:.8rem 2rem .8rem 1.2rem;border-right:1px solid var(--border);}
+.hero-stat .n{font-family:var(--sans);font-size:1.85rem;font-weight:700;display:block;color:var(--accent);letter-spacing:.02em;}
+.hero-stat .l{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);}
+
+/* ── SECTIONS ── */
+.sec-anchor{display:block;height:48px;margin-top:-48px;visibility:hidden;}
+section{max-width:1100px;margin:0 auto;padding:5rem 2.5rem;}
+section+section{border-top:1px solid var(--border);}
+.sec-header{margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.sec-num{font-family:var(--mono);font-size:.56rem;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:.5rem;}
+h2{font-family:var(--sans);font-size:clamp(1.6rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:.02em;}
+.chapter-intro{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:700px;margin-bottom:3rem;font-weight:300;}
+.body-text{font-size:.8rem;line-height:1.85;color:rgba(255,255,255,.5);max-width:700px;margin-bottom:1.5rem;font-weight:300;}
+.body-text strong{color:var(--white);font-weight:600;}
+
+/* ── FINDING ── */
+.finding{background:var(--surface);border:1px solid var(--border);padding:1.2rem 1.5rem;margin:1.8rem 0;display:flex;gap:1rem;align-items:flex-start;}
+.finding-icon{font-size:1.05rem;flex-shrink:0;margin-top:.1rem;}
+.finding-text{font-size:.78rem;line-height:1.75;color:rgba(255,255,255,.6);}
+.finding-text strong{color:var(--white);}
+
+/* ── PULLQUOTE ── */
+.pullquote{border-left:3px solid var(--accent);padding:1.2rem 1.8rem;margin:2.5rem 0;background:var(--surface);}
+.pullquote p{font-family:var(--sans);font-size:1.1rem;font-weight:300;line-height:1.6;color:rgba(255,255,255,.85);}
+.pullquote cite{display:block;font-family:var(--mono);font-size:.54rem;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-top:.8rem;font-style:normal;}
+
+/* ── DIVIDER / DATA NOTE ── */
+.divider{display:flex;align-items:center;gap:1rem;margin:2.5rem 0;font-family:var(--mono);font-size:.52rem;color:var(--dim);letter-spacing:.18em;text-transform:uppercase;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.data-note{font-family:var(--mono);font-size:.55rem;color:var(--dim);padding:.8rem 1rem;border-left:2px solid var(--border);margin-top:1.5rem;line-height:1.6;}
+
+/* ── BAR CHART ── */
+.bar-chart{margin-bottom:2rem;}
+.bar-row{display:grid;grid-template-columns:170px 1fr 90px;align-items:center;gap:1rem;margin-bottom:.55rem;}
+.bar-label{font-family:var(--mono);font-size:.57rem;letter-spacing:.04em;text-align:right;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{background:#0e0e0e;height:18px;overflow:hidden;border:1px solid #1a1a1a;}
+.bar-fill{height:100%;width:0;transition:width .9s cubic-bezier(.4,0,.2,1);}
+.bar-fill.c1{background:var(--accent);}
+.bar-fill.c2{background:#22bb66;}
+.bar-fill.c3{background:#007744;}
+.bar-fill.gold{background:var(--gold);}
+.bar-fill.blue{background:#1565c0;}
+.bar-value{font-family:var(--mono);font-size:.57rem;color:var(--white);font-weight:500;}
+
+/* ── ORGS GRID ── */
+.orgs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border);margin-bottom:2rem;}
+.org-card{background:var(--black);padding:1.2rem;border-left:3px solid transparent;transition:all .15s;}
+.org-card:hover{background:var(--surface2);border-left-color:var(--accent);}
+.org-rank{font-family:var(--mono);font-size:.52rem;color:var(--dim);letter-spacing:.15em;margin-bottom:.4rem;}
+.org-name{font-family:var(--sans);font-size:.9rem;font-weight:700;margin-bottom:.3rem;line-height:1.2;text-transform:uppercase;letter-spacing:.02em;}
+.org-meta{display:flex;gap:1rem;font-family:var(--mono);font-size:.56rem;color:var(--dim);}
+.org-meta .hl{color:var(--accent);}
+
+/* ── INVESTORS ── */
+.investor-grid{gap:1px;background:var(--border);margin-bottom:2rem;}
+.investor-row{background:var(--black);padding:1.3rem;cursor:pointer;transition:background .15s;border-left:3px solid transparent;}
+.investor-row:hover{background:var(--surface2);}
+.investor-row.open{background:var(--surface);border-left-color:var(--accent);}
+.inv-header{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+.inv-name{font-family:var(--sans);font-size:1rem;font-weight:700;flex:1;text-transform:uppercase;letter-spacing:.02em;}
+.sector-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
+.stag{font-family:var(--mono);font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;padding:.14rem .48rem;border:1px solid;}
+.stag.Startup{border-color:var(--c-startup);color:var(--c-startup);}
+.stag.Tech{border-color:var(--c-tech);color:var(--c-tech);}
+.stag.Defence{border-color:var(--c-defence);color:var(--c-defence);}
+.stag.Mining{border-color:var(--c-mining);color:var(--c-mining);}
+.inv-toggle{font-family:var(--mono);font-size:.6rem;color:var(--dim);transition:transform .2s;}
+.investor-row.open .inv-toggle{transform:rotate(180deg);}
+.inv-details{display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border);grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.8rem;}
+.investor-row.open .inv-details{display:grid;}
+.inv-item{display:flex;gap:.6rem;align-items:flex-start;}
+.inv-dot{width:7px;height:7px;border-radius:50%;margin-top:.35rem;flex-shrink:0;}
+.inv-dot.Startup{background:var(--c-startup);}
+.inv-dot.Tech{background:var(--c-tech);}
+.inv-dot.Defence{background:var(--c-defence);}
+.inv-dot.Mining{background:var(--c-mining);}
+.inv-company{font-size:.78rem;line-height:1.3;font-family:var(--sans);font-weight:600;}
+.inv-sec-label{font-family:var(--mono);font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;}
+
+/* ── FILTER BAR ── */
+.filter-bar{display:flex;gap:.35rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.fbtn{font-family:var(--mono);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;background:none;border:1px solid var(--border);color:var(--dim);padding:.28rem .8rem;cursor:pointer;transition:all .15s;}
+.fbtn:hover{border-color:var(--accent);color:var(--accent);}
+.fbtn.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700;}
+
+/* ── STARTUPS ── */
+.startups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1px;background:var(--border);margin-bottom:2rem;}
+.sc{background:var(--black);padding:1.3rem;cursor:pointer;transition:background .15s;position:relative;border-top:3px solid transparent;}
+.sc:hover{background:var(--surface2);}
+.sc.nato-backed{border-top-color:var(--gold);}
+.nato-badge{position:absolute;top:.7rem;right:.8rem;font-family:var(--mono);font-size:.46rem;background:var(--gold);color:#000;padding:.12rem .45rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+.sc-country{font-family:var(--mono);font-size:.56rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.sc-name{font-family:var(--sans);font-size:1rem;font-weight:700;margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.02em;}
+.sc-desc{font-size:.74rem;line-height:1.55;color:rgba(255,255,255,.5);margin-bottom:1rem;font-weight:300;}
+.sc-bar{height:2px;background:#111;margin-bottom:.7rem;overflow:hidden;}
+.sc-bar-fill{height:100%;background:var(--accent);width:0;transition:width .9s;}
+.sc-foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.56rem;color:var(--dim);}
+.sc-foot .fv{color:var(--accent);}
+.sc-investors{margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border);font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.55;display:none;font-family:var(--sans);}
+.sc:hover .sc-investors,.sc.expanded .sc-investors{display:block;}
+.sc-investors strong{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:.25rem;}
+
+/* ── RESEARCH ── */
+.research-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);margin-bottom:2rem;}
+.rc{background:var(--black);padding:1.1rem;border-left:3px solid transparent;transition:all .15s;}
+.rc:hover{background:var(--surface2);border-left-color:var(--gold);}
+.rc-name{font-family:var(--sans);font-size:.82rem;font-weight:700;margin-bottom:.3rem;line-height:1.3;text-transform:uppercase;}
+.rc-meta{display:flex;gap:1rem;font-family:var(--mono);font-size:.54rem;color:var(--dim);}
+.rc-meta .hl{color:var(--accent);}
+
+/* ── DONUT ── */
+.donut-wrap{display:flex;align-items:center;gap:3rem;flex-wrap:wrap;margin-bottom:2rem;}
+.donut-legend{display:flex;flex-direction:column;gap:.7rem;}
+.dl-item{display:flex;align-items:center;gap:.8rem;}
+.dl-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.dl-label{font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.6);}
+.dl-val{font-family:var(--mono);font-size:.6rem;color:var(--white);font-weight:500;margin-left:.5rem;}
+
+/* ── NETWORK ── */
+#network-wrap{background:#020d02;border:1px solid var(--border);height:560px;position:relative;margin-bottom:2rem;overflow:hidden;}
+#network-svg{width:100%;height:100%;}
+#network-legend{position:absolute;bottom:1rem;left:1rem;display:flex;gap:.8rem;flex-wrap:wrap;}
+.nl{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.5);}
+.nl-dot{width:8px;height:8px;border-radius:50%;}
+#network-tooltip{position:absolute;background:rgba(0,0,0,.96);border:1px solid var(--border);padding:.6rem .9rem;font-family:var(--mono);font-size:.56rem;pointer-events:none;display:none;max-width:220px;line-height:1.5;color:var(--white);z-index:10;}
+#network-controls{position:absolute;top:1rem;right:1rem;}
+.nc-btn{font-family:var(--mono);font-size:.54rem;letter-spacing:.1em;background:rgba(0,0,0,.9);border:1px solid var(--border);color:var(--dim);padding:.3rem .7rem;cursor:pointer;transition:all .15s;}
+.nc-btn:hover{color:var(--accent);border-color:var(--accent);}
+
+/* ── PROFILES ── */
+.profiles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-bottom:2rem;}
+.pc{background:var(--black);padding:1.2rem;cursor:pointer;transition:background .15s;border-left:3px solid transparent;}
+.pc:hover{background:var(--surface2);}
+.pc.expanded{background:var(--surface);border-left-color:var(--accent);}
+.pc-sector{margin-bottom:.4rem;}
+.sector-pill{display:inline-block;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border:1px solid;}
+.sector-pill.Defence{border-color:var(--c-defence);color:var(--c-defence);}
+.sector-pill.Tech{border-color:var(--c-tech);color:var(--c-tech);}
+.sector-pill.Startup{border-color:var(--c-startup);color:var(--c-startup);}
+.sector-pill.Mining{border-color:var(--c-mining);color:var(--c-mining);}
+.pc-name{font-family:var(--sans);font-size:.9rem;font-weight:700;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.02em;}
+.pc-hq{font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-bottom:.6rem;}
+.pc-desc{font-size:.74rem;line-height:1.55;color:rgba(255,255,255,.5);font-weight:300;}
+.pc-extra{display:none;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border);}
+.pc.expanded .pc-extra{display:block;}
+.pc-inv{font-size:.74rem;color:rgba(255,255,255,.5);line-height:1.6;}
+.pc-inv strong{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:.25rem;}
+.tag{display:inline-block;font-family:var(--mono);font-size:.48rem;border:1px solid var(--border);color:var(--dim);padding:.1rem .4rem;margin:.15rem .1rem;letter-spacing:.08em;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:2rem 2.5rem;font-family:var(--mono);font-size:.56rem;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1100px;margin:0 auto;}
+footer a{color:var(--accent);}
+
+/* ── ANIMATION ── */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s;}
+.fade.in{opacity:1;transform:none;}
+
+@media(max-width:640px){
+  section,footer,.hero-inner{padding-left:1.2rem;padding-right:1.2rem;}
+  .bar-row{grid-template-columns:90px 1fr 65px;}
+  .hero-stat{padding:.6rem 1rem .6rem .8rem;}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainnav">
+  <div class="nav-logo">info<span>.</span>nodes</div>
+  <div class="nav-links">
+    <a href="#hero" class="nav-link active"><span class="nav-num">00</span> Overview</a>
+    <a href="#ch1" class="nav-link"><span class="nav-num">I</span> EU Money</a>
+    <a href="#ch2" class="nav-link"><span class="nav-num">II</span> Power Brokers</a>
+    <a href="#ch3" class="nav-link"><span class="nav-num">III</span> Startups</a>
+    <a href="#ch4" class="nav-link"><span class="nav-num">IV</span> Research</a>
+    <a href="#network" class="nav-link"><span class="nav-num">⬡</span> Network</a>
+    <a href="#profiles" class="nav-link"><span class="nav-num">⊞</span> Profiles</a>
+  </div>
+</nav>
+
+<div class="experiment-banner">
+  <a href="../" class="back-btn">« Back</a>
+  ✨ This report has been generated through AI — <span>Claude Sonnet 4.6</span> on <span>22 March 2026</span>. It is an experimental demo to show potential investigations feasible through the project data. ✨
+</div>
+
+<div class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="kicker">Investigative Report · info.nodes · 2026</div>
+    <h1>Who Profits From<br>Europe's <em>War Machine?</em></h1>
+    <p class="standfirst">A data investigation into the investors, startups and public funds quietly reshaping the European defence industry — from Silicon Valley venture capital to Brussels' own budget.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="n">€2.3bn</span><span class="l">EDF Funding Tracked</span></div>
+      <div class="hero-stat"><span class="n">407</span><span class="l">Entities Mapped</span></div>
+      <div class="hero-stat"><span class="n">18</span><span class="l">Defence Startups</span></div>
+      <div class="hero-stat"><span class="n">298</span><span class="l">Investment Ties</span></div>
+      <div class="hero-stat"><span class="n">78</span><span class="l">EDF Projects</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CH I -->
+<div id="ch1" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Chapter I</div><h2>Brussels' Blank Cheque:<br>The European Defence Fund</h2></div>
+  <p class="chapter-intro fade">Launched in 2021, the European Defence Fund channels EU taxpayer money into military research and development. The data reveals who is collecting this public money — and what technologies they are building with it.</p>
+  <div class="finding fade"><span class="finding-icon">🔍</span><div class="finding-text"><strong>Key finding:</strong> Across 78 projects analysed, the EDF has disbursed over <strong>€2.3 billion</strong> to 1,657 participants. Four countries — France, Germany, Italy and Spain — capture nearly <strong>62% of all funding</strong>, reinforcing existing industrial hierarchies rather than building new ones.</div></div>
+  <div class="divider fade">Funding by Country · EU Contribution (€m)</div>
+  <div id="country-chart" class="bar-chart fade"></div>
+  <div class="divider fade">Top 10 Beneficiary Organisations</div>
+  <p class="body-text fade"><strong>Leonardo</strong>, Italy's state-backed defence giant, leads all recipients with <strong>€172.2m across 37 projects</strong>. The German Ministry of Defence appears as a direct beneficiary — unusual for a government body — with €121.9m across just five projects. France places four organisations in the top ten.</p>
+  <div id="orgs-grid" class="orgs-grid fade"></div>
+  <div class="divider fade">Where the money goes · by organisation type</div>
+  <div class="donut-wrap fade"><svg id="donut-svg" width="180" height="180" viewBox="0 0 180 180"></svg><div class="donut-legend" id="donut-legend"></div></div>
+  <div class="pullquote fade"><p>"If an entity is present at every stage of the chain — from raw material extraction to AI-based technologies to production of armaments — it is evident that their power increases considerably."</p><cite>— info.nodes, Man in the Loop: Research Framework, 2026</cite></div>
+  <div class="data-note fade">Data: European Commission EDF project portal. 78 projects analysed. Figures represent EU contribution only. Source: edf_calls.json / info.nodes database.</div>
+</section>
+
+<!-- CH II -->
+<div id="ch2" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Chapter II</div><h2>The Power Brokers:<br>Who Spans the Entire Chain?</h2></div>
+  <p class="chapter-intro fade">The most strategically significant investors are not those who put the most money in — but those who invest across multiple sectors simultaneously. An investor with stakes in mining, tech and defence gains decision-making leverage across the entire supply chain of autonomous weapons.</p>
+  <div class="finding fade"><span class="finding-icon">⚠️</span><div class="finding-text"><strong>Key finding:</strong> Ten investors hold positions across two or more sectors — Tech, Defence, Mining and Defence Startups. <strong>BlackRock</strong> and the <strong>European Investment Bank</strong> each span three sectors. The EIB is a public institution.</div></div>
+  <div class="divider fade">Cross-sector investors — click to expand</div>
+  <div id="investors-grid" class="investor-grid fade"></div>
+  <div class="finding fade"><span class="finding-icon">🏛️</span><div class="finding-text"><strong>The public-private nexus:</strong> The <strong>European Investment Bank</strong> — an EU public institution — invests in Indra (defence), Quantum Systems (drone startup) and Umicore (critical minerals). To whom does a public bank answer when it backs autonomous weapons companies?</div></div>
+  <div class="data-note fade">Investment relationships sourced from Crunchbase (March 2026) and Wikidata. Source: database.json / info.nodes.</div>
+</section>
+
+<!-- CH III -->
+<div id="ch3" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Chapter III</div><h2>The New Arsenal:<br>Europe's Defence Startup Boom</h2></div>
+  <p class="chapter-intro fade">Across Europe, a generation of defence technology startups has emerged — building AI-powered drones, battlefield command software, and autonomous ground systems. They are backed by venture capital. And increasingly, by NATO and the EU itself.</p>
+  <div class="finding fade"><span class="finding-icon">🚀</span><div class="finding-text"><strong>Key finding:</strong> 18 European defence startups tracked have raised a combined total exceeding <strong>€4 billion</strong>. <strong>Helsing</strong> leads at €1.5bn. Three startups count NATO bodies among their investors, blurring the line between alliance infrastructure and private enterprise.</div></div>
+  <div class="filter-bar fade" id="startup-filters">
+    <button class="fbtn on" onclick="filterStartups('all',this)">All (18)</button>
+    <button class="fbtn" onclick="filterStartups('nato',this)">NATO-backed</button>
+    <button class="fbtn" onclick="filterStartups('de',this)">Germany</button>
+    <button class="fbtn" onclick="filterStartups('uk',this)">UK</button>
+    <button class="fbtn" onclick="filterStartups('fr',this)">France</button>
+  </div>
+  <div id="startups-grid" class="startups-grid fade"></div>
+  <div class="finding fade"><span class="finding-icon">🌐</span><div class="finding-text"><strong>The transatlantic thread:</strong> <strong>General Catalyst</strong>, a major US venture firm, has invested simultaneously in Helsing, ICEYE and Alpine Eagle. Lightspeed Venture Partners, BlackRock and Andreessen Horowitz also appear. American capital is a structural force in shaping European defence technology.</div></div>
+  <div class="data-note fade">Funding figures from Crunchbase, March 2026. NATO-backed = NATO Innovation Fund or NATO DIANA. Source: database.json / info.nodes.</div>
+</section>
+
+<!-- CH IV -->
+<div id="ch4" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Chapter IV</div><h2>The Knowledge Pipeline:<br>Universities in the War Economy</h2></div>
+  <p class="chapter-intro fade">Behind the defence companies and the startups lies a third actor: the public research establishment. European universities, national labs and research institutes are increasingly integrated into the EDF funding chain — feeding the intellectual infrastructure of autonomous weapons with public money and academic prestige.</p>
+  <div class="finding fade"><span class="finding-icon">🎓</span><div class="finding-text"><strong>Key finding:</strong> Research organisations received <strong>€207.2 million</strong> from the EDF — roughly 9% of total tracked funding. The Dutch institute TNO leads with €28.6m across 23 separate projects. At least 12 research bodies across 10 countries are active EDF participants.</div></div>
+  <div class="divider fade">Top Research Organisations by EDF Funding</div>
+  <p class="body-text fade">The organisations receiving the most EDF money are not universities in the traditional sense — they are national applied-research institutes, occupying an ambiguous position between academia, industry and the state. <strong>TNO</strong> (Netherlands), <strong>AIT</strong> (Austria) and <strong>ONERA</strong> (France) lead, all with deep ties to national defence establishments.</p>
+  <div id="research-grid" class="research-grid fade"></div>
+  <div class="divider fade">The small-country exception</div>
+  <p class="body-text fade"><strong>Estonia</strong> and <strong>Lithuania</strong> — small states with minimal weight in the corporate EDF rankings — punch significantly above their weight in research participation. Estonia's CR14 foundation received €7.2m; Lithuania's Baltic Advanced Technology Institute €7.6m. These are countries on NATO's eastern flank where defence has become a national priority. The EDF research track is one mechanism through which that priority is being institutionalised.</p>
+  <div class="divider fade">The accountability gap</div>
+  <p class="body-text fade">The involvement of public research bodies raises questions that private investment does not. Academic institutions operate under norms of openness, peer review and public benefit. When they receive EDF funding — which funds classified and dual-use military research — these norms are tested. <strong>There is currently no systematic public registry of which universities are participating in which EDF projects, nor what their research produces.</strong></p>
+  <div class="divider fade">EDF Technology Domains · calls per domain</div>
+  <div id="domains-chart" class="bar-chart fade"></div>
+  <div class="pullquote fade"><p>"We will try to collect information about governance and relationships with public universities."</p><cite>— info.nodes, Man in the Loop: Research Framework — next phase</cite></div>
+  <div class="data-note fade">Research org classification based on Horizon Europe activity_type field. EDF domain codes extracted from project identifiers. Source: edf_calls.json / info.nodes.</div>
+</section>
+
+<!-- NETWORK -->
+<div id="network" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Network Analysis</div><h2>The Web of Capital:<br>Investment Relationships Visualised</h2></div>
+  <p class="chapter-intro fade">Every line represents a confirmed investment relationship. Nodes are sized by number of connections. Drag to explore, hover for details, use the filters to highlight sectors.</p>
+  <div class="filter-bar fade" id="nf-bar">
+    <button class="fbtn on" onclick="filterNet('all',this)">All</button>
+    <button class="fbtn" onclick="filterNet('Startup',this)">Startups</button>
+    <button class="fbtn" onclick="filterNet('Defence',this)">Defence</button>
+    <button class="fbtn" onclick="filterNet('Tech',this)">Tech</button>
+    <button class="fbtn" onclick="filterNet('Mining',this)">Mining</button>
+    <button class="fbtn" onclick="filterNet('fund',this)">Funds only</button>
+  </div>
+  <div id="network-wrap" class="fade">
+    <svg id="network-svg"></svg>
+    <div id="network-tooltip"></div>
+    <div id="network-legend">
+      <div class="nl"><div class="nl-dot" style="background:#00ff41"></div>Startup</div>
+      <div class="nl"><div class="nl-dot" style="background:#aaffdd"></div>Defence</div>
+      <div class="nl"><div class="nl-dot" style="background:#22bb66"></div>Tech</div>
+      <div class="nl"><div class="nl-dot" style="background:#55ddaa"></div>Mining</div>
+      <div class="nl"><div class="nl-dot" style="background:#ff8888"></div>Fund/Bank</div>
+      <div class="nl"><div class="nl-dot" style="background:#607d8b"></div>Gov Agency</div>
+    </div>
+    <div id="network-controls"><button class="nc-btn" onclick="resetZoom()">Reset view</button></div>
+  </div>
+  <div class="data-note fade">25 key nodes, 45 edges shown. Node size = degree centrality. D3 force-directed layout. Source: database.json / info.nodes.</div>
+</section>
+
+<!-- PROFILES -->
+<div id="profiles" class="sec-anchor"></div>
+<section>
+  <div class="sec-header fade"><div class="sec-num">Company Profiles</div><h2>The Companies:<br>Defence, Tech and the Supply Chain</h2></div>
+  <p class="chapter-intro fade">Profiles of key companies in the database — drawn from Crunchbase and Wikidata. Click any card to expand investor and industry details.</p>
+  <div class="filter-bar fade" id="profile-filters">
+    <button class="fbtn on" onclick="filterProfiles('all',this)">All</button>
+    <button class="fbtn" onclick="filterProfiles('Startup',this)">Startups</button>
+    <button class="fbtn" onclick="filterProfiles('Defence',this)">Defence</button>
+    <button class="fbtn" onclick="filterProfiles('Tech',this)">Tech</button>
+    <button class="fbtn" onclick="filterProfiles('Mining',this)">Mining</button>
+  </div>
+  <div id="profiles-grid" class="profiles-grid fade"></div>
+  <div class="data-note fade">Data from Crunchbase (March 2026) and Wikidata. Source: database.json / info.nodes.</div>
+</section>
+
+<footer>
+  <span>info.nodes · Man in the Loop: Show of Force · 2026</span>
+  <span>Data: Crunchbase · EU EDF Portal · Wikidata</span>
+  <span>Analysis: info.nodes &amp; Datapitch · <a href="https://infonodes.org">infonodes.org</a></span>
+</footer>
+
+<script>
+// ─── DATA ───
+const COUNTRIES=[{n:"France",v:429.9},{n:"Germany",v:411.7},{n:"Italy",v:313.8},{n:"Spain",v:256.2},{n:"Sweden",v:102.7},{n:"Netherlands",v:102.1},{n:"Norway",v:98.6},{n:"Belgium",v:84.5},{n:"Greece",v:83.2},{n:"Finland",v:69.7}];
+const ORGS=[{n:"Leonardo",v:172.2,p:37,c:"Italy"},{n:"Bundesministerium der Verteidigung",v:121.9,p:5,c:"Germany"},{n:"Indra Sistemas SA",v:93.7,p:30,c:"Spain"},{n:"SAAB Aktiebolag",v:48.9,p:17,c:"Sweden"},{n:"Ministère des Armées",v:47.8,p:2,c:"France"},{n:"Elettronica SpA",v:36.8,p:19,c:"Italy"},{n:"Airbus Defence & Space SAS",v:35.4,p:10,c:"France"},{n:"Thales Six GTS France",v:35.4,p:19,c:"France"},{n:"Safran Electronics & Defense",v:33.6,p:19,c:"France"},{n:"Kongsberg Defence & Aerospace",v:29.8,p:15,c:"Norway"}];
+const ACTIVITY=[{t:"Private companies",v:1540.7,col:"#00ff41"},{t:"Other / Public bodies",v:486.3,col:"#607d8b"},{t:"Research organisations",v:207.2,col:"#b8913c"},{t:"Universities (HSE)",v:64.2,col:"#22bb66"}];
+const CROSS_SECTOR=[
+  {name:"General Catalyst",investments:[{company:"Alpine Eagle",sector:"Startup"},{company:"Anduril Industries",sector:"Tech"},{company:"Helsing",sector:"Startup"},{company:"ICEYE",sector:"Startup"}],sectors:["Tech","Startup"],count:4},
+  {name:"Deutsche Bank",investments:[{company:"Fincantieri",sector:"Defence"},{company:"Oracle",sector:"Tech"},{company:"Quantum Systems",sector:"Startup"},{company:"Tesla",sector:"Tech"}],sectors:["Tech","Startup","Defence"],count:4},
+  {name:"European Investment Bank",investments:[{company:"Indra",sector:"Defence"},{company:"Quantum Systems",sector:"Startup"},{company:"Thales Group",sector:"Defence"},{company:"Umicore",sector:"Mining"}],sectors:["Startup","Mining","Defence"],count:4},
+  {name:"BlackRock",investments:[{company:"Anduril Industries",sector:"Tech"},{company:"ICEYE",sector:"Startup"},{company:"Safran",sector:"Defence"}],sectors:["Tech","Startup","Defence"],count:3},
+  {name:"HSBC",investments:[{company:"CODELCO",sector:"Mining"},{company:"Netflix",sector:"Tech"},{company:"Oracle",sector:"Tech"}],sectors:["Tech","Mining"],count:3},
+  {name:"Andreessen Horowitz",investments:[{company:"Anduril Industries",sector:"Tech"},{company:"KoBold Metals",sector:"Mining"}],sectors:["Tech","Mining"],count:2},
+  {name:"Lightspeed Venture Partners",investments:[{company:"Anduril Industries",sector:"Tech"},{company:"Helsing",sector:"Startup"}],sectors:["Tech","Startup"],count:2},
+  {name:"Elliott Management Corp.",investments:[{company:"Barrick Mining",sector:"Mining"},{company:"SAP",sector:"Tech"}],sectors:["Tech","Mining"],count:2},
+  {name:"Commerzbank",investments:[{company:"CODELCO",sector:"Mining"},{company:"Destinus",sector:"Startup"}],sectors:["Startup","Mining"],count:2},
+  {name:"JP Morgan Chase",investments:[{company:"Indra",sector:"Defence"},{company:"MP Materials",sector:"Mining"}],sectors:["Mining","Defence"],count:2}
+];
+const STARTUPS=[
+  {name:"Helsing",country:"Germany",cc:"de",desc:"AI-powered defence tech: drones and software for democratic nations' military.",investors:["General Catalyst","Lightspeed Venture Partners","Accel","BDT & MSD Partners","Greenoaks"],funding:1519386783,nato:false},
+  {name:"Quantum Systems",country:"Germany",cc:"de",desc:"AI-powered eVTOL drones for defence, security and surveying.",investors:["European Investment Bank","Deutsche Bank","U.S. Dept. of Defense","Balderton Capital"],funding:775724608,nato:false},
+  {name:"ICEYE",country:"Finland",cc:"fi",desc:"Radar satellite constellation for all-weather earth observation.",investors:["General Catalyst","BlackRock","Bpifrance","European Investment Fund"],funding:762387658,nato:false},
+  {name:"TEKEVER",country:"Portugal",cc:"pt",desc:"Aerospace, Defence and Security technology provider.",investors:["Baillie Gifford","NATO Innovation Fund","National Security Strategic Investment Fund"],funding:630669891,nato:true},
+  {name:"Roark Aerospace",country:"UK",cc:"uk",desc:"World's largest deployer of counter-drone hardware; drone detection as a service.",investors:[],funding:301800000,nato:false},
+  {name:"ARX Robotics",country:"Germany",cc:"de",desc:"Autonomous unmanned ground systems for military and civilian use.",investors:["NATO Innovation Fund","Speedinvest","HV Capital"],funding:58986280,nato:true},
+  {name:"Destinus",country:"Netherlands",cc:"nl",desc:"Integrated manufacturer of flying systems for civil and military use.",investors:["Commerzbank","Soma Capital"],funding:58624138,nato:false},
+  {name:"Delian Alliance Industries",country:"UK",cc:"uk",desc:"Building a new defence prime for the era of autonomous warfare.",investors:["NATO DIANA","Air Street Capital","HCVC"],funding:21420896,nato:true},
+  {name:"Comand AI",country:"France",cc:"fr",desc:"AI-powered command solutions for defence operations.",investors:["Eurazeo","Kima Ventures","Shape VC"],funding:12228670,nato:false},
+  {name:"Arondite",country:"UK",cc:"uk",desc:"AI software for unified connection across robotic and autonomous systems.",investors:["Index Ventures","Concept Ventures"],funding:12047274,nato:false},
+  {name:"Alpine Eagle",country:"Germany",cc:"de",desc:"Cost-efficient software-hardware autonomous systems for defence.",investors:["General Catalyst","HTGF","IQ Capital"],funding:11064132,nato:false},
+  {name:"Origin Robotics",country:"Latvia",cc:"lv",desc:"Advanced autonomous systems for defence.",investors:["European Union","Change Ventures"],funding:9073817,nato:false},
+  {name:"Unmanned Defense Systems",country:"Lithuania",cc:"lt",desc:"Tactical military UAV systems design and manufacture.",investors:["Coinvest Capital"],funding:4525068,nato:false},
+  {name:"Nordic Air Defence",country:"Sweden",cc:"se",desc:"Advanced air defence technology grounded in democratic values.",investors:["EUDIS Business Accelerator","Inflection"],funding:4372985,nato:false},
+  {name:"XRF.ai",country:"Spain",cc:"es",desc:"AI decision-support for military, security and emergency industries.",investors:["EUDIS Business Accelerator","K Fund"],funding:2643688,nato:false},
+  {name:"Alta Ares",country:"France",cc:"fr",desc:"Data integration surveillance using drone imaging.",investors:["Bpifrance","Starburst Accelerator"],funding:2219005,nato:false},
+  {name:"Intelic",country:"Netherlands",cc:"nl",desc:"Command & Control software for military unmanned systems.",investors:["Keen Venture Partners"],funding:2149426,nato:false},
+  {name:"C2Grid",country:"Estonia",cc:"ee",desc:"AI turns video into 3D situational awareness for military ops.",investors:["BSV Ventures","Sunfish Partners"],funding:353666,nato:false}
+];
+const RESEARCH=[
+  {n:"TNO",country:"Netherlands",v:28.6,p:23},{n:"AIT Austrian Institute of Technology",country:"Austria",v:18.8,p:22},
+  {n:"ONERA – French Aerospace Lab",country:"France",v:15.2,p:12},{n:"FFI – Norwegian Defence Research",country:"Norway",v:13.2,p:15},
+  {n:"NLR – Netherlands Aerospace Centre",country:"Netherlands",v:11.5,p:8},{n:"DLR – German Aerospace Center",country:"Germany",v:8.3,p:7},
+  {n:"VTT Technical Research Centre",country:"Finland",v:8.0,p:7},{n:"BPTI – Baltic Advanced Technology Institute",country:"Lithuania",v:7.6,p:13},
+  {n:"CR14 Foundation",country:"Estonia",v:7.2,p:4},{n:"FOI – Swedish Defence Research Agency",country:"Sweden",v:6.9,p:8},
+  {n:"CEA – French Atomic Energy Commission",country:"France",v:6.0,p:6},{n:"ISL – Franco-German Research Institute",country:"France",v:4.8,p:3}
+];
+const DOMAINS=[{n:"AIR",v:11},{n:"C4ISR",v:11},{n:"GROUND",v:12},{n:"CYBER",v:8},{n:"SPACE",v:8},{n:"SENS",v:10},{n:"NAVAL",v:6},{n:"LS (Land Systems)",v:7}];
+const PROFILES_DATA=[
+  {name:"Anduril Industries",sector:"Tech",hq:"Costa Mesa, California, US",desc:"Defence technology company developing autonomous systems and AI-driven warfare tools.",investors:["General Catalyst","BlackRock","Andreessen Horowitz","Lightspeed Venture Partners","Founders Fund"],industries:["AI","Defence","Autonomous Systems"]},
+  {name:"Helsing",sector:"Startup",hq:"Munich, Germany",desc:"AI-powered defence tech focusing on drones and software to enhance military capabilities.",investors:["General Catalyst","Lightspeed Venture Partners","Accel","Greenoaks"],industries:["AI","Defence Software","Drones"]},
+  {name:"Palantir Technologies",sector:"Tech",hq:"Denver, Colorado, US",desc:"Data analytics and AI platforms used by governments and defence agencies worldwide.",investors:["Founders Fund"],industries:["Big Data","AI","Defence Analytics"]},
+  {name:"Safran",sector:"Defence",hq:"Paris, France",desc:"Global aerospace and defence group producing aircraft engines, navigation systems and security solutions.",investors:["BlackRock"],industries:["Aerospace","Defence","Security"]},
+  {name:"Thales Group",sector:"Defence",hq:"Paris, France",desc:"French multinational designing electrical systems for defence, aeronautics and security.",investors:["European Investment Bank"],industries:["Defence","Aeronautics","Digital Security"]},
+  {name:"ICEYE",sector:"Startup",hq:"Espoo, Finland",desc:"Operates a radar satellite constellation providing all-weather earth observation data.",investors:["General Catalyst","BlackRock","Bpifrance","European Investment Fund"],industries:["Satellites","Earth Observation","Defence"]},
+  {name:"Quantum Systems",sector:"Startup",hq:"Munich, Germany",desc:"Builds AI-powered eVTOL drones for defence, security, and surveying.",investors:["European Investment Bank","Deutsche Bank","U.S. Department of Defense","KfW"],industries:["Drones","AI","Defence Tech"]},
+  {name:"Leonardo",sector:"Defence",hq:"Rome, Italy",desc:"Italian multinational defence, aerospace and security company — majority state-owned.",investors:[],industries:["Aerospace","Defence","Electronics"]},
+  {name:"Indra",sector:"Defence",hq:"Alcobendas, Spain",desc:"Spanish defence and technology company specialising in IT systems, simulations and defence electronics.",investors:["European Investment Bank","JP Morgan Chase"],industries:["Defence","IT","Simulation"]},
+  {name:"KoBold Metals",sector:"Mining",hq:"Berkeley, California, US",desc:"AI-driven mineral exploration company targeting battery metal deposits for the energy transition.",investors:["Andreessen Horowitz"],industries:["Mining","AI","Critical Minerals"]},
+  {name:"ARX Robotics",sector:"Startup",hq:"Munich, Germany",desc:"Defence startup developing autonomous unmanned ground systems for military and civilian applications.",investors:["NATO Innovation Fund","Speedinvest","HV Capital"],industries:["Robotics","Autonomous Systems","Defence"]},
+  {name:"TEKEVER",sector:"Startup",hq:"Lisbon, Portugal",desc:"European provider of UAV systems and defence technology solutions.",investors:["NATO Innovation Fund","Baillie Gifford"],industries:["Drones","Aerospace","Defence"]},
+  {name:"Umicore",sector:"Mining",hq:"Brussels, Belgium",desc:"Global materials technology and recycling group focused on battery materials and precious metals.",investors:["European Investment Bank"],industries:["Critical Minerals","Recycling","Battery Materials"]},
+  {name:"Fincantieri",sector:"Defence",hq:"Trieste, Italy",desc:"Italian shipbuilding group — one of Europe's largest naval vessel manufacturers.",investors:["Deutsche Bank"],industries:["Shipbuilding","Naval Defence","Aerospace"]},
+  {name:"SAAB",sector:"Defence",hq:"Stockholm, Sweden",desc:"Swedish aerospace and defence company producing civil and military aircraft, submarines and ground vehicles.",investors:[],industries:["Aerospace","Naval","Land Systems"]}
+];
+
+// ─── D3 NETWORK DATA ───
+const GRAPH_NODES=[
+  {id:"n1",name:"General Catalyst",type:"fund",sector:""},{id:"n2",name:"BlackRock",type:"fund",sector:""},
+  {id:"n3",name:"European Investment Bank",type:"bank",sector:""},{id:"n4",name:"Deutsche Bank",type:"bank",sector:""},
+  {id:"n5",name:"Andreessen Horowitz",type:"fund",sector:""},{id:"n6",name:"Lightspeed Venture Partners",type:"fund",sector:""},
+  {id:"n7",name:"NATO Innovation Fund",type:"government_agency",sector:""},{id:"n8",name:"Bpifrance",type:"fund",sector:""},
+  {id:"n9",name:"JP Morgan Chase",type:"bank",sector:""},{id:"n10",name:"HCVC",type:"fund",sector:""},
+  {id:"n11",name:"Founders Fund",type:"fund",sector:""},{id:"n12",name:"Accel",type:"fund",sector:""},
+  {id:"n13",name:"KfW",type:"government_agency",sector:""},{id:"n14",name:"U.S. Dept. of Defense",type:"government_agency",sector:""},
+  {id:"n15",name:"European Investment Fund",type:"government_agency",sector:""},{id:"n16",name:"NATO DIANA",type:"government_agency",sector:""},
+  {id:"n17",name:"Balderton Capital",type:"fund",sector:""},{id:"n18",name:"Valor Equity Partners",type:"fund",sector:""},
+  {id:"n19",name:"Greenoaks",type:"fund",sector:""},{id:"n20",name:"Commerzbank",type:"bank",sector:""},
+  {id:"c1",name:"Helsing",type:"company",sector:"Startup"},{id:"c2",name:"ICEYE",type:"company",sector:"Startup"},
+  {id:"c3",name:"Alpine Eagle",type:"company",sector:"Startup"},{id:"c4",name:"Anduril Industries",type:"company",sector:"Tech"},
+  {id:"c5",name:"Quantum Systems",type:"company",sector:"Startup"},{id:"c6",name:"TEKEVER",type:"company",sector:"Startup"},
+  {id:"c7",name:"ARX Robotics",type:"company",sector:"Startup"},{id:"c8",name:"Delian Alliance Ind.",type:"company",sector:"Startup"},
+  {id:"c9",name:"Safran",type:"company",sector:"Defence"},{id:"c10",name:"Thales Group",type:"company",sector:"Defence"},
+  {id:"c11",name:"Indra",type:"company",sector:"Defence"},{id:"c12",name:"Fincantieri",type:"company",sector:"Defence"},
+  {id:"c13",name:"Oracle",type:"company",sector:"Tech"},{id:"c14",name:"Tesla",type:"company",sector:"Tech"},
+  {id:"c15",name:"Palantir",type:"company",sector:"Tech"},{id:"c16",name:"CODELCO",type:"company",sector:"Mining"},
+  {id:"c17",name:"KoBold Metals",type:"company",sector:"Mining"},{id:"c18",name:"Barrick Mining",type:"company",sector:"Mining"},
+  {id:"c19",name:"Umicore",type:"company",sector:"Mining"},{id:"c20",name:"Destinus",type:"company",sector:"Startup"},
+  {id:"c21",name:"Alta Ares",type:"company",sector:"Startup"},{id:"c22",name:"MP Materials",type:"company",sector:"Mining"},
+  {id:"c23",name:"Comand AI",type:"company",sector:"Startup"},{id:"c24",name:"NVIDIA",type:"company",sector:"Tech"},
+];
+const GRAPH_LINKS=[
+  {s:"n1",t:"c1"},{s:"n1",t:"c2"},{s:"n1",t:"c3"},{s:"n1",t:"c4"},
+  {s:"n2",t:"c4"},{s:"n2",t:"c2"},{s:"n2",t:"c9"},
+  {s:"n3",t:"c11"},{s:"n3",t:"c5"},{s:"n3",t:"c10"},{s:"n3",t:"c19"},
+  {s:"n4",t:"c12"},{s:"n4",t:"c13"},{s:"n4",t:"c5"},{s:"n4",t:"c14"},
+  {s:"n5",t:"c4"},{s:"n5",t:"c17"},
+  {s:"n6",t:"c4"},{s:"n6",t:"c1"},
+  {s:"n7",t:"c7"},{s:"n7",t:"c6"},
+  {s:"n8",t:"c2"},{s:"n8",t:"c21"},
+  {s:"n9",t:"c11"},{s:"n9",t:"c22"},
+  {s:"n10",t:"c3"},{s:"n10",t:"c8"},
+  {s:"n11",t:"c4"},{s:"n11",t:"c15"},
+  {s:"n12",t:"c1"},{s:"n13",t:"c5"},
+  {s:"n14",t:"c5"},{s:"n15",t:"c2"},
+  {s:"n16",t:"c8"},{s:"n17",t:"c5"},
+  {s:"n18",t:"c4"},{s:"n19",t:"c1"},
+  {s:"n20",t:"c16"},{s:"n20",t:"c20"},
+  {s:"n7",t:"c7"},{s:"n9",t:"c11"},
+  {s:"n1",t:"c24"},{s:"n6",t:"c4"},
+  {s:"n3",t:"c19"},{s:"n12",t:"c23"},
+];
+
+// ─── RENDERERS ───
+function fmt(v){return v>=1e9?'€'+(v/1e9).toFixed(1)+'bn':v>=1e6?'€'+(v/1e6).toFixed(0)+'m':'€'+(v/1e3).toFixed(0)+'k';}
+
+function animBars(){document.querySelectorAll('[data-w]').forEach(el=>{el.style.width=el.dataset.w+'%';});}
+
+function renderBarChart(id, items, colorFn){
+  const c=document.getElementById(id); if(!c) return;
+  const mx=Math.max(...items.map(i=>i.v));
+  c.innerHTML=items.map((it,i)=>`<div class="bar-row">
+    <div class="bar-label">${it.n}</div>
+    <div class="bar-track"><div class="bar-fill ${colorFn?colorFn(it,i):'c'+(i<1?1:i<4?2:3)}" data-w="${(it.v/mx*100).toFixed(1)}" style="width:0"></div></div>
+    <div class="bar-value">${it.v}${it.unit||'m'}</div>
+  </div>`).join('');
+}
+
+function renderDonut(){
+  const total=ACTIVITY.reduce((a,b)=>a+b.v,0);
+  const svg=document.getElementById('donut-svg');
+  const leg=document.getElementById('donut-legend');
+  if(!svg) return;
+  const cx=90,cy=90,r=72,ir=44; let ang=-Math.PI/2; let paths='';
+  ACTIVITY.forEach(a=>{
+    const s=(a.v/total)*Math.PI*2,x1=cx+r*Math.cos(ang),y1=cy+r*Math.sin(ang),x2=cx+r*Math.cos(ang+s),y2=cy+r*Math.sin(ang+s),xi1=cx+ir*Math.cos(ang),yi1=cy+ir*Math.sin(ang),xi2=cx+ir*Math.cos(ang+s),yi2=cy+ir*Math.sin(ang+s),big=s>Math.PI?1:0;
+    paths+=`<path d="M${xi1},${yi1}L${x1},${y1}A${r},${r} 0 ${big},1 ${x2},${y2}L${xi2},${yi2}A${ir},${ir} 0 ${big},0 ${xi1},${yi1}Z" fill="${a.col}" opacity=".85"/>`;
+    ang+=s;
+  });
+  svg.innerHTML=paths+`<text x="90" y="85" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.4)">TOTAL</text><text x="90" y="102" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-size="15" fill="rgba(255,255,255,0.95)" font-weight="bold">€${Math.round(total)}m</text>`;
+  leg.innerHTML=ACTIVITY.map(a=>`<div class="dl-item"><div class="dl-dot" style="background:${a.col}"></div><span class="dl-label">${a.t}</span><span class="dl-val">€${a.v}m</span></div>`).join('');
+}
+
+function renderOrgs(){
+  const c=document.getElementById('orgs-grid'); if(!c) return;
+  c.innerHTML=ORGS.map((o,i)=>`<div class="org-card"><div class="org-rank">#${String(i+1).padStart(2,'0')} · ${o.c}</div><div class="org-name">${o.n}</div><div class="org-meta"><span class="hl">€${o.v}m</span><span>${o.p} projects</span></div></div>`).join('');
+}
+
+function renderInvestors(){
+  const c=document.getElementById('investors-grid'); if(!c) return;
+  c.innerHTML=CROSS_SECTOR.map(inv=>`<div class="investor-row" onclick="this.classList.toggle('open')">
+    <div class="inv-header"><div class="inv-name">${inv.name}</div><div class="sector-tags">${inv.sectors.map(s=>`<span class="stag ${s}">${s}</span>`).join('')}</div><span class="inv-toggle">▼</span></div>
+    <div class="inv-details">${inv.investments.map(i=>`<div class="inv-item"><div class="inv-dot ${i.sector}"></div><div><div class="inv-company">${i.company}</div><div class="inv-sec-label">${i.sector}</div></div></div>`).join('')}</div>
+  </div>`).join('');
+}
+
+const maxFunding=Math.max(...STARTUPS.map(s=>s.funding));
+function renderStartups(filter){
+  const c=document.getElementById('startups-grid'); if(!c) return;
+  const list=STARTUPS.filter(s=>filter==='all'||(filter==='nato'&&s.nato)||(filter==='de'&&s.cc==='de')||(filter==='uk'&&s.cc==='uk')||(filter==='fr'&&s.cc==='fr'));
+  c.innerHTML=list.map(s=>`<div class="sc ${s.nato?'nato-backed':''}" onclick="this.classList.toggle('expanded')">
+    ${s.nato?'<div class="nato-badge">NATO-backed</div>':''}
+    <div class="sc-country">${s.country}</div>
+    <div class="sc-name">${s.name}</div>
+    <div class="sc-desc">${s.desc}</div>
+    <div class="sc-bar"><div class="sc-bar-fill" data-w="${(s.funding/maxFunding*100).toFixed(1)}" style="width:0"></div></div>
+    <div class="sc-foot"><span class="fv">${fmt(s.funding)} raised</span><span>${s.investors.length} investors</span></div>
+    <div class="sc-investors"><strong>Investors</strong>${s.investors.length?s.investors.join(', '):'No public data'}</div>
+  </div>`).join('');
+  setTimeout(animBars,120);
+}
+function filterStartups(f,btn){document.querySelectorAll('#startup-filters .fbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderStartups(f);}
+
+function renderResearch(){
+  const c=document.getElementById('research-grid'); if(!c) return;
+  c.innerHTML=RESEARCH.map((r,i)=>`<div class="rc"><div class="org-rank">#${String(i+1).padStart(2,'0')} · ${r.country}</div><div class="rc-name">${r.n}</div><div class="rc-meta"><span class="hl">€${r.v}m</span><span>${r.p} projects</span></div></div>`).join('');
+}
+
+function renderProfiles(filter){
+  const c=document.getElementById('profiles-grid'); if(!c) return;
+  const list=PROFILES_DATA.filter(p=>filter==='all'||p.sector===filter);
+  c.innerHTML=list.map(p=>`<div class="pc" onclick="this.classList.toggle('expanded')">
+    <div class="pc-sector"><span class="sector-pill ${p.sector}">${p.sector}</span></div>
+    <div class="pc-name">${p.name}</div>
+    <div class="pc-hq">${p.hq}</div>
+    <div class="pc-desc">${p.desc}</div>
+    <div class="pc-extra">
+      <div class="pc-inv"><strong>Known Investors</strong>${p.investors.length?p.investors.join(' · '):'No public data'}</div>
+      <div style="margin-top:.7rem">${p.industries.map(i=>`<span class="tag">${i}</span>`).join('')}</div>
+    </div>
+  </div>`).join('');
+}
+function filterProfiles(f,btn){document.querySelectorAll('#profile-filters .fbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderProfiles(f);}
+
+// ─── D3 NETWORK ───
+let svgEl,gEl,zoomBeh,simulation;
+function nodeColor(d){
+  const m={fund:'#ff8888',bank:'#aa0000',government_agency:'#607d8b'};
+  if(m[d.type]) return m[d.type];
+  const s={Startup:'#00ff41',Defence:'#aaffdd',Tech:'#22bb66',Mining:'#55ddaa'};
+  return s[d.sector]||'#444';
+}
+function nodeDeg(id){return GRAPH_LINKS.filter(l=>l.s===id||l.t===id).length;}
+function nodeR(d){return Math.max(5,Math.min(20,5+nodeDeg(d.id)*2.2));}
+
+function buildNetwork(){
+  const wrap=document.getElementById('network-wrap'); if(!wrap) return;
+  const W=wrap.clientWidth,H=wrap.clientHeight;
+  svgEl=d3.select('#network-svg'); svgEl.selectAll('*').remove();
+  zoomBeh=d3.zoom().scaleExtent([.15,5]).on('zoom',e=>gEl.attr('transform',e.transform));
+  svgEl.call(zoomBeh);
+  gEl=svgEl.append('g');
+  const nodes=GRAPH_NODES.map(d=>({...d}));
+  const links=GRAPH_LINKS.map(d=>({...d,source:d.s,target:d.t}));
+  simulation=d3.forceSimulation(nodes)
+    .force('link',d3.forceLink(links).id(d=>d.id).distance(85))
+    .force('charge',d3.forceManyBody().strength(-240))
+    .force('center',d3.forceCenter(W/2,H/2))
+    .force('collision',d3.forceCollide(d=>nodeR(d)+5));
+  const link=gEl.append('g').selectAll('line').data(links).join('line').attr('stroke','#1a3a1a').attr('stroke-width',1.2);
+  const tip=document.getElementById('network-tooltip');
+  const node=gEl.append('g').selectAll('circle').data(nodes).join('circle')
+    .attr('r',d=>nodeR(d)).attr('fill',d=>nodeColor(d)).attr('fill-opacity',.85)
+    .attr('stroke','#0a0a0a').attr('stroke-width',1.2).style('cursor','pointer')
+    .call(d3.drag()
+      .on('start',(e,d)=>{if(!e.active)simulation.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;})
+      .on('drag',(e,d)=>{d.fx=e.x;d.fy=e.y;})
+      .on('end',(e,d)=>{if(!e.active)simulation.alphaTarget(0);d.fx=null;d.fy=null;}))
+    .on('mousemove',(e,d)=>{
+      tip.style.display='block';
+      const rect=wrap.getBoundingClientRect();
+      tip.style.left=(e.clientX-rect.left+14)+'px';
+      tip.style.top=(e.clientY-rect.top-10)+'px';
+      tip.innerHTML=`<b style="color:rgba(255,255,255,0.95)">${d.name}</b><br>${d.type||''}${d.sector?' · '+d.sector:''}<br><span style="color:rgba(255,255,255,0.35)">${nodeDeg(d.id)} connection${nodeDeg(d.id)!==1?'s':''}`;
+    }).on('mouseleave',()=>tip.style.display='none');
+  const label=gEl.append('g').selectAll('text').data(nodes.filter(d=>nodeR(d)>9)).join('text')
+    .text(d=>d.name.length>22?d.name.slice(0,20)+'…':d.name)
+    .attr('font-size',9).attr('font-family','JetBrains Mono,monospace')
+    .attr('fill','rgba(255,255,255,0.45)').attr('text-anchor','middle').attr('dy','1.9em').style('pointer-events','none');
+  simulation.on('tick',()=>{
+    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    node.attr('cx',d=>d.x).attr('cy',d=>d.y);
+    label.attr('x',d=>d.x).attr('y',d=>d.y);
+  });
+}
+function resetZoom(){svgEl&&svgEl.transition().duration(500).call(zoomBeh.transform,d3.zoomIdentity);}
+function filterNet(f,btn){
+  document.querySelectorAll('#nf-bar .fbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  if(!gEl) return;
+  const inactive=d=>f==='all'?false:f==='fund'?d.type!=='fund'&&d.type!=='bank':d.sector!==f;
+  gEl.selectAll('circle').attr('fill-opacity',d=>inactive(d)?0.07:0.85);
+  gEl.selectAll('text').attr('fill',d=>inactive(d)?'#0a0a0a':'rgba(255,255,255,0.45)');
+  gEl.selectAll('line').attr('stroke',d=>{
+    const sn=GRAPH_NODES.find(n=>n.id===(d.source&&d.source.id||d.s));
+    const tn=GRAPH_NODES.find(n=>n.id===(d.target&&d.target.id||d.t));
+    return(!sn||!tn||inactive(sn)||inactive(tn))?'#050d05':'#2a4a2a';
+  });
+}
+
+// ─── INIT ───
+function init(){
+  renderBarChart('country-chart',COUNTRIES,(_,i)=>i===0?'c1':i<3?'c2':'c3');
+  renderDonut();
+  renderOrgs();
+  renderInvestors();
+  renderStartups('all');
+  renderResearch();
+  renderBarChart('domains-chart',DOMAINS.sort((a,b)=>b.v-a.v).map(d=>({n:d.n,v:d.v})),(_,i)=>i===0?'gold':i<3?'c2':'c3');
+  renderProfiles('all');
+  setTimeout(()=>{buildNetwork();animBars();},350);
+}
+init();
+
+// ─── SCROLL ACTIVE NAV ───
+const navSections=['hero','ch1','ch2','ch3','ch4','network','profiles'];
+const iobs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(a) a.classList.add('active');
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+navSections.forEach(id=>{const el=document.getElementById(id);if(el)iobs.observe(el);});
+
+// ─── FADE IN ANIMATION ───
+const fobs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');animBars();}});
+},{threshold:.04});
+document.querySelectorAll('.fade').forEach(el=>fobs.observe(el));
+</script>
+</body>
+</html>
