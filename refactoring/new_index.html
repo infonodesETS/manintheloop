@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Org Search — unified registry test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/companysearch.css">
+  <style>
+    html { font-size: 120%; }
+    body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); }
+
+    /* ── Page shell ── */
+    #app { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── Source badge for EDF-only / DB-only / merged ── */
+    .src-badge {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      border-radius: 3px;
+      padding: 1px 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .src-badge.edf-only  { background: rgba(100,160,255,.12); border: 1px solid rgba(100,160,255,.35); color: rgba(100,160,255,.85); }
+    .src-badge.db-only   { background: rgba(0,255,65,.06);    border: 1px solid rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
+    .src-badge.merged    { background: rgba(255,215,0,.08);   border: 1px solid rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+
+    /* ── EDF section in profile ── */
+    .edf-section { margin-top: 20px; }
+    .edf-projects { list-style: none; padding: 0; margin: 0; }
+    .edf-proj-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(65,67,69,.25);
+    }
+    .edf-proj-item:last-child { border-bottom: none; }
+    .edf-proj-title {
+      font-size: var(--fs-body);
+      color: var(--text-primary);
+      font-weight: var(--fw-semi);
+      margin-bottom: 4px;
+    }
+    .edf-proj-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-faint);
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .edf-proj-role {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      padding: 1px 8px;
+      border-radius: 3px;
+      background: rgba(0,255,65,.07);
+      border: 1px solid rgba(0,255,65,.18);
+      color: rgba(0,255,65,.7);
+    }
+    .edf-proj-role.coordinator {
+      background: rgba(255,215,0,.08);
+      border-color: rgba(255,215,0,.3);
+      color: rgba(255,215,0,.85);
+    }
+    .edf-contrib {
+      color: var(--accent);
+      font-weight: var(--fw-bold);
+    }
+    .edf-loading {
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      color: var(--text-faint);
+      padding: 20px 0;
+      text-align: center;
+    }
+    .edf-load-btn {
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      color: rgba(100,160,255,.85);
+      background: rgba(100,160,255,.08);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 50px;
+      padding: 4px 16px;
+      cursor: pointer;
+      transition: all .1s;
+    }
+    .edf-load-btn:hover { border-color: rgba(100,160,255,.7); color: rgba(100,160,255,1); }
+
+    /* ── Match badge in autocomplete ── */
+    .cs-ac-match {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: rgba(255,215,0,.7);
+      flex-shrink: 0;
+    }
+
+    /* ── Source filter pills ── */
+    .filter-bar {
+      display: flex; gap: 8px; align-items: center;
+      margin-top: 12px;
+      width: 100%; max-width: 580px;
+    }
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      border-radius: 50px;
+      padding: 3px 12px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      background: none;
+      transition: all .1s;
+      white-space: nowrap;
+    }
+    .filter-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,65,.06); }
+    .filter-pill:hover:not(.active) { border-color: var(--grey-mid); color: var(--text-secondary); }
+    .filter-lbl {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ── EDF stat color ── */
+    .cs-stat.edf-stat .cs-stat-val { color: rgba(100,160,255,.9); }
+    .cs-stat.edf-stat { border-color: rgba(100,160,255,.25); }
+
+    /* ── surface-ac fallback if not in base.css ── */
+    :root { --surface-ac: #2a2a2a; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Hero / search ── -->
+  <div id="cs-hero">
+    <div class="cs-hero-prompt">UNIFIED ORG REGISTRY — TEST BUILD</div>
+    <div class="cs-hero-title">DEFENCE ORG SEARCH<span class="cs-cursor"></span></div>
+
+    <div class="cs-search-wrap">
+      <input id="cs-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
+      <span class="cs-search-icon">⌕</span>
+      <div id="cs-ac" role="listbox"></div>
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-lbl">Show:</span>
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="merged">DB + EDF</button>
+      <button class="filter-pill" data-filter="db">DB only</button>
+      <button class="filter-pill" data-filter="edf">EDF only</button>
+    </div>
+
+    <div class="cs-hero-foot">
+      <span class="cs-showing" id="cs-showing"></span>
+      <button id="cs-back">← back</button>
+    </div>
+  </div>
+
+  <!-- ── Profile ── -->
+  <div id="cs-profile">
+
+    <!-- Header card -->
+    <div class="cs-hdr-card">
+      <div class="cs-logo" id="cs-logo"></div>
+      <div class="cs-hdr-main">
+        <div class="cs-hdr-name" id="cs-name"></div>
+        <div class="cs-hdr-badges" id="cs-badges"></div>
+        <div class="cs-hdr-desc" id="cs-desc"></div>
+        <div class="cs-hdr-actions">
+          <div class="cs-ext-links" id="cs-links"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat bar -->
+    <div class="cs-stats" id="cs-stats"></div>
+
+    <!-- Two-column body -->
+    <div class="cs-cols">
+
+      <!-- Left column -->
+      <div id="cs-left">
+
+        <!-- EDF activity (shown when org has EDF data) -->
+        <div class="cs-card edf-section" id="cs-edf-card" style="display:none">
+          <div class="cs-card-hdr">
+            EDF Activity
+            <span class="cs-card-count" id="cs-edf-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-edf-body"></div>
+        </div>
+
+        <!-- DB details (shown when org is in database.json) -->
+        <div class="cs-card" id="cs-db-card" style="display:none">
+          <div class="cs-card-hdr">Organisation details</div>
+          <div class="cs-card-body" id="cs-db-body"></div>
+        </div>
+
+        <!-- Relationships (shown for DB entities) -->
+        <div class="cs-card" id="cs-rel-card" style="display:none">
+          <div class="cs-card-hdr">
+            Investment relationships
+            <span class="cs-card-count" id="cs-rel-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-rel-body"></div>
+        </div>
+
+      </div>
+
+      <!-- Right column (source blocks) -->
+      <div id="cs-right"></div>
+
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+  <div id="cs-loading" style="display:flex;align-items:center;justify-content:center;height:60vh;font-family:var(--font-mono);color:var(--text-faint);font-size:var(--fs-sm);">
+    Loading data…
+  </div>
+
+</div>
+<script type="module">
+'use strict';
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+function initials(name) {
+  return name.split(/\s+/).map(w => w[0]||'').join('').slice(0,2).toUpperCase() || '?';
+}
+function highlight(text, q) {
+  if (!q) return esc(text);
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');
+  return esc(text).replace(re,'<mark>$1</mark>');
+}
+function fmtEur(val) {
+  if (!val) return null;
+  const n = parseFloat(val);
+  if (isNaN(n) || n === 0) return null;
+  if (n >= 1e6) return `€${(n/1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
+  return `€${n.toFixed(0)}`;
+}
+function fmtFunding(n) {
+  if (!n) return null;
+  if (n >= 1e9) return `$${(n/1e9).toFixed(1)}B`;
+  if (n >= 1e6) return `$${(n/1e6).toFixed(0)}M`;
+  return `$${n.toLocaleString()}`;
+}
+function row(lbl, val) {
+  return `<div class="cs-row"><span class="cs-row-lbl">${lbl}</span><span class="cs-row-val">${val}</span></div>`;
+}
+
+// ── Source/type badges ────────────────────────────────────────────────────────
+const SECTOR_COLORS = { Defence:'#aaffdd', Mining:'#55ddaa', Tech:'#22bb66', Startup:'#007744' };
+const TYPE_COLORS   = { fund:'#ff8888', government_agency:'#ff3333', bank:'#aa0000', institution:'#ff99bb', company:'#aaffdd' };
+
+function sectorBadge(s) {
+  const c = SECTOR_COLORS[s] || '#888';
+  return `<span style="font-size:var(--fs-xs);font-family:var(--font-mono);padding:1px 8px;border-radius:3px;background:${c}1a;border:1px solid ${c}55;color:${c}">${esc(s)}</span>`;
+}
+function typeBadge(t) {
+  const c = TYPE_COLORS[t] || '#888';
+  const label = t?.replace(/_/g,' ') || t;
+  return `<span style="font-size:var(--fs-xs);font-family:var(--font-mono);padding:1px 8px;border-radius:3px;background:${c}1a;border:1px solid ${c}55;color:${c}">${esc(label)}</span>`;
+}
+function srcBadge(kind) {
+  const map = {
+    merged:   ['DB + EDF','merged'],
+    'db-only':['DB only','db-only'],
+    'edf-only':['EDF only','edf-only'],
+  };
+  const [label, cls] = map[kind] || ['?',''];
+  return `<span class="src-badge ${cls}">${label}</span>`;
+}
+function matchBadge(method) {
+  if (!method) return '';
+  const labels = { exact_norm:'exact', subset_tokens:'subsidiary', prefix_brand:'brand', manual:'manual', auto_name:'auto' };
+  return `<span class="cs-ac-match">[${labels[method] || method}]</span>`;
+}
+
+// ── Data loading ──────────────────────────────────────────────────────────────
+let DB   = null;  // database.json
+let ORGS = null;  // edf_orgs.json
+let EDF  = null;  // edf_calls.json (lazy)
+
+async function loadData() {
+  const [dbRes, orgsRes] = await Promise.all([
+    fetch('data/database.json'),
+    fetch('data/edf_orgs.json'),
+  ]);
+  DB   = await dbRes.json();
+  ORGS = await orgsRes.json();
+}
+
+async function loadEdf() {
+  if (EDF) return EDF;
+  const res = await fetch('data/edf_calls.json');
+  EDF = await res.json();
+  return EDF;
+}
+
+// ── Build unified registry ────────────────────────────────────────────────────
+// Each entry: { id, name, kind, pic?, dbEntity?, edfOrg? }
+let REGISTRY = [];
+let ENTITY_MAP = {};  // id → dbEntity
+
+function buildRegistry() {
+  // Index DB entities
+  for (const e of DB.entities) {
+    ENTITY_MAP[e.id] = e;
+  }
+
+  // Index EDF orgs by db_id for reverse lookup
+  const edfByDbId = {};
+  for (const org of Object.values(ORGS.orgs)) {
+    if (org.db_id) {
+      if (!edfByDbId[org.db_id]) edfByDbId[org.db_id] = [];
+      edfByDbId[org.db_id].push(org);
+    }
+  }
+
+  const seenDbIds = new Set();
+
+  // 1. EDF orgs first
+  for (const org of Object.values(ORGS.orgs)) {
+    if (org.db_id) {
+      // Merged: has both EDF and DB data
+      const dbEntity = ENTITY_MAP[org.db_id];
+      if (dbEntity) {
+        seenDbIds.add(org.db_id);
+        REGISTRY.push({
+          id:       `EDF:${org.pic}`,
+          name:     dbEntity.name,            // prefer DB canonical name
+          edfName:  org.legal_name,
+          kind:     'merged',
+          pic:      org.pic,
+          dbEntity,
+          edfOrg:   org,
+          _key: [
+            dbEntity.name, org.legal_name,
+            org.country,
+            dbEntity.sources?.infonodes?.country,
+            dbEntity.sources?.crunchbase?.headquarters,
+            ...(dbEntity.sources?.crunchbase?.industries || []),
+            ...(dbEntity.tags || []),
+          ].filter(Boolean).join(' ').toLowerCase(),
+        });
+        continue;
+      }
+    }
+    // EDF-only
+    REGISTRY.push({
+      id:      `EDF:${org.pic}`,
+      name:    org.legal_name,
+      kind:    'edf-only',
+      pic:     org.pic,
+      dbEntity: null,
+      edfOrg:  org,
+      _key: [org.legal_name, org.country, org.activity_type].filter(Boolean).join(' ').toLowerCase(),
+    });
+  }
+
+  // 2. DB-only entities (not linked to any EDF org)
+  for (const e of DB.entities) {
+    if (!seenDbIds.has(e.id)) {
+      REGISTRY.push({
+        id:       e.id,
+        name:     e.name,
+        kind:     'db-only',
+        pic:      null,
+        dbEntity: e,
+        edfOrg:   null,
+        _key: [
+          e.name,
+          e.sources?.crunchbase?.headquarters,
+          e.sources?.infonodes?.country,
+          e.sources?.wikidata?.country,
+          ...(e.sources?.crunchbase?.industries || []),
+          ...(e.tags || []),
+        ].filter(Boolean).join(' ').toLowerCase(),
+      });
+    }
+  }
+
+  // Build relationship map
+  REL_MAP = {};
+  for (const r of (DB.relationships || [])) {
+    const push = (id, role, other) => {
+      if (!REL_MAP[id]) REL_MAP[id] = [];
+      REL_MAP[id].push({ rel: r, role, other: ENTITY_MAP[other] });
+    };
+    push(r.source, 'investor', r.target);
+    push(r.target, 'target',   r.source);
+  }
+}
+
+let REL_MAP = {};
+
+// ── Search & autocomplete ─────────────────────────────────────────────────────
+let activeFilter = 'all';
+let searchEl, acEl;
+let acList = [], acKbd = -1;
+
+function filteredRegistry() {
+  if (activeFilter === 'all')    return REGISTRY;
+  if (activeFilter === 'merged') return REGISTRY.filter(r => r.kind === 'merged');
+  if (activeFilter === 'db')     return REGISTRY.filter(r => r.kind === 'db-only');
+  if (activeFilter === 'edf')    return REGISTRY.filter(r => r.kind === 'edf-only');
+  return REGISTRY;
+}
+
+function closeAc() {
+  acEl.classList.remove('open');
+  acEl.innerHTML = '';
+  acKbd = -1;
+  acList = [];
+}
+
+function renderAc(raw) {
+  const q = raw.trim().toLowerCase();
+  if (!q) { renderSuggestions(); return; }
+
+  const pool = filteredRegistry();
+  const scored = pool.map(item => {
+    const n = item.name.toLowerCase();
+    let s = 0;
+    if (n === q)               s = 200;
+    else if (n.startsWith(q))  s = 100;
+    else if (n.includes(q))    s = 60;
+    else if (item._key.includes(q)) s = 20;
+    return { item, s };
+  }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
+
+  if (!scored.length) {
+    acEl.innerHTML = `<div class="cs-ac-empty">No results for "<strong>${esc(raw)}</strong>"</div>`;
+    acEl.classList.add('open');
+    acList = [];
+    return;
+  }
+
+  const merged  = scored.filter(x => x.item.kind === 'merged');
+  const dbOnly  = scored.filter(x => x.item.kind === 'db-only');
+  const edfOnly = scored.filter(x => x.item.kind === 'edf-only');
+  acList = [];
+  let html = '';
+
+  function renderGroup(label, items, limit) {
+    if (!items.length) return;
+    html += `<div class="cs-ac-group">${label}</div>`;
+    for (const { item } of items.slice(0, limit)) {
+      const e   = item.dbEntity;
+      const org = item.edfOrg;
+      const country = e?.sources?.infonodes?.country || e?.sources?.wikidata?.country || org?.country || '';
+      let badge = '';
+      if (e?.sector)     badge = sectorBadge(e.sector);
+      else if (e?.type)  badge = typeBadge(e.type);
+      html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
+        ${srcBadge(item.kind)}
+        ${badge}
+        <span class="cs-ac-name">${highlight(item.name, raw)}</span>
+        ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+        ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
+        ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
+      </div>`;
+      acList.push(item);
+    }
+  }
+
+  renderGroup('DB + EDF', merged, 8);
+  renderGroup('DB only', dbOnly, 8);
+  renderGroup('EDF only', edfOnly, 12);
+
+  acEl.innerHTML = html;
+  acEl.classList.add('open');
+  acEl.querySelectorAll('.cs-ac-item').forEach(el => {
+    el.addEventListener('mousedown', ev => {
+      ev.preventDefault();
+      const item = acList[Number(el.dataset.idx)];
+      if (item) selectItem(item);
+    });
+  });
+}
+
+function renderSuggestions() {
+  const pool = filteredRegistry();
+  const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 24);
+  acList = [];
+  const groups = { merged: [], 'db-only': [], 'edf-only': [] };
+  for (const item of shuffled) groups[item.kind].push(item);
+
+  let html = '';
+  function rg(label, items) {
+    if (!items.length) return;
+    html += `<div class="cs-ac-group">${label}</div>`;
+    for (const item of items.slice(0,8)) {
+      const e = item.dbEntity;
+      const org = item.edfOrg;
+      const country = e?.sources?.infonodes?.country || org?.country || '';
+      let badge = '';
+      if (e?.sector) badge = sectorBadge(e.sector);
+      else if (e?.type) badge = typeBadge(e.type);
+      html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
+        ${srcBadge(item.kind)}${badge}
+        <span class="cs-ac-name">${esc(item.name)}</span>
+        ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+      </div>`;
+      acList.push(item);
+    }
+  }
+  rg('DB + EDF', groups.merged);
+  rg('DB only', groups['db-only']);
+  rg('EDF only', groups['edf-only']);
+
+  acEl.innerHTML = html;
+  acEl.classList.add('open');
+  acEl.querySelectorAll('.cs-ac-item').forEach(el => {
+    el.addEventListener('mousedown', ev => {
+      ev.preventDefault();
+      const item = acList[Number(el.dataset.idx)];
+      if (item) selectItem(item);
+    });
+  });
+}
+
+function moveAcKbd(delta) {
+  const items = acEl.querySelectorAll('.cs-ac-item');
+  if (!items.length) return;
+  items[acKbd]?.classList.remove('kbd');
+  acKbd = Math.max(-1, Math.min(items.length - 1, acKbd + delta));
+  if (acKbd >= 0) {
+    items[acKbd].classList.add('kbd');
+    items[acKbd].scrollIntoView({ block: 'nearest' });
+    if (acList[acKbd]) searchEl.value = acList[acKbd].name;
+  }
+}
+
+// ── Select / clear ────────────────────────────────────────────────────────────
+let currentItem = null;
+
+function selectItem(item) {
+  currentItem = item;
+  closeAc();
+  searchEl.value = item.name;
+  document.getElementById('cs-hero').classList.add('compact');
+  document.getElementById('cs-showing').textContent = item.name;
+  renderProfile(item);
+}
+
+function clearSelection() {
+  currentItem = null;
+  searchEl.value = '';
+  document.getElementById('cs-hero').classList.remove('compact');
+  document.getElementById('cs-showing').textContent = '';
+  document.getElementById('cs-profile').classList.remove('visible');
+  searchEl.focus();
+}
+
+// ── Render profile ────────────────────────────────────────────────────────────
+function renderProfile(item) {
+  const profile = document.getElementById('cs-profile');
+  profile.classList.remove('visible');
+  void profile.offsetWidth;
+  profile.classList.add('visible');
+
+  const e   = item.dbEntity;
+  const org = item.edfOrg;
+  const cb  = e?.sources?.crunchbase;
+  const wd  = e?.sources?.wikidata;
+  const inf = e?.sources?.infonodes;
+
+  // ── Logo
+  document.getElementById('cs-logo').textContent = initials(item.name);
+
+  // ── Name
+  document.getElementById('cs-name').textContent = item.name;
+
+  // ── Badges
+  let badges = '';
+  if (e?.sector) badges += sectorBadge(e.sector);
+  if (e?.type)   badges += typeBadge(e.type);
+  badges += srcBadge(item.kind);
+  if (item.kind !== 'db-only' && org?.pic)
+    badges += `<span class="cs-hdr-id" title="EU Participant ID (PIC)">PIC ${esc(org.pic)}</span>`;
+  if (e?.id)
+    badges += `<span class="cs-hdr-id" title="Database ID">${esc(e.id)}</span>`;
+  if (item.kind === 'merged' && org?.match_method)
+    badges += `<span class="cs-hdr-id" style="color:rgba(255,215,0,.6)" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
+  document.getElementById('cs-badges').innerHTML = badges;
+
+  // ── Description
+  const desc = cb?.description || wd?.description || '';
+  const descEl = document.getElementById('cs-desc');
+  descEl.textContent = desc;
+  descEl.style.display = desc ? '' : 'none';
+
+  // ── External links
+  let links = '';
+  if (cb?.profile_url)
+    links += `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`;
+  if (cb?.website)
+    links += `<a class="cs-ext-link" href="${esc(cb.website)}" target="_blank">${esc(cb.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
+  if (wd?.wikipedia_url)
+    links += `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`;
+  if (e?.wikidata_id)
+    links += `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`;
+  if (org?.eu_url)
+    links += `<a class="cs-ext-link" style="border-color:rgba(100,160,255,.35);color:rgba(100,160,255,.8)" href="${esc(org.eu_url)}" target="_blank">EU Portal ↗</a>`;
+  if (org?.web_link) {
+    const url = org.web_link.startsWith('http') ? org.web_link : `https://${org.web_link}`;
+    links += `<a class="cs-ext-link" href="${esc(url)}" target="_blank">${esc(org.web_link.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
+  }
+  document.getElementById('cs-links').innerHTML = links;
+
+  // ── Stat bar
+  const stats = [];
+  if (cb?.total_funding_usd)   stats.push({ v: fmtFunding(cb.total_funding_usd), l: 'Total Funding', cls: '' });
+  if (wd?.employees)           stats.push({ v: Number(wd.employees).toLocaleString(),  l: 'Employees', cls: '' });
+  if (wd?.inception)           stats.push({ v: String(wd.inception).slice(0,4),        l: 'Founded', cls: '' });
+  if (org?.stats) {
+    const s = org.stats;
+    const eu = fmtEur(s.total_eu_contribution);
+    if (eu) stats.push({ v: eu, l: 'EU Contribution', cls: 'edf-stat' });
+    if (s.project_count > 0)      stats.push({ v: s.project_count,      l: 'EDF Projects',     cls: 'edf-stat', anchor: 'cs-edf-card' });
+    if (s.call_count > 0)         stats.push({ v: s.call_count,          l: 'EDF Calls',         cls: 'edf-stat' });
+    if (s.coordinator_count > 0)  stats.push({ v: s.coordinator_count,   l: 'Coordinated',       cls: 'edf-stat' });
+  }
+  if (e) {
+    const rels = REL_MAP[e.id] || [];
+    const asTarget   = rels.filter(r => r.role === 'target');
+    const asInvestor = rels.filter(r => r.role === 'investor');
+    if (asTarget.length)   stats.push({ v: asTarget.length,   l: 'Investors',  cls: '', anchor: 'cs-rel-card' });
+    if (asInvestor.length) stats.push({ v: asInvestor.length, l: 'Portfolio',  cls: '', anchor: 'cs-rel-card' });
+  }
+  document.getElementById('cs-stats').innerHTML = stats.map(s =>
+    `<div class="cs-stat${s.cls ? ' '+s.cls : ''}${s.anchor ? ' cs-stat--link' : ''}" ${s.anchor ? `data-anchor="${s.anchor}"` : ''}>
+      <div class="cs-stat-val">${s.v ?? '—'}</div>
+      <div class="cs-stat-lbl">${s.l}</div>
+    </div>`
+  ).join('');
+  document.getElementById('cs-stats').querySelectorAll('.cs-stat--link').forEach(el => {
+    el.addEventListener('click', () => {
+      document.getElementById(el.dataset.anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── EDF section
+  renderEdfSection(item);
+
+  // ── DB details
+  renderDbSection(item);
+
+  // ── Relationships
+  renderRelSection(item);
+
+  // ── Right column (source blocks)
+  renderSources(item);
+}
+
+// ── EDF section ───────────────────────────────────────────────────────────────
+function renderEdfSection(item) {
+  const card = document.getElementById('cs-edf-card');
+  const body = document.getElementById('cs-edf-body');
+  const countEl = document.getElementById('cs-edf-count');
+
+  if (!item.edfOrg) { card.style.display = 'none'; return; }
+  card.style.display = '';
+
+  const org = item.edfOrg;
+  const s   = org.stats;
+
+  let html = '';
+
+  // Org identity block
+  html += `<div style="margin-bottom:14px">`;
+  if (org.legal_name !== item.name)
+    html += row('Legal name', esc(org.legal_name));
+  html += row('Country', esc(org.country) + (org.city ? ` — ${esc(org.city)}` : ''));
+  html += row('Activity type', esc(org.activity_type));
+  html += row('Org type', esc(org.org_type));
+  if (org.sme != null)
+    html += row('SME', org.sme ? '<span style="color:var(--accent)">Yes</span>' : 'No');
+  html += `</div>`;
+
+  // Projects — lazy load
+  const projCount = s?.project_count || 0;
+  countEl.textContent = `${projCount} project${projCount !== 1 ? 's' : ''}`;
+
+  if (projCount > 0) {
+    html += `<div id="edf-proj-list">
+      <button class="edf-load-btn" id="edf-load-btn" data-pic="${esc(org.pic)}">
+        Load ${projCount} project${projCount !== 1 ? 's' : ''} ↓
+      </button>
+    </div>`;
+  } else {
+    html += `<div class="cs-na">No funded projects in this dataset.</div>`;
+  }
+
+  body.innerHTML = html;
+
+  document.getElementById('edf-load-btn')?.addEventListener('click', async () => {
+    const btn = document.getElementById('edf-load-btn');
+    btn.textContent = 'Loading…';
+    btn.disabled = true;
+    try {
+      await loadEdf();
+      renderEdfProjects(org.pic);
+    } catch (err) {
+      document.getElementById('edf-proj-list').innerHTML =
+        `<div class="cs-na">Failed to load project data.</div>`;
+    }
+  });
+}
+
+function renderEdfProjects(pic) {
+  const listEl = document.getElementById('edf-proj-list');
+  if (!listEl || !EDF) return;
+
+  const found = [];
+  for (const [callId, call] of Object.entries(EDF.calls)) {
+    for (const proj of (call.projects || [])) {
+      const participation = (proj.participants || []).find(p => String(p.pic) === String(pic));
+      if (participation) {
+        found.push({ call, proj, participation });
+      }
+    }
+  }
+
+  if (!found.length) {
+    listEl.innerHTML = `<div class="cs-na">No projects found for this PIC.</div>`;
+    return;
+  }
+
+  let html = `<ul class="edf-projects">`;
+  for (const { call, proj, participation } of found) {
+    const eu    = fmtEur(participation.eu_contribution);
+    const role  = participation.role || '';
+    const start = (proj.start_date || '').slice(0,10);
+    const end   = (proj.end_date   || '').slice(0,10);
+    const totalEu = fmtEur(proj.eu_contribution);
+    html += `<li class="edf-proj-item">
+      <div class="edf-proj-title">
+        ${proj.acronym ? `<strong>${esc(proj.acronym)}</strong> — ` : ''}${esc(proj.title)}
+      </div>
+      <div class="edf-proj-meta">
+        <span>${esc(call.identifier)}</span>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${eu ? `<span>org share: <span class="edf-contrib">${eu}</span></span>` : ''}
+        ${totalEu ? `<span>project total: ${esc(totalEu)}</span>` : ''}
+        ${start ? `<span>${start}${end ? ' → '+end : ''}</span>` : ''}
+        ${proj.url ? `<a href="${esc(proj.url)}" target="_blank" style="color:rgba(100,160,255,.8)">EU Portal ↗</a>` : ''}
+      </div>
+    </li>`;
+  }
+  html += `</ul>`;
+  listEl.innerHTML = html;
+}
+
+// ── DB section ────────────────────────────────────────────────────────────────
+function renderDbSection(item) {
+  const card = document.getElementById('cs-db-card');
+  const body = document.getElementById('cs-db-body');
+  if (!item.dbEntity) { card.style.display = 'none'; return; }
+  card.style.display = '';
+
+  const e   = item.dbEntity;
+  const inf = e.sources?.infonodes;
+  const cb  = e.sources?.crunchbase;
+  const wd  = e.sources?.wikidata;
+
+  let html = '';
+  if (inf?.country)    html += row('Country', esc(inf.country));
+  if (inf?.main_focus) html += row('Focus', esc(inf.main_focus));
+  if (inf?.tax_id)     html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
+  if (wd?.inception)   html += row('Founded', esc(String(wd.inception).slice(0,4)));
+  if (wd?.headquarters) html += row('HQ', esc(wd.headquarters));
+  if (cb?.headquarters && cb.headquarters !== wd?.headquarters)
+    html += row('HQ (CB)', esc(cb.headquarters));
+  if (e.roles?.length) html += row('Roles', e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join(' '));
+  if (e.tags?.length)  html += row('Tags', e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join(' '));
+
+  body.innerHTML = html || '<div class="cs-na">No additional details.</div>';
+}
+
+// ── Relationships section ─────────────────────────────────────────────────────
+function renderRelSection(item) {
+  const card    = document.getElementById('cs-rel-card');
+  const body    = document.getElementById('cs-rel-body');
+  const countEl = document.getElementById('cs-rel-count');
+  if (!item.dbEntity) { card.style.display = 'none'; return; }
+
+  const rels       = REL_MAP[item.dbEntity.id] || [];
+  const asInvestor = rels.filter(r => r.role === 'investor');
+  const asTarget   = rels.filter(r => r.role === 'target');
+  if (!rels.length) { card.style.display = 'none'; return; }
+
+  card.style.display = '';
+  countEl.textContent = `${rels.length}`;
+
+  let html = '';
+  function relList(label, items) {
+    if (!items.length) return;
+    html += `<div class="cs-rel-group-lbl">${label} (${items.length})</div>`;
+    html += `<ul class="cs-elist">`;
+    for (const { rel, other } of items.slice(0, 30)) {
+      const name    = other?.name || '—';
+      const country = other?.sources?.infonodes?.country || other?.sources?.wikidata?.country || '';
+      html += `<li>
+        <div class="cs-elist-item-main">
+          <span class="cs-elist-name">${esc(name)}</span>
+          <div class="cs-elist-meta">${other ? esc(other.id) : ''} ${rel.details?.lead ? '· lead' : ''}</div>
+        </div>
+        ${country ? `<span class="cs-elist-country">${esc(country)}</span>` : ''}
+      </li>`;
+    }
+    if (items.length > 30)
+      html += `<li style="color:var(--text-faint);font-size:var(--fs-sm)">… and ${items.length - 30} more</li>`;
+    html += `</ul>`;
+  }
+  relList('As investor →', asInvestor);
+  relList('← Investors', asTarget);
+
+  body.innerHTML = html;
+}
+
+// ── Source blocks (right column) ─────────────────────────────────────────────
+function renderSources(item) {
+  const right = document.getElementById('cs-right');
+  let html = '';
+
+  const e   = item.dbEntity;
+  const org = item.edfOrg;
+
+  // EDF source block
+  if (org) {
+    html += `<div class="cs-src-block" style="background:rgba(100,160,255,.04);border:1px solid rgba(100,160,255,.18)">
+      <div class="cs-src-hdr" style="color:rgba(100,160,255,.8)">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(100,160,255,.7);flex-shrink:0"></span>
+        EDF / EU Funding
+      </div>`;
+    const s = org.stats;
+    const euFmt = fmtEur(s?.total_eu_contribution);
+    if (euFmt) html += row('EU contribution', `<span class="edf-contrib">${euFmt}</span>`);
+    if (s?.project_count)     html += row('Projects', String(s.project_count));
+    if (s?.call_count)        html += row('Calls', String(s.call_count));
+    if (s?.coordinator_count) html += row('Coordinated', String(s.coordinator_count));
+    html += row('Match', `${esc(org.match_method || '—')} / ${esc(org.match_confidence || '—')}`);
+    html += `<div class="cs-src-ts">Generated: ${esc(ORGS._generated_at?.slice(0,10) || '—')}</div>
+    </div>`;
+  }
+
+  // Crunchbase block
+  const cb = e?.sources?.crunchbase;
+  if (cb?.extracted_at) {
+    html += `<div class="cs-src-block cs-cb-block">
+      <div class="cs-src-hdr">Crunchbase</div>`;
+    if (cb.stage)          html += row('Stage', esc(cb.stage));
+    if (cb.revenue_range)  html += row('Revenue', esc(cb.revenue_range));
+    if (cb.primary_industry) html += row('Industry', esc(cb.primary_industry));
+    if (cb.total_funding_usd) html += row('Funding', esc(fmtFunding(cb.total_funding_usd) || '—'));
+    if (cb.cb_rank)        html += row('CB Rank', `#${cb.cb_rank}`);
+    html += `<div class="cs-src-ts">Extracted: ${esc(cb.extracted_at || '—')}</div>
+    </div>`;
+  }
+
+  // Wikidata block
+  const wd = e?.sources?.wikidata;
+  if (wd?.retrieved_at) {
+    html += `<div class="cs-src-block cs-wd-block">
+      <div class="cs-src-hdr">Wikidata</div>`;
+    if (wd.description) html += `<div class="cs-src-desc">${esc(wd.description)}</div>`;
+    if (wd.country)     html += row('Country', esc(wd.country));
+    if (wd.isin)        html += row('ISIN', `<code>${esc(wd.isin)}</code>`);
+    if (wd.employees)   html += row('Employees', Number(wd.employees).toLocaleString());
+    if (wd.instance_of) html += row('Instance of', (Array.isArray(wd.instance_of) ? wd.instance_of : [wd.instance_of]).map(v => esc(v)).join(', '));
+    html += `<div class="cs-src-ts">Retrieved: ${esc(wd.retrieved_at || '—')}</div>
+    </div>`;
+  }
+
+  // Infonodes block
+  const inf = e?.sources?.infonodes;
+  if (inf?.extracted_at) {
+    html += `<div class="cs-src-block cs-inf-block">
+      <div class="cs-src-hdr">Infonodes</div>`;
+    if (inf.main_focus) html += `<div class="cs-src-desc">${esc(inf.main_focus)}</div>`;
+    if (inf.country)    html += row('Country', esc(inf.country));
+    if (inf.tax_id)     html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
+    html += `<div class="cs-src-ts">Extracted: ${esc(inf.extracted_at || '—')}</div>
+    </div>`;
+  }
+
+  right.innerHTML = html || '<div class="cs-na">No source metadata.</div>';
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    await loadData();
+    buildRegistry();
+
+    document.getElementById('cs-loading').style.display = 'none';
+    document.getElementById('cs-hero').style.display = '';
+
+    searchEl = document.getElementById('cs-search');
+    acEl     = document.getElementById('cs-ac');
+
+    // Search input events
+    searchEl.addEventListener('input', () => renderAc(searchEl.value));
+    searchEl.addEventListener('focus', () => {
+      if (!searchEl.value) renderSuggestions();
+    });
+    searchEl.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown')  { e.preventDefault(); moveAcKbd(1); }
+      if (e.key === 'ArrowUp')    { e.preventDefault(); moveAcKbd(-1); }
+      if (e.key === 'Enter') {
+        if (acKbd >= 0 && acList[acKbd]) selectItem(acList[acKbd]);
+        else closeAc();
+      }
+      if (e.key === 'Escape') closeAc();
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.cs-search-wrap')) closeAc();
+    });
+
+    // Back button
+    document.getElementById('cs-back').addEventListener('click', clearSelection);
+
+    // Filter pills
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        if (searchEl.value) renderAc(searchEl.value);
+        else renderSuggestions();
+      });
+    });
+
+    // Stats summary in title
+    const total   = REGISTRY.length;
+    const merged  = REGISTRY.filter(r => r.kind === 'merged').length;
+    const dbOnly  = REGISTRY.filter(r => r.kind === 'db-only').length;
+    const edfOnly = REGISTRY.filter(r => r.kind === 'edf-only').length;
+    document.querySelector('.cs-hero-prompt').textContent =
+      `${total} orgs · ${merged} DB+EDF · ${dbOnly} DB only · ${edfOnly} EDF only`;
+
+  } catch (err) {
+    document.getElementById('cs-loading').innerHTML =
+      `<div style="color:var(--error,#f44);font-family:var(--font-mono);font-size:var(--fs-sm)">
+        Error loading data: ${esc(String(err))}
+      </div>`;
+    console.error(err);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
