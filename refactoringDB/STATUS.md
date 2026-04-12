@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-12 (website enrichment complete)
+> Last updated: 2026-04-12 (QID second pass — 267 proposals pending review)
 
 ## Session protocol
 
@@ -74,6 +74,24 @@ python3 scripts/validate.py
 ```
 
 Re-run safety: `--search` resumes from checkpoint. `--apply` skips entities that already have a wikidata_id.
+
+### QID second-pass pipeline (`reprocess_skipped_qids.py`)
+
+Run after the main QID pipeline to recover skipped entries via four strategies:
+
+```bash
+# Runs all 4 phases in sequence — safe to re-run (skips already-proposed/accepted/rejected)
+#    Phase A: fix disqualify false positives (0 API calls, in-memory re-evaluation)
+#    Phase B: P856 website reverse SPARQL lookup (2s delay, batch=10 entities)
+#    Phase C: P31 type confirmation for no-description entries (SPARQL)
+#    Phase D: results[1-4] re-search for wrong-top-result entries (Wikidata API, 1.5s delay)
+#    Writes: data/qid_candidates.json only — never touches database.json
+python3 scripts/reprocess_skipped_qids.py
+
+# Then review qid_candidates.json (proposed → accepted/rejected), then apply:
+python3 scripts/search_missing_qids.py --apply
+python3 scripts/validate.py
+```
 
 ### Crunchbase enrichment pipeline (Phase 2 — not yet started)
 
@@ -205,12 +223,13 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 455 / 1149 (39.6%) |
+| Companies with wikidata_id | 455 / 1149 (39.6%) — **267 proposals pending review** |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-12) |
+| qid_candidates.json | proposed=267, accepted=309, rejected=16, skipped=411 |
 
 ---
 
@@ -239,6 +258,17 @@ refactoringDB/
 - [x] `--apply` run: 309 QIDs written to database.json
 - [x] validate.py passed after apply
 
+### QID second pass (`scripts/reprocess_skipped_qids.py`)
+- [x] Script written: 4-phase recovery for previously skipped entries
+- [x] Phase A (disqualify false-positive fix): 53 proposals — fixed substring bug where `"nation"` matched `"multinational"`, `"state"` matched `"United States"`, `"sea"` matched `"research"`, `"actor"` matched `"contractor"`, `"video game"` blocked EA/Konami/Take-Two
+- [x] Phase B (P856 website reverse lookup via SPARQL): 132 proposals — matched 672 company websites against Wikidata `wdt:P856`; batch size 10 entities (~80 URL variants per query)
+- [x] Phase C (P31 type confirmation for no-description entries): 60 proposals — confirmed company type via `wdt:P31` for 64 entries that had QID+label match but no English description
+- [x] Phase D (results[1–4] re-search): 20 proposals — re-searched with original entity name (not pre-stripped `search_name`) and checked all 5 results with fixed filter
+- [ ] **Human review pending**: 267 proposed entries in `data/qid_candidates.json`
+  - Known false positives to reject: `IN-0157 Hexagon` (→ crystal system), `IN-0034 Eight Bells` (→ hill in Egypt)
+  - Known wrong-entity matches: `IN-0263 Nokia` (→ Nokia Canada, should be Q1418), `IN-0269 NTT` (→ NTT Docomo Business), `IN-0291 PTC` (→ PTC Canada), several AT&T/Samsung/Outokumpu subsidiaries
+- [ ] After review: `python3 scripts/search_missing_qids.py --apply` then `validate.py`
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -246,6 +276,7 @@ refactoringDB/
 - [x] validate.py (10 checks including PER-NNNN, rel types, edf date format)
 - [x] .gitignore (excludes `__pycache__/`, `*.pyc`, `*.bak`)
 - [x] Initial commit on branch `nuovoDB`
+- [x] `scripts/reprocess_skipped_qids.py` — 4-phase QID second-pass recovery script
 
 ---
 
@@ -278,11 +309,11 @@ refactoringDB/
 - Links IN-NNNN / institution entities → EDF projects/calls
 - Source of truth: `rawdata/edf_calls.json` (dict keyed by call identifier, each call has `projects[]` with `participants[]`)
 
-### 5. QID lookup — second pass
-- 694 companies still without wikidata_id
-- Mostly EDF SMEs or obscure mining companies (many genuinely absent from Wikidata)
-- Some have truncated names from iShares CSV (cut at ~35 chars)
-- Re-run pipeline: see `docs/QID_LOOKUP_PROCESS.md`
+### 5. QID lookup — second pass (in progress)
+- ~~694~~ **429 companies** still without wikidata_id after second-pass proposals are applied
+- 267 proposals in `qid_candidates.json` awaiting human review
+- Run `reprocess_skipped_qids.py` again after apply to pick up any remaining matches
+- ~411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
 
 ---
 
@@ -298,3 +329,7 @@ refactoringDB/
 | QID false positives: must never happen | Strict label + description keyword filtering enforced in all search scripts |
 | HTTP 429: must never happen | 1.5s delay (Phase 1), 2s delay (Phase 1b), backoff [4, 8, 16]s |
 | SPARQL `skos:altLabel` batch queries: avoided | Too expensive on public endpoint, consistently times out |
+| Disqualify keywords: word-boundary for `nation/state/sea/actor/region` | Substring match causes false positives (`"multinational"` → disqualified by `"nation"`) |
+| `"video game"` removed from disqualify list | "video game **company**" is a valid org type; EA/Konami/Take-Two all have "company" in description |
+| P856 SPARQL batch size: 10 entities (≤80 URL variants) | Larger batches cause HTTP 414/431 on Wikidata SPARQL endpoint |
+| P856 false positives: accepted as review items | URL match is high-precision but some subsidiaries share parent's website; human reviewer corrects QID |

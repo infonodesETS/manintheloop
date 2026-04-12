@@ -1,8 +1,8 @@
 {
   "_generated_at": "2026-04-12",
   "_total": 1003,
-  "_proposed": 325,
-  "_skipped": 678,
+  "_proposed": 267,
+  "_skipped": 411,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
   "candidates": [
     {
@@ -19,8 +19,8 @@
       "entity_id": "IN-0002",
       "entity_name": "Accenture Class A",
       "search_name": "Accenture",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q338825",
       "label": "Accenture",
       "description": "multinational management consulting, technology services and outsourcing company"
@@ -39,8 +39,8 @@
       "entity_id": "IN-0004",
       "entity_name": "Adobe",
       "search_name": "Adobe",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q11463",
       "label": "Adobe",
       "description": "American multinational computer software company"
@@ -59,11 +59,11 @@
       "entity_id": "IN-0006",
       "entity_name": "Advanced Micro Devices",
       "search_name": "Advanced Micro Devices",
-      "status": "skipped",
-      "reason": "label mismatch: 'Advanced Micro Devices' vs 'AMD'; disqualified by 'nation'",
-      "qid": "Q128896",
-      "label": "AMD",
-      "description": "American multinational semiconductor company"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.amd.com) + org keyword 'company'",
+      "qid": "Q133811956",
+      "label": "Advanced Micro Devices (Singapore)",
+      "description": "company in Singapore, Singapore"
     },
     {
       "entity_id": "IN-0007",
@@ -119,8 +119,8 @@
       "entity_id": "IN-0012",
       "entity_name": "AL Masane AL Kobra Mining",
       "search_name": "Al Masane Al Kobra Mining",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q137919069",
       "label": "Al Masane Al Kobra Mining Company",
       "description": "mining company in the United States"
@@ -169,8 +169,8 @@
       "entity_id": "IN-0017",
       "entity_name": "Alphabet Class A",
       "search_name": "Alphabet",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q20800404",
       "label": "Alphabet Inc.",
       "description": "American multinational technology conglomerate"
@@ -179,8 +179,8 @@
       "entity_id": "IN-0018",
       "entity_name": "Alphabet Class C",
       "search_name": "Alphabet",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q20800404",
       "label": "Alphabet Inc.",
       "description": "American multinational technology conglomerate"
@@ -238,11 +238,11 @@
     {
       "entity_id": "IN-0024",
       "entity_name": "AMG Critical Materials",
-      "search_name": "Amg Critical Materials",
-      "status": "skipped",
-      "reason": "label mismatch: 'Amg Critical Materials' vs 'AMG Advanced Metallurgical'; no description",
+      "search_name": "AMG Critical Materials",
+      "status": "proposed",
+      "reason": "P856 website match (https://amg-nv.com) — no description",
       "qid": "Q2143109",
-      "label": "AMG Advanced Metallurgical",
+      "label": "",
       "description": ""
     },
     {
@@ -328,19 +328,19 @@
     {
       "entity_id": "IN-0035",
       "entity_name": "Arafura RARE Earths",
-      "search_name": "Arafura",
-      "status": "skipped",
-      "reason": "disqualified by 'sea'",
-      "qid": "Q128880",
-      "label": "Arafura Sea",
-      "description": "sea between Australia and New Guinea"
+      "search_name": "Arafura RARE Earths",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.arultd.com) + org keyword 'mining'",
+      "qid": "Q16829889",
+      "label": "Arafura Rare Earths",
+      "description": "Australian mining company"
     },
     {
       "entity_id": "IN-0036",
       "entity_name": "Arcelormittal SA",
       "search_name": "Arcelormittal",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q27893",
       "label": "ArcelorMittal",
       "description": "multinational steel manufacturing corporation"
@@ -378,22 +378,22 @@
     {
       "entity_id": "IN-0040",
       "entity_name": "ASM",
-      "search_name": "Asm",
-      "status": "skipped",
-      "reason": "label mismatch: 'Asm' vs 'American Samoa'; disqualified by 'ocean'",
-      "qid": "Q16641",
-      "label": "American Samoa",
-      "description": "unincorporated territory of the United States of America, located in the Pacific Ocean"
+      "search_name": "ASM",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.asm.com) — no description",
+      "qid": "Q30713430",
+      "label": "ASM Japan",
+      "description": ""
     },
     {
       "entity_id": "IN-0042",
       "entity_name": "At&t",
-      "search_name": "At",
-      "status": "skipped",
-      "reason": "search name too short after cleaning",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "At&t",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.att.com) + org keyword 'multinational'",
+      "qid": "Q35476",
+      "label": "AT&T",
+      "description": "American multinational conglomerate"
     },
     {
       "entity_id": "IN-0043",
@@ -429,11 +429,11 @@
       "entity_id": "IN-0046",
       "entity_name": "Autotrader",
       "search_name": "Autotrader",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q4826084",
-      "label": "autotrader.com",
-      "description": "is an online marketplace for car shoppers and sellers. It aggregates millions of new, used, and certified second-hand cars from thousands of dealers and private sellers."
+      "status": "proposed",
+      "reason": "re-search results[4]: label match + org keyword 'group' (original results[0] had wrong desc)",
+      "qid": "Q22906582",
+      "label": "AutoTrader.co.za",
+      "description": "South African automobile sales website, which was previously a subsidiary of the Auto Trader Group"
     },
     {
       "entity_id": "IN-0047",
@@ -468,12 +468,12 @@
     {
       "entity_id": "IN-0050",
       "entity_name": "BCE",
-      "search_name": "Bce",
-      "status": "skipped",
-      "reason": "label mismatch: 'Bce' vs 'Bose–Einstein condensate'; disqualified by 'state'",
-      "qid": "Q46202",
-      "label": "Bose–Einstein condensate",
-      "description": "state of matter of a dilute gas of bosons cooled to temperatures very near absolute zero"
+      "search_name": "BCE",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.bce.ca) + org keyword 'enterprise'",
+      "qid": "Q24525746",
+      "label": "BCE Inc.",
+      "description": "Bell Canada Enterprises"
     },
     {
       "entity_id": "IN-0051",
@@ -488,12 +488,12 @@
     {
       "entity_id": "IN-0052",
       "entity_name": "Bekaert (d) SA",
-      "search_name": "Bekaert D",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Bekaert (d) SA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.bekaert.com) + org keyword 'company'",
+      "qid": "Q814989",
+      "label": "Bekaert",
+      "description": "company"
     },
     {
       "entity_id": "IN-0054",
@@ -538,22 +538,22 @@
     {
       "entity_id": "IN-0059",
       "entity_name": "BT",
-      "search_name": "Bt",
-      "status": "skipped",
-      "reason": "search name too short after cleaning",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "BT",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.bt.com) + org keyword 'division'",
+      "qid": "Q24590005",
+      "label": "BT Retail",
+      "description": "former division of BT Group"
     },
     {
       "entity_id": "IN-0060",
       "entity_name": "Buenaventura ADR Representing",
-      "search_name": "Buenaventura Representing",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Buenaventura ADR Representing",
+      "status": "proposed",
+      "reason": "P856 website match (https://buenaventura.com) + org keyword 'company'",
+      "qid": "Q1001788",
+      "label": "Buenaventura",
+      "description": "Peruvian precious metals company"
     },
     {
       "entity_id": "IN-0061",
@@ -569,11 +569,11 @@
       "entity_id": "IN-0062",
       "entity_name": "Business Machines",
       "search_name": "Business Machines",
-      "status": "skipped",
-      "reason": "disqualified by 'article'",
-      "qid": "Q73966519",
-      "label": "Business machines in the hospital accounting office",
-      "description": "scientific article published on 01 April 1956"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ibm.com) + org keyword 'multinational'",
+      "qid": "Q37156",
+      "label": "IBM",
+      "description": "American multinational technology corporation"
     },
     {
       "entity_id": "IN-0063",
@@ -589,28 +589,28 @@
       "entity_id": "IN-0064",
       "entity_name": "Canon",
       "search_name": "Canon",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q63554165",
-      "label": "Canon",
-      "description": "corporate brand of Canon Inc."
+      "status": "proposed",
+      "reason": "re-search results[3]: label match + org keyword 'corporation' (original results[0] had wrong desc)",
+      "qid": "Q62621",
+      "label": "Canon Inc.",
+      "description": "Japanese multinational imaging corporation"
     },
     {
       "entity_id": "IN-0065",
       "entity_name": "CAP SA",
-      "search_name": "Cap",
-      "status": "skipped",
-      "reason": "label mismatch: 'Cap' vs 'Capricornus'; disqualified by 'constellation'",
-      "qid": "Q10535",
-      "label": "Capricornus",
-      "description": "zodiac constellation in the southern celestial hemisphere"
+      "search_name": "CAP SA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.cap.cl) + org keyword 'company'",
+      "qid": "Q2930951",
+      "label": "CAP S.A.",
+      "description": "Chilean company"
     },
     {
       "entity_id": "IN-0066",
       "entity_name": "Capgemini",
       "search_name": "Capgemini",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q1034621",
       "label": "Capgemini",
       "description": "French multinational corporation headquartered in Paris, France"
@@ -638,12 +638,12 @@
     {
       "entity_id": "IN-0069",
       "entity_name": "CDW",
-      "search_name": "Cdw",
-      "status": "skipped",
-      "reason": "label mismatch: 'Cdw' vs 'Circumpolar deep water'; disqualified by 'region'",
-      "qid": "Q205912",
-      "label": "Circumpolar deep water",
-      "description": "water mass in the Pacific and Indian oceans formed by mixing of other water masses in the region"
+      "search_name": "CDW",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.cdw.com) + org keyword 'company'",
+      "qid": "Q1023155",
+      "label": "CDW",
+      "description": "company"
     },
     {
       "entity_id": "IN-0070",
@@ -688,9 +688,9 @@
     {
       "entity_id": "IN-0074",
       "entity_name": "CGI Class A",
-      "search_name": "Cgi",
-      "status": "skipped",
-      "reason": "label mismatch: 'Cgi' vs 'CGI Group'; disqualified by 'nation'",
+      "search_name": "CGI Class A",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.cgi.com) + org keyword 'multinational'",
       "qid": "Q1798370",
       "label": "CGI Group",
       "description": "multinational information technology company"
@@ -819,11 +819,11 @@
       "entity_id": "IN-0087",
       "entity_name": "Ciena",
       "search_name": "Ciena",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21147601",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'telecom' (original results[0] had wrong desc)",
+      "qid": "Q1091783",
       "label": "Ciena",
-      "description": "given name"
+      "description": "telecommunications company"
     },
     {
       "entity_id": "IN-0089",
@@ -849,18 +849,18 @@
       "entity_id": "IN-0091",
       "entity_name": "CMOC",
       "search_name": "Cmoc",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q111756477",
-      "label": "Cmoch",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "re-search results[3]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q5099785",
+      "label": "CMOC Group Limited",
+      "description": "Chinese mining company"
     },
     {
       "entity_id": "IN-0092",
       "entity_name": "Cognizant Technology Solutions COR",
       "search_name": "Cognizant Technology Solutions Cor",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q1107035",
       "label": "Cognizant",
       "description": "American multinational information technology"
@@ -869,11 +869,11 @@
       "entity_id": "IN-0093",
       "entity_name": "Coherent",
       "search_name": "Coherent",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q380473",
-      "label": "Coherent",
-      "description": "operating system"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.coherent.com) + org keyword 'company'",
+      "qid": "Q1107088",
+      "label": "Coherent, Inc.",
+      "description": "company"
     },
     {
       "entity_id": "IN-0094",
@@ -889,8 +889,8 @@
       "entity_id": "IN-0095",
       "entity_name": "Comcast Class A",
       "search_name": "Comcast",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'conglomerate' (was: disqualified by 'nation')",
       "qid": "Q1113804",
       "label": "Comcast",
       "description": "American multinational telecommunications conglomerate"
@@ -959,11 +959,11 @@
       "entity_id": "IN-0102",
       "entity_name": "Corning",
       "search_name": "Corning",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q1134172",
-      "label": "Corning",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'manufacturer' (original results[0] had wrong desc)",
+      "qid": "Q5842736",
+      "label": "Corning Inc.",
+      "description": "American manufacturer of glass & ceramics"
     },
     {
       "entity_id": "IN-0103",
@@ -1009,8 +1009,8 @@
       "entity_id": "IN-0107",
       "entity_name": "DELL Technologies Class C",
       "search_name": "Dell Technologies",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q27500963",
       "label": "Dell Technologies",
       "description": "American multinational technology company"
@@ -1099,8 +1099,8 @@
       "entity_id": "IN-0117",
       "entity_name": "Electronic ARTS",
       "search_name": "Electronic Arts",
-      "status": "skipped",
-      "reason": "disqualified by 'video game'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'video game')",
       "qid": "Q173941",
       "label": "Electronic Arts",
       "description": "American video game company"
@@ -1119,11 +1119,11 @@
       "entity_id": "IN-0119",
       "entity_name": "Elisa",
       "search_name": "Elisa",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q1168432",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.elisa.com) + org keyword 'telecom'",
+      "qid": "Q965268",
       "label": "Elisa",
-      "description": "female given name"
+      "description": "Finnish telecommunications company"
     },
     {
       "entity_id": "IN-0120",
@@ -1139,8 +1139,8 @@
       "entity_id": "IN-0121",
       "entity_name": "Eramet SA",
       "search_name": "Eramet",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q1347990",
       "label": "Eramet",
       "description": "French multinational mining and metallurgy company producing non-ferrous metals and derivatives, nickel alloys and superalloys"
@@ -1148,12 +1148,12 @@
     {
       "entity_id": "IN-0122",
       "entity_name": "Eregli Demir VE Celik Fabrikalari",
-      "search_name": "Eregli Demir Ve Celik Fabrikalari",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Eregli Demir VE Celik Fabrikalari",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.erdemir.com.tr) + org keyword 'company'",
+      "qid": "Q934796",
+      "label": "Erdemir",
+      "description": "company"
     },
     {
       "entity_id": "IN-0123",
@@ -1189,11 +1189,11 @@
       "entity_id": "IN-0126",
       "entity_name": "F5",
       "search_name": "F5",
-      "status": "skipped",
-      "reason": "search name too short after cleaning",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.f5.com) + org keyword 'company'",
+      "qid": "Q3029296",
+      "label": "F5, Inc.",
+      "description": "Multi-cloud cybersecurity and application delivery company"
     },
     {
       "entity_id": "IN-0127",
@@ -1219,8 +1219,8 @@
       "entity_id": "IN-0129",
       "entity_name": "Ferbasa PREF",
       "search_name": "Ferbasa",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q105602307",
       "label": "Ferbasa‏",
       "description": ""
@@ -1249,11 +1249,11 @@
       "entity_id": "IN-0133",
       "entity_name": "Fortescue",
       "search_name": "Fortescue",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21430837",
-      "label": "Fortescue",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "re-search results[3]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q1438957",
+      "label": "Fortescue Metals Group",
+      "description": "iron ore mining company in Western Australia"
     },
     {
       "entity_id": "IN-0134",
@@ -1268,12 +1268,12 @@
     {
       "entity_id": "IN-0135",
       "entity_name": "FOX Class A",
-      "search_name": "Fox",
-      "status": "skipped",
-      "reason": "label mismatch: 'Fox' vs 'Fox Broadcasting Company'; disqualified by 'television'",
-      "qid": "Q166419",
-      "label": "Fox Broadcasting Company",
-      "description": "American commercial broadcast television network"
+      "search_name": "FOX Class A",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.foxcorporation.com) + org keyword 'company'",
+      "qid": "Q60238941",
+      "label": "Fox Corporation",
+      "description": "American mass media company, successor to 21st Century Fox"
     },
     {
       "entity_id": "IN-0136",
@@ -1299,8 +1299,8 @@
       "entity_id": "IN-0139",
       "entity_name": "Fujitsu",
       "search_name": "Fujitsu",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q186394",
       "label": "Fujitsu",
       "description": "Japanese multinational information technology equipment and services company"
@@ -1309,11 +1309,11 @@
       "entity_id": "IN-0140",
       "entity_name": "Gartner",
       "search_name": "Gartner",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q28837914",
+      "status": "proposed",
+      "reason": "re-search results[3]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q174198",
       "label": "Gartner",
-      "description": "family name"
+      "description": "company"
     },
     {
       "entity_id": "IN-0141",
@@ -1329,11 +1329,11 @@
       "entity_id": "IN-0142",
       "entity_name": "Gerdau PREF SA",
       "search_name": "Gerdau",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q37133367",
+      "status": "proposed",
+      "reason": "re-search results[2]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q1511043",
       "label": "Gerdau",
-      "description": "family name"
+      "description": "company"
     },
     {
       "entity_id": "IN-0144",
@@ -1379,11 +1379,11 @@
       "entity_id": "IN-0148",
       "entity_name": "Granges",
       "search_name": "Granges",
-      "status": "skipped",
-      "reason": "disqualified by 'commune'",
-      "qid": "Q1424750",
-      "label": "Granges",
-      "description": "commune in Saône-et-Loire, France"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.granges.com) — no description",
+      "qid": "Q10509721",
+      "label": "Gränges",
+      "description": ""
     },
     {
       "entity_id": "IN-0149",
@@ -1429,11 +1429,11 @@
       "entity_id": "IN-0153",
       "entity_name": "Halma",
       "search_name": "Halma",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q1841476",
-      "label": "Halma",
-      "description": "section of Wellin, Wallonia, Belgium"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.halma.com) + org keyword 'company'",
+      "qid": "Q5643254",
+      "label": "Halma plc",
+      "description": "company in Amersham, United Kingdom"
     },
     {
       "entity_id": "IN-0154",
@@ -1469,11 +1469,11 @@
       "entity_id": "IN-0157",
       "entity_name": "Hexagon Class B",
       "search_name": "Hexagon",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q83043",
-      "label": "hexagon",
-      "description": "polygon with six sides"
+      "status": "proposed",
+      "reason": "re-search results[4]: label match + org keyword 'group' (original results[0] had wrong desc)",
+      "qid": "Q663314",
+      "label": "hexagonal crystal system",
+      "description": "lattice point group"
     },
     {
       "entity_id": "IN-0158",
@@ -1518,12 +1518,12 @@
     {
       "entity_id": "IN-0162",
       "entity_name": "HP",
-      "search_name": "Hp",
-      "status": "skipped",
-      "reason": "search name too short after cleaning",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "HP",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.hp.com) + org keyword 'technology'",
+      "qid": "Q80978",
+      "label": "Hewlett-Packard",
+      "description": "American information technology company"
     },
     {
       "entity_id": "IN-0163",
@@ -1579,18 +1579,18 @@
       "entity_id": "IN-0169",
       "entity_name": "Imdex",
       "search_name": "Imdex",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q54873351",
-      "label": "IMDEX Asia",
-      "description": "military fair"
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q109627023",
+      "label": "IMDEX LIMITED",
+      "description": "Australian public company"
     },
     {
       "entity_id": "IN-0170",
       "entity_name": "Impala Platinum",
       "search_name": "Impala Platinum",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q620398",
       "label": "Impala Platinum",
       "description": "multinational mining corporation based in South Africa"
@@ -1609,18 +1609,18 @@
       "entity_id": "IN-0172",
       "entity_name": "Informa",
       "search_name": "Informa",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q1559701",
-      "label": "Informationsdienst Wissenschaft",
-      "description": "German organization"
+      "status": "proposed",
+      "reason": "re-search results[3]: label match + org keyword 'multinational' (original results[0] had wrong desc)",
+      "qid": "Q680946",
+      "label": "Informa",
+      "description": "multinational publishing and conference company"
     },
     {
       "entity_id": "IN-0173",
       "entity_name": "Inner Mongolia Baotou Steel Union",
       "search_name": "Inner Mongolia Baotou Steel Union",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q106222147",
       "label": "Inner Mongolia Baotou Steel Union Co., Ltd.",
       "description": ""
@@ -1759,8 +1759,8 @@
       "entity_id": "IN-0188",
       "entity_name": "Jindal Stainless",
       "search_name": "Jindal Stainless",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q118904149",
       "label": "Jindal Stainless Limited",
       "description": "Indian multinational stainless steel company"
@@ -1769,8 +1769,8 @@
       "entity_id": "IN-0189",
       "entity_name": "Jindal Steel",
       "search_name": "Jindal Steel",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q1509905",
       "label": "Jindal Steel",
       "description": "Indian multi-national corporation"
@@ -1789,8 +1789,8 @@
       "entity_id": "IN-0191",
       "entity_name": "JSW Steel",
       "search_name": "Jsw Steel",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q6108978",
       "label": "JSW Steel Ltd",
       "description": "Indian multinational steel company"
@@ -1798,22 +1798,22 @@
     {
       "entity_id": "IN-0192",
       "entity_name": "JX Advanced Metals",
-      "search_name": "Jx Advanced Metals",
-      "status": "skipped",
-      "reason": "label mismatch: 'Jx Advanced Metals' vs 'JX Metals Corporation'; no description",
-      "qid": "Q125124656",
-      "label": "JX Metals Corporation",
-      "description": ""
+      "search_name": "JX Advanced Metals",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.jx-nmm.com/english) + org keyword 'company'",
+      "qid": "Q17210819",
+      "label": "JX Nippon Mining & Metals",
+      "description": "Japanese company"
     },
     {
       "entity_id": "IN-0193",
       "entity_name": "Kaiser Aluminium",
       "search_name": "Kaiser Aluminium",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.kaiseraluminum.com) + org keyword 'manufacturer'",
+      "qid": "Q6348410",
+      "label": "Kaiser Aluminum",
+      "description": "American metals manufacturer"
     },
     {
       "entity_id": "IN-0194",
@@ -1878,12 +1878,12 @@
     {
       "entity_id": "IN-0200",
       "entity_name": "KLA",
-      "search_name": "Kla",
-      "status": "skipped",
-      "reason": "label mismatch: 'Kla' vs 'Klagenfurt am Wörthersee'; disqualified by 'city'",
-      "qid": "Q41753",
-      "label": "Klagenfurt am Wörthersee",
-      "description": "capital city of Carinthia, Austria"
+      "search_name": "KLA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.kla.com) + org keyword 'company'",
+      "qid": "Q624649",
+      "label": "KLA Corporation",
+      "description": "American company"
     },
     {
       "entity_id": "IN-0201",
@@ -1899,8 +1899,8 @@
       "entity_id": "IN-0202",
       "entity_name": "Konami",
       "search_name": "Konami",
-      "status": "skipped",
-      "reason": "disqualified by 'video game'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'video game')",
       "qid": "Q45700",
       "label": "Konami",
       "description": "Japanese entertainment and video game company"
@@ -1908,9 +1908,9 @@
     {
       "entity_id": "IN-0203",
       "entity_name": "Koninklijke KPN",
-      "search_name": "Koninklijke Kpn",
-      "status": "skipped",
-      "reason": "label mismatch: 'Koninklijke Kpn' vs 'KPN'; disqualified by 'nation'",
+      "search_name": "Koninklijke KPN",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.kpn.com) + org keyword 'multinational'",
       "qid": "Q338633",
       "label": "KPN",
       "description": "Dutch multinational telecommunication and internet company"
@@ -1929,8 +1929,8 @@
       "entity_id": "IN-0205",
       "entity_name": "Kyocera",
       "search_name": "Kyocera",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'manufacturer' (was: disqualified by 'nation')",
       "qid": "Q745099",
       "label": "Kyocera",
       "description": "Japanese multinational electronics and ceramics manufacturer"
@@ -1939,8 +1939,8 @@
       "entity_id": "IN-0206",
       "entity_name": "Kyoei Steel",
       "search_name": "Kyoei Steel",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11392778",
       "label": "Kyoei Steel",
       "description": ""
@@ -2048,22 +2048,22 @@
     {
       "entity_id": "IN-0219",
       "entity_name": "Maanshan IRON AND Steel H",
-      "search_name": "Maanshan",
-      "status": "skipped",
-      "reason": "label mismatch: 'Maanshan' vs \"Ma'anshan\"; disqualified by 'city'",
-      "qid": "Q360235",
-      "label": "Ma'anshan",
-      "description": "prefecture-level city in Anhui, China"
+      "search_name": "Maanshan IRON AND Steel H",
+      "status": "proposed",
+      "reason": "P856 website match (http://www.magang.com.hk/eng) + org keyword 'manufacturer'",
+      "qid": "Q1859119",
+      "label": "Maanshan Iron & Steel Company Limited",
+      "description": "Chinese steel manufacturer"
     },
     {
       "entity_id": "IN-0220",
       "entity_name": "Macmahon",
       "search_name": "Macmahon",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q65648461",
-      "label": "MacMahon",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.macmahon.com.au) + org keyword 'company'",
+      "qid": "Q6724710",
+      "label": "Macmahon Holdings",
+      "description": "company based in Perth, Western Australia"
     },
     {
       "entity_id": "IN-0221",
@@ -2089,8 +2089,8 @@
       "entity_id": "IN-0223",
       "entity_name": "Maruichi Steel TUBE",
       "search_name": "Maruichi Steel Tube",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11367971",
       "label": "Maruichi Steel Tube",
       "description": ""
@@ -2099,8 +2099,8 @@
       "entity_id": "IN-0224",
       "entity_name": "Materion",
       "search_name": "Materion",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q4979671",
       "label": "Materion",
       "description": "engineered materials company in Mayfield Heights, United States"
@@ -2108,12 +2108,12 @@
     {
       "entity_id": "IN-0225",
       "entity_name": "Mechel PREF",
-      "search_name": "Mechel",
-      "status": "skipped",
-      "reason": "disqualified by 'province'",
-      "qid": "Q162022",
-      "label": "Mechelen",
-      "description": "city in the province of Antwerp, Belgium"
+      "search_name": "Mechel PREF",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.mechel.ru) + org keyword 'mining'",
+      "qid": "Q1915579",
+      "label": "Mechel",
+      "description": "Russian mining, metals company"
     },
     {
       "entity_id": "IN-0226",
@@ -2139,8 +2139,8 @@
       "entity_id": "IN-0228",
       "entity_name": "META Platforms Class A",
       "search_name": "Meta Platforms",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'technology' (was: disqualified by 'nation')",
       "qid": "Q380",
       "label": "Meta",
       "description": "American multinational technology corporation"
@@ -2179,8 +2179,8 @@
       "entity_id": "IN-0232",
       "entity_name": "Micron Technology",
       "search_name": "Micron Technology",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q1197548",
       "label": "Micron Technology",
       "description": "American multinational corporation based in Boise, Idaho"
@@ -2199,8 +2199,8 @@
       "entity_id": "IN-0237",
       "entity_name": "Mitsui Kinzoku",
       "search_name": "Mitsui Kinzoku",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11354319",
       "label": "Mitsui Kinzoku",
       "description": ""
@@ -2208,22 +2208,22 @@
     {
       "entity_id": "IN-0238",
       "entity_name": "MMG",
-      "search_name": "Mmg",
-      "status": "skipped",
-      "reason": "label mismatch: 'Mmg' vs 'Maybach Music Group'; no org keyword in description",
-      "qid": "Q605512",
-      "label": "Maybach Music Group",
-      "description": "American record label"
+      "search_name": "MMG",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.mmg.com) + org keyword 'mining'",
+      "qid": "Q15150358",
+      "label": "Minerals and Metals Group",
+      "description": "Chinese-Australian mining company"
     },
     {
       "entity_id": "IN-0239",
       "entity_name": "MOIL",
-      "search_name": "Moil",
-      "status": "skipped",
-      "reason": "disqualified by 'province'",
-      "qid": "Q12498778",
-      "label": "Moilong",
-      "description": "district in Banggai Regency, Central Sulawesi Province, Indonesia"
+      "search_name": "MOIL",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.moil.nic.in) + org keyword 'mining'",
+      "qid": "Q17074284",
+      "label": "MOIL Limited",
+      "description": "Indian mining company"
     },
     {
       "entity_id": "IN-0240",
@@ -2269,8 +2269,8 @@
       "entity_id": "IN-0244",
       "entity_name": "National Aluminium",
       "search_name": "National Aluminium",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'nation')",
       "qid": "Q3635746",
       "label": "National Aluminium Company",
       "description": "National Aluminium Company Limited, (NALCO)"
@@ -2279,21 +2279,21 @@
       "entity_id": "IN-0245",
       "entity_name": "Naver",
       "search_name": "Naver",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q485639",
-      "label": "Naver",
-      "description": "South Korean web portal"
+      "status": "proposed",
+      "reason": "re-search results[2]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q489247",
+      "label": "Naver Corporation",
+      "description": "South Korean company"
     },
     {
       "entity_id": "IN-0246",
       "entity_name": "NEC",
-      "search_name": "Nec",
-      "status": "skipped",
-      "reason": "label mismatch: 'Nec' vs 'necrotizing enterocolitis'; disqualified by 'sea'",
-      "qid": "Q10859678",
-      "label": "necrotizing enterocolitis",
-      "description": "human disease"
+      "search_name": "NEC",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.nec.com) + org keyword 'technology'",
+      "qid": "Q219203",
+      "label": "NEC",
+      "description": "Japanese technology corporation"
     },
     {
       "entity_id": "IN-0247",
@@ -2318,12 +2318,12 @@
     {
       "entity_id": "IN-0250",
       "entity_name": "NEWS Class A",
-      "search_name": "News",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q38926",
-      "label": "news",
-      "description": "communication of selected information on current events"
+      "search_name": "NEWS Class A",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.newscorp.com) + org keyword 'multinational'",
+      "qid": "Q14289857",
+      "label": "News Corp",
+      "description": "American multinational mass media company (2013-)"
     },
     {
       "entity_id": "IN-0251",
@@ -2339,11 +2339,11 @@
       "entity_id": "IN-0252",
       "entity_name": "Nexon",
       "search_name": "Nexon",
-      "status": "skipped",
-      "reason": "disqualified by 'commune'",
-      "qid": "Q175770",
-      "label": "Nexon",
-      "description": "commune in Haute-Vienne, France"
+      "status": "proposed",
+      "reason": "P856 website match (https://company.nexon.com) + org keyword 'subsidiary'",
+      "qid": "Q15139437",
+      "label": "NEXON Korea",
+      "description": "South Korean subsidiary of NEXON"
     },
     {
       "entity_id": "IN-0253",
@@ -2369,8 +2369,8 @@
       "entity_id": "IN-0255",
       "entity_name": "Nickel Industries",
       "search_name": "Nickel Industries",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q119359924",
       "label": "Nickel Industries",
       "description": ""
@@ -2379,11 +2379,11 @@
       "entity_id": "IN-0256",
       "entity_name": "Nintendo",
       "search_name": "Nintendo",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q3070866",
-      "label": "Nintendo eShop",
-      "description": "online computer game distribution platform for Nintendo Switch 1 and 2"
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'multinational' (original results[0] had wrong desc)",
+      "qid": "Q8093",
+      "label": "Nintendo",
+      "description": "Japanese multinational video game and consumer electronics company"
     },
     {
       "entity_id": "IN-0257",
@@ -2419,8 +2419,8 @@
       "entity_id": "IN-0260",
       "entity_name": "Nittetsu Mining",
       "search_name": "Nittetsu Mining",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11510685",
       "label": "Nittetsu Mining",
       "description": ""
@@ -2428,12 +2428,12 @@
     {
       "entity_id": "IN-0261",
       "entity_name": "NMDC",
-      "search_name": "Nmdc",
-      "status": "skipped",
-      "reason": "label mismatch: 'Nmdc' vs 'New Mexico Digital Collections'; disqualified by 'university'",
-      "qid": "Q61756328",
-      "label": "New Mexico Digital Collections",
-      "description": "shared image database operated by the University of New Mexico for various governmental and academic organisations; with focus on cultural heritage"
+      "search_name": "NMDC",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.nmdc.co.in) + org keyword 'company'",
+      "qid": "Q952281",
+      "label": "National Mineral Development Corporation",
+      "description": "company"
     },
     {
       "entity_id": "IN-0262",
@@ -2449,18 +2449,18 @@
       "entity_id": "IN-0263",
       "entity_name": "Nokia",
       "search_name": "Nokia",
-      "status": "skipped",
-      "reason": "disqualified by 'region'",
-      "qid": "Q192870",
-      "label": "Nokia",
-      "description": "town in the region of Pirkanmaa in Finland"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.nokia.com) — no description",
+      "qid": "Q30338799",
+      "label": "Nokia (Canada)",
+      "description": ""
     },
     {
       "entity_id": "IN-0264",
       "entity_name": "Nomura Research Institute",
       "search_name": "Nomura Research Institute",
-      "status": "skipped",
-      "reason": "disqualified by 'sea'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'institute' (was: disqualified by 'sea')",
       "qid": "Q4922632",
       "label": "Nomura Research Institute",
       "description": "Research Institute"
@@ -2479,11 +2479,11 @@
       "entity_id": "IN-0266",
       "entity_name": "Northam Platinum Hldgs",
       "search_name": "Northam Platinum Hldgs",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.northam.co.za) + org keyword 'producer'",
+      "qid": "Q20981815",
+      "label": "Northam Platinum",
+      "description": "South African PGM producer"
     },
     {
       "entity_id": "IN-0267",
@@ -2508,12 +2508,12 @@
     {
       "entity_id": "IN-0269",
       "entity_name": "NTT",
-      "search_name": "Ntt",
-      "status": "skipped",
-      "reason": "label mismatch: 'Ntt' vs 'East Nusa Tenggara'; disqualified by 'island'",
-      "qid": "Q5061",
-      "label": "East Nusa Tenggara",
-      "description": "province of Indonesia, eastern portion of the Lesser Sunda Islands"
+      "search_name": "NTT",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ntt.com) + org keyword 'company'",
+      "qid": "Q6955512",
+      "label": "NTT Docomo Business",
+      "description": "Japanese company"
     },
     {
       "entity_id": "IN-0270",
@@ -2539,8 +2539,8 @@
       "entity_id": "IN-0273",
       "entity_name": "OBIC",
       "search_name": "Obic",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11293432",
       "label": "Obic",
       "description": ""
@@ -2588,19 +2588,19 @@
     {
       "entity_id": "IN-0279",
       "entity_name": "Orange SA",
-      "search_name": "Orange",
-      "status": "skipped",
-      "reason": "disqualified by 'commune'",
-      "qid": "Q187796",
-      "label": "Orange",
-      "description": "commune in Vaucluse, France"
+      "search_name": "Orange SA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.orange.com) + org keyword 'multinational'",
+      "qid": "Q1431486",
+      "label": "",
+      "description": "French multinational telecommunications corporation"
     },
     {
       "entity_id": "IN-0280",
       "entity_name": "Osaka Steel",
       "search_name": "Osaka Steel",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11441615",
       "label": "Osaka Steel",
       "description": ""
@@ -2609,11 +2609,11 @@
       "entity_id": "IN-0281",
       "entity_name": "Outokumpu",
       "search_name": "Outokumpu",
-      "status": "skipped",
-      "reason": "disqualified by 'region'",
-      "qid": "Q952374",
-      "label": "Outokumpu",
-      "description": "town in the region of North Karelia in Finland"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.outokumpu.com) — no description",
+      "qid": "Q676919",
+      "label": "ThyssenKrupp Nirosta",
+      "description": ""
     },
     {
       "entity_id": "IN-0282",
@@ -2639,8 +2639,8 @@
       "entity_id": "IN-0284",
       "entity_name": "Paramount Skydance Class B",
       "search_name": "Paramount Skydance",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'conglomerate' (was: disqualified by 'nation')",
       "qid": "Q135485147",
       "label": "Paramount Skydance",
       "description": "American multinational mass media and entertainment conglomerate"
@@ -2668,12 +2668,12 @@
     {
       "entity_id": "IN-0287",
       "entity_name": "PLS",
-      "search_name": "Pls",
-      "status": "skipped",
-      "reason": "label mismatch: 'Pls' vs 'Public libraries in the United States survey'; no org keyword in description",
-      "qid": "Q113924923",
-      "label": "Public libraries in the United States survey",
-      "description": "annual survey"
+      "search_name": "PLS",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.pilbaraminerals.com.au) + org keyword 'mining'",
+      "qid": "Q56064089",
+      "label": "Pilbara Minerals",
+      "description": "Australian lithium mining company"
     },
     {
       "entity_id": "IN-0288",
@@ -2699,8 +2699,8 @@
       "entity_id": "IN-0290",
       "entity_name": "Press Metal Aluminium",
       "search_name": "Press Metal Aluminium",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q6881511 (label match)",
       "qid": "Q135913025",
       "label": "Press Metal Aluminium Holdings Berhad",
       "description": ""
@@ -2708,12 +2708,12 @@
     {
       "entity_id": "IN-0291",
       "entity_name": "PTC",
-      "search_name": "Ptc",
-      "status": "skipped",
-      "reason": "label mismatch: 'Ptc' vs 'coagulation factor IX'; no org keyword in description",
-      "qid": "Q425360",
-      "label": "coagulation factor IX",
-      "description": "mammalian protein found in Homo sapiens"
+      "search_name": "PTC",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ptc.com) — no description",
+      "qid": "Q29123041",
+      "label": "PTC (Canada)",
+      "description": ""
     },
     {
       "entity_id": "IN-0292",
@@ -2729,8 +2729,8 @@
       "entity_id": "IN-0293",
       "entity_name": "Publicis Groupe SA",
       "search_name": "Publicis Groupe",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q1537378",
       "label": "Publicis",
       "description": "French multinational advertising and public relations company"
@@ -2769,8 +2769,8 @@
       "entity_id": "IN-0298",
       "entity_name": "Ramaco Resources Class A",
       "search_name": "Ramaco Resources",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q137915813",
       "label": "Ramaco Resources, LLC",
       "description": "mining company in the United States"
@@ -2798,12 +2798,12 @@
     {
       "entity_id": "IN-0301",
       "entity_name": "REA",
-      "search_name": "Rea",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21448980",
-      "label": "Rea",
-      "description": "family name"
+      "search_name": "REA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.rea-group.com) + org keyword 'headquartered'",
+      "qid": "Q7276284",
+      "label": "REA Group",
+      "description": "global online real estate advertising company headquartered in Melbourne, Australia"
     },
     {
       "entity_id": "IN-0302",
@@ -2829,8 +2829,8 @@
       "entity_id": "IN-0304",
       "entity_name": "Ricoh",
       "search_name": "Ricoh",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q178778",
       "label": "Ricoh",
       "description": "Japanese multinational imaging and electronics company"
@@ -2839,8 +2839,8 @@
       "entity_id": "IN-0305",
       "entity_name": "Rightmove",
       "search_name": "Rightmove",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q7333751",
       "label": "Rightmove",
       "description": "UK-based company that runs the UK's largest online real estate portal and property website"
@@ -2848,19 +2848,19 @@
     {
       "entity_id": "IN-0307",
       "entity_name": "Rogers Communications Non-voting I",
-      "search_name": "Rogers Communications Non-Voting",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Rogers Communications Non-voting I",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.rogers.com) + org keyword 'telecom'",
+      "qid": "Q165684",
+      "label": "Rogers Communications",
+      "description": "Canadian telecommunications company"
     },
     {
       "entity_id": "IN-0308",
       "entity_name": "Roper Technologies",
       "search_name": "Roper Technologies",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q16932392",
       "label": "Roper Technologies",
       "description": "company in Sarasota, United States"
@@ -2869,11 +2869,11 @@
       "entity_id": "IN-0309",
       "entity_name": "Ryerson",
       "search_name": "Ryerson",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21450122",
-      "label": "Ryerson",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ryerson.com) + org keyword 'company'",
+      "qid": "Q7385029",
+      "label": "Ryerson, Inc.",
+      "description": "American metals company"
     },
     {
       "entity_id": "IN-0310",
@@ -2889,21 +2889,21 @@
       "entity_id": "IN-0311",
       "entity_name": "Salzgitter",
       "search_name": "Salzgitter",
-      "status": "skipped",
-      "reason": "disqualified by 'city'",
-      "qid": "Q3200",
-      "label": "Salzgitter",
-      "description": "independent city in southeast Lower Saxony, Germany"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.salzgitter-ag.com) + org keyword 'company'",
+      "qid": "Q652442",
+      "label": "Salzgitter AG",
+      "description": "company"
     },
     {
       "entity_id": "IN-0313",
       "entity_name": "Samsung Electronics NON Voting PRE",
-      "search_name": "Samsung Electronics Non Voting Pre",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Samsung Electronics NON Voting PRE",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.samsung.com) + org keyword 'multinational'",
+      "qid": "Q20718",
+      "label": "Samsung Electronics",
+      "description": "South Korean multinational electronics corporation"
     },
     {
       "entity_id": "IN-0314",
@@ -2959,8 +2959,8 @@
       "entity_id": "IN-0320",
       "entity_name": "Saudi Steel PIPE",
       "search_name": "Saudi Steel Pipe",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q783794 (label match)",
       "qid": "Q20401353",
       "label": "Saudi Steel Pipe Co.",
       "description": ""
@@ -2988,12 +2988,12 @@
     {
       "entity_id": "IN-0323",
       "entity_name": "SEAH Besteel HDS",
-      "search_name": "Seah Besteel Hds",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "SEAH Besteel HDS",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.seah.co.kr/eng/) — no description",
+      "qid": "Q22974169",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0324",
@@ -3019,11 +3019,11 @@
       "entity_id": "IN-0326",
       "entity_name": "Severstal",
       "search_name": "Severstal",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q1422185",
-      "label": "Severstal Cherepovets",
-      "description": "ice hockey team"
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q638448",
+      "label": "Severstal",
+      "description": "Russian steel and mining company"
     },
     {
       "entity_id": "IN-0327",
@@ -3039,8 +3039,8 @@
       "entity_id": "IN-0328",
       "entity_name": "Shandong Nanshan Aluminium A",
       "search_name": "Shandong Nanshan Aluminium",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q106301415",
       "label": "Shandong Nanshan Aluminium Co., Ltd.",
       "description": ""
@@ -3058,12 +3058,12 @@
     {
       "entity_id": "IN-0330",
       "entity_name": "Shopify Subordinate Voting CLA",
-      "search_name": "Shopify Subordinate Voting Cla",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Shopify Subordinate Voting CLA",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.shopify.com) — no description",
+      "qid": "Q131884849",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0331",
@@ -3229,8 +3229,8 @@
       "entity_id": "IN-0348",
       "entity_name": "Sumitomo Metal Mining",
       "search_name": "Sumitomo Metal Mining",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q1685648",
       "label": "Sumitomo Metal Mining",
       "description": ""
@@ -3259,8 +3259,8 @@
       "entity_id": "IN-0351",
       "entity_name": "Surya Roshni",
       "search_name": "Surya Roshni",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'manufacturer' (was: disqualified by 'nation')",
       "qid": "Q18386600",
       "label": "Surya Roshni Limited",
       "description": "Indian multinational manufacturer"
@@ -3319,8 +3319,8 @@
       "entity_id": "IN-0357",
       "entity_name": "TAKE TWO Interactive Software",
       "search_name": "Take Two Interactive Software",
-      "status": "skipped",
-      "reason": "disqualified by 'video game'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'distributor' (was: disqualified by 'video game')",
       "qid": "Q94933",
       "label": "Take-Two Interactive",
       "description": "American publisher, developer and distributor of video games"
@@ -3339,8 +3339,8 @@
       "entity_id": "IN-0359",
       "entity_name": "TATA Steel",
       "search_name": "Tata Steel",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q963101",
       "label": "Tata Steel",
       "description": "Indian multinational steel-making company"
@@ -3349,8 +3349,8 @@
       "entity_id": "IN-0360",
       "entity_name": "TATA Steel GDR",
       "search_name": "Tata Steel",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q963101",
       "label": "Tata Steel",
       "description": "Indian multinational steel-making company"
@@ -3359,8 +3359,8 @@
       "entity_id": "IN-0361",
       "entity_name": "TDK",
       "search_name": "Tdk",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q855479",
       "label": "TDK",
       "description": "Japanese multinational electronics company"
@@ -3378,19 +3378,19 @@
     {
       "entity_id": "IN-0363",
       "entity_name": "TECK Resources Subordinate Voting",
-      "search_name": "Teck Resources Subordinate Voting",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "TECK Resources Subordinate Voting",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.teck.com) + org keyword 'mining'",
+      "qid": "Q688725",
+      "label": "Teck Resources",
+      "description": "Canadian mining company"
     },
     {
       "entity_id": "IN-0364",
       "entity_name": "Tele2 B",
       "search_name": "Tele2",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'telecom' (was: disqualified by 'nation')",
       "qid": "Q309865",
       "label": "Tele2",
       "description": "multinational telecommunications company"
@@ -3428,12 +3428,12 @@
     {
       "entity_id": "IN-0368",
       "entity_name": "Telefonica Brasil ADS Representing",
-      "search_name": "Telefonica Brasil Representing",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Telefonica Brasil ADS Representing",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.telefonica.com.br) + org keyword 'telecom'",
+      "qid": "Q20059505",
+      "label": "Telefônica Brasil",
+      "description": "Brazilian telecommunications company"
     },
     {
       "entity_id": "IN-0369",
@@ -3449,8 +3449,8 @@
       "entity_id": "IN-0370",
       "entity_name": "Telenor",
       "search_name": "Telenor",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'telecom' (was: disqualified by 'nation')",
       "qid": "Q845632",
       "label": "Telenor",
       "description": "multinational telecommunications company"
@@ -3459,8 +3459,8 @@
       "entity_id": "IN-0371",
       "entity_name": "Telia",
       "search_name": "Telia",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'telecom' (was: disqualified by 'nation')",
       "qid": "Q862303",
       "label": "Telia Company",
       "description": "Swedish multinational telecommunication provider"
@@ -3479,28 +3479,28 @@
       "entity_id": "IN-0373",
       "entity_name": "Telus",
       "search_name": "Telus",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q108507566",
-      "label": "Telus",
-      "description": "family name"
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'telecom' (original results[0] had wrong desc)",
+      "qid": "Q165858",
+      "label": "Telus Communications",
+      "description": "Canadian telecommunications company"
     },
     {
       "entity_id": "IN-0374",
       "entity_name": "Temenos",
       "search_name": "Temenos",
-      "status": "skipped",
-      "reason": "disqualified by 'religion'",
-      "qid": "Q740625",
-      "label": "temenos",
-      "description": "in ancient Greek religion, land marked off as dedicated to a god or gods"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.temenos.com) + org keyword 'technology'",
+      "qid": "Q683892",
+      "label": "Temenos Group",
+      "description": "financial technology company headquartered in Geneva"
     },
     {
       "entity_id": "IN-0375",
       "entity_name": "Tencent",
       "search_name": "Tencent",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'investment' (was: disqualified by 'nation')",
       "qid": "Q860580",
       "label": "Tencent",
       "description": "Chinese multinational investment holding conglomerate"
@@ -3519,8 +3519,8 @@
       "entity_id": "IN-0377",
       "entity_name": "Texas Instrument",
       "search_name": "Texas Instrument",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q193412",
       "label": "Texas Instruments",
       "description": "American multinational semiconductor design and manufacturing company"
@@ -3528,19 +3528,19 @@
     {
       "entity_id": "IN-0378",
       "entity_name": "THE SAGE",
-      "search_name": "The Sage",
-      "status": "skipped",
-      "reason": "label mismatch: 'The Sage' vs 'Thomas Carlyle'; disqualified by 'philosopher'",
-      "qid": "Q151403",
-      "label": "Thomas Carlyle",
-      "description": "Scottish essayist, historian and philosopher (1795–1881)"
+      "search_name": "THE SAGE",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.sage.com) + org keyword 'enterprise'",
+      "qid": "Q1469903",
+      "label": "Sage Group",
+      "description": "British multinational enterprise accounting software company"
     },
     {
       "entity_id": "IN-0379",
       "entity_name": "Thyssenkrupp",
       "search_name": "Thyssenkrupp",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'corporation' (was: disqualified by 'nation')",
       "qid": "Q137910",
       "label": "thyssenkrupp AG",
       "description": "German multinational conglomerate corporation"
@@ -3599,8 +3599,8 @@
       "entity_id": "IN-0385",
       "entity_name": "Tokyo Steel Manufacturing",
       "search_name": "Tokyo Steel Manufacturing",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11525139",
       "label": "Tokyo Steel Manufacturing",
       "description": ""
@@ -3649,11 +3649,11 @@
       "entity_id": "IN-0390",
       "entity_name": "Trimble",
       "search_name": "Trimble",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21506887",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'technology' (original results[0] had wrong desc)",
+      "qid": "Q2297063",
       "label": "Trimble",
-      "description": "family name"
+      "description": "American technology company"
     },
     {
       "entity_id": "IN-0391",
@@ -3758,12 +3758,12 @@
     {
       "entity_id": "IN-0401",
       "entity_name": "VALE DO RIO DOCE",
-      "search_name": "Vale Do Rio Doce",
-      "status": "skipped",
-      "reason": "disqualified by 'region'",
-      "qid": "Q2173066",
-      "label": "Vale do Rio Doce",
-      "description": "mesoregion in Minas Gerais, Brazil"
+      "search_name": "VALE DO RIO DOCE",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.vale.com) + org keyword 'multinational'",
+      "qid": "Q583268",
+      "label": "Vale",
+      "description": "multinational diversified metals and mining corporation"
     },
     {
       "entity_id": "IN-0402",
@@ -3789,11 +3789,11 @@
       "entity_id": "IN-0404",
       "entity_name": "Vedanta",
       "search_name": "Vedanta",
-      "status": "skipped",
-      "reason": "disqualified by 'school'",
-      "qid": "Q2512051",
-      "label": "Vedanta",
-      "description": "one of six schools of Hindu philosophy"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.vedantalimited.com) + org keyword 'company'",
+      "qid": "Q3958138",
+      "label": "Vedanta Limited",
+      "description": "company"
     },
     {
       "entity_id": "IN-0405",
@@ -3839,8 +3839,8 @@
       "entity_id": "IN-0409",
       "entity_name": "Vodafone",
       "search_name": "Vodafone",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'telecom' (was: disqualified by 'nation')",
       "qid": "Q122141",
       "label": "Vodafone",
       "description": "British multinational telecommunications company"
@@ -3888,29 +3888,29 @@
     {
       "entity_id": "IN-0414",
       "entity_name": "WALT Disney",
-      "search_name": "Walt Disney",
-      "status": "skipped",
-      "reason": "disqualified by 'actor'",
-      "qid": "Q8704",
-      "label": "Walt Disney",
-      "description": "American animator, producer, director, screenwriter, voice actor and entrepreneur, founder of The Walt Disney Company (1901–1966)"
+      "search_name": "WALT Disney",
+      "status": "proposed",
+      "reason": "P856 website match (https://thewaltdisneycompany.com) + org keyword 'multinational'",
+      "qid": "Q7414",
+      "label": "The Walt Disney Company",
+      "description": "American multinational mass media company"
     },
     {
       "entity_id": "IN-0415",
       "entity_name": "Warner Bros. Discovery Series",
       "search_name": "Warner Bros. Discovery Series",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://wbd.com) — no description",
+      "qid": "Q7855897",
+      "label": "Warner Bros. Discovery Netherlands",
+      "description": ""
     },
     {
       "entity_id": "IN-0416",
       "entity_name": "Warrior MET COAL",
       "search_name": "Warrior Met Coal",
-      "status": "skipped",
-      "reason": "disqualified by 'state'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'state')",
       "qid": "Q137915779",
       "label": "Warrior Met Coal",
       "description": "mining company in the United States"
@@ -3919,8 +3919,8 @@
       "entity_id": "IN-0417",
       "entity_name": "Welspun",
       "search_name": "Welspun",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'multinational' (was: disqualified by 'nation')",
       "qid": "Q7982075",
       "label": "Welspun Group",
       "description": "multinational company whose core industries are steel, energy, and textiles"
@@ -3988,9 +3988,9 @@
     {
       "entity_id": "IN-0424",
       "entity_name": "WPP",
-      "search_name": "Wpp",
-      "status": "skipped",
-      "reason": "label mismatch: 'Wpp' vs 'WPP plc'; disqualified by 'nation'",
+      "search_name": "WPP",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.wpp.com) + org keyword 'multinational'",
       "qid": "Q1318049",
       "label": "WPP plc",
       "description": "British multinational advertising and public relations company"
@@ -4039,8 +4039,8 @@
       "entity_id": "IN-0429",
       "entity_name": "Yamato Kogyo",
       "search_name": "Yamato Kogyo",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11433451",
       "label": "Yamato Kogyo",
       "description": ""
@@ -4059,8 +4059,8 @@
       "entity_id": "IN-0431",
       "entity_name": "Yodoko",
       "search_name": "Yodoko",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11559719",
       "label": "Yodoko",
       "description": ""
@@ -4079,8 +4079,8 @@
       "entity_id": "IN-0433",
       "entity_name": "Yunnan TIN A",
       "search_name": "Yunnan Tin",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q891723 (label match)",
       "qid": "Q8061336",
       "label": "Yunnan Tin",
       "description": ""
@@ -4209,11 +4209,11 @@
       "entity_id": "IN-0449",
       "entity_name": "Aernnova Engineering Division Sau",
       "search_name": "Aernnova Engineering Division Sau",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.aernnova.com) + org keyword 'multinational'",
+      "qid": "Q5554471",
+      "label": "Aernnova Aerospace",
+      "description": "multinational corporation based in Vitoria, Spain"
     },
     {
       "entity_id": "IN-0450",
@@ -4299,8 +4299,8 @@
       "entity_id": "IN-0463",
       "entity_name": "Airbus Cybersecurity",
       "search_name": "Airbus Cybersecurity",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q107097832",
       "label": "Airbus CyberSecurity",
       "description": ""
@@ -4359,11 +4359,11 @@
       "entity_id": "IN-0469",
       "entity_name": "Airbus Helicopters Deutschland",
       "search_name": "Airbus Helicopters Deutschland",
-      "status": "skipped",
-      "reason": "label mismatch: 'Airbus Helicopters Deutschland' vs 'VP-CHB'; no org keyword in description",
-      "qid": "Q138454695",
-      "label": "VP-CHB",
-      "description": "Airbus Helicopters Deutschland GmbH MBB BK117 D-2 owned by EC145-T2 Limited (c/n 20257)"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.airbus.com) + org keyword 'aerospace'",
+      "qid": "Q2311",
+      "label": "Airbus SE",
+      "description": "pan-European aerospace and defence group"
     },
     {
       "entity_id": "IN-0470",
@@ -4389,8 +4389,8 @@
       "entity_id": "IN-0472",
       "entity_name": "Airbus Operations",
       "search_name": "Airbus Operations",
-      "status": "skipped",
-      "reason": "no org keyword in description",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'subsidiary' (was: no org keyword in description)",
       "qid": "Q4698478",
       "label": "Airbus Operations Limited",
       "description": "subsidiary of Airbus in United Kingdom"
@@ -4399,8 +4399,8 @@
       "entity_id": "IN-0473",
       "entity_name": "Airbus Operations",
       "search_name": "Airbus Operations",
-      "status": "skipped",
-      "reason": "no org keyword in description",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'subsidiary' (was: no org keyword in description)",
       "qid": "Q4698478",
       "label": "Airbus Operations Limited",
       "description": "subsidiary of Airbus in United Kingdom"
@@ -4499,8 +4499,8 @@
       "entity_id": "IN-0487",
       "entity_name": "Alseamar",
       "search_name": "Alseamar",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q126878599",
       "label": "Alseamar",
       "description": ""
@@ -4599,8 +4599,8 @@
       "entity_id": "IN-0497",
       "entity_name": "Antwerp Space",
       "search_name": "Antwerp Space",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131651668",
       "label": "Antwerp Space Nv",
       "description": ""
@@ -4629,11 +4629,11 @@
       "entity_id": "IN-0500",
       "entity_name": "Arctur Racunalniski Inzeniring Doo",
       "search_name": "Arctur Racunalniski Inzeniring Doo",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.arctur.si) — no description",
+      "qid": "Q131884324",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0501",
@@ -4729,8 +4729,8 @@
       "entity_id": "IN-0511",
       "entity_name": "Autoflug",
       "search_name": "Autoflug",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q786710",
       "label": "Autoflug",
       "description": ""
@@ -4779,8 +4779,8 @@
       "entity_id": "IN-0517",
       "entity_name": "Bae Systems Bofors",
       "search_name": "Bae Systems Bofors",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q783794 (label match)",
       "qid": "Q106020169",
       "label": "BAE Systems Bofors",
       "description": ""
@@ -4789,11 +4789,11 @@
       "entity_id": "IN-0518",
       "entity_name": "Bae Systems Hagglunds",
       "search_name": "Bae Systems Hagglunds",
-      "status": "skipped",
-      "reason": "label mismatch: 'Bae Systems Hagglunds' vs 'BAE Systems Hägglunds'; no description",
-      "qid": "Q106020132",
-      "label": "BAE Systems Hägglunds",
-      "description": ""
+      "status": "proposed",
+      "reason": "P856 website match (https://www.baesystems.com/en/home) + org keyword 'subsidiary'",
+      "qid": "Q4834524",
+      "label": "BAE Systems Inc.",
+      "description": "aerospace and defense subsidiary of BAE Systems in North America"
     },
     {
       "entity_id": "IN-0519",
@@ -4839,11 +4839,11 @@
       "entity_id": "IN-0525",
       "entity_name": "Bertin Exensor",
       "search_name": "Bertin Exensor",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.exensor.com) + org keyword 'company'",
+      "qid": "Q61932207",
+      "label": "Exensor Technology (Sweden)",
+      "description": "company in Lund, Sweden"
     },
     {
       "entity_id": "IN-0526",
@@ -4859,11 +4859,11 @@
       "entity_id": "IN-0527",
       "entity_name": "Beyond Gravity Austria",
       "search_name": "Beyond Gravity Austria",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.beyondgravity.com) + org keyword 'aerospace'",
+      "qid": "Q663885",
+      "label": "Beyond Gravity",
+      "description": "Swiss aerospace business"
     },
     {
       "entity_id": "IN-0528",
@@ -4909,11 +4909,11 @@
       "entity_id": "IN-0532",
       "entity_name": "Bittium Safemove",
       "search_name": "Bittium Safemove",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.bittium.com) + org keyword 'company'",
+      "qid": "Q30302789",
+      "label": "Bittium",
+      "description": "company"
     },
     {
       "entity_id": "IN-0533",
@@ -5069,8 +5069,8 @@
       "entity_id": "IN-0554",
       "entity_name": "Cavok Uas",
       "search_name": "Cavok Uas",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131651710",
       "label": "Cavok Uas",
       "description": ""
@@ -5179,8 +5179,8 @@
       "entity_id": "IN-0572",
       "entity_name": "Combitech",
       "search_name": "Combitech",
-      "status": "skipped",
-      "reason": "disqualified by 'sea'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'sea')",
       "qid": "Q108694742",
       "label": "Combitech AB",
       "description": "Swedish research company"
@@ -5199,11 +5199,11 @@
       "entity_id": "IN-0575",
       "entity_name": "Compania Nationala Romarm",
       "search_name": "Compania Nationala Romarm",
-      "status": "skipped",
-      "reason": "label mismatch: 'Compania Nationala Romarm' vs 'ROMARM'; disqualified by 'state'",
-      "qid": "Q12739531",
-      "label": "ROMARM",
-      "description": "Romanian state owned defense company"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.romarm.ro) — no description",
+      "qid": "Q12727473",
+      "label": "Electromecanica",
+      "description": ""
     },
     {
       "entity_id": "IN-0577",
@@ -5239,11 +5239,11 @@
       "entity_id": "IN-0583",
       "entity_name": "Creotech Instruments Spolka Akcyjna",
       "search_name": "Creotech Instruments Spolka Akcyjna",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.creotech.pl) + org keyword 'company'",
+      "qid": "Q130013673",
+      "label": "Creotech Instruments",
+      "description": "company"
     },
     {
       "entity_id": "IN-0584",
@@ -5269,11 +5269,11 @@
       "entity_id": "IN-0586",
       "entity_name": "Crytur Spol Sro",
       "search_name": "Crytur Spol Sro",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.crytur.com) + org keyword 'company'",
+      "qid": "Q30258584",
+      "label": "Crytur (Czech Republic)",
+      "description": "company in Turnov, Czech Republic"
     },
     {
       "entity_id": "IN-0587",
@@ -5329,8 +5329,8 @@
       "entity_id": "IN-0592",
       "entity_name": "Cybernetica As",
       "search_name": "Cybernetica As",
-      "status": "skipped",
-      "reason": "disqualified by 'sea'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'company' (was: disqualified by 'sea')",
       "qid": "Q46370048",
       "label": "Cybernetica",
       "description": "IT research and development company based in Estonia"
@@ -5389,11 +5389,11 @@
       "entity_id": "IN-0600",
       "entity_name": "Damen Research Development Innovation",
       "search_name": "Damen Research Development Innovation",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.damen.com) + org keyword 'company'",
+      "qid": "Q950580",
+      "label": "Damen Group",
+      "description": "shipbuilding company"
     },
     {
       "entity_id": "IN-0601",
@@ -5439,11 +5439,11 @@
       "entity_id": "IN-0615",
       "entity_name": "Deep Blue",
       "search_name": "Deep Blue",
-      "status": "skipped",
-      "reason": "disqualified by 'album'",
-      "qid": "Q98117455",
-      "label": "Deep blue",
-      "description": "2020 studio album by Sora Tob Sakana"
+      "status": "proposed",
+      "reason": "P856 website match (http://www.dblue.it) — no description",
+      "qid": "Q131906074",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0616",
@@ -5459,11 +5459,11 @@
       "entity_id": "IN-0617",
       "entity_name": "Deimos Engineering And Systems Slu",
       "search_name": "Deimos Engineering And Systems Slu",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.elecnor-deimos.com) + org keyword 'aerospace'",
+      "qid": "Q39053820",
+      "label": "Elecnor Deimos",
+      "description": "Spanish aerospace company"
     },
     {
       "entity_id": "IN-0618",
@@ -5539,18 +5539,18 @@
       "entity_id": "IN-0627",
       "entity_name": "Dok Ing Drustvo S Ogranicenom Odgovornoscu Za Inzenjering I Unutarnjui Vanjsku Trgovinu",
       "search_name": "Dok Ing Drustvo S Ogranicenom Odgovornoscu Za Inzenjering I Unutarnjui Vanjsku Trgovinu",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://dok-ing.hr/) + org keyword 'manufacturer'",
+      "qid": "Q3501188",
+      "label": "DOK-ING",
+      "description": "Croatian vehicle manufacturer"
     },
     {
       "entity_id": "IN-0628",
       "entity_name": "Dotocean",
       "search_name": "Dotocean",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131887956",
       "label": "dotOcean",
       "description": ""
@@ -5629,11 +5629,11 @@
       "entity_id": "IN-0639",
       "entity_name": "Eight Bells",
       "search_name": "Eight Bells",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q5348954",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'group' (original results[0] had wrong desc)",
+      "qid": "Q1258988",
       "label": "Eight Bells",
-      "description": "painting by Winslow Homer"
+      "description": "hill group south-east of the Gilf Kebir plateau in Egypt"
     },
     {
       "entity_id": "IN-0640",
@@ -5649,28 +5649,28 @@
       "entity_id": "IN-0641",
       "entity_name": "Elettronica",
       "search_name": "Elettronica",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q110551521",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q105316282",
       "label": "Elettronica",
-      "description": "2022 single by Samuel"
+      "description": "Italian company"
     },
     {
       "entity_id": "IN-0642",
       "entity_name": "Elliniki Aeroporiki Viomichania Anonymi Etaireia",
       "search_name": "Elliniki Aeroporiki Viomichania Anonymi Etaireia",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.haicorp.com) + org keyword 'company'",
+      "qid": "Q838397",
+      "label": "Hellenic Aerospace Industry",
+      "description": "company"
     },
     {
       "entity_id": "IN-0643",
       "entity_name": "Elwave",
       "search_name": "Elwave",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131636065",
       "label": "Elwave",
       "description": ""
@@ -5719,11 +5719,11 @@
       "entity_id": "IN-0648",
       "entity_name": "Endurosat Ad",
       "search_name": "Endurosat Ad",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.endurosat.com) + org keyword 'aerospace'",
+      "qid": "Q102126460",
+      "label": "EnduroSat",
+      "description": "Bulgarian aerospace manufacturer"
     },
     {
       "entity_id": "IN-0649",
@@ -5749,21 +5749,21 @@
       "entity_id": "IN-0652",
       "entity_name": "Equipos Moviles De Campana Arpa",
       "search_name": "Equipos Moviles De Campana Arpa",
-      "status": "skipped",
-      "reason": "label mismatch: 'Equipos Moviles De Campana Arpa' vs 'EQUIPOS MÓVILES DE CAMPAÑA ARPA SAU'; no description",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.arpaemc.com) — no description",
       "qid": "Q131888786",
-      "label": "EQUIPOS MÓVILES DE CAMPAÑA ARPA SAU",
+      "label": "",
       "description": ""
     },
     {
       "entity_id": "IN-0653",
       "entity_name": "Era As",
       "search_name": "Era As",
-      "status": "skipped",
-      "reason": "label mismatch: 'Era As' vs 'Muromachi period'; no org keyword in description",
-      "qid": "Q334845",
-      "label": "Muromachi period",
-      "description": "division of Japanese history running from approximately 1336 to 1573"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.era.aero) + org keyword 'manufacturer'",
+      "qid": "Q30258454",
+      "label": "ERA",
+      "description": "passive radar manufacturer in Pardubice, Czech Republic"
     },
     {
       "entity_id": "IN-0655",
@@ -5779,8 +5779,8 @@
       "entity_id": "IN-0656",
       "entity_name": "Ericsson France",
       "search_name": "Ericsson France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131809902",
       "label": "Ericsson France",
       "description": ""
@@ -5789,11 +5789,11 @@
       "entity_id": "IN-0657",
       "entity_name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
       "search_name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ericsson.com) + org keyword 'provider'",
+      "qid": "Q52618",
+      "label": "Ericsson",
+      "description": "Swedish provider of communications technology and services"
     },
     {
       "entity_id": "IN-0658",
@@ -5808,12 +5808,12 @@
     {
       "entity_id": "IN-0659",
       "entity_name": "Escribano Mechanical And Engineering S L U",
-      "search_name": "Escribano Mechanical And Engineering S L",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "search_name": "Escribano Mechanical And Engineering S L U",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.eme-es.com) + org keyword 'company'",
+      "qid": "Q123643676",
+      "label": "Escribano Mechanical & Engineering",
+      "description": "Company"
     },
     {
       "entity_id": "IN-0660",
@@ -5849,18 +5849,18 @@
       "entity_id": "IN-0670",
       "entity_name": "Eviden Austria",
       "search_name": "Eviden Austria",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://eviden.com/) — no description",
+      "qid": "Q117442701",
+      "label": "Eviden",
+      "description": ""
     },
     {
       "entity_id": "IN-0672",
       "entity_name": "Exail Robotics",
       "search_name": "Exail Robotics",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131650837",
       "label": "Exail Robotics",
       "description": ""
@@ -5869,8 +5869,8 @@
       "entity_id": "IN-0673",
       "entity_name": "Exail Robotics Belgium",
       "search_name": "Exail Robotics Belgium",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131647017",
       "label": "Exail Robotics Belgium",
       "description": ""
@@ -5879,11 +5879,11 @@
       "entity_id": "IN-0674",
       "entity_name": "Exatel Spolka Akcyjna",
       "search_name": "Exatel Spolka Akcyjna",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.exatel.pl) + org keyword 'telecom'",
+      "qid": "Q9257077",
+      "label": "Exatel",
+      "description": "Polish telecommunications company"
     },
     {
       "entity_id": "IN-0675",
@@ -5899,8 +5899,8 @@
       "entity_id": "IN-0676",
       "entity_name": "Fabentech",
       "search_name": "Fabentech",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q112112647",
       "label": "FABENTECH",
       "description": ""
@@ -5969,8 +5969,8 @@
       "entity_id": "IN-0685",
       "entity_name": "Flysight",
       "search_name": "Flysight",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q108293759",
       "label": "FlySight S.r.l.",
       "description": ""
@@ -6009,8 +6009,8 @@
       "entity_id": "IN-0697",
       "entity_name": "Frontgrade Gaisler",
       "search_name": "Frontgrade Gaisler",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131633317",
       "label": "Frontgrade Gaisler Ab",
       "description": ""
@@ -6049,8 +6049,8 @@
       "entity_id": "IN-0702",
       "entity_name": "Ge Avio",
       "search_name": "Ge Avio",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q134651222",
       "label": "Ge Avio Srl",
       "description": ""
@@ -6079,8 +6079,8 @@
       "entity_id": "IN-0707",
       "entity_name": "Gkn Fokker Aerospace",
       "search_name": "Gkn Fokker Aerospace",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131651806",
       "label": "Gkn Fokker Aerospace Bv",
       "description": ""
@@ -6099,8 +6099,8 @@
       "entity_id": "IN-0709",
       "entity_name": "Gmv Aerospace And Defence",
       "search_name": "Gmv Aerospace And Defence",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131884930",
       "label": "GMV Aerospace and Defence SAU",
       "description": ""
@@ -6179,11 +6179,11 @@
       "entity_id": "IN-0718",
       "entity_name": "H Henriksen As",
       "search_name": "H Henriksen As",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.hhenriksen.com) + org keyword 'company'",
+      "qid": "Q11973536",
+      "label": "H. Henriksen (Norway)",
+      "description": "company in Tønsberg, Norway"
     },
     {
       "entity_id": "IN-0719",
@@ -6259,8 +6259,8 @@
       "entity_id": "IN-0728",
       "entity_name": "Hensoldt France",
       "search_name": "Hensoldt France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131635624",
       "label": "Hensoldt France Sas",
       "description": ""
@@ -6269,11 +6269,11 @@
       "entity_id": "IN-0729",
       "entity_name": "Hensoldt Optronics",
       "search_name": "Hensoldt Optronics",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.hensoldt.net) + org keyword 'multinational'",
+      "qid": "Q21236526",
+      "label": "Hensoldt AG",
+      "description": "German multinational defence electronics company"
     },
     {
       "entity_id": "IN-0730",
@@ -6349,8 +6349,8 @@
       "entity_id": "IN-0739",
       "entity_name": "Huta Stalowa Wola",
       "search_name": "Huta Stalowa Wola",
-      "status": "skipped",
-      "reason": "disqualified by 'actor'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'contractor' (was: disqualified by 'actor')",
       "qid": "Q4899048",
       "label": "Huta Stalowa Wola",
       "description": "Polish defense contractor"
@@ -6369,11 +6369,11 @@
       "entity_id": "IN-0741",
       "entity_name": "I D S Ingegneria Dei Sistemi",
       "search_name": "I D S Ingegneria Dei Sistemi",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (http://www.idscorporation.com) + org keyword 'company'",
+      "qid": "Q30254620",
+      "label": "Ingegneria Dei Sistemi (Italy)",
+      "description": "company in Pisa, Italy"
     },
     {
       "entity_id": "IN-0742",
@@ -6399,11 +6399,11 @@
       "entity_id": "IN-0744",
       "entity_name": "Ihc Defence",
       "search_name": "Ihc Defence",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.royalihc.com) + org keyword 'company'",
+      "qid": "Q2210180",
+      "label": "Royal IHC",
+      "description": "Dutch shipbuilding company"
     },
     {
       "entity_id": "IN-0746",
@@ -6449,11 +6449,11 @@
       "entity_id": "IN-0752",
       "entity_name": "Indra Espacio Slu",
       "search_name": "Indra Espacio Slu",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.indracompany.com) + org keyword 'defense'",
+      "qid": "Q1661823",
+      "label": "Indra Sistemas",
+      "description": "Spanish defense and information tech company"
     },
     {
       "entity_id": "IN-0753",
@@ -6469,18 +6469,18 @@
       "entity_id": "IN-0754",
       "entity_name": "Industria De Turbo Propulsores Sociedad Unipersonal",
       "search_name": "Industria De Turbo Propulsores Sociedad Unipersonal",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.itpaero.com) + org keyword 'manufacturer'",
+      "qid": "Q1661922",
+      "label": "ITP Aero",
+      "description": "Spanish engine manufacturer"
     },
     {
       "entity_id": "IN-0755",
       "entity_name": "Industrieanlagen Betriebsgesellschaft Mbh",
       "search_name": "Industrieanlagen Betriebsgesellschaft Mbh",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131886526",
       "label": "Industrieanlagen-Betriebsgesellschaft mbH",
       "description": ""
@@ -6489,8 +6489,8 @@
       "entity_id": "IN-0757",
       "entity_name": "Ineratec",
       "search_name": "Ineratec",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131891999",
       "label": "INERATEC",
       "description": ""
@@ -6509,11 +6509,11 @@
       "entity_id": "IN-0759",
       "entity_name": "Innovation In Research Engineering Solutions",
       "search_name": "Innovation In Research Engineering Solutions",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.innovation-res.eu) — no description",
+      "qid": "Q108305730",
+      "label": "Innovation in Research and Engineering Solutions (IRES)",
+      "description": ""
     },
     {
       "entity_id": "IN-0760",
@@ -6549,11 +6549,11 @@
       "entity_id": "IN-0763",
       "entity_name": "Insta Advance",
       "search_name": "Insta Advance",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.insta.fi) + org keyword 'company'",
+      "qid": "Q18688813",
+      "label": "Insta",
+      "description": "industrial automation company from Finland"
     },
     {
       "entity_id": "IN-0764",
@@ -6569,11 +6569,11 @@
       "entity_id": "IN-0781",
       "entity_name": "Instrumentation Technologies Elektronska Instrumentacija In Produkti Za Procesiranje Signalov Doo",
       "search_name": "Instrumentation Technologies Elektronska Instrumentacija In Produkti Za Procesiranje Signalov Doo",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.i-tech.si) + org keyword 'company'",
+      "qid": "Q119857283",
+      "label": "Instrumentation Technologies (Slovenia)",
+      "description": "company in Solkan, Slovenia"
     },
     {
       "entity_id": "IN-0783",
@@ -6689,8 +6689,8 @@
       "entity_id": "IN-0795",
       "entity_name": "Isotta Fraschini Motori",
       "search_name": "Isotta Fraschini Motori",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q1328738",
       "label": "Isotta Fraschini Motori",
       "description": ""
@@ -6729,11 +6729,11 @@
       "entity_id": "IN-0802",
       "entity_name": "Itti Sp Zoo",
       "search_name": "Itti Sp Zoo",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.itti.com.pl) — no description",
+      "qid": "Q131882241",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0803",
@@ -6759,8 +6759,8 @@
       "entity_id": "IN-0805",
       "entity_name": "Jena Optronik",
       "search_name": "Jena Optronik",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q1686789",
       "label": "Jena-Optronik",
       "description": ""
@@ -6769,8 +6769,8 @@
       "entity_id": "IN-0808",
       "entity_name": "John Cockerill Defense",
       "search_name": "John Cockerill Defense",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131885373",
       "label": "John Cockerill Defense",
       "description": ""
@@ -6779,11 +6779,11 @@
       "entity_id": "IN-0809",
       "entity_name": "John Cockerill Defense France",
       "search_name": "John Cockerill Defense France",
-      "status": "skipped",
-      "reason": "label mismatch: 'John Cockerill Defense France' vs 'John Cockerill Défense France'; no description",
-      "qid": "Q131788147",
-      "label": "John Cockerill Défense France",
-      "description": ""
+      "status": "proposed",
+      "reason": "P856 website match (https://www.johncockerill.com) + org keyword 'group'",
+      "qid": "Q744233",
+      "label": "John Cockerill",
+      "description": "Belgian mechanical engineering group"
     },
     {
       "entity_id": "IN-0813",
@@ -6819,11 +6819,11 @@
       "entity_id": "IN-0818",
       "entity_name": "Knds Ammo France",
       "search_name": "Knds Ammo France",
-      "status": "skipped",
-      "reason": "label mismatch: 'Knds Ammo France' vs 'Nexter munitions'; no description",
-      "qid": "Q3339205",
-      "label": "Nexter munitions",
-      "description": ""
+      "status": "proposed",
+      "reason": "P856 website match (https://www.knds.fr/en/our-brand/knds-france) + org keyword 'manufacturer'",
+      "qid": "Q571665",
+      "label": "KNDS France",
+      "description": "French weapons manufacturer"
     },
     {
       "entity_id": "IN-0819",
@@ -6839,11 +6839,11 @@
       "entity_id": "IN-0820",
       "entity_name": "Knds Belgium",
       "search_name": "Knds Belgium",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.knds.com) + org keyword 'defence'",
+      "qid": "Q19966744",
+      "label": "KNDS",
+      "description": "European defence company"
     },
     {
       "entity_id": "IN-0821",
@@ -6899,11 +6899,11 @@
       "entity_id": "IN-0827",
       "entity_name": "Kongsberg Discovery As",
       "search_name": "Kongsberg Discovery As",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.kongsberg.com/discovery) + org keyword 'company'",
+      "qid": "Q1603219",
+      "label": "Kongsberg Våpenfabrikk",
+      "description": "Norwegian weapons manufacturing company"
     },
     {
       "entity_id": "IN-0828",
@@ -6959,11 +6959,11 @@
       "entity_id": "IN-0834",
       "entity_name": "Laboratorios Liconsa",
       "search_name": "Laboratorios Liconsa",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.chemogroup.com) + org keyword 'company'",
+      "qid": "Q43896428",
+      "label": "Chemo",
+      "description": "company in Madrid, Spain"
     },
     {
       "entity_id": "IN-0835",
@@ -7019,11 +7019,11 @@
       "entity_id": "IN-0841",
       "entity_name": "Leonardo Societa Per Azioni",
       "search_name": "Leonardo Societa Per Azioni",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.leonardo.com) + org keyword 'aerospace'",
+      "qid": "Q910379",
+      "label": "Leonardo",
+      "description": "Italian defense, security and aerospace company"
     },
     {
       "entity_id": "IN-0842",
@@ -7049,8 +7049,8 @@
       "entity_id": "IN-0845",
       "entity_name": "Logiicdev",
       "search_name": "Logiicdev",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131893547",
       "label": "Logiicdev Gmbh",
       "description": ""
@@ -7089,8 +7089,8 @@
       "entity_id": "IN-0851",
       "entity_name": "Luxtrust",
       "search_name": "Luxtrust",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q6881511 (label match)",
       "qid": "Q1408990",
       "label": "LuxTrust",
       "description": ""
@@ -7199,18 +7199,18 @@
       "entity_id": "IN-0863",
       "entity_name": "Mbda Espana Sl",
       "search_name": "Mbda Espana Sl",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.mbda-systems.com/) — no description",
+      "qid": "Q131887361",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-0864",
       "entity_name": "Mbda France",
       "search_name": "Mbda France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131261734",
       "label": "Mbda France",
       "description": ""
@@ -7219,8 +7219,8 @@
       "entity_id": "IN-0865",
       "entity_name": "Mbda Italia",
       "search_name": "Mbda Italia",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131887361",
       "label": "MBDA Italia SpA",
       "description": ""
@@ -7409,8 +7409,8 @@
       "entity_id": "IN-0896",
       "entity_name": "Nammo Lapua",
       "search_name": "Nammo Lapua",
-      "status": "skipped",
-      "reason": "no org keyword in description",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'subsidiary' (was: no org keyword in description)",
       "qid": "Q4265016",
       "label": "Nammo Lapua",
       "description": "Finnish subsidiary of Nammo"
@@ -7429,21 +7429,21 @@
       "entity_id": "IN-0898",
       "entity_name": "Nammo Sweden Aktiebolag",
       "search_name": "Nammo Sweden Aktiebolag",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.nammo.com) — no description",
+      "qid": "Q30338294",
+      "label": "Nammo (United States)",
+      "description": ""
     },
     {
       "entity_id": "IN-0900",
       "entity_name": "Naval Belgium",
       "search_name": "Naval Belgium",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.naval-group.com) + org keyword 'defence'",
+      "qid": "Q1227511",
+      "label": "Naval Group",
+      "description": "naval defence company based in France"
     },
     {
       "entity_id": "IN-0901",
@@ -7479,11 +7479,11 @@
       "entity_id": "IN-0904",
       "entity_name": "Nederlandse Instrumenten Compagnie Nedinsco",
       "search_name": "Nederlandse Instrumenten Compagnie Nedinsco",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.nedinsco.com) — no description",
+      "qid": "Q2800386",
+      "label": "Nedinsco",
+      "description": ""
     },
     {
       "entity_id": "IN-0907",
@@ -7689,11 +7689,11 @@
       "entity_id": "IN-0932",
       "entity_name": "Ohb Digital Connect",
       "search_name": "Ohb Digital Connect",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ohb.de/digital) + org keyword 'technology'",
+      "qid": "Q471019",
+      "label": "OHB SE",
+      "description": "space and technology group domiciled in Bremen"
     },
     {
       "entity_id": "IN-0933",
@@ -7709,8 +7709,8 @@
       "entity_id": "IN-0934",
       "entity_name": "Ohb Sweden",
       "search_name": "Ohb Sweden",
-      "status": "skipped",
-      "reason": "no org keyword in description",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'subsidiary' (was: no org keyword in description)",
       "qid": "Q121887794",
       "label": "OHB Sweden",
       "description": "Swedish subsidiary of OHB SE"
@@ -7759,8 +7759,8 @@
       "entity_id": "IN-0939",
       "entity_name": "Opgs Pharmaceuticals",
       "search_name": "Opgs Pharmaceuticals",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q126881791",
       "label": "Opgs Pharmaceuticals",
       "description": ""
@@ -7819,21 +7819,21 @@
       "entity_id": "IN-0951",
       "entity_name": "Patria",
       "search_name": "Patria",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q98806980",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.patriagroup.com) + org keyword 'company'",
+      "qid": "Q613116",
       "label": "Patria",
-      "description": "HBO TV miniseries from Spain"
+      "description": "Finnish defence and aviation company"
     },
     {
       "entity_id": "IN-0952",
       "entity_name": "Patria Aerostructures",
       "search_name": "Patria Aerostructures",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.patriagroup.com) + org keyword 'defence'",
+      "qid": "Q613116",
+      "label": "Patria",
+      "description": "Finnish defence and aviation company"
     },
     {
       "entity_id": "IN-0953",
@@ -7849,8 +7849,8 @@
       "entity_id": "IN-0954",
       "entity_name": "Patria Land",
       "search_name": "Patria Land",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q4830453 (label match)",
       "qid": "Q11886881",
       "label": "Patria Land & Armament",
       "description": ""
@@ -7859,8 +7859,8 @@
       "entity_id": "IN-0955",
       "entity_name": "Payload Aerospace Sl",
       "search_name": "Payload Aerospace Sl",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131889891",
       "label": "Payload Aerospace SL",
       "description": ""
@@ -7879,21 +7879,21 @@
       "entity_id": "IN-0957",
       "entity_name": "Phaxiam Therapeutics",
       "search_name": "Phaxiam Therapeutics",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (http://erytech.com/fr/) + org keyword 'company'",
+      "qid": "Q30262234",
+      "label": "Erytech Pharma (France)",
+      "description": "company in Lyon, France"
     },
     {
       "entity_id": "IN-0958",
       "entity_name": "Philips",
       "search_name": "Philips",
-      "status": "skipped",
-      "reason": "disqualified by 'nation'",
-      "qid": "Q1536003",
-      "label": "Philips Records",
-      "description": "Dutch international record label; imprint of Philips Phonografische Industrie"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.philips.com) + org keyword 'company'",
+      "qid": "Q33121486",
+      "label": "Philips (China)",
+      "description": "company in Shanghai, China"
     },
     {
       "entity_id": "IN-0959",
@@ -8029,11 +8029,11 @@
       "entity_id": "IN-0979",
       "entity_name": "Renk",
       "search_name": "Renk",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q36889375",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'company' (original results[0] had wrong desc)",
+      "qid": "Q2144015",
       "label": "Renk",
-      "description": "family name"
+      "description": "German defence company"
     },
     {
       "entity_id": "IN-0980",
@@ -8219,18 +8219,18 @@
       "entity_id": "IN-1003",
       "entity_name": "Rockwell Collins Deutschland",
       "search_name": "Rockwell Collins Deutschland",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.collinsaerospace.com) + org keyword 'aerospace'",
+      "qid": "Q358594",
+      "label": "Collins Aerospace",
+      "description": "American aerospace manufacturer"
     },
     {
       "entity_id": "IN-1004",
       "entity_name": "Rockwell Collins France",
       "search_name": "Rockwell Collins France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131796512",
       "label": "Rockwell Collins France",
       "description": ""
@@ -8239,8 +8239,8 @@
       "entity_id": "IN-1005",
       "entity_name": "Rolls Royce Deutschland",
       "search_name": "Rolls Royce Deutschland",
-      "status": "skipped",
-      "reason": "no org keyword in description",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'subsidiary' (was: no org keyword in description)",
       "qid": "Q3065599",
       "label": "Rolls-Royce Deutschland",
       "description": "German subsidiary of Rolls-Royce plc"
@@ -8269,11 +8269,11 @@
       "entity_id": "IN-1008",
       "entity_name": "Rosenbauer",
       "search_name": "Rosenbauer",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21561322",
+      "status": "proposed",
+      "reason": "re-search results[1]: label match + org keyword 'manufacturer' (original results[0] had wrong desc)",
+      "qid": "Q459825",
       "label": "Rosenbauer",
-      "description": "family name"
+      "description": "Austria-based manufacturer of fire-fighting vehicles and equipment"
     },
     {
       "entity_id": "IN-1009",
@@ -8319,11 +8319,11 @@
       "entity_id": "IN-1014",
       "entity_name": "Saab Aktiebolag",
       "search_name": "Saab Aktiebolag",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.saab.com) + org keyword 'aerospace'",
+      "qid": "Q219501",
+      "label": "Saab Group",
+      "description": "Swedish aerospace and defense company"
     },
     {
       "entity_id": "IN-1015",
@@ -8389,21 +8389,21 @@
       "entity_id": "IN-1021",
       "entity_name": "Safran Data Systems",
       "search_name": "Safran Data Systems",
-      "status": "skipped",
-      "reason": "label mismatch: 'Safran Data Systems' vs 'Zodiac Data Systems'; no description",
-      "qid": "Q15176507",
-      "label": "Zodiac Data Systems",
-      "description": ""
+      "status": "proposed",
+      "reason": "P856 website match (https://www.safran-electronics-defense.com) + org keyword 'group'",
+      "qid": "Q3461386",
+      "label": "Safran Electronics & Defense",
+      "description": "company in the Safran Group"
     },
     {
       "entity_id": "IN-1022",
       "entity_name": "Safran Electrical Power",
       "search_name": "Safran Electrical Power",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.safran-group.com) — no description",
+      "qid": "Q29123077",
+      "label": "Safran (Brazil)",
+      "description": ""
     },
     {
       "entity_id": "IN-1023",
@@ -8449,8 +8449,8 @@
       "entity_id": "IN-1027",
       "entity_name": "Safran Nacelles",
       "search_name": "Safran Nacelles",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q2828264",
       "label": "Safran Nacelles",
       "description": ""
@@ -8479,8 +8479,8 @@
       "entity_id": "IN-1030",
       "entity_name": "Safran Transmission Systems",
       "search_name": "Safran Transmission Systems",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q65166418",
       "label": "Safran Transmission Systems",
       "description": ""
@@ -8489,8 +8489,8 @@
       "entity_id": "IN-1031",
       "entity_name": "Safran Trusted 4D",
       "search_name": "Safran Trusted 4D",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q134674918",
       "label": "Safran Trusted 4d Sas",
       "description": ""
@@ -8509,8 +8509,8 @@
       "entity_id": "IN-1033",
       "entity_name": "Saipem",
       "search_name": "Saipem",
-      "status": "skipped",
-      "reason": "disqualified by 'actor'",
+      "status": "proposed",
+      "reason": "reprocessed: org keyword 'contractor' (was: disqualified by 'actor')",
       "qid": "Q2213203",
       "label": "Saipem",
       "description": "Italian oil and gas contractor"
@@ -8519,11 +8519,11 @@
       "entity_id": "IN-1035",
       "entity_name": "Santa Barbara Sistems",
       "search_name": "Santa Barbara Sistems",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.gdels.com) + org keyword 'contractor'",
+      "qid": "Q837844",
+      "label": "Santa Bárbara Sistemas",
+      "description": "Spanish defense contractor"
     },
     {
       "entity_id": "IN-1036",
@@ -8539,8 +8539,8 @@
       "entity_id": "IN-1037",
       "entity_name": "Satlantis Microsats",
       "search_name": "Satlantis Microsats",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q6881511 (label match)",
       "qid": "Q131882553",
       "label": "Satlantis",
       "description": ""
@@ -8599,8 +8599,8 @@
       "entity_id": "IN-1044",
       "entity_name": "Scioteq",
       "search_name": "Scioteq",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131635660",
       "label": "Scioteq",
       "description": ""
@@ -8629,11 +8629,11 @@
       "entity_id": "IN-1047",
       "entity_name": "Sener Aeroespacial Sociedad Anonima",
       "search_name": "Sener Aeroespacial Sociedad Anonima",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.aeroespacial.sener) — no description",
+      "qid": "Q131882887",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1048",
@@ -8779,11 +8779,11 @@
       "entity_id": "IN-1070",
       "entity_name": "Sociedad Anonima De Electronica Submarina Sme",
       "search_name": "Sociedad Anonima De Electronica Submarina Sme",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.electronica-submarina.com) — no description",
+      "qid": "Q6116065",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1071",
@@ -8799,11 +8799,11 @@
       "entity_id": "IN-1072",
       "entity_name": "Societe D'Ingenierie De Rechercheset D'Etudes En Hydrodynamique Navale",
       "search_name": "Societe D'Ingenierie De Rechercheset D'Etudes En Hydrodynamique Navale",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.sirehna.com) + org keyword 'company'",
+      "qid": "Q30252802",
+      "label": "Sirehna",
+      "description": "company in Nantes, France"
     },
     {
       "entity_id": "IN-1073",
@@ -8849,21 +8849,21 @@
       "entity_id": "IN-1077",
       "entity_name": "Sonovision Ingenieros España",
       "search_name": "Sonovision Ingenieros España",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://WWW.SONOVISIONGROUP.COM) — no description",
+      "qid": "Q3490704",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1078",
       "entity_name": "Sopra Steria",
       "search_name": "Sopra Steria",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q21021580",
-      "label": "Sopra Steria",
-      "description": "European IT consultancy"
+      "status": "proposed",
+      "reason": "P856 website match (https://www.soprasteria.com) — no description",
+      "qid": "Q131889489",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1079",
@@ -8989,11 +8989,11 @@
       "entity_id": "IN-1092",
       "entity_name": "Stam",
       "search_name": "Stam",
-      "status": "skipped",
-      "reason": "no org keyword in description",
-      "qid": "Q25114350",
+      "status": "proposed",
+      "reason": "P856 website match (https://www.stamtech.com) + org keyword 'company'",
+      "qid": "Q30285541",
       "label": "Stam",
-      "description": "family name"
+      "description": "company in Genoa, Italy"
     },
     {
       "entity_id": "IN-1093",
@@ -9009,11 +9009,11 @@
       "entity_id": "IN-1097",
       "entity_name": "Stmicroelectronics Grenoble 2",
       "search_name": "Stmicroelectronics Grenoble 2",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.st.com) + org keyword 'multinational'",
+      "qid": "Q661845",
+      "label": "STMicroelectronics",
+      "description": "multinational electronics and semiconductors manufacturer"
     },
     {
       "entity_id": "IN-1098",
@@ -9059,18 +9059,18 @@
       "entity_id": "IN-1103",
       "entity_name": "Sybilla Technologies Spolka Z Ograniczona Odpowiedzialnoscia",
       "search_name": "Sybilla Technologies Spolka Z Ograniczona Odpowiedzialnoscia",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.sybillatechnologies.com) — no description",
+      "qid": "Q131896258",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1104",
       "entity_name": "Synergie Cad Psc",
       "search_name": "Synergie Cad Psc",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131634175",
       "label": "Synergie Cad Psc",
       "description": ""
@@ -9109,11 +9109,11 @@
       "entity_id": "IN-1108",
       "entity_name": "Talgen Cybersecurity Ou",
       "search_name": "Talgen Cybersecurity Ou",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://nortal.com/industries/aerospace-and-defence) + org keyword 'technology'",
+      "qid": "Q3742753",
+      "label": "Nortal",
+      "description": "Estonian technology company"
     },
     {
       "entity_id": "IN-1110",
@@ -9149,21 +9149,21 @@
       "entity_id": "IN-1117",
       "entity_name": "Tecnobit Sl",
       "search_name": "Tecnobit Sl",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.tecnobit.es) — no description",
+      "qid": "Q6140100",
+      "label": "Tecnobit",
+      "description": ""
     },
     {
       "entity_id": "IN-1118",
       "entity_name": "Tekever Uas",
       "search_name": "Tekever Uas",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.tekever.com) + org keyword 'defense'",
+      "qid": "Q24293069",
+      "label": "Tekever",
+      "description": "communications and defense company based in Lisbon, Portugal"
     },
     {
       "entity_id": "IN-1120",
@@ -9179,11 +9179,11 @@
       "entity_id": "IN-1121",
       "entity_name": "Telefonica Ingenieria De Seguridad",
       "search_name": "Telefonica Ingenieria De Seguridad",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://WWW.TELEFONICA.COM) + org keyword 'telecom'",
+      "qid": "Q160229",
+      "label": "Telefónica",
+      "description": "telecommunications company based in Madrid, Spain"
     },
     {
       "entity_id": "IN-1122",
@@ -9229,11 +9229,11 @@
       "entity_id": "IN-1126",
       "entity_name": "Telespazio France",
       "search_name": "Telespazio France",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.telespazio.com/fr) + org keyword 'company'",
+      "qid": "Q662824",
+      "label": "Telespazio",
+      "description": "Italian company"
     },
     {
       "entity_id": "IN-1127",
@@ -9249,11 +9249,11 @@
       "entity_id": "IN-1128",
       "entity_name": "Teletel Technologia Aerodiastimikis Kai Aminas",
       "search_name": "Teletel Technologia Aerodiastimikis Kai Aminas",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.teletel.eu) + org keyword 'company'",
+      "qid": "Q30285448",
+      "label": "Teletel (Greece)",
+      "description": "company in Athens, Greece"
     },
     {
       "entity_id": "IN-1129",
@@ -9279,8 +9279,8 @@
       "entity_id": "IN-1131",
       "entity_name": "Test Fuchs",
       "search_name": "Test Fuchs",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q6881511 (label match)",
       "qid": "Q106975290",
       "label": "Test-Fuchs",
       "description": ""
@@ -9289,11 +9289,11 @@
       "entity_id": "IN-1133",
       "entity_name": "Thales Alenia Space France",
       "search_name": "Thales Alenia Space France",
-      "status": "skipped",
-      "reason": "label mismatch: 'Thales Alenia Space France' vs 'Thalès Alenia Space France'; no description",
-      "qid": "Q131652019",
-      "label": "Thalès Alenia Space France",
-      "description": ""
+      "status": "proposed",
+      "reason": "P856 website match (https://www.thalesaleniaspace.com) + org keyword 'aerospace'",
+      "qid": "Q128356",
+      "label": "Thales Alenia Space",
+      "description": "European aerospace manufacturer"
     },
     {
       "entity_id": "IN-1134",
@@ -9329,18 +9329,18 @@
       "entity_id": "IN-1137",
       "entity_name": "Thales Cryogenics",
       "search_name": "Thales Cryogenics",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.thalesgroup.com) + org keyword 'manufacturer'",
+      "qid": "Q3519457",
+      "label": "Thales Defense & Security",
+      "description": "manufacturer of tactical communications equipment"
     },
     {
       "entity_id": "IN-1138",
       "entity_name": "Thales Dis France",
       "search_name": "Thales Dis France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131633652",
       "label": "Thales DIS France SAS",
       "description": ""
@@ -9359,11 +9359,11 @@
       "entity_id": "IN-1140",
       "entity_name": "Thales Edisoft Portugal",
       "search_name": "Thales Edisoft Portugal",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.edisoft.pt) + org keyword 'company'",
+      "qid": "Q2385567",
+      "label": "Edisoft",
+      "description": "Portuguese company"
     },
     {
       "entity_id": "IN-1141",
@@ -9389,8 +9389,8 @@
       "entity_id": "IN-1143",
       "entity_name": "Thales Italia",
       "search_name": "Thales Italia",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q783794 (label match)",
       "qid": "Q24589941",
       "label": "Thales Italia Chieti Site",
       "description": ""
@@ -9399,8 +9399,8 @@
       "entity_id": "IN-1144",
       "entity_name": "Thales Las France",
       "search_name": "Thales Las France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q3519452",
       "label": "Thales LAS France",
       "description": ""
@@ -9439,8 +9439,8 @@
       "entity_id": "IN-1148",
       "entity_name": "Thales Six Gts France",
       "search_name": "Thales Six Gts France",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q3519456",
       "label": "Thales SIX GTS France SAS",
       "description": ""
@@ -9469,11 +9469,11 @@
       "entity_id": "IN-1151",
       "entity_name": "Tkms Atlas Elektronik",
       "search_name": "Tkms Atlas Elektronik",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.atlas-elektronik.com) + org keyword 'company'",
+      "qid": "Q176856",
+      "label": "Atlas Elektronik",
+      "description": "German naval/marine electronics and systems company"
     },
     {
       "entity_id": "IN-1152",
@@ -9509,11 +9509,11 @@
       "entity_id": "IN-1156",
       "entity_name": "Tti Norte Sl",
       "search_name": "Tti Norte Sl",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.ttinorte.es) + org keyword 'company'",
+      "qid": "Q30285480",
+      "label": "TTI",
+      "description": "company in Santander, Spain"
     },
     {
       "entity_id": "IN-1157",
@@ -9529,11 +9529,11 @@
       "entity_id": "IN-1158",
       "entity_name": "Uab Altechna Sensing",
       "search_name": "Uab Altechna Sensing",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.altechna.com) + org keyword 'company'",
+      "qid": "Q106439126",
+      "label": "Altechna",
+      "description": "Lithuanian custom laser optics company"
     },
     {
       "entity_id": "IN-1159",
@@ -9669,11 +9669,11 @@
       "entity_id": "IN-1194",
       "entity_name": "Valneva Austria",
       "search_name": "Valneva Austria",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://Valneva.com) + org keyword 'producer'",
+      "qid": "Q20663010",
+      "label": "Valneva SE",
+      "description": "French vaccine producer"
     },
     {
       "entity_id": "IN-1195",
@@ -9699,11 +9699,11 @@
       "entity_id": "IN-1197",
       "entity_name": "Vincorion Advanced Systems",
       "search_name": "Vincorion Advanced Systems",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.vincorion.com) + org keyword 'technology'",
+      "qid": "Q138651829",
+      "label": "",
+      "description": "German technology company headquartered in Wedel"
     },
     {
       "entity_id": "IN-1198",
@@ -9749,11 +9749,11 @@
       "entity_id": "IN-1207",
       "entity_name": "Vop Novaky As",
       "search_name": "Vop Novaky As",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.msm.sk/en) + org keyword 'company'",
+      "qid": "Q30297569",
+      "label": "MSM Group",
+      "description": "Slovak company"
     },
     {
       "entity_id": "IN-1208",
@@ -9849,11 +9849,11 @@
       "entity_id": "IN-1225",
       "entity_name": "Zaklady Metalowe Dezamet Spolka Akcyjna",
       "search_name": "Zaklady Metalowe Dezamet Spolka Akcyjna",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.dezamet.com.pl) + org keyword 'company'",
+      "qid": "Q9206688",
+      "label": "Dezamet",
+      "description": "Polish company"
     },
     {
       "entity_id": "IN-1226",
@@ -9879,8 +9879,8 @@
       "entity_id": "IN-1228",
       "entity_name": "Alta Ares",
       "search_name": "Alta Ares",
-      "status": "skipped",
-      "reason": "no description",
+      "status": "proposed",
+      "reason": "no-description QID confirmed via P31=Q43229 (label match)",
       "qid": "Q131651659",
       "label": "Alta Ares",
       "description": ""
@@ -10009,11 +10009,11 @@
       "entity_id": "IN-1352",
       "entity_name": "Alcoa Warrick",
       "search_name": "Alcoa Warrick",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "proposed",
+      "reason": "P856 website match (https://www.alcoa.com/) — no description",
+      "qid": "Q131884343",
+      "label": "",
+      "description": ""
     },
     {
       "entity_id": "IN-1354",
