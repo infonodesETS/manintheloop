@@ -12,6 +12,120 @@
 
 ---
 
+## Scripts reference
+
+> Run `python3 scripts/validate.py` after any script that modifies `database.json`.
+> All paths are relative to `refactoringDB/`.
+
+### Always-safe commands
+
+| Command | What it does | Safe to re-run? |
+|---|---|---|
+| `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
+| `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
+
+### Website enrichment pipeline
+
+Run once per enrichment cycle in this order:
+
+```bash
+# 1. Import EDF web_link field → sources.infonodes.website
+#    Reads: data/edf_orgs.json, data/database.json
+#    Writes: data/database.json (sources.infonodes.website + history[])
+#    Skip: entities that already have crunchbase.website
+python3 scripts/import_edf_websites.py [--dry-run]
+
+# 2. Fetch official website (P856) from Wikidata for companies with wikidata_id but no website
+#    Reads: data/database.json  |  API: SPARQL (batches of 50, 2s delay)
+#    Writes: data/database.json (sources.infonodes.website + history[])
+python3 scripts/fetch_wikidata_websites.py [--dry-run]
+
+# 3. Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: both scripts skip entities that already have a website set → safe to re-run.
+
+### QID enrichment pipeline
+
+```bash
+# Phase 1 — Wikidata Search API (resumes from checkpoint if qid_candidates.json exists)
+#    Reads: data/database.json  |  Writes: data/qid_candidates.json (status=proposed/skipped)
+#    API: wbsearchentities REST, 1.5s delay
+python3 scripts/search_missing_qids.py --search
+
+# Phase 1b — SPARQL label lookup + Reconciliation API for Phase 1 skipped entries
+#    Reads: data/qid_candidates.json  |  Writes: data/qid_candidates.json (in-place)
+#    Never overwrites accepted/rejected entries
+python3 scripts/sparql_search_qids.py
+
+# Phase 2 — Human review
+# Open data/qid_candidates.json
+# Change each "proposed" entry to "accepted" or "rejected"
+
+# Phase 3 — Apply accepted QIDs to database.json
+#    Reads: data/qid_candidates.json (accepted only)
+#    Writes: data/database.json (wikidata_id + history[] + validation[])
+#    Zero API calls
+python3 scripts/search_missing_qids.py --apply
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: `--search` resumes from checkpoint. `--apply` skips entities that already have a wikidata_id.
+
+### Crunchbase enrichment pipeline (Phase 2 — not yet started)
+
+```bash
+# Input: data/companies_export.csv (1149 rows: name + website)
+# Upload to Crunchbase bulk enrichment tool, receive enriched CSV
+
+# Step 1 — Import enriched CSV (script not yet written)
+#    Reads: <crunchbase_output.csv>, data/database.json
+#    Writes: data/database.json (sources.crunchbase + history[] + validation[])
+#            PER-NNNN entities for board members
+#            REL-NNNN relationships of type board_membership
+python3 scripts/import_crunchbase_csv.py <crunchbase_output.csv> [--dry-run]
+
+# Step 2 — Regenerate export CSV after any DB update
+#    Reads: data/database.json
+#    Writes: data/companies_export.csv
+python3 scripts/regenerate_export.py   # (not yet written — generate on demand)
+
+# Validate
+python3 scripts/validate.py
+```
+
+### Regenerate companies_export.csv (manual one-liner if no script)
+
+```python
+import json, csv
+db = json.load(open('data/database.json'))
+rows = []
+for e in db['entities']:
+    if e.get('type') != 'company': continue
+    src = e.get('sources', {})
+    website = (src.get('crunchbase') or {}).get('website') or (src.get('infonodes') or {}).get('website') or ''
+    rows.append({'name': e['name'], 'website': website})
+rows.sort(key=lambda r: r['name'])
+with open('data/companies_export.csv', 'w', newline='') as f:
+    w = csv.DictWriter(f, fieldnames=['name', 'website']); w.writeheader(); w.writerows(rows)
+```
+
+### One-time build scripts (do not re-run — they regenerate IDs from scratch)
+
+| Script | Purpose | Status |
+|---|---|---|
+| `scripts/build_database.py` | Initial iShares ETF import → database.json | Done 2026-04-01 |
+| `scripts/build_edf_entities.py` | EDF org import → 792 new entities | Done 2026-04-01 |
+| `scripts/import_startups.py` | Migrates 17 startups from old DB | Done 2026-04-01 |
+| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | Done 2026-04-01 |
+
+> **Warning:** Re-running any of these scripts will attempt to create duplicate entities. Never re-run without modifying them to skip existing IDs first.
+
+---
+
 ## Reference docs (read before modifying the DB)
 
 | File | Purpose |
