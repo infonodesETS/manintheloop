@@ -62,6 +62,11 @@ python3 scripts/search_missing_qids.py --search
 # Step 2 — SPARQL + Reconciliation fallback for skipped entries
 python3 scripts/sparql_search_qids.py
 
+# Step 2b — Second-pass recovery (run after step 2, before human review)
+#   Fixes disqualify false positives, P856 website lookup, P31 type confirmation,
+#   results[1-4] re-search. Safe to re-run.
+python3 scripts/reprocess_skipped_qids.py
+
 # Step 3 — Human review
 # Open data/qid_candidates.json
 # For each status=proposed entry: change to "accepted" or "rejected"
@@ -109,15 +114,21 @@ character, disambiguation
 
 ## Known limitations
 
-- **694 companies still without QID** after the 2026-04-12 run — mostly EDF SMEs
-  and obscure mining companies genuinely absent from Wikidata, or with names too
-  ambiguous to match safely. These require manual lookup.
+- **~429 companies still without QID** after the 2026-04-12 second pass — mostly
+  EDF SMEs and obscure mining companies genuinely absent from Wikidata, or with
+  names too ambiguous to match safely. These require manual lookup.
 - **iShares truncated names**: some names are cut at ~35 chars in the source CSV
   (e.g. "China Nonferrous Mining Corporatio") — impossible to match automatically.
 - **Reconciliation API**: public endpoint, can be slow under load. Batch size 20
   and 2s delay is conservative but safe.
 - **SPARQL altLabel**: avoid — too expensive on the public Wikidata endpoint, times
   out consistently for batches of company names.
+- **P856 subsidiary matches**: the website reverse lookup sometimes returns a
+  subsidiary instead of the parent company when both share the same official URL.
+  Always verify the QID during human review.
+- **`"group"` false positives**: descriptions like "lattice point group" or "hill
+  group" pass the org filter due to the word "group". Flag and reject these during
+  review.
 
 ---
 
@@ -126,3 +137,4 @@ character, disambiguation
 | Date | Phase 1 proposed | Phase 1b found | Total accepted | Applied | Coverage |
 |---|---|---|---|---|---|
 | 2026-04-12 | 245 | 80 (34 SPARQL + 46 reconciliation) | 309 | 309 | 455/1149 (39.6%) |
+| 2026-04-12 | second pass via `reprocess_skipped_qids.py`: 53 (Phase A) + 132 (Phase B P856) + 60 (Phase C P31) + 20 (Phase D re-search) = **267 proposed** | — | pending review | pending | ~722/1149 if all accepted |
