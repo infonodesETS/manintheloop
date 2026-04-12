@@ -87,7 +87,7 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
 
 1. Locate the entity by `id`.
 2. Update the field value.
-3. Append to `history[]`:
+3. **Append to `history[]`** (mandatory for every field change):
    ```json
    {
      "date": "YYYY-MM-DD",
@@ -99,7 +99,29 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
      "description": "Funding updated from new Crunchbase scrape"
    }
    ```
-4. Bump `_updated`. Run `validate.py` before committing.
+4. **Append to `validation[]`** when the update is part of an enrichment pass (mandatory):
+   ```json
+   {
+     "status": "<enrichment_type>",
+     "description": "<what was enriched and from which source>",
+     "author": "<script-name or your-handle>",
+     "datestamp": "YYYY-MM-DD"
+   }
+   ```
+   Use the following `status` values:
+
+   | Status | When to use |
+   |---|---|
+   | `needs_review` | Initial import — entity added but not yet verified |
+   | `website_enriched` | `sources.infonodes.website` added from EDF, Wikidata P856, or web research |
+   | `crunchbase_enriched` | Crunchbase CSV import applied to this entity |
+   | `wikidata_enriched` | Wikidata QID or `sources.wikidata` block written |
+   | `confirmed` | Human review confirmed a specific field (e.g., QID, merge) |
+   | `merged_duplicate` | Duplicate entity merged into this canonical entity |
+
+   > **Rule:** `history[]` is the granular provenance trail (one entry per field per change). `validation[]` is the entity-level enrichment ledger (one entry per enrichment pass per entity). Both are append-only.
+
+5. Bump `_updated`. Run `validate.py` before committing.
 
 ---
 

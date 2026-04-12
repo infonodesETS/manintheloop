@@ -137,11 +137,20 @@ refactoringDB/
 
 ## Pending work (priority order)
 
-### 1. Phase 2: Crunchbase enrichment — board members
-- 130 companies have `sources.crunchbase` blocks with `board[]` arrays
-- Extract board members → create **PER-NNNN** entities (`type: person`, `roles: ["board_member"]`)
-- Create `board_membership` relationships (PER-NNNN → IN-NNNN)
-- Follow `docs/UPDATE_PROTOCOL.md` — "Adding a new person (PER entity)"
+### 1. Phase 2: Crunchbase enrichment — full CSV import
+
+**Input:** `data/companies_export.csv` (1149 rows: `name` + `website`) → upload to Crunchbase bulk enrichment.
+
+**Expected output:** Crunchbase returns a CSV with fields per company — funding, board members, description, HQ, etc.
+
+**Import steps:**
+1. Write `scripts/import_crunchbase_csv.py` to parse the returned CSV
+2. Map fields → `sources.crunchbase` block per entity (by name/website match)
+3. For each enriched entity: append `history[]` per field + `validation[]` entry `status: "crunchbase_enriched"`
+4. Extract board members → create **PER-NNNN** entities + **REL-NNNN** `board_membership` relationships
+5. Validate and commit
+
+- Follow `docs/UPDATE_PROTOCOL.md` — "Adding a new person (PER entity)" and "Updating an existing entity field"
 
 ### 3. Phase 3: Investment graph migration from old DB
 - Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
