@@ -1,8 +1,14 @@
 # refactoringDB — Project Status
 
 > This file is the authoritative resume point for AI-assisted work.
-> Update it after every significant session.
 > Last updated: 2026-04-12
+
+## Session protocol
+
+- **At session start**: read this file to understand current state before taking any action.
+- **At session end** (or after any significant progress): update this file to reflect what was done and what is pending, then commit.
+- **Commit rule**: every STATUS.md update must be committed immediately with message `docs(refactoringDB): update STATUS.md`.
+- **Validate before committing** any data changes: `python3 scripts/validate.py` must pass.
 
 ---
 
