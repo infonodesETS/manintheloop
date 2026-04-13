@@ -1,7 +1,7 @@
 {
   "_generated_at": "2026-04-13",
   "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
-  "dry_run": true,
+  "dry_run": false,
   "stats": {
     "cb_rows_total": 724,
     "matched_exact": 401,
@@ -9,8 +9,8 @@
     "matched_normalised": 54,
     "matched_prefix": 48,
     "unresolved": 21,
-    "imported_new": 602,
-    "updated_changed": 120,
+    "imported_new": 601,
+    "updated_changed": 121,
     "unchanged_skipped": 0
   },
   "unresolved": [
