@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (enrich_wikidata.py — sources.wikidata populated for all 710 entities with wikidata_id)
+> Last updated: 2026-04-13 (crunchbase_sandbox organised — matches.csv (812 rows) ready for Crunchbase upload)
 
 ## Session protocol
 
@@ -125,12 +125,21 @@ python3 scripts/search_missing_qids.py --apply
 python3 scripts/validate.py
 ```
 
-### Crunchbase enrichment pipeline (Phase 2 — not yet started)
+### Crunchbase enrichment pipeline (Phase 2 — upload ready)
+
+```
+data/crunchbase_sandbox/
+  companies_export.csv   ← full list (1149 rows: name + website)
+  matches.csv            ← 812 rows — UPLOAD THIS to Crunchbase bulk enrichment
+  non_matches.csv        ← 337 rows — excluded (Crunchbase could not match these)
+```
+
+**Upload step (manual):**
+1. Go to Crunchbase bulk enrichment tool
+2. Upload `data/crunchbase_sandbox/matches.csv`
+3. Download enriched CSV → save to `data/crunchbase_sandbox/`
 
 ```bash
-# Input: data/crunchbase_sandbox/companies_export.csv (1149 rows: name + website)
-# Upload to Crunchbase bulk enrichment tool, receive enriched CSV
-
 # Step 1 — Import enriched CSV (script not yet written)
 #    Reads: <crunchbase_output.csv>, data/database.json
 #    Writes: data/database.json (sources.crunchbase + history[] + validation[])
@@ -222,8 +231,9 @@ refactoringDB/
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
 │   └── crunchbase_sandbox/
-│       ├── companies_export.csv      ← full export (1149 rows: name + website)
-│       └── companies_export_999.csv  ← 999 rows with website (Crunchbase batch 1)
+│       ├── companies_export.csv  ← full export (1149 rows: name + website)
+│       ├── matches.csv           ← 812 rows — upload to Crunchbase bulk enrichment
+│       └── non_matches.csv       ← 337 rows — excluded from Crunchbase upload
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
 │   ├── ishares_metals_mining_gics151040.csv
@@ -375,9 +385,11 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 ### 1. Phase 2: Crunchbase enrichment — full CSV import
 
-**Input:** `data/crunchbase_sandbox/companies_export.csv` (1149 rows: `name` + `website`) → upload to Crunchbase bulk enrichment. For batch size limits use `companies_export_999.csv` (999 rows, website-only).
+**Status:** `matches.csv` (812 rows) ready for upload. Awaiting enriched CSV back from Crunchbase.
 
-**Expected output:** Crunchbase returns a CSV with fields per company — funding, board members, description, HQ, etc.
+**Input:** `data/crunchbase_sandbox/matches.csv` (812 rows: `name` + `website`) → upload to Crunchbase bulk enrichment.
+
+**Expected output:** Crunchbase returns a CSV with fields per company — funding, board members, description, HQ, etc. Save to `data/crunchbase_sandbox/`.
 
 **Import steps:**
 1. Write `scripts/import_crunchbase_csv.py` to parse the returned CSV
