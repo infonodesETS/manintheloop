@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (Phase E Wikipedia search — 7 more QIDs applied, 712/1149 coverage)
+> Last updated: 2026-04-13 (Quality audit B+C — 165 reconciliation_documented + 44 field_conflict validation entries added)
 
 ## Session protocol
 
@@ -23,6 +23,20 @@
 |---|---|---|
 | `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
 | `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
+| `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
+
+### Data quality audit
+
+```bash
+# Run audit (adds reconciliation_documented and field_conflict validation entries)
+#   Audit B: documents cross-dataset reconciliation basis for 165 multi-source entities
+#   Audit C: flags field-level conflicts across sources (country, headquarters)
+#   Safe to re-run: skips entities that already have the relevant validation status
+python3 scripts/audit_quality.py [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
 
 ### Website enrichment pipeline
 
@@ -211,7 +225,7 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-04-12)
+## Current DB state (2026-04-13)
 
 | Metric | Value |
 |---|---|
@@ -230,6 +244,9 @@ refactoringDB/
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-13) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
+| validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
+| validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
+| validation: needs_review | 2146 entries (ongoing — covers enrichment gaps) |
 
 ---
 
@@ -282,6 +299,19 @@ refactoringDB/
   - Rejected: AMD Singapore, ASM Japan, AutoTrader.co.za, BT Retail, Hexagon crystal system, NEXON Korea, Nokia Canada, NTT Docomo Business, ThyssenKrupp Nirosta (≠ Outokumpu), PTC Canada, WBD Netherlands, Airbus SE (parent for Airbus Heli DE), BAE Systems Inc. (≠ Hägglunds), Electromecanica (≠ Romarm), Elecnor Deimos (uncertain), Eight Bells (Egypt hill), Hensoldt AG (parent), John Cockerill (parent for JC Defense France), Kongsberg Våpenfabrikk (≠ Discovery), Chemo (≠ Laboratorios Liconsa), Nammo US (≠ Nammo Sweden), Naval Group (parent for Naval Belgium), Philips China, Safran Brazil (≠ Safran Electrical Power), Nortal (≠ Talgen), Telefónica (parent for subsidiary), Thales D&S (≠ Thales Cryogenics), MSM Group (≠ Vop Novaky)
 - [x] After review: `--apply` run (239 QIDs written), `validate.py` PASSED (2026-04-13)
 
+### Data quality audit (2026-04-13)
+- [x] `scripts/audit_quality.py` written and run — covers Audit B (reconciliation) and Audit C (field conflicts)
+- [x] **Audit B — Reconciliation documentation**: 165 `reconciliation_documented` validation entries added
+  - 2 entities: edf+ishares cross-dataset match (STMicroelectronics, Telenor) — name_key normalisation via `build_edf_entities.py`
+  - 130 entities: crunchbase migration from `refactoring/` legacy DB — name identity match (investments.json v1)
+  - 33 entities: wikidata_id resolved from legacy DB via normalised name comparison — iShares entities enriched cross-DB
+- [x] **Audit C — Field conflict detection**: 44 `field_conflict` validation entries added
+  - 3 real country conflicts (sources.wikidata vs sources.infonodes disagree): Destinus (CH/NL), Chemring Group (DE/UK), Umicore (US/BE)
+  - 15 country normalisation gaps ("People's Republic of China" vs "China") — same country, different form; not real conflicts
+  - 30 real HQ conflicts (sources.wikidata.headquarters city vs sources.crunchbase.headquarters city+region+country when city differs)
+  - 58 HQ granularity differences (city vs city+region+country, same city) — not flagged, not real conflicts
+- [x] validate.py PASSED after audit
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -290,10 +320,24 @@ refactoringDB/
 - [x] .gitignore (excludes `__pycache__/`, `*.pyc`, `*.bak`)
 - [x] Initial commit on branch `nuovoDB`
 - [x] `scripts/reprocess_skipped_qids.py` — 4-phase QID second-pass recovery script
+- [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
 
 ---
 
 ## Pending work (priority order)
+
+### 0. Data quality — resolve flagged conflicts
+
+From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation entries:
+
+- **3 real country conflicts** (manual review required):
+  - `IN-1234` Destinus: wikidata=Switzerland, infonodes=Netherlands
+  - `IN-1262` Chemring Group: wikidata=Germany, infonodes=United Kingdom
+  - `IN-1340` Umicore: wikidata=United States, infonodes=Belgium
+  - For each: verify the correct country, set canonical value in `sources.infonodes.country`, append `history[]` entry, resolve `field_conflict` → `confirmed`
+- **15 country normalisation gaps**: "People's Republic of China" vs "China" — normalise `sources.wikidata.country` to short ISO 3166 form (or vice versa) via a one-off script
+- **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
+- **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
 
 ### 1. Phase 2: Crunchbase enrichment — full CSV import
 
