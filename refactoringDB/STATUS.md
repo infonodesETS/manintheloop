@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (diacritic/alias fixes — 8 more QIDs applied, 702/1149 coverage)
+> Last updated: 2026-04-13 (P31 no-org-keyword pass — 3 more QIDs applied, 705/1149 coverage)
 
 ## Session protocol
 
@@ -223,13 +223,13 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 702 / 1149 (61.1%) — all proposals resolved |
+| Companies with wikidata_id | 705 / 1149 (61.4%) — all proposals resolved |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-13) |
-| qid_candidates.json | proposed=0, accepted=556, rejected=44, skipped=403 |
+| qid_candidates.json | proposed=0, accepted=559, rejected=63, skipped=381 |
 
 ---
 
@@ -257,6 +257,10 @@ refactoringDB/
 - [x] Human review: 309 accepted, 16 rejected (of 325 proposed)
 - [x] `--apply` run: 309 QIDs written to database.json
 - [x] validate.py passed after apply
+
+### P31 no-org-keyword pass (2026-04-13)
+- [x] Run SPARQL P31 check on 22 "no org keyword in description" entries
+- [x] 3 accepted (Mishra Dhatu Nigam Q6875625, Damen Schelde Naval Shipbuilding Q1158347, Royal Huisman Q2803924); 19 rejected (wrong entities: continents, languages, insects, family names, etc.)
 
 ### Diacritic/alias fixes (manual patch, 2026-04-13)
 - [x] 8 skipped entries re-proposed with correct QIDs and applied: América Móvil, Fox Corporation (Class B), Grupa Kęty, Foxconn (Hon Hai), Metalúrgica Gerdau, Sensonor (Safran Sensing Norway), Thalès Alenia Space Italia, Thalès Dms France

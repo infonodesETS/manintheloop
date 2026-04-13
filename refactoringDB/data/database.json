@@ -19619,7 +19619,7 @@
       ],
       "name": "Mishra Dhatu Nigam",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6875625",
       "sources": {
         "ishares": [
           {
@@ -19666,6 +19666,15 @@
           "old": null,
           "new": "https://www.midhani-india.in",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6875625",
+          "description": "wikidata_id set via search: label='Mishra Dhatu Nigam', description='metallurgy industry'. Search name used: 'Mishra Dhatu Nigam'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -19680,6 +19689,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q6875625 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -49622,7 +49637,7 @@
       ],
       "name": "Damen Schelde Naval Shipbuilding",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1158347",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -49672,6 +49687,15 @@
           "old": null,
           "new": "https://www.damennaval.com",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1158347",
+          "description": "wikidata_id set via search: label='Damen Schelde Naval Shipbuilding', description='shipyard'. Search name used: 'Damen Schelde Naval Shipbuilding'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -49686,6 +49710,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1158347 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -82238,7 +82268,7 @@
       ],
       "name": "Royal Huisman Shipyard",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2803924",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -82288,6 +82318,15 @@
           "old": null,
           "new": "https://www.royalhuisman.com",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2803924",
+          "description": "wikidata_id set via search: label='Royal Huisman', description='Dutch shipyard that builds and repairs sailing yachts'. Search name used: 'Royal Huisman Shipyard'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -82302,6 +82341,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2803924 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
