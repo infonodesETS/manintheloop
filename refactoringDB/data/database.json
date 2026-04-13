@@ -13165,7 +13165,7 @@
       ],
       "name": "HILL AND Smith",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q24882678",
       "sources": {
         "ishares": [
           {
@@ -13212,6 +13212,15 @@
           "old": null,
           "new": "https://hsgroup.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q24882678",
+          "description": "wikidata_id set via search: label='Hill & Smith', description='British company'. Search name used: 'Hill And Smith'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -13226,6 +13235,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q24882678 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -44320,7 +44335,7 @@
       ],
       "name": "Bittium Wireless",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30302789",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -44370,6 +44385,15 @@
           "old": null,
           "new": "https://www.bittium.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30302789",
+          "description": "wikidata_id set via search: label='Bittium', description='company'. Search name used: 'Bittium Wireless'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -44384,6 +44408,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30302789 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -51826,7 +51856,7 @@
       ],
       "name": "Drass Galeazzi",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q86755566",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -51876,6 +51906,15 @@
           "old": null,
           "new": "https://www.drass.it",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q86755566",
+          "description": "wikidata_id set via search: label='Drass', description='Italian submarine and swimmer delivery vehicle manufacturer'. Search name used: 'Drass Galeazzi'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -51890,6 +51929,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q86755566 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -67488,7 +67533,7 @@
       ],
       "name": "Knds France Robotics",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q19966744",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -67538,6 +67583,15 @@
           "old": null,
           "new": "https://www.nexter-robotics.com",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q19966744",
+          "description": "wikidata_id set via search: label='KNDS', description='European defence company'. Search name used: 'Knds France Robotics'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -67552,6 +67606,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q19966744 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -79853,7 +79913,7 @@
       ],
       "name": "Renk Magnet Motor",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2144015",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -79903,6 +79963,15 @@
           "old": null,
           "new": "https://www.magnet-motor.de/",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2144015",
+          "description": "wikidata_id set via search: label='Renk', description='German defence company'. Search name used: 'Renk Magnet Motor'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -79917,6 +79986,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2144015 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -80400,7 +80475,7 @@
       ],
       "name": "Rheinmetall Man Military Vehicles Osterreich Gesmbh",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2147902",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -80450,6 +80525,15 @@
           "old": null,
           "new": "https://www.rheinmetall-defence.com/de/rheinmetall_defence/company/divisions_and_subsidiaries/rheinmetall_man_military_vehicles/index.php",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2147902",
+          "description": "wikidata_id set via search: label='Rheinmetall MAN Military Vehicles', description='German joint venture company'. Search name used: 'Rheinmetall Man Military Vehicles Osterreich Gesmbh'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -80464,6 +80548,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2147902 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -82693,7 +82783,7 @@
       ],
       "name": "Saab Dynamics Aktiebolag",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1569414",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -82743,6 +82833,15 @@
           "old": null,
           "new": "https://www.saab.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1569414",
+          "description": "wikidata_id set via search: label='Saab Dynamics', description='Swedish company'. Search name used: 'Saab Dynamics Aktiebolag'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -82757,6 +82856,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1569414 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []

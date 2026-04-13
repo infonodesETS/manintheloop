@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (P31 no-org-keyword pass — 3 more QIDs applied, 705/1149 coverage)
+> Last updated: 2026-04-13 (Phase E Wikipedia search — 7 more QIDs applied, 712/1149 coverage)
 
 ## Session protocol
 
@@ -223,13 +223,13 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 705 / 1149 (61.4%) — all proposals resolved |
+| Companies with wikidata_id | 712 / 1149 (62.0%) — all proposals resolved |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-13) |
-| qid_candidates.json | proposed=0, accepted=559, rejected=63, skipped=381 |
+| qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 
 ---
 
@@ -257,6 +257,13 @@ refactoringDB/
 - [x] Human review: 309 accepted, 16 rejected (of 325 proposed)
 - [x] `--apply` run: 309 QIDs written to database.json
 - [x] validate.py passed after apply
+
+### Phase E — Wikipedia API search (2026-04-13)
+- [x] Added `phase_e()` to `reprocess_skipped_qids.py`: searches English Wikipedia → resolves to Wikidata QID via `prop=pageprops` → standard label+description filter
+- [x] Also fixed `normalize_label()` to treat `&` as `and` (fixes "Hill And Smith" vs "Hill & Smith")
+- [x] Ran on 346 "no results from Wikidata search" entries; 9 proposed, 2 rejected (Pegasus spyware, Pixii product), 7 applied
+- [x] Yield low for iShares (Chinese/Russian abbreviations don't map to WP titles); better for EDF European companies
+- [x] validate.py PASSED
 
 ### P31 no-org-keyword pass (2026-04-13)
 - [x] Run SPARQL P31 check on 22 "no org keyword in description" entries

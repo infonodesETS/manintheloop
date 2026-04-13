@@ -1,8 +1,8 @@
 {
-  "_generated_at": "2026-04-12",
+  "_generated_at": "2026-04-13",
   "_total": 1003,
-  "_proposed": 267,
-  "_skipped": 411,
+  "_proposed": 9,
+  "_skipped": 372,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
   "candidates": [
     {
@@ -1479,11 +1479,11 @@
       "entity_id": "IN-0158",
       "entity_name": "HILL AND Smith",
       "search_name": "Hill And Smith",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Hill & Smith' → Q24882678 + org keyword 'company'",
+      "qid": "Q24882678",
+      "label": "Hill & Smith",
+      "description": "British company"
     },
     {
       "entity_id": "IN-0159",
@@ -4919,11 +4919,11 @@
       "entity_id": "IN-0533",
       "entity_name": "Bittium Wireless",
       "search_name": "Bittium Wireless",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Bittium (company)' → Q30302789 + org keyword 'company'",
+      "qid": "Q30302789",
+      "label": "Bittium",
+      "description": "company"
     },
     {
       "entity_id": "IN-0534",
@@ -5559,11 +5559,11 @@
       "entity_id": "IN-0629",
       "entity_name": "Drass Galeazzi",
       "search_name": "Drass Galeazzi",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Drass (company)' → Q86755566 + org keyword 'manufacturer'",
+      "qid": "Q86755566",
+      "label": "Drass",
+      "description": "Italian submarine and swimmer delivery vehicle manufacturer"
     },
     {
       "entity_id": "IN-0631",
@@ -6879,11 +6879,11 @@
       "entity_id": "IN-0824",
       "entity_name": "Knds France Robotics",
       "search_name": "Knds France Robotics",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'KNDS' → Q19966744 + org keyword 'defence'",
+      "qid": "Q19966744",
+      "label": "KNDS",
+      "description": "European defence company"
     },
     {
       "entity_id": "IN-0826",
@@ -7869,11 +7869,11 @@
       "entity_id": "IN-0956",
       "entity_name": "Pegasus Research Development",
       "search_name": "Pegasus Research Development",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "rejected",
+      "reason": "Phase E false positive: NSO Group Pegasus spyware, not Pegasus Research Development",
+      "qid": "Q26734737",
+      "label": "Pegasus",
+      "description": "spyware software created by the NSO Group based in Israel"
     },
     {
       "entity_id": "IN-0957",
@@ -7929,11 +7929,11 @@
       "entity_id": "IN-0962",
       "entity_name": "Pixii As",
       "search_name": "Pixii As",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "rejected",
+      "reason": "Phase E false positive: QID is the Pixii camera product series, not the company entity",
+      "qid": "Q131686430",
+      "label": "Pixii",
+      "description": "series of digital rangefinder by french manufacturer"
     },
     {
       "entity_id": "IN-0963",
@@ -8039,11 +8039,11 @@
       "entity_id": "IN-0980",
       "entity_name": "Renk Magnet Motor",
       "search_name": "Renk Magnet Motor",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Renk' → Q2144015 + org keyword 'defence'",
+      "qid": "Q2144015",
+      "label": "Renk",
+      "description": "German defence company"
     },
     {
       "entity_id": "IN-0981",
@@ -8109,11 +8109,11 @@
       "entity_id": "IN-0987",
       "entity_name": "Rheinmetall Man Military Vehicles Osterreich Gesmbh",
       "search_name": "Rheinmetall Man Military Vehicles Osterreich Gesmbh",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Rheinmetall MAN Military Vehicles' → Q2147902 + org keyword 'company'",
+      "qid": "Q2147902",
+      "label": "Rheinmetall MAN Military Vehicles",
+      "description": "German joint venture company"
     },
     {
       "entity_id": "IN-0988",
@@ -8329,11 +8329,11 @@
       "entity_id": "IN-1015",
       "entity_name": "Saab Dynamics Aktiebolag",
       "search_name": "Saab Dynamics Aktiebolag",
-      "status": "skipped",
-      "reason": "no results from Wikidata search",
-      "qid": null,
-      "label": null,
-      "description": null
+      "status": "accepted",
+      "reason": "Wikipedia search → 'Saab Bofors Dynamics' → Q1569414 + org keyword 'company'",
+      "qid": "Q1569414",
+      "label": "Saab Dynamics",
+      "description": "Swedish company"
     },
     {
       "entity_id": "IN-1016",

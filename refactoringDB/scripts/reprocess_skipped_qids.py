@@ -32,6 +32,16 @@ Runs four strategies in sequence, each feeding the next:
     which strips industry terms like 'GOLD AND SILVER' and 'RARE EARTHS').
     Checks all 5 results with the fixed description filter.
 
+  Phase E — Wikipedia API search (English Wikipedia → Wikidata QID)
+    Targets skipped entries with "no results from Wikidata search" — especially
+    iShares names truncated to ~35 chars (e.g. 'China Nonferrous Mining Corporatio').
+    Two-step: (1) search en.wikipedia.org for the entity name, (2) resolve each
+    Wikipedia article to its Wikidata QID via prop=pageprops&wikibase_item.
+    Then fetches Wikidata label+description and applies the same label-match +
+    org-keyword filter as all other phases.
+    Batches pageprops and wbgetentities calls to reduce API round-trips.
+    Delay: 1.5s per Wikipedia search (same as Wikidata search API).
+
 Safety guarantees (same as original pipeline):
   - Never overwrites accepted/rejected/proposed entries.
   - No writes to database.json — output is qid_candidates.json only.
@@ -58,11 +68,14 @@ WD_API = "https://www.wikidata.org/w/api.php"
 
 SPARQL_DELAY = 2.0
 SEARCH_DELAY = 1.5
+WP_DELAY = 1.5       # delay between Wikipedia search API calls
 BACKOFF = [5, 10, 20]
 
 SPARQL_BATCH = 30    # QIDs or entity-groups per SPARQL query
 P856_BATCH = 10      # entities per P856 query (up to 10 URL variants each → ~100 URIs, safe for SPARQL)
 SEARCH_LIMIT = 5     # results to fetch from Wikidata search API
+WP_SEARCH_LIMIT = 5  # Wikipedia articles to fetch per entity
+WP_API = "https://en.wikipedia.org/w/api.php"
 
 
 # ── Fixed disqualify / org-keyword logic ──────────────────────────────────────
@@ -179,6 +192,7 @@ def description_is_org_fixed(description: str) -> tuple[bool, str]:
 
 def normalize_label(s: str) -> str:
     s = s.lower()
+    s = s.replace("&", " and ")   # treat & and 'and' as equivalent
     s = re.sub(r"[^a-z0-9\s]", " ", s)
     return re.sub(r"\s+", " ", s).strip()
 
@@ -694,6 +708,168 @@ def phase_d(candidates: list[dict], by_id: dict[str, dict],
     return total_found
 
 
+# ── Phase E: Wikipedia API search ────────────────────────────────────────────
+
+def wp_search(query: str, limit: int = WP_SEARCH_LIMIT) -> list[str]:
+    """Search English Wikipedia; return list of article titles."""
+    params = urllib.parse.urlencode({
+        "action": "query",
+        "list": "search",
+        "srsearch": query,
+        "srlimit": limit,
+        "srsort": "relevance",
+        "format": "json",
+        "utf8": 1,
+    })
+    resp = http_get(f"{WP_API}?{params}", timeout=15)
+    return [r["title"] for r in resp.get("query", {}).get("search", [])]
+
+
+def wp_pageprops(titles: list[str]) -> dict[str, str]:
+    """
+    Batch-fetch Wikidata QIDs for a list of Wikipedia article titles.
+    Returns {title: qid} for articles that have a wikibase_item property.
+    Handles redirects automatically via &redirects=1.
+    """
+    if not titles:
+        return {}
+    params = urllib.parse.urlencode({
+        "action": "query",
+        "prop": "pageprops",
+        "titles": "|".join(titles[:50]),  # API limit: 50 titles per call
+        "redirects": 1,
+        "format": "json",
+    })
+    resp = http_get(f"{WP_API}?{params}", timeout=20)
+    pages = resp.get("query", {}).get("pages", {})
+    result = {}
+    for page in pages.values():
+        qid = page.get("pageprops", {}).get("wikibase_item", "")
+        title = page.get("title", "")
+        if qid and title:
+            result[title] = qid
+    return result
+
+
+def wd_entities_batch(qids: list[str]) -> dict[str, tuple[str, str]]:
+    """
+    Batch-fetch English label + description for a list of QIDs from Wikidata.
+    Returns {qid: (label, description)}.
+    """
+    if not qids:
+        return {}
+    params = urllib.parse.urlencode({
+        "action": "wbgetentities",
+        "ids": "|".join(qids[:50]),  # API limit: 50 IDs per call
+        "props": "labels|descriptions",
+        "languages": "en",
+        "format": "json",
+    })
+    resp = http_get(f"{WD_API}?{params}", timeout=30)
+    result = {}
+    for qid, entity in resp.get("entities", {}).items():
+        label = entity.get("labels", {}).get("en", {}).get("value", "")
+        description = entity.get("descriptions", {}).get("en", {}).get("value", "")
+        result[qid] = (label, description)
+    return result
+
+
+def phase_e(candidates: list[dict], by_id: dict[str, dict],
+            data: dict) -> int:
+    """
+    Search English Wikipedia for each skipped entity that got "no results from
+    Wikidata search". Resolves Wikipedia articles to Wikidata QIDs via
+    prop=pageprops, then fetches label+description from Wikidata and applies
+    the standard label-match + org-keyword filter before proposing.
+
+    Particularly effective for iShares names truncated to ~35 chars:
+      'China Nonferrous Mining Corporatio' → 'China Nonferrous Mining Corporation'
+      label_matches() handles prefix matches, so truncated names pass the filter.
+    """
+    print("\n=== Phase E: Wikipedia API search (Wikipedia → Wikidata QID) ===")
+
+    targets = [
+        c for c in candidates
+        if c["status"] == "skipped"
+        and c.get("reason") == "no results from Wikidata search"
+    ]
+    print(f"  Targets: {len(targets)}")
+
+    total_found = 0
+
+    for idx, c in enumerate(targets, 1):
+        eid = c["entity_id"]
+        if by_id.get(eid, {}).get("status") in ("accepted", "proposed", "rejected"):
+            continue
+
+        entity_name = c["entity_name"]
+        search_name = c.get("search_name", entity_name)
+
+        if len(normalize_label(search_name)) < 3:
+            print(f"  [{idx}/{len(targets)}] SKIP too-short: {entity_name!r}")
+            continue
+
+        # Step 1 — search Wikipedia
+        time.sleep(WP_DELAY)
+        try:
+            wp_titles = wp_search(search_name, limit=WP_SEARCH_LIMIT)
+        except Exception as e:
+            print(f"  [{idx}/{len(targets)}] WP search error ({entity_name!r}): {e}")
+            continue
+
+        if not wp_titles:
+            continue
+
+        # Step 2 — resolve top Wikipedia results to QIDs (batched, no extra delay)
+        try:
+            title_to_qid = wp_pageprops(wp_titles[:3])
+        except Exception as e:
+            print(f"  [{idx}/{len(targets)}] WP pageprops error ({entity_name!r}): {e}")
+            continue
+
+        qids = list(dict.fromkeys(title_to_qid.values()))  # deduplicated, ordered
+        if not qids:
+            continue
+
+        # Step 3 — fetch Wikidata label+description for those QIDs (batched)
+        try:
+            qid_info = wd_entities_batch(qids)
+        except Exception as e:
+            print(f"  [{idx}/{len(targets)}] Wikidata entity error ({entity_name!r}): {e}")
+            continue
+
+        # Step 4 — apply label-match + org-keyword filter
+        found = False
+        for title, qid in title_to_qid.items():
+            label, description = qid_info.get(qid, ("", ""))
+
+            lm = label_matches(search_name, label)
+            is_org, org_reason = description_is_org_fixed(description)
+
+            if lm and is_org:
+                reason = (f"Wikipedia search → {title!r} → {qid} "
+                          f"+ {org_reason}")
+                if upgrade_to_proposed(candidates, by_id, c, qid, label,
+                                       description, reason):
+                    print(f"  [{idx}/{len(targets)}] FOUND {eid} {entity_name!r}")
+                    print(f"    → {qid} {label!r} ({description[:60]!r})")
+                    total_found += 1
+                    found = True
+                break
+
+        if not found and wp_titles:
+            print(f"  [{idx}/{len(targets)}] no match: {entity_name!r} "
+                  f"(WP top: {wp_titles[0]!r})")
+
+        # Checkpoint every 25 entities
+        if idx % 25 == 0:
+            save_candidates(data, candidates, f"Phase E checkpoint {idx}")
+
+    save_candidates(data, candidates, "Phase E complete")
+    print(f"\n  Phase E: {total_found} new proposals from Wikipedia search.")
+    return total_found
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -719,6 +895,7 @@ def main():
     b = phase_b(candidates, by_id, data)
     c = phase_c(candidates, by_id, data)
     d = phase_d(candidates, by_id, data)
+    e = phase_e(candidates, by_id, data)
 
     # Final summary
     final_proposed = sum(1 for c in candidates if c["status"] == "proposed")
@@ -730,7 +907,8 @@ def main():
     print(f"  Phase B (P856 website):    {b:3d} new proposals")
     print(f"  Phase C (P31 type):        {c:3d} new proposals")
     print(f"  Phase D (re-search):       {d:3d} new proposals")
-    print(f"  Total new:                 {a+b+c+d:3d}")
+    print(f"  Phase E (Wikipedia):       {e:3d} new proposals")
+    print(f"  Total new:                 {a+b+c+d+e:3d}")
     print(f"  Final proposed:            {final_proposed}")
     print(f"  Final skipped:             {final_skipped}")
     print(f"\nNext steps:")
