@@ -127,21 +127,37 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
 
 ## Safe script execution (dry-run protocol)
 
-Any script that modifies `database.json` in-place should be previewed before committing.
+### Scripts with built-in `--dry-run` (preferred)
+
+The following scripts support `--dry-run` and should always be previewed that way first:
+
+| Script | Dry-run flag | Notes |
+|---|---|---|
+| `enrich_wikidata.py` | `--dry-run` | Fetches from Wikidata, prints what would be written |
+| `import_edf_websites.py` | `--dry-run` | Prints website assignments without writing |
+| `fetch_wikidata_websites.py` | `--dry-run` | Prints P856 lookups without writing |
+| `audit_quality.py` | `--dry-run` | Prints audit report without writing |
+
+Workflow for `--dry-run` scripts:
+1. Run with `--dry-run`, review output.
+2. If output looks correct, run without the flag.
+3. Run `validate.py`, then commit.
+
+### Scripts without `--dry-run` (manual backup required)
+
+For scripts that do not support `--dry-run`:
 
 1. **Backup** before running:
    ```bash
    cp data/database.json data/database.json.bak
    ```
 2. **Run** the script.
-3. **Compare** before/after with a Python diff.
-4. **Restore** immediately after inspection:
+3. **Restore**, compare, then re-run after review:
    ```bash
    cp data/database.json.bak data/database.json
    ```
-5. **Review** the extracted changes. Flag anything requiring human judgment.
-6. **Re-run**, then validate and commit.
-7. **Remove** the backup:
+4. Run `validate.py`, then commit.
+5. **Remove** the backup:
    ```bash
    rm data/database.json.bak
    ```
@@ -185,6 +201,14 @@ Validation: all checks passed.
 data: add board members — <company> PER-XXXX..PER-YYYY (YYYY-MM-DD)
 
 Script: manual
+Validation: all checks passed.
+```
+
+**Wikidata enrichment:**
+```
+data: enrich wikidata — sources.wikidata populated for N entities (YYYY-MM-DD)
+
+Script: scripts/enrich_wikidata.py [--force]
 Validation: all checks passed.
 ```
 

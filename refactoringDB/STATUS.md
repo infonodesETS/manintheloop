@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (Quality audit B+C — 165 reconciliation_documented + 44 field_conflict validation entries added)
+> Last updated: 2026-04-13 (enrich_wikidata.py — sources.wikidata populated for all 710 entities with wikidata_id)
 
 ## Session protocol
 
@@ -24,6 +24,24 @@
 | `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
 | `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
 | `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
+| `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |
+
+### Wikidata enrichment
+
+```bash
+# Populate sources.wikidata for all entities with a wikidata_id (skips already-enriched)
+#   Reads: data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
+#   Writes: data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
+python3 scripts/enrich_wikidata.py [--dry-run]
+
+# Force re-enrichment of ALL entities (including already-enriched) — use after bulk QID updates
+python3 scripts/enrich_wikidata.py --force [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: without `--force`, skips entities that already have `sources.wikidata` → safe to re-run after new QIDs are applied.
 
 ### Data quality audit
 
@@ -215,6 +233,7 @@ refactoringDB/
 │   ├── import_by_wikidata.py  ← migrates companies from old DB by wikidata_id
 │   ├── search_missing_qids.py ← QID Phase 1 (Wikidata API) + --apply
 │   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
+│   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -237,7 +256,8 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 712 / 1149 (62.0%) — all proposals resolved |
+| Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
+| Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
@@ -312,6 +332,15 @@ refactoringDB/
   - 58 HQ granularity differences (city vs city+region+country, same city) — not flagged, not real conflicts
 - [x] validate.py PASSED after audit
 
+### Wikidata enrichment (2026-04-13)
+- [x] `scripts/enrich_wikidata.py` written — populates `sources.wikidata` for all entities with `wikidata_id`
+  - Flags: `--dry-run` (no DB writes), `--force` (re-enrich already-enriched entities)
+  - Properties: P31 instance_of, P17 country, P571 inception, P159 headquarters, P856 website, P946 ISIN, P1128 employees, sitelinks.enwiki
+  - Rate: batches of 50, 2s delay, backoff [5, 10, 20]s on 429
+- [x] Fixed 2 wrong QIDs re-applied at migration: AVICOPTER (Q312094 → null), Sichuan Yahua (Q56404682 → null) — both confirmed wrong by Playwright verification in prior DB
+- [x] Full enrichment run: 710 entities enriched (599 new + 111 force-refreshed from old DB migration data)
+- [x] validate.py PASSED
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -321,6 +350,7 @@ refactoringDB/
 - [x] Initial commit on branch `nuovoDB`
 - [x] `scripts/reprocess_skipped_qids.py` — 4-phase QID second-pass recovery script
 - [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
+- [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
 
 ---
 
