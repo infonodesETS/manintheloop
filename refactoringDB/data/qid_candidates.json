@@ -209,8 +209,8 @@
       "entity_id": "IN-0021",
       "entity_name": "America Movil B",
       "search_name": "America Movil",
-      "status": "skipped",
-      "reason": "label mismatch: 'America Movil' vs 'América Móvil'; disqualified by 'nation'",
+      "status": "accepted",
+      "reason": "diacritic fix: America Movil = América Móvil (Q482267)",
       "qid": "Q482267",
       "label": "América Móvil",
       "description": "Mexican multinational telecommunications company"
@@ -1279,11 +1279,11 @@
       "entity_id": "IN-0136",
       "entity_name": "FOX Class B",
       "search_name": "Fox",
-      "status": "skipped",
-      "reason": "label mismatch: 'Fox' vs 'Fox Broadcasting Company'; disqualified by 'television'",
-      "qid": "Q166419",
-      "label": "Fox Broadcasting Company",
-      "description": "American commercial broadcast television network"
+      "status": "accepted",
+      "reason": "same entity as FOX Class A (IN-0135); corrected QID from Q166419 (Fox Broadcasting) to Q60238941 (Fox Corporation)",
+      "qid": "Q60238941",
+      "label": "Fox Corporation",
+      "description": "American multinational mass media company, successor to 21st Century Fox"
     },
     {
       "entity_id": "IN-0138",
@@ -1399,8 +1399,8 @@
       "entity_id": "IN-0150",
       "entity_name": "Grupa KETY SA",
       "search_name": "Grupa Kety",
-      "status": "skipped",
-      "reason": "label mismatch: 'Grupa Kety' vs 'Grupa Kęty'; no description",
+      "status": "accepted",
+      "reason": "diacritic fix: Grupa Kety = Grupa Kęty (Q11702600)",
       "qid": "Q11702600",
       "label": "Grupa Kęty",
       "description": ""
@@ -1509,8 +1509,8 @@
       "entity_id": "IN-0161",
       "entity_name": "HON HAI Precision Industry",
       "search_name": "Hon Hai Precision Industry",
-      "status": "skipped",
-      "reason": "label mismatch: 'Hon Hai Precision Industry' vs 'Foxconn'; disqualified by 'nation'",
+      "status": "accepted",
+      "reason": "alias fix: Hon Hai Precision Industry = Foxconn (Q463094)",
       "qid": "Q463094",
       "label": "Foxconn",
       "description": "Taiwanese multinational electronics contract manufacturer"
@@ -2159,8 +2159,8 @@
       "entity_id": "IN-0230",
       "entity_name": "Metalurgica Gerdau PREF SA",
       "search_name": "Metalurgica Gerdau",
-      "status": "skipped",
-      "reason": "label mismatch: 'Metalurgica Gerdau' vs 'Metalúrgica Gerdau'; no description",
+      "status": "accepted",
+      "reason": "diacritic fix: Metalurgica Gerdau = Metalúrgica Gerdau (Q3307276)",
       "qid": "Q3307276",
       "label": "Metalúrgica Gerdau",
       "description": ""
@@ -8469,8 +8469,8 @@
       "entity_id": "IN-1029",
       "entity_name": "Safran Sensing Technologies Norway As",
       "search_name": "Safran Sensing Technologies Norway As",
-      "status": "skipped",
-      "reason": "label mismatch: 'Safran Sensing Technologies Norway As' vs 'Sensonor'",
+      "status": "accepted",
+      "reason": "alias fix: Sensonor rebranded to Safran Sensing Technologies Norway (Q7451079)",
       "qid": "Q7451079",
       "label": "Sensonor",
       "description": "business in Norway"
@@ -9299,8 +9299,8 @@
       "entity_id": "IN-1134",
       "entity_name": "Thales Alenia Space Italia",
       "search_name": "Thales Alenia Space Italia",
-      "status": "skipped",
-      "reason": "label mismatch: 'Thales Alenia Space Italia' vs 'Thalès Alenia Space Italia'; no description",
+      "status": "accepted",
+      "reason": "diacritic fix: Thales Alenia Space Italia = Thalès Alenia Space Italia (Q131652020)",
       "qid": "Q131652020",
       "label": "Thalès Alenia Space Italia",
       "description": ""
@@ -9349,8 +9349,8 @@
       "entity_id": "IN-1139",
       "entity_name": "Thales Dms France",
       "search_name": "Thales Dms France",
-      "status": "skipped",
-      "reason": "label mismatch: 'Thales Dms France' vs 'Thalès Dms France Sas'; no description",
+      "status": "accepted",
+      "reason": "diacritic fix: Thales Dms France = Thalès Dms France Sas (Q131635678)",
       "qid": "Q131635678",
       "label": "Thalès Dms France Sas",
       "description": ""

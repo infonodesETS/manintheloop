@@ -1642,7 +1642,7 @@
       ],
       "name": "America Movil B",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q482267",
       "sources": {
         "ishares": [
           {
@@ -1689,6 +1689,15 @@
           "old": null,
           "new": "https://www.americamovil.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q482267",
+          "description": "wikidata_id set via search: label='América Móvil', description='Mexican multinational telecommunications company'. Search name used: 'America Movil'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -1703,6 +1712,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q482267 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -11346,7 +11361,7 @@
       ],
       "name": "FOX Class B",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q60238941",
       "sources": {
         "ishares": [
           {
@@ -11393,6 +11408,15 @@
           "old": null,
           "new": "https://www.foxcorporation.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q60238941",
+          "description": "wikidata_id set via search: label='Fox Corporation', description='American multinational mass media company, successor to 21st Century Fox'. Search name used: 'Fox'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -11407,6 +11431,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q60238941 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -12491,7 +12521,7 @@
       ],
       "name": "Grupa KETY SA",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q11702600",
       "sources": {
         "ishares": [
           {
@@ -12538,6 +12568,15 @@
           "old": null,
           "new": "https://www.kety.pl",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q11702600",
+          "description": "wikidata_id set via search: label='Grupa Kęty', description=''. Search name used: 'Grupa Kety'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -12552,6 +12591,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q11702600 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -13369,7 +13414,7 @@
       ],
       "name": "HON HAI Precision Industry",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q463094",
       "sources": {
         "ishares": [
           {
@@ -13416,6 +13461,15 @@
           "old": null,
           "new": "https://www.honhai.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q463094",
+          "description": "wikidata_id set via search: label='Foxconn', description='Taiwanese multinational electronics contract manufacturer'. Search name used: 'Hon Hai Precision Industry'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -13430,6 +13484,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q463094 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -19131,7 +19191,7 @@
       ],
       "name": "Metalurgica Gerdau PREF SA",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q3307276",
       "sources": {
         "ishares": [
           {
@@ -19178,6 +19238,15 @@
           "old": null,
           "new": "https://www.gerdau.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q3307276",
+          "description": "wikidata_id set via search: label='Metalúrgica Gerdau', description=''. Search name used: 'Metalurgica Gerdau'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -19192,6 +19261,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q3307276 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -83742,7 +83817,7 @@
       ],
       "name": "Safran Sensing Technologies Norway As",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q7451079",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -83792,6 +83867,15 @@
           "old": null,
           "new": "https://www.sensonor.com/",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q7451079",
+          "description": "wikidata_id set via search: label='Sensonor', description='business in Norway'. Search name used: 'Safran Sensing Technologies Norway As'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -83806,6 +83890,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q7451079 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -92293,7 +92383,7 @@
       ],
       "name": "Thales Alenia Space Italia",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q131652020",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -92343,6 +92433,15 @@
           "old": null,
           "new": "https://www.thalesaleniaspace.com",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q131652020",
+          "description": "wikidata_id set via search: label='Thalès Alenia Space Italia', description=''. Search name used: 'Thales Alenia Space Italia'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -92357,6 +92456,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q131652020 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []
@@ -92718,7 +92823,7 @@
       ],
       "name": "Thales Dms France",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q131635678",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -92768,6 +92873,15 @@
           "old": null,
           "new": "https://www.thalesgroup.com",
           "description": "Official website added via web research"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q131635678",
+          "description": "wikidata_id set via search: label='Thalès Dms France Sas', description=''. Search name used: 'Thales Dms France'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -92782,6 +92896,12 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q131635678 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-04-13"
         }
       ],
       "tags": []

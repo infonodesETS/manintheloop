@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (QID second pass complete — 239 QIDs applied, validate PASSED)
+> Last updated: 2026-04-13 (diacritic/alias fixes — 8 more QIDs applied, 702/1149 coverage)
 
 ## Session protocol
 
@@ -223,13 +223,13 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 694 / 1149 (60.4%) — all proposals resolved |
+| Companies with wikidata_id | 702 / 1149 (61.1%) — all proposals resolved |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-13) |
-| qid_candidates.json | proposed=0, accepted=548, rejected=44, skipped=411 |
+| qid_candidates.json | proposed=0, accepted=556, rejected=44, skipped=403 |
 
 ---
 
@@ -257,6 +257,9 @@ refactoringDB/
 - [x] Human review: 309 accepted, 16 rejected (of 325 proposed)
 - [x] `--apply` run: 309 QIDs written to database.json
 - [x] validate.py passed after apply
+
+### Diacritic/alias fixes (manual patch, 2026-04-13)
+- [x] 8 skipped entries re-proposed with correct QIDs and applied: América Móvil, Fox Corporation (Class B), Grupa Kęty, Foxconn (Hon Hai), Metalúrgica Gerdau, Sensonor (Safran Sensing Norway), Thalès Alenia Space Italia, Thalès Dms France
 
 ### QID second pass (`scripts/reprocess_skipped_qids.py`)
 - [x] Script written: 4-phase recovery for previously skipped entries
