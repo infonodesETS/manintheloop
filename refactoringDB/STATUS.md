@@ -186,7 +186,7 @@ refactoringDB/
 ├── data/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
-│   ├── qid_candidates.json    ← QID review file (all 325 entries reviewed)
+│   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
 │   └── companies_export.csv   ← STALE — needs regeneration
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
