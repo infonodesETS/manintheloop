@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-12 (QID second pass — 267 proposals pending review)
+> Last updated: 2026-04-13 (QID second pass complete — 239 QIDs applied, validate PASSED)
 
 ## Session protocol
 
@@ -223,13 +223,13 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **0** — not yet migrated |
 | Relationships | **0** — not yet built |
-| Companies with wikidata_id | 455 / 1149 (39.6%) — **267 proposals pending review** |
+| Companies with wikidata_id | 694 / 1149 (60.4%) — all proposals resolved |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 130 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-12) |
-| qid_candidates.json | proposed=267, accepted=309, rejected=16, skipped=411 |
+| Last validate.py | PASSED (2026-04-13) |
+| qid_candidates.json | proposed=0, accepted=548, rejected=44, skipped=411 |
 
 ---
 
@@ -264,10 +264,9 @@ refactoringDB/
 - [x] Phase B (P856 website reverse lookup via SPARQL): 132 proposals — matched 672 company websites against Wikidata `wdt:P856`; batch size 10 entities (~80 URL variants per query)
 - [x] Phase C (P31 type confirmation for no-description entries): 60 proposals — confirmed company type via `wdt:P31` for 64 entries that had QID+label match but no English description
 - [x] Phase D (results[1–4] re-search): 20 proposals — re-searched with original entity name (not pre-stripped `search_name`) and checked all 5 results with fixed filter
-- [ ] **Human review pending**: 267 proposed entries in `data/qid_candidates.json`
-  - Known false positives to reject: `IN-0157 Hexagon` (→ crystal system), `IN-0034 Eight Bells` (→ hill in Egypt)
-  - Known wrong-entity matches: `IN-0263 Nokia` (→ Nokia Canada, should be Q1418), `IN-0269 NTT` (→ NTT Docomo Business), `IN-0291 PTC` (→ PTC Canada), several AT&T/Samsung/Outokumpu subsidiaries
-- [ ] After review: `python3 scripts/search_missing_qids.py --apply` then `validate.py`
+- [x] **Human review complete**: 239 accepted, 28 rejected (of 267 proposals)
+  - Rejected: AMD Singapore, ASM Japan, AutoTrader.co.za, BT Retail, Hexagon crystal system, NEXON Korea, Nokia Canada, NTT Docomo Business, ThyssenKrupp Nirosta (≠ Outokumpu), PTC Canada, WBD Netherlands, Airbus SE (parent for Airbus Heli DE), BAE Systems Inc. (≠ Hägglunds), Electromecanica (≠ Romarm), Elecnor Deimos (uncertain), Eight Bells (Egypt hill), Hensoldt AG (parent), John Cockerill (parent for JC Defense France), Kongsberg Våpenfabrikk (≠ Discovery), Chemo (≠ Laboratorios Liconsa), Nammo US (≠ Nammo Sweden), Naval Group (parent for Naval Belgium), Philips China, Safran Brazil (≠ Safran Electrical Power), Nortal (≠ Talgen), Telefónica (parent for subsidiary), Thales D&S (≠ Thales Cryogenics), MSM Group (≠ Vop Novaky)
+- [x] After review: `--apply` run (239 QIDs written), `validate.py` PASSED (2026-04-13)
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
@@ -309,11 +308,11 @@ refactoringDB/
 - Links IN-NNNN / institution entities → EDF projects/calls
 - Source of truth: `rawdata/edf_calls.json` (dict keyed by call identifier, each call has `projects[]` with `participants[]`)
 
-### 5. QID lookup — second pass (in progress)
-- ~~694~~ **429 companies** still without wikidata_id after second-pass proposals are applied
-- 267 proposals in `qid_candidates.json` awaiting human review
-- Run `reprocess_skipped_qids.py` again after apply to pick up any remaining matches
-- ~411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
+### 5. QID lookup — second pass (complete)
+- **455 companies** still without wikidata_id — 694/1149 (60.4%) now have QIDs
+- All 267 proposals reviewed and applied (2026-04-13)
+- 411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
+- Optional: run `reprocess_skipped_qids.py` again for any remaining matches
 
 ---
 
