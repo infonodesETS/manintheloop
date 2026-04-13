@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Org Search — refactoringDB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../refactoring/css/base.css">
+  <link rel="stylesheet" href="../refactoring/css/components.css">
+  <link rel="stylesheet" href="../refactoring/css/companysearch.css">
+  <style>
+    html { font-size: 120%; scrollbar-gutter: stable; }
+    body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); overflow: auto; padding-top: 0; }
+
+    /* ── Page shell ── */
+    #app { min-height: 100vh; display: flex; flex-direction: column; }
+    #cs-profile { width: 100%; }
+
+    /* ── Source badge for EDF-only / DB-only / merged ── */
+    .src-badge {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      border-radius: 3px;
+      padding: 1px 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .src-badge.edf-only  { background: rgba(100,160,255,.12); border: 1px solid rgba(100,160,255,.35); color: rgba(100,160,255,.85); }
+    .src-badge.db-only   { background: rgba(0,255,65,.06);    border: 1px solid rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
+    .src-badge.merged    { background: rgba(255,215,0,.08);   border: 1px solid rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+
+    /* ── EDF section in profile ── */
+    .edf-section { margin-top: 20px; }
+    .edf-projects { list-style: none; padding: 0; margin: 0; }
+    .edf-proj-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(65,67,69,.25);
+    }
+    .edf-proj-item:last-child { border-bottom: none; }
+    .edf-proj-title {
+      font-size: var(--fs-body);
+      color: var(--text-primary);
+      font-weight: var(--fw-semi);
+      margin-bottom: 4px;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .edf-proj-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      display: flex; gap: 12px; flex-wrap: wrap;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .edf-proj-role {
+      font-size: var(--fs-body);
+      font-family: var(--font-mono);
+      padding: 1px 8px;
+      border-radius: 3px;
+      background: rgba(0,255,65,.07);
+      border: 1px solid rgba(0,255,65,.18);
+      color: rgba(0,255,65,.7);
+    }
+    .edf-proj-role.coordinator {
+      background: rgba(255,215,0,.08);
+      border-color: rgba(255,215,0,.3);
+      color: rgba(255,215,0,.85);
+    }
+    .edf-contrib {
+      color: rgba(100,160,255,.9);
+      font-weight: var(--fw-bold);
+    }
+    .edf-loading {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      padding: 20px 0;
+      text-align: center;
+    }
+    .edf-load-btn {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: rgba(100,160,255,.85);
+      background: rgba(100,160,255,.08);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 50px;
+      padding: 4px 16px;
+      cursor: pointer;
+      transition: all .1s;
+    }
+    .edf-load-btn:hover { border-color: rgba(100,160,255,.7); color: rgba(100,160,255,1); }
+
+    /* ── Match badge in autocomplete ── */
+    .cs-ac-match {
+      font-size: var(--fs-body);
+      font-family: var(--font-mono);
+      color: rgba(255,215,0,.7);
+      flex-shrink: 0;
+    }
+
+    /* ── Source filter pills ── */
+    .filter-bar {
+      display: flex; gap: 8px; align-items: center;
+      margin-top: 12px;
+      width: 100%; max-width: 580px;
+    }
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      border-radius: 50px;
+      padding: 3px 12px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      background: none;
+      transition: all .1s;
+      white-space: nowrap;
+    }
+    .filter-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,65,.06); }
+    .filter-pill:hover:not(.active) { border-color: var(--grey-mid); color: var(--text-secondary); }
+    .filter-lbl {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ── EDF stat color ── */
+    .cs-stat.edf-stat .cs-stat-val { color: rgba(100,160,255,.9); }
+    .cs-stat.edf-stat { border-color: rgba(100,160,255,.25); }
+
+    /* ── cs-left card palettes ── */
+    /* EDF card → blue */
+    #cs-edf-card { background: rgba(100,160,255,.02); border-color: rgba(100,160,255,.22); }
+    #cs-edf-card .cs-card-hdr { color: rgba(100,160,255,.8); border-bottom-color: rgba(100,160,255,.15); background: rgba(100,160,255,.04); }
+    #cs-edf-card .cs-card-count { color: rgba(100,160,255,.5); }
+    /* DB / relationship / history cards → INF green (border + background tint, header already uses --accent) */
+    #cs-db-card, #cs-rel-card, #cs-hist-card { background: rgba(0,255,65,.02); border-color: rgba(0,255,65,.15); }
+    #cs-db-card .cs-card-hdr, #cs-rel-card .cs-card-hdr, #cs-hist-card .cs-card-hdr { border-bottom-color: rgba(0,255,65,.12); background: rgba(0,255,65,.03); }
+
+    /* ── EDF source block (mirrors cs-cb/wd/inf-block from companysearch.css) ── */
+    .cs-edf-block { background: rgba(100,160,255,.04); border: 1px solid rgba(100,160,255,.18); }
+    .cs-edf-block .cs-src-hdr         { color: rgba(100,160,255,.8); }
+    .cs-edf-block .cs-src-hdr::before { background: rgba(100,160,255,.7); }
+
+    /* ── EU Portal external link ── */
+    .cs-ext-link.cs-eu       { border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.8); }
+    .cs-ext-link.cs-eu:hover { border-color: rgba(100,160,255,.9);  color: rgba(100,160,255,1); }
+
+    /* ── Autocomplete dropdown height ── */
+    #cs-ac { max-height: 680px; }
+
+    /* ── surface-ac fallback if not in base.css ── */
+    :root { --surface-ac: #2a2a2a; }
+
+    /* ── Static elements ── */
+    #cs-clear {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: var(--dim);
+      font-size: calc(var(--fs-body) * 1.2); line-height: 1; padding: 2px 4px;
+      display: none;
+    }
+    #cs-eu-status {
+      display: flex; align-items: center; gap: 7px; margin-top: 6px;
+      font-family: var(--font-mono); font-size: var(--fs-body);
+    }
+    #cs-left { min-width: 0; }
+    #cs-edf-card, #cs-db-card, #cs-rel-card, #cs-hist-card { display: none; }
+    #cs-loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 60vh; font-family: var(--font-mono);
+      color: var(--text-faint); font-size: var(--fs-body);
+    }
+
+    /* ── Sector / type badges ── */
+    .badge { font-size: var(--fs-body); font-family: var(--font-mono); padding: 1px 8px; border-radius: 3px; }
+    .badge-defence    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-mining     { background: rgba(85,221,170,.1);  border: 1px solid rgba(85,221,170,.33);  color: #55ddaa; }
+    .badge-tech       { background: rgba(34,187,102,.1);  border: 1px solid rgba(34,187,102,.33);  color: #22bb66; }
+    .badge-startup    { background: rgba(0,119,68,.1);    border: 1px solid rgba(0,119,68,.33);    color: #007744; }
+    .badge-fund       { background: rgba(255,136,136,.1); border: 1px solid rgba(255,136,136,.33); color: #ff8888; }
+    .badge-gov        { background: rgba(255,51,51,.1);   border: 1px solid rgba(255,51,51,.33);   color: #ff3333; }
+    .badge-bank       { background: rgba(170,0,0,.1);     border: 1px solid rgba(170,0,0,.33);     color: #aa0000; }
+    .badge-institution{ background: rgba(255,153,187,.1); border: 1px solid rgba(255,153,187,.33); color: #ff99bb; }
+    .badge-company    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-default    { background: rgba(136,136,136,.1); border: 1px solid rgba(136,136,136,.3);  color: #888; }
+
+    /* ── Merged match badge in header ── */
+    .cs-hdr-id--match { color: rgba(255,215,0,.6); }
+
+    /* ── EU status line ── */
+    .eu-flag           { height: 14px; width: auto; vertical-align: middle; border-radius: 2px; }
+    .eu-flag--inactive { filter: grayscale(1); opacity: .35; }
+    .eu-status-funded   { color: rgba(100,160,255,.85); }
+    .eu-status-unfunded { color: var(--text-faint); }
+
+    /* ── EDF identity block ── */
+    .edf-identity-block { margin-bottom: 14px; }
+
+    /* ── Inline value states ── */
+    .val-yes { color: var(--accent); }
+
+    /* ── EDF project objective ── */
+    .edf-proj-desc {
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin: 6px 0 4px;
+    }
+
+    /* ── EDF participants list ── */
+    .edf-participants { display: none; list-style: none; padding: 0; margin: 8px 0 0; }
+    .edf-participants.open { display: block; }
+    .edf-participant-item {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(65,67,69,.15);
+    }
+    .edf-participant-item:last-child { border-bottom: none; }
+    .edf-participant-btn {
+      background: none; border: none; cursor: pointer;
+      color: rgba(100,160,255,.85);
+      font-family: var(--font); font-size: var(--fs-body);
+      text-align: left; padding: 0;
+    }
+    .edf-participant-btn:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+    .edf-participant-country {
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint);
+    }
+    .edf-part-contrib {
+      font-family: var(--font-mono); font-size: var(--fs-body);
+      color: rgba(100,160,255,.9); font-weight: var(--fw-bold);
+      margin-left: auto;
+    }
+
+    /* ── EDF project portal link ── */
+    .edf-proj-link { color: rgba(100,160,255,.8); }
+
+    /* ── Relationship "more" overflow item ── */
+    .cs-list-more { color: var(--text-faint); font-size: var(--fs-body); }
+
+    /* ── Change history list ── */
+    .hist-list  { list-style: none; padding: 0; margin: 0; }
+    .hist-item  { padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.2); }
+    .hist-meta  { display: flex; gap: 8px; align-items: baseline; margin-bottom: 3px; }
+    .hist-date  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); white-space: nowrap; }
+    .hist-field { font-family: var(--font-mono); font-size: var(--fs-body); padding: 0 5px; border-radius: 2px; background: rgba(0,255,65,.06); border: 1px solid rgba(0,255,65,.15); color: rgba(0,255,65,.6); }
+    .hist-source{ font-size: var(--fs-body); color: var(--text-faint); }
+    .hist-desc  { font-size: var(--fs-body); color: var(--text-secondary); }
+    .hist-diff  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); margin-top: 3px; }
+    .hist-old   { color: rgba(255,100,100,.7); }
+    .hist-new   { color: rgba(100,255,100,.7); }
+
+    /* ── Error state ── */
+    .cs-error { color: var(--error, #f44); font-family: var(--font-mono); font-size: var(--fs-body); }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Hero / search ── -->
+  <div id="cs-hero">
+    <div class="cs-hero-prompt">INFONODES — refactoringDB v3.0</div>
+    <div class="cs-hero-title">DEFENCE ORG SEARCH<span class="cs-cursor"></span></div>
+
+    <div class="cs-search-wrap">
+      <input id="cs-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
+      <button id="cs-clear" title="Clear search" aria-label="Clear search">×</button>
+      <div id="cs-ac" role="listbox"></div>
+    </div>
+
+
+    <div class="cs-hero-foot">
+      <span class="cs-showing" id="cs-showing"></span>
+      <button id="cs-back">← back</button>
+    </div>
+  </div>
+
+  <!-- ── Profile ── -->
+  <div id="cs-profile">
+
+    <!-- Header card -->
+    <div class="cs-hdr-card">
+      <div class="cs-logo" id="cs-logo"></div>
+      <div class="cs-hdr-main">
+        <div class="cs-hdr-name" id="cs-name"></div>
+        <div class="cs-hdr-badges" id="cs-badges"></div>
+        <div id="cs-eu-status"></div>
+        <div class="cs-hdr-desc" id="cs-desc"></div>
+        <div class="cs-hdr-actions">
+          <div class="cs-ext-links" id="cs-links"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat bar -->
+    <div class="cs-stats" id="cs-stats"></div>
+
+    <!-- Two-column body -->
+    <div class="cs-cols">
+
+      <!-- Left column -->
+      <div id="cs-left">
+
+        <!-- EDF activity (shown when org has EDF data) -->
+        <div class="cs-card edf-section" id="cs-edf-card">
+          <div class="cs-card-hdr">
+            European Defence Fund
+            <span class="cs-card-count" id="cs-edf-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-edf-body"></div>
+        </div>
+
+        <!-- DB details (shown when org is in database.json) -->
+        <div class="cs-card" id="cs-db-card">
+          <div class="cs-card-hdr">Organisation details</div>
+          <div class="cs-card-body" id="cs-db-body"></div>
+        </div>
+
+        <!-- Relationships (shown for DB entities) -->
+        <div class="cs-card" id="cs-rel-card">
+          <div class="cs-card-hdr">
+            Investment relationships
+            <span class="cs-card-count" id="cs-rel-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-rel-body"></div>
+        </div>
+
+        <!-- Change history (shown for DB entities with history) -->
+        <div class="cs-card" id="cs-hist-card">
+          <div class="cs-card-hdr">
+            Change history
+            <span class="cs-card-count" id="cs-hist-count"></span>
+          </div>
+          <div class="cs-card-body" id="cs-hist-body"></div>
+        </div>
+
+      </div>
+
+      <!-- Right column (source blocks) -->
+      <div id="cs-right"></div>
+
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+  <div id="cs-loading">Loading data…</div>
+
+</div>
+<script type="module">
+'use strict';
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+function initials(name) {
+  return name.split(/\s+/).map(w => w[0]||'').join('').slice(0,2).toUpperCase() || '?';
+}
+function highlight(text, q) {
+  if (!q) return esc(text);
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');
+  return esc(text).replace(re,'<mark>$1</mark>');
+}
+function fmtEur(val) {
+  if (!val) return null;
+  const n = parseFloat(val);
+  if (isNaN(n) || n === 0) return null;
+  if (n >= 1e6) return `€${(n/1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
+  return `€${n.toFixed(0)}`;
+}
+function fmtFunding(n) {
+  if (!n) return null;
+  if (n >= 1e9) return `$${(n/1e9).toFixed(1)}B`;
+  if (n >= 1e6) return `$${(n/1e6).toFixed(0)}M`;
+  return `$${n.toLocaleString()}`;
+}
+function row(lbl, val) {
+  return `<div class="cs-row"><span class="cs-row-lbl">${lbl}</span><span class="cs-row-val">${val}</span></div>`;
+}
+
+// ── Source/type badges ────────────────────────────────────────────────────────
+const SECTOR_CLASS = { Defence:'defence', Mining:'mining', Tech:'tech', Startup:'startup' };
+const TYPE_CLASS   = { fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company' };
+
+function sectorBadge(s) {
+  const cls = SECTOR_CLASS[s] || 'default';
+  return `<span class="badge badge-${cls}">${esc(s)}</span>`;
+}
+function typeBadge(t) {
+  const cls = TYPE_CLASS[t] || 'default';
+  const label = t?.replace(/_/g,' ') || t;
+  return `<span class="badge badge-${cls}">${esc(label)}</span>`;
+}
+function srcBadge(kind) {
+  const map = {
+    merged:   ['DB + EDF','merged'],
+    'db-only':['DB only','db-only'],
+    'edf-only':['EDF only','edf-only'],
+  };
+  const [label, cls] = map[kind] || ['?',''];
+  return `<span class="src-badge ${cls}">${label}</span>`;
+}
+function matchBadge(method) {
+  if (!method) return '';
+  const labels = { exact_norm:'exact', subset_tokens:'subsidiary', prefix_brand:'brand', manual:'manual', auto_name:'auto' };
+  return `<span class="cs-ac-match">[${labels[method] || method}]</span>`;
+}
+
+// ── Data loading ──────────────────────────────────────────────────────────────
+let DB   = null;  // database.json
+let ORGS = null;  // edf_orgs.json
+let EDF  = null;  // edf_calls.json (lazy)
+
+async function loadData() {
+  const [dbRes, orgsRes] = await Promise.all([
+    fetch('data/database.json'),
+    fetch('data/edf_orgs.json'),
+  ]);
+  DB   = await dbRes.json();
+  ORGS = await orgsRes.json();
+}
+
+async function loadEdf() {
+  if (EDF) return EDF;
+  const res = await fetch('rawdata/edf_calls.json');
+  EDF = await res.json();
+  return EDF;
+}
+
+// ── Build unified registry ────────────────────────────────────────────────────
+// Each entry: { id, name, kind, country, pic?, dbEntity?, edfOrg? }
+let REGISTRY = [];
+let ENTITY_MAP = {};  // id → dbEntity
+
+function buildRegistry() {
+  // Index DB entities
+  for (const e of DB.entities) {
+    ENTITY_MAP[e.id] = e;
+  }
+
+  // Index EDF orgs by db_id for reverse lookup
+  const edfByDbId = {};
+  for (const org of Object.values(ORGS.orgs)) {
+    if (org.db_id) {
+      if (!edfByDbId[org.db_id]) edfByDbId[org.db_id] = [];
+      edfByDbId[org.db_id].push(org);
+    }
+  }
+
+  const seenDbIds = new Set();
+
+  // 1. EDF orgs first
+  for (const org of Object.values(ORGS.orgs)) {
+    if (org.db_id) {
+      // Merged: has both EDF and DB data
+      const dbEntity = ENTITY_MAP[org.db_id];
+      if (dbEntity) {
+        seenDbIds.add(org.db_id);
+        REGISTRY.push({
+          id:       `EDF:${org.pic}`,
+          name:     dbEntity.name,            // prefer DB canonical name
+          edfName:  org.organization_name,
+          kind:     'merged',
+          pic:      org.pic,
+          dbEntity,
+          edfOrg:   org,
+          country:  org.country || dbEntity.sources?.infonodes?.country || dbEntity.sources?.wikidata?.country || '',
+          _key: [
+            dbEntity.name, org.organization_name,
+            org.country,
+            dbEntity.sources?.infonodes?.country,
+            dbEntity.sources?.crunchbase?.headquarters,
+            ...(dbEntity.sources?.crunchbase?.industries || []),
+            ...(dbEntity.tags || []),
+          ].filter(Boolean).join(' ').toLowerCase(),
+        });
+        continue;
+      }
+    }
+    // EDF-only
+    REGISTRY.push({
+      id:      `EDF:${org.pic}`,
+      name:    org.organization_name,
+      kind:    'edf-only',
+      pic:     org.pic,
+      dbEntity: null,
+      edfOrg:  org,
+      country: org.country || '',
+      _key: [org.organization_name, org.country, org.activity_type].filter(Boolean).join(' ').toLowerCase(),
+    });
+  }
+
+  // 2. DB-only entities (not linked to any EDF org)
+  for (const e of DB.entities) {
+    if (!seenDbIds.has(e.id)) {
+      REGISTRY.push({
+        id:       e.id,
+        name:     e.name,
+        kind:     'db-only',
+        pic:      null,
+        dbEntity: e,
+        edfOrg:   null,
+        country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
+        _key: [
+          e.name,
+          e.sources?.crunchbase?.headquarters,
+          e.sources?.infonodes?.country,
+          e.sources?.wikidata?.country,
+          ...(e.sources?.crunchbase?.industries || []),
+          ...(e.tags || []),
+        ].filter(Boolean).join(' ').toLowerCase(),
+      });
+    }
+  }
+
+  // Build relationship map
+  REL_MAP = {};
+  for (const r of (DB.relationships || [])) {
+    const push = (id, role, other) => {
+      if (!REL_MAP[id]) REL_MAP[id] = [];
+      REL_MAP[id].push({ rel: r, role, other: ENTITY_MAP[other] });
+    };
+    push(r.source, 'investor', r.target);
+    push(r.target, 'target',   r.source);
+  }
+
+  // Build PIC lookup map
+  PIC_MAP = {};
+  for (const item of REGISTRY) {
+    if (item.pic) PIC_MAP[String(item.pic)] = item;
+  }
+}
+
+let REL_MAP = {};
+let PIC_MAP = {};  // pic string → registry item
+
+// ── Search & autocomplete ─────────────────────────────────────────────────────
+let activeFilter = 'all';
+let searchEl, acEl;
+let acList = [], acKbd = -1;
+
+function filteredRegistry() {
+  if (activeFilter === 'all')    return REGISTRY;
+  if (activeFilter === 'merged') return REGISTRY.filter(r => r.kind === 'merged');
+  if (activeFilter === 'db')     return REGISTRY.filter(r => r.kind === 'db-only');
+  if (activeFilter === 'edf')    return REGISTRY.filter(r => r.kind === 'edf-only');
+  return REGISTRY;
+}
+
+function closeAc() {
+  acEl.classList.remove('open');
+  acEl.innerHTML = '';
+  acKbd = -1;
+  acList = [];
+}
+
+function renderAc(raw) {
+  const q = raw.trim().toLowerCase();
+  if (!q) { renderSuggestions(); return; }
+
+  const pool = filteredRegistry();
+  const scored = pool.map(item => {
+    const n = item.name.toLowerCase();
+    const c = (item.country || '').toLowerCase();
+    let s = 0;
+    if (n === q)               s = 200;
+    else if (n.startsWith(q))  s = 100;
+    else if (n.includes(q))    s = 60;
+    else if (c === q)          s = 40;
+    else if (c.startsWith(q))  s = 30;
+    else if (c.includes(q))    s = 25;
+    else if (item._key.includes(q)) s = 20;
+    return { item, s };
+  }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
+
+  if (!scored.length) {
+    acEl.innerHTML = `<div class="cs-ac-empty">No results for "<strong>${esc(raw)}</strong>"</div>`;
+    acEl.classList.add('open');
+    acList = [];
+    return;
+  }
+
+  // Country-mode: query exactly matches a country value for 3+ orgs
+  const exactCountryMatches = scored.filter(x => (x.item.country || '').toLowerCase() === q).length;
+  const countryMode = exactCountryMatches >= 3;
+  const groupLimit  = countryMode ? Infinity : null; // null → per-kind defaults below
+
+  const merged  = scored.filter(x => x.item.kind === 'merged');
+  const dbOnly  = scored.filter(x => x.item.kind === 'db-only');
+  const edfOnly = scored.filter(x => x.item.kind === 'edf-only');
+  acList = [];
+  let html = '';
+
+  if (countryMode) {
+    html += `<div class="cs-ac-group">${scored.length} organisations · ${esc(raw)}</div>`;
+  }
+
+  function renderGroup(label, items, limit) {
+    if (!items.length) return;
+    html += `<div class="cs-ac-group">${label}</div>`;
+    const slice = limit === Infinity ? items : items.slice(0, limit);
+    for (const { item } of slice) {
+      const e   = item.dbEntity;
+      const org = item.edfOrg;
+      let badge = '';
+      if (e?.sector)     badge = sectorBadge(e.sector);
+      else if (e?.type)  badge = typeBadge(e.type);
+      html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
+        ${srcBadge(item.kind)}
+        ${badge}
+        <span class="cs-ac-name">${highlight(item.name, raw)}</span>
+        ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
+        ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
+        ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
+      </div>`;
+      acList.push(item);
+    }
+  }
+
+  renderGroup('DB + EDF', merged, groupLimit ?? 8);
+  renderGroup('DB only',  dbOnly,  groupLimit ?? 8);
+  renderGroup('EDF only', edfOnly, groupLimit ?? 12);
+
+  acEl.innerHTML = html;
+  acEl.classList.add('open');
+  acEl.querySelectorAll('.cs-ac-item').forEach(el => {
+    el.addEventListener('mousedown', ev => {
+      ev.preventDefault();
+      const item = acList[Number(el.dataset.idx)];
+      if (item) selectItem(item);
+    });
+  });
+}
+
+function renderSuggestions() {
+  const pool = filteredRegistry();
+  const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 24);
+  acList = [];
+  const groups = { merged: [], 'db-only': [], 'edf-only': [] };
+  for (const item of shuffled) groups[item.kind].push(item);
+
+  let html = '';
+  function rg(label, items) {
+    if (!items.length) return;
+    html += `<div class="cs-ac-group">${label}</div>`;
+    for (const item of items.slice(0,8)) {
+      const e = item.dbEntity;
+      const org = item.edfOrg;
+      const country = e?.sources?.infonodes?.country || org?.country || '';
+      let badge = '';
+      if (e?.sector) badge = sectorBadge(e.sector);
+      else if (e?.type) badge = typeBadge(e.type);
+      html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
+        ${srcBadge(item.kind)}${badge}
+        <span class="cs-ac-name">${esc(item.name)}</span>
+        ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+      </div>`;
+      acList.push(item);
+    }
+  }
+  rg('DB + EDF', groups.merged);
+  rg('DB only', groups['db-only']);
+  rg('EDF only', groups['edf-only']);
+
+  acEl.innerHTML = html;
+  acEl.classList.add('open');
+  acEl.querySelectorAll('.cs-ac-item').forEach(el => {
+    el.addEventListener('mousedown', ev => {
+      ev.preventDefault();
+      const item = acList[Number(el.dataset.idx)];
+      if (item) selectItem(item);
+    });
+  });
+}
+
+function moveAcKbd(delta) {
+  const items = acEl.querySelectorAll('.cs-ac-item');
+  if (!items.length) return;
+  items[acKbd]?.classList.remove('kbd');
+  acKbd = Math.max(-1, Math.min(items.length - 1, acKbd + delta));
+  if (acKbd >= 0) {
+    items[acKbd].classList.add('kbd');
+    items[acKbd].scrollIntoView({ block: 'nearest' });
+    if (acList[acKbd]) searchEl.value = acList[acKbd].name;
+  }
+}
+
+// ── Select / clear ────────────────────────────────────────────────────────────
+let currentItem = null;
+
+function selectItem(item) {
+  currentItem = item;
+  closeAc();
+  searchEl.value = item.name;
+  document.getElementById('cs-clear').style.display = '';
+  document.getElementById('cs-hero').classList.add('compact');
+  document.getElementById('cs-showing').textContent = item.name;
+  renderProfile(item);
+}
+
+function clearSelection() {
+  currentItem = null;
+  searchEl.value = '';
+  document.getElementById('cs-clear').style.display = 'none';
+  document.getElementById('cs-hero').classList.remove('compact');
+  document.getElementById('cs-showing').textContent = '';
+  document.getElementById('cs-profile').classList.remove('visible');
+  searchEl.focus();
+}
+
+// ── Render profile ────────────────────────────────────────────────────────────
+function renderProfile(item) {
+  const profile = document.getElementById('cs-profile');
+  profile.classList.remove('visible');
+  void profile.offsetWidth;
+  profile.classList.add('visible');
+
+  const e   = item.dbEntity;
+  const org = item.edfOrg;
+  const cb  = e?.sources?.crunchbase;
+  const wd  = e?.sources?.wikidata;
+  const inf = e?.sources?.infonodes;
+
+  // ── Logo
+  document.getElementById('cs-logo').textContent = initials(item.name);
+
+  // ── Name
+  document.getElementById('cs-name').textContent = item.name;
+
+  // ── Badges
+  let badges = '';
+  if (e?.sector) badges += sectorBadge(e.sector);
+  if (e?.type)   badges += typeBadge(e.type);
+  badges += srcBadge(item.kind);
+  if (item.kind !== 'db-only' && org?.pic)
+    badges += `<span class="cs-hdr-id" title="EU Participant ID (PIC)">PIC ${esc(org.pic)}</span>`;
+  if (e?.id)
+    badges += `<span class="cs-hdr-id" title="Database ID">${esc(e.id)}</span>`;
+  if (item.kind === 'merged' && org?.match_method)
+    badges += `<span class="cs-hdr-id cs-hdr-id--match" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
+  document.getElementById('cs-badges').innerHTML = badges;
+
+  // ── EU status (new line below badges)
+  const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
+  const euEl = document.getElementById('cs-eu-status');
+  if (hasEdf) {
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag"><span class="eu-status-funded">Funded by European Commission</span>`;
+  } else {
+    euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag eu-flag--inactive"><span class="eu-status-unfunded">Not funded by European Commission</span>`;
+  }
+
+  // ── Description
+  const desc = cb?.description || wd?.description || '';
+  const descEl = document.getElementById('cs-desc');
+  descEl.textContent = desc;
+  descEl.style.display = desc ? '' : 'none';
+
+  // ── External links
+  let links = '';
+  if (cb?.profile_url)
+    links += `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`;
+  if (cb?.website)
+    links += `<a class="cs-ext-link" href="${esc(cb.website)}" target="_blank">${esc(cb.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
+  if (wd?.wikipedia_url)
+    links += `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`;
+  if (e?.wikidata_id)
+    links += `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`;
+  if (org?.web_link) {
+    const url = org.web_link.startsWith('http') ? org.web_link : `https://${org.web_link}`;
+    links += `<a class="cs-ext-link" href="${esc(url)}" target="_blank">${esc(org.web_link.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
+  }
+  document.getElementById('cs-links').innerHTML = links;
+
+  // ── Stat bar
+  const stats = [];
+  if (cb?.total_funding_usd)   stats.push({ v: fmtFunding(cb.total_funding_usd), l: 'Total Funding', cls: '' });
+  if (wd?.employees)           stats.push({ v: Number(wd.employees).toLocaleString(),  l: 'Employees', cls: '' });
+  if (wd?.inception)           stats.push({ v: String(wd.inception).slice(0,4),        l: 'Founded', cls: '' });
+  if (org) {
+    const eu = fmtEur(org.total_eu_contribution);
+    if (eu) stats.push({ v: eu, l: 'EU Contribution', cls: 'edf-stat' });
+    if (org.project_count > 0)     stats.push({ v: org.project_count,     l: 'EDF Projects',     cls: 'edf-stat', anchor: 'cs-edf-card' });
+    if (org.call_count > 0)        stats.push({ v: org.call_count,         l: 'EDF Calls',         cls: 'edf-stat' });
+    if (org.coordinator_count > 0) stats.push({ v: org.coordinator_count,  l: 'Coordinated',       cls: 'edf-stat' });
+  }
+  if (e) {
+    const rels = REL_MAP[e.id] || [];
+    const asTarget   = rels.filter(r => r.role === 'target');
+    const asInvestor = rels.filter(r => r.role === 'investor');
+    if (asTarget.length)   stats.push({ v: asTarget.length,   l: 'Investors',  cls: '', anchor: 'cs-rel-card' });
+    if (asInvestor.length) stats.push({ v: asInvestor.length, l: 'Portfolio',  cls: '', anchor: 'cs-rel-card' });
+  }
+  document.getElementById('cs-stats').innerHTML = stats.map(s =>
+    `<div class="cs-stat${s.cls ? ' '+s.cls : ''}${s.anchor ? ' cs-stat--link' : ''}" ${s.anchor ? `data-anchor="${s.anchor}"` : ''}>
+      <div class="cs-stat-val">${s.v ?? '—'}</div>
+      <div class="cs-stat-lbl">${s.l}</div>
+    </div>`
+  ).join('');
+  document.getElementById('cs-stats').querySelectorAll('.cs-stat--link').forEach(el => {
+    el.addEventListener('click', () => {
+      document.getElementById(el.dataset.anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── EDF section
+  renderEdfSection(item);
+
+  // ── DB details
+  renderDbSection(item);
+
+  // ── Relationships
+  renderRelSection(item);
+
+  // ── Change history
+  renderHistSection(item);
+
+  // ── Right column (source blocks)
+  renderSources(item);
+}
+
+// ── EDF section ───────────────────────────────────────────────────────────────
+function renderEdfSection(item) {
+  const card = document.getElementById('cs-edf-card');
+  const body = document.getElementById('cs-edf-body');
+  const countEl = document.getElementById('cs-edf-count');
+
+  if (!item.edfOrg) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+
+  const org = item.edfOrg;
+
+  let html = '';
+
+  // Org identity block
+  html += `<div class="edf-identity-block">`;
+  if (org.organization_name !== item.name)
+    html += row('Legal name', esc(org.organization_name));
+  html += row('Country', esc(org.country) + (org.city ? ` — ${esc(org.city)}` : ''));
+  html += row('Activity type', esc(org.activity_type));
+  html += row('Org type', esc(org.type_code));
+  html += `</div>`;
+
+  // Projects — lazy load
+  const projCount = org.project_count || 0;
+  countEl.textContent = `${projCount} project${projCount !== 1 ? 's' : ''}`;
+
+  if (projCount > 0) {
+    html += `<div id="edf-proj-list">
+      <button class="edf-load-btn" id="edf-load-btn" data-pic="${esc(org.pic)}">
+        Load ${projCount} project${projCount !== 1 ? 's' : ''} ↓
+      </button>
+    </div>`;
+  } else {
+    html += `<div class="cs-na">No funded projects in this dataset.</div>`;
+  }
+
+  body.innerHTML = html;
+
+  document.getElementById('edf-load-btn')?.addEventListener('click', async () => {
+    const btn = document.getElementById('edf-load-btn');
+    btn.textContent = 'Loading…';
+    btn.disabled = true;
+    try {
+      await loadEdf();
+      renderEdfProjects(org.pic);
+    } catch (err) {
+      document.getElementById('edf-proj-list').innerHTML =
+        `<div class="cs-na">Failed to load project data.</div>`;
+    }
+  });
+}
+
+function renderEdfProjects(pic) {
+  const listEl = document.getElementById('edf-proj-list');
+  if (!listEl || !EDF) return;
+
+  const found = [];
+  for (const [callId, call] of Object.entries(EDF.calls)) {
+    for (const proj of (call.projects || [])) {
+      const participation = (proj.participants || []).find(p => String(p.pic) === String(pic));
+      if (participation) {
+        found.push({ call, proj, participation });
+      }
+    }
+  }
+
+  if (!found.length) {
+    listEl.innerHTML = `<div class="cs-na">No projects found for this PIC.</div>`;
+    return;
+  }
+
+  let html = `<ul class="edf-projects">`;
+  for (let i = 0; i < found.length; i++) {
+    const { call, proj, participation } = found[i];
+    const eu       = fmtEur(participation.eu_contribution);
+    const role     = participation.role || '';
+    const start    = (proj.start_date || '').slice(0,10);
+    const end      = (proj.end_date   || '').slice(0,10);
+    const totalEu  = fmtEur(proj.eu_contribution);
+    const partCount = (proj.participants || []).length;
+    html += `<li class="edf-proj-item">
+      <div class="edf-proj-title">
+        ${proj.acronym ? `<strong>${esc(proj.acronym)}</strong> — ` : ''}${esc(proj.title)}
+      </div>
+      ${proj.objective ? `<div class="edf-proj-desc">${esc(proj.objective)}</div>` : ''}
+      <div class="edf-proj-meta">
+        <span>${esc(call.identifier)}</span>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${eu ? `<span>org share: <span class="edf-contrib">${eu}</span></span>` : ''}
+        ${totalEu ? `<span>project total: ${esc(totalEu)}</span>` : ''}
+        ${start ? `<span>${start}${end ? ' → '+end : ''}</span>` : ''}
+        ${proj.url ? `<a href="${esc(proj.url)}" target="_blank" class="edf-proj-link">EU Portal ↗</a>` : ''}
+      </div>
+      ${partCount > 0 ? `<button class="edf-load-btn" data-proj-idx="${i}">Load ${partCount} participant${partCount !== 1 ? 's' : ''}</button>` : ''}
+      <ul class="edf-participants" id="edf-parts-${i}"></ul>
+    </li>`;
+  }
+  html += `</ul>`;
+  listEl.innerHTML = html;
+
+  // Bind participant load/toggle buttons
+  listEl.querySelectorAll('[data-proj-idx]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.projIdx);
+      const { proj } = found[idx];
+      const partsEl = document.getElementById(`edf-parts-${idx}`);
+      if (partsEl.classList.contains('open')) {
+        partsEl.classList.remove('open');
+        partsEl.innerHTML = '';
+        btn.textContent = `Load ${(proj.participants||[]).length} participant${(proj.participants||[]).length !== 1 ? 's' : ''}`;
+        return;
+      }
+      renderProjectParticipants(partsEl, proj.participants || []);
+      partsEl.classList.add('open');
+      btn.textContent = 'Hide participants';
+    });
+  });
+}
+
+function renderProjectParticipants(partsEl, participants) {
+  let html = '';
+  for (const p of participants) {
+    const eu = fmtEur(p.eu_contribution);
+    const role = p.role || '';
+    html += `<li class="edf-participant-item">
+      <button class="edf-participant-btn" data-pic="${esc(String(p.pic || ''))}">${esc(p.organization_name)}</button>
+      ${role ? `<span class="edf-proj-role ${role.toLowerCase()}">${esc(role)}</span>` : ''}
+      ${p.country ? `<span class="edf-participant-country">${esc(p.country)}</span>` : ''}
+      ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+    </li>`;
+  }
+  partsEl.innerHTML = html;
+
+  partsEl.querySelectorAll('.edf-participant-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = PIC_MAP[btn.dataset.pic];
+      if (item) selectItem(item);
+    });
+  });
+}
+
+// ── DB section ────────────────────────────────────────────────────────────────
+function renderDbSection(item) {
+  const card = document.getElementById('cs-db-card');
+  const body = document.getElementById('cs-db-body');
+  if (!item.dbEntity) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+
+  const e   = item.dbEntity;
+  const inf = e.sources?.infonodes;
+  const cb  = e.sources?.crunchbase;
+  const wd  = e.sources?.wikidata;
+
+  let html = '';
+  const country = inf?.country || wd?.country || cb?.headquarters;
+  if (country)          html += row('Country', esc(inf?.country || wd?.country));
+  if (inf?.main_focus)  html += row('Focus', esc(inf.main_focus));
+  if (wd?.isin)         html += row('ISIN', `<code>${esc(wd.isin)}</code>`);
+  if (inf?.tax_id)      html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
+  if (wd?.inception)    html += row('Founded', esc(String(wd.inception).slice(0,4)));
+  if (wd?.headquarters) html += row('HQ', esc(wd.headquarters));
+  if (cb?.headquarters && cb.headquarters !== wd?.headquarters)
+    html += row('HQ (CB)', esc(cb.headquarters));
+  if (e.roles?.length)  html += row('Roles', e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join(' '));
+  if (e.tags?.length)   html += row('Tags', e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join(' '));
+
+  body.innerHTML = html || '<div class="cs-na">No additional details.</div>';
+}
+
+// ── Relationships section ─────────────────────────────────────────────────────
+function renderRelSection(item) {
+  const card    = document.getElementById('cs-rel-card');
+  const body    = document.getElementById('cs-rel-body');
+  const countEl = document.getElementById('cs-rel-count');
+  if (!item.dbEntity) { card.style.display = 'none'; return; }
+
+  const rels       = REL_MAP[item.dbEntity.id] || [];
+  const asInvestor = rels.filter(r => r.role === 'investor');
+  const asTarget   = rels.filter(r => r.role === 'target');
+  if (!rels.length) { card.style.display = 'none'; return; }
+
+  card.style.display = 'block';
+  countEl.textContent = `${rels.length}`;
+
+  let html = '';
+  function relList(label, items) {
+    if (!items.length) return;
+    html += `<div class="cs-rel-group-lbl">${label} (${items.length})</div>`;
+    html += `<ul class="cs-elist">`;
+    for (const { rel, other } of items.slice(0, 30)) {
+      const name    = other?.name || '—';
+      const country = other?.sources?.infonodes?.country || other?.sources?.wikidata?.country || '';
+      html += `<li>
+        <div class="cs-elist-item-main">
+          <span class="cs-elist-name">${esc(name)}</span>
+          <div class="cs-elist-meta">${other ? esc(other.id) : ''} ${rel.details?.lead ? '· lead' : ''}</div>
+        </div>
+        ${country ? `<span class="cs-elist-country">${esc(country)}</span>` : ''}
+      </li>`;
+    }
+    if (items.length > 30)
+      html += `<li class="cs-list-more">… and ${items.length - 30} more</li>`;
+    html += `</ul>`;
+  }
+  relList('As investor →', asInvestor);
+  relList('← Investors', asTarget);
+
+  body.innerHTML = html;
+}
+
+// ── Change history section ────────────────────────────────────────────────────
+function renderHistSection(item) {
+  const card    = document.getElementById('cs-hist-card');
+  const body    = document.getElementById('cs-hist-body');
+  const countEl = document.getElementById('cs-hist-count');
+  const hist    = item.dbEntity?.history;
+  if (!hist?.length) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+  countEl.textContent = hist.length;
+
+  const entries = [...hist].reverse(); // newest first
+  let html = `<ol class="hist-list">`;
+  for (const h of entries) {
+    html += `<li class="hist-item">
+      <div class="hist-meta">
+        <span class="hist-date">${esc(h.date)}</span>
+        ${h.field && h.field !== '*' ? `<span class="hist-field">${esc(h.field)}</span>` : ''}
+        <span class="hist-source">${esc(h.source || '')}</span>
+      </div>
+      <div class="hist-desc">${esc(h.description || '')}</div>
+      ${(h.old != null || h.new != null) ? `<div class="hist-diff">${h.old != null ? `<span class="hist-old">${esc(String(h.old))}</span> → ` : ''}${h.new != null ? `<span class="hist-new">${esc(String(h.new))}</span>` : ''}</div>` : ''}
+    </li>`;
+  }
+  html += `</ol>`;
+  body.innerHTML = html;
+}
+
+// ── Source blocks (right column) ─────────────────────────────────────────────
+function renderSources(item) {
+  const right = document.getElementById('cs-right');
+  let html = '';
+
+  const e   = item.dbEntity;
+  const org = item.edfOrg;
+
+  // EDF source block
+  if (org) {
+    html += `<div class="cs-src-block cs-edf-block">
+      <div class="cs-src-hdr">EDF / EU Funding</div>`;
+    const euFmt = fmtEur(org.total_eu_contribution);
+    if (euFmt) html += row('EU contribution', `<span class="edf-contrib">${euFmt}</span>`);
+    if (org.project_count)     html += row('Projects', String(org.project_count));
+    if (org.call_count)        html += row('Calls', String(org.call_count));
+    if (org.coordinator_count) html += row('Coordinated', String(org.coordinator_count));
+    html += row('Match', `${esc(org.match_method || '—')} / ${esc(org.match_confidence || '—')}`);
+    html += `<div class="cs-src-ts">Generated: ${esc(ORGS._generated_at?.slice(0,10) || '—')}</div>
+    </div>`;
+  }
+
+  // Crunchbase block
+  const cb = e?.sources?.crunchbase;
+  if (cb?.extracted_at) {
+    html += `<div class="cs-src-block cs-cb-block">
+      <div class="cs-src-hdr">Crunchbase</div>`;
+    if (cb.stage)          html += row('Stage', esc(cb.stage));
+    if (cb.revenue_range)  html += row('Revenue', esc(cb.revenue_range));
+    if (cb.primary_industry) html += row('Industry', esc(cb.primary_industry));
+    if (cb.total_funding_usd) html += row('Funding', esc(fmtFunding(cb.total_funding_usd) || '—'));
+    if (cb.cb_rank)        html += row('CB Rank', `#${cb.cb_rank}`);
+    html += `<div class="cs-src-ts">Extracted: ${esc(cb.extracted_at || '—')}</div>
+    </div>`;
+  }
+
+  // Wikidata block
+  const wd = e?.sources?.wikidata;
+  if (wd?.retrieved_at) {
+    html += `<div class="cs-src-block cs-wd-block">
+      <div class="cs-src-hdr">Wikidata</div>`;
+    if (wd.description) html += `<div class="cs-src-desc">${esc(wd.description)}</div>`;
+    if (wd.country)     html += row('Country', esc(wd.country));
+    if (wd.isin)        html += row('ISIN', `<code>${esc(wd.isin)}</code>`);
+    if (wd.employees)   html += row('Employees', Number(wd.employees).toLocaleString());
+    if (wd.instance_of) html += row('Instance of', (Array.isArray(wd.instance_of) ? wd.instance_of : [wd.instance_of]).map(v => esc(v)).join(', '));
+    html += `<div class="cs-src-ts">Retrieved: ${esc(wd.retrieved_at || '—')}</div>
+    </div>`;
+  }
+
+  // Infonodes block
+  const inf = e?.sources?.infonodes;
+  if (inf?.extracted_at) {
+    html += `<div class="cs-src-block cs-inf-block">
+      <div class="cs-src-hdr">Infonodes</div>`;
+    if (inf.main_focus) html += `<div class="cs-src-desc">${esc(inf.main_focus)}</div>`;
+    if (inf.country)    html += row('Country', esc(inf.country));
+    if (inf.tax_id)     html += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
+    html += `<div class="cs-src-ts">Extracted: ${esc(inf.extracted_at || '—')}</div>
+    </div>`;
+  }
+
+  right.innerHTML = html || '<div class="cs-na">No source metadata.</div>';
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    await loadData();
+    buildRegistry();
+
+    document.getElementById('cs-loading').style.display = 'none';
+    document.getElementById('cs-hero').style.display = '';
+
+    searchEl = document.getElementById('cs-search');
+    acEl     = document.getElementById('cs-ac');
+
+    // Clear (×) button
+    const clearBtn = document.getElementById('cs-clear');
+    searchEl.addEventListener('input', () => {
+      clearBtn.style.display = searchEl.value ? '' : 'none';
+    });
+    clearBtn.addEventListener('click', () => {
+      if (currentItem) {
+        clearSelection();
+      } else {
+        searchEl.value = '';
+        clearBtn.style.display = 'none';
+        closeAc();
+        searchEl.focus();
+        renderSuggestions();
+      }
+    });
+
+    // Search input events
+    searchEl.addEventListener('input', () => renderAc(searchEl.value));
+    searchEl.addEventListener('focus', () => {
+      if (!searchEl.value) renderSuggestions();
+    });
+    searchEl.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown')  { e.preventDefault(); moveAcKbd(1); }
+      if (e.key === 'ArrowUp')    { e.preventDefault(); moveAcKbd(-1); }
+      if (e.key === 'Enter') {
+        if (acKbd >= 0 && acList[acKbd]) selectItem(acList[acKbd]);
+        else closeAc();
+      }
+      if (e.key === 'Escape') closeAc();
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.cs-search-wrap')) closeAc();
+    });
+
+    // Back button
+    document.getElementById('cs-back').addEventListener('click', clearSelection);
+
+    // Filter pills
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        if (searchEl.value) renderAc(searchEl.value);
+        else renderSuggestions();
+      });
+    });
+
+    // Stats summary in title
+    const total   = REGISTRY.length;
+    const merged  = REGISTRY.filter(r => r.kind === 'merged').length;
+    const dbOnly  = REGISTRY.filter(r => r.kind === 'db-only').length;
+    const edfOnly = REGISTRY.filter(r => r.kind === 'edf-only').length;
+    document.querySelector('.cs-hero-prompt').textContent =
+      `${total} orgs · ${merged} DB+EDF · ${dbOnly} DB only · ${edfOnly} EDF only`;
+
+  } catch (err) {
+    document.getElementById('cs-loading').innerHTML =
+      `<div class="cs-error">Error loading data: ${esc(String(err))}</div>`;
+    console.error(err);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
