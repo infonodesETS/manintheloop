@@ -128,7 +128,7 @@ python3 scripts/validate.py
 ### Crunchbase enrichment pipeline (Phase 2 — not yet started)
 
 ```bash
-# Input: data/companies_export.csv (1149 rows: name + website)
+# Input: data/crunchbase_sandbox/companies_export.csv (1149 rows: name + website)
 # Upload to Crunchbase bulk enrichment tool, receive enriched CSV
 
 # Step 1 — Import enriched CSV (script not yet written)
@@ -140,7 +140,7 @@ python3 scripts/import_crunchbase_csv.py <crunchbase_output.csv> [--dry-run]
 
 # Step 2 — Regenerate export CSV after any DB update
 #    Reads: data/database.json
-#    Writes: data/companies_export.csv
+#    Writes: data/crunchbase_sandbox/companies_export.csv
 python3 scripts/regenerate_export.py   # (not yet written — generate on demand)
 
 # Validate
@@ -148,6 +148,8 @@ python3 scripts/validate.py
 ```
 
 ### Regenerate companies_export.csv (manual one-liner if no script)
+
+> Output path is now `data/crunchbase_sandbox/companies_export.csv`.
 
 ```python
 import json, csv
@@ -159,7 +161,7 @@ for e in db['entities']:
     website = (src.get('crunchbase') or {}).get('website') or (src.get('infonodes') or {}).get('website') or ''
     rows.append({'name': e['name'], 'website': website})
 rows.sort(key=lambda r: r['name'])
-with open('data/companies_export.csv', 'w', newline='') as f:
+with open('data/crunchbase_sandbox/companies_export.csv', 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=['name', 'website']); w.writeheader(); w.writerows(rows)
 ```
 
@@ -219,7 +221,9 @@ refactoringDB/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
-│   └── companies_export.csv   ← STALE — needs regeneration
+│   └── crunchbase_sandbox/
+│       ├── companies_export.csv      ← full export (1149 rows: name + website)
+│       └── companies_export_999.csv  ← 999 rows with website (Crunchbase batch 1)
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
 │   ├── ishares_metals_mining_gics151040.csv
@@ -285,7 +289,7 @@ refactoringDB/
 - [x] `fetch_wikidata_websites.py`: 220 websites from Wikidata P856 → `sources.infonodes.website`
 - [x] Web research (batches): 258 additional websites via manual web search → `sources.infonodes.website`
 - [x] Final coverage: 1126 / 1149 companies (98.0%) have a website
-- [x] `companies_export.csv` regenerated with `name` + `website` columns (1149 rows)
+- [x] `data/crunchbase_sandbox/companies_export.csv` regenerated with `name` + `website` columns (1149 rows)
 
 ### QID enrichment
 - [x] Phase 1 — Wikidata Search API (`search_missing_qids.py --search`): 245 proposed
@@ -371,7 +375,7 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 ### 1. Phase 2: Crunchbase enrichment — full CSV import
 
-**Input:** `data/companies_export.csv` (1149 rows: `name` + `website`) → upload to Crunchbase bulk enrichment.
+**Input:** `data/crunchbase_sandbox/companies_export.csv` (1149 rows: `name` + `website`) → upload to Crunchbase bulk enrichment. For batch size limits use `companies_export_999.csv` (999 rows, website-only).
 
 **Expected output:** Crunchbase returns a CSV with fields per company — funding, board members, description, HQ, etc.
 
