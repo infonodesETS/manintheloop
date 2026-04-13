@@ -114,26 +114,43 @@ If a company appears in only one ETF, the array has one element. If it appears i
 
 ### `sources.crunchbase`
 
-`null` at initial import. Populated in Phase 2.
+`null` at initial import. Populated by `scripts/import_crunchbase_csv.py`.
+
+Script-managed — do not edit manually. Re-run the import script to refresh.
 
 ```json
 {
   "extracted_at": "YYYY-MM-DD",
+  "source_file": "crunchbase-export-YYYY-MM-DD.csv",
   "profile_url": "https://www.crunchbase.com/organization/...",
   "stage": "",
-  "description": "...",
-  "headquarters": "...",
-  "website": "...",
+  "description": "Short description from Crunchbase",
+  "description_full": "Full description (may be null)",
+  "website": "https://...",
   "cb_rank": null,
-  "revenue_range": null,
-  "total_funding_usd": null,
-  "total_funding_native": null,
-  "founders": [],
-  "industries": [],
-  "industry_groups": [],
-  "primary_industry": null,
-  "primary_industry_url": null,
+  "headquarters": "City, State, Country",
+  "headquarters_regions": "Region1, Region2",
+  "operating_status": "Active",
+  "founded_date": "YYYY-MM-DD",
+  "company_type": "For Profit",
+  "investment_stage": null,
   "investor_type": "",
+  "primary_industry": "Industry name",
+  "primary_industry_url": "https://www.crunchbase.com/...",
+  "industry_groups": ["Group1", "Group2"],
+  "industries": ["Industry1", "Industry2"],
+  "founders": ["Name1", "Name2"],
+  "num_funding_rounds": null,
+  "funding_status": null,
+  "last_funding_date": "YYYY-MM-DD",
+  "last_funding_amount_usd": null,
+  "last_funding_type": null,
+  "total_equity_funding_usd": null,
+  "total_funding_usd": null,
+  "total_funding_native": {"amount": 0, "currency": "USD"},
+  "top_investors": ["Investor1", "Investor2"],
+  "num_investors": null,
+  "revenue_range": null,
   "patents_granted": null,
   "domain": null,
   "acquired_by": null,
@@ -141,6 +158,45 @@ If a company appears in only one ETF, the array has one element. If it appears i
   "board": []
 }
 ```
+
+| Field | Source | Notes |
+|---|---|---|
+| `extracted_at` | import script | Date of this import run |
+| `source_file` | import script | Filename of the CB export used — provenance |
+| `profile_url` | `Organization Name URL` | |
+| `stage` | `Stage` | |
+| `description` | `Description` | Short |
+| `description_full` | `Full Description` | Long form |
+| `website` | `Website` | |
+| `cb_rank` | `CB Rank (Company)` | int |
+| `headquarters` | `Headquarters Location` | City, State, Country |
+| `headquarters_regions` | `Headquarters Regions` | |
+| `operating_status` | `Operating Status` | |
+| `founded_date` | `Founded Date` | YYYY-MM-DD |
+| `company_type` | `Company Type` | |
+| `investment_stage` | `Investment Stage` | |
+| `investor_type` | `Investor Type` | |
+| `primary_industry` | `Primary Industry` | |
+| `primary_industry_url` | `Primary Industry URL` | |
+| `industry_groups` | `Industry Groups` | list |
+| `industries` | `Industries` | list |
+| `founders` | `Founders` | list |
+| `num_funding_rounds` | `Number of Funding Rounds` | int |
+| `funding_status` | `Funding Status` | |
+| `last_funding_date` | `Last Funding Date` | |
+| `last_funding_amount_usd` | `Last Funding Amount (in USD)` | int |
+| `last_funding_type` | `Last Funding Type` | |
+| `total_equity_funding_usd` | `Total Equity Funding Amount (in USD)` | int |
+| `total_funding_usd` | `Total Funding Amount (in USD)` | int |
+| `total_funding_native` | `Total Funding Amount` + currency | `{amount, currency}` |
+| `top_investors` | `Top 5 Investors` | list |
+| `num_investors` | `Number of Investors` | int |
+| `revenue_range` | — | Not in bulk export; preserved if set manually |
+| `patents_granted` | — | Not in bulk export |
+| `domain` | — | Not in bulk export |
+| `acquired_by` | — | Not in bulk export |
+| `acquired_by_url` | — | Not in bulk export |
+| `board` | — | Not in bulk export; populated separately |
 
 ### `sources.infonodes`
 

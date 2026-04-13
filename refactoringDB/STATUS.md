@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (crunchbase_sandbox organised — matches.csv (812 rows) ready for Crunchbase upload)
+> Last updated: 2026-04-13 (Crunchbase dry-run complete — 703/724 matched, 21 unresolved documented in CRUNCHBASE.md)
 
 ## Session protocol
 
@@ -125,54 +125,38 @@ python3 scripts/search_missing_qids.py --apply
 python3 scripts/validate.py
 ```
 
-### Crunchbase enrichment pipeline (Phase 2 — upload ready)
+### Crunchbase enrichment pipeline
+
+> **Full process documentation:** `data/crunchbase_sandbox/CRUNCHBASE.md`
 
 ```
 data/crunchbase_sandbox/
-  companies_export.csv   ← full list (1149 rows: name + website)
-  matches.csv            ← 812 rows — UPLOAD THIS to Crunchbase bulk enrichment
-  non_matches.csv        ← 337 rows — excluded (Crunchbase could not match these)
+  companies_export.csv                        ← full list (1149 rows: name + website)
+  matches.csv                                 ← 812 rows — uploaded to Crunchbase (Cycle 1)
+  non_matches.csv                             ← 337 rows — Crunchbase could not match
+  crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows returned by Crunchbase (Cycle 1)
+  unresolved_2026-04-13.csv                   ← 21 rows CB returned but not matched to DB
+  CRUNCHBASE.md                               ← process + reconciliation log
 ```
 
-**Upload step (manual):**
-1. Go to Crunchbase bulk enrichment tool
-2. Upload `data/crunchbase_sandbox/matches.csv`
-3. Download enriched CSV → save to `data/crunchbase_sandbox/`
-
 ```bash
-# Step 1 — Import enriched CSV (script not yet written)
-#    Reads: <crunchbase_output.csv>, data/database.json
-#    Writes: data/database.json (sources.crunchbase + history[] + validation[])
-#            PER-NNNN entities for board members
-#            REL-NNNN relationships of type board_membership
-python3 scripts/import_crunchbase_csv.py <crunchbase_output.csv> [--dry-run]
+# Regenerate export (run at start of each new cycle)
+python3 scripts/regenerate_export.py
 
-# Step 2 — Regenerate export CSV after any DB update
-#    Reads: data/database.json
-#    Writes: data/crunchbase_sandbox/companies_export.csv
-python3 scripts/regenerate_export.py   # (not yet written — generate on demand)
+# Import (dry-run first — always)
+python3 scripts/import_crunchbase_csv.py \
+    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv \
+    --dry-run
+
+# Apply
+python3 scripts/import_crunchbase_csv.py \
+    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv
 
 # Validate
 python3 scripts/validate.py
 ```
 
-### Regenerate companies_export.csv (manual one-liner if no script)
-
-> Output path is now `data/crunchbase_sandbox/companies_export.csv`.
-
-```python
-import json, csv
-db = json.load(open('data/database.json'))
-rows = []
-for e in db['entities']:
-    if e.get('type') != 'company': continue
-    src = e.get('sources', {})
-    website = (src.get('crunchbase') or {}).get('website') or (src.get('infonodes') or {}).get('website') or ''
-    rows.append({'name': e['name'], 'website': website})
-rows.sort(key=lambda r: r['name'])
-with open('data/crunchbase_sandbox/companies_export.csv', 'w', newline='') as f:
-    w = csv.DictWriter(f, fieldnames=['name', 'website']); w.writeheader(); w.writerows(rows)
-```
+**Cycle 1 state (2026-04-13):** dry-run completed — 703/724 matched, 21 unresolved. Real import **not yet run**. See `data/crunchbase_sandbox/CRUNCHBASE.md` for full reconciliation details and unresolved entity list.
 
 ### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
@@ -194,6 +178,7 @@ with open('data/crunchbase_sandbox/companies_export.csv', 'w', newline='') as f:
 | `docs/SCHEMA.md` | Full schema v3.0 spec: entity types, ID prefixes, sources blocks, relationship types, history/validation format |
 | `docs/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
 | `docs/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
+| `data/crunchbase_sandbox/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
 
 ---
 
@@ -231,9 +216,12 @@ refactoringDB/
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
 │   └── crunchbase_sandbox/
+│       ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
 │       ├── companies_export.csv  ← full export (1149 rows: name + website)
-│       ├── matches.csv           ← 812 rows — upload to Crunchbase bulk enrichment
-│       └── non_matches.csv       ← 337 rows — excluded from Crunchbase upload
+│       ├── matches.csv           ← 812 rows uploaded to Crunchbase (Cycle 1)
+│       ├── non_matches.csv       ← 337 rows excluded from Crunchbase upload
+│       ├── crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows from Crunchbase (Cycle 1)
+│       └── unresolved_2026-04-13.csv ← 21 CB rows not matched to DB entity
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
 │   ├── ishares_metals_mining_gics151040.csv
@@ -248,6 +236,8 @@ refactoringDB/
 │   ├── search_missing_qids.py ← QID Phase 1 (Wikidata API) + --apply
 │   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
 │   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
+│   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
+│   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -365,6 +355,9 @@ refactoringDB/
 - [x] `scripts/reprocess_skipped_qids.py` — 4-phase QID second-pass recovery script
 - [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
 - [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
+- [x] `scripts/import_crunchbase_csv.py` — Crunchbase import (4-tier matching, field-level diff, re-run safe)
+- [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
+- [x] `data/crunchbase_sandbox/CRUNCHBASE.md` — Crunchbase process + reconciliation log
 
 ---
 
@@ -383,22 +376,24 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 - **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
 - **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
 
-### 1. Phase 2: Crunchbase enrichment — full CSV import
+### 1. Phase 2: Crunchbase enrichment — run the real import
 
-**Status:** `matches.csv` (812 rows) ready for upload. Awaiting enriched CSV back from Crunchbase.
+**Status:** Dry-run complete. 703/724 matched. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
 
-**Input:** `data/crunchbase_sandbox/matches.csv` (812 rows: `name` + `website`) → upload to Crunchbase bulk enrichment.
+**Next step:** Run the real import when ready:
 
-**Expected output:** Crunchbase returns a CSV with fields per company — funding, board members, description, HQ, etc. Save to `data/crunchbase_sandbox/`.
+```bash
+python3 scripts/import_crunchbase_csv.py \
+    data/crunchbase_sandbox/crunchbase-export-matches-csv-4-13-2026.csv
+python3 scripts/validate.py
+git add data/database.json data/crunchbase_sandbox/
+git commit -m "data: enrich crunchbase — 703 entities updated (2026-04-13)"
+```
 
-**Import steps:**
-1. Write `scripts/import_crunchbase_csv.py` to parse the returned CSV
-2. Map fields → `sources.crunchbase` block per entity (by name/website match)
-3. For each enriched entity: append `history[]` per field + `validation[]` entry `status: "crunchbase_enriched"`
-4. Extract board members → create **PER-NNNN** entities + **REL-NNNN** `board_membership` relationships
-5. Validate and commit
-
-- Follow `docs/UPDATE_PROTOCOL.md` — "Adding a new person (PER entity)" and "Updating an existing entity field"
+**21 unresolved entities:** See `data/crunchbase_sandbox/CRUNCHBASE.md` — categorised as:
+- Category A (11): linkable but name too short/different for automatic matching — manual alias needed
+- Category B (3): wrong CB match (CB matched a different company) — do not import
+- Category C (7): genuine mismatches or entities not in DB — skip
 
 ### 3. Phase 3: Investment graph migration from old DB
 - Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
