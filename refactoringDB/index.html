@@ -643,11 +643,10 @@ function renderAc(raw) {
       if (e?.sector)     badge = sectorBadge(e.sector);
       else if (e?.type)  badge = typeBadge(e.type);
       html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
-        ${srcBadge(item.kind)}
-        ${badge}
         <span class="cs-ac-name">${highlight(item.name, raw)}</span>
         ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
         ${sourceFlagsHtml(item, true)}
+        ${badge}
         ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
         ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
       </div>`;
@@ -689,10 +688,10 @@ function renderSuggestions() {
       if (e?.sector) badge = sectorBadge(e.sector);
       else if (e?.type) badge = typeBadge(e.type);
       html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
-        ${srcBadge(item.kind)}${badge}
         <span class="cs-ac-name">${esc(item.name)}</span>
         ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
         ${sourceFlagsHtml(item, true)}
+        ${badge}
       </div>`;
       acList.push(item);
     }
