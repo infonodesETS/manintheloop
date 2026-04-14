@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-14 (investor graph complete — 723 IV-NNNN entities + 1042 REL-NNNN from CB CSV; investor search + portfolio profile live in UI)
+> Last updated: 2026-04-14 (CB match audit — 44 bad Crunchbase matches removed; 687 entities remain with sources.crunchbase)
 
 ## Session protocol
 
@@ -272,7 +272,7 @@ refactoringDB/
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | 731 (Cycle 1 real import 2026-04-14) |
+| Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-14) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
@@ -364,6 +364,16 @@ refactoringDB/
 - [x] Re-run safe: skips existing IV by normalised name, skips existing REL by source+target pair
 - [x] `validate.py` PASSED (2079 entities, 1042 relationships)
 
+### Crunchbase match audit (2026-04-14)
+- [x] Discovered wrong CB match for IN-0032 Apple (matched to Apple Apaman, Japanese rental brokerage) — `sources.crunchbase` removed manually
+- [x] Domain-mismatch audit: compared `sources.crunchbase.website` against `sources.infonodes.website` / `sources.wikidata.website` for all 731 CB-enriched entities
+- [x] 144 domain mismatches found; classified into: confirmed bad (country mismatch), description contradiction, ambiguous/same-entity-different-domain
+- [x] **44 bad matches removed** via two-pass audit:
+  - 18 by country mismatch (CB HQ country contradicts known wikidata country — e.g. PLS AU→TX, Naval FR→BR, Delta Electronics TW→MA, Baltic Workboats EE→FL)
+  - 26 by CB description contradiction keywords (DeFi/blockchain, clothing/crochet, sports club, toner cartridge, digital marketing agency, road maintenance, interior design, food marketplace, streaming service, asset management platform, community development, import/export)
+- [x] validate.py PASSED — 2079 entities, 1042 relationships
+- [x] ~100 remaining domain mismatches are ambiguous (parent/subsidiary/regional sites) — pending manual review CSV
+
 ### Web UI — `index.html` (2026-04-14)
 - [x] Organisation search UI built from `data/database.json` (adapted from refactoring/tmp/new_index.html)
 - [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
@@ -394,7 +404,16 @@ refactoringDB/
 
 ## Pending work (priority order)
 
-### 0. Data quality — resolve flagged conflicts
+### 0a. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
+
+From the 2026-04-14 audit, ~100 entities have a CB website that differs from the known website but was not auto-removed (no country mismatch, no description contradiction). These are likely parent/subsidiary/regional-domain cases but need human confirmation.
+
+- Generate review CSV: `id, name, known_website, cb_website, cb_hq, cb_description`
+- For each row: mark `ok` (same entity, different domain) or `wrong` (different company)
+- For `wrong` entries: remove `sources.crunchbase` via a patch script
+- Key ambiguous cases noted: Airbus subsidiaries (IN-0463–0467), Safran subsidiaries, Rockwell Collins→Collins Aerospace rebrand, D-Orbit rebrand, Phaxiam→Erytech rebrand, Talgen/Nortal
+
+### 0c. Data quality — resolve flagged conflicts
 
 From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation entries:
 
