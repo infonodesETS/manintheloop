@@ -628,13 +628,8 @@ function renderAc(raw) {
   acList = [];
   let html = '';
 
-  if (countryMode) {
-    html += `<div class="cs-ac-group">${scored.length} organisations · ${esc(raw)}</div>`;
-  }
-
   function renderGroup(label, items, limit) {
     if (!items.length) return;
-    html += `<div class="cs-ac-group">${label}</div>`;
     const slice = limit === Infinity ? items : items.slice(0, limit);
     for (const { item } of slice) {
       const e   = item.dbEntity;
@@ -679,7 +674,6 @@ function renderSuggestions() {
   let html = '';
   function rg(label, items) {
     if (!items.length) return;
-    html += `<div class="cs-ac-group">${label}</div>`;
     for (const item of items.slice(0,8)) {
       const e = item.dbEntity;
       const org = item.edfOrg;
