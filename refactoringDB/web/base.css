@@ -181,7 +181,7 @@ body {
   font-size: var(--fs-body);
   font-weight: 400;
   padding-top: var(--nav-h);
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* ── Navbar ── */
