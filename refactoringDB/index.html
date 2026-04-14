@@ -275,6 +275,20 @@
     /* ── Error state ── */
     .cs-error { color: var(--error, #f44); font-family: var(--font-mono); font-size: var(--fs-body); }
 
+    /* ── Investor badge ── */
+    .badge-investor { background: rgba(255,165,0,.1); border: 1px solid rgba(255,165,0,.35); color: rgba(255,165,0,.9); }
+
+    /* ── Portfolio card ── */
+    .cs-card-portfolio { border-color: rgba(255,165,0,.22); background: rgba(255,165,0,.02); }
+    .cs-card-portfolio .cs-card-hdr { color: rgba(255,165,0,.8); border-bottom-color: rgba(255,165,0,.12); }
+    .cs-portfolio-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.2); }
+    .cs-portfolio-item:last-child { border-bottom: none; }
+    .cs-portfolio-item.cs-portfolio-lead .cs-elist-item-main { border-left: 2px solid rgba(255,165,0,.5); padding-left: 8px; }
+    .cs-portfolio-btn { background: none; border: none; cursor: pointer; color: var(--text-primary); font-family: var(--font); font-size: var(--fs-body); text-align: left; padding: 0; font-weight: var(--fw-bold); }
+    .cs-portfolio-btn:hover { color: rgba(255,165,0,.9); text-decoration: underline; }
+    .cs-lead-badge { font-family: var(--font-mono); font-size: calc(var(--fs-body) * .82); padding: 1px 6px; border-radius: 3px; background: rgba(255,165,0,.12); border: 1px solid rgba(255,165,0,.35); color: rgba(255,165,0,.85); }
+    .cs-portfolio-inds { font-size: var(--fs-body); color: var(--text-faint); margin-top: 2px; }
+
     /* ── Single-column cards ── */
     #cs-cards { display: flex; flex-direction: column; gap: 0; padding: 0 20px 40px; max-width: 860px; }
     #cs-cards .cs-card { margin-bottom: 10px; }
@@ -537,27 +551,43 @@ function buildRegistry() {
     });
   }
 
-  // 2. DB-only entities (not linked to any EDF org)
+  // 2. DB-only entities (not linked to any EDF org) — exclude IV- investors
   for (const e of DB.entities) {
-    if (!seenDbIds.has(e.id)) {
-      REGISTRY.push({
-        id:       e.id,
-        name:     e.name,
-        kind:     'db-only',
-        pic:      null,
-        dbEntity: e,
-        edfOrg:   null,
-        country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
-        _key: [
-          e.name,
-          e.sources?.crunchbase?.headquarters,
-          e.sources?.infonodes?.country,
-          e.sources?.wikidata?.country,
-          ...(e.sources?.crunchbase?.industries || []),
-          ...(e.tags || []),
-        ].filter(Boolean).join(' ').toLowerCase(),
-      });
-    }
+    if (seenDbIds.has(e.id)) continue;
+    if (e.id.startsWith('IV-')) continue;
+    REGISTRY.push({
+      id:       e.id,
+      name:     e.name,
+      kind:     'db-only',
+      pic:      null,
+      dbEntity: e,
+      edfOrg:   null,
+      country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
+      _key: [
+        e.name,
+        e.sources?.crunchbase?.headquarters,
+        e.sources?.infonodes?.country,
+        e.sources?.wikidata?.country,
+        ...(e.sources?.crunchbase?.industries || []),
+        ...(e.tags || []),
+      ].filter(Boolean).join(' ').toLowerCase(),
+    });
+  }
+
+  // 3. Investor entities (IV-NNNN)
+  for (const e of DB.entities) {
+    if (!e.id.startsWith('IV-')) continue;
+    const country = e.sources?.wikidata?.country || '';
+    REGISTRY.push({
+      id:       e.id,
+      name:     e.name,
+      kind:     'investor',
+      pic:      null,
+      dbEntity: e,
+      edfOrg:   null,
+      country,
+      _key: [e.name, e.type, country, ...(e.tags || [])].filter(Boolean).join(' ').toLowerCase(),
+    });
   }
 
   // Build relationship map
@@ -589,7 +619,7 @@ let acList = [], acKbd = -1;
 function filteredRegistry() {
   if (activeFilter === 'all')    return REGISTRY;
   if (activeFilter === 'merged') return REGISTRY.filter(r => r.kind === 'merged');
-  if (activeFilter === 'db')     return REGISTRY.filter(r => r.kind === 'db-only');
+  if (activeFilter === 'db')     return REGISTRY.filter(r => r.kind === 'db-only' || r.kind === 'investor');
   if (activeFilter === 'edf')    return REGISTRY.filter(r => r.kind === 'edf-only');
   return REGISTRY;
 }
@@ -632,9 +662,10 @@ function renderAc(raw) {
   const countryMode = exactCountryMatches >= 3;
   const groupLimit  = countryMode ? Infinity : null; // null → per-kind defaults below
 
-  const merged  = scored.filter(x => x.item.kind === 'merged');
-  const dbOnly  = scored.filter(x => x.item.kind === 'db-only');
-  const edfOnly = scored.filter(x => x.item.kind === 'edf-only');
+  const merged    = scored.filter(x => x.item.kind === 'merged');
+  const dbOnly    = scored.filter(x => x.item.kind === 'db-only');
+  const edfOnly   = scored.filter(x => x.item.kind === 'edf-only');
+  const investors = scored.filter(x => x.item.kind === 'investor');
   acList = [];
   let html = '';
 
@@ -645,21 +676,31 @@ function renderAc(raw) {
       const e   = item.dbEntity;
       const org = item.edfOrg;
       let badge = '';
-      if (e?.sector)     badge = sectorBadge(e.sector);
-      else if (e?.type)  badge = typeBadge(e.type);
+      if (item.kind === 'investor') {
+        badge = `<span class="badge badge-investor">${esc(e?.type || 'investor')}</span>`;
+      } else if (e?.sector) {
+        badge = sectorBadge(e.sector);
+      } else if (e?.type) {
+        badge = typeBadge(e.type);
+      }
+      const portSize = item.kind === 'investor'
+        ? (REL_MAP[item.id] || []).filter(r => r.role === 'investor').length
+        : 0;
       html += `<div class="cs-ac-item" role="option" data-idx="${acList.length}">
         <span class="cs-ac-name">${highlight(item.name, raw)}</span>
         ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
-        ${sourceFlagsHtml(item, true)}
+        ${item.kind === 'investor' && portSize ? `<span class="cs-ac-country">${portSize} co.</span>` : ''}
+        ${item.kind !== 'investor' ? sourceFlagsHtml(item, true) : ''}
         ${badge}
       </div>`;
       acList.push(item);
     }
   }
 
-  renderGroup('DB + EDF', merged, groupLimit ?? 8);
-  renderGroup('DB only',  dbOnly,  groupLimit ?? 8);
-  renderGroup('EDF only', edfOnly, groupLimit ?? 12);
+  renderGroup('DB + EDF', merged,    groupLimit ?? 8);
+  renderGroup('DB only',  dbOnly,    groupLimit ?? 8);
+  renderGroup('EDF only', edfOnly,   groupLimit ?? 12);
+  renderGroup('Investors', investors, groupLimit ?? 6);
 
   acEl.innerHTML = html;
   acEl.classList.add('open');
@@ -673,11 +714,11 @@ function renderAc(raw) {
 }
 
 function renderSuggestions() {
-  const pool = filteredRegistry();
+  const pool = filteredRegistry().filter(r => r.kind !== 'investor');
   const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 24);
   acList = [];
   const groups = { merged: [], 'db-only': [], 'edf-only': [] };
-  for (const item of shuffled) groups[item.kind].push(item);
+  for (const item of shuffled) groups[item.kind]?.push(item);
 
   let html = '';
   function rg(label, items) {
@@ -752,6 +793,8 @@ function clearSelection() {
 
 // ── Render profile ────────────────────────────────────────────────────────────
 function renderProfile(item) {
+  if (item.kind === 'investor') { renderInvestorProfile(item); return; }
+
   const profile = document.getElementById('cs-profile');
   profile.classList.remove('visible');
   void profile.offsetWidth;
@@ -840,6 +883,117 @@ function renderProfile(item) {
   renderCards(item);
 }
 
+// ── Investor profile ──────────────────────────────────────────────────────────
+function renderInvestorProfile(item) {
+  const profile = document.getElementById('cs-profile');
+  profile.classList.remove('visible');
+  void profile.offsetWidth;
+  profile.classList.add('visible');
+
+  const e = item.dbEntity;
+  const wd = e?.sources?.wikidata;
+
+  // Header
+  document.getElementById('cs-logo').textContent = initials(item.name);
+  document.getElementById('cs-name').textContent  = item.name;
+  document.getElementById('cs-desc').textContent  = wd?.description || '';
+  document.getElementById('cs-desc').style.display = wd?.description ? '' : 'none';
+  document.getElementById('cs-eu-status').innerHTML = '';
+
+  let badges = typeBadge(e?.type || 'fund');
+  if (e?.id) badges += `<span class="cs-hdr-id">${esc(e.id)}</span>`;
+  document.getElementById('cs-badges').innerHTML  = badges;
+  document.getElementById('cs-src-flags').innerHTML = '';
+
+  // External links
+  let links = '';
+  if (wd?.wikipedia_url) links += `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`;
+  if (e?.wikidata_id)    links += `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`;
+  if (wd?.official_website) links += `<a class="cs-ext-link" href="${esc(wd.official_website)}" target="_blank">${esc(wd.official_website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
+  document.getElementById('cs-links').innerHTML = links;
+
+  // Stat bar
+  const portfolio = (REL_MAP[e?.id] || []).filter(r => r.role === 'investor');
+  const leads     = portfolio.filter(r => r.rel.details?.lead);
+  const stats = [
+    { v: portfolio.length, l: 'Portfolio',   cls: '' },
+    { v: leads.length,     l: 'Lead rounds', cls: '' },
+  ];
+  if (wd?.inception)  stats.push({ v: String(wd.inception).slice(0,4), l: 'Founded', cls: '' });
+  if (wd?.employees)  stats.push({ v: Number(wd.employees).toLocaleString(), l: 'Employees', cls: '' });
+  if (wd?.country)    stats.push({ v: wd.country, l: 'Country', cls: '' });
+  document.getElementById('cs-stats').innerHTML = stats.map(s =>
+    `<div class="cs-stat${s.cls ? ' '+s.cls : ''}">
+      <div class="cs-stat-val">${esc(String(s.v))}</div>
+      <div class="cs-stat-lbl">${s.l}</div>
+    </div>`
+  ).join('');
+
+  // Cards: portfolio + wikidata + history + validation
+  const cards = [];
+
+  // Portfolio card
+  if (portfolio.length) {
+    let h = `<ul class="cs-elist">`;
+    const sorted = [...portfolio].sort((a, b) => {
+      // leads first, then by company name
+      const aLead = a.rel.details?.lead ? 1 : 0;
+      const bLead = b.rel.details?.lead ? 1 : 0;
+      if (bLead !== aLead) return bLead - aLead;
+      return (a.other?.name || '').localeCompare(b.other?.name || '');
+    });
+    for (const { rel, other } of sorted) {
+      if (!other) continue;
+      const cb      = other.sources?.crunchbase;
+      const isLead  = rel.details?.lead;
+      const funding = cb?.total_funding_usd ? fmtFunding(cb.total_funding_usd) : null;
+      const stage   = cb?.last_funding_type || cb?.funding_status || null;
+      const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || cb?.headquarters?.split(',').pop()?.trim() || '';
+      const inds    = (cb?.industries || []).slice(0,3).join(' · ');
+      h += `<li class="cs-portfolio-item${isLead ? ' cs-portfolio-lead' : ''}">
+        <div class="cs-elist-item-main">
+          <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+          <div class="cs-elist-meta">
+            ${esc(other.id)}
+            ${isLead ? `<span class="cs-lead-badge">lead</span>` : ''}
+            ${stage  ? `· ${esc(stage)}` : ''}
+            ${funding ? `· <strong>${esc(funding)}</strong>` : ''}
+          </div>
+          ${inds ? `<div class="cs-portfolio-inds">${esc(inds)}</div>` : ''}
+        </div>
+        ${country ? `<span class="cs-elist-country">${esc(country)}</span>` : ''}
+      </li>`;
+    }
+    h += `</ul>`;
+    cards.push(makeCard('portfolio', 'Portfolio', h, portfolio.length));
+  }
+
+  // Wikidata card
+  if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
+
+  // History + validation
+  const hist = e?.history;
+  if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
+  const val = e?.validation;
+  if (val?.length)  cards.push(makeCard('val', 'Validation', valCardBody(val), val.length));
+
+  const container = document.getElementById('cs-cards');
+  container.innerHTML = cards.join('');
+
+  // Collapse toggles
+  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
+    hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
+  });
+
+  // Navigate to portfolio company on click
+  container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id);
+      if (targetItem) selectItem(targetItem);
+    });
+  });
+}
+
 // ── Single-column cards ───────────────────────────────────────────────────────
 
 function makeCard(cls, title, bodyHtml, count, id) {
@@ -854,10 +1008,17 @@ function makeCard(cls, title, bodyHtml, count, id) {
   </div>`;
 }
 
-function infCardBody(inf) {
+function infCardBody(inf, e) {
   let h = '';
+  // Entity-level fields (top-level, not source-specific)
+  if (e?.id)             h += row('DB ID', `<code>${esc(e.id)}</code>`);
+  if (e?.type)           h += row('Type', esc(e.type));
+  if (e?.sector)         h += row('Sector', esc(e.sector));
+  if (e?.wikidata_id)    h += row('Wikidata ID', `<code>${esc(e.wikidata_id)}</code>`);
+  if (e?.roles?.length)  h += row('Roles', `<span class="cs-tag-list">${e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join('')}</span>`);
+  if (e?.tags?.length)   h += row('Tags', `<span class="cs-tag-list">${e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join('')}</span>`);
+  // Infonodes source fields
   if (inf.country)       h += row('Country', esc(inf.country));
-  if (inf.sector)        h += row('Sector', esc(inf.sector));
   if (inf.main_focus)    h += row('Focus', esc(inf.main_focus));
   if (inf.tax_id)        h += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
   if (inf.website)       h += row('Website', `<a class="cs-ext-link" href="${esc(inf.website)}" target="_blank">${esc(inf.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`);
@@ -868,7 +1029,7 @@ function infCardBody(inf) {
 
 function isCardBody(arr) {
   let h = `<table class="is-table"><thead><tr>
-    <th>ETF</th><th>Ticker</th><th>Weight</th><th>Sector</th><th>Exchange</th><th>Currency</th><th>GICS</th>
+    <th>ETF</th><th>Ticker</th><th>Weight</th><th>Sector</th><th>Location</th><th>Exchange</th><th>Currency</th><th>GICS</th><th>Source file</th>
   </tr></thead><tbody>`;
   for (const s of arr) {
     h += `<tr>
@@ -876,9 +1037,11 @@ function isCardBody(arr) {
       <td>${esc(s.stock_ticker || '—')}</td>
       <td class="is-weight">${s.weight_pct != null ? s.weight_pct + '%' : '—'}</td>
       <td>${esc(s.stock_sector || '—')}</td>
+      <td>${esc(s.location || '—')}</td>
       <td>${esc(s.exchange || '—')}</td>
       <td>${esc(s.currency || '—')}</td>
       <td>${esc(s.gics_code || '—')}</td>
+      <td><code>${esc(s.source_file || '—')}</code></td>
     </tr>`;
   }
   h += `</tbody></table>`;
@@ -888,8 +1051,9 @@ function isCardBody(arr) {
 
 function wdCardBody(wd) {
   let h = '';
+  if (wd.label)          h += row('Label', esc(wd.label));
   if (wd.description)    h += `<div class="cs-src-desc">${esc(wd.description)}</div>`;
-  if (wd.aliases?.length) h += row('Also known as', wd.aliases.map(a => `<span class="cs-tag">${esc(a)}</span>`).join(' '));
+  if (wd.aliases?.length) h += row('Also known as', `<span class="cs-tag-list">${wd.aliases.map(a => `<span class="cs-tag">${esc(a)}</span>`).join('')}</span>`);
   if (wd.instance_of?.length) h += row('Instance of', (Array.isArray(wd.instance_of) ? wd.instance_of : [wd.instance_of]).map(v => esc(v)).join(', '));
   if (wd.country)        h += row('Country', esc(wd.country));
   if (wd.inception)      h += row('Founded', esc(String(wd.inception).slice(0,4)));
@@ -919,9 +1083,11 @@ function cbCardBody(cb) {
   if (cb.domain)           h += row('Domain', `<code>${esc(cb.domain)}</code>`);
   if (cb.website)          h += row('Website', `<a class="cs-ext-link" href="${esc(cb.website)}" target="_blank">${esc(cb.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`);
   if (cb.profile_url)      h += row('Profile', `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`);
+  if (cb.source_file)      h += row('Source file', `<code>${esc(cb.source_file)}</code>`);
 
   h += `<div class="cb-group">Industry</div>`;
   if (cb.primary_industry)      h += row('Primary', esc(cb.primary_industry));
+  if (cb.primary_industry_url)  h += row('Industry URL', `<a class="cs-ext-link cs-cb" href="${esc(cb.primary_industry_url)}" target="_blank">${esc(cb.primary_industry_url)}</a>`);
   if (cb.industry_groups?.length) h += row('Groups', `<span class="cs-tag-list">${cb.industry_groups.map(g=>`<span class="cs-tag">${esc(g)}</span>`).join('')}</span>`);
   if (cb.industries?.length)    h += row('Industries', `<span class="cs-tag-list">${cb.industries.map(i=>`<span class="cs-tag">${esc(i)}</span>`).join('')}</span>`);
 
@@ -961,7 +1127,9 @@ function edfCardBody(item) {
   const org = item.edfOrg;
   let h = `<div class="edf-identity-block">`;
   if (org.organization_name !== item.name) h += row('Legal name', esc(org.organization_name));
+  if (org.pic)                h += row('PIC', `<code>${esc(String(org.pic))}</code>`);
   h += row('Country', esc(org.country) + (org.city ? ` — ${esc(org.city)}` : ''));
+  if (org.country_code)       h += row('Country code', `<code>${esc(org.country_code)}</code>`);
   if (org.activity_type)      h += row('Activity type', esc(org.activity_type));
   if (org.type_code)          h += row('Org type', esc(org.type_code));
   const euFmt = fmtEur(org.total_eu_contribution);
@@ -992,6 +1160,7 @@ function histCardBody(hist) {
         <span class="hist-date">${esc(e.date)}</span>
         ${e.field && e.field !== '*' ? `<span class="hist-field">${esc(e.field)}</span>` : ''}
         <span class="hist-source">${esc(e.source || '')}</span>
+        ${e.author ? `<span class="hist-source" style="opacity:.6">${esc(e.author)}</span>` : ''}
       </div>
       <div class="hist-desc">${esc(e.description || '')}</div>
       ${(e.old != null || e.new != null) ? `<div class="hist-diff">${e.old != null ? `<span class="hist-old">${esc(String(e.old))}</span> → ` : ''}${e.new != null ? `<span class="hist-new">${esc(String(e.new))}</span>` : ''}</div>` : ''}
@@ -1018,8 +1187,8 @@ function renderCards(item) {
   const org = item.edfOrg;
   const cards = [];
 
-  const inf = e?.sources?.infonodes;
-  if (inf) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf)));
+  const inf = e?.sources?.infonodes || {};
+  if (e) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf, e)));
 
   const isArr = e?.sources?.ishares || [];
   if (isArr.length) cards.push(makeCard('is', 'iShares', isCardBody(isArr), `${isArr.length} ETF${isArr.length !== 1 ? 's' : ''}`));
