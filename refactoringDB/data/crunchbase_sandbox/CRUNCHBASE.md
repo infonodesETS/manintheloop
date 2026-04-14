@@ -162,8 +162,8 @@ exactly which Crunchbase export populated or changed each field.
 
 ### Status
 
-> **Pending** — dry-run completed, real import not yet run.
-> Run the import when ready: see Step 4 above.
+> **Complete** — real import run 2026-04-14. 601 new + 121 updated = **722 entities** processed; 731 total with `sources.crunchbase` (includes prior manual imports).
+> `validate.py` PASSED after import.
 
 ---
 

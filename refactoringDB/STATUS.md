@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-13 (Crunchbase dry-run complete — 703/724 matched, 21 unresolved documented in CRUNCHBASE.md)
+> Last updated: 2026-04-14 (Crunchbase Cycle 1 real import complete — 731 entities with CB data; web UI v1 shipped with URL routing + single-column collapsible profile cards)
 
 ## Session protocol
 
@@ -156,7 +156,7 @@ python3 scripts/import_crunchbase_csv.py \
 python3 scripts/validate.py
 ```
 
-**Cycle 1 state (2026-04-13):** dry-run completed — 703/724 matched, 21 unresolved. Real import **not yet run**. See `data/crunchbase_sandbox/CRUNCHBASE.md` for full reconciliation details and unresolved entity list.
+**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
 
 ### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
@@ -211,6 +211,12 @@ The old DB (`../refactoring/`) is **read-only** — never modify it. All work is
 
 ```
 refactoringDB/
+├── index.html                 ← web UI — org search + profile viewer (serve from Manintheloop/ root)
+├── web/
+│   ├── router.js              ← URL routing (?organization=IN-XXXX&organizationName=...)
+│   ├── base.css               ← base styles (copied from ../refactoring/css/)
+│   ├── components.css         ← component styles
+│   └── companysearch.css      ← search/autocomplete/profile styles
 ├── data/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
@@ -246,9 +252,11 @@ refactoringDB/
 └── STATUS.md                  ← this file
 ```
 
+> **Serving the web UI:** `python3 -m http.server 8000` from `Manintheloop/` root (one level above `refactoringDB/`), then open `http://localhost:8000/refactoringDB/`.
+
 ---
 
-## Current DB state (2026-04-13)
+## Current DB state (2026-04-14)
 
 | Metric | Value |
 |---|---|
@@ -264,9 +272,9 @@ refactoringDB/
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | 130 |
+| Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-13) |
+| Last validate.py | PASSED (2026-04-14) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -345,6 +353,20 @@ refactoringDB/
 - [x] Full enrichment run: 710 entities enriched (599 new + 111 force-refreshed from old DB migration data)
 - [x] validate.py PASSED
 
+### Crunchbase enrichment (2026-04-14)
+- [x] `scripts/import_crunchbase_csv.py` real import run — 601 new + 121 updated = 731 entities with `sources.crunchbase`
+- [x] `validate.py` PASSED after import
+
+### Web UI — `index.html` (2026-04-14)
+- [x] Organisation search UI built from `data/database.json` (adapted from refactoring/tmp/new_index.html)
+- [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
+- [x] URL routing: `?organization=IN-XXXX&organizationName=...` — deep-linkable, browser back/forward aware (`web/router.js`)
+- [x] Profile header: name, type badge, source flags, EU status line, description, external links, stat bar
+- [x] Single-column collapsible source cards (all expanded by default, independently closable):
+  - Infonodes → Wikidata → iShares (ETF table) → Crunchbase (grouped: Identity/Industry/Funding/Team) → EDF (org details + lazy project load) → Change History → Validation
+- [x] EDF projects: lazy-loaded on demand, with participant expand/collapse; clicking a participant navigates to their profile
+- [x] CSS/JS internal dependencies moved to `web/` folder (base.css, components.css, companysearch.css, router.js)
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -376,24 +398,16 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 - **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
 - **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
 
-### 1. Phase 2: Crunchbase enrichment — run the real import
+### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
-**Status:** Dry-run complete. 703/724 matched. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
-
-**Next step:** Run the real import when ready:
-
-```bash
-python3 scripts/import_crunchbase_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-matches-csv-4-13-2026.csv
-python3 scripts/validate.py
-git add data/database.json data/crunchbase_sandbox/
-git commit -m "data: enrich crunchbase — 703 entities updated (2026-04-13)"
-```
+**Status:** Real import complete (2026-04-14). 731 entities now have `sources.crunchbase`.
 
 **21 unresolved entities:** See `data/crunchbase_sandbox/CRUNCHBASE.md` — categorised as:
 - Category A (11): linkable but name too short/different for automatic matching — manual alias needed
 - Category B (3): wrong CB match (CB matched a different company) — do not import
 - Category C (7): genuine mismatches or entities not in DB — skip
+
+**Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
 
 ### 3. Phase 3: Investment graph migration from old DB
 - Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
