@@ -371,6 +371,7 @@
 </div>
 <script type="module">
 'use strict';
+import * as Router from './web/router.js';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -725,6 +726,7 @@ function selectItem(item) {
   document.getElementById('cs-clear').style.display = '';
   document.getElementById('cs-hero').classList.add('compact');
   document.getElementById('cs-showing').textContent = item.name;
+  Router.push(item);
   renderProfile(item);
 }
 
@@ -735,6 +737,7 @@ function clearSelection() {
   document.getElementById('cs-hero').classList.remove('compact');
   document.getElementById('cs-showing').textContent = '';
   document.getElementById('cs-profile').classList.remove('visible');
+  Router.clear();
   searchEl.focus();
 }
 
@@ -1219,6 +1222,15 @@ async function init() {
     const edfOnly = REGISTRY.filter(r => r.kind === 'edf-only').length;
     document.querySelector('.cs-hero-prompt').textContent =
       `${total} orgs · ${merged} DB+EDF · ${dbOnly} DB only · ${edfOnly} EDF only`;
+
+    // ── Routing — restore state from URL on load and on back/forward
+    const initialItem = Router.resolve(REGISTRY, ENTITY_MAP);
+    if (initialItem) selectItem(initialItem);
+
+    Router.onPopState(REGISTRY, ENTITY_MAP, item => {
+      if (item) selectItem(item);
+      else clearSelection();
+    });
 
   } catch (err) {
     document.getElementById('cs-loading').innerHTML =
