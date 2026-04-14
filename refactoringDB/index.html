@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../refactoring/css/base.css">
-  <link rel="stylesheet" href="../refactoring/css/components.css">
-  <link rel="stylesheet" href="../refactoring/css/companysearch.css">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <link rel="stylesheet" href="web/companysearch.css">
   <style>
     html { font-size: 120%; scrollbar-gutter: stable; }
     body { margin: 0; background: #1a1a1a; color: var(--text-primary); font-family: var(--font); overflow: auto; padding-top: 0; }
@@ -100,6 +100,24 @@
       color: rgba(255,215,0,.7);
       flex-shrink: 0;
     }
+
+    /* ── Source flags ── */
+    .src-flags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+    .src-flags.inline { display: inline-flex; margin-top: 0; gap: 4px; vertical-align: middle; }
+    .src-flag {
+      font-family: var(--font-mono);
+      font-size: calc(var(--fs-body) * .82);
+      border-radius: 3px;
+      padding: 1px 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: 1px solid;
+    }
+    .src-flag-cb  { background: rgba(255,140,40,.07);  border-color: rgba(255,140,40,.35);  color: rgba(255,160,60,.9); }
+    .src-flag-edf { background: rgba(100,160,255,.07); border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.9); }
+    .src-flag-is  { background: rgba(255,215,0,.07);   border-color: rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+    .src-flag-wd  { background: rgba(180,130,255,.07); border-color: rgba(180,130,255,.3);  color: rgba(180,130,255,.85); }
+    .src-flag-inf { background: rgba(0,255,65,.06);    border-color: rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
 
     /* ── Source filter pills ── */
     .filter-bar {
@@ -288,6 +306,7 @@
       <div class="cs-hdr-main">
         <div class="cs-hdr-name" id="cs-name"></div>
         <div class="cs-hdr-badges" id="cs-badges"></div>
+        <div id="cs-src-flags"></div>
         <div id="cs-eu-status"></div>
         <div class="cs-hdr-desc" id="cs-desc"></div>
         <div class="cs-hdr-actions">
@@ -429,6 +448,20 @@ async function loadEdf() {
   const res = await fetch('rawdata/edf_calls.json');
   EDF = await res.json();
   return EDF;
+}
+
+// ── Source flags ─────────────────────────────────────────────────────────────
+function sourceFlagsHtml(item, inline = false) {
+  const e = item.dbEntity;
+  const flags = [];
+  if (e?.sources?.crunchbase)                    flags.push(`<span class="src-flag src-flag-cb">CB</span>`);
+  if (item.edfOrg)                               flags.push(`<span class="src-flag src-flag-edf">EDF</span>`);
+  const isCount = (e?.sources?.ishares || []).length;
+  if (isCount > 0)                               flags.push(`<span class="src-flag src-flag-is">iShares${isCount > 1 ? ` ×${isCount}` : ''}</span>`);
+  if (e?.sources?.wikidata)                      flags.push(`<span class="src-flag src-flag-wd">WD</span>`);
+  if (e?.sources?.infonodes)                     flags.push(`<span class="src-flag src-flag-inf">INF</span>`);
+  if (!flags.length) return '';
+  return `<span class="src-flags${inline ? ' inline' : ''}">${flags.join('')}</span>`;
 }
 
 // ── Build unified registry ────────────────────────────────────────────────────
@@ -614,6 +647,7 @@ function renderAc(raw) {
         ${badge}
         <span class="cs-ac-name">${highlight(item.name, raw)}</span>
         ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
+        ${sourceFlagsHtml(item, true)}
         ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
         ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
       </div>`;
@@ -658,6 +692,7 @@ function renderSuggestions() {
         ${srcBadge(item.kind)}${badge}
         <span class="cs-ac-name">${esc(item.name)}</span>
         ${country ? `<span class="cs-ac-country">${esc(country)}</span>` : ''}
+        ${sourceFlagsHtml(item, true)}
       </div>`;
       acList.push(item);
     }
@@ -743,6 +778,7 @@ function renderProfile(item) {
   if (item.kind === 'merged' && org?.match_method)
     badges += `<span class="cs-hdr-id cs-hdr-id--match" title="Match method">${esc(org.match_method)} / ${esc(org.match_confidence)}</span>`;
   document.getElementById('cs-badges').innerHTML = badges;
+  document.getElementById('cs-src-flags').innerHTML = sourceFlagsHtml(item);
 
   // ── EU status (new line below badges)
   const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
