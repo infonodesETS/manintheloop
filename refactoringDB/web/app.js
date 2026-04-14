@@ -664,6 +664,7 @@ function openCompare() {
     <div class="cs-cmp-col" id="cs-cmp-col-b">${buildProfileColHtml(selectedB, 'b')}</div>
   </div>`;
   cmpEl.classList.add('visible');
+  Router.pushCompare(currentItem, selectedB);
 
   // Wire collapse toggles
   cmpEl.querySelectorAll('.cs-card-hdr').forEach(hdr => {
@@ -1239,6 +1240,7 @@ async function init() {
         document.getElementById('cs-compare').classList.remove('visible');
         if (currentItem) {
           document.getElementById('cs-profile').classList.add('visible');
+          Router.clearCompare();
         }
       }
     });
@@ -1326,12 +1328,40 @@ async function init() {
       `${total} orgs · ${merged} DB+EDF · ${dbOnly} DB only · ${edfOnly} EDF only`;
 
     // ── Routing — restore state from URL on load and on back/forward
-    const initialItem = Router.resolve(REGISTRY, ENTITY_MAP);
-    if (initialItem) selectItem(initialItem);
+    const initialItem    = Router.resolve(REGISTRY, ENTITY_MAP);
+    const initialCmpItem = Router.resolveCompare(REGISTRY);
+
+    if (initialItem) {
+      selectItem(initialItem);
+      if (initialCmpItem) {
+        // Restore compare view
+        selectedB = initialCmpItem;
+        searchElB.value = initialCmpItem.name;
+        document.getElementById('cs-clear-b').style.display = '';
+        cmpChk.checked = true;
+        cmpSecond.classList.add('open');
+        openCompare();
+      }
+    }
 
     Router.onPopState(REGISTRY, ENTITY_MAP, item => {
-      if (item) selectItem(item);
-      else clearSelection();
+      const cmpItem = Router.resolveCompare(REGISTRY);
+      if (item && cmpItem) {
+        selectItem(item);
+        selectedB = cmpItem;
+        searchElB.value = cmpItem.name;
+        document.getElementById('cs-clear-b').style.display = '';
+        cmpChk.checked = true;
+        cmpSecond.classList.add('open');
+        openCompare();
+      } else if (item) {
+        cmpChk.checked = false;
+        cmpSecond.classList.remove('open');
+        clearSelectionB();
+        selectItem(item);
+      } else {
+        clearSelection();
+      }
     });
 
   } catch (err) {
