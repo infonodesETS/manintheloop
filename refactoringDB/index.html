@@ -642,8 +642,6 @@ function renderAc(raw) {
         ${item.country ? `<span class="cs-ac-country">${esc(item.country)}</span>` : ''}
         ${sourceFlagsHtml(item, true)}
         ${badge}
-        ${item.kind === 'merged' ? matchBadge(org?.match_method) : ''}
-        ${item.pic ? `<span class="cs-ac-id">${esc(item.pic)}</span>` : (e ? `<span class="cs-ac-id">${esc(e.id)}</span>` : '')}
       </div>`;
       acList.push(item);
     }
