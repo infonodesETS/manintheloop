@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-14 (Crunchbase Cycle 1 real import complete — 731 entities with CB data; web UI v1 shipped with URL routing + single-column collapsible profile cards)
+> Last updated: 2026-04-14 (investor graph complete — 723 IV-NNNN entities + 1042 REL-NNNN from CB CSV; investor search + portfolio profile live in UI)
 
 ## Session protocol
 
@@ -243,6 +243,7 @@ refactoringDB/
 │   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
 │   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
+│   ├── import_investors_csv.py  ← extracts IV-NNNN + REL-NNNN from CB export (Top5 + Lead Investors)
 │   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
@@ -261,24 +262,23 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | 1356 |
+| Total entities | **2079** |
 | — companies (IN-NNNN) | 1149 |
-| — institutions | 184 |
-| — government_agencies | 23 |
+| — institutions + gov | 207 |
+| — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
 | — persons (PER-NNNN) | **0** — not yet built |
-| — investors (IV-NNNN) | **0** — not yet migrated |
-| Relationships | **0** — not yet built |
-| Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
+| Relationships | **1042** investment REL-NNNN (605 as lead) |
+| Companies with wikidata_id | 710 / 1149 (61.8%) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
+| Entities with sources.crunchbase | 731 (Cycle 1 real import 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-14) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
-| validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
-| validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
-| validation: needs_review | 2146 entries (ongoing — covers enrichment gaps) |
+| validation: reconciliation_documented | 165 entities |
+| validation: field_conflict | 44 entities |
+| validation: needs_review | 2146 entries (ongoing) |
 
 ---
 
@@ -357,6 +357,13 @@ refactoringDB/
 - [x] `scripts/import_crunchbase_csv.py` real import run — 601 new + 121 updated = 731 entities with `sources.crunchbase`
 - [x] `validate.py` PASSED after import
 
+### Investor graph (2026-04-14)
+- [x] `scripts/import_investors_csv.py` written — extracts unique investors from `Top 5 Investors` + `Lead Investors` columns of CB export
+- [x] 723 IV-NNNN entities created (type inferred: fund / bank / government_agency)
+- [x] 1042 REL-NNNN investment relationships created (605 as lead, `details.lead = true`)
+- [x] Re-run safe: skips existing IV by normalised name, skips existing REL by source+target pair
+- [x] `validate.py` PASSED (2079 entities, 1042 relationships)
+
 ### Web UI — `index.html` (2026-04-14)
 - [x] Organisation search UI built from `data/database.json` (adapted from refactoring/tmp/new_index.html)
 - [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
@@ -366,6 +373,7 @@ refactoringDB/
   - Infonodes → Wikidata → iShares (ETF table) → Crunchbase (grouped: Identity/Industry/Funding/Team) → EDF (org details + lazy project load) → Change History → Validation
 - [x] EDF projects: lazy-loaded on demand, with participant expand/collapse; clicking a participant navigates to their profile
 - [x] CSS/JS internal dependencies moved to `web/` folder (base.css, components.css, companysearch.css, router.js)
+- [x] Investor search + portfolio profile: IV-NNNN entities searchable; profile shows portfolio card (leads first, clickable → company), Wikidata data, history, validation
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
@@ -378,6 +386,7 @@ refactoringDB/
 - [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
 - [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
 - [x] `scripts/import_crunchbase_csv.py` — Crunchbase import (4-tier matching, field-level diff, re-run safe)
+- [x] `scripts/import_investors_csv.py` — investor graph builder (IV-NNNN + REL-NNNN from CB export)
 - [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
 - [x] `data/crunchbase_sandbox/CRUNCHBASE.md` — Crunchbase process + reconciliation log
 
@@ -409,11 +418,13 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 **Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
 
-### 3. Phase 3: Investment graph migration from old DB
-- Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
-- Old DB has 293 `investment` relationships not yet migrated
-- Create **IV-NNNN** entities for funds/banks, then **REL-NNNN** relationships
-- Follow `docs/SCHEMA.md` — investor entity structure
+### 3. Phase 3: Investment graph — COMPLETE (2026-04-14)
+- 723 IV-NNNN entities built from CB CSV (Top 5 + Lead Investors)
+- 1042 REL-NNNN investment relationships (605 lead)
+- **Optional next steps:**
+  - Wikidata enrichment for IV-NNNN entities (QID pipeline already written — run `search_missing_qids.py` targeting IV- entities)
+  - Old DB had 233 IV- entities with partial Wikidata data — cross-reference and carry over via name match if needed
+  - Cycle 2 CB export could add investor-level CB profiles (separate upload targeting investor names)
 
 ### 4. Phase 4: EDF participation relationships
 - 587 companies have `sources.edf` but no relationships yet
