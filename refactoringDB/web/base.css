@@ -1,0 +1,604 @@
+/* ── Design System ── */
+:root {
+  --bs-body-bg:           #000000;
+  --bs-body-color:        rgba(255,255,255,0.95);
+  --bs-border-color:      rgb(105,105,105);
+  --bs-card-bg:           #333333;
+  --bs-card-border-color: rgb(105,105,105);
+  --accent:               #00ff41;
+  --accent-dim:           rgba(104,204,209,0.55);
+  --surface:              #333333;
+  --surface2:             #383838;
+  --surface3:             #2e2e2e;
+  --border:               rgb(105,105,105);
+  --dim:                  rgba(255,255,255,0.53);
+  --font:                 'Barlow Condensed', 'Inter', sans-serif;
+  --nav-h:                44px;
+  --tab-h:                46px;
+  --legend-h:             42px;
+  --subtab-h:             38px;
+  --content-h:            calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
+
+  /* ── Entity color palette ── */
+  /* Company sectors — greens */
+  --c-defence:   #aaffdd;
+  --c-mining:    #55ddaa;
+  --c-tech:      #22bb66;
+  --c-startup:   #007744;
+  /* Investor types — reds */
+  --c-fund:      #ff8888;
+  --c-govt:      #ff3333;
+  --c-bank:      #aa0000;
+  --c-inst:      #ff99bb;
+  /* Special */
+  --c-dual:      #ffd700;
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+
+  /* Families */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Weights */
+  --fw-normal: 400;
+  --fw-semi:   600;
+  --fw-bold:   700;
+
+  /* Text colors */
+  --text-primary:   rgba(255,255,255,0.95);
+  --text-secondary: rgba(255,255,255,0.80);
+  --text-tertiary:  rgba(255,255,255,0.70);
+  --text-muted:     #7a7a7a;
+  --text-faint:     #757575;
+
+  /* Grey palette (+15% HSL lightness from originals)
+     ──────────────────────────────────────────────────────────
+     --surface3   #2e2e2e   deep panels    (was #050505/08/0a)
+     --grey-dark  #595959   dim text/sep   (was #222/#333)
+     --grey-mid   #b0b0b0   mid text/hover (was #888/#999)
+     --grey-light #d0d0d0   light labels   (was #aaa/#c9d1d9)
+     --grey-pale  #f0f0f0   bright text    (was #ccc/#ddd)
+     ────────────────────────────────────────────────────────── */
+  --grey-dark:  #595959;
+  --grey-mid:   #b0b0b0;
+  --grey-light: #d0d0d0;
+  --grey-pale:  #f0f0f0;
+
+  /* Size scale
+     ─────────────────────────────────────────────────────────────────────────
+     Token       rem     ~px*   Usage
+     ─────────── ──────  ─────  ───────────────────────────────────────────────
+     --fs-xs     .70     13.4   micro: badges, ids, stat labels, tiny UI
+     --fs-sm     .75     14.4   caption: nav meta, table headers, chips
+     --fs-base   .875    16.8   base: buttons, inputs, tooltips, form labels
+     --fs-body   1.00    19.2   body: primary reading/UI text
+     --fs-lg     1.20    23.0   large: sidebar/modal titles, section h2
+     --fs-xl     1.65    31.7   display: hero, h1, h2 headings
+     --fs-stat   2.00    38.4   stat: dashboard big numbers
+     * at html font-size: 120% (1rem = 19.2px — Medium-range editorial base)
+     * minimum floor: 13px (--fs-xs). Nothing in the UI goes below this.
+     ───────────────────────────────────────────────────────────────────────── */
+  --fs-xs:   .70rem;
+  --fs-sm:   .75rem;
+  --fs-base: .875rem;
+  --fs-body: 1rem;
+  --fs-lg:   1.2rem;
+  --fs-xl:   1.65rem;
+  --fs-stat: 2rem;
+
+  /* Line-height scale
+     ─────────────────────────────────────────────────────────────────────────
+     Token        value   Usage
+     ──────────── ──────  ─────────────────────────────────────────────────────
+     --lh-tight   1.2     headings, large display text
+     --lh-snug    1.35    sub-headings, condensed UI labels
+     --lh-body    1.55    primary reading text, descriptions (btw Medium 1.5 / Substack 1.6)
+     --lh-loose   1.65    captions, small text, sidebar rows
+     ───────────────────────────────────────────────────────────────────────── */
+  --lh-tight: 1.2;
+  --lh-snug:  1.35;
+  --lh-body:  1.55;
+  --lh-loose: 1.65;
+
+  /* ── Semantic / theme tokens ──────────────────────────────────────────────
+     Tokens that carry meaning beyond palette; override in [data-theme="light"]
+     ──────────────────────────────────────────────────────────────────────── */
+  --bg:             #000000;        /* body / topnav / overlay background      */
+  --on-accent:      #000000;        /* text ON accent-coloured buttons          */
+  --error:          #ff4444;        /* error text (inline HTML + CSS)           */
+  --warn:           #ffaa44;        /* warning / needs-review text              */
+  --warn-border:    rgba(255,170,68,0.35); /* warn border tint (WIP badge)      */
+  --ok:             #56d364;        /* log line ok / success                    */
+  --status-err:     #f85149;        /* log line error                           */
+  --status-warn:    #e3b341;        /* log line warn / forthcoming badge        */
+  --flow-out:       #ff9944;        /* investment outflow highlight             */
+
+  /* D3 / SVG nodes */
+  --node-fill:        #000000;          /* circle / rect fill (dark = black bg) */
+  --node-fill-hover:  #100808;          /* investor rect hover fill             */
+  --label-fill:       rgba(255,255,255,0.47); /* SVG node label text fill       */
+
+  /* Map geography */
+  --map-bg:           #000000;      /* SVG background                           */
+  --map-land:         #1a1a1a;      /* country default fill                     */
+  --map-stroke:       #333333;      /* country stroke                           */
+  --map-data:         #0a2a0a;      /* country with data fill                   */
+  --map-data-hover:   #0d3d0d;      /* country with data hover                  */
+  --map-selected:     #003300;      /* selected country fill                    */
+  --map-arc-color:    #40e8f0;      /* arc gradient color                       */
+
+  /* Input / overlay surfaces */
+  --surface-input:  #000000;        /* dark search input backgrounds            */
+  --surface-ac:     #111111;        /* autocomplete dropdown background         */
+  --tooltip-bg:     rgba(8,8,8,0.97);
+  --hint-bg:        rgba(0,0,0,0.80);
+  --hint-border:    rgba(255,255,255,0.12);
+  --hint-text:      rgba(255,255,255,0.50);
+  --hint-title:     rgba(255,255,255,0.75);
+
+  /* SVG fixed sizes (pixel-based, bypasses rem cascade) */
+  --fs-svg-xs:  9px;
+  --fs-svg-sm: 10px;
+  --fs-svg-md: 13px;
+
+  /* Container scaling (em-cascade base for panel/sidebar content)
+     .sidebar sets font-size: var(--scale-sidebar) = 1.2rem (~23px).
+     Child elements using em fractions resolve against that base:
+       .65em → 0.78rem ≈ 15px  (ID chips, timestamps, block headers)
+       .8em  → 0.96rem ≈ 18px  (na placeholders)
+     Do NOT use em fractions for elements outside .sidebar context. */
+  --scale-sidebar: 1.2rem;
+
+  /* ── Sidebar / panel tokens ─────────────────────────────────────────────
+     Slide-in overlay sidebars and inline detail panels share these tokens.
+     Change here to affect all sidebar instances across every tab.
+     ──────────────────────────────────────────────────────────────────── */
+  --sl-z:          1060;                             /* stacking order     */
+  --sl-overlay-bg: rgba(0,0,0,0.5);                 /* scrim behind panel */
+  --sl-overlay-t:  opacity .25s ease;                /* scrim fade         */
+  --sl-panel-t:    transform .25s cubic-bezier(.4,0,.2,1); /* slide anim   */
+  --sl-panel-bg:   #0d0d0d;                          /* slide-in bg        */
+  --sl-inline-bg:  var(--surface3);                  /* inline panel bg    */
+  --sl-header-bg:  var(--surface2);                  /* header strip       */
+  --sl-header-pad: .9rem 1.25rem;                    /* header padding     */
+  --sl-body-pad:   1.25rem;                          /* body padding       */
+  /* Widths */
+  --sl-w-sm:     380px;   /* narrow slide-in  (participant sidebar)       */
+  --sl-w-lg:     800px;   /* wide slide-in    (entity detail sidebar)     */
+  --sl-w-inline: 450px;   /* inline panels    (matrix / graph / map)      */
+  /* Typography — aliases to main scale */
+  --sl-title-fs:       var(--fs-xl);    /* panel title        ~31.7px */
+  --sl-section-lbl-fs: var(--fs-base);  /* section label      ~16.8px */
+  --sl-row-lbl-fs:     var(--fs-base);  /* row key            ~16.8px */
+  --sl-row-val-fs:     var(--fs-body);  /* row value          ~19.2px */
+  --sl-desc-fs:        var(--fs-body);  /* description text   ~19.2px */
+}
+html { font-size: 120%; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+}
+
+/* ── Navbar ── */
+#topnav {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 20px; gap: 16px; z-index: 500;
+}
+#topnav .brand { font-family: var(--font); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--accent); letter-spacing: .5px; text-decoration: none; }
+#topnav .brand span { color: var(--text-faint); }
+#topnav .brand .brand-infonodes { color: var(--text-primary); }
+#topnav .brand .brand-dot { color: var(--accent); }
+.brand-wip { font-family: var(--font); font-size: var(--fs-xs); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .6px; color: var(--warn); border: 1px solid var(--warn-border); border-radius: 50px; padding: 1px 8px; margin-left: 10px; vertical-align: middle; }
+.brand-wip-link { color: var(--warn); text-decoration: underline; text-underline-offset: 2px; }
+.brand-wip-link:hover { color: #ffc266; }
+#topnav .meta  { font-size: var(--fs-sm); color: var(--text-faint); font-family: monospace; margin-left: auto; }
+
+/* ── Tab nav ── */
+#tabnav {
+  position: fixed; top: var(--nav-h); left: 0; right: 0; height: var(--tab-h);
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 12px; gap: 2px; z-index: 400;
+}
+.tnav-btn {
+  height: 32px; padding: 0 16px; font-family: var(--font); font-size: var(--fs-base);
+  font-weight: var(--fw-bold); letter-spacing: .4px; text-transform: uppercase;
+  background: transparent; border: 1px solid transparent; border-radius: 4px;
+  color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
+}
+.tnav-btn:hover { color: var(--text-primary); border-color: var(--border); }
+.tnav-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.tnav-sep { width: 1px; height: 20px; background: var(--border); margin: 0 6px; flex-shrink: 0; }
+
+/* ── Sub-nav (tab groups) ── */
+#subnav {
+  position: fixed; top: calc(var(--nav-h) + var(--tab-h)); left: 0; right: 0;
+  height: var(--subtab-h); background: var(--surface3); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 12px; gap: 2px; z-index: 390;
+}
+body.subnav-hidden #subnav { display: none; }
+body.subnav-hidden {
+  --content-h: calc(100vh - var(--nav-h) - var(--tab-h));
+}
+body.subnav-hidden #content { margin-top: var(--tab-h); }
+
+/* Legend hidden for non-supply-chain groups */
+body.legend-hidden #legend { display: none; }
+body.legend-hidden {
+  --content-h: calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
+}
+body.legend-hidden #content { margin-top: calc(var(--tab-h) + var(--subtab-h)); }
+/* legend-hidden + subnav-hidden (Intro, About) */
+body.legend-hidden.subnav-hidden {
+  --content-h: calc(100vh - var(--nav-h) - var(--tab-h));
+}
+body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
+
+.snav-group { display: flex; align-items: center; gap: 2px; }
+.snav-btn {
+  height: 26px; padding: 0 13px; font-family: var(--font); font-size: var(--fs-base);
+  font-weight: var(--fw-bold); letter-spacing: .3px; text-transform: uppercase;
+  background: transparent; border: 1px solid transparent; border-radius: 4px;
+  color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
+}
+.snav-btn:hover { color: var(--text-primary); border-color: var(--border); }
+.snav-btn.active { background: rgba(0,255,65,0.12); color: var(--accent); border-color: rgba(0,255,65,0.3); }
+.snav-sep { width: 1px; height: 16px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+.snav-copy-ai-btn {
+  margin-left: auto; height: 22px; padding: 0 11px;
+  font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 400;
+  background: transparent; border: 1px solid var(--border); border-radius: 50px;
+  color: var(--text-faint); cursor: pointer; white-space: nowrap; transition: all .12s; flex-shrink: 0;
+}
+.snav-copy-ai-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* GitHub trailing link in tabnav */
+.tnav-gh {
+  height: 32px; padding: 0 14px; font-family: var(--font); font-size: var(--fs-base);
+  font-weight: var(--fw-bold); letter-spacing: .4px; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--border); border-radius: 4px;
+  color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
+  display: inline-flex; align-items: center; text-decoration: none;
+}
+.tnav-gh:hover { color: var(--text-primary); border-color: var(--grey-mid); }
+
+/* ── Theme toggle ── */
+.theme-toggle-btn {
+  height: 28px; padding: 0 12px; font-family: var(--font); font-size: var(--fs-xs);
+  font-weight: var(--fw-bold); letter-spacing: .5px; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--border); border-radius: 50px;
+  color: var(--dim); cursor: pointer; white-space: nowrap; transition: all .12s;
+  margin-left: 10px;
+}
+.theme-toggle-btn:hover { color: var(--text-primary); border-color: var(--grey-mid); }
+[data-theme="light"] .theme-toggle-btn { color: var(--text-secondary); }
+[data-theme="light"] .theme-toggle-btn:hover { color: var(--text-primary); }
+
+/* ── Content area ── */
+#content { margin-top: calc(var(--tab-h) + var(--subtab-h)); height: var(--content-h); overflow: hidden; }
+.tab-pane { display: none; height: 100%; position: relative; }
+.tab-pane.active { display: flex; flex-direction: column; }
+.tab-pane.scrollable { overflow-y: auto; padding: 20px; display: none; flex-direction: column; }
+.tab-pane.scrollable.active { display: block; }
+
+/* ── Per-tab preloader ── */
+.tab-preloader {
+  position: absolute; inset: 0; background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px; z-index: 10;
+}
+.tab-preloader.done { display: none; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Loading overlay ── */
+#loading-overlay {
+  position: fixed; inset: 0; background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px; z-index: 9999;
+}
+.spin {
+  width: 30px; height: 30px; border: 2px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Global utilities ── */
+.hidden       { display: none; }
+.loading-text { color: var(--text-faint); font-size: var(--fs-xs); font-family: var(--font-mono); }
+.ctrl-sep     { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex-shrink: 0; align-self: center; }
+.ctrl-group-lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .8px; color: var(--text-faint); font-weight: var(--fw-bold); white-space: nowrap; flex-shrink: 0; padding-right: 2px; }
+
+/* ── Legend dot/star colors ── */
+.lg-dot--defence { background: var(--c-defence); }
+.lg-dot--mining  { background: var(--c-mining);  }
+.lg-dot--tech    { background: var(--c-tech);    }
+.lg-dot--startup { background: var(--c-startup); }
+.lg-dot--fund    { background: var(--c-fund);    }
+.lg-dot--govt    { background: var(--c-govt);    }
+.lg-dot--bank    { background: var(--c-bank);    }
+.lg-dot--inst    { background: var(--c-inst);    }
+.lg-dot--mfr     { background: var(--grey-light);}
+.lg-star--dual   { color: var(--c-dual);         }
+
+/* ── Overview header ── */
+.ov-header { max-width: 680px; width: 100%; margin: 0 auto 28px; }
+.ov-title  { font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin: 4px 0 10px; }
+
+/* ── Overview grid ── */
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.ov-stats-group { margin-bottom: 20px; }
+.ov-stats-group-lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); font-weight: var(--fw-bold); margin-bottom: 8px; }
+.ov-stats-inner { margin-bottom: 0; }
+#eo-stats-grid { grid-template-columns: repeat(4, 1fr); }
+#eo-stats-grid .stat-card:nth-child(1),
+#eo-stats-grid .stat-card:nth-child(2) { grid-column: span 2; }
+.section-title { font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: var(--fw-bold); margin-bottom: 10px; }
+
+/* ── Progress bars ── */
+.prog-track { height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; }
+.prog-fill  { height: 100%; border-radius: 3px; background: var(--accent); }
+
+/* ── Geographic distribution chart ── */
+.ov-geo-legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: 10px; font-family: var(--font-mono); }
+.ov-geo-dot    { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.ov-geo-lbl    { width: 100px; font-size: var(--fs-sm); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 0; }
+.ov-geo-val    { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-muted); width: 22px; text-align: right; flex-shrink: 0; }
+
+/* ── Intro tab ── */
+#tab-intro {
+  display: none; flex-direction: column; align-items: center;
+  padding: 40px 24px; overflow-y: auto;
+}
+#tab-intro.active { display: flex; }
+.intro-wrap { max-width: 680px; width: 100%; margin: auto; }
+.intro-prompt {
+  font-family: var(--font-mono);
+  color: rgba(0,255,65,0.45); font-size: var(--fs-sm); margin-bottom: 20px;
+}
+.intro-title {
+  font-family: var(--font-mono);
+  color: var(--accent); font-size: var(--fs-xl); font-weight: var(--fw-normal);
+  text-shadow: 0 0 14px rgba(0,255,65,0.35); margin-bottom: 6px; line-height: var(--lh-tight);
+}
+.intro-cursor {
+  display: inline-block; width: 0.5em; height: 1em;
+  background: var(--accent); margin-left: 3px; vertical-align: text-bottom;
+  box-shadow: 0 0 8px rgba(0,255,65,0.6); animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.intro-sub {
+  font-family: var(--font-mono);
+  color: rgba(0,255,65,0.45); font-size: var(--fs-base); margin-bottom: 28px;
+}
+.intro-desc {
+  font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-loose);
+  margin-bottom: 36px; border-left: 2px solid rgba(0,255,65,0.2);
+  padding-left: 16px;
+}
+.intro-divider {
+  border: none; border-top: 1px solid var(--border); margin: 32px 0;
+}
+.intro-areas { display: flex; flex-direction: column; gap: 24px; }
+.intro-area { display: flex; gap: 20px; }
+.intro-area-num {
+  font-family: var(--font-mono);
+  color: var(--accent); font-size: var(--fs-base); min-width: 32px; padding-top: 2px;
+  opacity: .6;
+}
+.intro-area-body {}
+.intro-area-title {
+  font-size: var(--fs-body); font-weight: var(--fw-bold); color: #fff;
+  text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px;
+}
+.intro-area-desc {
+  font-size: var(--fs-base); color: var(--text-tertiary); line-height: var(--lh-body);
+  margin-bottom: 6px;
+}
+.intro-area-tabs {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm); color: rgba(0,255,65,0.5);
+}
+/* ── Intro: clickable area titles ── */
+.intro-area-nav {
+  cursor: pointer; transition: color 0.15s;
+}
+.intro-area-nav:hover { color: var(--accent); }
+.intro-area-arrow {
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  opacity: 0; margin-left: 4px; transition: opacity 0.15s;
+}
+.intro-area-nav:hover .intro-area-arrow { opacity: 1; }
+
+/* ── Intro CTA buttons ── */
+.intro-cta-row {
+  display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;
+}
+.intro-cta-btn {
+  font-family: var(--font-mono); font-size: var(--fs-base);
+  color: var(--accent); background: rgba(0,255,65,0.06);
+  border: 1px solid rgba(0,255,65,0.35); border-radius: 4px;
+  padding: 8px 18px; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.intro-cta-btn:hover {
+  background: rgba(0,255,65,0.12); border-color: rgba(0,255,65,0.65);
+}
+
+/* ── Intro context block ── */
+.intro-context {
+  margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.intro-context-label {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  color: rgba(0,255,65,0.45); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.intro-context-text {
+  font-size: var(--fs-base); color: var(--text-secondary);
+  line-height: var(--lh-loose); margin-bottom: 14px;
+}
+.intro-sector-list {
+  list-style: none; padding: 0; margin: 0 0 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.intro-sector-list li {
+  font-size: var(--fs-base); color: var(--text-tertiary); line-height: var(--lh-body);
+}
+.intro-sector-label {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  font-weight: var(--fw-bold); text-transform: uppercase;
+  letter-spacing: .5px; padding: 2px 7px; border-radius: 3px;
+  margin-right: 8px; display: inline-block;
+}
+.intro-sector--defence { background: rgba(170,255,221,0.12); color: var(--c-defence); }
+.intro-sector--mining  { background: rgba(85,221,170,0.12);  color: var(--c-mining); }
+.intro-sector--tech    { background: rgba(34,187,102,0.12);  color: var(--c-tech); }
+.intro-about-link {
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  color: rgba(0,255,65,0.5); background: none; border: none;
+  padding: 0; cursor: pointer; display: block; transition: color 0.15s;
+}
+.intro-about-link:hover { color: var(--accent); }
+
+/* ── Known Issues tab ── */
+#tab-knownissues { overflow-y: auto; padding: 24px; }
+#tab-knownissues.active { display: flex; flex-direction: column; align-items: center; }
+.ki-body { max-width: 80%; width: 100%; }
+.ki-body h1 { font-size: var(--fs-xl); color: var(--accent); margin-bottom: 1rem; }
+.ki-body h2 { font-size: var(--fs-xl); color: var(--grey-pale); margin-top: 1.6rem; margin-bottom: .4rem; }
+.ki-body p  { font-size: var(--fs-body); color: var(--grey-mid); line-height: var(--lh-loose); }
+.ki-body strong { color: var(--grey-pale); }
+.ki-body hr { border-color: var(--grey-dark); margin: 1.2rem 0; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME — [data-theme="light"] on <html>
+   "Declassified document" — warm paper palette, dark military-green accent.
+   All downstream CSS using var(--token) swaps automatically.
+   Additional per-component overrides follow below.
+══════════════════════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  /* ── Core surfaces ── */
+  --bs-body-bg:           #f8f7f4;
+  --bs-body-color:        rgba(0,0,0,0.90);
+  --bs-border-color:      #d0cdc8;
+  --bs-card-bg:           #eeecea;
+  --bs-card-border-color: #d0cdc8;
+
+  --accent:     #006622;
+  --accent-dim: rgba(0,80,40,0.55);
+  --surface:    #eeecea;
+  --surface2:   #e5e3e0;
+  --surface3:   #f2f0ed;
+  --border:     #d0cdc8;
+  --dim:        rgba(0,0,0,0.60);
+
+  /* ── Entity palette — darkened for light bg readability ── */
+  --c-defence:  #007744;
+  --c-mining:   #5a6a00;
+  --c-tech:     #005522;
+  --c-startup:  #003322;
+  --c-fund:     #cc2200;
+  --c-govt:     #990000;
+  --c-bank:     #770000;
+  --c-inst:     #aa2255;
+  --c-dual:     #7a5800;
+
+  /* ── Text ── */
+  --text-primary:   rgba(0,0,0,0.90);
+  --text-secondary: rgba(0,0,0,0.72);
+  --text-tertiary:  rgba(0,0,0,0.58);
+  --text-muted:     #6a6760;
+  --text-faint:     #6c6966;
+
+  /* ── Grey palette (inverted direction) ── */
+  --grey-dark:  #c0bcb4;
+  --grey-mid:   #8a8780;
+  --grey-light: #5a5855;
+  --grey-pale:  #2a2825;
+
+  /* ── Semantic ── */
+  --bg:          #f8f7f4;
+  --on-accent:   #ffffff;
+  --error:       #cc2200;
+  --warn:        #8a5c00;
+  --ok:          #1a7a30;
+  --status-err:  #cc2200;
+  --status-warn: #8a5c00;
+  --warn-border: rgba(122,68,0,0.35);  /* warn border tint — light mode        */
+  --flow-out:    #cc6600;
+
+  /* ── Sidebar tokens ── */
+  --sl-overlay-bg: rgba(0,0,0,0.35);
+  --sl-panel-bg:   #f0ede8;
+  --sl-inline-bg:  var(--surface3);
+  --sl-header-bg:  var(--surface2);
+
+  /* ── D3 / SVG ── */
+  --node-fill:       #f8f7f4;
+  --node-fill-hover: #e8e4dc;
+  --label-fill:      rgba(0,0,0,0.55);
+
+  /* ── Map geography ── */
+  --map-bg:         #d4d0ca;
+  --map-land:       #bfbbb3;
+  --map-stroke:     #aeaaa2;
+  --map-data:       #8ab88a;
+  --map-data-hover: #72a872;
+  --map-selected:   #4a7a4a;
+  --map-arc-color:  #0d6aaa;
+
+  /* ── Input / overlay surfaces ── */
+  --surface-input: #f0ede8;
+  --surface-ac:    #f0ede8;
+  --tooltip-bg:    rgba(248,247,244,0.97);
+  --hint-bg:       rgba(244,242,238,0.94);
+  --hint-border:   rgba(0,0,0,0.12);
+  --hint-text:     rgba(0,0,0,0.50);
+  --hint-title:    rgba(0,0,0,0.75);
+}
+
+/* ── Light: body background ── */
+[data-theme="light"] body { background: var(--bg); }
+
+/* ── Light: WIP badge hover (base color handled by --warn / --warn-border tokens) ── */
+[data-theme="light"] .brand-wip-link:hover { color: #5a3000; }
+
+/* ── Light: scrollbar ── */
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--surface2); }
+
+/* ── Light: active sub-nav (snav rgba tints → dark-green equivalents) ── */
+[data-theme="light"] .snav-btn.active { background: rgba(0,102,34,0.10); border-color: rgba(0,102,34,0.30); }
+
+/* ── Light: intro section fixes (rgba(0,255,65,…) → dark green equivalents) ── */
+[data-theme="light"] .intro-prompt     { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-title      { color: var(--accent); text-shadow: 0 0 14px rgba(0,102,34,0.18); }
+[data-theme="light"] .intro-cursor     { background: var(--accent); box-shadow: 0 0 8px rgba(0,102,34,0.35); }
+[data-theme="light"] .intro-sub        { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-desc       { border-left-color: rgba(0,102,34,0.25); }
+[data-theme="light"] .intro-area-title { color: var(--text-primary); }
+[data-theme="light"] .intro-area-tabs  { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-cta-btn    { color: var(--accent); background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.35); }
+[data-theme="light"] .intro-cta-btn:hover { background: rgba(0,102,34,0.12); border-color: rgba(0,102,34,0.65); }
+[data-theme="light"] .intro-context-label { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-about-link { color: rgba(0,102,34,0.55); }
+[data-theme="light"] .intro-sector--defence { background: rgba(0,119,68,0.10); }
+[data-theme="light"] .intro-sector--mining  { background: rgba(90,106,0,0.10); }
+[data-theme="light"] .intro-sector--tech    { background: rgba(0,85,34,0.10); }
+[data-theme="light"] .prog-track { background: rgba(0,0,0,0.08); }
+
+/* ── Light: known-issues tab ── */
+[data-theme="light"] .ki-body h2     { color: var(--text-primary); }
+[data-theme="light"] .ki-body p      { color: var(--text-secondary); }
+[data-theme="light"] .ki-body strong { color: var(--text-primary); }
+[data-theme="light"] .ki-body hr     { border-color: var(--border); }
