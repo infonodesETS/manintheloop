@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (Bucket B: 5 share-class pairs resolved — duplicate_wikidata_id → share_class_variant)
+> Last updated: 2026-04-15 (Ambiguous dedup: 3 merges + 2 share_class_variants + 3 QID nulls — 2064 → 2061 entities)
 
 ## Session protocol
 
@@ -264,8 +264,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2064** |
-| — companies (IN-NNNN) | 1134 |
+| Total entities | **2061** |
+| — companies (IN-NNNN) | 1131 |
 | — institutions + gov | 207 |
 | — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
 | — persons (PER-NNNN) | **0** — not yet built |
@@ -455,7 +455,11 @@ refactoringDB/
 
 Remaining groups from `python3 scripts/dedup_entities.py --list`:
 - **Keep both — DONE** (share_class_variant set 2026-04-15): FOX A/B, TATA Steel/GDR, Samsung/NON Voting, SSAB A/B, Jiangxi Copper A/H
-- **Pending decision** (Alphabet A/C + IN-1247, CMOC/China Molybdenum A, Pilbara/PLS, TSMC/Arizona, Telefonica SA/Moviles, Meta/META Class A, KGHM International/Polska)
+- **Ambiguous cases — DONE 2026-04-15:**
+  - Merge: Pilbara/PLS (IN-0287→IN-1320), Alphabet IN-1247→IN-0017, Meta IN-0228→IN-1310
+  - share_class_variant: CMOC/China Molybdenum A (A-shares vs H-shares), Alphabet Class A/C
+  - wikidata_id nulled (wrong parent QID): TSMC Arizona (IN-1338), Telefonica Moviles (IN-1122), KGHM International (IN-1300)
+  - Each action documented with full rationale in history[] and validation[]
 - **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
 - For QID fixes: update wikidata_id on subsidiary to `null`, then re-run `enrich_wikidata.py`
 
