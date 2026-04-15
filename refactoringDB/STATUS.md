@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (EDF rawdata refreshed + Wikidata force-enriched; validate.py PASSED)
+> Last updated: 2026-04-15 (EDF rawdata refreshed + Wikidata force-enriched + web UI all-fields rendering; validate.py PASSED)
 
 ## Session protocol
 
@@ -511,6 +511,15 @@ refactoringDB/
 ### Wikidata force-refresh (2026-04-15)
 - [x] `enrich_wikidata.py --force` run: 659 entities refreshed, 0 not found
 - [x] validate.py PASSED
+
+### Web UI — all-fields rendering (2026-04-15)
+
+- [x] All card body functions (`infCardBody`, `wdCardBody`, `cbCardBody`, `edfCardBody`) updated to render every DB field unconditionally — null/empty values show `Not available in the source` placeholder via `.cs-na-inline` CSS class (muted italic)
+- [x] `web/companysearch.css`: added `.cs-na-inline` style (font-size sm, muted colour, italic, opacity 0.7)
+- [x] **Bug fix** — `total_funding_native` was rendering as `[object Object]` (value is `{amount, currency}` object); fixed with `fmtNative()` helper → now shows e.g. "EUR 1,361,500,000"
+- [x] **EDF card** — added `eu_url` (link to EC org page), `sme` (Yes/No), `source_file`, `extracted_at`, `coordinator_count`; these fields exist in `database.json`'s `sources.edf` but NOT in `edf_orgs.json` → reads from `item.dbEntity?.sources?.edf` (not from `item.edfOrg`)
+- [x] EDF card project load button unchanged (constraint honoured)
+- [x] Verified via Playwright on IN-0723 Helsing: all fields confirmed rendered across all cards
 
 ---
 
