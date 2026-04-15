@@ -200,6 +200,35 @@ for e in entities:
             c_counts["field_conflict_entries"] += 1
 
 # ---------------------------------------------------------------------------
+# Audit D — Duplicate wikidata_id detection
+# ---------------------------------------------------------------------------
+
+d_counts = defaultdict(int)
+
+qid_groups = defaultdict(list)
+for e in entities:
+    qid = e.get("wikidata_id")
+    if qid:
+        qid_groups[qid].append(e)
+
+for qid, group in qid_groups.items():
+    if len(group) < 2:
+        continue
+    for e in group:
+        siblings = [x for x in group if x["id"] != e["id"]]
+        sibling_str = ", ".join(f"{x['id']} ({x['name']})" for x in siblings)
+        description = (
+            f"wikidata_id {qid} shared with {len(siblings)} other "
+            f"{'entity' if len(siblings) == 1 else 'entities'}: {sibling_str}. "
+            "Requires review: true duplicate (→ dedup_entities.py --merge), "
+            "share class variant (keep both, remove this flag), "
+            "or subsidiary with wrong QID (→ fix wikidata_id)."
+        )
+        added = add_validation(e, "duplicate_wikidata_id", description)
+        if added:
+            d_counts["flagged"] += 1
+
+# ---------------------------------------------------------------------------
 # Write DB and report
 # ---------------------------------------------------------------------------
 
@@ -228,3 +257,10 @@ print(f"  country real conflicts (sources disagree):     {c_counts['country_real
 print(f"  HQ granularity differences (city vs full):     {c_counts['hq_granularity']}  [not flagged]")
 print(f"  HQ real conflicts (sources disagree):          {c_counts['hq_real']}")
 print(f"  TOTAL new field_conflict entries:              {c_counts['field_conflict_entries']}")
+
+print()
+print("=" * 60)
+print("AUDIT D — Duplicate wikidata_id detection")
+print("=" * 60)
+print(f"  QIDs shared by 2+ entities:                    {sum(1 for g in qid_groups.values() if len(g) > 1)}")
+print(f"  entities flagged with duplicate_wikidata_id:   {d_counts['flagged']}")

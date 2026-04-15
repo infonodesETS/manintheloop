@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-14 (CB match audit — 44 bad Crunchbase matches removed; 687 entities remain with sources.crunchbase)
+> Last updated: 2026-04-14 (dedup: 5 true-duplicate entities merged; Audit D flags 99 entities with shared wikidata_id; 2074 entities total)
 
 ## Session protocol
 
@@ -23,7 +23,9 @@
 |---|---|---|
 | `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
 | `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
-| `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
+| `python3 scripts/audit_quality.py --dry-run` | Audit B+C+D report only — never modifies DB | Yes |
+| `python3 scripts/dedup_entities.py --list` | List all wikidata_id duplicate groups + auto-merge candidates | Yes |
+| `python3 scripts/dedup_entities.py --merge A B --dry-run` | Preview merge of B into A — never modifies DB | Yes |
 | `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |
 
 ### Wikidata enrichment
@@ -262,8 +264,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2079** |
-| — companies (IN-NNNN) | 1149 |
+| Total entities | **2074** |
+| — companies (IN-NNNN) | 1144 |
 | — institutions + gov | 207 |
 | — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
 | — persons (PER-NNNN) | **0** — not yet built |
@@ -276,8 +278,10 @@ refactoringDB/
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
 | Last validate.py | PASSED (2026-04-14) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
-| validation: reconciliation_documented | 165 entities |
-| validation: field_conflict | 44 entities |
+| validation: reconciliation_documented | 690 entities |
+| validation: field_conflict | 175 entities |
+| validation: duplicate_wikidata_id | 94 entities (99 flagged − 5 already merged) |
+| validation: merged_from | 5 entities |
 | validation: needs_review | 2146 entries (ongoing) |
 
 ---
@@ -364,6 +368,24 @@ refactoringDB/
 - [x] Re-run safe: skips existing IV by normalised name, skips existing REL by source+target pair
 - [x] `validate.py` PASSED (2079 entities, 1042 relationships)
 
+### Entity deduplication (2026-04-14)
+- [x] `scripts/dedup_entities.py` written — merge tool with `--list`, `--merge WINNER LOSER`, `--dry-run`
+- [x] Merge logic: ishares entries appended (per ticker), edf/crunchbase/infonodes copied if missing, roles unioned, history/validation absorbed with `[from LOSER_ID]` prefix, relationships redirected + deduped
+- [x] All changes tracked: history entry + `merged_from` validation entry on winner; loser removed from entities
+- [x] **Audit D** added to `audit_quality.py`: flags all entities sharing a wikidata_id with `duplicate_wikidata_id` validation status
+- [x] Audit D run: 46 QIDs shared → 99 entities flagged
+- [x] **5 AUTO_MERGE pairs applied** (identical names, confirmed same legal entity):
+  - IN-0365 ← IN-0366 (Telecom Italia / Telecom Italia S.p.a) — absorbed TITR ishares entry
+  - IN-0472 ← IN-0473 (Airbus Operations × 2)
+  - IN-0501 ← IN-0502 (Arianegroup × 2)
+  - IN-0783 ← IN-0784 (Integrasys × 2)
+  - IN-1167 ← IN-1168 (United Monolithic Semiconductors × 2)
+- [x] validate.py PASSED — 2074 entities, 1042 relationships
+- [x] **41 REVIEW pairs remain** — see `python3 scripts/dedup_entities.py --list` for full breakdown:
+  - Share class variants (keep both): FOX A/B, TATA Steel/GDR
+  - Parent + iShares listing duplicate: Palantir, MP Materials, Pilbara/PLS, Vale/VALE DO RIO DOCE, Fortescue, Grupo Mexico, IBM/Business Machines, Saab, TEKEVER/Tekever Uas, Nammo/Raufoss, Arafura
+  - Subsidiary with likely wrong QID: Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, and others
+
 ### Crunchbase match audit (2026-04-14)
 - [x] Discovered wrong CB match for IN-0032 Apple (matched to Apple Apaman, Japanese rental brokerage) — `sources.crunchbase` removed manually
 - [x] Domain-mismatch audit: compared `sources.crunchbase.website` against `sources.infonodes.website` / `sources.wikidata.website` for all 731 CB-enriched entities
@@ -404,7 +426,16 @@ refactoringDB/
 
 ## Pending work (priority order)
 
-### 0a. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
+### 0a. Entity deduplication — 41 REVIEW pairs remaining
+
+From `python3 scripts/dedup_entities.py --list`. Each pair needs a decision:
+- **Keep both** (share class variants): FOX A/B (Q60238941), TATA Steel/GDR (Q963101), Samsung/NON Voting (Q20718), SSAB A/B (Q54075), Alphabet A/C (Q20800404), Jiangxi Copper A/H (Q1518015)
+- **Merge** (same company, different name/era): IBM/Business Machines, Vale/VALE DO RIO DOCE, Fortescue/FMG, Arafura/Rare Earths, Palantir A, MP Materials A, Grupo Mexico B, Pilbara/PLS, Saab/Aktiebolag, TEKEVER/UAS, Nammo/Raufoss, TSMC/Arizona, Telefonica/Moviles
+- **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Tekever, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
+- For merges: run `python3 scripts/dedup_entities.py --merge WINNER LOSER`
+- For QID fixes: update wikidata_id on subsidiary to correct QID (or null), then re-run `enrich_wikidata.py`
+
+### 0b. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
 
 From the 2026-04-14 audit, ~100 entities have a CB website that differs from the known website but was not auto-removed (no country mismatch, no description contradiction). These are likely parent/subsidiary/regional-domain cases but need human confirmation.
 
