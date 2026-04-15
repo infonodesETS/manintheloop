@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (Ambiguous dedup: 3 merges + 2 share_class_variants + 3 QID nulls — 2064 → 2061 entities)
+> Last updated: 2026-04-15 (Bucket C: 2 merges + 1 share_class_variant + 27 QID nulls — 2061 → 2059 entities)
 
 ## Session protocol
 
@@ -264,8 +264,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2061** |
-| — companies (IN-NNNN) | 1131 |
+| Total entities | **2059** |
+| — companies (IN-NNNN) | 1129 |
 | — institutions + gov | 207 |
 | — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
 | — persons (PER-NNNN) | **0** — not yet built |
@@ -276,7 +276,7 @@ refactoringDB/
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-15) |
+| Last validate.py | PASSED (2026-04-15, post-Bucket-C) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
@@ -460,8 +460,21 @@ Remaining groups from `python3 scripts/dedup_entities.py --list`:
   - share_class_variant: CMOC/China Molybdenum A (A-shares vs H-shares), Alphabet Class A/C
   - wikidata_id nulled (wrong parent QID): TSMC Arizona (IN-1338), Telefonica Moviles (IN-1122), KGHM International (IN-1300)
   - Each action documented with full rationale in history[] and validation[]
-- **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
-- For QID fixes: update wikidata_id on subsidiary to `null`, then re-run `enrich_wikidata.py`
+- **Bucket C — DONE 2026-04-15:** subsidiary QID cleanup complete
+  - Merges: TKMS ← ThyssenKrupp Marine Systems (Q551068, acronym/full-name); Indra ← Indra Sistemas (Q1661823, same EDF entity)
+  - share_class_variant: Ericsson B (ERIC B Stockholm) ↔ Ericsson (IN-0655)
+  - 27 QID nulls with full rationale in history[]/validation[]:
+    - IN-0657 (Ericsson HU subsidiary), IN-0831 (Ericsson FI branch)
+    - IN-0464/0465/0466/0467 (Airbus D&S 4 national entities; Q15529123=division, not legal entity)
+    - IN-0752 (Indra Espacio SLU, space sub), IN-0820 (KNDS Belgium), IN-0824 (KNDS FR Robotics/Nexter)
+    - IN-0527/0528 (Beyond Gravity AT/SE), IN-0532/0533 (Bittium Safemove/Wireless)
+    - IN-0599/0600 (Damen Naval/RDI), IN-0670/0671 (Eviden AT/RO), IN-0724 (Helsing Germany)
+    - IN-0818 (KNDS Ammo FR, ammo div), IN-0863 (MBDA España, had Italian sibling's QID)
+    - IN-0952 (Patria Aerostructures), IN-0980 (Renk Magnet Motor)
+    - IN-1019 (Safran Ai ≠ Aircraft Engines), IN-1021 (Safran Data Sys ≠ Electronics&Defense)
+    - IN-1126 (Telespazio France), IN-1194 (Valneva Austria), IN-1267/1268 (Chinalco segment labels)
+  - Also flagged: IN-1298 Indra has bad CB match (Indian water company) — validation status bad_crunchbase_match added
+- validate.py PASSED — 2059 entities, 1042 relationships
 
 ### 0b. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
 
