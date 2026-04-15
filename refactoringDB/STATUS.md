@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (UI: landing hero stats now calculated from DB at runtime — orgs / companies / investors)
+> Last updated: 2026-04-15 (Bucket A deduplication: 10 true-duplicate merges applied — 2074 → 2064 entities)
 
 ## Session protocol
 
@@ -264,8 +264,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2074** |
-| — companies (IN-NNNN) | 1144 |
+| Total entities | **2064** |
+| — companies (IN-NNNN) | 1134 |
 | — institutions + gov | 207 |
 | — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
 | — persons (PER-NNNN) | **0** — not yet built |
@@ -276,7 +276,7 @@ refactoringDB/
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-14) |
+| Last validate.py | PASSED (2026-04-15) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
@@ -386,7 +386,19 @@ refactoringDB/
   - IN-0783 ← IN-0784 (Integrasys × 2)
   - IN-1167 ← IN-1168 (United Monolithic Semiconductors × 2)
 - [x] validate.py PASSED — 2074 entities, 1042 relationships
-- [x] **41 REVIEW pairs remain** — see `python3 scripts/dedup_entities.py --list` for full breakdown:
+- [x] **10 Bucket A merges applied** (true-duplicate, same legal entity, name alias — 2026-04-15):
+  - IN-1294 ← IN-0062 (IBM ← Business Machines) — absorbed ishares[IBM]
+  - IN-1344 ← IN-0401 (Vale ← VALE DO RIO DOCE) — absorbed ishares[VALE3]
+  - IN-1282 ← IN-0133 (Fortescue Metals Group ← Fortescue) — absorbed ishares[FMG]
+  - IN-1253 ← IN-0035 (Arafura Resources ← Arafura RARE Earths) — absorbed ishares[ARU]
+  - IN-1318 ← IN-0282 (Palantir Technologies ← Palantir Class A) — absorbed ishares[PLTR]
+  - IN-1311 ← IN-0242 (MP Materials ← MP Materials Class A) — absorbed ishares[MP]
+  - IN-1329 ← IN-1014 (Saab ← Saab Aktiebolag) — absorbed sources.edf
+  - IN-1241 ← IN-1118 (TEKEVER ← Tekever Uas) — absorbed sources.edf
+  - IN-1312 ← IN-0897 (Nammo ← Nammo Raufoss As) — absorbed sources.edf
+  - IN-1286 ← IN-0151 (Grupo Mexico ← Grupo Mexico B) — absorbed ishares[GMEXICOB]
+- [x] validate.py PASSED — 2064 entities, 1042 relationships
+- [x] **31 REVIEW groups remain** — see `python3 scripts/dedup_entities.py --list` for full breakdown:
   - Share class variants (keep both): FOX A/B, TATA Steel/GDR
   - Parent + iShares listing duplicate: Palantir, MP Materials, Pilbara/PLS, Vale/VALE DO RIO DOCE, Fortescue, Grupo Mexico, IBM/Business Machines, Saab, TEKEVER/Tekever Uas, Nammo/Raufoss, Arafura
   - Subsidiary with likely wrong QID: Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, and others
@@ -431,14 +443,15 @@ refactoringDB/
 
 ## Pending work (priority order)
 
-### 0a. Entity deduplication — 41 REVIEW pairs remaining
+### 0a. Entity deduplication — 31 groups remaining (Bucket A complete)
 
-From `python3 scripts/dedup_entities.py --list`. Each pair needs a decision:
-- **Keep both** (share class variants): FOX A/B (Q60238941), TATA Steel/GDR (Q963101), Samsung/NON Voting (Q20718), SSAB A/B (Q54075), Alphabet A/C (Q20800404), Jiangxi Copper A/H (Q1518015)
-- **Merge** (same company, different name/era): IBM/Business Machines, Vale/VALE DO RIO DOCE, Fortescue/FMG, Arafura/Rare Earths, Palantir A, MP Materials A, Grupo Mexico B, Pilbara/PLS, Saab/Aktiebolag, TEKEVER/UAS, Nammo/Raufoss, TSMC/Arizona, Telefonica/Moviles
-- **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Tekever, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
-- For merges: run `python3 scripts/dedup_entities.py --merge WINNER LOSER`
-- For QID fixes: update wikidata_id on subsidiary to correct QID (or null), then re-run `enrich_wikidata.py`
+**Bucket A (true merges) — DONE 2026-04-15:** 10 merges applied (IBM, Vale, Fortescue, Arafura, Palantir, MP Materials, Saab, TEKEVER, Nammo, Grupo Mexico).
+
+Remaining groups from `python3 scripts/dedup_entities.py --list`:
+- **Keep both** (share class variants): FOX A/B (Q60238941), TATA Steel/GDR (Q963101), Samsung/NON Voting (Q20718), SSAB A/B (Q54075), Jiangxi Copper A/H (Q1518015)
+- **Pending decision** (Alphabet A/C + IN-1247, CMOC/China Molybdenum A, Pilbara/PLS, TSMC/Arizona, Telefonica SA/Moviles, Meta/META Class A, KGHM International/Polska)
+- **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
+- For QID fixes: update wikidata_id on subsidiary to `null`, then re-run `enrich_wikidata.py`
 
 ### 0b. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
 
