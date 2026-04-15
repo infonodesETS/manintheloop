@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (Bucket C: 2 merges + 1 share_class_variant + 27 QID nulls — 2061 → 2059 entities)
+> Last updated: 2026-04-15 (Deduplication complete — all 41 QID groups resolved; UPDATE_PROTOCOL.md updated)
 
 ## Session protocol
 
@@ -280,8 +280,11 @@ refactoringDB/
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
-| validation: duplicate_wikidata_id | 94 entities (99 flagged − 5 already merged) |
-| validation: merged_from | 5 entities |
+| validation: duplicate_wikidata_id | 0 unresolved (all 41 groups resolved: merged / share_class_variant / qid_removed) |
+| validation: share_class_variant | 20 entities (10 pairs) |
+| validation: qid_removed | 27 entities (wrong parent QID removed) |
+| validation: merged_from | 20 entities (15 from this session) |
+| validation: bad_crunchbase_match | 1 entity (IN-1298 Indra) |
 | validation: needs_review | 2146 entries (ongoing) |
 
 ---
@@ -449,31 +452,17 @@ refactoringDB/
 
 ## Pending work (priority order)
 
-### 0a. Entity deduplication — 31 groups remaining (Bucket A complete)
+### 0a. Entity deduplication — COMPLETE (2026-04-15)
 
-**Bucket A (true merges) — DONE 2026-04-15:** 10 merges applied (IBM, Vale, Fortescue, Arafura, Palantir, MP Materials, Saab, TEKEVER, Nammo, Grupo Mexico).
+All 41 QID duplicate groups resolved across three passes (2026-04-15):
+- **Bucket A** (10 true merges): IBM, Vale, Fortescue, Arafura, Palantir, MP Materials, Saab, TEKEVER, Nammo, Grupo Mexico
+- **Bucket B** (10 share_class_variant pairs): FOX A/B, TATA Steel/GDR, Samsung/NON Voting, SSAB A/B, Jiangxi Copper A/H, CMOC/China Moly A, Alphabet A/C, Ericsson/Ericsson B
+- **Ambiguous** (3 merges + 3 QID nulls): Pilbara/PLS, Alphabet IN-1247→Class A, Meta/META; TSMC Arizona, Telefonica Moviles, KGHM International
+- **Bucket C** (2 merges + 27 QID nulls): TKMS/ThyssenKrupp, Indra/Indra Sistemas; 27 national subsidiaries and divisions — wrong parent QIDs removed with full rationale in each entity's history[]/validation[]
 
-Remaining groups from `python3 scripts/dedup_entities.py --list`:
-- **Keep both — DONE** (share_class_variant set 2026-04-15): FOX A/B, TATA Steel/GDR, Samsung/NON Voting, SSAB A/B, Jiangxi Copper A/H
-- **Ambiguous cases — DONE 2026-04-15:**
-  - Merge: Pilbara/PLS (IN-0287→IN-1320), Alphabet IN-1247→IN-0017, Meta IN-0228→IN-1310
-  - share_class_variant: CMOC/China Molybdenum A (A-shares vs H-shares), Alphabet Class A/C
-  - wikidata_id nulled (wrong parent QID): TSMC Arizona (IN-1338), Telefonica Moviles (IN-1122), KGHM International (IN-1300)
-  - Each action documented with full rationale in history[] and validation[]
-- **Bucket C — DONE 2026-04-15:** subsidiary QID cleanup complete
-  - Merges: TKMS ← ThyssenKrupp Marine Systems (Q551068, acronym/full-name); Indra ← Indra Sistemas (Q1661823, same EDF entity)
-  - share_class_variant: Ericsson B (ERIC B Stockholm) ↔ Ericsson (IN-0655)
-  - 27 QID nulls with full rationale in history[]/validation[]:
-    - IN-0657 (Ericsson HU subsidiary), IN-0831 (Ericsson FI branch)
-    - IN-0464/0465/0466/0467 (Airbus D&S 4 national entities; Q15529123=division, not legal entity)
-    - IN-0752 (Indra Espacio SLU, space sub), IN-0820 (KNDS Belgium), IN-0824 (KNDS FR Robotics/Nexter)
-    - IN-0527/0528 (Beyond Gravity AT/SE), IN-0532/0533 (Bittium Safemove/Wireless)
-    - IN-0599/0600 (Damen Naval/RDI), IN-0670/0671 (Eviden AT/RO), IN-0724 (Helsing Germany)
-    - IN-0818 (KNDS Ammo FR, ammo div), IN-0863 (MBDA España, had Italian sibling's QID)
-    - IN-0952 (Patria Aerostructures), IN-0980 (Renk Magnet Motor)
-    - IN-1019 (Safran Ai ≠ Aircraft Engines), IN-1021 (Safran Data Sys ≠ Electronics&Defense)
-    - IN-1126 (Telespazio France), IN-1194 (Valneva Austria), IN-1267/1268 (Chinalco segment labels)
-  - Also flagged: IN-1298 Indra has bad CB match (Indian water company) — validation status bad_crunchbase_match added
+`python3 scripts/dedup_entities.py --list` still shows 8 groups — all intentional `share_class_variant` pairs. The script classifies by name pattern, not validation entries; these will always appear and are expected.
+
+Also flagged: IN-1298 Indra has `bad_crunchbase_match` — CB matched to Indian water company; requires Crunchbase cleanup.
 - validate.py PASSED — 2059 entities, 1042 relationships
 
 ### 0b. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
