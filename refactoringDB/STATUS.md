@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (Bucket A deduplication: 10 true-duplicate merges applied — 2074 → 2064 entities)
+> Last updated: 2026-04-15 (Bucket B: 5 share-class pairs resolved — duplicate_wikidata_id → share_class_variant)
 
 ## Session protocol
 
@@ -402,6 +402,12 @@ refactoringDB/
   - Share class variants (keep both): FOX A/B, TATA Steel/GDR
   - Parent + iShares listing duplicate: Palantir, MP Materials, Pilbara/PLS, Vale/VALE DO RIO DOCE, Fortescue, Grupo Mexico, IBM/Business Machines, Saab, TEKEVER/Tekever Uas, Nammo/Raufoss, Arafura
   - Subsidiary with likely wrong QID: Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, and others
+- [x] **Bucket B resolved — 5 share-class pairs (2026-04-15):** duplicate_wikidata_id flag → share_class_variant on 10 entities:
+  - FOX Class A / FOX Class B (Q60238941) — different voting rights
+  - TATA Steel / TATA Steel GDR (Q963101) — ordinary vs GDR instrument
+  - Samsung Electronics / Samsung NON Voting PRE (Q20718) — common vs preferred
+  - SSAB A / SSAB Class B (Q54075) — A/B voting-weight classes
+  - Jiangxi Copper A / Jiangxi Copper H (Q1518015) — Shanghai vs Hong Kong listings
 
 ### Crunchbase match audit (2026-04-14)
 - [x] Discovered wrong CB match for IN-0032 Apple (matched to Apple Apaman, Japanese rental brokerage) — `sources.crunchbase` removed manually
@@ -448,7 +454,7 @@ refactoringDB/
 **Bucket A (true merges) — DONE 2026-04-15:** 10 merges applied (IBM, Vale, Fortescue, Arafura, Palantir, MP Materials, Saab, TEKEVER, Nammo, Grupo Mexico).
 
 Remaining groups from `python3 scripts/dedup_entities.py --list`:
-- **Keep both** (share class variants): FOX A/B (Q60238941), TATA Steel/GDR (Q963101), Samsung/NON Voting (Q20718), SSAB A/B (Q54075), Jiangxi Copper A/H (Q1518015)
+- **Keep both — DONE** (share_class_variant set 2026-04-15): FOX A/B, TATA Steel/GDR, Samsung/NON Voting, SSAB A/B, Jiangxi Copper A/H
 - **Pending decision** (Alphabet A/C + IN-1247, CMOC/China Molybdenum A, Pilbara/PLS, TSMC/Arizona, Telefonica SA/Moviles, Meta/META Class A, KGHM International/Polska)
 - **Fix QID on subsidiary** (wrong QID inherited from CB match): Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, Beyond Gravity pair, MBDA pair, Renk pair, Telespazio, TKMS/ThyssenKrupp, Eviden pair, Chinalco pair, Patria pair, Knds Ammo
 - For QID fixes: update wikidata_id on subsidiary to `null`, then re-run `enrich_wikidata.py`
