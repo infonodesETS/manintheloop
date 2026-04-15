@@ -173,10 +173,22 @@ def cmd_merge(winner_id, loser_id):
         print(f"ERROR: winner {winner_id} not found"); sys.exit(1)
     if not loser:
         print(f"ERROR: loser {loser_id} not found"); sys.exit(1)
-    if winner.get("wikidata_id") != loser.get("wikidata_id"):
-        print(f"WARNING: wikidata_ids differ — {winner.get('wikidata_id')} vs {loser.get('wikidata_id')}")
-        if not DRY_RUN:
-            print("Aborting — confirm QIDs match before merging."); sys.exit(1)
+    winner_qid = winner.get("wikidata_id")
+    loser_qid = loser.get("wikidata_id")
+    if winner_qid != loser_qid:
+        if loser_qid is None:
+            # Loser has no QID — winner's QID takes over; safe for name-based merges
+            print(f"NOTE: loser {loser_id} has no wikidata_id — winner's QID ({winner_qid}) will be kept.")
+        elif winner_qid is None:
+            # Winner has no QID but loser does — adopt loser's QID onto winner
+            print(f"NOTE: winner {winner_id} has no wikidata_id — adopting loser's QID ({loser_qid}).")
+            if not DRY_RUN:
+                winner["wikidata_id"] = loser_qid
+        else:
+            # Both have different non-null QIDs — genuinely different Wikidata entities, abort
+            print(f"ERROR: wikidata_ids differ — {winner_qid} vs {loser_qid}")
+            if not DRY_RUN:
+                print("Aborting — confirm QIDs match before merging."); sys.exit(1)
 
     w_src = winner.setdefault("sources", {})
     l_src = loser.get("sources") or {}
@@ -287,6 +299,13 @@ def cmd_merge(winner_id, loser_id):
 
     # --- Add merge record to winner history ---
     absorbed_str = "; ".join(absorbed) if absorbed else "no new data"
+    merge_basis = (
+        f"same wikidata_id {winner.get('wikidata_id')}"
+        if winner.get("wikidata_id") and loser_qid == winner.get("wikidata_id")
+        else f"name-based match (loser {loser_id} had no wikidata_id)"
+        if loser_qid is None
+        else f"same wikidata_id {winner.get('wikidata_id')}"
+    )
     winner.setdefault("history", []).append({
         "date": TODAY,
         "source": "manual",
@@ -296,7 +315,7 @@ def cmd_merge(winner_id, loser_id):
         "new": f"merged from {loser_id}",
         "description": (
             f"Merged and retired {loser_id} ({loser['name']}) into this entity "
-            f"(same wikidata_id {winner.get('wikidata_id')}). "
+            f"({merge_basis}). "
             f"Absorbed: {absorbed_str}."
         ),
     })

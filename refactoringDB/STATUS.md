@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (web UI: source flag tooltips + clickable top-investor pills)
+> Last updated: 2026-04-15 (dedup: 14 name-based IN/IV merges; dual-role entities consolidated)
 
 ## Session protocol
 
@@ -319,10 +319,10 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2059** |
+| Total entities | **2045** |
 | — companies (IN-NNNN) | 1129 |
 | — institutions + gov | 207 |
-| — investors (IV-NNNN) | **723** (extracted from CB CSV Top 5 + Lead Investors) |
+| — investors (IV-NNNN) | **709** (723 extracted − 14 merged into dual-role IN- entities) |
 | — persons (PER-NNNN) | **0** — not yet built |
 | Relationships | **1042** investment REL-NNNN (605 as lead) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) |
@@ -512,6 +512,16 @@ refactoringDB/
 ### Wikidata force-refresh (2026-04-15)
 - [x] `enrich_wikidata.py --force` run: 659 entities refreshed, 0 not found
 - [x] validate.py PASSED
+
+### Name-based deduplication — dual-role entities (2026-04-15)
+
+- [x] Systematic `normalize_name()` scan across all entities: 16 name-key collision groups found
+- [x] **Category A — 14 IN-/IV- same-name pairs merged**: large companies independently extracted as investors from CB CSV; merged into canonical IN- entity, `investor` role added, all REL-NNNN redirected
+  - Apple, Microsoft, Nvidia, Samsung Electronics, SoftBank, South32, Tencent, Vodafone, Agnico-Eagle, Amazon, Ma'aden, Tianqi Lithium, Zijin Mining, Kaitseministeerium
+- [x] **Category B — Airbus Defence And Space × 4 (IN-0464..0467)**: different EDF PICs + different countries (DE/ES/FR/FI) → 4 genuine national subsidiaries, kept as-is
+- [x] **Category C — Sopra Steria × 2 (IN-1078/IN-1079)**: different Wikidata QIDs → parent vs Norwegian subsidiary, kept as-is
+- [x] `scripts/dedup_entities.py` extended: null-QID losers now allowed (NOTE instead of abort); both-non-null-different QIDs still abort (existing behaviour preserved)
+- [x] validate.py PASSED — 2045 entities, 1042 relationships
 
 ### Web UI — interactive elements (2026-04-15)
 

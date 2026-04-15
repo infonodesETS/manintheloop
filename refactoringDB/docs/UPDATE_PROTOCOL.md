@@ -327,3 +327,17 @@ Retired IDs are loser entities from merges. Their data was fully absorbed into t
 | IN-0228 | IN-1310 | META Platforms Class A | Meta for Developers | Only one public Meta share class; "Class A" = iShares artifact | 2026-04-15 |
 | IN-1335 | IN-1150 | ThyssenKrupp Marine Systems | Tkms | TKMS = acronym for ThyssenKrupp Marine Systems; same entity | 2026-04-15 |
 | IN-0753 | IN-1298 | Indra Sistemas | Indra | Same legal entity (Indra Sistemas S.A.) with two separate EDF PICs | 2026-04-15 |
+| IV-0043 | IN-0032 | Apple | Apple | Dual-role entity: same company appears as iShares holding (IN-) and CB investor (IV-); name-based merge | 2026-04-15 |
+| IV-0445 | IN-0233 | Microsoft | Microsoft | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0466 | IN-0271 | NVIDIA | Nvidia | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0575 | IN-0312 | Samsung Electronics | Samsung Electronics | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0602 | IN-0339 | SoftBank | Softbank | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0608 | IN-0341 | South32 | South32 | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0647 | IN-0375 | Tencent | Tencent | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0701 | IN-0409 | Vodafone | Vodafone | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0374 | IN-0812 | Kaitseministeerium | Kaitseministeerium | Dual-role entity (government agency + investor): name-based merge | 2026-04-15 |
+| IV-0025 | IN-1245 | Agnico-Eagle Mines Limited | Agnico-Eagle Mines Limited | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0036 | IN-1248 | Amazon | Amazon | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0439 | IN-1307 | Ma'aden | Ma'aden | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0658 | IN-1336 | Tianqi Lithium | Tianqi Lithium | Dual-role entity: name-based merge | 2026-04-15 |
+| IV-0718 | IN-1350 | Zijin Mining | Zijin Mining | Dual-role entity: name-based merge | 2026-04-15 |
