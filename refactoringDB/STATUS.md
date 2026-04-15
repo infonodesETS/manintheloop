@@ -14,179 +14,215 @@
 
 ## Scripts reference
 
-> Run `python3 scripts/validate.py` after any script that modifies `database.json`.
+> **Rule:** always run `python3 scripts/validate.py` after any script that modifies `database.json`.
 > All paths are relative to `refactoringDB/`.
 
-### Always-safe commands
+---
 
-| Command | What it does | Safe to re-run? |
-|---|---|---|
-| `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
-| `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
-| `python3 scripts/audit_quality.py --dry-run` | Audit B+C+D report only — never modifies DB | Yes |
-| `python3 scripts/dedup_entities.py --list` | List all wikidata_id duplicate groups + auto-merge candidates | Yes |
-| `python3 scripts/dedup_entities.py --merge A B --dry-run` | Preview merge of B into A — never modifies DB | Yes |
-| `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |
-
-### Wikidata enrichment
+### 1. Validate data
 
 ```bash
-# Populate sources.wikidata for all entities with a wikidata_id (skips already-enriched)
-#   Reads: data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
-#   Writes: data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
-python3 scripts/enrich_wikidata.py [--dry-run]
-
-# Force re-enrichment of ALL entities (including already-enriched) — use after bulk QID updates
-python3 scripts/enrich_wikidata.py --force [--dry-run]
-
-# Validate
 python3 scripts/validate.py
 ```
 
-Re-run safety: without `--force`, skips entities that already have `sources.wikidata` → safe to re-run after new QIDs are applied.
+10 checks: entity ID uniqueness, relationship ID uniqueness, source/target refs, roles, entity types,
+wikidata_id format, date fields, required fields, PER-NNNN consistency, relationship type values.
+Never modifies the DB. Always run after any DB change.
 
-### Data quality audit
+---
 
-```bash
-# Run audit (adds reconciliation_documented and field_conflict validation entries)
-#   Audit B: documents cross-dataset reconciliation basis for 165 multi-source entities
-#   Audit C: flags field-level conflicts across sources (country, headquarters)
-#   Safe to re-run: skips entities that already have the relevant validation status
-python3 scripts/audit_quality.py [--dry-run]
+### 2. Update database from Wikidata
 
-# Validate
-python3 scripts/validate.py
-```
-
-### Website enrichment pipeline
-
-Run once per enrichment cycle in this order:
+**Step A — Find QIDs for entities that don't have one yet**
 
 ```bash
-# 1. Import EDF web_link field → sources.infonodes.website
-#    Reads: data/edf_orgs.json, data/database.json
-#    Writes: data/database.json (sources.infonodes.website + history[])
-#    Skip: entities that already have crunchbase.website
-python3 scripts/import_edf_websites.py [--dry-run]
-
-# 2. Fetch official website (P856) from Wikidata for companies with wikidata_id but no website
-#    Reads: data/database.json  |  API: SPARQL (batches of 50, 2s delay)
-#    Writes: data/database.json (sources.infonodes.website + history[])
-python3 scripts/fetch_wikidata_websites.py [--dry-run]
-
-# 3. Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: both scripts skip entities that already have a website set → safe to re-run.
-
-### QID enrichment pipeline
-
-```bash
-# Phase 1 — Wikidata Search API (resumes from checkpoint if qid_candidates.json exists)
-#    Reads: data/database.json  |  Writes: data/qid_candidates.json (status=proposed/skipped)
-#    API: wbsearchentities REST, 1.5s delay
+# Search (resumes from checkpoint in data/qid_candidates.json if it exists)
 python3 scripts/search_missing_qids.py --search
 
-# Phase 1b — SPARQL label lookup + Reconciliation API for Phase 1 skipped entries
-#    Reads: data/qid_candidates.json  |  Writes: data/qid_candidates.json (in-place)
-#    Never overwrites accepted/rejected entries
-python3 scripts/sparql_search_qids.py
-
-# Phase 2 — Human review
-# Open data/qid_candidates.json
-# Change each "proposed" entry to "accepted" or "rejected"
-
-# Phase 3 — Apply accepted QIDs to database.json
-#    Reads: data/qid_candidates.json (accepted only)
-#    Writes: data/database.json (wikidata_id + history[] + validation[])
-#    Zero API calls
-python3 scripts/search_missing_qids.py --apply
-
-# Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: `--search` resumes from checkpoint. `--apply` skips entities that already have a wikidata_id.
-
-### QID second-pass pipeline (`reprocess_skipped_qids.py`)
-
-Run after the main QID pipeline to recover skipped entries via four strategies:
-
-```bash
-# Runs all 4 phases in sequence — safe to re-run (skips already-proposed/accepted/rejected)
-#    Phase A: fix disqualify false positives (0 API calls, in-memory re-evaluation)
-#    Phase B: P856 website reverse SPARQL lookup (2s delay, batch=10 entities)
-#    Phase C: P31 type confirmation for no-description entries (SPARQL)
-#    Phase D: results[1-4] re-search for wrong-top-result entries (Wikidata API, 1.5s delay)
-#    Writes: data/qid_candidates.json only — never touches database.json
+# Second-pass recovery for skipped entries (4 strategies: false-positive fix, P856 SPARQL,
+# P31 type confirmation, results[1-4] re-search) — safe to re-run
 python3 scripts/reprocess_skipped_qids.py
 
-# Then review qid_candidates.json (proposed → accepted/rejected), then apply:
+# Human review: open data/qid_candidates.json, change "proposed" → "accepted" or "rejected"
+
+# Apply accepted QIDs to database.json (skips entities that already have a wikidata_id)
 python3 scripts/search_missing_qids.py --apply
+
 python3 scripts/validate.py
 ```
 
-### Crunchbase enrichment pipeline
+**Step B — Fetch Wikidata entity data for all QID-bearing entities**
+
+Populates `sources.wikidata`: label, description, instance_of, country, inception, headquarters,
+official_website, ISIN, employees, wikipedia_url.
+
+```bash
+# Enrich entities that don't have sources.wikidata yet (safe to re-run after new QIDs applied)
+python3 scripts/enrich_wikidata.py [--dry-run]
+
+# Force-refresh ALL already-enriched entities (use to refresh stale data)
+python3 scripts/enrich_wikidata.py --force [--dry-run]
+
+python3 scripts/validate.py
+```
+
+**Step C — Fetch missing websites from Wikidata (P856)**
+
+```bash
+# Fetch official website for entities with wikidata_id but no website yet
+python3 scripts/fetch_wikidata_websites.py [--dry-run]
+
+python3 scripts/validate.py
+```
+
+---
+
+### 3. Update database from EDF (European Commission Participant Portal)
+
+**Step A — Refresh raw EDF data** (writes `rawdata/edf_calls.json`)
+
+```bash
+# Full fetch — all calls, all projects, all participants (~20 min, ~3.8 MB output)
+#   API: EC Search API + topicProjectsList + DOC_API
+#   Delays: 0.5s/page, 0.8s/year, 1.0s/call, 0.8s/project
+python3 scripts/fetch_edf_bulk.py
+
+# Incremental — re-check open/forthcoming calls + closed calls without projects (faster)
+python3 scripts/fetch_edf_bulk.py --update
+
+# Re-enrich — re-fetch participant details for calls that already have projects
+python3 scripts/fetch_edf_bulk.py --reenrich
+```
+
+**Step B — Import EDF org entities into database.json** *(one-time — already done 2026-04-01)*
+
+```bash
+# DO NOT RE-RUN — creates duplicate entities. Already imported 792 EDF orgs.
+# scripts/build_edf_entities.py
+```
+
+**Step C — Import EDF websites into database.json**
+
+```bash
+# Copy EDF web_link field → sources.infonodes.website (skips entities that already have a website)
+python3 scripts/import_edf_websites.py [--dry-run]
+
+python3 scripts/validate.py
+```
+
+> Phase 4 (EDF participation relationships → REL-NNNN) is **not yet implemented** — pending new script.
+
+---
+
+### 4. Update database from Crunchbase CSV
 
 > **Full process documentation:** `data/crunchbase_sandbox/CRUNCHBASE.md`
 
 ```
 data/crunchbase_sandbox/
-  companies_export.csv                        ← full list (1149 rows: name + website)
-  matches.csv                                 ← 812 rows — uploaded to Crunchbase (Cycle 1)
-  non_matches.csv                             ← 337 rows — Crunchbase could not match
-  crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows returned by Crunchbase (Cycle 1)
-  unresolved_2026-04-13.csv                   ← 21 rows CB returned but not matched to DB
-  CRUNCHBASE.md                               ← process + reconciliation log
+  companies_export.csv          ← generated export to upload to Crunchbase
+  matches.csv                   ← rows uploaded (Cycle 1: 812 rows)
+  non_matches.csv               ← rows excluded from upload (Cycle 1: 337 rows)
+  crunchbase-export-*.csv       ← CSV downloaded from Crunchbase after upload
+  unresolved_YYYY-MM-DD.csv     ← CB rows not matched to any DB entity
+  CRUNCHBASE.md                 ← process log + reconciliation strategy
 ```
 
 ```bash
-# Regenerate export (run at start of each new cycle)
+# 1. Regenerate the export from the current DB state (run at start of each new cycle)
 python3 scripts/regenerate_export.py
+# → writes data/crunchbase_sandbox/companies_export.csv
 
-# Import (dry-run first — always)
+# 2. Upload companies_export.csv to Crunchbase manually, download the enriched CSV
+
+# 3. Import (dry-run first — always)
 python3 scripts/import_crunchbase_csv.py \
     data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv \
     --dry-run
 
-# Apply
+# 4. Apply
 python3 scripts/import_crunchbase_csv.py \
     data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv
 
-# Validate
+# 5. Import investor graph from the same CSV (IV-NNNN entities + REL-NNNN relationships)
+python3 scripts/import_investors_csv.py \
+    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv [--dry-run]
+
 python3 scripts/validate.py
 ```
 
-**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
+**Cycle 1 state (2026-04-14):** 601 new + 121 updated = **731 entities** with `sources.crunchbase`;
+723 IV-NNNN investors + 1042 REL-NNNN relationships. 21 unresolved in `CRUNCHBASE.md`.
 
-### EDF raw data fetch
+---
+
+### 5. Update database from iShares CSV files
+
+iShares raw CSVs live in `rawdata/`. New ETF holdings cycles require updating these files first.
 
 ```bash
-# Full fetch — all calls, all projects, all participants (writes rawdata/edf_calls.json)
-#   API: EC Search API + topicProjectsList + DOC_API
-#   Delays: 0.5s/page, 0.8s/year, 1.0s/call, 0.8s/project
-python3 scripts/fetch_edf_bulk.py
-
-# Incremental — re-check open/forthcoming calls and closed calls without projects
-python3 scripts/fetch_edf_bulk.py --update
-
-# Re-enrich — re-fetch project details for calls that already have projects
-python3 scripts/fetch_edf_bulk.py --reenrich
+# Preview normalised rows from a CSV (stdout only — never modifies DB)
+python3 scripts/parse_ishares.py rawdata/ishares_metals_mining_gics151040.csv
+python3 scripts/parse_ishares.py rawdata/ishares_tech_gics45.csv
+python3 scripts/parse_ishares.py rawdata/ishares_comm_services_gics50.csv
 ```
 
-Re-run safety: `--update` is safe (merges into existing file). Full fetch re-downloads all metadata but preserves existing project data during merge.
+> **Initial import already done (2026-04-01).** `scripts/build_database.py` is a one-time script —
+> do NOT re-run it (it regenerates IDs from scratch and will create duplicates).
+> For new ETF cycles: update the rawdata CSVs, then write a new incremental import script
+> that matches existing entities by `name_key` or `wikidata_id` before creating new ones.
 
-### One-time build scripts (do not re-run — they regenerate IDs from scratch)
+---
 
-| Script | Purpose | Status |
+### 6. Audit, check, clean, and deduplicate data
+
+**Run audit** (reconciliation documentation + field conflict detection)
+
+```bash
+# Dry-run: report only, no DB writes
+python3 scripts/audit_quality.py --dry-run
+
+# Apply: writes reconciliation_documented + field_conflict validation entries
+python3 scripts/audit_quality.py
+
+python3 scripts/validate.py
+```
+
+Audit covers:
+- **Audit B** — documents cross-dataset reconciliation basis for multi-source entities
+- **Audit C** — flags field-level conflicts (country, headquarters) across sources
+- **Audit D** — flags entities sharing a `wikidata_id` (`duplicate_wikidata_id` validation status)
+
+**Deduplicate entities** (merge two entities into one)
+
+```bash
+# List all wikidata_id duplicate groups + auto-merge candidates
+python3 scripts/dedup_entities.py --list
+
+# Preview a merge (dry-run — never modifies DB)
+python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID --dry-run
+
+# Apply a merge (LOSER absorbed into WINNER, LOSER removed)
+python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID
+
+python3 scripts/validate.py
+```
+
+Merge logic: ishares entries appended, edf/crunchbase/infonodes copied if missing, roles unioned,
+history/validation absorbed with `[from LOSER_ID]` prefix, relationships redirected + deduped.
+
+---
+
+### One-time build scripts — DO NOT RE-RUN
+
+| Script | Purpose | Done |
 |---|---|---|
-| `scripts/build_database.py` | Initial iShares ETF import → database.json | Done 2026-04-01 |
-| `scripts/build_edf_entities.py` | EDF org import → 792 new entities | Done 2026-04-01 |
-| `scripts/import_startups.py` | Migrates 17 startups from old DB | Done 2026-04-01 |
-| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | Done 2026-04-01 |
+| `scripts/build_database.py` | Initial iShares ETF import → database.json | 2026-04-01 |
+| `scripts/build_edf_entities.py` | EDF org import → 792 new entities + edf_orgs.json | 2026-04-01 |
+| `scripts/import_startups.py` | Migrates 17 startups from old DB | 2026-04-01 |
+| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | 2026-04-01 |
 
-> **Warning:** Re-running any of these scripts will attempt to create duplicate entities. Never re-run without modifying them to skip existing IDs first.
+> Re-running any of these will attempt to create duplicate entities with new IDs.
 
 ---
 
