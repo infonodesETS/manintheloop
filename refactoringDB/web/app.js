@@ -29,6 +29,19 @@ function fmtFunding(n) {
 function row(lbl, val) {
   return `<div class="cs-row"><span class="cs-row-lbl">${lbl}</span><span class="cs-row-val">${val}</span></div>`;
 }
+const NA = '<span class="cs-na-inline">Not available in the source</span>';
+function na(v) {
+  if (v == null || v === '' || (Array.isArray(v) && v.length === 0)) return NA;
+  return null; // caller should use its own formatter
+}
+function fmtNative(obj) {
+  if (!obj || typeof obj !== 'object') return NA;
+  const { amount, currency } = obj;
+  if (amount == null) return NA;
+  const n = Number(amount);
+  const fmt = isNaN(n) ? String(amount) : n.toLocaleString();
+  return esc(`${currency ? currency + ' ' : ''}${fmt}`);
+}
 
 // ── Source/type badges ────────────────────────────────────────────────────────
 const SECTOR_CLASS = { Defence:'defence', Mining:'mining', Tech:'tech', Startup:'startup' };
@@ -59,17 +72,20 @@ function matchBadge(method) {
 }
 
 // ── Data loading ──────────────────────────────────────────────────────────────
-let DB   = null;  // database.json
-let ORGS = null;  // edf_orgs.json
-let EDF  = null;  // edf_calls.json (lazy)
+let DB       = null;  // database.json
+let ORGS     = null;  // edf_orgs.json
+let EDF      = null;  // edf_calls.json (lazy)
+let GLOSSARY = null;  // data/glossary.json
 
 async function loadData() {
-  const [dbRes, orgsRes] = await Promise.all([
+  const [dbRes, orgsRes, glossRes] = await Promise.all([
     fetch('data/database.json'),
     fetch('data/edf_orgs.json'),
+    fetch('data/glossary.json'),
   ]);
-  DB   = await dbRes.json();
-  ORGS = await orgsRes.json();
+  DB       = await dbRes.json();
+  ORGS     = await orgsRes.json();
+  GLOSSARY = await glossRes.json();
 }
 
 async function loadEdf() {
@@ -82,13 +98,15 @@ async function loadEdf() {
 // ── Source flags ─────────────────────────────────────────────────────────────
 function sourceFlagsHtml(item, inline = false) {
   const e = item.dbEntity;
+  const sf = GLOSSARY?.source_flags || {};
+  const tip = key => sf[key] ? ` title="${esc(sf[key])}"` : '';
   const flags = [];
-  if (e?.sources?.crunchbase)                    flags.push(`<span class="src-flag src-flag-cb">CB</span>`);
-  if (item.edfOrg)                               flags.push(`<span class="src-flag src-flag-edf">EDF</span>`);
+  if (e?.sources?.crunchbase)  flags.push(`<span class="src-flag src-flag-cb"${tip('CB')}>CB</span>`);
+  if (item.edfOrg)             flags.push(`<span class="src-flag src-flag-edf"${tip('EDF')}>EDF</span>`);
   const isCount = (e?.sources?.ishares || []).length;
-  if (isCount > 0)                               flags.push(`<span class="src-flag src-flag-is">iShares${isCount > 1 ? ` ×${isCount}` : ''}</span>`);
-  if (e?.sources?.wikidata)                      flags.push(`<span class="src-flag src-flag-wd">WD</span>`);
-  if (e?.sources?.infonodes)                     flags.push(`<span class="src-flag src-flag-inf">INF</span>`);
+  if (isCount > 0)             flags.push(`<span class="src-flag src-flag-is"${tip('iShares')}>iShares${isCount > 1 ? ` ×${isCount}` : ''}</span>`);
+  if (e?.sources?.wikidata)    flags.push(`<span class="src-flag src-flag-wd"${tip('WD')}>WD</span>`);
+  if (e?.sources?.infonodes)   flags.push(`<span class="src-flag src-flag-inf"${tip('INF')}>INF</span>`);
   if (!flags.length) return '';
   return `<span class="src-flags${inline ? ' inline' : ''}">${flags.join('')}</span>`;
 }
@@ -679,6 +697,9 @@ function openCompare() {
     });
   });
 
+  // Clickable top-investor pills
+  wireInvestorPills(cmpEl);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -902,19 +923,27 @@ function makeCard(cls, title, bodyHtml, count, id) {
 function infCardBody(inf, e) {
   let h = '';
   // Entity-level fields (top-level, not source-specific)
-  if (e?.id)             h += row('DB ID', `<code>${esc(e.id)}</code>`);
-  if (e?.type)           h += row('Type', esc(e.type));
-  if (e?.sector)         h += row('Sector', esc(e.sector));
-  if (e?.wikidata_id)    h += row('Wikidata ID', `<code>${esc(e.wikidata_id)}</code>`);
-  if (e?.roles?.length)  h += row('Roles', `<span class="cs-tag-list">${e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join('')}</span>`);
-  if (e?.tags?.length)   h += row('Tags', `<span class="cs-tag-list">${e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join('')}</span>`);
+  if (e?.id)          h += row('DB ID', `<code>${esc(e.id)}</code>`);
+  if (e?.type)        h += row('Type', esc(e.type));
+  h += row('Sector',      e?.sector      ? esc(e.sector)      : NA);
+  h += row('Wikidata ID', e?.wikidata_id ? `<code>${esc(e.wikidata_id)}</code>` : NA);
+  h += row('Roles', e?.roles?.length
+    ? `<span class="cs-tag-list">${e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join('')}</span>`
+    : NA);
+  h += row('Tags', e?.tags?.length
+    ? `<span class="cs-tag-list">${e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join('')}</span>`
+    : NA);
   // Infonodes source fields
-  if (inf.country)       h += row('Country', esc(inf.country));
-  if (inf.main_focus)    h += row('Focus', esc(inf.main_focus));
-  if (inf.tax_id)        h += row('Tax ID', `<code>${esc(inf.tax_id)}</code>`);
-  if (inf.website)       h += row('Website', `<a class="cs-ext-link" href="${esc(inf.website)}" target="_blank">${esc(inf.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`);
-  if (inf.wikipedia_url) h += row('Wikipedia', `<a class="cs-ext-link cs-wd" href="${esc(inf.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`);
-  if (inf.extracted_at)  h += `<div class="cs-src-ts">Extracted: ${esc(inf.extracted_at)}</div>`;
+  h += row('Country',   inf.country   ? esc(inf.country)   : NA);
+  h += row('Focus',     inf.main_focus ? esc(inf.main_focus) : NA);
+  h += row('Tax ID',    inf.tax_id    ? `<code>${esc(inf.tax_id)}</code>` : NA);
+  h += row('Website',   inf.website
+    ? `<a class="cs-ext-link" href="${esc(inf.website)}" target="_blank">${esc(inf.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`
+    : NA);
+  h += row('Wikipedia', inf.wikipedia_url
+    ? `<a class="cs-ext-link cs-wd" href="${esc(inf.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`
+    : NA);
+  if (inf.extracted_at) h += `<div class="cs-src-ts">Extracted: ${esc(inf.extracted_at)}</div>`;
   return h || '<div class="cs-na">No Infonodes data.</div>';
 }
 
@@ -944,16 +973,24 @@ function wdCardBody(wd) {
   let h = '';
   if (wd.label)          h += row('Label', esc(wd.label));
   if (wd.description)    h += `<div class="cs-src-desc">${esc(wd.description)}</div>`;
-  if (wd.aliases?.length) h += row('Also known as', `<span class="cs-tag-list">${wd.aliases.map(a => `<span class="cs-tag">${esc(a)}</span>`).join('')}</span>`);
-  if (wd.instance_of?.length) h += row('Instance of', (Array.isArray(wd.instance_of) ? wd.instance_of : [wd.instance_of]).map(v => esc(v)).join(', '));
-  if (wd.country)        h += row('Country', esc(wd.country));
-  if (wd.inception)      h += row('Founded', esc(String(wd.inception).slice(0,4)));
-  if (wd.headquarters)   h += row('HQ', esc(wd.headquarters));
-  if (wd.employees)      h += row('Employees', Number(wd.employees).toLocaleString());
-  if (wd.isin)           h += row('ISIN', `<code>${esc(wd.isin)}</code>`);
-  if (wd.official_website) h += row('Website', `<a class="cs-ext-link" href="${esc(wd.official_website)}" target="_blank">${esc(wd.official_website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`);
-  if (wd.wikipedia_url)  h += row('Wikipedia', `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`);
-  if (wd.retrieved_at)   h += `<div class="cs-src-ts">Retrieved: ${esc(wd.retrieved_at)}</div>`;
+  h += row('Also known as', wd.aliases?.length
+    ? `<span class="cs-tag-list">${wd.aliases.map(a => `<span class="cs-tag">${esc(a)}</span>`).join('')}</span>`
+    : NA);
+  h += row('Instance of', wd.instance_of?.length
+    ? (Array.isArray(wd.instance_of) ? wd.instance_of : [wd.instance_of]).map(v => esc(v)).join(', ')
+    : NA);
+  h += row('Country',   wd.country    ? esc(wd.country)  : NA);
+  h += row('Founded',   wd.inception  ? esc(String(wd.inception).slice(0,4)) : NA);
+  h += row('HQ',        wd.headquarters ? esc(wd.headquarters) : NA);
+  h += row('Employees', wd.employees  ? Number(wd.employees).toLocaleString() : NA);
+  h += row('ISIN',      wd.isin       ? `<code>${esc(wd.isin)}</code>` : NA);
+  h += row('Website',   wd.official_website
+    ? `<a class="cs-ext-link" href="${esc(wd.official_website)}" target="_blank">${esc(wd.official_website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`
+    : NA);
+  h += row('Wikipedia', wd.wikipedia_url
+    ? `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`
+    : NA);
+  if (wd.retrieved_at) h += `<div class="cs-src-ts">Retrieved: ${esc(wd.retrieved_at)}</div>`;
   return h || '<div class="cs-na">No Wikidata properties.</div>';
 }
 
@@ -963,52 +1000,66 @@ function cbCardBody(cb) {
   h += `<div class="cb-group">Identity &amp; Status</div>`;
   if (cb.description_full || cb.description)
     h += `<div class="cs-src-desc">${esc(cb.description_full || cb.description)}</div>`;
-  if (cb.operating_status) h += row('Status', esc(cb.operating_status));
-  if (cb.stage)            h += row('Stage', esc(cb.stage));
-  if (cb.company_type)     h += row('Company type', esc(cb.company_type));
-  if (cb.founded_date)     h += row('Founded', esc(String(cb.founded_date).slice(0,10)));
-  if (cb.headquarters)     h += row('HQ', esc(cb.headquarters));
-  if (cb.headquarters_regions) h += row('Regions', esc(cb.headquarters_regions));
-  if (cb.revenue_range)    h += row('Revenue', esc(cb.revenue_range));
-  if (cb.cb_rank)          h += row('CB Rank', `#${cb.cb_rank}`);
-  if (cb.domain)           h += row('Domain', `<code>${esc(cb.domain)}</code>`);
-  if (cb.website)          h += row('Website', `<a class="cs-ext-link" href="${esc(cb.website)}" target="_blank">${esc(cb.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`);
-  if (cb.profile_url)      h += row('Profile', `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`);
-  if (cb.source_file)      h += row('Source file', `<code>${esc(cb.source_file)}</code>`);
+  h += row('Status',       cb.operating_status ? esc(cb.operating_status) : NA);
+  h += row('Stage',        cb.stage            ? esc(cb.stage)            : NA);
+  h += row('Company type', cb.company_type     ? esc(cb.company_type)     : NA);
+  h += row('Founded',      cb.founded_date     ? esc(String(cb.founded_date).slice(0,10)) : NA);
+  h += row('HQ',           cb.headquarters     ? esc(cb.headquarters)     : NA);
+  h += row('Regions',      cb.headquarters_regions ? esc(cb.headquarters_regions) : NA);
+  h += row('Revenue',      cb.revenue_range    ? esc(cb.revenue_range)    : NA);
+  h += row('CB Rank',      cb.cb_rank          ? `#${cb.cb_rank}`         : NA);
+  h += row('Domain',       cb.domain           ? `<code>${esc(cb.domain)}</code>` : NA);
+  h += row('Website',      cb.website
+    ? `<a class="cs-ext-link" href="${esc(cb.website)}" target="_blank">${esc(cb.website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`
+    : NA);
+  h += row('Profile',      cb.profile_url
+    ? `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`
+    : NA);
+  h += row('Source file',  cb.source_file      ? `<code>${esc(cb.source_file)}</code>` : NA);
 
   h += `<div class="cb-group">Industry</div>`;
-  if (cb.primary_industry)      h += row('Primary', esc(cb.primary_industry));
-  if (cb.primary_industry_url)  h += row('Industry URL', `<a class="cs-ext-link cs-cb" href="${esc(cb.primary_industry_url)}" target="_blank">${esc(cb.primary_industry_url)}</a>`);
-  if (cb.industry_groups?.length) h += row('Groups', `<span class="cs-tag-list">${cb.industry_groups.map(g=>`<span class="cs-tag">${esc(g)}</span>`).join('')}</span>`);
-  if (cb.industries?.length)    h += row('Industries', `<span class="cs-tag-list">${cb.industries.map(i=>`<span class="cs-tag">${esc(i)}</span>`).join('')}</span>`);
+  h += row('Primary',      cb.primary_industry     ? esc(cb.primary_industry) : NA);
+  h += row('Industry URL', cb.primary_industry_url
+    ? `<a class="cs-ext-link cs-cb" href="${esc(cb.primary_industry_url)}" target="_blank">${esc(cb.primary_industry_url)}</a>`
+    : NA);
+  h += row('Groups',     cb.industry_groups?.length
+    ? `<span class="cs-tag-list">${cb.industry_groups.map(g=>`<span class="cs-tag">${esc(g)}</span>`).join('')}</span>`
+    : NA);
+  h += row('Industries', cb.industries?.length
+    ? `<span class="cs-tag-list">${cb.industries.map(i=>`<span class="cs-tag">${esc(i)}</span>`).join('')}</span>`
+    : NA);
 
   h += `<div class="cb-group">Funding</div>`;
-  if (cb.funding_status)           h += row('Status', esc(cb.funding_status));
-  if (cb.total_funding_usd)        h += row('Total funding', fmtFunding(cb.total_funding_usd) || '—');
-  if (cb.total_equity_funding_usd) h += row('Equity funding', fmtFunding(cb.total_equity_funding_usd) || '—');
-  if (cb.total_funding_native)     h += row('Native amount', esc(String(cb.total_funding_native)));
-  if (cb.num_funding_rounds)       h += row('Rounds', String(cb.num_funding_rounds));
-  if (cb.last_funding_date)        h += row('Last round', esc(String(cb.last_funding_date).slice(0,10)));
-  if (cb.last_funding_type)        h += row('Last type', esc(cb.last_funding_type));
-  if (cb.last_funding_amount_usd)  h += row('Last amount', fmtFunding(cb.last_funding_amount_usd) || '—');
-  if (cb.num_investors)            h += row('Investors', String(cb.num_investors));
-  if (cb.top_investors?.length)    h += row('Top investors', `<span class="cs-tag-list">${cb.top_investors.map(i=>`<span class="cs-tag">${esc(i)}</span>`).join('')}</span>`);
-  if (cb.investment_stage)         h += row('Inv. stage', esc(cb.investment_stage));
-  if (cb.investor_type)            h += row('Inv. type', esc(cb.investor_type));
+  h += row('Status',         cb.funding_status          ? esc(cb.funding_status) : NA);
+  h += row('Total funding',  cb.total_funding_usd       ? fmtFunding(cb.total_funding_usd) : NA);
+  h += row('Equity funding', cb.total_equity_funding_usd ? fmtFunding(cb.total_equity_funding_usd) : NA);
+  h += row('Native amount',  fmtNative(cb.total_funding_native));
+  h += row('Rounds',         cb.num_funding_rounds != null ? String(cb.num_funding_rounds) : NA);
+  h += row('Last round',     cb.last_funding_date       ? esc(String(cb.last_funding_date).slice(0,10)) : NA);
+  h += row('Last type',      cb.last_funding_type       ? esc(cb.last_funding_type) : NA);
+  h += row('Last amount',    cb.last_funding_amount_usd ? fmtFunding(cb.last_funding_amount_usd) : NA);
+  h += row('Investors',      cb.num_investors != null   ? String(cb.num_investors) : NA);
+  h += row('Top investors',  cb.top_investors?.length
+    ? `<span class="cs-tag-list">${cb.top_investors.map(i=>`<button class="cs-tag cs-tag-investor" data-investor-name="${esc(i)}">${esc(i)}</button>`).join('')}</span>`
+    : NA);
+  h += row('Inv. stage',     cb.investment_stage        ? esc(cb.investment_stage) : NA);
+  h += row('Inv. type',      cb.investor_type           ? esc(cb.investor_type)    : NA);
 
-  if (cb.founders?.length || cb.board?.length || cb.patents_granted) {
-    h += `<div class="cb-group">Team &amp; IP</div>`;
-    if (cb.founders?.length) h += row('Founders', `<span class="cs-tag-list">${cb.founders.map(f=>`<span class="cs-tag">${esc(f)}</span>`).join('')}</span>`);
-    if (cb.board?.length)    h += row('Board', `<span class="cs-tag-list">${cb.board.map(b=>`<span class="cs-tag">${esc(b)}</span>`).join('')}</span>`);
-    if (cb.patents_granted)  h += row('Patents', String(cb.patents_granted));
-  }
+  h += `<div class="cb-group">Team &amp; IP</div>`;
+  h += row('Founders', cb.founders?.length
+    ? `<span class="cs-tag-list">${cb.founders.map(f=>`<span class="cs-tag">${esc(f)}</span>`).join('')}</span>`
+    : NA);
+  h += row('Board', cb.board?.length
+    ? `<span class="cs-tag-list">${cb.board.map(b=>`<span class="cs-tag">${esc(b)}</span>`).join('')}</span>`
+    : NA);
+  h += row('Patents', cb.patents_granted != null ? String(cb.patents_granted) : NA);
 
-  if (cb.acquired_by) {
-    h += `<div class="cb-group">Acquisition</div>`;
-    h += row('Acquired by', cb.acquired_by_url
-      ? `<a class="cs-ext-link cs-cb" href="${esc(cb.acquired_by_url)}" target="_blank">${esc(cb.acquired_by)}</a>`
-      : esc(cb.acquired_by));
-  }
+  h += `<div class="cb-group">Acquisition</div>`;
+  h += row('Acquired by', cb.acquired_by
+    ? (cb.acquired_by_url
+        ? `<a class="cs-ext-link cs-cb" href="${esc(cb.acquired_by_url)}" target="_blank">${esc(cb.acquired_by)}</a>`
+        : esc(cb.acquired_by))
+    : NA);
 
   if (cb.extracted_at) h += `<div class="cs-src-ts">Extracted: ${esc(cb.extracted_at)}</div>`;
   return h || '<div class="cs-na">No Crunchbase data.</div>';
@@ -1016,18 +1067,31 @@ function cbCardBody(cb) {
 
 function edfCardBody(item) {
   const org = item.edfOrg;
+  const edb = item.dbEntity?.sources?.edf || {};  // sources.edf from database.json
   let h = `<div class="edf-identity-block">`;
   if (org.organization_name !== item.name) h += row('Legal name', esc(org.organization_name));
-  if (org.pic)                h += row('PIC', `<code>${esc(String(org.pic))}</code>`);
-  h += row('Country', esc(org.country) + (org.city ? ` — ${esc(org.city)}` : ''));
-  if (org.country_code)       h += row('Country code', `<code>${esc(org.country_code)}</code>`);
-  if (org.activity_type)      h += row('Activity type', esc(org.activity_type));
-  if (org.type_code)          h += row('Org type', esc(org.type_code));
+  h += row('PIC',          org.pic         ? `<code>${esc(String(org.pic))}</code>` : NA);
+  const euUrl = edb.eu_url;
+  h += row('EU portal',    euUrl
+    ? `<a class="cs-ext-link" href="${esc(euUrl)}" target="_blank">EC org page ↗</a>`
+    : NA);
+  h += row('Country',      (org.country || org.city)
+    ? esc(org.country || '') + (org.city ? ` — ${esc(org.city)}` : '')
+    : NA);
+  h += row('Country code', org.country_code  ? `<code>${esc(org.country_code)}</code>` : NA);
+  h += row('Activity type',org.activity_type ? esc(org.activity_type) : NA);
+  h += row('Org type',     org.type_code     ? esc(org.type_code)     : NA);
+  const sme = edb.sme;
+  h += row('SME',          sme != null ? (sme ? 'Yes' : 'No') : NA);
   const euFmt = fmtEur(org.total_eu_contribution);
-  if (euFmt)                  h += row('EU contribution', `<span class="edf-contrib">${euFmt}</span>`);
-  if (org.call_count)         h += row('Calls', String(org.call_count));
-  if (org.coordinator_count)  h += row('Coordinated', String(org.coordinator_count));
-  h += row('Match', `${esc(org.match_method || '—')} / ${esc(org.match_confidence || '—')}`);
+  h += row('EU contribution', euFmt ? `<span class="edf-contrib">${euFmt}</span>` : NA);
+  h += row('Calls',        org.call_count        != null ? String(org.call_count)        : NA);
+  h += row('Coordinated',  org.coordinator_count != null ? String(org.coordinator_count) : NA);
+  h += row('Match',        `${esc(org.match_method || '—')} / ${esc(org.match_confidence || '—')}`);
+  const sf = edb.source_file;
+  h += row('Source file',  sf ? `<code>${esc(sf)}</code>` : NA);
+  const ext = edb.extracted_at;
+  h += ext ? `<div class="cs-src-ts">Extracted: ${esc(ext)}</div>` : '';
   h += `</div>`;
   const projCount = org.project_count || 0;
   if (projCount > 0) {
@@ -1062,7 +1126,8 @@ function histCardBody(hist) {
 
 function valCardBody(val) {
   let h = '';
-  for (const v of val) {
+  const sorted = [...val].sort((a, b) => (b.datestamp || '').localeCompare(a.datestamp || ''));
+  for (const v of sorted) {
     const cls = (v.status || '').replace(/[^a-z0-9_]/gi, '_');
     h += `<div class="val-item">
       <span class="val-status ${cls}">${esc(v.status || '—')}</span>
@@ -1071,6 +1136,22 @@ function valCardBody(val) {
     </div>`;
   }
   return h || '<div class="cs-na">No validation entries.</div>';
+}
+
+function findInvestorByName(name) {
+  const q = name.trim().toLowerCase();
+  return REGISTRY.find(r => r.kind === 'investor' && r.name.toLowerCase() === q)
+      || REGISTRY.find(r => r.kind === 'investor' && r.name.toLowerCase().includes(q));
+}
+
+function wireInvestorPills(container) {
+  container.querySelectorAll('.cs-tag-investor').forEach(btn => {
+    const item = findInvestorByName(btn.dataset.investorName);
+    if (item) {
+      btn.classList.add('cs-tag-investor--linked');
+      btn.addEventListener('click', () => selectItem(item));
+    }
+  });
 }
 
 function renderCards(item) {
@@ -1119,6 +1200,9 @@ function renderCards(item) {
         `<div class="cs-na">Failed to load project data.</div>`;
     }
   });
+
+  // Clickable top-investor pills
+  wireInvestorPills(container);
 }
 
 function renderEdfProjects(pic) {

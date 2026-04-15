@@ -410,6 +410,18 @@ button.cs-tag[data-query]:hover {
   color: var(--accent);
   background: rgba(0,255,65,.06);
 }
+button.cs-tag-investor {
+  cursor: default;
+}
+button.cs-tag-investor.cs-tag-investor--linked {
+  cursor: pointer;
+  border-color: rgba(255,140,40,.8);
+}
+button.cs-tag-investor.cs-tag-investor--linked:hover {
+  border-color: rgba(255,140,40,.8);
+  background: rgba(255,140,40,.8);
+  color: #fff;
+}
 
 /* ── Founders ────────────────────────────────────────────────────────────── */
 .cs-founders { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -582,6 +594,12 @@ button.cs-tag[data-query]:hover {
   font-size: var(--fs-sm);
   color: var(--text-muted);
   font-style: italic;
+}
+.cs-na-inline {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: .7;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */

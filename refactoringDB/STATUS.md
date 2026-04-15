@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (EDF rawdata refreshed + Wikidata force-enriched + web UI all-fields rendering; validate.py PASSED)
+> Last updated: 2026-04-15 (web UI: source flag tooltips + clickable top-investor pills)
 
 ## Session protocol
 
@@ -276,6 +276,7 @@ refactoringDB/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
+│   ├── glossary.json          ← UI glossary: tooltips for source flag badges (CB, EDF, iShares, WD, INF)
 │   └── crunchbase_sandbox/
 │       ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
 │       ├── companies_export.csv  ← full export (1149 rows: name + website)
@@ -511,6 +512,11 @@ refactoringDB/
 ### Wikidata force-refresh (2026-04-15)
 - [x] `enrich_wikidata.py --force` run: 659 entities refreshed, 0 not found
 - [x] validate.py PASSED
+
+### Web UI — interactive elements (2026-04-15)
+
+- [x] **Source flag tooltips** — `data/glossary.json` added with plain-English descriptions for CB, EDF, iShares, WD, INF badges; loaded in `loadData()` alongside DB; `sourceFlagsHtml()` adds `title` attribute to each badge from glossary
+- [x] **Clickable top-investor pills** (Crunchbase card) — `top_investors` pills rendered as `<button class="cs-tag cs-tag-investor">` with `data-investor-name`; `wireInvestorPills()` resolves each name to an IV-NNNN registry entry and calls `selectItem()` on click; unresolved names stay inert; linked pills styled with orange border (rgba(255,140,40,.8)) at rest, solid orange fill + white text on hover; wired in `renderCards()` and `openCompare()`
 
 ### Web UI — all-fields rendering (2026-04-15)
 
