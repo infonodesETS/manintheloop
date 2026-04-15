@@ -1320,12 +1320,11 @@ async function init() {
     });
 
     // Stats summary in title
-    const total   = REGISTRY.length;
-    const merged  = REGISTRY.filter(r => r.kind === 'merged').length;
-    const dbOnly  = REGISTRY.filter(r => r.kind === 'db-only').length;
-    const edfOnly = REGISTRY.filter(r => r.kind === 'edf-only').length;
+    const totalOrgs   = DB.entities.length;
+    const totalCo     = DB.entities.filter(e => e.type === 'company').length;
+    const totalInv    = DB.entities.filter(e => e.id.startsWith('IV-')).length;
     document.querySelector('.cs-hero-prompt').textContent =
-      `${total} orgs · ${merged} DB+EDF · ${dbOnly} DB only · ${edfOnly} EDF only`;
+      `${totalOrgs.toLocaleString()} orgs · ${totalCo.toLocaleString()} companies · ${totalInv.toLocaleString()} investors`;
 
     // ── Routing — restore state from URL on load and on back/forward
     const initialItem    = Router.resolve(REGISTRY, ENTITY_MAP);

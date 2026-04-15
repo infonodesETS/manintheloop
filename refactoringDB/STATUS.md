@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-14 (dedup: 5 true-duplicate entities merged; Audit D flags 99 entities with shared wikidata_id; 2074 entities total)
+> Last updated: 2026-04-15 (UI: landing hero stats now calculated from DB at runtime — orgs / companies / investors)
 
 ## Session protocol
 
@@ -367,6 +367,11 @@ refactoringDB/
 - [x] 1042 REL-NNNN investment relationships created (605 as lead, `details.lead = true`)
 - [x] Re-run safe: skips existing IV by normalised name, skips existing REL by source+target pair
 - [x] `validate.py` PASSED (2079 entities, 1042 relationships)
+
+### Web UI — landing hero stats (2026-04-15)
+- [x] Replaced hardcoded `2078 orgs · 790 DB+EDF · 561 DB only · 4 EDF only` with runtime-calculated values
+- [x] Now shows: `{total} orgs · {companies} companies · {investors} investors` — computed from `DB.entities` on load
+- [x] Source: `web/app.js` stats block, using `DB.entities.length`, `type === 'company'`, `id.startsWith('IV-')`
 
 ### Entity deduplication (2026-04-14)
 - [x] `scripts/dedup_entities.py` written — merge tool with `--list`, `--merge WINNER LOSER`, `--dry-run`
