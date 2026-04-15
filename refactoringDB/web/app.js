@@ -629,7 +629,7 @@ function buildProfileColHtml(item, colId) {
         </li>`;
       }
       h += `</ul>`;
-      cards.push(makeCard('portfolio', 'Portfolio', h, portfolio.length));
+      cards.push(makeCard('portfolio', 'Crunchbase — Portfolio', h, portfolio.length));
     }
     if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
   } else {
@@ -877,7 +877,7 @@ function renderInvestorProfile(item) {
       </li>`;
     }
     h += `</ul>`;
-    cards.push(makeCard('portfolio', 'Portfolio', h, portfolio.length));
+    cards.push(makeCard('portfolio', 'Crunchbase — Portfolio', h, portfolio.length));
   }
 
   // Wikidata card
