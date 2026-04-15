@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (Deduplication complete — all 41 QID groups resolved; UPDATE_PROTOCOL.md updated)
+> Last updated: 2026-04-15 (EDF rawdata refreshed + Wikidata force-enriched; validate.py PASSED)
 
 ## Session protocol
 
@@ -160,6 +160,23 @@ python3 scripts/validate.py
 
 **Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
 
+### EDF raw data fetch
+
+```bash
+# Full fetch — all calls, all projects, all participants (writes rawdata/edf_calls.json)
+#   API: EC Search API + topicProjectsList + DOC_API
+#   Delays: 0.5s/page, 0.8s/year, 1.0s/call, 0.8s/project
+python3 scripts/fetch_edf_bulk.py
+
+# Incremental — re-check open/forthcoming calls and closed calls without projects
+python3 scripts/fetch_edf_bulk.py --update
+
+# Re-enrich — re-fetch project details for calls that already have projects
+python3 scripts/fetch_edf_bulk.py --reenrich
+```
+
+Re-run safety: `--update` is safe (merges into existing file). Full fetch re-downloads all metadata but preserves existing project data during merge.
+
 ### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
 | Script | Purpose | Status |
@@ -247,6 +264,7 @@ refactoringDB/
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
 │   ├── import_investors_csv.py  ← extracts IV-NNNN + REL-NNNN from CB export (Top5 + Lead Investors)
 │   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
+│   ├── fetch_edf_bulk.py      ← fetches EDF calls from EC Participant Portal → rawdata/edf_calls.json
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -259,7 +277,7 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-04-14)
+## Current DB state (2026-04-15)
 
 | Metric | Value |
 |---|---|
@@ -276,7 +294,7 @@ refactoringDB/
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-15, post-Bucket-C) |
+| Last validate.py | PASSED (2026-04-15, post-Wikidata force-refresh) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
@@ -447,6 +465,16 @@ refactoringDB/
 - [x] `scripts/import_investors_csv.py` — investor graph builder (IV-NNNN + REL-NNNN from CB export)
 - [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
 - [x] `data/crunchbase_sandbox/CRUNCHBASE.md` — Crunchbase process + reconciliation log
+- [x] `scripts/fetch_edf_bulk.py` — copied from `refactoring/scripts/`, path adjusted to `rawdata/edf_calls.json`
+
+### EDF rawdata refresh (2026-04-15)
+- [x] Full fetch run: 207 calls (195 from EC API + 12 merged from existing), 63 with projects, 76 total projects, 1647 total participants
+- [x] File grew 1.7 MB → 3.8 MB (all participant details now fully populated)
+- [x] 6 new calls found (EDIRPA/ASAP variants not in previous March 2026 fetch)
+
+### Wikidata force-refresh (2026-04-15)
+- [x] `enrich_wikidata.py --force` run: 659 entities refreshed, 0 not found
+- [x] validate.py PASSED
 
 ---
 
