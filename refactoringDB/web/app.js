@@ -131,37 +131,42 @@ function buildRegistry() {
     }
   }
 
+  // Build PIC → DB entity map for EDF orgs not linked via db_id
+  const picToDbEntity = {};
+  for (const e of DB.entities) {
+    const pic = e.sources?.edf?.pic;
+    if (pic) picToDbEntity[pic] = e;
+  }
+
   const seenDbIds = new Set();
 
   // 1. EDF orgs first
   for (const org of Object.values(ORGS.orgs)) {
-    if (org.db_id) {
-      // Merged: has both EDF and DB data
-      const dbEntity = ENTITY_MAP[org.db_id];
-      if (dbEntity) {
-        seenDbIds.add(org.db_id);
-        REGISTRY.push({
-          id:       `EDF:${org.pic}`,
-          name:     dbEntity.name,            // prefer DB canonical name
-          edfName:  org.organization_name,
-          kind:     'merged',
-          pic:      org.pic,
-          dbEntity,
-          edfOrg:   org,
-          country:  org.country || dbEntity.sources?.infonodes?.country || dbEntity.sources?.wikidata?.country || '',
-          _key: [
-            dbEntity.name, org.organization_name,
-            org.country,
-            dbEntity.sources?.infonodes?.country,
-            dbEntity.sources?.crunchbase?.headquarters,
-            ...(dbEntity.sources?.crunchbase?.industries || []),
-            ...(dbEntity.tags || []),
-          ].filter(Boolean).join(' ').toLowerCase(),
-        });
-        continue;
-      }
+    // Resolve DB entity via db_id (explicit crosswalk) or PIC match
+    const dbEntity = (org.db_id && ENTITY_MAP[org.db_id]) || picToDbEntity[org.pic] || null;
+    if (dbEntity) {
+      seenDbIds.add(dbEntity.id);
+      REGISTRY.push({
+        id:       `EDF:${org.pic}`,
+        name:     dbEntity.name,            // prefer DB canonical name
+        edfName:  org.organization_name,
+        kind:     'merged',
+        pic:      org.pic,
+        dbEntity,
+        edfOrg:   org,
+        country:  org.country || dbEntity.sources?.infonodes?.country || dbEntity.sources?.wikidata?.country || '',
+        _key: [
+          dbEntity.name, org.organization_name,
+          org.country,
+          dbEntity.sources?.infonodes?.country,
+          dbEntity.sources?.crunchbase?.headquarters,
+          ...(dbEntity.sources?.crunchbase?.industries || []),
+          ...(dbEntity.tags || []),
+        ].filter(Boolean).join(' ').toLowerCase(),
+      });
+      continue;
     }
-    // EDF-only
+    // EDF-only (no matching DB entity)
     REGISTRY.push({
       id:      `EDF:${org.pic}`,
       name:    org.organization_name,
@@ -270,6 +275,12 @@ function renderAc(raw) {
     else if (c.startsWith(q))  s = 30;
     else if (c.includes(q))    s = 25;
     else if (item._key.includes(q)) s = 20;
+    const dbId = (item.dbEntity?.id || '').toLowerCase();
+    if (dbId) {
+      if (dbId === q)              s = Math.max(s, 200);
+      else if (dbId.startsWith(q)) s = Math.max(s, 150);
+      else if (dbId.includes(q))   s = Math.max(s, 50);
+    }
     return { item, s };
   }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
 
@@ -446,6 +457,12 @@ function renderAcB(raw) {
     else if (n.startsWith(q))  s = 100;
     else if (n.includes(q))    s = 60;
     else if (item._key.includes(q)) s = 20;
+    const dbId = (item.dbEntity?.id || '').toLowerCase();
+    if (dbId) {
+      if (dbId === q)              s = Math.max(s, 200);
+      else if (dbId.startsWith(q)) s = Math.max(s, 150);
+      else if (dbId.includes(q))   s = Math.max(s, 50);
+    }
     return { item, s };
   }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
 
