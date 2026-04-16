@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-16 (add IN-1357 UVision Air; Wikidata enriched)
+> Last updated: 2026-04-16 (IN-1357 UVision Air added; search-by-ID; edf_orgs.json stale db_id fix)
 
 ## Session protocol
 
@@ -331,7 +331,7 @@ refactoringDB/
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-16, post IN-1357 addition) |
+| Last validate.py | PASSED (2026-04-16, post IN-1357 addition + edf_orgs.json fix) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
@@ -528,6 +528,23 @@ refactoringDB/
 - [x] **Source flag tooltips** — `data/glossary.json` added with plain-English descriptions for CB, EDF, iShares, WD, INF badges; loaded in `loadData()` alongside DB; `sourceFlagsHtml()` adds `title` attribute to each badge from glossary
 - [x] **Clickable top-investor pills** (Crunchbase card) — `top_investors` pills rendered as `<button class="cs-tag cs-tag-investor">` with `data-investor-name`; `wireInvestorPills()` resolves each name to an IV-NNNN registry entry and calls `selectItem()` on click; unresolved names stay inert; linked pills styled with orange border (rgba(255,140,40,.8)) at rest, solid orange fill + white text on hover; wired in `renderCards()` and `openCompare()`
 
+### Manual entity additions (2026-04-16)
+
+- [x] **IN-1357 UVision Air** added manually from Wikipedia: Israeli loitering munitions manufacturer (HERO family), founded 2011, HQ Kokhav Ya'ir-Tzur Yig'al, wikidata_id Q25496335, sources.wikidata populated via `enrich_wikidata.py`
+
+### Web UI — search by DB ID (2026-04-16)
+
+- [x] `renderAc` / `renderAcB`: added ID-based scoring — exact match scores 200, prefix 150, substring 50 — using `item.dbEntity?.id`
+- [x] Covers all entity kinds: `db-only` (IN-/IV- id), `merged` (dbEntity.id), `investor` (IV- id); EDF-only items without a DB entity are unaffected
+
+### Data fix — edf_orgs.json stale db_id entries (2026-04-16)
+
+- [x] Root cause: `dedup_entities.py` only updates `database.json`; `edf_orgs.json` `db_id` crosswalk was never updated on merge
+- [x] 8 stale entries identified (db_id pointing to retired loser IDs from 2026-04-15 dedup session): Indra, Saab, TEKEVER, Integrasys, Airbus Operations GmbH, Nammo, Arianegroup GmbH, United Monolithic Semiconductors GmbH
+- [x] All 8 updated to correct winner IDs; all 794 entries in `edf_orgs.json` now have valid `db_id` values
+- [x] `web/app.js` `buildRegistry()`: added `picToDbEntity` fallback map (DB entity lookup by `sources.edf.pic`) as safety net for any future stale `db_id` — ensures EDF orgs always resolve to their DB entity even if crosswalk lags
+- [x] `docs/UPDATE_PROTOCOL.md`: added step 4 to merge procedure — one-liner to update `edf_orgs.json` after any merge involving an EDF entity, with explicit rule warning that skipping it breaks the web UI registry
+
 ### Web UI — all-fields rendering (2026-04-15)
 
 - [x] All card body functions (`infCardBody`, `wdCardBody`, `cbCardBody`, `edfCardBody`) updated to render every DB field unconditionally — null/empty values show `Not available in the source` placeholder via `.cs-na-inline` CSS class (muted italic)
@@ -625,3 +642,4 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 | `"video game"` removed from disqualify list | "video game **company**" is a valid org type; EA/Konami/Take-Two all have "company" in description |
 | P856 SPARQL batch size: 10 entities (≤80 URL variants) | Larger batches cause HTTP 414/431 on Wikidata SPARQL endpoint |
 | P856 false positives: accepted as review items | URL match is high-precision but some subsidiaries share parent's website; human reviewer corrects QID |
+| `edf_orgs.json` db_id must be updated after any merge | `dedup_entities.py` only writes `database.json`; stale db_id entries cause EDF entities to appear unlinked in the registry. See step 4 in `docs/UPDATE_PROTOCOL.md` merge procedure |
