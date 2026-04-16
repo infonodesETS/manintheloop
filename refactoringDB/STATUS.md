@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-15 (dedup: 14 name-based IN/IV merges; dual-role entities consolidated)
+> Last updated: 2026-04-16 (add IN-1357 UVision Air; Wikidata enriched)
 
 ## Session protocol
 
@@ -319,8 +319,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2045** |
-| — companies (IN-NNNN) | 1129 |
+| Total entities | **2046** |
+| — companies (IN-NNNN) | 1130 |
 | — institutions + gov | 207 |
 | — investors (IV-NNNN) | **709** (723 extracted − 14 merged into dual-role IN- entities) |
 | — persons (PER-NNNN) | **0** — not yet built |
@@ -331,7 +331,7 @@ refactoringDB/
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-15, post-Wikidata force-refresh) |
+| Last validate.py | PASSED (2026-04-16, post IN-1357 addition) |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 690 entities |
 | validation: field_conflict | 175 entities |
