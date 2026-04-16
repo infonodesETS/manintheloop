@@ -283,9 +283,23 @@ python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID --dry-run
 # 3. Apply
 python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID
 
-# 4. Validate
+# 4. If the loser had a sources.edf block, update edf_orgs.json:
+#    Find all entries in data/edf_orgs.json where db_id == LOSER_ID and set db_id = WINNER_ID
+python3 -c "
+import json
+LOSER, WINNER = 'LOSER_ID', 'WINNER_ID'
+with open('data/edf_orgs.json') as f: d = json.load(f)
+fixed = [pic for pic, o in d['orgs'].items() if o.get('db_id') == LOSER]
+for pic in fixed: d['orgs'][pic]['db_id'] = WINNER
+with open('data/edf_orgs.json', 'w') as f: json.dump(d, f, indent=2, ensure_ascii=False)
+print(f'Updated {len(fixed)} edf_orgs.json entries: {LOSER} → {WINNER}')
+"
+
+# 5. Validate
 python3 scripts/validate.py
 ```
+
+> **Rule:** `dedup_entities.py` only updates `database.json`. If the loser entity had a `sources.edf` block, its PIC will still point to the loser ID in `data/edf_orgs.json`. Always run step 4 after any merge involving an EDF entity — skipping it leaves stale `db_id` references that break the web UI registry.
 
 After applying a merge, add a `dedup_decision` history entry on the winner explaining **why** the pair was identified as the same entity (name pattern, Wikidata label match, iShares ticker-as-name, etc.). The script's auto-generated history entry records *what* was absorbed; the manual annotation records *why* the decision was made.
 
