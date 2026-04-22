@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (branch new-frontend: multi-page web app + investor pipeline — 1966 entities, 897 relationships, 60 cross-border arcs on map)
+> Last updated: 2026-04-22 (branch new-frontend: arc directional coloring + investor profile relationships + SPARQL enrichment run)
 
 ## Session protocol
 
@@ -408,10 +408,13 @@ refactoringDB/
   - Side panel: country detail (companies list + investor badge `↓N` per company)
   - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
   - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
+  - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
   - Filter bar: click a company/investor to highlight connected countries on map
   - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
   - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
 - [x] **`search.html`** — org search (ported from old `index.html`, navbar added)
+  - **Relationships card (2026-04-22):** entity profile now shows a Relationships card with clickable portfolio companies (for IV entities) and investors (for IN entities) — data from `REL_MAP`
+  - **infCardBody enhanced (2026-04-22):** shows `roles`, `tags`, `wikidata_id` from entity root alongside sources.infonodes fields
 - [x] **`networks.html`**, **`publications.html`**, **`about.html`** — placeholder pages (TBD content)
 - [x] **`web/theme.js`** — shared dark/light theme toggle across all pages
 - [x] **`web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
@@ -420,6 +423,7 @@ refactoringDB/
 - [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
 - [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
 - [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
+- [ ] **SPARQL Wikidata enrichment run in progress (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 610 queries × 2s delay (~20 min). Writes `sources.wikidata.country` to IV entities. After completion: run `validate.py`, update arc count, commit.
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)

@@ -30,6 +30,10 @@
     .map-node:hover { opacity: 1; stroke: var(--text-primary); }
     .map-arc { fill: none; stroke-width: 1.5; transition: opacity .2s; }
     .map-arc.arc-dim { opacity: 0.06 !important; }
+    .arc-legend-swatch { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 2px; vertical-align: middle; }
+    .arc-legend-out { background: #4d9fff; }
+    .arc-legend-in  { background: #ff5555; }
+    .arc-legend-bi  { background: #b06aff; }
     .map-node.node-dim { opacity: 0.08; }
     .map-node.node-focus { fill: var(--text-primary); stroke: var(--accent); stroke-width: 2.5; }
     .map-country.country-dim { opacity: 0.25; }
@@ -294,8 +298,18 @@ function closeMapPanel() {
     mapState.svg.transition().duration(500).call(mapState.zoom.transform, mapState.defaultTransform || d3.zoomIdentity);
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
   mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
+  // Restore original gradient stroke on all arcs
+  mapState.g?.selectAll('.map-arc').each(function(d) {
+    if (d.gradId) d3.select(this).attr('stroke', `url(#${d.gradId})`).attr('stroke-opacity', null);
+  });
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+  // Restore arc legend
+  const arcLegend = document.querySelector('.map-arc-legend');
+  if (arcLegend) {
+    arcLegend.textContent = 'arc: faint→investor · bright→company';
+    arcLegend.title = 'Arc direction: faint = investor country · bright = company country';
+  }
   mapState.activeFilter = null;
   mapState.selectedIso  = null;
   setDefaultPanelContent();
@@ -353,7 +367,27 @@ function showMapCountry(iso) {
 
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = '';
-  mapState.g?.selectAll('.map-arc').classed('arc-dim', d => d.src !== iso);
+  mapState.g?.selectAll('.map-arc').classed('arc-dim', d => d.src !== iso && d.tgt !== iso);
+
+  // Color arcs by direction relative to selected country
+  const outTargets = new Set(mapState.arcData.filter(a => a.src === iso).map(a => a.tgt));
+  const inSources  = new Set(mapState.arcData.filter(a => a.tgt === iso).map(a => a.src));
+  mapState.g?.selectAll('.map-arc').each(function(d) {
+    const el = d3.select(this);
+    if (d.src === iso || d.tgt === iso) {
+      const isBi  = (d.src === iso && inSources.has(d.tgt)) || (d.tgt === iso && outTargets.has(d.src));
+      const isOut = d.src === iso;
+      el.attr('stroke', isBi ? '#b06aff' : isOut ? '#4d9fff' : '#ff5555')
+        .attr('stroke-opacity', 0.9);
+    }
+  });
+
+  // Update arc legend to show directional color key
+  const arcLegend = document.querySelector('.map-arc-legend');
+  if (arcLegend) {
+    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
+    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
+  }
 
   const sectorCount = {};
   cd.companies.forEach(c => {
@@ -640,7 +674,7 @@ function drawArcs(layer) {
       });
 
     layer.append('path')
-      .datum({ src: arc.src, tgt: arc.tgt, baseSw: sw })
+      .datum({ src: arc.src, tgt: arc.tgt, baseSw: sw, gradId: gid })
       .attr('class','map-arc')
       .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
       .attr('stroke', `url(#${gid})`)

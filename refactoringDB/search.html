@@ -873,8 +873,11 @@ function makeCard(cls, title, bodyHtml, count, id) {
   </div>`;
 }
 
-function infCardBody(inf) {
+function infCardBody(inf, e) {
   let h = '';
+  if (e?.roles?.length)  h += row('Roles', e.roles.map(r => `<span class="cs-tag">${esc(r)}</span>`).join(' '));
+  if (e?.tags?.length)   h += row('Tags', e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join(' '));
+  if (e?.wikidata_id)    h += row('Wikidata', `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`);
   if (inf.country)       h += row('Country', esc(inf.country));
   if (inf.sector)        h += row('Sector', esc(inf.sector));
   if (inf.main_focus)    h += row('Focus', esc(inf.main_focus));
@@ -883,6 +886,34 @@ function infCardBody(inf) {
   if (inf.wikipedia_url) h += row('Wikipedia', `<a class="cs-ext-link cs-wd" href="${esc(inf.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`);
   if (inf.extracted_at)  h += `<div class="cs-src-ts">Extracted: ${esc(inf.extracted_at)}</div>`;
   return h || '<div class="cs-na">No Infonodes data.</div>';
+}
+
+function relCardBody(rels) {
+  const asInvestor = rels.filter(r => r.role === 'investor' && r.other);
+  const asTarget   = rels.filter(r => r.role === 'target'   && r.other);
+  let h = '';
+  if (asInvestor.length) {
+    h += `<div class="cb-group">Portfolio — ${asInvestor.length} compan${asInvestor.length === 1 ? 'y' : 'ies'}</div>`;
+    h += asInvestor.map(r => {
+      const co = r.other;
+      const src = r.rel?.source_ref ? `<span class="cs-row-lbl" style="font-size:var(--fs-xs);color:var(--text-faint)">${esc(r.rel.source_ref)}</span>` : '';
+      return row(
+        `<a class="cs-ext-link" href="search.html?organization=${esc(co.id)}&organizationName=${encodeURIComponent(co.name)}">${esc(co.name)}</a>`,
+        `<code style="font-size:var(--fs-xs)">${esc(co.id)}</code>`
+      );
+    }).join('');
+  }
+  if (asTarget.length) {
+    h += `<div class="cb-group">Investors — ${asTarget.length}</div>`;
+    h += asTarget.map(r => {
+      const inv = r.other;
+      return row(
+        `<a class="cs-ext-link" href="search.html?organization=${esc(inv.id)}&organizationName=${encodeURIComponent(inv.name)}">${esc(inv.name)}</a>`,
+        `<code style="font-size:var(--fs-xs)">${esc(inv.id)}</code>`
+      );
+    }).join('');
+  }
+  return h || '<div class="cs-na">No relationships.</div>';
 }
 
 function isCardBody(arr) {
@@ -1038,7 +1069,7 @@ function renderCards(item) {
   const cards = [];
 
   const inf = e?.sources?.infonodes;
-  if (inf) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf)));
+  if (inf) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf, e)));
 
   const isArr = e?.sources?.ishares || [];
   if (isArr.length) cards.push(makeCard('is', 'iShares', isCardBody(isArr), `${isArr.length} ETF${isArr.length !== 1 ? 's' : ''}`));
@@ -1050,6 +1081,9 @@ function renderCards(item) {
   if (cb) cards.push(makeCard('cb', 'Crunchbase', cbCardBody(cb)));
 
   if (org) cards.push(makeCard('edf', 'European Defence Fund', edfCardBody(item), `${org.project_count || 0} project${(org.project_count || 0) !== 1 ? 's' : ''}`, 'card-edf'));
+
+  const rels = REL_MAP[e?.id];
+  if (rels?.length) cards.push(makeCard('rel', 'Relationships', relCardBody(rels), rels.length, 'cs-rel-card'));
 
   const hist = e?.history;
   if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
