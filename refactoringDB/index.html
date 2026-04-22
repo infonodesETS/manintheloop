@@ -8,87 +8,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
     html { font-size: 120%; }
-    body { overflow: hidden; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 
-    /* Map fills viewport below the two navbars */
-    #map {
-      position: fixed;
-      top: calc(var(--nav-h) + var(--tab-h));
-      left: 0; right: 0;
-      bottom: 32px; /* leave room for status bar */
+    /* ── Map layout (copied from refactoring css/map.css) ── */
+    #map-layout { display: flex; flex: 1; overflow: hidden; height: 100%; }
+    #map-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+    #map-toolbar {
+      display: flex; align-items: center; gap: 12px; padding: 6px 14px;
+      border-bottom: 1px solid var(--border); flex-shrink: 0; background: var(--surface);
     }
+    #map-svg { flex: 1; width: 100%; background: var(--map-bg); }
+    .map-country { fill: var(--map-land); stroke: var(--map-stroke); stroke-width: .4; transition: fill .15s; cursor: default; }
+    .map-country.has-data { fill: var(--map-data); cursor: pointer; }
+    .map-country.has-data:hover { fill: var(--map-data-hover); }
+    .map-country.selected { fill: var(--map-selected); }
+    .map-node { fill: var(--accent); stroke: var(--bg); stroke-width: 1.5; cursor: pointer; opacity: .85; }
+    .map-node:hover { opacity: 1; stroke: var(--text-primary); }
+    .map-arc { fill: none; stroke-width: 1.5; transition: opacity .2s; }
+    .map-arc.arc-dim { opacity: 0.06 !important; }
+    .map-node.node-dim { opacity: 0.08; }
+    .map-node.node-focus { fill: var(--text-primary); stroke: var(--accent); stroke-width: 2.5; }
+    .map-country.country-dim { opacity: 0.25; }
+    .map-label { font-family: var(--font); fill: var(--text-tertiary); pointer-events: none; text-anchor: middle; }
+    #map-panel {
+      width: var(--sl-w-inline); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
+      background: var(--sl-inline-bg);
+    }
+    #map-panel.d-none { display: none !important; }
+    #map-panel-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: var(--sl-header-pad); border-bottom: 1px solid var(--border); flex-shrink: 0;
+      background: var(--sl-header-bg);
+    }
+    #map-panel-body { flex: 1; overflow-y: auto; padding: var(--sl-body-pad); }
+    .map-co-item {
+      font-size: var(--sl-row-val-fs); color: var(--text-secondary); padding: 4px 0;
+      border-bottom: 1px solid rgba(65,67,69,0.2); display: flex;
+      align-items: center; justify-content: space-between; gap: 6px;
+    }
+    .map-co-item.clickable { cursor: pointer; }
+    .map-co-item.clickable:hover { background: rgba(104,204,209,0.08); color: var(--text-primary); border-radius: 3px; }
+    .map-detail-header { margin-bottom: 10px; }
+    .map-detail-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 6px 0 10px; }
+    .map-entity-name {
+      background: none; border: none; padding: 0;
+      font-size: inherit; font-family: inherit; color: var(--text-primary);
+      cursor: pointer; text-align: left;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      flex: 1 1 0; min-width: 0;
+    }
+    .map-entity-name:hover { color: var(--accent); text-decoration: underline; }
+    .map-no-flow { font-size: var(--fs-xs); color: var(--text-faint); font-style: italic; padding: 4px 0 2px; }
+    .map-item-id { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); }
+    .map-item-more { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 4px; }
+    .map-intro-text { font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: var(--lh-body); margin: 0 0 10px; }
+    .map-sector-row { font-size: var(--fs-base); color: var(--text-secondary); padding: 8px 0 10px; border-bottom: 1px solid rgba(65,67,69,0.3); margin-bottom: 4px; line-height: var(--lh-body); }
+    .map-sector-lbl { color: var(--text-muted); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .4px; }
+    .map-section-hd { display: flex; align-items: center; gap: 8px; }
+    .map-flow-in-hd  { color: var(--accent) !important; }
+    .map-flow-out-hd { color: var(--flow-out) !important; }
+    .map-ctrl-btn { height: 26px; padding: 0 12px; font-size: var(--fs-sm); }
+    .map-filter-bar { display: flex; align-items: center; gap: 10px; padding: 7px 14px; background: rgba(0,255,65,0.07); border-top: 1px solid rgba(0,255,65,0.3); border-bottom: 1px solid rgba(0,255,65,0.3); font-size: var(--fs-base); color: var(--accent); flex-shrink: 0; font-family: var(--font-mono); }
+    .map-filter-clear { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
+    .map-filter-clear:hover { border-color: var(--accent); }
+    .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); cursor: help; white-space: nowrap; }
+    #map-arc-toggle { accent-color: var(--accent); }
+    .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
+    [data-theme="light"] .map-filter-bar { background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.25); }
+    [data-theme="light"] .map-filter-clear { border-color: rgba(0,102,34,0.3); }
 
-    /* Status bar */
-    #map-status {
-      position: fixed;
-      bottom: 0; left: 0; right: 0; height: 32px;
-      background: rgba(0,0,0,0.9); border-top: 1px solid var(--border);
-      display: flex; align-items: center; padding: 0 16px; gap: 20px;
-      z-index: 450;
+    /* loading overlay */
+    #map-loading {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; z-index: 10;
+      background: var(--bg); gap: 12px;
       font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint);
     }
-    .ms-stat { display: flex; align-items: baseline; gap: 5px; }
-    .ms-val { color: var(--accent); font-weight: var(--fw-bold); }
-    .ms-sep { width: 1px; height: 12px; background: var(--border); flex-shrink: 0; }
-
-    /* Leaflet dark overrides */
-    .leaflet-control-zoom a {
-      background: var(--surface) !important; color: var(--text-primary) !important;
-      border-color: var(--border) !important;
-    }
-    .leaflet-control-zoom a:hover { background: var(--surface2) !important; }
-    .leaflet-control-attribution {
-      background: rgba(0,0,0,0.7) !important; color: var(--text-faint) !important;
-      font-size: 9px !important;
-    }
-    .leaflet-control-attribution a { color: rgba(0,255,65,0.6) !important; }
-
-    /* Popup */
-    .leaflet-popup-content-wrapper {
-      background: var(--surface) !important; border: 1px solid var(--border) !important;
-      border-radius: 4px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
-      color: var(--text-primary) !important; font-family: var(--font) !important;
-    }
-    .leaflet-popup-tip { background: var(--surface) !important; }
-    .leaflet-popup-close-button { color: var(--text-faint) !important; }
-    .leaflet-popup-close-button:hover { color: var(--text-primary) !important; }
-
-    .pop-name { font-size: var(--fs-body); font-weight: var(--fw-bold); color: var(--text-primary); margin-bottom: 3px; }
-    .pop-meta { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint); }
-    .pop-contrib { color: rgba(100,160,255,0.9); font-weight: var(--fw-bold); }
-    .pop-link {
-      display: inline-block; margin-top: 8px;
-      font-family: var(--font-mono); font-size: var(--fs-xs);
-      color: var(--accent); text-decoration: none;
-    }
-    .pop-link:hover { text-decoration: underline; }
-
-    /* Filter pill bar (top-right overlay) */
-    #map-filters {
-      position: fixed;
-      top: calc(var(--nav-h) + var(--tab-h) + 12px);
-      right: 12px; z-index: 450;
-      display: flex; gap: 6px; flex-direction: column; align-items: flex-end;
-    }
-    .mf-group { display: flex; gap: 4px; }
-    .mf-pill {
-      font-family: var(--font-mono); font-size: var(--fs-xs);
-      border-radius: 50px; padding: 3px 10px; cursor: pointer;
-      border: 1px solid var(--border); color: var(--dim); background: rgba(0,0,0,0.8);
-      transition: all .1s; white-space: nowrap;
-    }
-    .mf-pill:hover { border-color: var(--grey-mid); color: var(--text-secondary); }
-    .mf-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,65,0.07); }
-    .mf-lbl { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint); padding-right: 4px; }
   </style>
 </head>
-<body>
+<body class="subnav-hidden legend-hidden">
 
 <!-- ── Topnav ── -->
 <div id="topnav">
@@ -106,162 +109,707 @@
   <a href="about.html" class="tnav-btn">About</a>
 </div>
 
-<!-- ── Map ── -->
-<div id="map"></div>
+<!-- ── Content ── -->
+<div id="content">
+  <div id="map-layout">
 
-<!-- ── Filter pills ── -->
-<div id="map-filters">
-  <div class="mf-group">
-    <span class="mf-lbl">Show</span>
-    <button class="mf-pill active" data-filter="all">All</button>
-    <button class="mf-pill" data-filter="merged">DB+EDF</button>
-    <button class="mf-pill" data-filter="edf">EDF only</button>
+    <!-- Side panel -->
+    <div id="map-panel">
+      <div id="map-panel-header">
+        <span id="map-panel-title" class="sl-title">About this map</span>
+        <button id="map-close-panel-btn" class="sl-close">✕</button>
+      </div>
+      <div id="map-panel-body">
+        <div class="sl-panel-section">
+          <div class="sl-section-lbl">What this map shows</div>
+          <p class="map-intro-text">Each circle represents a country with at least one company in the database. Circle size reflects the number of cross-border investor connections.</p>
+          <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end). Click a country to explore its companies and investor relationships.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map main -->
+    <div id="map-main">
+      <div id="map-toolbar">
+        <label class="map-toggle-label" title="Show investment flow arcs">
+          <input type="checkbox" id="map-arc-toggle"> Show investment flow arcs
+        </label>
+        <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
+        <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
+      </div>
+      <div id="map-filter-bar" class="map-filter-bar" style="display:none">
+        <span>Filtering by: <strong id="map-filter-label"></strong></span>
+        <button id="map-clear-filter-btn" class="map-filter-clear">✕ Clear</button>
+      </div>
+      <div id="map-loading">
+        <div class="spin"></div>
+        <span>Loading map data…</span>
+      </div>
+      <svg id="map-svg"></svg>
+    </div>
+
   </div>
 </div>
 
-<!-- ── Status bar ── -->
-<div id="map-status">
-  <span class="ms-stat"><span class="ms-val" id="ms-total">—</span> orgs</span>
-  <span class="ms-sep"></span>
-  <span class="ms-stat"><span class="ms-val" id="ms-edf">—</span> EDF funded</span>
-  <span class="ms-sep"></span>
-  <span class="ms-stat"><span class="ms-val" id="ms-countries">—</span> countries</span>
-  <span style="margin-left:auto;">CartoDB Dark Matter · EDF beneficiary data</span>
-</div>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="web/theme.js"></script>
-<script type="module">
+<script>
 'use strict';
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
-function fmtEur(val) {
-  const n = parseFloat(val);
-  if (!val || isNaN(n) || n === 0) return null;
-  if (n >= 1e9) return `€${(n/1e9).toFixed(1)}B`;
-  if (n >= 1e6) return `€${(n/1e6).toFixed(1)}M`;
-  if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
-  return `€${n.toFixed(0)}`;
+function sectorBadge(s) {
+  if (!s) return '';
+  return `<span class="badge-sector badge-${esc(s)}">${esc(s)}</span>`;
 }
 
-// Rough country centroids for EDF countries
-const COUNTRY_LL = {
-  'Austria':        [47.5, 14.5],
-  'Belgium':        [50.5,  4.4],
-  'Bulgaria':       [42.8, 25.5],
-  'Croatia':        [45.1, 15.2],
-  'Cyprus':         [35.1, 33.4],
-  'Czech Republic': [49.8, 15.5],
-  'Denmark':        [56.3,  9.5],
-  'Estonia':        [58.6, 25.0],
-  'Finland':        [64.0, 26.0],
-  'France':         [46.2,  2.2],
-  'Germany':        [51.2, 10.4],
-  'Greece':         [39.1, 21.8],
-  'Hungary':        [47.2, 19.5],
-  'Ireland':        [53.1, -8.2],
-  'Israel':         [31.5, 35.0],
-  'Italy':          [42.8, 12.8],
-  'Latvia':         [56.9, 24.6],
-  'Lithuania':      [55.9, 23.9],
-  'Luxembourg':     [49.8,  6.1],
-  'Malta':          [35.9, 14.5],
-  'Netherlands':    [52.4,  5.3],
-  'Norway':         [64.5, 17.5],
-  'Poland':         [52.1, 19.1],
-  'Portugal':       [39.6, -8.0],
-  'Romania':        [45.9, 24.9],
-  'Slovakia':       [48.7, 19.7],
-  'Slovenia':       [46.1, 14.8],
-  'Spain':          [40.2, -3.7],
-  'Sweden':         [62.0, 15.0],
-  'Switzerland':    [46.8,  8.2],
-  'Turkey':         [39.1, 35.2],
-  'United Kingdom': [54.0, -2.5],
+function fmtFunding(n) {
+  if (!n) return null;
+  if (n >= 1e9) return `$${(n/1e9).toFixed(1)}B`;
+  if (n >= 1e6) return `$${(n/1e6).toFixed(0)}M`;
+  return `$${n.toLocaleString()}`;
+}
+
+// ── Country lookup tables (from refactoring/js/tabs/map.js) ───────────────────
+const WD_TO_ISO = {
+  'United States': 840, 'USA': 840,
+  'Germany': 276, 'Germania': 276,
+  'United Kingdom': 826, 'UK': 826,
+  'France': 250, 'Francia': 250,
+  'Israel': 376,
+  'Sweden': 752,
+  'Norway': 578, 'Norvegia': 578,
+  'Finland': 246,
+  'Denmark': 208,
+  'Netherlands': 528,
+  'Belgium': 56, 'Belgio': 56,
+  'Switzerland': 756,
+  'Austria': 40,
+  'Italy': 380,
+  'Spain': 724,
+  'Poland': 616, 'Polonia': 616,
+  'Czech Republic': 203, 'Czech Rep.': 203, 'Czechia': 203,
+  'Romania': 642,
+  'Estonia': 233,
+  'Latvia': 428,
+  'Lithuania': 440,
+  'Ukraine': 804,
+  'Russia': 643,
+  'Turkey': 792,
+  'India': 356,
+  'China': 156, 'Cina': 156, "People's Republic of China": 156,
+  'Japan': 392, 'Giappone': 392,
+  'South Korea': 410,
+  'Australia': 36,
+  'Canada': 124,
+  'Brazil': 76,
+  'South Africa': 710,
+  'Singapore': 702,
+  'United Arab Emirates': 784, 'EAU (Dubai)': 784,
+  'Saudi Arabia': 682,
+  'Portugal': 620,
+  'Greece': 300,
+  'Hungary': 348,
+  'Slovakia': 703,
+  'Luxembourg': 442,
+  'Ireland': 372,
+  'Cyprus': 196,
+  'Malta': 470,
+  'Croatia': 191,
+  'Slovenia': 705,
+  'Serbia': 688,
+  'Bulgaria': 100,
+  'North Macedonia': 807,
+  'Albania': 8,
+  'Moldova': 498,
+  'Belarus': 112,
+  'Kazakhstan': 398,
+  'Mexico': 484,
+  'Argentina': 32,
+  'Chile': 152, 'Cile': 152,
+  'Colombia': 170,
+  'Peru': 604,
+  'New Zealand': 554,
+  'Indonesia': 360,
+  'Malaysia': 458,
+  'Thailand': 764,
+  'Vietnam': 704,
+  'Philippines': 608,
+  'Pakistan': 586,
+  'Bangladesh': 50,
+  'Egypt': 818,
+  'Nigeria': 566,
+  'Kenya': 404,
+  'Morocco': 504,
+  'Tunisia': 788,
+  'Ethiopia': 231,
 };
 
-function jitter(ll, scale = 0.7) {
-  return [ll[0] + (Math.random() - 0.5) * scale, ll[1] + (Math.random() - 0.5) * scale * 2];
+const ISO_TO_NAME = {};
+for (const [name, iso] of Object.entries(WD_TO_ISO)) {
+  if (!(iso in ISO_TO_NAME)) ISO_TO_NAME[iso] = name;
 }
 
-// Init Leaflet
-const map = L.map('map', { center: [52, 12], zoom: 4, zoomControl: true });
+// ── Local map state (replaces AppState.ui.map) ────────────────────────────────
+const mapState = {
+  built: false,
+  countryData: {},
+  arcData: [],
+  centroids: {},
+  svg: null, g: null,
+  projection: null, zoom: null,
+  selectedIso: null, activeFilter: null,
+  showArcs: false, defaultTransform: null,
+};
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 19,
-}).addTo(map);
+// Data (loaded once)
+let entityMap = {};
+let relationships = [];
 
-// Layer groups
-const layers = { all: L.layerGroup().addTo(map), merged: L.layerGroup(), edf: L.layerGroup() };
+// ── Panel content ─────────────────────────────────────────────────────────────
+function setDefaultPanelContent() {
+  document.getElementById('map-panel-title').textContent = 'About this map';
+  const coCount  = Object.keys(mapState.countryData).length;
+  const totCo    = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">What this map shows</div>
+      <p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} companies</strong>, with <strong>${mapState.arcData.length} cross-border investor connections</strong>.</p>
+      <p class="map-intro-text">Each circle represents a country with at least one company in the database. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs.</p>
+      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end). Click a country circle or shaded area to explore its companies and investor relationships.</p>
+    </div>
+  `;
+}
 
-async function init() {
-  const [orgsRes, dbRes] = await Promise.all([
-    fetch('data/edf_orgs.json'),
-    fetch('data/database.json'),
-  ]);
-  const orgsData = await orgsRes.json();
-  const dbData   = await dbRes.json();
+// ── closeMapPanel / clearMapFilter ────────────────────────────────────────────
+function closeMapPanel() {
+  if (mapState.svg && mapState.zoom)
+    mapState.svg.transition().duration(500).call(mapState.zoom.transform, mapState.defaultTransform || d3.zoomIdentity);
+  d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
+  mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+  mapState.activeFilter = null;
+  mapState.selectedIso  = null;
+  setDefaultPanelContent();
+}
 
-  const dbMap = {};
-  for (const e of dbData.entities) dbMap[e.id] = e;
+function clearMapFilter() {
+  mapState.activeFilter = null;
+  applyMapFilter();
+  closeMapPanel();
+}
 
-  const orgs = Object.values(orgsData.orgs);
-  const countrySet = new Set();
+// ── fitMapToISOs / computeTransform ──────────────────────────────────────────
+function computeTransformForISOs(isos, clampMin = true) {
+  const el = document.getElementById('map-svg');
+  const W  = el.clientWidth;
+  const H  = el.clientHeight;
+  const points = [...isos].map(iso => mapState.centroids[iso]).filter(Boolean);
+  if (!points.length) return d3.zoomIdentity;
 
-  for (const org of orgs) {
-    const country = org.country || '';
-    const ll = COUNTRY_LL[country];
-    if (!ll) continue;
-    countrySet.add(country);
+  const pad = 80;
+  if (points.length === 1) {
+    const [cx, cy] = points[0];
+    const k = Math.min(W / (pad * 4), H / (pad * 4), 6);
+    return d3.zoomIdentity.translate(W / 2 - k * cx, H / 2 - k * cy).scale(k);
+  }
+  const xs = points.map(p => p[0]);
+  const ys = points.map(p => p[1]);
+  const minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad;
+  const minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
+  let k = Math.min(W / (maxX - minX), H / (maxY - minY), 8);
+  if (clampMin) k = Math.max(k, 1);
+  const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
+  return d3.zoomIdentity.translate(W / 2 - k * midX, H / 2 - k * midY).scale(k);
+}
 
-    const jittered = jitter(ll);
-    const eu = fmtEur(org.total_eu_contribution);
-    const hasMerge = !!org.db_id;
-    const kind = hasMerge ? 'merged' : 'edf';
+function fitMapToISOs(isos) {
+  mapState.svg.transition().duration(700)
+    .call(mapState.zoom.transform, computeTransformForISOs(isos));
+}
 
-    const marker = L.circleMarker(jittered, {
-      radius:      4,
-      fillColor:   hasMerge ? '#ffd700' : '#00ff41',
-      fillOpacity: 0.65,
-      color:       hasMerge ? '#ffd700' : '#00ff41',
-      weight:      1,
-      opacity:     0.5,
-    }).bindPopup(`
-      <div class="pop-name">${esc(org.organization_name)}</div>
-      <div class="pop-meta">
-        ${esc(country)}${org.city ? ' · ' + esc(org.city) : ''}
-        ${eu ? ' · <span class="pop-contrib">' + eu + '</span>' : ''}
-      </div>
-      <a href="search.html" class="pop-link">→ View in Search</a>
-    `, { maxWidth: 280 });
+// ── showMapCountry ────────────────────────────────────────────────────────────
+function showMapCountry(iso) {
+  const cd = mapState.countryData[iso];
+  if (!cd) return;
 
-    layers.all.addLayer(marker);
-    layers[kind].addLayer(marker);
+  d3.select('#map-svg').selectAll('.map-country')
+    .classed('selected', d => +d.id === iso);
+
+  const connectedISOs = new Set([iso]);
+  mapState.arcData.forEach(arc => {
+    if (arc.src === iso) connectedISOs.add(arc.tgt);
+    if (arc.tgt === iso) connectedISOs.add(arc.src);
+  });
+  fitMapToISOs(connectedISOs);
+
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = '';
+  mapState.g?.selectAll('.map-arc').classed('arc-dim', d => d.src !== iso);
+
+  const sectorCount = {};
+  cd.companies.forEach(c => {
+    const s = c.sector || 'Other';
+    sectorCount[s] = (sectorCount[s] || 0) + 1;
+  });
+
+  const flowIn = {}, flowOut = {};
+  relationships.forEach(rel => {
+    const comp = entityMap[rel.target];
+    const inv  = entityMap[rel.source];
+    if (!comp || !inv) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    const invCountry  = inv.sources?.infonodes?.country  || inv.sources?.wikidata?.country;
+    const compISO = WD_TO_ISO[compCountry];
+    const invISO  = WD_TO_ISO[invCountry];
+    if (compISO === iso && invISO && invISO !== iso && !flowIn[rel.source])  flowIn[rel.source]  = inv.name;
+    if (invISO  === iso && compISO && compISO !== iso && !flowOut[rel.source]) flowOut[rel.source] = inv.name;
+  });
+
+  const flowInArr  = Object.entries(flowIn);
+  const flowOutArr = Object.entries(flowOut);
+
+  mapState.selectedIso   = iso;
+  mapState.selectedFlows = { flowIn: flowInArr, flowOut: flowOutArr };
+
+  const localInvestorCount = Object.values(entityMap).filter(e => {
+    if (!e.id?.startsWith('IV-')) return false;
+    const c = e.sources?.infonodes?.country || e.sources?.wikidata?.country;
+    return WD_TO_ISO[c] === iso;
+  }).length;
+
+  const coStr       = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
+  const localInvStr = localInvestorCount > 0 ? ` · ${localInvestorCount} local investor${localInvestorCount !== 1 ? 's' : ''}` : '';
+  let introText = `${coStr}${localInvStr} headquartered in ${esc(cd.name)}.`;
+  if (flowInArr.length || flowOutArr.length) {
+    const parts = [];
+    if (flowInArr.length)  parts.push(`↓ ${flowInArr.length} foreign investor${flowInArr.length !== 1 ? 's' : ''} funding companies here`);
+    if (flowOutArr.length) parts.push(`↑ ${flowOutArr.length} from ${esc(cd.name)} investing abroad`);
+    introText += `<br>${parts.join(' · ')}`;
   }
 
-  document.getElementById('ms-total').textContent    = orgs.length;
-  document.getElementById('ms-edf').textContent      = orgs.filter(o => !o.db_id).length;
-  document.getElementById('ms-countries').textContent = countrySet.size;
+  const sectorSummary = Object.entries(sectorCount)
+    .sort((a,b) => b[1]-a[1])
+    .map(([s,n]) => `${esc(s)} (${n})`).join(', ');
+
+  const renderInvList = arr => arr.slice(0, 25).map(([id, name]) => `
+    <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
+      <button class="map-entity-name" data-action="openEntity" data-id="${esc(id)}" data-etype="investor">${esc(name)}</button>
+      <span class="map-item-id">${id}</span>
+    </div>`).join('') + (arr.length > 25 ? `<div class="map-item-more">+${arr.length - 25} more</div>` : '');
+
+  const updateArcVis = () => {
+    const showIn  = !flowInArr.length  || document.getElementById('map-flow-in-btn')?.classList.contains('active');
+    const showOut = !flowOutArr.length || document.getElementById('map-flow-out-btn')?.classList.contains('active');
+    mapState.g?.selectAll('.map-arc').classed('arc-dim', d => {
+      if (d.tgt === iso) return !showIn;
+      if (d.src === iso) return !showOut;
+      return true;
+    });
+  };
+
+  const titleEl = document.getElementById('map-panel-title');
+  titleEl.textContent = cd.name; titleEl.title = cd.name;
+
+  document.getElementById('map-panel-body').innerHTML = `
+    <p class="map-intro-text" style="margin-bottom:10px">${introText}</p>
+    <div class="map-sector-row"><span class="map-sector-lbl">Sectors:</span> ${sectorSummary}</div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd">
+        ${cd.companies.length} Companies
+        <button id="map-toggle-co" class="sf-btn active">on</button>
+      </div>
+      <div id="map-companies-list">
+        ${cd.companies.map(c => `
+          <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+            <button class="map-entity-name" data-action="openEntity" data-id="${esc(c.id)}" data-etype="company">${esc(c.name)}</button>
+            ${sectorBadge(c.sector)}
+          </div>`).join('')}
+      </div>
+    </div>
+    ${flowInArr.length ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd map-flow-in-hd">↓ Capital Flowing In (${flowInArr.length})
+        <button id="map-flow-in-btn" class="sf-btn active">on</button>
+      </div>
+      <div id="map-flow-in-list">${renderInvList(flowInArr)}</div>
+    </div>` : '<div class="map-no-flow">↓ No inbound cross-border investments recorded</div>'}
+    ${flowOutArr.length ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd map-flow-out-hd">↑ Capital Flowing Out (${flowOutArr.length})
+        <button id="map-flow-out-btn" class="sf-btn active">on</button>
+      </div>
+      <div id="map-flow-out-list">${renderInvList(flowOutArr)}</div>
+    </div>` : '<div class="map-no-flow">↑ No outbound cross-border investments recorded</div>'}
+  `;
+
+  const toggleList = (btnId, listId) => {
+    document.getElementById(btnId)?.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const on = this.classList.contains('active');
+      this.textContent = on ? 'on' : 'off';
+      document.getElementById(listId).style.display = on ? '' : 'none';
+      if (btnId.includes('flow')) updateArcVis();
+    });
+  };
+  toggleList('map-toggle-co', 'map-companies-list');
+  toggleList('map-flow-in-btn', 'map-flow-in-list');
+  toggleList('map-flow-out-btn', 'map-flow-out-list');
+
+  document.getElementById('map-panel-body').querySelectorAll('[data-action="filterMapByEntity"]').forEach(el => {
+    el.addEventListener('click', () => filterMapByEntity(el.dataset.id, iso));
+  });
+
+  document.getElementById('map-panel-body').querySelectorAll('[data-action="openEntity"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const ent = entityMap[btn.dataset.id];
+      if (ent) window.location.href = `search.html?organization=${encodeURIComponent(ent.id)}&organizationName=${encodeURIComponent(ent.name)}`;
+    });
+  });
+
+  document.getElementById('map-panel').classList.remove('d-none');
 }
 
-// Filter pills
-let activeFilter = 'all';
-document.querySelectorAll('.mf-pill').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.mf-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    if (f === activeFilter) return;
-    map.removeLayer(layers[activeFilter]);
-    map.addLayer(layers[f]);
-    activeFilter = f;
-  });
-});
+// ── filterMapByEntity ─────────────────────────────────────────────────────────
+function filterMapByEntity(entityId, fromIso) {
+  if (mapState.activeFilter?.id === entityId) { clearMapFilter(); return; }
+  const ent = entityMap[entityId];
+  if (!ent) return;
 
-init().catch(err => console.error('Map data load failed:', err));
+  const activeISOs = new Set();
+  if (entityId.startsWith('IN-')) {
+    const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
+    const ownISO = WD_TO_ISO[country];
+    if (ownISO) activeISOs.add(ownISO);
+    relationships.filter(r => r.target === entityId).forEach(rel => {
+      const inv = entityMap[rel.source];
+      if (!inv) return;
+      const invISO = WD_TO_ISO[inv.sources?.infonodes?.country || inv.sources?.wikidata?.country];
+      if (invISO) activeISOs.add(invISO);
+    });
+  } else if (entityId.startsWith('IV-')) {
+    relationships.filter(r => r.source === entityId).forEach(rel => {
+      const comp = entityMap[rel.target];
+      if (!comp) return;
+      const iso = WD_TO_ISO[comp.sources?.infonodes?.country || comp.sources?.wikidata?.country];
+      if (iso) activeISOs.add(iso);
+    });
+  }
+
+  mapState.activeFilter = { id: entityId, name: ent.name, isos: activeISOs };
+  applyMapFilter();
+  if (activeISOs.size > 0) fitMapToISOs(activeISOs);
+
+  const panelBody = document.getElementById('map-panel-body');
+  let detail = '';
+  if (entityId.startsWith('IN-')) {
+    const cb  = ent.sources?.crunchbase || {};
+    const wd  = ent.sources?.wikidata   || {};
+    const inv = relationships.filter(r => r.target === entityId).map(r => entityMap[r.source]).filter(Boolean);
+    const funding = cb.total_funding_usd ? fmtFunding(cb.total_funding_usd) : null;
+    detail = `
+      <div class="sl-section-lbl">${esc(ent.name)}</div>
+      <div class="map-detail-meta">
+        ${sectorBadge(ent.sector)}
+        ${wd.country ? `<span class="map-item-id">${esc(wd.country)}</span>` : ''}
+        ${funding ? `<span class="map-item-id">${funding}</span>` : ''}
+      </div>
+      ${inv.length ? `<div class="sl-section-lbl" style="margin-top:12px">${inv.length} Investor${inv.length !== 1 ? 's' : ''}</div>
+        ${inv.map(iv => `<div class="map-co-item"><span>${esc(iv.name)}</span></div>`).join('')}` : ''}
+    `;
+  } else {
+    const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean);
+    detail = `
+      <div class="sl-section-lbl">${esc(ent.name)}</div>
+      <div class="map-item-id" style="margin-bottom:10px">${esc(ent.type || '')}</div>
+      ${portfolio.length ? `<div class="sl-section-lbl">${portfolio.length} Portfolio Companies</div>
+        ${portfolio.map(c => `<div class="map-co-item"><span>${esc(c.name)}</span>${sectorBadge(c.sector)}</div>`).join('')}` : ''}
+    `;
+  }
+
+  panelBody.innerHTML = `
+    <div class="sl-panel-section">
+      <div class="map-detail-header">
+        <button id="map-back-btn" class="edfmap-back-btn">← Back</button>
+      </div>
+      ${detail}
+    </div>
+  `;
+  document.getElementById('map-back-btn')?.addEventListener('click', () => {
+    clearMapFilter();
+    if (fromIso) showMapCountry(fromIso);
+  });
+}
+
+// ── applyMapFilter ────────────────────────────────────────────────────────────
+function applyMapFilter() {
+  const bar = document.getElementById('map-filter-bar');
+  const f   = mapState.activeFilter;
+
+  if (!f) {
+    bar.style.display = 'none';
+    const arcEl = document.getElementById('map-arc-layer');
+    if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+    mapState.g?.selectAll('.map-country').classed('country-dim', false);
+    mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
+    mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
+    return;
+  }
+
+  bar.style.display = 'flex';
+  document.getElementById('map-filter-label').textContent = f.name;
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = '';
+
+  mapState.g.selectAll('.map-country.has-data').classed('country-dim', d => !f.isos.has(+d.id));
+  mapState.g.selectAll('.map-node').each(function(d) {
+    d3.select(this).classed('node-dim', !f.isos.has(d.iso)).classed('node-focus', f.isos.has(d.iso));
+  });
+  mapState.g.selectAll('.map-arc').each(function(d) {
+    d3.select(this).classed('arc-dim', !(f.isos.has(d.src) && f.isos.has(d.tgt)));
+  });
+}
+
+// ── drawArcs ──────────────────────────────────────────────────────────────────
+function drawArcs(layer) {
+  if (!mapState.arcData.length) return;
+  const maxW = Math.max(...mapState.arcData.map(d => d.weight), 1);
+  const strokeScale  = d3.scaleLinear().domain([1, maxW]).range([1.5, 5]);
+  const opacityScale = d3.scaleLinear().domain([1, maxW]).range([0.75, 1.0]);
+  const arcColor = getComputedStyle(document.documentElement).getPropertyValue('--map-arc-color').trim() || '#68ccd1';
+
+  let defs = d3.select('#map-svg').select('defs');
+  if (defs.empty()) defs = d3.select('#map-svg').insert('defs', ':first-child');
+
+  mapState.arcData.forEach((arc, i) => {
+    const s = mapState.centroids[arc.src];
+    const t = mapState.centroids[arc.tgt];
+    if (!s || !t) return;
+    const mx  = (s[0] + t[0]) / 2;
+    const my  = (s[1] + t[1]) / 2 - Math.hypot(t[0]-s[0], t[1]-s[1]) * 0.3;
+    const sw  = strokeScale(arc.weight);
+    const op  = opacityScale(arc.weight);
+    const gid = `map-arc-grad-${i}`;
+
+    defs.append('linearGradient').attr('id', gid)
+      .attr('gradientUnits','userSpaceOnUse')
+      .attr('x1', s[0]).attr('y1', s[1])
+      .attr('x2', t[0]).attr('y2', t[1])
+      .call(g => {
+        g.append('stop').attr('offset','0%').attr('stop-color', arcColor).attr('stop-opacity', 0.18);
+        g.append('stop').attr('offset','100%').attr('stop-color', arcColor).attr('stop-opacity', op);
+      });
+
+    layer.append('path')
+      .datum({ src: arc.src, tgt: arc.tgt, baseSw: sw })
+      .attr('class','map-arc')
+      .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
+      .attr('stroke', `url(#${gid})`)
+      .attr('stroke-width', sw)
+      .append('title')
+      .text(`${ISO_TO_NAME[arc.src]||arc.src} → ${ISO_TO_NAME[arc.tgt]||arc.tgt} (${arc.weight})`);
+  });
+}
+
+// ── drawMap ───────────────────────────────────────────────────────────────────
+function drawMap(world) {
+  mapState.built = true;
+  document.getElementById('map-loading').style.display = 'none';
+
+  const el = document.getElementById('map-svg');
+  const W  = el.clientWidth  || 900;
+  const H  = el.clientHeight || 500;
+
+  mapState.projection = d3.geoNaturalEarth1().scale(W / 6.2).translate([W / 2 - 100, H / 2 + 50]);
+  const path = d3.geoPath().projection(mapState.projection);
+
+  mapState.svg = d3.select('#map-svg');
+  mapState.svg.selectAll('*').remove();
+  mapState.g = mapState.svg.append('g');
+
+  // Graticule
+  mapState.g.append('path')
+    .datum(d3.geoGraticule()())
+    .attr('d', path)
+    .attr('fill','none').attr('stroke','#1a1a1a').attr('stroke-width', 0.3);
+
+  // Country features + centroids
+  const countries = topojson.feature(world, world.objects.countries);
+  mapState.centroids = {};
+  countries.features.forEach(f => {
+    const iso = +f.id;
+    const c   = path.centroid(f);
+    if (c && !isNaN(c[0]) && !isNaN(c[1])) mapState.centroids[iso] = c;
+  });
+
+  // Manual overrides for countries with overseas territories
+  const OVERRIDES = { 250:[2.3,46.2], 528:[5.3,52.1], 620:[-8.0,39.5], 826:[-2.0,54.0], 840:[-98.0,39.5] };
+  Object.entries(OVERRIDES).forEach(([iso,[lon,lat]]) => {
+    const p = mapState.projection([lon,lat]);
+    if (p && !isNaN(p[0])) mapState.centroids[+iso] = p;
+  });
+
+  // Country paths
+  mapState.g.selectAll('.map-country')
+    .data(countries.features)
+    .join('path')
+    .attr('class', d => 'map-country' + (mapState.countryData[+d.id] ? ' has-data' : ''))
+    .attr('d', path)
+    .on('click', (e, d) => { const iso = +d.id; if (mapState.countryData[iso]) showMapCountry(iso); })
+    .append('title')
+    .text(d => {
+      const iso = +d.id;
+      const cd  = mapState.countryData[iso];
+      return cd ? `${cd.name} — ${cd.companies.length} companies` : ISO_TO_NAME[iso] || `ISO ${iso}`;
+    });
+
+  // Arc layer (hidden by default)
+  const arcLayer = mapState.g.append('g').attr('id','map-arc-layer');
+  drawArcs(arcLayer);
+  arcLayer.style('display','none');
+
+  // Country nodes
+  const nodeLayer = mapState.g.append('g').attr('id','map-node-layer');
+  const arcDegree = {};
+  mapState.arcData.forEach(arc => {
+    arcDegree[arc.src] = (arcDegree[arc.src] || 0) + 1;
+    arcDegree[arc.tgt] = (arcDegree[arc.tgt] || 0) + 1;
+  });
+  const maxDegree = Math.max(...Object.values(arcDegree), 1);
+  const rScale = d3.scaleSqrt().domain([0, maxDegree]).range([4, 22]);
+
+  Object.entries(mapState.countryData).forEach(([iso, cd]) => {
+    iso = +iso;
+    const c = mapState.centroids[iso];
+    if (!c) return;
+    const r = rScale(arcDegree[iso] || 0);
+    nodeLayer.append('circle')
+      .datum({ iso, baseR: r })
+      .attr('class','map-node').attr('data-iso', iso)
+      .attr('cx', c[0]).attr('cy', c[1]).attr('r', r)
+      .on('click', e => { e.stopPropagation(); showMapCountry(iso); })
+      .append('title')
+      .text(`${cd.name}: ${cd.companies.length} companies · ${arcDegree[iso]||0} cross-border connections`);
+
+    if (r >= 8) {
+      const baseFs = 11;
+      nodeLayer.append('text')
+        .datum({ cy: c[1], baseR: r, baseFs })
+        .attr('class','map-label')
+        .attr('x', c[0]).attr('y', c[1] + r + baseFs)
+        .style('font-size', baseFs + 'px')
+        .text(cd.name);
+    }
+  });
+
+  // Zoom
+  mapState.zoom = d3.zoom().scaleExtent([0.5, 12]).on('zoom', e => {
+    mapState.g.attr('transform', e.transform);
+    const k = e.transform.k;
+    mapState.g.selectAll('.map-node').each(function(d) {
+      d3.select(this).attr('r', d.baseR / k).attr('stroke-width', 1.5 / k);
+    });
+    mapState.g.selectAll('.map-label').each(function(d) {
+      const fs = d.baseFs / k;
+      d3.select(this).style('font-size', fs + 'px').attr('y', d.cy + d.baseR / k + fs);
+    });
+    mapState.g.selectAll('.map-arc').each(function(d) {
+      d3.select(this).attr('stroke-width', d.baseSw / k);
+    });
+  });
+  mapState.svg.call(mapState.zoom);
+
+  // Click on empty SVG → reset
+  mapState.svg.on('click', e => {
+    const t = e.target;
+    if (!t.classList?.contains('has-data') && !t.classList?.contains('map-node')) {
+      if (mapState.activeFilter) clearMapFilter();
+      else closeMapPanel();
+    }
+  });
+
+  setDefaultPanelContent();
+  document.getElementById('map-panel').classList.remove('d-none');
+
+  const allDataISOs = new Set(Object.keys(mapState.countryData).map(Number));
+  mapState.defaultTransform = computeTransformForISOs(allDataISOs, false);
+  mapState.svg.call(mapState.zoom.transform, mapState.defaultTransform);
+
+  applyMapFilter();
+}
+
+// ── buildMapView ──────────────────────────────────────────────────────────────
+function buildMapView(db) {
+  const companies = db.entities.filter(e => e.id?.startsWith('IN-'));
+  relationships   = db.relationships || [];
+  entityMap       = {};
+  for (const e of db.entities) entityMap[e.id] = e;
+
+  // Country data from companies
+  mapState.countryData = {};
+  companies.forEach(c => {
+    const country = c.sources?.infonodes?.country || c.sources?.wikidata?.country;
+    if (!country) return;
+    const iso = WD_TO_ISO[country];
+    if (!iso) return;
+    if (!mapState.countryData[iso]) mapState.countryData[iso] = { name: ISO_TO_NAME[iso] || country, companies: [] };
+    mapState.countryData[iso].companies.push(c);
+  });
+
+  // Arc data: directed investor-country → company-country
+  const pairWeight = {};
+  relationships.forEach(rel => {
+    const comp = entityMap[rel.target];
+    const inv  = entityMap[rel.source];
+    if (!comp || !inv) return;
+    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
+    const invCountry  = inv.sources?.infonodes?.country  || inv.sources?.wikidata?.country;
+    const compISO = WD_TO_ISO[compCountry];
+    const invISO  = WD_TO_ISO[invCountry];
+    if (!compISO || !invISO || compISO === invISO) return;
+    const key = `${invISO}→${compISO}`;
+    pairWeight[key] = (pairWeight[key] || 0) + 1;
+  });
+  mapState.arcData = Object.entries(pairWeight).map(([key, weight]) => {
+    const [src, tgt] = key.split('→').map(Number);
+    return { src, tgt, weight };
+  });
+
+  return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    .then(r => r.json())
+    .then(world => drawMap(world))
+    .catch(err => {
+      document.getElementById('map-loading').innerHTML =
+        `<span style="color:var(--error)">Failed to load map: ${esc(err.message)}</span>`;
+    });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch('data/database.json');
+    const db  = await res.json();
+    await buildMapView(db);
+
+    // Wire toolbar
+    document.getElementById('map-arc-toggle').addEventListener('change', e => {
+      mapState.showArcs = e.target.checked;
+      const arcEl = document.getElementById('map-arc-layer');
+      if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+    });
+    document.getElementById('map-reset-zoom-btn').addEventListener('click', closeMapPanel);
+    document.getElementById('map-close-panel-btn').addEventListener('click', closeMapPanel);
+    document.getElementById('map-clear-filter-btn').addEventListener('click', clearMapFilter);
+  } catch (err) {
+    document.getElementById('map-loading').innerHTML =
+      `<span style="color:var(--error)">Error: ${esc(String(err))}</span>`;
+    console.error(err);
+  }
+}
+
+init();
 </script>
 </body>
 </html>
