@@ -23,7 +23,7 @@ import sys
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE_PATH = os.path.join(BASE, "data", "database.json")
 
-VALID_ENTITY_TYPES = {"company", "fund", "government_agency", "bank", "institution", "person"}
+VALID_ENTITY_TYPES = {"company", "fund", "investor", "public_fund", "government_agency", "bank", "institution", "person"}
 VALID_ROLES = {"manufacturer", "investor", "board_member"}
 VALID_REL_TYPES = {"investment", "board_membership", "edf_participation"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -72,21 +72,21 @@ def main():
 
     entity_id_set = set(entity_ids)
 
-    # ── Check 2: No duplicate relationship IDs ────────────────────────────────
-    print("\n[2] Checking relationship ID uniqueness...")
-    rel_ids = [r["id"] for r in relationships]
-    seen_r: set[str] = set()
+    # ── Check 2: No duplicate relationships (source, target, type) ───────────
+    print("\n[2] Checking relationship uniqueness...")
+    seen_r: set[tuple] = set()
     dup_rels = []
-    for rid in rel_ids:
-        if rid in seen_r:
-            dup_rels.append(rid)
-        seen_r.add(rid)
+    for r in relationships:
+        key = (r.get("source"), r.get("target"), r.get("type"))
+        if key in seen_r:
+            dup_rels.append(key)
+        seen_r.add(key)
     if dup_rels:
         for d in dup_rels:
-            err(f"Duplicate relationship id: {d}")
-            errors.append(f"Duplicate relationship id: {d}")
+            err(f"Duplicate relationship: {d}")
+            errors.append(f"Duplicate relationship: {d}")
     else:
-        ok(f"All {len(relationships)} relationship IDs are unique")
+        ok(f"All {len(relationships)} relationships are unique")
 
     # ── Check 3: Relationship source/target exist in entities ─────────────────
     print("\n[3] Checking relationship source/target references...")

@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (branch new-frontend: arc directional coloring + investor profile relationships + SPARQL enrichment run)
+> Last updated: 2026-04-22 (branch new-frontend: SPARQL enrichment complete — 182 IV with country, 106 cross-border arcs; validate.py PASSED)
 
 ## Session protocol
 
@@ -297,8 +297,8 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **610** — created 2026-04-22 from Crunchbase top_investors |
 | Relationships | **897** — investment relationships from Crunchbase (2026-04-22) |
-| IV entities with country | 59 / 610 — from `patch_investor_countries.py` curated table |
-| Cross-border arcs on map | **60** (investor country → company country, unique pairs) |
+| IV entities with country | **182 / 610** — 59 curated (`patch_investor_countries.py`) + 123 new from SPARQL (2026-04-22) |
+| Cross-border arcs on map | **106** (investor country → company country, unique pairs) — was 60 before SPARQL run |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
@@ -306,7 +306,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-14) — rerun needed after investor import |
+| Last validate.py | PASSED (2026-04-22) — after SPARQL enrichment + validate.py fixes |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -423,7 +423,8 @@ refactoringDB/
 - [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
 - [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
 - [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
-- [ ] **SPARQL Wikidata enrichment run in progress (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 610 queries × 2s delay (~20 min). Writes `sources.wikidata.country` to IV entities. After completion: run `validate.py`, update arc count, commit.
+- [x] **SPARQL Wikidata enrichment complete (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 194/610 matched (32%). IV with country: 59→182. Cross-border arcs: 60→106. validate.py PASSED.
+- [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
