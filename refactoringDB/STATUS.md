@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (old DB migration + KNOWN extension: 275 IV with country, 129 cross-border arcs)
+> Last updated: 2026-04-22 (wikidata false positive audit: 9 IV QIDs nulled)
 
 ## Session protocol
 
@@ -430,6 +430,20 @@ refactoringDB/
 - [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
 - [x] **Old DB migration (2026-04-22):** `scripts/migrate_old_db_investors.py` — +57 IV entities (IV-0611–IV-0667), +95 relationships from legacy `../refactoring/data/database.json`. Total: 2023 entities, 992 relationships. validate.py PASSED.
 - [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
+- [x] **Wikidata false positive audit (2026-04-22):** 9 IV QIDs nulled — label-only SPARQL match hit non-investor entities. Pattern and fix documented below.
+
+#### Wikidata false positive pattern (IV investor enrichment)
+
+**Root cause:** `import_investors_crunchbase.py --wikidata` matches investor names to Wikidata using a label search (SPARQL `rdfs:label` / `skos:altLabel`) without filtering by entity type (`wdt:P31`). Investor names like "Chapter One", "Greylock", "Bond", "Canary" are common English words/phrases, producing hits on unrelated entities.
+
+**False positive categories observed:**
+- Geographic entities: hamlet (Greylock → Q122567544, Massachusetts), city (Noordwijk → Q455464, Netherlands), parish (Canary → Q63519398, New South Wales)
+- Cultural entities: restaurant (Chapter One → Q2129707, Dublin), band (Inc. → Q17484173, NASA → Q24876045), record label (GSR → Q59677963)
+- Unrelated companies: motorcycle manufacturer (Bond → Q2866747), legal entity in Latvia (IQ Capital → Q104427238)
+
+**Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
+
+**Fix for next enrichment cycle:** add a P31 type filter to the SPARQL query — only accept QIDs where `wdt:P31/wdt:P279* wd:Q43229` (instance of organisation, or subclass thereof). Alternatively, require description to contain at least one org keyword. This would have rejected all 9 false positives.
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
