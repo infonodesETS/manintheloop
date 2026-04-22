@@ -283,7 +283,7 @@ function setDefaultPanelContent() {
     </div>
     <div class="sl-panel-section">
       <div class="sl-section-lbl">Investor data</div>
-      <p class="map-intro-text"><strong>${totCbInv}</strong> companies have investor information from Crunchbase (click any company to see its backers). Investor geographic mapping is pending — once investor countries are resolved, cross-border arcs will appear.</p>
+      <p class="map-intro-text"><strong>${totCbInv}</strong> companies have investor data from Crunchbase. Click any company to see its backers. Toggle <em>Show investment flow arcs</em> to visualise cross-border capital flows — ${mapState.arcData.length > 0 ? `<strong>${mapState.arcData.length} cross-border arcs</strong> are currently mapped` : 'arcs appear as more investor countries are resolved'}.</p>
     </div>
   `;
 }
