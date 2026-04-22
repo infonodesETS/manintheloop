@@ -474,7 +474,7 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 **To increase arc coverage:**
 - Extend `KNOWN` dict in `patch_investor_countries.py` with more investor names → countries
 - Or run `import_investors_crunchbase.py --wikidata` for automated SPARQL lookup (~20 min)
-- **Known gap — QID found but P17 missing (2026-04-22):** many IV entities get a Wikidata QID via the SPARQL run but `country=None` because Wikidata lacks `wdt:P17` on that item (common for VC divisions, sub-brands). Fix for second cycle: add a fallback SPARQL query `wdt:P159/wdt:P17` (country of headquarters location) for all IV entities that have `wikidata_id` but `sources.wikidata.country = null`. Example candidates: Balderton Capital (Q16243430), Bessemer Venture Partners (Q4896433), Barclays Investment Bank (Q590271), Index Ventures (Q3809397), Intel Capital (Q18351734).
+- **Known gap — QID found but P17 missing (2026-04-22):** many IV entities get a Wikidata QID via the SPARQL run but `country=None` because Wikidata lacks `wdt:P17` on that item (common for VC divisions, sub-brands). Fix for second cycle: add a fallback SPARQL query using the property path `wdt:P159/wdt:P17` — i.e. fetch P159 (headquarters location, e.g. Q84=London), then from that entity retrieve P17 (country=United Kingdom). This two-step traversal is expressed in a single SPARQL path and covers items where P17 is absent but the HQ location has a country. Example candidates: Balderton Capital (Q16243430), Bessemer Venture Partners (Q4896433), Barclays Investment Bank (Q590271), Index Ventures (Q3809397), Intel Capital (Q18351734).
 
 **Old DB migration still pending:**
 - Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
