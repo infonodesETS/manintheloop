@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (branch new-frontend: SPARQL enrichment complete — 182 IV with country, 106 cross-border arcs; validate.py PASSED)
+> Last updated: 2026-04-22 (P159/P17 fallback: 205 IV with country, 115 cross-border arcs)
 
 ## Session protocol
 
@@ -297,8 +297,8 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **610** — created 2026-04-22 from Crunchbase top_investors |
 | Relationships | **897** — investment relationships from Crunchbase (2026-04-22) |
-| IV entities with country | **182 / 610** — 59 curated (`patch_investor_countries.py`) + 123 new from SPARQL (2026-04-22) |
-| Cross-border arcs on map | **106** (investor country → company country, unique pairs) — was 60 before SPARQL run |
+| IV entities with country | **205 / 610** — 59 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
+| Cross-border arcs on map | **115** (investor country → company country, unique pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
@@ -424,6 +424,7 @@ refactoringDB/
 - [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
 - [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
 - [x] **SPARQL Wikidata enrichment complete (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 194/610 matched (32%). IV with country: 59→182. Cross-border arcs: 60→106. validate.py PASSED.
+- [x] **P159/P17 fallback enrichment (2026-04-22):** `patch_iv_countries_p159.py` — 23/40 remaining QID-bearing investors resolved via headquarters location → country. IV with country: 182→205. Arcs: 106→115.
 - [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
 
 ### Infrastructure
