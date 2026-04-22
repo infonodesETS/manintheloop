@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (P159/P17 fallback: 205 IV with country, 115 cross-border arcs)
+> Last updated: 2026-04-22 (old DB migration + KNOWN extension: 275 IV with country, 129 cross-border arcs)
 
 ## Session protocol
 
@@ -272,7 +272,9 @@ refactoringDB/
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
 │   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
 │   ├── import_investors_crunchbase.py ← creates IV-NNNN entities + relationships from top_investors
-│   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors
+│   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors (~90 curated)
+│   ├── patch_iv_countries_p159.py     ← SPARQL P159/P17 fallback for QID-bearing IV with no country
+│   ├── migrate_old_db_investors.py    ← migrates funds/banks from legacy refactoring/ DB
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -291,14 +293,14 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **1966** |
+| Total entities | **2023** |
 | — companies (IN-NNNN) | 1149 |
 | — institutions + gov agencies | 207 |
 | — persons (PER-NNNN) | **0** — not yet built |
-| — investors (IV-NNNN) | **610** — created 2026-04-22 from Crunchbase top_investors |
-| Relationships | **897** — investment relationships from Crunchbase (2026-04-22) |
-| IV entities with country | **205 / 610** — 59 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
-| Cross-border arcs on map | **115** (investor country → company country, unique pairs) |
+| — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
+| Relationships | **992** — 897 Crunchbase + 95 old DB migration (2026-04-22) |
+| IV entities with country | **275 / 667** — 59+62 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
+| Cross-border arcs on map | **129** (investor country → company country, unique pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
@@ -426,6 +428,8 @@ refactoringDB/
 - [x] **SPARQL Wikidata enrichment complete (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 194/610 matched (32%). IV with country: 59→182. Cross-border arcs: 60→106. validate.py PASSED.
 - [x] **P159/P17 fallback enrichment (2026-04-22):** `patch_iv_countries_p159.py` — 23/40 remaining QID-bearing investors resolved via headquarters location → country. IV with country: 182→205. Arcs: 106→115.
 - [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
+- [x] **Old DB migration (2026-04-22):** `scripts/migrate_old_db_investors.py` — +57 IV entities (IV-0611–IV-0667), +95 relationships from legacy `../refactoring/data/database.json`. Total: 2023 entities, 992 relationships. validate.py PASSED.
+- [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
@@ -469,20 +473,15 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 **Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
 
-### 3. Phase 3: Investment graph — Crunchbase layer DONE, old DB pending
+### 3. Phase 3: Investment graph — COMPLETE (Crunchbase + old DB migration)
 
-**Crunchbase layer (2026-04-22):** 610 IV entities + 897 relationships created. 59 have country data → 60 map arcs.
+**Status (2026-04-22):** 667 IV entities + 992 relationships. 275 IV have country data → 129 cross-border map arcs.
 
-**To increase arc coverage:**
-- Extend `KNOWN` dict in `patch_investor_countries.py` with more investor names → countries
-- Or run `import_investors_crunchbase.py --wikidata` for automated SPARQL lookup (~20 min)
-- **Known gap — QID found but P17 missing (2026-04-22):** many IV entities get a Wikidata QID via the SPARQL run but `country=None` because Wikidata lacks `wdt:P17` on that item (common for VC divisions, sub-brands). Fix for second cycle: add a fallback SPARQL query using the property path `wdt:P159/wdt:P17` — i.e. fetch P159 (headquarters location, e.g. Q84=London), then from that entity retrieve P17 (country=United Kingdom). This two-step traversal is expressed in a single SPARQL path and covers items where P17 is absent but the HQ location has a country. Example candidates: Balderton Capital (Q16243430), Bessemer Venture Partners (Q4896433), Barclays Investment Bank (Q590271), Index Ventures (Q3809397), Intel Capital (Q18351734).
-
-**Old DB migration still pending:**
-- Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
-- Old DB has 293 `investment` relationships not yet migrated
-- Check for overlap with the 610 IV entities already created (deduplicate by name before importing)
-- Follow `docs/SCHEMA.md` — investor entity structure
+**To increase arc coverage further:**
+- Run `patch_iv_countries_p159.py` again if new QIDs are applied to IV entities
+- Extend `KNOWN` dict in `patch_investor_countries.py` for any new investor names
+- Run Crunchbase Cycle 2 to pick up new `top_investors` data
+- **Known gap — QID found but P17 missing:** 392 IV entities still lack country. ~17 have QIDs with no P17 (run `patch_iv_countries_p159.py` again after any new QIDs). Rest (~375) have no QID at all.
 
 ### 4. Phase 4: EDF participation relationships
 - 587 companies have `sources.edf` but no relationships yet
