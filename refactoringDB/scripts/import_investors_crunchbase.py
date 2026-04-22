@@ -61,6 +61,19 @@ _VC_KEYWORDS  = {"ventures", "venture", "capital", "partners", "fund", "equity",
 _GOV_KEYWORDS = {"bank", "agency", "authority", "government", "ministry",
                  "department", "commission", "bundesbank", "bpifrance"}
 
+# Wikidata descriptions that clearly indicate a non-investor entity.
+# Used to reject label matches that pass P31/Q43229 only because Wikidata's
+# "organisation" class is broad enough to include restaurants, bands, etc.
+_NON_INVESTOR_SIGNALS = frozenset([
+    "restaurant",   # e.g. "Restaurant in Dublin, Ireland"
+    "hamlet",       # e.g. "hamlet in Berkshire County, Massachusetts"
+    "municipality", # e.g. "city and municipality in the Netherlands"
+    "parish",       # e.g. "parish of Stapylton County, New South Wales"
+    " band",        # e.g. "American Band", "Japanese rock band" (space guards against "broadband")
+    "record label", # e.g. "record label"
+    "legal entity", # e.g. "legal entity in Latvia" (non-investor holding structure)
+])
+
 
 def investor_type(name: str) -> str:
     low = name.lower()
@@ -135,6 +148,17 @@ LIMIT 3
     desc    = row.get("itemDescription", {}).get("value", "")
     country = row.get("countryLabel", {}).get("value")
     hq      = row.get("hqLabel", {}).get("value")
+
+    # Reject if description contains a clear non-investor signal.
+    # Wikidata Q43229 (organisation) is too broad — it includes restaurants,
+    # bands, record labels, and geographic entities that share investor names.
+    if desc:
+        low = desc.lower()
+        for sig in _NON_INVESTOR_SIGNALS:
+            if sig in low:
+                print(f"    [skipped {qid}] non-investor description: {desc!r}")
+                return None
+
     return {"qid": qid, "label": label, "description": desc, "country": country, "hq": hq}
 
 

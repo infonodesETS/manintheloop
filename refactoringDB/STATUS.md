@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (wikidata false positive audit: 9 IV QIDs nulled)
+> Last updated: 2026-04-22 (wikidata false positive guard implemented in import_investors_crunchbase.py)
 
 ## Session protocol
 
@@ -443,7 +443,7 @@ refactoringDB/
 
 **Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
 
-**Fix for next enrichment cycle:** add a P31 type filter to the SPARQL query — only accept QIDs where `wdt:P31/wdt:P279* wd:Q43229` (instance of organisation, or subclass thereof). Alternatively, require description to contain at least one org keyword. This would have rejected all 9 false positives.
+**Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
