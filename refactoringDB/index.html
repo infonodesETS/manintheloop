@@ -273,12 +273,17 @@ function setDefaultPanelContent() {
   document.getElementById('map-panel-title').textContent = 'About this map';
   const coCount  = Object.keys(mapState.countryData).length;
   const totCo    = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
+  const totCbInv = Object.values(entityMap).filter(e => e.sources?.crunchbase?.top_investors?.length).length;
   document.getElementById('map-panel-body').innerHTML = `
     <div class="sl-panel-section">
       <div class="sl-section-lbl">What this map shows</div>
       <p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} companies</strong>, with <strong>${mapState.arcData.length} cross-border investor connections</strong>.</p>
       <p class="map-intro-text">Each circle represents a country with at least one company in the database. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs.</p>
       <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end). Click a country circle or shaded area to explore its companies and investor relationships.</p>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">Investor data</div>
+      <p class="map-intro-text"><strong>${totCbInv}</strong> companies have investor information from Crunchbase (click any company to see its backers). Investor geographic mapping is pending — once investor countries are resolved, cross-border arcs will appear.</p>
     </div>
   `;
 }
@@ -383,7 +388,9 @@ function showMapCountry(iso) {
 
   const coStr       = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
   const localInvStr = localInvestorCount > 0 ? ` · ${localInvestorCount} local investor${localInvestorCount !== 1 ? 's' : ''}` : '';
-  let introText = `${coStr}${localInvStr} headquartered in ${esc(cd.name)}.`;
+  const cbInvCos    = cd.companies.filter(c => c.sources?.crunchbase?.top_investors?.length).length;
+  const cbInvStr    = cbInvCos > 0 && !localInvestorCount ? ` · ${cbInvCos} with investor data` : '';
+  let introText = `${coStr}${localInvStr}${cbInvStr} headquartered in ${esc(cd.name)}.`;
   if (flowInArr.length || flowOutArr.length) {
     const parts = [];
     if (flowInArr.length)  parts.push(`↓ ${flowInArr.length} foreign investor${flowInArr.length !== 1 ? 's' : ''} funding companies here`);
@@ -423,11 +430,15 @@ function showMapCountry(iso) {
         <button id="map-toggle-co" class="sf-btn active">on</button>
       </div>
       <div id="map-companies-list">
-        ${cd.companies.map(c => `
+        ${cd.companies.map(c => {
+          const cbInvCount = c.sources?.crunchbase?.top_investors?.length || 0;
+          const invBadge   = cbInvCount ? `<span class="map-item-id" title="${cbInvCount} investors (Crunchbase)">↓${cbInvCount}</span>` : '';
+          return `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
             <button class="map-entity-name" data-action="openEntity" data-id="${esc(c.id)}" data-etype="company">${esc(c.name)}</button>
-            ${sectorBadge(c.sector)}
-          </div>`).join('')}
+            ${sectorBadge(c.sector)}${invBadge}
+          </div>`;
+        }).join('')}
       </div>
     </div>
     ${flowInArr.length ? `<div class="sl-panel-section">
@@ -508,16 +519,42 @@ function filterMapByEntity(entityId, fromIso) {
     const cb  = ent.sources?.crunchbase || {};
     const wd  = ent.sources?.wikidata   || {};
     const inv = relationships.filter(r => r.target === entityId).map(r => entityMap[r.source]).filter(Boolean);
+    const cbInvestors = cb.top_investors || [];
     const funding = cb.total_funding_usd ? fmtFunding(cb.total_funding_usd) : null;
+    const stage   = cb.funding_status || cb.stage || null;
+    const rounds  = cb.num_funding_rounds || null;
+    const city    = cb.headquarters || wd.headquarters || null;
+    const founded = cb.founded_date ? cb.founded_date.slice(0,4) : (wd.inception || null);
+
+    const invSection = () => {
+      if (inv.length) {
+        return `<div class="sl-section-lbl" style="margin-top:12px">${inv.length} Investor${inv.length !== 1 ? 's' : ''}</div>
+          ${inv.map(iv => `<div class="map-co-item"><span>${esc(iv.name)}</span></div>`).join('')}`;
+      }
+      if (cbInvestors.length) {
+        const shown = cbInvestors.slice(0, 10);
+        const more  = cbInvestors.length - shown.length;
+        return `<div class="sl-section-lbl map-flow-in-hd" style="margin-top:12px">↓ ${cbInvestors.length} Investor${cbInvestors.length !== 1 ? 's' : ''} <span class="map-item-id" style="font-size:10px;margin-left:4px">via Crunchbase</span></div>
+          ${shown.map(name => `<div class="map-co-item"><span>${esc(name)}</span></div>`).join('')}
+          ${more > 0 ? `<div class="map-item-more">+${more} more</div>` : ''}`;
+      }
+      return '';
+    };
+
     detail = `
       <div class="sl-section-lbl">${esc(ent.name)}</div>
       <div class="map-detail-meta">
         ${sectorBadge(ent.sector)}
-        ${wd.country ? `<span class="map-item-id">${esc(wd.country)}</span>` : ''}
-        ${funding ? `<span class="map-item-id">${funding}</span>` : ''}
+        ${city ? `<span class="map-item-id">${esc(city)}</span>` : ''}
       </div>
-      ${inv.length ? `<div class="sl-section-lbl" style="margin-top:12px">${inv.length} Investor${inv.length !== 1 ? 's' : ''}</div>
-        ${inv.map(iv => `<div class="map-co-item"><span>${esc(iv.name)}</span></div>`).join('')}` : ''}
+      <div class="map-detail-meta" style="margin-top:2px">
+        ${funding ? `<span class="map-item-id">${funding} total funding</span>` : ''}
+        ${stage   ? `<span class="map-item-id">${esc(stage)}</span>` : ''}
+        ${rounds  ? `<span class="map-item-id">${rounds} round${rounds !== 1 ? 's' : ''}</span>` : ''}
+        ${founded ? `<span class="map-item-id">est. ${founded}</span>` : ''}
+      </div>
+      ${cb.description ? `<p class="map-intro-text" style="margin-top:8px;font-size:var(--fs-sm)">${esc(cb.description)}</p>` : ''}
+      ${invSection()}
     `;
   } else {
     const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean);
