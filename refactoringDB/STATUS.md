@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-14 (Crunchbase Cycle 1 real import complete — 731 entities with CB data; web UI v1 shipped with URL routing + single-column collapsible profile cards)
+> Last updated: 2026-04-22 (branch new-frontend: multi-page web app + investor pipeline — 1966 entities, 897 relationships, 60 cross-border arcs on map)
 
 ## Session protocol
 
@@ -125,6 +125,28 @@ python3 scripts/search_missing_qids.py --apply
 python3 scripts/validate.py
 ```
 
+### Investor pipeline (new — 2026-04-22)
+
+```bash
+# Step 1 — Create IV-NNNN entities + investment relationships from crunchbase.top_investors
+#   Reads: data/database.json
+#   Writes: data/database.json (+IV entities, +relationships)
+#   Flags: --dry-run (no writes), --wikidata (SPARQL country lookup per investor, ~2s each)
+python3 scripts/import_investors_crunchbase.py [--dry-run] [--wikidata]
+
+# Step 2 — Assign known countries to well-known investors (curated lookup table)
+#   ~90 entries covering major VC firms, EU institutions, US agencies, large banks
+#   Writes: sources.infonodes.country on matching IV-* entities
+python3 scripts/patch_investor_countries.py [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: both scripts are idempotent — no duplicate entities or relationships created.
+To get more investor countries: either extend `KNOWN` dict in `patch_investor_countries.py`,
+or run `import_investors_crunchbase.py --wikidata` (slow: ~610 SPARQL queries × 2s each).
+
 ### Crunchbase enrichment pipeline
 
 > **Full process documentation:** `data/crunchbase_sandbox/CRUNCHBASE.md`
@@ -211,9 +233,14 @@ The old DB (`../refactoring/`) is **read-only** — never modify it. All work is
 
 ```
 refactoringDB/
-├── index.html                 ← web UI — org search + profile viewer (serve from Manintheloop/ root)
+├── index.html                 ← Map page (D3 SVG world map + investor arcs) — branch new-frontend
+├── search.html                ← Org search + profile viewer (ported from old index.html)
+├── networks.html              ← placeholder
+├── publications.html          ← placeholder
+├── about.html                 ← placeholder
 ├── web/
 │   ├── router.js              ← URL routing (?organization=IN-XXXX&organizationName=...)
+│   ├── theme.js               ← dark/light theme toggle (shared across all pages)
 │   ├── base.css               ← base styles (copied from ../refactoring/css/)
 │   ├── components.css         ← component styles
 │   └── companysearch.css      ← search/autocomplete/profile styles
@@ -244,6 +271,8 @@ refactoringDB/
 │   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
 │   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
+│   ├── import_investors_crunchbase.py ← creates IV-NNNN entities + relationships from top_investors
+│   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -252,33 +281,36 @@ refactoringDB/
 └── STATUS.md                  ← this file
 ```
 
-> **Serving the web UI:** `python3 -m http.server 8000` from `Manintheloop/` root (one level above `refactoringDB/`), then open `http://localhost:8000/refactoringDB/`.
+> **Serving the web UI (new-frontend branch):** `python3 -m http.server 8001` from `refactoringDB/`, then open `http://localhost:8001/`.
+> **Serving search UI only:** `python3 -m http.server 8000` from `Manintheloop/` root, then open `http://localhost:8000/refactoringDB/`.
 
 ---
 
-## Current DB state (2026-04-14)
+## Current DB state (2026-04-22)
 
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | 1356 |
+| Total entities | **1966** |
 | — companies (IN-NNNN) | 1149 |
-| — institutions | 184 |
-| — government_agencies | 23 |
+| — institutions + gov agencies | 207 |
 | — persons (PER-NNNN) | **0** — not yet built |
-| — investors (IV-NNNN) | **0** — not yet migrated |
-| Relationships | **0** — not yet built |
+| — investors (IV-NNNN) | **610** — created 2026-04-22 from Crunchbase top_investors |
+| Relationships | **897** — investment relationships from Crunchbase (2026-04-22) |
+| IV entities with country | 59 / 610 — from `patch_investor_countries.py` curated table |
+| Cross-border arcs on map | **60** (investor country → company country, unique pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
+| Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-14) |
+| Last validate.py | PASSED (2026-04-14) — rerun needed after investor import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
-| validation: needs_review | 2146 entries (ongoing — covers enrichment gaps) |
+| validation: needs_review | 2146 + 610 IV entries (ongoing) |
 
 ---
 
@@ -367,6 +399,28 @@ refactoringDB/
 - [x] EDF projects: lazy-loaded on demand, with participant expand/collapse; clicking a participant navigates to their profile
 - [x] CSS/JS internal dependencies moved to `web/` folder (base.css, components.css, companysearch.css, router.js)
 
+### Multi-page frontend — branch `new-frontend` (2026-04-22)
+
+> Branch forked from `nuovoDB`. Serve from `refactoringDB/` root: `python3 -m http.server 8001`.
+
+- [x] **`index.html`** — D3 SVG world map (ported from `../refactoring/js/tabs/map.js`)
+  - Country-level aggregation: one circle per country, sized by arc degree
+  - Side panel: country detail (companies list + investor badge `↓N` per company)
+  - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
+  - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
+  - Filter bar: click a company/investor to highlight connected countries on map
+  - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
+  - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
+- [x] **`search.html`** — org search (ported from old `index.html`, navbar added)
+- [x] **`networks.html`**, **`publications.html`**, **`about.html`** — placeholder pages (TBD content)
+- [x] **`web/theme.js`** — shared dark/light theme toggle across all pages
+- [x] **`web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
+
+### Investor pipeline (2026-04-22)
+- [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
+- [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
+- [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -409,10 +463,18 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 **Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
 
-### 3. Phase 3: Investment graph migration from old DB
+### 3. Phase 3: Investment graph — Crunchbase layer DONE, old DB pending
+
+**Crunchbase layer (2026-04-22):** 610 IV entities + 897 relationships created. 59 have country data → 60 map arcs.
+
+**To increase arc coverage:**
+- Extend `KNOWN` dict in `patch_investor_countries.py` with more investor names → countries
+- Or run `import_investors_crunchbase.py --wikidata` for automated SPARQL lookup (~20 min)
+
+**Old DB migration still pending:**
 - Old DB (`../refactoring/data/database.json`) has 140 funds + 28 banks not yet in new DB
 - Old DB has 293 `investment` relationships not yet migrated
-- Create **IV-NNNN** entities for funds/banks, then **REL-NNNN** relationships
+- Check for overlap with the 610 IV entities already created (deduplicate by name before importing)
 - Follow `docs/SCHEMA.md` — investor entity structure
 
 ### 4. Phase 4: EDF participation relationships
