@@ -519,7 +519,7 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - **3 real country conflicts** — RESOLVED (2026-04-23, `patch_country_quality.py`):
   - `IN-1234` Destinus: infonodes.country set to Switzerland (was Netherlands); wikidata confirmed correct
   - `IN-1262` Chemring Group: UK confirmed (wikidata P17=Germany is Wikidata error); field_conflict→confirmed
-  - `IN-1340` Umicore: Belgium confirmed; WARNING: wikidata_id Q107518759 = US subsidiary, QID needs replacing
+  - `IN-1340` Umicore: Belgium confirmed; QID replaced Q107518759→Q902769 (Belgian parent "Umicore", founded 1904) during duplicate audit (2026-04-23); sources.wikidata re-enriched with correct entity — RESOLVED
 - **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
 - **30 real HQ conflicts** — RESOLVED (2026-04-23, `patch_hq_conflicts.py`):
   - 6 `compatible_sources`: Baykar, Czechoslovak Group, Dassault Aviation, Rafael, Wacker Chemie (München=Munich), (Recylex moved to wikidata_canonical)
