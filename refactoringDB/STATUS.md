@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (search.html brought to full parity with main/index.html via web/app.js)
+> Last updated: 2026-04-23 (country quality fixes: 3 real conflicts resolved, 40 China normalised)
 
 ## Session protocol
 
@@ -310,7 +310,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-22) — after SPARQL enrichment + validate.py fixes |
+| Last validate.py | PASSED (2026-04-23) — after country quality patch |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -476,16 +476,16 @@ refactoringDB/
 
 ### 0. Data quality — resolve flagged conflicts
 
-From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation entries:
+From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` validation entries:
 
-- **3 real country conflicts** (manual review required):
-  - `IN-1234` Destinus: wikidata=Switzerland, infonodes=Netherlands
-  - `IN-1262` Chemring Group: wikidata=Germany, infonodes=United Kingdom
-  - `IN-1340` Umicore: wikidata=United States, infonodes=Belgium
-  - For each: verify the correct country, set canonical value in `sources.infonodes.country`, append `history[]` entry, resolve `field_conflict` → `confirmed`
-- **15 country normalisation gaps**: "People's Republic of China" vs "China" — normalise `sources.wikidata.country` to short ISO 3166 form (or vice versa) via a one-off script
+- **3 real country conflicts** — RESOLVED (2026-04-23, `patch_country_quality.py`):
+  - `IN-1234` Destinus: infonodes.country set to Switzerland (was Netherlands); wikidata confirmed correct
+  - `IN-1262` Chemring Group: UK confirmed (wikidata P17=Germany is Wikidata error); field_conflict→confirmed
+  - `IN-1340` Umicore: Belgium confirmed; WARNING: wikidata_id Q107518759 = US subsidiary, QID needs replacing
+- **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
 - **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
 - **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
+- **Umicore QID fix needed**: Q107518759 = "Umicore (United States)" (subsidiary). Replace with parent QID when found.
 
 ### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
