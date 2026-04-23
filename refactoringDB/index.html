@@ -81,7 +81,9 @@
     .map-filter-clear { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
     .map-filter-clear:hover { border-color: var(--accent); }
     .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); cursor: help; white-space: nowrap; }
-    #map-arc-toggle { accent-color: var(--accent); }
+    #map-arc-toggle, #map-edf-toggle { accent-color: var(--accent); }
+    .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
+    .map-toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 2px; }
     .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
     [data-theme="light"] .map-filter-bar { background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.25); }
     [data-theme="light"] .map-filter-clear { border-color: rgba(0,102,34,0.3); }
@@ -135,6 +137,10 @@
     <!-- Map main -->
     <div id="map-main">
       <div id="map-toolbar">
+        <label class="map-toggle-label" title="Show only companies with EU Funding (EDF)">
+          <input type="checkbox" id="map-edf-toggle"> EU Funded
+        </label>
+        <span class="map-toolbar-sep"></span>
         <label class="map-toggle-label" title="Show investment flow arcs">
           <input type="checkbox" id="map-arc-toggle"> Show investment flow arcs
         </label>
@@ -266,6 +272,7 @@ const mapState = {
   projection: null, zoom: null,
   selectedIso: null, activeFilter: null,
   showArcs: false, defaultTransform: null,
+  edfOnly: false, edfISOs: new Set(),
 };
 
 // Data (loaded once)
@@ -642,28 +649,38 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
 function applyMapFilter() {
   const bar = document.getElementById('map-filter-bar');
   const f   = mapState.activeFilter;
+  const edf = mapState.edfOnly;
 
-  if (!f) {
+  // Entity-click filter bar
+  if (f) {
+    bar.style.display = 'flex';
+    document.getElementById('map-filter-label').textContent = f.name;
+  } else {
     bar.style.display = 'none';
-    const arcEl = document.getElementById('map-arc-layer');
-    if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+  }
+
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = (mapState.showArcs || f) ? '' : 'none';
+
+  if (!f && !edf) {
     mapState.g?.selectAll('.map-country').classed('country-dim', false);
     mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
     mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
     return;
   }
 
-  bar.style.display = 'flex';
-  document.getElementById('map-filter-label').textContent = f.name;
-  const arcEl = document.getElementById('map-arc-layer');
-  if (arcEl) arcEl.style.display = '';
-
-  mapState.g.selectAll('.map-country.has-data').classed('country-dim', d => !f.isos.has(+d.id));
+  mapState.g.selectAll('.map-country.has-data').classed('country-dim', d => {
+    const iso = +d.id;
+    return (edf && !mapState.edfISOs.has(iso)) || (f && !f.isos.has(iso));
+  });
   mapState.g.selectAll('.map-node').each(function(d) {
-    d3.select(this).classed('node-dim', !f.isos.has(d.iso)).classed('node-focus', f.isos.has(d.iso));
+    const dim = (edf && !mapState.edfISOs.has(d.iso)) || (f && !f.isos.has(d.iso));
+    d3.select(this).classed('node-dim', dim).classed('node-focus', !dim && !!f);
   });
   mapState.g.selectAll('.map-arc').each(function(d) {
-    d3.select(this).classed('arc-dim', !(f.isos.has(d.src) && f.isos.has(d.tgt)));
+    const dimEdf    = edf && !mapState.edfISOs.has(d.tgt);
+    const dimFilter = f && !(f.isos.has(d.src) && f.isos.has(d.tgt));
+    d3.select(this).classed('arc-dim', dimEdf || dimFilter);
   });
 }
 
@@ -853,6 +870,15 @@ function buildMapView(db) {
     mapState.countryData[iso].companies.push(c);
   });
 
+  // EDF ISO set — countries with at least one EDF-funded company
+  mapState.edfISOs = new Set();
+  companies.forEach(c => {
+    if (!c.sources?.edf) return;
+    const country = c.sources?.infonodes?.country || c.sources?.wikidata?.country;
+    const iso = WD_TO_ISO[country];
+    if (iso) mapState.edfISOs.add(iso);
+  });
+
   // Arc data: directed investor-country → company-country
   const pairWeight = {};
   relationships.forEach(rel => {
@@ -901,6 +927,10 @@ async function init() {
     });
 
     // Wire toolbar
+    document.getElementById('map-edf-toggle').addEventListener('change', e => {
+      mapState.edfOnly = e.target.checked;
+      applyMapFilter();
+    });
     document.getElementById('map-arc-toggle').addEventListener('change', e => {
       mapState.showArcs = e.target.checked;
       const arcEl = document.getElementById('map-arc-layer');
