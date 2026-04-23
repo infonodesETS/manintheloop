@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (Helsing UK/Germany disambiguation: IN-0723→Helsing UK, IN-0724→Helsing canonical)
+> Last updated: 2026-04-23 (Helsing disambiguation: IN-0723→Helsing GmbH (main, Q127380521), IN-0724→Helsing Germany GmbH (subsidiary))
 
 ## Session protocol
 
@@ -316,7 +316,7 @@ refactoringDB/
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
 | — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
-| Relationships | **2644** — 892 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23, -5 Helsing dups) |
+| Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
 | IV entities with country | **275 / 667** — 59+62 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
 | Cross-border arcs on map | **129** (investor country → company country, unique pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
@@ -326,7 +326,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-23) — after Helsing disambiguation |
+| Last validate.py | PASSED (2026-04-23) — after Helsing GmbH / Helsing Germany GmbH disambiguation |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -530,7 +530,7 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
   - 35 QIDs nulled: parent QID misapplied to subsidiaries (Phase F — 24 groups)
   - 19 groups remain: all intentional (share classes + IV+IN, all tagged)
   - 12 relationships migrated to canonical entities (IN-1253→IN-0035 ×4, IN-1298→IN-0753 ×8)
-  - ~~IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)~~ RESOLVED (2026-04-23): IN-0723→Helsing UK (country=UK, 5 dup investment rels removed, EDF thirdParty retained); IN-0724→Helsing canonical (country=Germany, Q127380521 confirmed)
+  - ~~IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)~~ RESOLVED (2026-04-23): EDF PICs confirmed both German — IN-0723→Helsing GmbH (PIC 890415866, Q127380521, main entity, 5 CB rels restored, EDF thirdParty); IN-0724→Helsing Germany GmbH (PIC 892984620, subsidiary, EDF participant)
 
 ### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
