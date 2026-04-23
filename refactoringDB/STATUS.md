@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-22 (wikidata false positive guard implemented in import_investors_crunchbase.py)
+> Last updated: 2026-04-23 (map node stroke removed — .map-node stroke always 0)
 
 ## Session protocol
 
@@ -411,6 +411,7 @@ refactoringDB/
   - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
   - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
   - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
+  - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
   - Filter bar: click a company/investor to highlight connected countries on map
   - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
   - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
