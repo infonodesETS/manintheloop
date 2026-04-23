@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (map: EU Funded filter checkbox added to toolbar)
+> Last updated: 2026-04-23 (map: entity-level connection view on entity click)
 
 ## Session protocol
 
@@ -415,6 +415,7 @@ refactoringDB/
   - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
   - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
   - **EU Funded filter (2026-04-23):** checkbox in toolbar (default off) dims all countries/nodes/arcs whose company-side has no EDF data. Covers 794 EDF companies across 28 countries. Composes with entity-click filter.
+  - **Entity-level connection view (2026-04-23):** clicking an entity in the country side panel now updates the map — the country node label changes to the entity name, and only arcs connecting that specific entity to other countries are shown (investor→company for IN-; investor→portfolio countries for IV-). Clicking the entity-labeled node restores the country view. `restoreCountryLabels()` helper added; `activePairs` Set tracks entity-specific src→tgt arc pairs; entity ISO now included in `activeISOs` for IV entities (fixes investor country node being incorrectly dimmed).
   - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
     - `index.html` → default panel
     - `index.html?country=840&countryname=United+States` → country selected

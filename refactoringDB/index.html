@@ -325,6 +325,15 @@ function setDefaultPanelContent() {
   `;
 }
 
+// ── restoreCountryLabels ──────────────────────────────────────────────────────
+function restoreCountryLabels() {
+  mapState.g?.selectAll('.map-label[data-iso]').each(function() {
+    const iso  = +this.getAttribute('data-iso');
+    const name = mapState.countryData[iso]?.name || ISO_TO_NAME[iso] || '';
+    d3.select(this).text(name);
+  });
+}
+
 // ── closeMapPanel / clearMapFilter ────────────────────────────────────────────
 function closeMapPanel(skipHistory = false) {
   if (!skipHistory) pushMapState({});
@@ -346,6 +355,9 @@ function closeMapPanel(skipHistory = false) {
   }
   mapState.activeFilter = null;
   mapState.selectedIso  = null;
+  restoreCountryLabels();
+  mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
+  mapState.g?.selectAll('.map-country').classed('country-dim', false);
   setDefaultPanelContent();
 }
 
@@ -388,6 +400,14 @@ function fitMapToISOs(isos) {
 function showMapCountry(iso, skipHistory = false) {
   const cd = mapState.countryData[iso];
   if (!cd) return;
+
+  // Clear any entity-level filter and restore country labels/dims
+  mapState.activeFilter = null;
+  restoreCountryLabels();
+  document.getElementById('map-filter-bar').style.display = 'none';
+  mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
+  mapState.g?.selectAll('.map-country').classed('country-dim', false);
+
   if (!skipHistory) pushMapState({ country: iso, countryname: cd.name });
 
   d3.select('#map-svg').selectAll('.map-country')
@@ -557,28 +577,46 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   });
 
   const activeISOs = new Set();
+  const activePairs = new Set();
+  let entityISO = null;
+
   if (entityId.startsWith('IN-')) {
     const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
-    const ownISO = WD_TO_ISO[country];
-    if (ownISO) activeISOs.add(ownISO);
+    entityISO = WD_TO_ISO[country] || null;
+    if (entityISO) activeISOs.add(entityISO);
     relationships.filter(r => r.target === entityId).forEach(rel => {
       const inv = entityMap[rel.source];
       if (!inv) return;
       const invISO = WD_TO_ISO[inv.sources?.infonodes?.country || inv.sources?.wikidata?.country];
-      if (invISO) activeISOs.add(invISO);
+      if (invISO) {
+        activeISOs.add(invISO);
+        if (entityISO && invISO !== entityISO) activePairs.add(`${invISO}→${entityISO}`);
+      }
     });
   } else if (entityId.startsWith('IV-')) {
+    const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
+    entityISO = WD_TO_ISO[country] || null;
+    if (entityISO) activeISOs.add(entityISO);
     relationships.filter(r => r.source === entityId).forEach(rel => {
       const comp = entityMap[rel.target];
       if (!comp) return;
-      const iso = WD_TO_ISO[comp.sources?.infonodes?.country || comp.sources?.wikidata?.country];
-      if (iso) activeISOs.add(iso);
+      const compISO = WD_TO_ISO[comp.sources?.infonodes?.country || comp.sources?.wikidata?.country];
+      if (compISO) {
+        activeISOs.add(compISO);
+        if (entityISO && compISO !== entityISO) activePairs.add(`${entityISO}→${compISO}`);
+      }
     });
   }
 
-  mapState.activeFilter = { id: entityId, name: ent.name, isos: activeISOs };
+  mapState.activeFilter = { id: entityId, name: ent.name, isos: activeISOs, pairs: activePairs, ownISO: entityISO };
   applyMapFilter();
   if (activeISOs.size > 0) fitMapToISOs(activeISOs);
+
+  // Change the country node label to the entity name
+  if (entityISO) {
+    const truncName = ent.name.length > 20 ? ent.name.slice(0, 18) + '…' : ent.name;
+    mapState.g?.select(`.map-label[data-iso="${entityISO}"]`).text(truncName);
+  }
 
   const panelBody = document.getElementById('map-panel-body');
   let detail = '';
@@ -679,7 +717,9 @@ function applyMapFilter() {
   });
   mapState.g.selectAll('.map-arc').each(function(d) {
     const dimEdf    = edf && !mapState.edfISOs.has(d.tgt);
-    const dimFilter = f && !(f.isos.has(d.src) && f.isos.has(d.tgt));
+    const dimFilter = f && (f.pairs.size
+      ? !f.pairs.has(`${d.src}→${d.tgt}`)
+      : !(f.isos.has(d.src) && f.isos.has(d.tgt)));
     d3.select(this).classed('arc-dim', dimEdf || dimFilter);
   });
 }
@@ -810,6 +850,7 @@ function drawMap(world) {
       nodeLayer.append('text')
         .datum({ cy: c[1], baseR: r, baseFs })
         .attr('class','map-label')
+        .attr('data-iso', iso)
         .attr('x', c[0]).attr('y', c[1] + r + baseFs)
         .style('font-size', baseFs + 'px')
         .text(cd.name);
