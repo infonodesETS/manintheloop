@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (country quality fixes: 3 real conflicts resolved, 40 China normalised)
+> Last updated: 2026-04-23 (duplicate QID audit complete: 55→19 groups, all resolved)
 
 ## Session protocol
 
@@ -310,7 +310,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-23) — after country quality patch |
+| Last validate.py | PASSED (2026-04-23) — after duplicate QID audit |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -484,8 +484,14 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
   - `IN-1340` Umicore: Belgium confirmed; WARNING: wikidata_id Q107518759 = US subsidiary, QID needs replacing
 - **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
 - **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
-- **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
-- **Umicore QID fix needed**: Q107518759 = "Umicore (United States)" (subsidiary). Replace with parent QID when found.
+- **55 duplicate wikidata_ids** — RESOLVED (2026-04-23):
+  - 9 groups: `accepted_duplicate` — share classes / different exchange listings (no QID change)
+  - 8 groups: `expected_iv_in_duplicate` — company also acts as investor (no QID change)
+  - 1 merge: IV-0240 Government of Canada retired → IV-0617 Canadian Government (relationship migrated)
+  - 8 QIDs nulled: same entity under old/ticker name (IBM, PLS, VALE DO RIO DOCE, TKMS, Saab Aktiebolag, Telecom Italia S.p.a, Fortescue Metals Group, Meta for Developers)
+  - 8 QIDs nulled: national sibling subsidiaries with parent QID misapplied (Integrasys×2, UMS×2, Airbus Ops×2, Arianegroup×2)
+  - 35 QIDs nulled: parent QID misapplied to subsidiaries (Phase F — 24 groups)
+  - 19 groups remain: all intentional (share classes + IV+IN, all tagged)
 
 ### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
