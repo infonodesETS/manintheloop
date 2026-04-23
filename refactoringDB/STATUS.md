@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (duplicate QID audit complete: 55→19 groups, all resolved)
+> Last updated: 2026-04-23 (relationship migrations: Arafura×4 + Indra×8 moved to canonical entities)
 
 ## Session protocol
 
@@ -492,6 +492,8 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
   - 8 QIDs nulled: national sibling subsidiaries with parent QID misapplied (Integrasys×2, UMS×2, Airbus Ops×2, Arianegroup×2)
   - 35 QIDs nulled: parent QID misapplied to subsidiaries (Phase F — 24 groups)
   - 19 groups remain: all intentional (share classes + IV+IN, all tagged)
+  - 12 relationships migrated to canonical entities (IN-1253→IN-0035 ×4, IN-1298→IN-0753 ×8)
+  - IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)
 
 ### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
