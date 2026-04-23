@@ -326,10 +326,10 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-23) — after Helsing GmbH / Helsing Germany GmbH disambiguation |
+| Last validate.py | PASSED (2026-04-23) — after IV country batch 2 + USA normalisation |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
-| validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
+| validation: field_conflict | 44 originally — all resolved (2026-04-23): 3 country→confirmed, 15 country normalisation, 26 HQ→resolved/compatible |
 | validation: needs_review | 2146 + 610 IV entries (ongoing) |
 
 ---
