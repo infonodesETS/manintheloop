@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (URL routing added to index.html + search.html back-nav fix)
+> Last updated: 2026-04-23 (search.html brought to full parity with main/index.html via web/app.js)
 
 ## Session protocol
 
@@ -239,7 +239,8 @@ refactoringDB/
 ├── publications.html          ← placeholder
 ├── about.html                 ← placeholder
 ├── web/
-│   ├── router.js              ← URL routing (?organization=IN-XXXX&organizationName=...)
+│   ├── app.js                 ← search/profile JS (extracted from old inline script — single source of truth)
+│   ├── router.js              ← URL routing (?organization=IN-XXXX + compare params)
 │   ├── theme.js               ← dark/light theme toggle (shared across all pages)
 │   ├── base.css               ← base styles (copied from ../refactoring/css/)
 │   ├── components.css         ← component styles
@@ -247,6 +248,7 @@ refactoringDB/
 ├── data/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
+│   ├── glossary.json          ← source flag tooltip descriptions (CB/EDF/iShares/WD/INF)
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
 │   └── crunchbase_sandbox/
 │       ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
