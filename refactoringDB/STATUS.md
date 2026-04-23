@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (EDF participation relationships: 78 EDF-NNNN project entities + 1657 edf_participation rels)
+> Last updated: 2026-04-23 (EDF frontend: project list in entity cards, EDF-NNNN project profiles, co-participant expand)
 
 ## Session protocol
 
@@ -476,6 +476,14 @@ refactoringDB/
 **Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
 
 **Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
+
+### EDF frontend (2026-04-23)
+- [x] `web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
+- [x] Entity profile EDF card: immediate project list from REL_MAP (no lazy-load), with role, share, dates, EU Portal link
+- [x] Co-participant expand: clickable list of co-participants with role, country, EU contribution — navigates to their profile
+- [x] `renderEdfProjectProfile`: full profile for EDF-NNNN project entities — stats bar (participants, EU contribution, dates, status), Project details card, Participants card (sorted coordinator-first, all clickable)
+- [x] `buildRegistry`: EDF project entities indexed by acronym, call_id, call_title (searchable as "ENGRT II", "AI-WASP", etc.)
+- [x] `search.html`: `thirdParty` role badge styled (grey, distinct from coordinator/participant)
 
 ### EDF participation relationships (2026-04-23)
 - [x] `scripts/import_edf_projects.py` — creates 78 `EDF-NNNN` project entities + 1657 `edf_participation` relationships
