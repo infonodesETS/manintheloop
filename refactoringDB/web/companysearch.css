@@ -58,7 +58,8 @@
 }
 #cs-hero.compact .cs-search-wrap { max-width: 440px; }
 
-#cs-search {
+#cs-search,
+#cs-search-b {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -70,15 +71,18 @@
   outline: none;
   transition: border-color .15s, box-shadow .15s, font-size .3s, padding .3s;
 }
-#cs-hero.compact #cs-search {
+#cs-hero.compact #cs-search,
+#cs-hero.compact #cs-search-b {
   font-size: var(--fs-body);
   padding: 10px 42px 10px 16px;
 }
-#cs-search:focus {
+#cs-search:focus,
+#cs-search-b:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 2px rgba(0,255,65,0.12);
 }
-#cs-search::placeholder { color: var(--dim); }
+#cs-search::placeholder,
+#cs-search-b::placeholder { color: var(--dim); }
 
 .cs-search-icon {
   position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
@@ -406,6 +410,18 @@ button.cs-tag[data-query]:hover {
   color: var(--accent);
   background: rgba(0,255,65,.06);
 }
+button.cs-tag-investor {
+  cursor: default;
+}
+button.cs-tag-investor.cs-tag-investor--linked {
+  cursor: pointer;
+  border-color: rgba(255,140,40,.8);
+}
+button.cs-tag-investor.cs-tag-investor--linked:hover {
+  border-color: rgba(255,140,40,.8);
+  background: rgba(255,140,40,.8);
+  color: #fff;
+}
 
 /* ── Founders ────────────────────────────────────────────────────────────── */
 .cs-founders { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -579,6 +595,12 @@ button.cs-tag[data-query]:hover {
   color: var(--text-muted);
   font-style: italic;
 }
+.cs-na-inline {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: .7;
+}
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -593,7 +615,8 @@ button.cs-tag[data-query]:hover {
 [data-theme="light"] .cs-hero-title  { text-shadow: 0 0 18px rgba(0,102,34,0.18); }
 [data-theme="light"] .cs-cursor      { box-shadow: 0 0 8px rgba(0,102,34,0.35); }
 [data-theme="light"] .cs-showing     { color: rgba(0,102,34,0.55); }
-[data-theme="light"] #cs-search:focus { box-shadow: 0 0 0 2px rgba(0,102,34,0.12); }
+[data-theme="light"] #cs-search:focus,
+[data-theme="light"] #cs-search-b:focus { box-shadow: 0 0 0 2px rgba(0,102,34,0.12); }
 [data-theme="light"] .cs-ac-item:hover, [data-theme="light"] .cs-ac-item.kbd { background: rgba(0,102,34,0.07); }
 [data-theme="light"] .cs-logo        { text-shadow: 0 0 12px rgba(0,102,34,0.25); }
 [data-theme="light"] .cs-founder     { background: rgba(0,102,34,0.05); border-color: rgba(0,102,34,0.2); color: rgba(0,102,34,0.80); }
