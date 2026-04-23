@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (Helsing disambiguation: IN-0723→Helsing GmbH (main, Q127380521), IN-0724→Helsing Germany GmbH (subsidiary))
+> Last updated: 2026-04-23 (HQ conflicts resolved: 26 field_conflict entries resolved/marked compatible; AMD infonodes.headquarters set to Santa Clara CA)
 
 ## Session protocol
 
@@ -463,6 +463,7 @@ refactoringDB/
 - [x] **Old DB migration (2026-04-22):** `scripts/migrate_old_db_investors.py` — +57 IV entities (IV-0611–IV-0667), +95 relationships from legacy `../refactoring/data/database.json`. Total: 2023 entities, 992 relationships. validate.py PASSED.
 - [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
 - [x] **Wikidata false positive audit (2026-04-22):** 9 IV QIDs nulled — label-only SPARQL match hit non-investor entities. Pattern and fix documented below.
+- [x] **HQ conflict resolution (2026-04-23):** `scripts/patch_hq_conflicts.py` — 26 field_conflict(headquarters) entries resolved: 6 compatible_sources, 19 field_conflict_resolved (canonical source documented), 1 manual override (AMD→Santa Clara CA). validate.py PASSED.
 
 #### Wikidata false positive pattern (IV investor enrichment)
 
@@ -520,7 +521,12 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
   - `IN-1262` Chemring Group: UK confirmed (wikidata P17=Germany is Wikidata error); field_conflict→confirmed
   - `IN-1340` Umicore: Belgium confirmed; WARNING: wikidata_id Q107518759 = US subsidiary, QID needs replacing
 - **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
-- **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
+- **30 real HQ conflicts** — RESOLVED (2026-04-23, `patch_hq_conflicts.py`):
+  - 6 `compatible_sources`: Baykar, Czechoslovak Group, Dassault Aviation, Rafael, Wacker Chemie (München=Munich), (Recylex moved to wikidata_canonical)
+  - 14 `field_conflict_resolved` (crunchbase canonical): AeroVironment, Albemarle, HII Mission Technologies, KGHM International, KoBold Metals, Newmont, Palantir, Raytheon Missile Systems, TKMS, TSMC Arizona, and others
+  - 10 `field_conflict_resolved` (wikidata canonical): BAE Systems, DAQO, General Dynamics, Indra, Nexa Technologies, QinetiQ, Safran, United Shipbuilding, Uralvagonzavod, Recylex
+  - 1 manual override (AMD): both sources wrong — WD=Sunnyvale (outdated), CB=Cologne Germany (EU office); `sources.infonodes.headquarters` = "Santa Clara, California, United States"
+  - 4 confirmed already resolved from earlier work (STATUS said 30, DB had 26 remaining)
 - **55 duplicate wikidata_ids** — RESOLVED (2026-04-23):
   - 9 groups: `accepted_duplicate` — share classes / different exchange listings (no QID change)
   - 8 groups: `expected_iv_in_duplicate` — company also acts as investor (no QID change)
