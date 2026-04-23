@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (map node stroke removed — .map-node stroke always 0)
+> Last updated: 2026-04-23 (URL routing added to index.html + search.html back-nav fix)
 
 ## Session protocol
 
@@ -412,12 +412,20 @@ refactoringDB/
   - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
   - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
   - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
+  - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
+    - `index.html` → default panel
+    - `index.html?country=840&countryname=United+States` → country selected
+    - `index.html?country=840&countryname=United+States&entity=IN-0004&entityname=Adobe` → entity detail panel
+    - Entity name click in country panel → entity detail URL (not direct search.html navigation)
+    - Entity detail panel has "Open profile →" link to `search.html`
+    - Browser back from `search.html` restores entity detail panel via URL params read in `init()`
   - Filter bar: click a company/investor to highlight connected countries on map
   - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
   - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
 - [x] **`search.html`** — org search (ported from old `index.html`, navbar added)
   - **Relationships card (2026-04-22):** entity profile now shows a Relationships card with clickable portfolio companies (for IV entities) and investors (for IN entities) — data from `REL_MAP`
   - **infCardBody enhanced (2026-04-22):** shows `roles`, `tags`, `wikidata_id` from entity root alongside sources.infonodes fields
+  - **Back-nav fix (2026-04-23):** `Router.replace(item)` added to `web/router.js`; initial URL-based load uses `replaceState` instead of `pushState` to avoid duplicate history entry (was causing double Back click to leave the page)
 - [x] **`networks.html`**, **`publications.html`**, **`about.html`** — placeholder pages (TBD content)
 - [x] **`web/theme.js`** — shared dark/light theme toggle across all pages
 - [x] **`web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links

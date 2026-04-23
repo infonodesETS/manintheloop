@@ -28,6 +28,17 @@ export function push(item) {
   history.pushState({ organization: id, organizationName: name }, '', url);
 }
 
+export function replace(item) {
+  const id   = itemId(item);
+  const name = item.name;
+  if (!id) return;
+
+  const url = new URL(window.location.href);
+  url.searchParams.set(PARAM_ID,   id);
+  url.searchParams.set(PARAM_NAME, name);
+  history.replaceState({ organization: id, organizationName: name }, '', url);
+}
+
 export function clear() {
   const url = new URL(window.location.href);
   url.searchParams.delete(PARAM_ID);

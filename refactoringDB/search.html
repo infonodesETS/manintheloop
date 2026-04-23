@@ -747,14 +747,14 @@ function moveAcKbd(delta) {
 // ── Select / clear ────────────────────────────────────────────────────────────
 let currentItem = null;
 
-function selectItem(item) {
+function selectItem(item, replaceHistory = false) {
   currentItem = item;
   closeAc();
   searchEl.value = item.name;
   document.getElementById('cs-clear').style.display = '';
   document.getElementById('cs-hero').classList.add('compact');
   document.getElementById('cs-showing').textContent = item.name;
-  Router.push(item);
+  if (replaceHistory) Router.replace(item); else Router.push(item);
   renderProfile(item);
 }
 
@@ -1274,7 +1274,7 @@ async function init() {
 
     // ── Routing — restore state from URL on load and on back/forward
     const initialItem = Router.resolve(REGISTRY, ENTITY_MAP);
-    if (initialItem) selectItem(initialItem);
+    if (initialItem) selectItem(initialItem, true);
 
     Router.onPopState(REGISTRY, ENTITY_MAP, item => {
       if (item) selectItem(item);

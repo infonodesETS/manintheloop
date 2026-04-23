@@ -99,14 +99,14 @@
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="index.html" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
 </div>
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="index.html" class="tnav-btn active">Map</a>
+  <a href="./" class="tnav-btn active">Map</a>
   <a href="networks.html" class="tnav-btn">Networks</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn">Publications</a>
@@ -272,6 +272,32 @@ const mapState = {
 let entityMap = {};
 let relationships = [];
 
+// ── Routing ───────────────────────────────────────────────────────────────────
+function pushMapState({ country = null, countryname = null, entity = null, entityname = null } = {}) {
+  const p = new URLSearchParams();
+  if (country)     p.set('country', String(country));
+  if (countryname) p.set('countryname', countryname);
+  if (entity)      p.set('entity', entity);
+  if (entityname)  p.set('entityname', entityname);
+  const qs = p.toString();
+  history.pushState({ country, entity }, '', qs ? `?${qs}` : location.pathname);
+}
+
+function restoreMapState({ country, entity } = {}) {
+  mapState.activeFilter = null;
+  applyMapFilter();
+  if (entity && country) {
+    showMapCountry(+country, true);
+    filterMapByEntity(entity, +country, true);
+  } else if (entity) {
+    filterMapByEntity(entity, null, true);
+  } else if (country) {
+    showMapCountry(+country, true);
+  } else {
+    closeMapPanel(true);
+  }
+}
+
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
   document.getElementById('map-panel-title').textContent = 'About this map';
@@ -293,7 +319,8 @@ function setDefaultPanelContent() {
 }
 
 // ── closeMapPanel / clearMapFilter ────────────────────────────────────────────
-function closeMapPanel() {
+function closeMapPanel(skipHistory = false) {
+  if (!skipHistory) pushMapState({});
   if (mapState.svg && mapState.zoom)
     mapState.svg.transition().duration(500).call(mapState.zoom.transform, mapState.defaultTransform || d3.zoomIdentity);
   d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
@@ -351,9 +378,10 @@ function fitMapToISOs(isos) {
 }
 
 // ── showMapCountry ────────────────────────────────────────────────────────────
-function showMapCountry(iso) {
+function showMapCountry(iso, skipHistory = false) {
   const cd = mapState.countryData[iso];
   if (!cd) return;
+  if (!skipHistory) pushMapState({ country: iso, countryname: cd.name });
 
   d3.select('#map-svg').selectAll('.map-country')
     .classed('selected', d => +d.id === iso);
@@ -438,7 +466,7 @@ function showMapCountry(iso) {
 
   const renderInvList = arr => arr.slice(0, 25).map(([id, name]) => `
     <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(id)}">
-      <button class="map-entity-name" data-action="openEntity" data-id="${esc(id)}" data-etype="investor">${esc(name)}</button>
+      <button class="map-entity-name">${esc(name)}</button>
       <span class="map-item-id">${id}</span>
     </div>`).join('') + (arr.length > 25 ? `<div class="map-item-more">+${arr.length - 25} more</div>` : '');
 
@@ -469,7 +497,7 @@ function showMapCountry(iso) {
           const invBadge   = cbInvCount ? `<span class="map-item-id" title="${cbInvCount} investors (Crunchbase)">↓${cbInvCount}</span>` : '';
           return `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
-            <button class="map-entity-name" data-action="openEntity" data-id="${esc(c.id)}" data-etype="company">${esc(c.name)}</button>
+            <button class="map-entity-name">${esc(c.name)}</button>
             ${sectorBadge(c.sector)}${invBadge}
           </div>`;
         }).join('')}
@@ -506,22 +534,20 @@ function showMapCountry(iso) {
     el.addEventListener('click', () => filterMapByEntity(el.dataset.id, iso));
   });
 
-  document.getElementById('map-panel-body').querySelectorAll('[data-action="openEntity"]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const ent = entityMap[btn.dataset.id];
-      if (ent) window.location.href = `search.html?organization=${encodeURIComponent(ent.id)}&organizationName=${encodeURIComponent(ent.name)}`;
-    });
-  });
-
   document.getElementById('map-panel').classList.remove('d-none');
 }
 
 // ── filterMapByEntity ─────────────────────────────────────────────────────────
-function filterMapByEntity(entityId, fromIso) {
+function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   if (mapState.activeFilter?.id === entityId) { clearMapFilter(); return; }
   const ent = entityMap[entityId];
   if (!ent) return;
+  if (!skipHistory) pushMapState({
+    country: fromIso || null,
+    countryname: fromIso ? mapState.countryData[fromIso]?.name : null,
+    entity: entityId,
+    entityname: ent.name,
+  });
 
   const activeISOs = new Set();
   if (entityId.startsWith('IN-')) {
@@ -602,16 +628,14 @@ function filterMapByEntity(entityId, fromIso) {
 
   panelBody.innerHTML = `
     <div class="sl-panel-section">
-      <div class="map-detail-header">
+      <div class="map-detail-header" style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <button id="map-back-btn" class="edfmap-back-btn">← Back</button>
+        <a class="edfmap-back-btn" href="search.html?organization=${encodeURIComponent(ent.id)}&organizationName=${encodeURIComponent(ent.name)}" style="margin-left:auto;text-decoration:none">Open profile →</a>
       </div>
       ${detail}
     </div>
   `;
-  document.getElementById('map-back-btn')?.addEventListener('click', () => {
-    clearMapFilter();
-    if (fromIso) showMapCountry(fromIso);
-  });
+  document.getElementById('map-back-btn')?.addEventListener('click', () => history.back());
 }
 
 // ── applyMapFilter ────────────────────────────────────────────────────────────
@@ -863,6 +887,18 @@ async function init() {
     const res = await fetch('data/database.json');
     const db  = await res.json();
     await buildMapView(db);
+
+    // Restore state from URL on direct load / refresh
+    const initParams = new URLSearchParams(location.search);
+    const initCountry = initParams.get('country') ? +initParams.get('country') : null;
+    const initEntity  = initParams.get('entity') || null;
+    history.replaceState({ country: initCountry, entity: initEntity }, '', location.href);
+    if (initCountry || initEntity) restoreMapState({ country: initCountry, entity: initEntity });
+
+    window.addEventListener('popstate', e => {
+      if (!mapState.built) return;
+      restoreMapState(e.state || {});
+    });
 
     // Wire toolbar
     document.getElementById('map-arc-toggle').addEventListener('change', e => {
