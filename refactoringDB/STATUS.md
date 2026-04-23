@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (HQ conflicts resolved: 26 field_conflict entries resolved/marked compatible; AMD infonodes.headquarters set to Santa Clara CA)
+> Last updated: 2026-04-23 (IV country coverage: 275→456/667; cross-border arcs: 129→130; SEK QID false-positive nulled; USA→United States normalised)
 
 ## Session protocol
 
@@ -317,8 +317,8 @@ refactoringDB/
 | — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
 | — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
 | Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
-| IV entities with country | **275 / 667** — 59+62 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
-| Cross-border arcs on map | **129** (investor country → company country, unique pairs) |
+| IV entities with country | **456 / 667** — 275 prev + 1 SPARQL P159 + 15 manual (QID-bearing, WD missing P17) + 171 curated (no-QID recognisable names) + 54 normalised USA→United States (2026-04-23) |
+| Cross-border arc pairs | **130** (unique investor-country→company-country pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
@@ -464,6 +464,7 @@ refactoringDB/
 - [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
 - [x] **Wikidata false positive audit (2026-04-22):** 9 IV QIDs nulled — label-only SPARQL match hit non-investor entities. Pattern and fix documented below.
 - [x] **HQ conflict resolution (2026-04-23):** `scripts/patch_hq_conflicts.py` — 26 field_conflict(headquarters) entries resolved: 6 compatible_sources, 19 field_conflict_resolved (canonical source documented), 1 manual override (AMD→Santa Clara CA). validate.py PASSED.
+- [x] **IV country coverage (2026-04-23):** 275→456/667 IVs with country. Pipelines: SPARQL P159 (+1), QID-bearing manual (+15), batch curated no-QID (+171), USA→United States normalisation (54). SEK QID Q23045321 nulled (Finnish ad agency false positive). Cross-border arcs: 129→130. validate.py PASSED.
 
 #### Wikidata false positive pattern (IV investor enrichment)
 
@@ -557,7 +558,8 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - Run `patch_iv_countries_p159.py` again if new QIDs are applied to IV entities
 - Extend `KNOWN` dict in `patch_investor_countries.py` for any new investor names
 - Run Crunchbase Cycle 2 to pick up new `top_investors` data
-- **Known gap — QID found but P17 missing:** 392 IV entities still lack country. ~17 have QIDs with no P17 (run `patch_iv_countries_p159.py` again after any new QIDs). Rest (~375) have no QID at all.
+- **Known gap — QID found but P17 missing:** 0 remaining (all 16 QID-bearing no-country IVs resolved — 1 via SPARQL, 15 manually). 211 IV still lack country, all have no QID.
+- **Remaining 211 no-country IV:** obscure/regional VCs, individuals (person-named), and small funds not identifiable from name alone. Crunchbase Cycle 2 may resolve some via CB profile data.
 
 ### 4. Phase 4: EDF participation relationships — COMPLETE (2026-04-23)
 
