@@ -569,6 +569,7 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   if (mapState.activeFilter?.id === entityId) { clearMapFilter(); return; }
   const ent = entityMap[entityId];
   if (!ent) return;
+  restoreCountryLabels();
   if (!skipHistory) pushMapState({
     country: fromIso || null,
     countryname: fromIso ? mapState.countryData[fromIso]?.name : null,
@@ -634,7 +635,10 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
     const invSection = () => {
       if (inv.length) {
         return `<div class="sl-section-lbl" style="margin-top:12px">${inv.length} Investor${inv.length !== 1 ? 's' : ''}</div>
-          ${inv.map(iv => `<div class="map-co-item"><span>${esc(iv.name)}</span></div>`).join('')}`;
+          ${inv.map(iv => `<div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(iv.id)}">
+            <button class="map-entity-name">${esc(iv.name)}</button>
+            <span class="map-item-id">${esc(iv.id)}</span>
+          </div>`).join('')}`;
       }
       if (cbInvestors.length) {
         const shown = cbInvestors.slice(0, 10);
@@ -681,6 +685,9 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
     </div>
   `;
   document.getElementById('map-back-btn')?.addEventListener('click', () => history.back());
+  panelBody.querySelectorAll('[data-action="filterMapByEntity"]').forEach(el => {
+    el.addEventListener('click', () => filterMapByEntity(el.dataset.id, entityISO));
+  });
 }
 
 // ── applyMapFilter ────────────────────────────────────────────────────────────
