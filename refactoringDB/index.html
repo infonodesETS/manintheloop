@@ -671,7 +671,10 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
       <div class="sl-section-lbl">${esc(ent.name)}</div>
       <div class="map-item-id" style="margin-bottom:10px">${esc(ent.type || '')}</div>
       ${portfolio.length ? `<div class="sl-section-lbl">${portfolio.length} Portfolio Companies</div>
-        ${portfolio.map(c => `<div class="map-co-item"><span>${esc(c.name)}</span>${sectorBadge(c.sector)}</div>`).join('')}` : ''}
+        ${portfolio.map(c => `<div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+          <button class="map-entity-name">${esc(c.name)}</button>
+          ${sectorBadge(c.sector)}
+        </div>`).join('')}` : ''}
     `;
   }
 
