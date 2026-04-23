@@ -7,7 +7,7 @@ Checks:
   2. No duplicate id in relationships[]
   3. All relationship source/target IDs exist in entities[]
   4. roles values only: manufacturer, investor, board_member
-  5. type values only: company, fund, government_agency, bank, institution, person
+  5. type values only: company, fund, government_agency, bank, institution, person, edf_project
   6. wikidata_id format: Q[digits] or null
   7. Date fields: YYYY-MM-DD format
   8. Required fields present: id, name, type, roles, history
@@ -23,7 +23,7 @@ import sys
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE_PATH = os.path.join(BASE, "data", "database.json")
 
-VALID_ENTITY_TYPES = {"company", "fund", "investor", "public_fund", "government_agency", "bank", "institution", "person"}
+VALID_ENTITY_TYPES = {"company", "fund", "investor", "public_fund", "government_agency", "bank", "institution", "person", "edf_project"}
 VALID_ROLES = {"manufacturer", "investor", "board_member"}
 VALID_REL_TYPES = {"investment", "board_membership", "edf_participation"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")

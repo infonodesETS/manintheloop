@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (map: clickable investors + portfolio companies, label font +25%)
+> Last updated: 2026-04-23 (EDF participation relationships: 78 EDF-NNNN project entities + 1657 edf_participation rels)
 
 ## Session protocol
 
@@ -124,6 +124,20 @@ python3 scripts/reprocess_skipped_qids.py
 python3 scripts/search_missing_qids.py --apply
 python3 scripts/validate.py
 ```
+
+### EDF participation pipeline (2026-04-23)
+
+```bash
+# Create EDF-NNNN project entities + edf_participation relationships
+#   Reads: rawdata/edf_calls.json, data/edf_orgs.json, data/database.json
+#   Writes: data/database.json (+78 EDF-NNNN entities, +1657 edf_participation rels)
+python3 scripts/import_edf_projects.py [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: skips existing EDF-NNNN entities (matched by project_id) and duplicate relationships.
 
 ### Investor pipeline (new — 2026-04-22)
 
@@ -277,6 +291,7 @@ refactoringDB/
 │   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors (~90 curated)
 │   ├── patch_iv_countries_p159.py     ← SPARQL P159/P17 fallback for QID-bearing IV with no country
 │   ├── migrate_old_db_investors.py    ← migrates funds/banks from legacy refactoring/ DB
+│   ├── import_edf_projects.py         ← creates EDF-NNNN project entities + edf_participation rels
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -290,17 +305,18 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-04-22)
+## Current DB state (2026-04-23)
 
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2023** |
+| Total entities | **2101** |
 | — companies (IN-NNNN) | 1149 |
 | — institutions + gov agencies | 207 |
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
-| Relationships | **992** — 897 Crunchbase + 95 old DB migration (2026-04-22) |
+| — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
+| Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
 | IV entities with country | **275 / 667** — 59+62 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
 | Cross-border arcs on map | **129** (investor country → company country, unique pairs) |
 | Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
@@ -310,7 +326,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-23) — after duplicate QID audit |
+| Last validate.py | PASSED (2026-04-23) — after EDF project import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
 | validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
@@ -461,6 +477,14 @@ refactoringDB/
 
 **Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
 
+### EDF participation relationships (2026-04-23)
+- [x] `scripts/import_edf_projects.py` — creates 78 `EDF-NNNN` project entities + 1657 `edf_participation` relationships
+  - All 1657 participant slots matched via PIC→db_id crosswalk in `data/edf_orgs.json` (0 missing)
+  - Each relationship: `source`=entity db_id, `target`=EDF-NNNN, `role` (coordinator/participant), `eu_contribution`
+  - Entity sources: `sources.edf_project` with project_id, acronym, call_id, call_title, status, dates, budget, url, type_of_action
+  - `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
+  - validate.py PASSED
+
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
 - [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
@@ -521,11 +545,14 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - Run Crunchbase Cycle 2 to pick up new `top_investors` data
 - **Known gap — QID found but P17 missing:** 392 IV entities still lack country. ~17 have QIDs with no P17 (run `patch_iv_countries_p159.py` again after any new QIDs). Rest (~375) have no QID at all.
 
-### 4. Phase 4: EDF participation relationships
-- 587 companies have `sources.edf` but no relationships yet
-- Build `edf_participation` relationships from `rawdata/edf_calls.json`
-- Links IN-NNNN / institution entities → EDF projects/calls
-- Source of truth: `rawdata/edf_calls.json` (dict keyed by call identifier, each call has `projects[]` with `participants[]`)
+### 4. Phase 4: EDF participation relationships — COMPLETE (2026-04-23)
+
+- **78 EDF project entities** (type: `edf_project`, prefix `EDF-NNNN`) created from 64 calls with projects
+- **1657 `edf_participation` relationships** (source=IN-*/IV-*/etc, target=EDF-NNNN)
+- Each relationship carries: `role` (coordinator/participant), `eu_contribution`
+- `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
+- Script: `scripts/import_edf_projects.py` (re-run safe, `--dry-run` flag)
+- validate.py PASSED after import
 
 ### 5. QID lookup — second pass (complete)
 - **455 companies** still without wikidata_id — 694/1149 (60.4%) now have QIDs
