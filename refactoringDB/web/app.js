@@ -45,7 +45,7 @@ function fmtNative(obj) {
 
 // ── Source/type badges ────────────────────────────────────────────────────────
 const SECTOR_CLASS = { Defence:'defence', Mining:'mining', Tech:'tech', Startup:'startup' };
-const TYPE_CLASS   = { fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company' };
+const TYPE_CLASS   = { fund:'fund', investor:'fund', public_fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company', edf_project:'edf' };
 
 function sectorBadge(s) {
   const cls = SECTOR_CLASS[s] || 'default';
@@ -177,6 +177,7 @@ function buildRegistry() {
   for (const e of DB.entities) {
     if (seenDbIds.has(e.id)) continue;
     if (e.id.startsWith('IV-')) continue;
+    const edfProj = e.sources?.edf_project;
     REGISTRY.push({
       id:       e.id,
       name:     e.name,
@@ -187,6 +188,9 @@ function buildRegistry() {
       country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
       _key: [
         e.name,
+        edfProj?.acronym,
+        edfProj?.call_id,
+        edfProj?.call_title,
         e.sources?.crunchbase?.headquarters,
         e.sources?.infonodes?.country,
         e.sources?.wikidata?.country,
@@ -219,8 +223,13 @@ function buildRegistry() {
       if (!REL_MAP[id]) REL_MAP[id] = [];
       REL_MAP[id].push({ rel: r, role, other: ENTITY_MAP[other] });
     };
-    push(r.source, 'investor', r.target);
-    push(r.target, 'target',   r.source);
+    if (r.type === 'edf_participation') {
+      push(r.source, 'edf_participant', r.target);
+      push(r.target, 'edf_member',      r.source);
+    } else {
+      push(r.source, 'investor', r.target);
+      push(r.target, 'target',   r.source);
+    }
   }
 
   // Build PIC lookup map
@@ -643,8 +652,8 @@ function buildProfileColHtml(item, colId) {
     if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
     if (cb) cards.push(makeCard('cb', 'Crunchbase', cbCardBody(cb)));
     if (org) {
-      const edfHtml = edfCardBody(item).replace(/<button[^>]*id="edf-load-btn"[^>]*>[\s\S]*?<\/button>/, `<div class="cs-na">Open full profile to load projects.</div>`);
-      cards.push(makeCard('edf', 'European Defence Fund', edfHtml, `${org.project_count || 0} project${(org.project_count||0)!==1?'s':''}`, `card-edf-${colId}`));
+      const projRels = (REL_MAP[item.dbEntity?.id] || []).filter(r => r.role === 'edf_participant');
+      cards.push(makeCard('edf', 'European Defence Fund', edfCardBody(item), `${projRels.length || org.project_count || 0} project${(projRels.length || org.project_count || 0) !== 1 ? 's' : ''}`, `card-edf-${colId}`));
     }
   }
 
@@ -704,6 +713,7 @@ function openCompare() {
 // ── Render profile ────────────────────────────────────────────────────────────
 function renderProfile(item) {
   if (item.kind === 'investor') { renderInvestorProfile(item); return; }
+  if (item.dbEntity?.type === 'edf_project') { renderEdfProjectProfile(item); return; }
 
   const profile = document.getElementById('cs-profile');
   profile.classList.remove('visible');
@@ -1071,17 +1081,40 @@ function edfCardBody(item) {
   const ext = edb.extracted_at;
   h += ext ? `<div class="cs-src-ts">Extracted: ${esc(ext)}</div>` : '';
   h += `</div>`;
-  const projCount = org.project_count || 0;
-  if (projCount > 0) {
-    h += `<div id="edf-proj-list">
-      <button class="edf-load-btn" id="edf-load-btn" data-pic="${esc(String(org.pic))}">
-        Load ${projCount} project${projCount !== 1 ? 's' : ''} ↓
-      </button>
-    </div>`;
+
+  const projRels = (REL_MAP[item.dbEntity?.id] || []).filter(r => r.role === 'edf_participant');
+  if (projRels.length) {
+    h += edfProjectListHtml(projRels);
   } else {
     h += `<div class="cs-na">No funded projects in this dataset.</div>`;
   }
   return h;
+}
+
+function edfProjectListHtml(projRels) {
+  let h = `<ul class="edf-projects">`;
+  projRels.forEach(({ rel, other: proj }, i) => {
+    if (!proj) return;
+    const ps = proj.sources?.edf_project || {};
+    const eu = fmtEur(rel.eu_contribution);
+    const role = rel.role || '';
+    const memberRels = (REL_MAP[proj.id] || []).filter(r => r.role === 'edf_member');
+    h += `<li class="edf-proj-item">
+      <div class="edf-proj-title">
+        ${ps.acronym ? `<strong>${esc(ps.acronym)}</strong> — ` : ''}${esc(proj.name)}
+      </div>
+      <div class="edf-proj-meta">
+        <span>${esc(ps.call_id || '')}</span>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${eu ? `<span>share: <span class="edf-contrib">${eu}</span></span>` : ''}
+        ${ps.start_date ? `<span>${esc(ps.start_date)}${ps.end_date ? ' → '+esc(ps.end_date) : ''}</span>` : ''}
+        ${ps.url ? `<a href="${esc(ps.url)}" target="_blank" class="edf-proj-link">EU Portal ↗</a>` : ''}
+      </div>
+      ${memberRels.length ? `<button class="edf-load-btn" data-edf-proj-id="${esc(proj.id)}" data-part-idx="${i}">Show ${memberRels.length} co-participant${memberRels.length !== 1 ? 's' : ''}</button>` : ''}
+      <ul class="edf-participants" id="edf-parts-${i}"></ul>
+    </li>`;
+  });
+  return h + `</ul>`;
 }
 
 function histCardBody(hist) {
@@ -1164,19 +1197,7 @@ function renderCards(item) {
     hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
   });
 
-  container.querySelector('#edf-load-btn')?.addEventListener('click', async () => {
-    const btn = container.querySelector('#edf-load-btn');
-    btn.textContent = 'Loading…';
-    btn.disabled = true;
-    try {
-      await loadEdf();
-      renderEdfProjects(org.pic);
-    } catch {
-      document.getElementById('edf-proj-list').innerHTML =
-        `<div class="cs-na">Failed to load project data.</div>`;
-    }
-  });
-
+  wireEdfParticipantBtns(container);
   wireInvestorPills(container);
 }
 
@@ -1264,6 +1285,146 @@ function renderProjectParticipants(partsEl, participants) {
     btn.addEventListener('click', () => {
       const item = PIC_MAP[btn.dataset.pic];
       if (item) selectItem(item);
+    });
+  });
+}
+
+function wireEdfParticipantBtns(container) {
+  container.querySelectorAll('[data-edf-proj-id]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projId = btn.dataset.edfProjId;
+      const idx    = btn.dataset.partIdx;
+      const partsEl = container.querySelector(`#edf-parts-${idx}`);
+      if (!partsEl) return;
+      if (partsEl.classList.contains('open')) {
+        partsEl.classList.remove('open');
+        partsEl.innerHTML = '';
+        const n = (REL_MAP[projId] || []).filter(r => r.role === 'edf_member').length;
+        btn.textContent = `Show ${n} co-participant${n !== 1 ? 's' : ''}`;
+        return;
+      }
+      const memberRels = (REL_MAP[projId] || []).filter(r => r.role === 'edf_member');
+      let html = '';
+      for (const { rel, other } of memberRels) {
+        if (!other) continue;
+        const eu   = fmtEur(rel.eu_contribution);
+        const role = rel.role || '';
+        const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || other.sources?.edf?.country || '';
+        html += `<li class="edf-participant-item">
+          <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+          ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+          ${country ? `<span class="edf-participant-country">${esc(country)}</span>` : ''}
+          ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+        </li>`;
+      }
+      partsEl.innerHTML = html;
+      partsEl.classList.add('open');
+      btn.textContent = 'Hide co-participants';
+      partsEl.querySelectorAll('.cs-portfolio-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          const targetItem = REGISTRY.find(r => r.dbEntity?.id === b.dataset.id || r.id === b.dataset.id);
+          if (targetItem) selectItem(targetItem);
+        });
+      });
+    });
+  });
+}
+
+// ── EDF project profile ───────────────────────────────────────────────────────
+function renderEdfProjectProfile(item) {
+  const profile = document.getElementById('cs-profile');
+  profile.classList.remove('visible');
+  void profile.offsetWidth;
+  profile.classList.add('visible');
+
+  const e  = item.dbEntity;
+  const ps = e?.sources?.edf_project || {};
+
+  document.getElementById('cs-logo').textContent = esc(ps.acronym || 'EDF');
+  document.getElementById('cs-name').textContent = e?.name || item.name;
+
+  let badges = typeBadge('edf_project');
+  if (e?.id) badges += `<span class="cs-hdr-id">${esc(e.id)}</span>`;
+  document.getElementById('cs-badges').innerHTML  = badges;
+  document.getElementById('cs-src-flags').innerHTML = '';
+  document.getElementById('cs-eu-status').innerHTML =
+    `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag"><span class="eu-status-funded">European Defence Fund project</span>`;
+
+  document.getElementById('cs-desc').textContent  = ps.type_of_action || '';
+  document.getElementById('cs-desc').style.display = ps.type_of_action ? '' : 'none';
+
+  let links = '';
+  if (ps.url) links += `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">EU Portal ↗</a>`;
+  document.getElementById('cs-links').innerHTML = links;
+
+  const memberRels = (REL_MAP[e?.id] || []).filter(r => r.role === 'edf_member');
+  const coordCount = memberRels.filter(r => r.rel.role === 'coordinator').length;
+  const stats = [
+    { v: memberRels.length, l: 'Participants', cls: 'edf-stat' },
+    ...(coordCount ? [{ v: coordCount, l: 'Coordinators', cls: 'edf-stat' }] : []),
+    ...(ps.eu_contribution ? [{ v: fmtEur(parseFloat(ps.eu_contribution)), l: 'EU contribution', cls: 'edf-stat' }] : []),
+    ...(ps.start_date ? [{ v: ps.start_date.slice(0,4), l: 'Start', cls: '' }] : []),
+    ...(ps.status     ? [{ v: ps.status, l: 'Status', cls: '' }] : []),
+  ];
+  document.getElementById('cs-stats').innerHTML = stats.map(s =>
+    `<div class="cs-stat${s.cls ? ' '+s.cls : ''}">
+      <div class="cs-stat-val">${esc(String(s.v ?? '—'))}</div>
+      <div class="cs-stat-lbl">${s.l}</div>
+    </div>`
+  ).join('');
+
+  const cards = [];
+
+  // Project details card
+  let dh = '';
+  if (ps.acronym)         dh += row('Acronym',         esc(ps.acronym));
+  if (ps.call_id)         dh += row('Call',             `<code>${esc(ps.call_id)}</code>${ps.call_title ? ` — ${esc(ps.call_title)}` : ''}`);
+  if (ps.type_of_action)  dh += row('Type of action',   esc(ps.type_of_action));
+  if (ps.status)          dh += row('Status',            esc(ps.status));
+  if (ps.start_date)      dh += row('Period',            `${esc(ps.start_date)}${ps.end_date ? ' → '+esc(ps.end_date) : ''}`);
+  if (ps.overall_budget)  dh += row('Overall budget',    fmtEur(parseFloat(ps.overall_budget)) || esc(ps.overall_budget));
+  if (ps.eu_contribution) dh += row('EU contribution',   `<span class="edf-contrib">${fmtEur(parseFloat(ps.eu_contribution)) || esc(ps.eu_contribution)}</span>`);
+  if (ps.project_id)      dh += row('Project ID',        `<code>${esc(ps.project_id)}</code>`);
+  if (ps.url)             dh += row('EU Portal',         `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">Open ↗</a>`);
+  cards.push(makeCard('edf', 'Project details', dh));
+
+  // Participants card
+  if (memberRels.length) {
+    const sorted = [...memberRels].sort((a, b) => {
+      const aC = a.rel.role === 'coordinator' ? 0 : 1;
+      const bC = b.rel.role === 'coordinator' ? 0 : 1;
+      if (aC !== bC) return aC - bC;
+      return (a.other?.name || '').localeCompare(b.other?.name || '');
+    });
+    let ph = `<ul class="edf-participants open" style="padding:0;margin:0;">`;
+    for (const { rel, other } of sorted) {
+      if (!other) continue;
+      const eu      = fmtEur(rel.eu_contribution);
+      const role    = rel.role || '';
+      const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || other.sources?.edf?.country || '';
+      ph += `<li class="edf-participant-item">
+        <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${country ? `<span class="edf-participant-country">${esc(country)}</span>` : ''}
+        ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+      </li>`;
+    }
+    ph += `</ul>`;
+    cards.push(makeCard('participants', 'Participants', ph, memberRels.length));
+  }
+
+  const hist = e?.history;
+  if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
+
+  const container = document.getElementById('cs-cards');
+  container.innerHTML = cards.join('');
+  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
+    hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
+  });
+  container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id || r.id === btn.dataset.id);
+      if (targetItem) selectItem(targetItem);
     });
   });
 }
