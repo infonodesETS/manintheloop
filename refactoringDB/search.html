@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <link rel="stylesheet" href="web/companysearch.css">
+  <style>
+    html { font-size: 120%; scrollbar-gutter: stable; }
+    body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: var(--font); overflow: auto; padding-top: calc(var(--nav-h) + var(--tab-h)); }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+
+    /* ── Page shell ── */
+    #app { min-height: 100vh; display: flex; flex-direction: column; }
+    #cs-profile { width: 100%; }
+
+    /* ── Source badge for EDF-only / DB-only / merged ── */
+    .src-badge {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      border-radius: 3px;
+      padding: 1px 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .src-badge.edf-only  { background: rgba(100,160,255,.12); border: 1px solid rgba(100,160,255,.35); color: rgba(100,160,255,.85); }
+    .src-badge.db-only   { background: rgba(0,255,65,.06);    border: 1px solid rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
+    .src-badge.merged    { background: rgba(255,215,0,.08);   border: 1px solid rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+
+    /* ── EDF section in profile ── */
+    .edf-section { margin-top: 20px; }
+    .edf-projects { list-style: none; padding: 0; margin: 0; }
+    .edf-proj-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(65,67,69,.25);
+    }
+    .edf-proj-item:last-child { border-bottom: none; }
+    .edf-proj-title {
+      font-size: var(--fs-body);
+      color: var(--text-primary);
+      font-weight: var(--fw-semi);
+      margin-bottom: 4px;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .edf-proj-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      display: flex; gap: 12px; flex-wrap: wrap;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .edf-proj-role {
+      font-size: var(--fs-body);
+      font-family: var(--font-mono);
+      padding: 1px 8px;
+      border-radius: 3px;
+      background: rgba(0,255,65,.07);
+      border: 1px solid rgba(0,255,65,.18);
+      color: rgba(0,255,65,.7);
+    }
+    .edf-proj-role.coordinator {
+      background: rgba(255,215,0,.08);
+      border-color: rgba(255,215,0,.3);
+      color: rgba(255,215,0,.85);
+    }
+    .edf-proj-role.thirdParty {
+      background: rgba(160,160,160,.07);
+      border-color: rgba(160,160,160,.25);
+      color: rgba(180,180,180,.8);
+    }
+    .edf-contrib {
+      color: rgba(100,160,255,.9);
+      font-weight: var(--fw-bold);
+    }
+    .edf-loading {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      padding: 20px 0;
+      text-align: center;
+    }
+    .edf-load-btn {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: rgba(100,160,255,.85);
+      background: rgba(100,160,255,.08);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 50px;
+      padding: 4px 16px;
+      cursor: pointer;
+      transition: all .1s;
+    }
+    .edf-load-btn:hover { border-color: rgba(100,160,255,.7); color: rgba(100,160,255,1); }
+
+    /* ── Match badge in autocomplete ── */
+    .cs-ac-match {
+      font-size: var(--fs-body);
+      font-family: var(--font-mono);
+      color: rgba(255,215,0,.7);
+      flex-shrink: 0;
+    }
+
+    /* ── Source flags ── */
+    .src-flags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+    .src-flags.inline { display: inline-flex; margin-top: 0; gap: 4px; vertical-align: middle; }
+    .src-flag {
+      font-family: var(--font-mono);
+      font-size: calc(var(--fs-body) * .82);
+      border-radius: 3px;
+      padding: 1px 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: 1px solid;
+    }
+    .src-flag-cb  { background: rgba(255,140,40,.07);  border-color: rgba(255,140,40,.35);  color: rgba(255,160,60,.9); }
+    .src-flag-edf { background: rgba(100,160,255,.07); border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.9); }
+    .src-flag-is  { background: rgba(255,215,0,.07);   border-color: rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+    .src-flag-wd  { background: rgba(180,130,255,.07); border-color: rgba(180,130,255,.3);  color: rgba(180,130,255,.85); }
+    .src-flag-inf { background: rgba(0,255,65,.06);    border-color: rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
+
+    /* ── Source filter pills ── */
+    .filter-bar {
+      display: flex; gap: 8px; align-items: center;
+      margin-top: 12px;
+      width: 100%; max-width: 580px;
+    }
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      border-radius: 50px;
+      padding: 3px 12px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      background: none;
+      transition: all .1s;
+      white-space: nowrap;
+    }
+    .filter-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,65,.06); }
+    .filter-pill:hover:not(.active) { border-color: var(--grey-mid); color: var(--text-secondary); }
+    .filter-lbl {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ── EDF stat color ── */
+    .cs-stat.edf-stat .cs-stat-val { color: rgba(100,160,255,.9); }
+    .cs-stat.edf-stat { border-color: rgba(100,160,255,.25); }
+
+    /* ── cs-left card palettes ── */
+    /* EDF card → blue */
+    #cs-edf-card { background: rgba(100,160,255,.02); border-color: rgba(100,160,255,.22); }
+    #cs-edf-card .cs-card-hdr { color: rgba(100,160,255,.8); border-bottom-color: rgba(100,160,255,.15); background: rgba(100,160,255,.04); }
+    #cs-edf-card .cs-card-count { color: rgba(100,160,255,.5); }
+    /* DB / relationship / history cards → INF green (border + background tint, header already uses --accent) */
+    #cs-db-card, #cs-rel-card, #cs-hist-card { background: rgba(0,255,65,.02); border-color: rgba(0,255,65,.15); }
+    #cs-db-card .cs-card-hdr, #cs-rel-card .cs-card-hdr, #cs-hist-card .cs-card-hdr { border-bottom-color: rgba(0,255,65,.12); background: rgba(0,255,65,.03); }
+
+    /* ── EDF source block (mirrors cs-cb/wd/inf-block from companysearch.css) ── */
+    .cs-edf-block { background: rgba(100,160,255,.04); border: 1px solid rgba(100,160,255,.18); }
+    .cs-edf-block .cs-src-hdr         { color: rgba(100,160,255,.8); }
+    .cs-edf-block .cs-src-hdr::before { background: rgba(100,160,255,.7); }
+
+    /* ── EU Portal external link ── */
+    .cs-ext-link.cs-eu       { border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.8); }
+    .cs-ext-link.cs-eu:hover { border-color: rgba(100,160,255,.9);  color: rgba(100,160,255,1); }
+
+    /* ── Autocomplete dropdown height ── */
+    #cs-ac { max-height: 680px; }
+
+    /* ── Investor badge ── */
+    .badge-investor { background: rgba(255,165,0,.1); border: 1px solid rgba(255,165,0,.35); color: rgba(255,165,0,.9); }
+
+    /* ── Portfolio card ── */
+    .cs-card-portfolio { border-color: rgba(255,165,0,.22); background: rgba(255,165,0,.02); }
+    .cs-card-portfolio .cs-card-hdr { color: rgba(255,165,0,.8); border-bottom-color: rgba(255,165,0,.12); }
+    .cs-portfolio-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.2); }
+    .cs-portfolio-item:last-child { border-bottom: none; }
+    .cs-portfolio-item.cs-portfolio-lead .cs-elist-item-main { border-left: 2px solid rgba(255,165,0,.5); padding-left: 8px; }
+    .cs-portfolio-btn { background: none; border: none; cursor: pointer; color: var(--text-primary); font-family: var(--font); font-size: var(--fs-body); text-align: left; padding: 0; font-weight: var(--fw-bold); }
+    .cs-portfolio-btn:hover { color: rgba(255,165,0,.9); text-decoration: underline; }
+    .cs-lead-badge { font-family: var(--font-mono); font-size: calc(var(--fs-body) * .82); padding: 1px 6px; border-radius: 3px; background: rgba(255,165,0,.12); border: 1px solid rgba(255,165,0,.35); color: rgba(255,165,0,.85); }
+    .cs-portfolio-inds { font-size: var(--fs-body); color: var(--text-faint); margin-top: 2px; }
+
+    /* ── Compare feature ── */
+    .cs-search-row {
+      display: flex; align-items: center; gap: 10px;
+      width: 100%; max-width: 640px;
+    }
+    .cs-search-row .cs-search-wrap { flex: 1; max-width: none; }
+    .cs-cmp-label {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: var(--fs-xs);
+      color: var(--dim); white-space: nowrap; cursor: pointer;
+      user-select: none; flex-shrink: 0;
+    }
+    .cs-cmp-label input[type=checkbox] { accent-color: var(--accent); cursor: pointer; }
+    .cs-cmp-label:hover { color: var(--text-primary); }
+    .cs-cmp-second {
+      display: none; align-items: center; gap: 10px;
+      width: 100%; max-width: 640px; margin-top: 8px;
+    }
+    .cs-cmp-second.open { display: flex; }
+    .cs-cmp-second .cs-search-wrap { flex: 1; max-width: none; }
+    #cs-cmp-btn {
+      font-family: var(--font-mono); font-size: var(--fs-xs);
+      background: var(--accent); color: var(--on-accent);
+      border: none; border-radius: 4px;
+      padding: 8px 16px; cursor: pointer; white-space: nowrap;
+      font-weight: var(--fw-bold); flex-shrink: 0;
+      transition: opacity .15s;
+    }
+    #cs-cmp-btn:disabled { opacity: .35; cursor: default; }
+    #cs-cmp-btn:not(:disabled):hover { opacity: .85; }
+
+    /* ── Compare view ── */
+    #cs-compare {
+      display: none;
+      max-width: 1120px; margin: 0 auto;
+      padding: 24px 20px 72px;
+    }
+    #cs-compare.visible { display: block; }
+    .cs-cmp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .cs-cmp-grid { grid-template-columns: 1fr; } }
+    .cs-cmp-col { min-width: 0; }
+    .cs-cmp-col-title {
+      font-family: var(--font-mono); font-size: var(--fs-xs);
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--text-faint); margin-bottom: 10px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    /* ── surface-ac fallback if not in base.css ── */
+    :root { --surface-ac: #2a2a2a; }
+
+    /* ── Static elements ── */
+    #cs-clear {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: var(--dim);
+      font-size: calc(var(--fs-body) * 1.2); line-height: 1; padding: 2px 4px;
+      display: none;
+    }
+    #cs-eu-status {
+      display: flex; align-items: center; gap: 7px; margin-top: 6px;
+      font-family: var(--font-mono); font-size: var(--fs-body);
+    }
+    #cs-left { min-width: 0; }
+    #cs-edf-card, #cs-db-card, #cs-rel-card, #cs-hist-card { display: none; }
+    #cs-loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 60vh; font-family: var(--font-mono);
+      color: var(--text-faint); font-size: var(--fs-body);
+    }
+
+    /* ── Sector / type badges ── */
+    .badge { font-size: calc(var(--fs-body) * .82); font-family: var(--font-mono); padding: 1px 8px; border-radius: 3px; }
+    .badge-defence    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-mining     { background: rgba(85,221,170,.1);  border: 1px solid rgba(85,221,170,.33);  color: #55ddaa; }
+    .badge-tech       { background: rgba(34,187,102,.1);  border: 1px solid rgba(34,187,102,.33);  color: #22bb66; }
+    .badge-startup    { background: rgba(0,119,68,.1);    border: 1px solid rgba(0,119,68,.33);    color: #007744; }
+    .badge-fund       { background: rgba(255,136,136,.1); border: 1px solid rgba(255,136,136,.33); color: #ff8888; }
+    .badge-gov        { background: rgba(255,51,51,.1);   border: 1px solid rgba(255,51,51,.33);   color: #ff3333; }
+    .badge-bank       { background: rgba(170,0,0,.1);     border: 1px solid rgba(170,0,0,.33);     color: #aa0000; }
+    .badge-institution{ background: rgba(255,153,187,.1); border: 1px solid rgba(255,153,187,.33); color: #ff99bb; }
+    .badge-company    { background: rgba(170,255,221,.1); border: 1px solid rgba(170,255,221,.33); color: #aaffdd; }
+    .badge-default    { background: rgba(136,136,136,.1); border: 1px solid rgba(136,136,136,.3);  color: #888; }
+
+    /* ── Merged match badge in header ── */
+    .cs-hdr-id--match { color: rgba(255,215,0,.6); }
+
+    /* ── EU status line ── */
+    .eu-flag           { height: 14px; width: auto; vertical-align: middle; border-radius: 2px; }
+    .eu-flag--inactive { filter: grayscale(1); opacity: .35; }
+    .eu-status-funded   { color: rgba(100,160,255,.85); }
+    .eu-status-unfunded { color: var(--text-faint); }
+
+    /* ── EDF identity block ── */
+    .edf-identity-block { margin-bottom: 14px; }
+
+    /* ── Inline value states ── */
+    .val-yes { color: var(--accent); }
+
+    /* ── EDF project objective ── */
+    .edf-proj-desc {
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin: 6px 0 4px;
+    }
+
+    /* ── EDF participants list ── */
+    .edf-participants { display: none; list-style: none; padding: 0; margin: 8px 0 0; }
+    .edf-participants.open { display: block; }
+    .edf-participant-item {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(65,67,69,.15);
+    }
+    .edf-participant-item:last-child { border-bottom: none; }
+    .edf-participant-btn {
+      background: none; border: none; cursor: pointer;
+      color: rgba(100,160,255,.85);
+      font-family: var(--font); font-size: var(--fs-body);
+      text-align: left; padding: 0;
+    }
+    .edf-participant-btn:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+    .edf-participant-country {
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint);
+    }
+    .edf-part-contrib {
+      font-family: var(--font-mono); font-size: var(--fs-body);
+      color: rgba(100,160,255,.9); font-weight: var(--fw-bold);
+      margin-left: auto;
+    }
+
+    /* ── EDF project portal link ── */
+    .edf-proj-link { color: rgba(100,160,255,.8); }
+
+    /* ── Relationship "more" overflow item ── */
+    .cs-list-more { color: var(--text-faint); font-size: var(--fs-body); }
+
+    /* ── Change history list ── */
+    .hist-list  { list-style: none; padding: 0; margin: 0; }
+    .hist-item  { padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.2); }
+    .hist-meta  { display: flex; gap: 8px; align-items: baseline; margin-bottom: 3px; }
+    .hist-date  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); white-space: nowrap; }
+    .hist-field { font-family: var(--font-mono); font-size: var(--fs-body); padding: 0 5px; border-radius: 2px; background: rgba(0,255,65,.06); border: 1px solid rgba(0,255,65,.15); color: rgba(0,255,65,.6); }
+    .hist-source{ font-size: var(--fs-body); color: var(--text-faint); }
+    .hist-desc  { font-size: var(--fs-body); color: var(--text-secondary); }
+    .hist-diff  { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); margin-top: 3px; }
+    .hist-old   { color: rgba(255,100,100,.7); }
+    .hist-new   { color: rgba(100,255,100,.7); }
+
+    /* ── Error state ── */
+    .cs-error { color: var(--error, #f44); font-family: var(--font-mono); font-size: var(--fs-body); }
+
+    /* ── Single-column cards ── */
+    #cs-cards { display: flex; flex-direction: column; gap: 0; padding: 0 20px 40px; max-width: 860px; }
+    #cs-cards .cs-card { margin-bottom: 10px; }
+
+    /* ── Collapsible card header ── */
+    .cs-card-hdr { cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
+    .cs-card-hdr .cs-card-title { display: flex; align-items: center; gap: 10px; }
+    .cs-card-toggle { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); flex-shrink: 0; transition: transform .15s; }
+    .cs-card.collapsed .cs-card-toggle { transform: rotate(-90deg); }
+    .cs-card.collapsed .cs-card-body { display: none; }
+
+    /* ── Source card colour palettes ── */
+    .cs-card-inf  { border-color: rgba(0,255,65,.18);    background: rgba(0,255,65,.02); }
+    .cs-card-inf  .cs-card-hdr { color: rgba(0,255,65,.8);    border-bottom-color: rgba(0,255,65,.12); }
+    .cs-card-is   { border-color: rgba(255,215,0,.22);   background: rgba(255,215,0,.02); }
+    .cs-card-is   .cs-card-hdr { color: rgba(255,215,0,.8);   border-bottom-color: rgba(255,215,0,.12); }
+    .cs-card-wd   { border-color: rgba(180,130,255,.22); background: rgba(180,130,255,.02); }
+    .cs-card-wd   .cs-card-hdr { color: rgba(180,130,255,.8); border-bottom-color: rgba(180,130,255,.12); }
+    .cs-card-cb   { border-color: rgba(255,140,40,.22);  background: rgba(255,140,40,.02); }
+    .cs-card-cb   .cs-card-hdr { color: rgba(255,140,40,.8);  border-bottom-color: rgba(255,140,40,.12); }
+    .cs-card-edf  { border-color: rgba(100,160,255,.22); background: rgba(100,160,255,.02); }
+    .cs-card-edf  .cs-card-hdr { color: rgba(100,160,255,.8); border-bottom-color: rgba(100,160,255,.12); }
+    .cs-card-hist { border-color: rgba(0,255,65,.15);    background: rgba(0,255,65,.02); }
+    .cs-card-hist .cs-card-hdr { border-bottom-color: rgba(0,255,65,.10); }
+    .cs-card-val  { border-color: rgba(255,100,100,.18); background: rgba(255,100,100,.02); }
+    .cs-card-val  .cs-card-hdr { color: rgba(255,130,130,.8); border-bottom-color: rgba(255,100,100,.12); }
+
+    /* ── iShares table ── */
+    .is-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-body); }
+    .is-table th { color: var(--text-faint); font-weight: normal; text-align: left; padding: 4px 8px 4px 0; border-bottom: 1px solid rgba(255,215,0,.12); }
+    .is-table td { padding: 5px 8px 5px 0; border-bottom: 1px solid rgba(65,67,69,.18); color: var(--text-secondary); vertical-align: top; }
+    .is-table td:first-child { color: var(--text-primary); }
+    .is-weight { color: rgba(255,215,0,.85) !important; }
+
+    /* ── CB sub-group label ── */
+    .cb-group { font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint); text-transform: uppercase; letter-spacing: .05em; margin: 14px 0 6px; border-bottom: 1px solid rgba(65,67,69,.2); padding-bottom: 3px; }
+    .cb-group:first-child { margin-top: 0; }
+
+    /* ── Tag list ── */
+    .cs-tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* ── Validation entry ── */
+    .val-item { padding: 8px 0; border-bottom: 1px solid rgba(65,67,69,.15); }
+    .val-item:last-child { border-bottom: none; }
+    .val-status { font-family: var(--font-mono); font-size: var(--fs-body); padding: 1px 7px; border-radius: 3px; border: 1px solid rgba(255,100,100,.3); background: rgba(255,100,100,.07); color: rgba(255,130,130,.85); }
+    .val-status.confirmed   { border-color: rgba(0,255,65,.25);  background: rgba(0,255,65,.06);  color: rgba(0,255,65,.8); }
+    .val-status.needs_review{ border-color: rgba(255,200,0,.25); background: rgba(255,200,0,.06); color: rgba(255,200,0,.8); }
+    .val-status.crunchbase_enriched { border-color: rgba(255,140,40,.3); background: rgba(255,140,40,.07); color: rgba(255,160,60,.85); }
+    .val-status.wikidata_enriched   { border-color: rgba(180,130,255,.3); background: rgba(180,130,255,.07); color: rgba(180,130,255,.85); }
+    .val-desc { font-size: var(--fs-body); color: var(--text-secondary); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="index.html" class="tnav-btn">Map</a>
+  <a href="networks.html" class="tnav-btn">Networks</a>
+  <a href="search.html" class="tnav-btn active">Search</a>
+  <a href="publications.html" class="tnav-btn">Publications</a>
+  <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<div id="app">
+
+  <!-- ── Hero / search ── -->
+  <div id="cs-hero">
+    <div class="cs-hero-prompt">INFONODES — refactoringDB v3.0</div>
+    <div class="cs-hero-title">DEFENCE ORG SEARCH<span class="cs-cursor"></span></div>
+
+    <div class="cs-search-row">
+      <div class="cs-search-wrap">
+        <input id="cs-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
+        <button id="cs-clear" title="Clear search" aria-label="Clear search">×</button>
+        <div id="cs-ac" role="listbox"></div>
+      </div>
+      <label class="cs-cmp-label" id="cs-cmp-label">
+        <input type="checkbox" id="cs-cmp-chk"> Compare with
+      </label>
+    </div>
+
+    <div class="cs-cmp-second" id="cs-cmp-second">
+      <div class="cs-search-wrap">
+        <input id="cs-search-b" type="text" placeholder="Second organisation…" autocomplete="off" spellcheck="false">
+        <button id="cs-clear-b" title="Clear" aria-label="Clear" style="display:none">×</button>
+        <div id="cs-ac-b" role="listbox"></div>
+      </div>
+      <button id="cs-cmp-btn" disabled>Compare →</button>
+    </div>
+
+
+    <div class="cs-hero-foot">
+      <span class="cs-showing" id="cs-showing"></span>
+      <button id="cs-back">← back</button>
+    </div>
+  </div>
+
+  <!-- ── Profile ── -->
+  <div id="cs-profile">
+
+    <!-- Header card -->
+    <div class="cs-hdr-card">
+      <div class="cs-logo" id="cs-logo"></div>
+      <div class="cs-hdr-main">
+        <div class="cs-hdr-name" id="cs-name"></div>
+        <div class="cs-hdr-badges" id="cs-badges"></div>
+        <div id="cs-src-flags"></div>
+        <div id="cs-eu-status"></div>
+        <div class="cs-hdr-desc" id="cs-desc"></div>
+        <div class="cs-hdr-actions">
+          <div class="cs-ext-links" id="cs-links"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat bar -->
+    <div class="cs-stats" id="cs-stats"></div>
+
+    <!-- Single-column source cards -->
+    <div id="cs-cards"></div>
+
+  </div>
+
+  <!-- Compare view -->
+  <div id="cs-compare"></div>
+
+  <!-- Loading indicator -->
+  <div id="cs-loading">Loading data…</div>
+
+</div>
+<script type="module" src="web/app.js"></script>
+
+<script src="web/theme.js"></script>
+</body>
+</html>

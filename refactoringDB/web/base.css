@@ -257,6 +257,9 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 }
 .snav-copy-ai-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+/* Allow <a> tags as tab buttons */
+a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+
 /* GitHub trailing link in tabnav */
 .tnav-gh {
   height: 32px; padding: 0 14px; font-family: var(--font); font-size: var(--fs-base);

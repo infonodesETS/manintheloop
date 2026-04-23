@@ -4,6 +4,7 @@
 // URL scheme: ?organization=IN-0461&organizationName=Airbus
 //
 // push(item)      — call on selectItem(); updates URL without page reload
+// replace(item)   — use for initial load (avoids duplicate history entry)
 // clear()         — call on clearSelection(); removes params from URL
 // resolve(registry, entityMap) — call after buildRegistry(); returns the
 //                   registry item matching current URL params, or null
@@ -28,6 +29,17 @@ export function push(item) {
   url.searchParams.set(PARAM_ID,   id);
   url.searchParams.set(PARAM_NAME, name);
   history.pushState({ organization: id, organizationName: name }, '', url);
+}
+
+export function replace(item) {
+  const id   = itemId(item);
+  const name = item.name;
+  if (!id) return;
+
+  const url = new URL(window.location.href);
+  url.searchParams.set(PARAM_ID,   id);
+  url.searchParams.set(PARAM_NAME, name);
+  history.replaceState({ organization: id, organizationName: name }, '', url);
 }
 
 export function clear() {
@@ -93,17 +105,13 @@ export function resolve(registry, entityMap) {
   const name   = params.get(PARAM_NAME);
   if (!id && !name) return null;
 
-  // Try id first
   if (id) {
-    // Match against dbEntity.id
     const byEntityId = registry.find(r => r.dbEntity?.id === id);
     if (byEntityId) return byEntityId;
-    // Match against EDF PIC
     const byPic = registry.find(r => r.pic && String(r.pic) === id);
     if (byPic) return byPic;
   }
 
-  // Fall back to name (case-insensitive)
   if (name) {
     const lower = name.toLowerCase();
     const byName = registry.find(r => r.name.toLowerCase() === lower);

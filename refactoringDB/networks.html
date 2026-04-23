@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networks — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <style>
+    html { font-size: 120%; }
+    body { overflow: auto; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+    #page-content {
+      padding: calc(var(--nav-h) + var(--tab-h) + 48px) 40px 80px;
+      max-width: 760px;
+    }
+    .tbd-prompt { font-family: var(--font-mono); font-size: var(--fs-xs); color: rgba(0,255,65,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .tbd-title { font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin-bottom: 16px; }
+    .tbd-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.2); padding-left: 16px; margin-bottom: 32px; }
+    .tbd-badge {
+      display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs);
+      border: 1px solid var(--border); border-radius: 50px; padding: 3px 14px;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="index.html" class="tnav-btn">Map</a>
+  <a href="networks.html" class="tnav-btn active">Networks</a>
+  <a href="search.html" class="tnav-btn">Search</a>
+  <a href="publications.html" class="tnav-btn">Publications</a>
+  <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<div id="page-content">
+  <div class="tbd-prompt">$ networks --init</div>
+  <div class="tbd-title">Networks</div>
+  <div class="tbd-desc">
+    Interactive network graph visualising relationships between organisations — investments,
+    partnerships, ownership structures — across the defence supply chain.<br><br>
+    Nodes: companies and investors. Edges: funding relationships from the database.
+  </div>
+  <span class="tbd-badge">TBD — coming soon</span>
+</div>
+
+<script src="web/theme.js"></script>
+</body>
+</html>

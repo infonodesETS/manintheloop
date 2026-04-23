@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-16 (IN-1357 UVision Air added; search-by-ID; edf_orgs.json stale db_id fix)
+> Last updated: 2026-04-23 (EDF frontend: project list in entity cards, EDF-NNNN project profiles, co-participant expand)
 
 ## Session protocol
 
@@ -14,215 +14,196 @@
 
 ## Scripts reference
 
-> **Rule:** always run `python3 scripts/validate.py` after any script that modifies `database.json`.
+> Run `python3 scripts/validate.py` after any script that modifies `database.json`.
 > All paths are relative to `refactoringDB/`.
 
----
+### Always-safe commands
 
-### 1. Validate data
+| Command | What it does | Safe to re-run? |
+|---|---|---|
+| `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
+| `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
+| `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
+| `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |
 
-```bash
-python3 scripts/validate.py
-```
-
-10 checks: entity ID uniqueness, relationship ID uniqueness, source/target refs, roles, entity types,
-wikidata_id format, date fields, required fields, PER-NNNN consistency, relationship type values.
-Never modifies the DB. Always run after any DB change.
-
----
-
-### 2. Update database from Wikidata
-
-**Step A — Find QIDs for entities that don't have one yet**
+### Wikidata enrichment
 
 ```bash
-# Search (resumes from checkpoint in data/qid_candidates.json if it exists)
-python3 scripts/search_missing_qids.py --search
-
-# Second-pass recovery for skipped entries (4 strategies: false-positive fix, P856 SPARQL,
-# P31 type confirmation, results[1-4] re-search) — safe to re-run
-python3 scripts/reprocess_skipped_qids.py
-
-# Human review: open data/qid_candidates.json, change "proposed" → "accepted" or "rejected"
-
-# Apply accepted QIDs to database.json (skips entities that already have a wikidata_id)
-python3 scripts/search_missing_qids.py --apply
-
-python3 scripts/validate.py
-```
-
-**Step B — Fetch Wikidata entity data for all QID-bearing entities**
-
-Populates `sources.wikidata`: label, description, instance_of, country, inception, headquarters,
-official_website, ISIN, employees, wikipedia_url.
-
-```bash
-# Enrich entities that don't have sources.wikidata yet (safe to re-run after new QIDs applied)
+# Populate sources.wikidata for all entities with a wikidata_id (skips already-enriched)
+#   Reads: data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
+#   Writes: data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
 python3 scripts/enrich_wikidata.py [--dry-run]
 
-# Force-refresh ALL already-enriched entities (use to refresh stale data)
+# Force re-enrichment of ALL entities (including already-enriched) — use after bulk QID updates
 python3 scripts/enrich_wikidata.py --force [--dry-run]
 
+# Validate
 python3 scripts/validate.py
 ```
 
-**Step C — Fetch missing websites from Wikidata (P856)**
+Re-run safety: without `--force`, skips entities that already have `sources.wikidata` → safe to re-run after new QIDs are applied.
+
+### Data quality audit
 
 ```bash
-# Fetch official website for entities with wikidata_id but no website yet
-python3 scripts/fetch_wikidata_websites.py [--dry-run]
+# Run audit (adds reconciliation_documented and field_conflict validation entries)
+#   Audit B: documents cross-dataset reconciliation basis for 165 multi-source entities
+#   Audit C: flags field-level conflicts across sources (country, headquarters)
+#   Safe to re-run: skips entities that already have the relevant validation status
+python3 scripts/audit_quality.py [--dry-run]
 
+# Validate
 python3 scripts/validate.py
 ```
 
----
+### Website enrichment pipeline
 
-### 3. Update database from EDF (European Commission Participant Portal)
-
-**Step A — Refresh raw EDF data** (writes `rawdata/edf_calls.json`)
+Run once per enrichment cycle in this order:
 
 ```bash
-# Full fetch — all calls, all projects, all participants (~20 min, ~3.8 MB output)
-#   API: EC Search API + topicProjectsList + DOC_API
-#   Delays: 0.5s/page, 0.8s/year, 1.0s/call, 0.8s/project
-python3 scripts/fetch_edf_bulk.py
-
-# Incremental — re-check open/forthcoming calls + closed calls without projects (faster)
-python3 scripts/fetch_edf_bulk.py --update
-
-# Re-enrich — re-fetch participant details for calls that already have projects
-python3 scripts/fetch_edf_bulk.py --reenrich
-```
-
-**Step B — Import EDF org entities into database.json** *(one-time — already done 2026-04-01)*
-
-```bash
-# DO NOT RE-RUN — creates duplicate entities. Already imported 792 EDF orgs.
-# scripts/build_edf_entities.py
-```
-
-**Step C — Import EDF websites into database.json**
-
-```bash
-# Copy EDF web_link field → sources.infonodes.website (skips entities that already have a website)
+# 1. Import EDF web_link field → sources.infonodes.website
+#    Reads: data/edf_orgs.json, data/database.json
+#    Writes: data/database.json (sources.infonodes.website + history[])
+#    Skip: entities that already have crunchbase.website
 python3 scripts/import_edf_websites.py [--dry-run]
 
+# 2. Fetch official website (P856) from Wikidata for companies with wikidata_id but no website
+#    Reads: data/database.json  |  API: SPARQL (batches of 50, 2s delay)
+#    Writes: data/database.json (sources.infonodes.website + history[])
+python3 scripts/fetch_wikidata_websites.py [--dry-run]
+
+# 3. Validate
 python3 scripts/validate.py
 ```
 
-> Phase 4 (EDF participation relationships → REL-NNNN) is **not yet implemented** — pending new script.
+Re-run safety: both scripts skip entities that already have a website set → safe to re-run.
 
----
+### QID enrichment pipeline
 
-### 4. Update database from Crunchbase CSV
+```bash
+# Phase 1 — Wikidata Search API (resumes from checkpoint if qid_candidates.json exists)
+#    Reads: data/database.json  |  Writes: data/qid_candidates.json (status=proposed/skipped)
+#    API: wbsearchentities REST, 1.5s delay
+python3 scripts/search_missing_qids.py --search
+
+# Phase 1b — SPARQL label lookup + Reconciliation API for Phase 1 skipped entries
+#    Reads: data/qid_candidates.json  |  Writes: data/qid_candidates.json (in-place)
+#    Never overwrites accepted/rejected entries
+python3 scripts/sparql_search_qids.py
+
+# Phase 2 — Human review
+# Open data/qid_candidates.json
+# Change each "proposed" entry to "accepted" or "rejected"
+
+# Phase 3 — Apply accepted QIDs to database.json
+#    Reads: data/qid_candidates.json (accepted only)
+#    Writes: data/database.json (wikidata_id + history[] + validation[])
+#    Zero API calls
+python3 scripts/search_missing_qids.py --apply
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: `--search` resumes from checkpoint. `--apply` skips entities that already have a wikidata_id.
+
+### QID second-pass pipeline (`reprocess_skipped_qids.py`)
+
+Run after the main QID pipeline to recover skipped entries via four strategies:
+
+```bash
+# Runs all 4 phases in sequence — safe to re-run (skips already-proposed/accepted/rejected)
+#    Phase A: fix disqualify false positives (0 API calls, in-memory re-evaluation)
+#    Phase B: P856 website reverse SPARQL lookup (2s delay, batch=10 entities)
+#    Phase C: P31 type confirmation for no-description entries (SPARQL)
+#    Phase D: results[1-4] re-search for wrong-top-result entries (Wikidata API, 1.5s delay)
+#    Writes: data/qid_candidates.json only — never touches database.json
+python3 scripts/reprocess_skipped_qids.py
+
+# Then review qid_candidates.json (proposed → accepted/rejected), then apply:
+python3 scripts/search_missing_qids.py --apply
+python3 scripts/validate.py
+```
+
+### EDF participation pipeline (2026-04-23)
+
+```bash
+# Create EDF-NNNN project entities + edf_participation relationships
+#   Reads: rawdata/edf_calls.json, data/edf_orgs.json, data/database.json
+#   Writes: data/database.json (+78 EDF-NNNN entities, +1657 edf_participation rels)
+python3 scripts/import_edf_projects.py [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: skips existing EDF-NNNN entities (matched by project_id) and duplicate relationships.
+
+### Investor pipeline (new — 2026-04-22)
+
+```bash
+# Step 1 — Create IV-NNNN entities + investment relationships from crunchbase.top_investors
+#   Reads: data/database.json
+#   Writes: data/database.json (+IV entities, +relationships)
+#   Flags: --dry-run (no writes), --wikidata (SPARQL country lookup per investor, ~2s each)
+python3 scripts/import_investors_crunchbase.py [--dry-run] [--wikidata]
+
+# Step 2 — Assign known countries to well-known investors (curated lookup table)
+#   ~90 entries covering major VC firms, EU institutions, US agencies, large banks
+#   Writes: sources.infonodes.country on matching IV-* entities
+python3 scripts/patch_investor_countries.py [--dry-run]
+
+# Validate
+python3 scripts/validate.py
+```
+
+Re-run safety: both scripts are idempotent — no duplicate entities or relationships created.
+To get more investor countries: either extend `KNOWN` dict in `patch_investor_countries.py`,
+or run `import_investors_crunchbase.py --wikidata` (slow: ~610 SPARQL queries × 2s each).
+
+### Crunchbase enrichment pipeline
 
 > **Full process documentation:** `data/crunchbase_sandbox/CRUNCHBASE.md`
 
 ```
 data/crunchbase_sandbox/
-  companies_export.csv          ← generated export to upload to Crunchbase
-  matches.csv                   ← rows uploaded (Cycle 1: 812 rows)
-  non_matches.csv               ← rows excluded from upload (Cycle 1: 337 rows)
-  crunchbase-export-*.csv       ← CSV downloaded from Crunchbase after upload
-  unresolved_YYYY-MM-DD.csv     ← CB rows not matched to any DB entity
-  CRUNCHBASE.md                 ← process log + reconciliation strategy
+  companies_export.csv                        ← full list (1149 rows: name + website)
+  matches.csv                                 ← 812 rows — uploaded to Crunchbase (Cycle 1)
+  non_matches.csv                             ← 337 rows — Crunchbase could not match
+  crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows returned by Crunchbase (Cycle 1)
+  unresolved_2026-04-13.csv                   ← 21 rows CB returned but not matched to DB
+  CRUNCHBASE.md                               ← process + reconciliation log
 ```
 
 ```bash
-# 1. Regenerate the export from the current DB state (run at start of each new cycle)
+# Regenerate export (run at start of each new cycle)
 python3 scripts/regenerate_export.py
-# → writes data/crunchbase_sandbox/companies_export.csv
 
-# 2. Upload companies_export.csv to Crunchbase manually, download the enriched CSV
-
-# 3. Import (dry-run first — always)
+# Import (dry-run first — always)
 python3 scripts/import_crunchbase_csv.py \
     data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv \
     --dry-run
 
-# 4. Apply
+# Apply
 python3 scripts/import_crunchbase_csv.py \
     data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv
 
-# 5. Import investor graph from the same CSV (IV-NNNN entities + REL-NNNN relationships)
-python3 scripts/import_investors_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv [--dry-run]
-
+# Validate
 python3 scripts/validate.py
 ```
 
-**Cycle 1 state (2026-04-14):** 601 new + 121 updated = **731 entities** with `sources.crunchbase`;
-723 IV-NNNN investors + 1042 REL-NNNN relationships. 21 unresolved in `CRUNCHBASE.md`.
+**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
 
----
+### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
-### 5. Update database from iShares CSV files
-
-iShares raw CSVs live in `rawdata/`. New ETF holdings cycles require updating these files first.
-
-```bash
-# Preview normalised rows from a CSV (stdout only — never modifies DB)
-python3 scripts/parse_ishares.py rawdata/ishares_metals_mining_gics151040.csv
-python3 scripts/parse_ishares.py rawdata/ishares_tech_gics45.csv
-python3 scripts/parse_ishares.py rawdata/ishares_comm_services_gics50.csv
-```
-
-> **Initial import already done (2026-04-01).** `scripts/build_database.py` is a one-time script —
-> do NOT re-run it (it regenerates IDs from scratch and will create duplicates).
-> For new ETF cycles: update the rawdata CSVs, then write a new incremental import script
-> that matches existing entities by `name_key` or `wikidata_id` before creating new ones.
-
----
-
-### 6. Audit, check, clean, and deduplicate data
-
-**Run audit** (reconciliation documentation + field conflict detection)
-
-```bash
-# Dry-run: report only, no DB writes
-python3 scripts/audit_quality.py --dry-run
-
-# Apply: writes reconciliation_documented + field_conflict validation entries
-python3 scripts/audit_quality.py
-
-python3 scripts/validate.py
-```
-
-Audit covers:
-- **Audit B** — documents cross-dataset reconciliation basis for multi-source entities
-- **Audit C** — flags field-level conflicts (country, headquarters) across sources
-- **Audit D** — flags entities sharing a `wikidata_id` (`duplicate_wikidata_id` validation status)
-
-**Deduplicate entities** (merge two entities into one)
-
-```bash
-# List all wikidata_id duplicate groups + auto-merge candidates
-python3 scripts/dedup_entities.py --list
-
-# Preview a merge (dry-run — never modifies DB)
-python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID --dry-run
-
-# Apply a merge (LOSER absorbed into WINNER, LOSER removed)
-python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID
-
-python3 scripts/validate.py
-```
-
-Merge logic: ishares entries appended, edf/crunchbase/infonodes copied if missing, roles unioned,
-history/validation absorbed with `[from LOSER_ID]` prefix, relationships redirected + deduped.
-
----
-
-### One-time build scripts — DO NOT RE-RUN
-
-| Script | Purpose | Done |
+| Script | Purpose | Status |
 |---|---|---|
-| `scripts/build_database.py` | Initial iShares ETF import → database.json | 2026-04-01 |
-| `scripts/build_edf_entities.py` | EDF org import → 792 new entities + edf_orgs.json | 2026-04-01 |
-| `scripts/import_startups.py` | Migrates 17 startups from old DB | 2026-04-01 |
-| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | 2026-04-01 |
+| `scripts/build_database.py` | Initial iShares ETF import → database.json | Done 2026-04-01 |
+| `scripts/build_edf_entities.py` | EDF org import → 792 new entities | Done 2026-04-01 |
+| `scripts/import_startups.py` | Migrates 17 startups from old DB | Done 2026-04-01 |
+| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | Done 2026-04-01 |
 
-> Re-running any of these will attempt to create duplicate entities with new IDs.
+> **Warning:** Re-running any of these scripts will attempt to create duplicate entities. Never re-run without modifying them to skip existing IDs first.
 
 ---
 
@@ -266,17 +247,23 @@ The old DB (`../refactoring/`) is **read-only** — never modify it. All work is
 
 ```
 refactoringDB/
-├── index.html                 ← web UI — org search + profile viewer (serve from Manintheloop/ root)
+├── index.html                 ← Map page (D3 SVG world map + investor arcs) — branch new-frontend
+├── search.html                ← Org search + profile viewer (ported from old index.html)
+├── networks.html              ← placeholder
+├── publications.html          ← placeholder
+├── about.html                 ← placeholder
 ├── web/
-│   ├── router.js              ← URL routing (?organization=IN-XXXX&organizationName=...)
+│   ├── app.js                 ← search/profile JS (extracted from old inline script — single source of truth)
+│   ├── router.js              ← URL routing (?organization=IN-XXXX + compare params)
+│   ├── theme.js               ← dark/light theme toggle (shared across all pages)
 │   ├── base.css               ← base styles (copied from ../refactoring/css/)
 │   ├── components.css         ← component styles
 │   └── companysearch.css      ← search/autocomplete/profile styles
 ├── data/
 │   ├── database.json          ← main DB (schema v3.0) — primary artifact
 │   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
+│   ├── glossary.json          ← source flag tooltip descriptions (CB/EDF/iShares/WD/INF)
 │   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
-│   ├── glossary.json          ← UI glossary: tooltips for source flag badges (CB, EDF, iShares, WD, INF)
 │   └── crunchbase_sandbox/
 │       ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
 │       ├── companies_export.csv  ← full export (1149 rows: name + website)
@@ -299,9 +286,12 @@ refactoringDB/
 │   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
 │   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
-│   ├── import_investors_csv.py  ← extracts IV-NNNN + REL-NNNN from CB export (Top5 + Lead Investors)
 │   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
-│   ├── fetch_edf_bulk.py      ← fetches EDF calls from EC Participant Portal → rawdata/edf_calls.json
+│   ├── import_investors_crunchbase.py ← creates IV-NNNN entities + relationships from top_investors
+│   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors (~90 curated)
+│   ├── patch_iv_countries_p159.py     ← SPARQL P159/P17 fallback for QID-bearing IV with no country
+│   ├── migrate_old_db_investors.py    ← migrates funds/banks from legacy refactoring/ DB
+│   ├── import_edf_projects.py         ← creates EDF-NNNN project entities + edf_participation rels
 │   └── validate.py            ← 10-check validation (always run before committing)
 ├── docs/
 │   ├── SCHEMA.md
@@ -310,37 +300,37 @@ refactoringDB/
 └── STATUS.md                  ← this file
 ```
 
-> **Serving the web UI:** `python3 -m http.server 8000` from `Manintheloop/` root (one level above `refactoringDB/`), then open `http://localhost:8000/refactoringDB/`.
+> **Serving the web UI (new-frontend branch):** `python3 -m http.server 8001` from `refactoringDB/`, then open `http://localhost:8001/`.
+> **Serving search UI only:** `python3 -m http.server 8000` from `Manintheloop/` root, then open `http://localhost:8000/refactoringDB/`.
 
 ---
 
-## Current DB state (2026-04-15)
+## Current DB state (2026-04-23)
 
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2046** |
-| — companies (IN-NNNN) | 1130 |
-| — institutions + gov | 207 |
-| — investors (IV-NNNN) | **709** (723 extracted − 14 merged into dual-role IN- entities) |
+| Total entities | **2101** |
+| — companies (IN-NNNN) | 1149 |
+| — institutions + gov agencies | 207 |
 | — persons (PER-NNNN) | **0** — not yet built |
-| Relationships | **1042** investment REL-NNNN (605 as lead) |
-| Companies with wikidata_id | 710 / 1149 (61.8%) |
+| — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
+| — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
+| Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
+| IV entities with country | **275 / 667** — 59+62 curated + 123 SPARQL P17 + 23 P159/P17 fallback (2026-04-22) |
+| Cross-border arcs on map | **129** (investor country → company country, unique pairs) |
+| Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | 687 (731 Cycle 1 − 44 bad matches removed 2026-04-14) |
+| Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
+| Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-16, post IN-1357 addition + edf_orgs.json fix) |
+| Last validate.py | PASSED (2026-04-23) — after EDF project import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
-| validation: reconciliation_documented | 690 entities |
-| validation: field_conflict | 175 entities |
-| validation: duplicate_wikidata_id | 0 unresolved (all 41 groups resolved: merged / share_class_variant / qid_removed) |
-| validation: share_class_variant | 20 entities (10 pairs) |
-| validation: qid_removed | 27 entities (wrong parent QID removed) |
-| validation: merged_from | 20 entities (15 from this session) |
-| validation: bad_crunchbase_match | 1 entity (IN-1298 Indra) |
-| validation: needs_review | 2146 entries (ongoing) |
+| validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
+| validation: field_conflict | 44 entities (3 country real, 15 country normalisation, 30 HQ real) |
+| validation: needs_review | 2146 + 610 IV entries (ongoing) |
 
 ---
 
@@ -419,64 +409,6 @@ refactoringDB/
 - [x] `scripts/import_crunchbase_csv.py` real import run — 601 new + 121 updated = 731 entities with `sources.crunchbase`
 - [x] `validate.py` PASSED after import
 
-### Investor graph (2026-04-14)
-- [x] `scripts/import_investors_csv.py` written — extracts unique investors from `Top 5 Investors` + `Lead Investors` columns of CB export
-- [x] 723 IV-NNNN entities created (type inferred: fund / bank / government_agency)
-- [x] 1042 REL-NNNN investment relationships created (605 as lead, `details.lead = true`)
-- [x] Re-run safe: skips existing IV by normalised name, skips existing REL by source+target pair
-- [x] `validate.py` PASSED (2079 entities, 1042 relationships)
-
-### Web UI — landing hero stats (2026-04-15)
-- [x] Replaced hardcoded `2078 orgs · 790 DB+EDF · 561 DB only · 4 EDF only` with runtime-calculated values
-- [x] Now shows: `{total} orgs · {companies} companies · {investors} investors` — computed from `DB.entities` on load
-- [x] Source: `web/app.js` stats block, using `DB.entities.length`, `type === 'company'`, `id.startsWith('IV-')`
-
-### Entity deduplication (2026-04-14)
-- [x] `scripts/dedup_entities.py` written — merge tool with `--list`, `--merge WINNER LOSER`, `--dry-run`
-- [x] Merge logic: ishares entries appended (per ticker), edf/crunchbase/infonodes copied if missing, roles unioned, history/validation absorbed with `[from LOSER_ID]` prefix, relationships redirected + deduped
-- [x] All changes tracked: history entry + `merged_from` validation entry on winner; loser removed from entities
-- [x] **Audit D** added to `audit_quality.py`: flags all entities sharing a wikidata_id with `duplicate_wikidata_id` validation status
-- [x] Audit D run: 46 QIDs shared → 99 entities flagged
-- [x] **5 AUTO_MERGE pairs applied** (identical names, confirmed same legal entity):
-  - IN-0365 ← IN-0366 (Telecom Italia / Telecom Italia S.p.a) — absorbed TITR ishares entry
-  - IN-0472 ← IN-0473 (Airbus Operations × 2)
-  - IN-0501 ← IN-0502 (Arianegroup × 2)
-  - IN-0783 ← IN-0784 (Integrasys × 2)
-  - IN-1167 ← IN-1168 (United Monolithic Semiconductors × 2)
-- [x] validate.py PASSED — 2074 entities, 1042 relationships
-- [x] **10 Bucket A merges applied** (true-duplicate, same legal entity, name alias — 2026-04-15):
-  - IN-1294 ← IN-0062 (IBM ← Business Machines) — absorbed ishares[IBM]
-  - IN-1344 ← IN-0401 (Vale ← VALE DO RIO DOCE) — absorbed ishares[VALE3]
-  - IN-1282 ← IN-0133 (Fortescue Metals Group ← Fortescue) — absorbed ishares[FMG]
-  - IN-1253 ← IN-0035 (Arafura Resources ← Arafura RARE Earths) — absorbed ishares[ARU]
-  - IN-1318 ← IN-0282 (Palantir Technologies ← Palantir Class A) — absorbed ishares[PLTR]
-  - IN-1311 ← IN-0242 (MP Materials ← MP Materials Class A) — absorbed ishares[MP]
-  - IN-1329 ← IN-1014 (Saab ← Saab Aktiebolag) — absorbed sources.edf
-  - IN-1241 ← IN-1118 (TEKEVER ← Tekever Uas) — absorbed sources.edf
-  - IN-1312 ← IN-0897 (Nammo ← Nammo Raufoss As) — absorbed sources.edf
-  - IN-1286 ← IN-0151 (Grupo Mexico ← Grupo Mexico B) — absorbed ishares[GMEXICOB]
-- [x] validate.py PASSED — 2064 entities, 1042 relationships
-- [x] **31 REVIEW groups remain** — see `python3 scripts/dedup_entities.py --list` for full breakdown:
-  - Share class variants (keep both): FOX A/B, TATA Steel/GDR
-  - Parent + iShares listing duplicate: Palantir, MP Materials, Pilbara/PLS, Vale/VALE DO RIO DOCE, Fortescue, Grupo Mexico, IBM/Business Machines, Saab, TEKEVER/Tekever Uas, Nammo/Raufoss, Arafura
-  - Subsidiary with likely wrong QID: Ericsson ×4, Airbus D&S ×4, KNDS ×3, Indra ×3, Safran pairs, Bittium pair, Damen pair, Helsing pair, Valneva pair, and others
-- [x] **Bucket B resolved — 5 share-class pairs (2026-04-15):** duplicate_wikidata_id flag → share_class_variant on 10 entities:
-  - FOX Class A / FOX Class B (Q60238941) — different voting rights
-  - TATA Steel / TATA Steel GDR (Q963101) — ordinary vs GDR instrument
-  - Samsung Electronics / Samsung NON Voting PRE (Q20718) — common vs preferred
-  - SSAB A / SSAB Class B (Q54075) — A/B voting-weight classes
-  - Jiangxi Copper A / Jiangxi Copper H (Q1518015) — Shanghai vs Hong Kong listings
-
-### Crunchbase match audit (2026-04-14)
-- [x] Discovered wrong CB match for IN-0032 Apple (matched to Apple Apaman, Japanese rental brokerage) — `sources.crunchbase` removed manually
-- [x] Domain-mismatch audit: compared `sources.crunchbase.website` against `sources.infonodes.website` / `sources.wikidata.website` for all 731 CB-enriched entities
-- [x] 144 domain mismatches found; classified into: confirmed bad (country mismatch), description contradiction, ambiguous/same-entity-different-domain
-- [x] **44 bad matches removed** via two-pass audit:
-  - 18 by country mismatch (CB HQ country contradicts known wikidata country — e.g. PLS AU→TX, Naval FR→BR, Delta Electronics TW→MA, Baltic Workboats EE→FL)
-  - 26 by CB description contradiction keywords (DeFi/blockchain, clothing/crochet, sports club, toner cartridge, digital marketing agency, road maintenance, interior design, food marketplace, streaming service, asset management platform, community development, import/export)
-- [x] validate.py PASSED — 2079 entities, 1042 relationships
-- [x] ~100 remaining domain mismatches are ambiguous (parent/subsidiary/regional sites) — pending manual review CSV
-
 ### Web UI — `index.html` (2026-04-14)
 - [x] Organisation search UI built from `data/database.json` (adapted from refactoring/tmp/new_index.html)
 - [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
@@ -486,7 +418,80 @@ refactoringDB/
   - Infonodes → Wikidata → iShares (ETF table) → Crunchbase (grouped: Identity/Industry/Funding/Team) → EDF (org details + lazy project load) → Change History → Validation
 - [x] EDF projects: lazy-loaded on demand, with participant expand/collapse; clicking a participant navigates to their profile
 - [x] CSS/JS internal dependencies moved to `web/` folder (base.css, components.css, companysearch.css, router.js)
-- [x] Investor search + portfolio profile: IV-NNNN entities searchable; profile shows portfolio card (leads first, clickable → company), Wikidata data, history, validation
+
+### Multi-page frontend — branch `new-frontend` (2026-04-22)
+
+> Branch forked from `nuovoDB`. Serve from `refactoringDB/` root: `python3 -m http.server 8001`.
+
+- [x] **`index.html`** — D3 SVG world map (ported from `../refactoring/js/tabs/map.js`)
+  - Country-level aggregation: one circle per country, sized by arc degree
+  - Side panel: country detail (companies list + investor badge `↓N` per company)
+  - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
+  - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
+  - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
+  - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
+  - **EU Funded filter (2026-04-23):** checkbox in toolbar (default off) dims all countries/nodes/arcs whose company-side has no EDF data. Covers 794 EDF companies across 28 countries. Composes with entity-click filter.
+  - **Entity-level connection view (2026-04-23):** clicking an entity in the country side panel now updates the map — the country node label changes to the entity name, and only arcs connecting that specific entity to other countries are shown (investor→company for IN-; investor→portfolio countries for IV-). Clicking the entity-labeled node restores the country view. `restoreCountryLabels()` helper added; `activePairs` Set tracks entity-specific src→tgt arc pairs; entity ISO now included in `activeISOs` for IV entities (fixes investor country node being incorrectly dimmed).
+  - **Clickable investors in company detail (2026-04-23):** resolved IV-* investors in the entity detail panel are now clickable — fires `filterMapByEntity` for the investor, showing investor profile + map connections. `restoreCountryLabels()` called at top of `filterMapByEntity` to clear stale entity label on entity→entity navigation.
+  - **Clickable portfolio companies in investor detail (2026-04-23):** portfolio companies (IN-*) in IV entity detail panel are now clickable — same pattern as investor click, reuses existing `[data-action="filterMapByEntity"]` wiring.
+  - **Map label font size +25% (2026-04-23):** `baseFs` constant raised from 11 to 13.75; applies uniformly to all country labels at all zoom levels.
+  - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
+    - `index.html` → default panel
+    - `index.html?country=840&countryname=United+States` → country selected
+    - `index.html?country=840&countryname=United+States&entity=IN-0004&entityname=Adobe` → entity detail panel
+    - Entity name click in country panel → entity detail URL (not direct search.html navigation)
+    - Entity detail panel has "Open profile →" link to `search.html`
+    - Browser back from `search.html` restores entity detail panel via URL params read in `init()`
+  - Filter bar: click a company/investor to highlight connected countries on map
+  - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
+  - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
+- [x] **`search.html`** — org search (ported from old `index.html`, navbar added)
+  - **Relationships card (2026-04-22):** entity profile now shows a Relationships card with clickable portfolio companies (for IV entities) and investors (for IN entities) — data from `REL_MAP`
+  - **infCardBody enhanced (2026-04-22):** shows `roles`, `tags`, `wikidata_id` from entity root alongside sources.infonodes fields
+  - **Back-nav fix (2026-04-23):** `Router.replace(item)` added to `web/router.js`; initial URL-based load uses `replaceState` instead of `pushState` to avoid duplicate history entry (was causing double Back click to leave the page)
+- [x] **`networks.html`**, **`publications.html`**, **`about.html`** — placeholder pages (TBD content)
+- [x] **`web/theme.js`** — shared dark/light theme toggle across all pages
+- [x] **`web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
+
+### Investor pipeline (2026-04-22)
+- [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
+- [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
+- [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
+- [x] **SPARQL Wikidata enrichment complete (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 194/610 matched (32%). IV with country: 59→182. Cross-border arcs: 60→106. validate.py PASSED.
+- [x] **P159/P17 fallback enrichment (2026-04-22):** `patch_iv_countries_p159.py` — 23/40 remaining QID-bearing investors resolved via headquarters location → country. IV with country: 182→205. Arcs: 106→115.
+- [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
+- [x] **Old DB migration (2026-04-22):** `scripts/migrate_old_db_investors.py` — +57 IV entities (IV-0611–IV-0667), +95 relationships from legacy `../refactoring/data/database.json`. Total: 2023 entities, 992 relationships. validate.py PASSED.
+- [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
+- [x] **Wikidata false positive audit (2026-04-22):** 9 IV QIDs nulled — label-only SPARQL match hit non-investor entities. Pattern and fix documented below.
+
+#### Wikidata false positive pattern (IV investor enrichment)
+
+**Root cause:** `import_investors_crunchbase.py --wikidata` matches investor names to Wikidata using a label search (SPARQL `rdfs:label` / `skos:altLabel`) without filtering by entity type (`wdt:P31`). Investor names like "Chapter One", "Greylock", "Bond", "Canary" are common English words/phrases, producing hits on unrelated entities.
+
+**False positive categories observed:**
+- Geographic entities: hamlet (Greylock → Q122567544, Massachusetts), city (Noordwijk → Q455464, Netherlands), parish (Canary → Q63519398, New South Wales)
+- Cultural entities: restaurant (Chapter One → Q2129707, Dublin), band (Inc. → Q17484173, NASA → Q24876045), record label (GSR → Q59677963)
+- Unrelated companies: motorcycle manufacturer (Bond → Q2866747), legal entity in Latvia (IQ Capital → Q104427238)
+
+**Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
+
+**Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
+
+### EDF frontend (2026-04-23)
+- [x] `web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
+- [x] Entity profile EDF card: immediate project list from REL_MAP (no lazy-load), with role, share, dates, EU Portal link
+- [x] Co-participant expand: clickable list of co-participants with role, country, EU contribution — navigates to their profile
+- [x] `renderEdfProjectProfile`: full profile for EDF-NNNN project entities — stats bar (participants, EU contribution, dates, status), Project details card, Participants card (sorted coordinator-first, all clickable)
+- [x] `buildRegistry`: EDF project entities indexed by acronym, call_id, call_title (searchable as "ENGRT II", "AI-WASP", etc.)
+- [x] `search.html`: `thirdParty` role badge styled (grey, distinct from coordinator/participant)
+
+### EDF participation relationships (2026-04-23)
+- [x] `scripts/import_edf_projects.py` — creates 78 `EDF-NNNN` project entities + 1657 `edf_participation` relationships
+  - All 1657 participant slots matched via PIC→db_id crosswalk in `data/edf_orgs.json` (0 missing)
+  - Each relationship: `source`=entity db_id, `target`=EDF-NNNN, `role` (coordinator/participant), `eu_contribution`
+  - Entity sources: `sources.edf_project` with project_id, acronym, call_id, call_title, status, dates, budget, url, type_of_action
+  - `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
+  - validate.py PASSED
 
 ### Infrastructure
 - [x] Schema v3.0 (`docs/SCHEMA.md`)
@@ -499,99 +504,33 @@ refactoringDB/
 - [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
 - [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
 - [x] `scripts/import_crunchbase_csv.py` — Crunchbase import (4-tier matching, field-level diff, re-run safe)
-- [x] `scripts/import_investors_csv.py` — investor graph builder (IV-NNNN + REL-NNNN from CB export)
 - [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
 - [x] `data/crunchbase_sandbox/CRUNCHBASE.md` — Crunchbase process + reconciliation log
-- [x] `scripts/fetch_edf_bulk.py` — copied from `refactoring/scripts/`, path adjusted to `rawdata/edf_calls.json`
-
-### EDF rawdata refresh (2026-04-15)
-- [x] Full fetch run: 207 calls (195 from EC API + 12 merged from existing), 63 with projects, 76 total projects, 1647 total participants
-- [x] File grew 1.7 MB → 3.8 MB (all participant details now fully populated)
-- [x] 6 new calls found (EDIRPA/ASAP variants not in previous March 2026 fetch)
-
-### Wikidata force-refresh (2026-04-15)
-- [x] `enrich_wikidata.py --force` run: 659 entities refreshed, 0 not found
-- [x] validate.py PASSED
-
-### Name-based deduplication — dual-role entities (2026-04-15)
-
-- [x] Systematic `normalize_name()` scan across all entities: 16 name-key collision groups found
-- [x] **Category A — 14 IN-/IV- same-name pairs merged**: large companies independently extracted as investors from CB CSV; merged into canonical IN- entity, `investor` role added, all REL-NNNN redirected
-  - Apple, Microsoft, Nvidia, Samsung Electronics, SoftBank, South32, Tencent, Vodafone, Agnico-Eagle, Amazon, Ma'aden, Tianqi Lithium, Zijin Mining, Kaitseministeerium
-- [x] **Category B — Airbus Defence And Space × 4 (IN-0464..0467)**: different EDF PICs + different countries (DE/ES/FR/FI) → 4 genuine national subsidiaries, kept as-is
-- [x] **Category C — Sopra Steria × 2 (IN-1078/IN-1079)**: different Wikidata QIDs → parent vs Norwegian subsidiary, kept as-is
-- [x] `scripts/dedup_entities.py` extended: null-QID losers now allowed (NOTE instead of abort); both-non-null-different QIDs still abort (existing behaviour preserved)
-- [x] validate.py PASSED — 2045 entities, 1042 relationships
-
-### Web UI — interactive elements (2026-04-15)
-
-- [x] **Source flag tooltips** — `data/glossary.json` added with plain-English descriptions for CB, EDF, iShares, WD, INF badges; loaded in `loadData()` alongside DB; `sourceFlagsHtml()` adds `title` attribute to each badge from glossary
-- [x] **Clickable top-investor pills** (Crunchbase card) — `top_investors` pills rendered as `<button class="cs-tag cs-tag-investor">` with `data-investor-name`; `wireInvestorPills()` resolves each name to an IV-NNNN registry entry and calls `selectItem()` on click; unresolved names stay inert; linked pills styled with orange border (rgba(255,140,40,.8)) at rest, solid orange fill + white text on hover; wired in `renderCards()` and `openCompare()`
-
-### Manual entity additions (2026-04-16)
-
-- [x] **IN-1357 UVision Air** added manually from Wikipedia: Israeli loitering munitions manufacturer (HERO family), founded 2011, HQ Kokhav Ya'ir-Tzur Yig'al, wikidata_id Q25496335, sources.wikidata populated via `enrich_wikidata.py`
-
-### Web UI — search by DB ID (2026-04-16)
-
-- [x] `renderAc` / `renderAcB`: added ID-based scoring — exact match scores 200, prefix 150, substring 50 — using `item.dbEntity?.id`
-- [x] Covers all entity kinds: `db-only` (IN-/IV- id), `merged` (dbEntity.id), `investor` (IV- id); EDF-only items without a DB entity are unaffected
-
-### Data fix — edf_orgs.json stale db_id entries (2026-04-16)
-
-- [x] Root cause: `dedup_entities.py` only updates `database.json`; `edf_orgs.json` `db_id` crosswalk was never updated on merge
-- [x] 8 stale entries identified (db_id pointing to retired loser IDs from 2026-04-15 dedup session): Indra, Saab, TEKEVER, Integrasys, Airbus Operations GmbH, Nammo, Arianegroup GmbH, United Monolithic Semiconductors GmbH
-- [x] All 8 updated to correct winner IDs; all 794 entries in `edf_orgs.json` now have valid `db_id` values
-- [x] `web/app.js` `buildRegistry()`: added `picToDbEntity` fallback map (DB entity lookup by `sources.edf.pic`) as safety net for any future stale `db_id` — ensures EDF orgs always resolve to their DB entity even if crosswalk lags
-- [x] `docs/UPDATE_PROTOCOL.md`: added step 4 to merge procedure — one-liner to update `edf_orgs.json` after any merge involving an EDF entity, with explicit rule warning that skipping it breaks the web UI registry
-
-### Web UI — all-fields rendering (2026-04-15)
-
-- [x] All card body functions (`infCardBody`, `wdCardBody`, `cbCardBody`, `edfCardBody`) updated to render every DB field unconditionally — null/empty values show `Not available in the source` placeholder via `.cs-na-inline` CSS class (muted italic)
-- [x] `web/companysearch.css`: added `.cs-na-inline` style (font-size sm, muted colour, italic, opacity 0.7)
-- [x] **Bug fix** — `total_funding_native` was rendering as `[object Object]` (value is `{amount, currency}` object); fixed with `fmtNative()` helper → now shows e.g. "EUR 1,361,500,000"
-- [x] **EDF card** — added `eu_url` (link to EC org page), `sme` (Yes/No), `source_file`, `extracted_at`, `coordinator_count`; these fields exist in `database.json`'s `sources.edf` but NOT in `edf_orgs.json` → reads from `item.dbEntity?.sources?.edf` (not from `item.edfOrg`)
-- [x] EDF card project load button unchanged (constraint honoured)
-- [x] Verified via Playwright on IN-0723 Helsing: all fields confirmed rendered across all cards
 
 ---
 
 ## Pending work (priority order)
 
-### 0a. Entity deduplication — COMPLETE (2026-04-15)
+### 0. Data quality — resolve flagged conflicts
 
-All 41 QID duplicate groups resolved across three passes (2026-04-15):
-- **Bucket A** (10 true merges): IBM, Vale, Fortescue, Arafura, Palantir, MP Materials, Saab, TEKEVER, Nammo, Grupo Mexico
-- **Bucket B** (10 share_class_variant pairs): FOX A/B, TATA Steel/GDR, Samsung/NON Voting, SSAB A/B, Jiangxi Copper A/H, CMOC/China Moly A, Alphabet A/C, Ericsson/Ericsson B
-- **Ambiguous** (3 merges + 3 QID nulls): Pilbara/PLS, Alphabet IN-1247→Class A, Meta/META; TSMC Arizona, Telefonica Moviles, KGHM International
-- **Bucket C** (2 merges + 27 QID nulls): TKMS/ThyssenKrupp, Indra/Indra Sistemas; 27 national subsidiaries and divisions — wrong parent QIDs removed with full rationale in each entity's history[]/validation[]
+From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` validation entries:
 
-`python3 scripts/dedup_entities.py --list` still shows 8 groups — all intentional `share_class_variant` pairs. The script classifies by name pattern, not validation entries; these will always appear and are expected.
-
-Also flagged: IN-1298 Indra has `bad_crunchbase_match` — CB matched to Indian water company; requires Crunchbase cleanup.
-- validate.py PASSED — 2059 entities, 1042 relationships
-
-### 0b. Crunchbase match audit — remaining ~100 ambiguous domain mismatches
-
-From the 2026-04-14 audit, ~100 entities have a CB website that differs from the known website but was not auto-removed (no country mismatch, no description contradiction). These are likely parent/subsidiary/regional-domain cases but need human confirmation.
-
-- Generate review CSV: `id, name, known_website, cb_website, cb_hq, cb_description`
-- For each row: mark `ok` (same entity, different domain) or `wrong` (different company)
-- For `wrong` entries: remove `sources.crunchbase` via a patch script
-- Key ambiguous cases noted: Airbus subsidiaries (IN-0463–0467), Safran subsidiaries, Rockwell Collins→Collins Aerospace rebrand, D-Orbit rebrand, Phaxiam→Erytech rebrand, Talgen/Nortal
-
-### 0c. Data quality — resolve flagged conflicts
-
-From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation entries:
-
-- **3 real country conflicts** (manual review required):
-  - `IN-1234` Destinus: wikidata=Switzerland, infonodes=Netherlands
-  - `IN-1262` Chemring Group: wikidata=Germany, infonodes=United Kingdom
-  - `IN-1340` Umicore: wikidata=United States, infonodes=Belgium
-  - For each: verify the correct country, set canonical value in `sources.infonodes.country`, append `history[]` entry, resolve `field_conflict` → `confirmed`
-- **15 country normalisation gaps**: "People's Republic of China" vs "China" — normalise `sources.wikidata.country` to short ISO 3166 form (or vice versa) via a one-off script
+- **3 real country conflicts** — RESOLVED (2026-04-23, `patch_country_quality.py`):
+  - `IN-1234` Destinus: infonodes.country set to Switzerland (was Netherlands); wikidata confirmed correct
+  - `IN-1262` Chemring Group: UK confirmed (wikidata P17=Germany is Wikidata error); field_conflict→confirmed
+  - `IN-1340` Umicore: Belgium confirmed; WARNING: wikidata_id Q107518759 = US subsidiary, QID needs replacing
+- **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
 - **30 real HQ conflicts**: city differs between wikidata and crunchbase — low priority; resolve when crunchbase is re-enriched
-- **46 duplicate wikidata_ids** (Audit A — deferred): same QID on multiple entities (share classes, subsidiaries); requires case-by-case review
+- **55 duplicate wikidata_ids** — RESOLVED (2026-04-23):
+  - 9 groups: `accepted_duplicate` — share classes / different exchange listings (no QID change)
+  - 8 groups: `expected_iv_in_duplicate` — company also acts as investor (no QID change)
+  - 1 merge: IV-0240 Government of Canada retired → IV-0617 Canadian Government (relationship migrated)
+  - 8 QIDs nulled: same entity under old/ticker name (IBM, PLS, VALE DO RIO DOCE, TKMS, Saab Aktiebolag, Telecom Italia S.p.a, Fortescue Metals Group, Meta for Developers)
+  - 8 QIDs nulled: national sibling subsidiaries with parent QID misapplied (Integrasys×2, UMS×2, Airbus Ops×2, Arianegroup×2)
+  - 35 QIDs nulled: parent QID misapplied to subsidiaries (Phase F — 24 groups)
+  - 19 groups remain: all intentional (share classes + IV+IN, all tagged)
+  - 12 relationships migrated to canonical entities (IN-1253→IN-0035 ×4, IN-1298→IN-0753 ×8)
+  - IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)
 
 ### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
 
@@ -604,19 +543,24 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 
 **Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
 
-### 3. Phase 3: Investment graph — COMPLETE (2026-04-14)
-- 723 IV-NNNN entities built from CB CSV (Top 5 + Lead Investors)
-- 1042 REL-NNNN investment relationships (605 lead)
-- **Optional next steps:**
-  - Wikidata enrichment for IV-NNNN entities (QID pipeline already written — run `search_missing_qids.py` targeting IV- entities)
-  - Old DB had 233 IV- entities with partial Wikidata data — cross-reference and carry over via name match if needed
-  - Cycle 2 CB export could add investor-level CB profiles (separate upload targeting investor names)
+### 3. Phase 3: Investment graph — COMPLETE (Crunchbase + old DB migration)
 
-### 4. Phase 4: EDF participation relationships
-- 587 companies have `sources.edf` but no relationships yet
-- Build `edf_participation` relationships from `rawdata/edf_calls.json`
-- Links IN-NNNN / institution entities → EDF projects/calls
-- Source of truth: `rawdata/edf_calls.json` (dict keyed by call identifier, each call has `projects[]` with `participants[]`)
+**Status (2026-04-22):** 667 IV entities + 992 relationships. 275 IV have country data → 129 cross-border map arcs.
+
+**To increase arc coverage further:**
+- Run `patch_iv_countries_p159.py` again if new QIDs are applied to IV entities
+- Extend `KNOWN` dict in `patch_investor_countries.py` for any new investor names
+- Run Crunchbase Cycle 2 to pick up new `top_investors` data
+- **Known gap — QID found but P17 missing:** 392 IV entities still lack country. ~17 have QIDs with no P17 (run `patch_iv_countries_p159.py` again after any new QIDs). Rest (~375) have no QID at all.
+
+### 4. Phase 4: EDF participation relationships — COMPLETE (2026-04-23)
+
+- **78 EDF project entities** (type: `edf_project`, prefix `EDF-NNNN`) created from 64 calls with projects
+- **1657 `edf_participation` relationships** (source=IN-*/IV-*/etc, target=EDF-NNNN)
+- Each relationship carries: `role` (coordinator/participant), `eu_contribution`
+- `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
+- Script: `scripts/import_edf_projects.py` (re-run safe, `--dry-run` flag)
+- validate.py PASSED after import
 
 ### 5. QID lookup — second pass (complete)
 - **455 companies** still without wikidata_id — 694/1149 (60.4%) now have QIDs
@@ -642,4 +586,3 @@ From `audit_quality.py` (Audit C), 44 entities have `field_conflict` validation 
 | `"video game"` removed from disqualify list | "video game **company**" is a valid org type; EA/Konami/Take-Two all have "company" in description |
 | P856 SPARQL batch size: 10 entities (≤80 URL variants) | Larger batches cause HTTP 414/431 on Wikidata SPARQL endpoint |
 | P856 false positives: accepted as review items | URL match is high-precision but some subsidiaries share parent's website; human reviewer corrects QID |
-| `edf_orgs.json` db_id must be updated after any merge | `dedup_entities.py` only writes `database.json`; stale db_id entries cause EDF entities to appear unlinked in the registry. See step 4 in `docs/UPDATE_PROTOCOL.md` merge procedure |

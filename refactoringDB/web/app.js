@@ -32,7 +32,7 @@ function row(lbl, val) {
 const NA = '<span class="cs-na-inline">Not available in the source</span>';
 function na(v) {
   if (v == null || v === '' || (Array.isArray(v) && v.length === 0)) return NA;
-  return null; // caller should use its own formatter
+  return null;
 }
 function fmtNative(obj) {
   if (!obj || typeof obj !== 'object') return NA;
@@ -45,7 +45,7 @@ function fmtNative(obj) {
 
 // ── Source/type badges ────────────────────────────────────────────────────────
 const SECTOR_CLASS = { Defence:'defence', Mining:'mining', Tech:'tech', Startup:'startup' };
-const TYPE_CLASS   = { fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company' };
+const TYPE_CLASS   = { fund:'fund', investor:'fund', public_fund:'fund', government_agency:'gov', bank:'bank', institution:'institution', company:'company', edf_project:'edf' };
 
 function sectorBadge(s) {
   const cls = SECTOR_CLASS[s] || 'default';
@@ -72,10 +72,10 @@ function matchBadge(method) {
 }
 
 // ── Data loading ──────────────────────────────────────────────────────────────
-let DB       = null;  // database.json
-let ORGS     = null;  // edf_orgs.json
-let EDF      = null;  // edf_calls.json (lazy)
-let GLOSSARY = null;  // data/glossary.json
+let DB       = null;
+let ORGS     = null;
+let EDF      = null;
+let GLOSSARY = null;
 
 async function loadData() {
   const [dbRes, orgsRes, glossRes] = await Promise.all([
@@ -112,17 +112,14 @@ function sourceFlagsHtml(item, inline = false) {
 }
 
 // ── Build unified registry ────────────────────────────────────────────────────
-// Each entry: { id, name, kind, country, pic?, dbEntity?, edfOrg? }
 let REGISTRY = [];
-let ENTITY_MAP = {};  // id → dbEntity
+let ENTITY_MAP = {};
 
 function buildRegistry() {
-  // Index DB entities
   for (const e of DB.entities) {
     ENTITY_MAP[e.id] = e;
   }
 
-  // Index EDF orgs by db_id for reverse lookup
   const edfByDbId = {};
   for (const org of Object.values(ORGS.orgs)) {
     if (org.db_id) {
@@ -131,7 +128,6 @@ function buildRegistry() {
     }
   }
 
-  // Build PIC → DB entity map for EDF orgs not linked via db_id
   const picToDbEntity = {};
   for (const e of DB.entities) {
     const pic = e.sources?.edf?.pic;
@@ -142,13 +138,12 @@ function buildRegistry() {
 
   // 1. EDF orgs first
   for (const org of Object.values(ORGS.orgs)) {
-    // Resolve DB entity via db_id (explicit crosswalk) or PIC match
     const dbEntity = (org.db_id && ENTITY_MAP[org.db_id]) || picToDbEntity[org.pic] || null;
     if (dbEntity) {
       seenDbIds.add(dbEntity.id);
       REGISTRY.push({
         id:       `EDF:${org.pic}`,
-        name:     dbEntity.name,            // prefer DB canonical name
+        name:     dbEntity.name,
         edfName:  org.organization_name,
         kind:     'merged',
         pic:      org.pic,
@@ -166,7 +161,6 @@ function buildRegistry() {
       });
       continue;
     }
-    // EDF-only (no matching DB entity)
     REGISTRY.push({
       id:      `EDF:${org.pic}`,
       name:    org.organization_name,
@@ -179,10 +173,11 @@ function buildRegistry() {
     });
   }
 
-  // 2. DB-only entities (not linked to any EDF org) — exclude IV- investors
+  // 2. DB-only entities — exclude IV- investors
   for (const e of DB.entities) {
     if (seenDbIds.has(e.id)) continue;
     if (e.id.startsWith('IV-')) continue;
+    const edfProj = e.sources?.edf_project;
     REGISTRY.push({
       id:       e.id,
       name:     e.name,
@@ -193,6 +188,9 @@ function buildRegistry() {
       country:  e.sources?.infonodes?.country || e.sources?.wikidata?.country || '',
       _key: [
         e.name,
+        edfProj?.acronym,
+        edfProj?.call_id,
+        edfProj?.call_title,
         e.sources?.crunchbase?.headquarters,
         e.sources?.infonodes?.country,
         e.sources?.wikidata?.country,
@@ -225,8 +223,13 @@ function buildRegistry() {
       if (!REL_MAP[id]) REL_MAP[id] = [];
       REL_MAP[id].push({ rel: r, role, other: ENTITY_MAP[other] });
     };
-    push(r.source, 'investor', r.target);
-    push(r.target, 'target',   r.source);
+    if (r.type === 'edf_participation') {
+      push(r.source, 'edf_participant', r.target);
+      push(r.target, 'edf_member',      r.source);
+    } else {
+      push(r.source, 'investor', r.target);
+      push(r.target, 'target',   r.source);
+    }
   }
 
   // Build PIC lookup map
@@ -237,7 +240,7 @@ function buildRegistry() {
 }
 
 let REL_MAP = {};
-let PIC_MAP = {};  // pic string → registry item
+let PIC_MAP = {};
 
 // ── Search & autocomplete ─────────────────────────────────────────────────────
 let activeFilter = 'all';
@@ -291,10 +294,9 @@ function renderAc(raw) {
     return;
   }
 
-  // Country-mode: query exactly matches a country value for 3+ orgs
   const exactCountryMatches = scored.filter(x => (x.item.country || '').toLowerCase() === q).length;
   const countryMode = exactCountryMatches >= 3;
-  const groupLimit  = countryMode ? Infinity : null; // null → per-kind defaults below
+  const groupLimit  = countryMode ? Infinity : null;
 
   const merged    = scored.filter(x => x.item.kind === 'merged');
   const dbOnly    = scored.filter(x => x.item.kind === 'db-only');
@@ -308,7 +310,6 @@ function renderAc(raw) {
     const slice = limit === Infinity ? items : items.slice(0, limit);
     for (const { item } of slice) {
       const e   = item.dbEntity;
-      const org = item.edfOrg;
       let badge = '';
       if (item.kind === 'investor') {
         badge = `<span class="badge badge-investor">${esc(e?.type || 'investor')}</span>`;
@@ -410,7 +411,7 @@ let acKbdB     = -1;
 let searchElB  = null;
 let acElB      = null;
 
-function selectItem(item) {
+function selectItem(item, replaceHistory = false) {
   currentItem = item;
   closeAc();
   searchEl.value = item.name;
@@ -419,7 +420,7 @@ function selectItem(item) {
   document.getElementById('cs-showing').textContent = item.name;
   document.getElementById('cs-compare').classList.remove('visible');
   if (selectedB) document.getElementById('cs-cmp-btn').disabled = false;
-  Router.push(item);
+  if (replaceHistory) Router.replace(item); else Router.push(item);
   renderProfile(item);
 }
 
@@ -539,7 +540,6 @@ function buildProfileColHtml(item, colId) {
   const wd  = e?.sources?.wikidata;
   const inf = e?.sources?.infonodes || {};
 
-  // Header badges
   let badges = '';
   if (item.kind === 'investor') {
     badges += typeBadge(e?.type || 'fund');
@@ -552,7 +552,6 @@ function buildProfileColHtml(item, colId) {
     if (e?.id) badges += `<span class="cs-hdr-id">${esc(e.id)}</span>`;
   }
 
-  // EU status
   let euHtml = '';
   if (item.kind !== 'investor') {
     const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
@@ -564,7 +563,6 @@ function buildProfileColHtml(item, colId) {
   const srcFlagsHtml = item.kind !== 'investor' ? sourceFlagsHtml(item) : '';
   const desc = cb?.description || wd?.description || '';
 
-  // External links
   let links = '';
   if (item.kind === 'investor') {
     if (wd?.wikipedia_url)    links += `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`;
@@ -581,7 +579,6 @@ function buildProfileColHtml(item, colId) {
     }
   }
 
-  // Stats
   let statsHtml = '';
   if (item.kind === 'investor') {
     const portfolio = (REL_MAP[e?.id] || []).filter(r => r.role === 'investor');
@@ -611,7 +608,6 @@ function buildProfileColHtml(item, colId) {
     ).join('');
   }
 
-  // Cards
   const cards = [];
   if (item.kind === 'investor') {
     const portfolio = (REL_MAP[e?.id] || []).filter(r => r.role === 'investor');
@@ -656,9 +652,8 @@ function buildProfileColHtml(item, colId) {
     if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
     if (cb) cards.push(makeCard('cb', 'Crunchbase', cbCardBody(cb)));
     if (org) {
-      // EDF card without lazy-load button (use static count only)
-      const edfHtml = edfCardBody(item).replace(/<button[^>]*id="edf-load-btn"[^>]*>[\s\S]*?<\/button>/, `<div class="cs-na">Open full profile to load projects.</div>`);
-      cards.push(makeCard('edf', 'European Defence Fund', edfHtml, `${org.project_count || 0} project${(org.project_count||0)!==1?'s':''}`, `card-edf-${colId}`));
+      const projRels = (REL_MAP[item.dbEntity?.id] || []).filter(r => r.role === 'edf_participant');
+      cards.push(makeCard('edf', 'European Defence Fund', edfCardBody(item), `${projRels.length || org.project_count || 0} project${(projRels.length || org.project_count || 0) !== 1 ? 's' : ''}`, `card-edf-${colId}`));
     }
   }
 
@@ -689,10 +684,8 @@ function buildProfileColHtml(item, colId) {
 function openCompare() {
   if (!currentItem || !selectedB) return;
 
-  // Hide single profile
   document.getElementById('cs-profile').classList.remove('visible');
 
-  // Build compare view
   const cmpEl = document.getElementById('cs-compare');
   cmpEl.innerHTML = `<div class="cs-cmp-grid">
     <div class="cs-cmp-col" id="cs-cmp-col-a">${buildProfileColHtml(currentItem, 'a')}</div>
@@ -701,12 +694,10 @@ function openCompare() {
   cmpEl.classList.add('visible');
   Router.pushCompare(currentItem, selectedB);
 
-  // Wire collapse toggles
   cmpEl.querySelectorAll('.cs-card-hdr').forEach(hdr => {
     hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
   });
 
-  // Wire portfolio buttons to open profile
   cmpEl.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id);
@@ -714,7 +705,6 @@ function openCompare() {
     });
   });
 
-  // Clickable top-investor pills
   wireInvestorPills(cmpEl);
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -723,6 +713,7 @@ function openCompare() {
 // ── Render profile ────────────────────────────────────────────────────────────
 function renderProfile(item) {
   if (item.kind === 'investor') { renderInvestorProfile(item); return; }
+  if (item.dbEntity?.type === 'edf_project') { renderEdfProjectProfile(item); return; }
 
   const profile = document.getElementById('cs-profile');
   profile.classList.remove('visible');
@@ -735,13 +726,9 @@ function renderProfile(item) {
   const wd  = e?.sources?.wikidata;
   const inf = e?.sources?.infonodes;
 
-  // ── Logo
   document.getElementById('cs-logo').textContent = initials(item.name);
-
-  // ── Name
   document.getElementById('cs-name').textContent = item.name;
 
-  // ── Badges
   let badges = '';
   if (e?.sector) badges += sectorBadge(e.sector);
   if (e?.type)   badges += typeBadge(e.type);
@@ -754,7 +741,6 @@ function renderProfile(item) {
   document.getElementById('cs-badges').innerHTML = badges;
   document.getElementById('cs-src-flags').innerHTML = sourceFlagsHtml(item);
 
-  // ── EU status (new line below badges)
   const hasEdf = item.kind === 'merged' || item.kind === 'edf-only';
   const euEl = document.getElementById('cs-eu-status');
   if (hasEdf) {
@@ -763,13 +749,11 @@ function renderProfile(item) {
     euEl.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag eu-flag--inactive"><span class="eu-status-unfunded">Not funded by European Commission</span>`;
   }
 
-  // ── Description
   const desc = cb?.description || wd?.description || '';
   const descEl = document.getElementById('cs-desc');
   descEl.textContent = desc;
   descEl.style.display = desc ? '' : 'none';
 
-  // ── External links
   let links = '';
   if (cb?.profile_url)
     links += `<a class="cs-ext-link cs-cb" href="${esc(cb.profile_url)}" target="_blank">Crunchbase ↗</a>`;
@@ -785,7 +769,6 @@ function renderProfile(item) {
   }
   document.getElementById('cs-links').innerHTML = links;
 
-  // ── Stat bar
   const stats = [];
   if (cb?.total_funding_usd)   stats.push({ v: fmtFunding(cb.total_funding_usd), l: 'Total Funding', cls: '' });
   if (wd?.employees)           stats.push({ v: Number(wd.employees).toLocaleString(),  l: 'Employees', cls: '' });
@@ -822,7 +805,6 @@ function renderInvestorProfile(item) {
   const e = item.dbEntity;
   const wd = e?.sources?.wikidata;
 
-  // Header
   document.getElementById('cs-logo').textContent = initials(item.name);
   document.getElementById('cs-name').textContent  = item.name;
   document.getElementById('cs-desc').textContent  = wd?.description || '';
@@ -834,14 +816,12 @@ function renderInvestorProfile(item) {
   document.getElementById('cs-badges').innerHTML  = badges;
   document.getElementById('cs-src-flags').innerHTML = '';
 
-  // External links
   let links = '';
   if (wd?.wikipedia_url) links += `<a class="cs-ext-link cs-wd" href="${esc(wd.wikipedia_url)}" target="_blank">Wikipedia ↗</a>`;
   if (e?.wikidata_id)    links += `<a class="cs-ext-link cs-wd" href="https://www.wikidata.org/wiki/${esc(e.wikidata_id)}" target="_blank">${esc(e.wikidata_id)} ↗</a>`;
   if (wd?.official_website) links += `<a class="cs-ext-link" href="${esc(wd.official_website)}" target="_blank">${esc(wd.official_website.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,''))} ↗</a>`;
   document.getElementById('cs-links').innerHTML = links;
 
-  // Stat bar
   const portfolio = (REL_MAP[e?.id] || []).filter(r => r.role === 'investor');
   const leads     = portfolio.filter(r => r.rel.details?.lead);
   const stats = [
@@ -858,14 +838,11 @@ function renderInvestorProfile(item) {
     </div>`
   ).join('');
 
-  // Cards: portfolio + wikidata + history + validation
   const cards = [];
 
-  // Portfolio card
   if (portfolio.length) {
     let h = `<ul class="cs-elist">`;
     const sorted = [...portfolio].sort((a, b) => {
-      // leads first, then by company name
       const aLead = a.rel.details?.lead ? 1 : 0;
       const bLead = b.rel.details?.lead ? 1 : 0;
       if (bLead !== aLead) return bLead - aLead;
@@ -897,10 +874,8 @@ function renderInvestorProfile(item) {
     cards.push(makeCard('portfolio', 'Crunchbase — Portfolio', h, portfolio.length));
   }
 
-  // Wikidata card
   if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
 
-  // History + validation
   const hist = e?.history;
   if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
   const val = e?.validation;
@@ -909,12 +884,10 @@ function renderInvestorProfile(item) {
   const container = document.getElementById('cs-cards');
   container.innerHTML = cards.join('');
 
-  // Collapse toggles
   container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
     hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
   });
 
-  // Navigate to portfolio company on click
   container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id);
@@ -939,7 +912,6 @@ function makeCard(cls, title, bodyHtml, count, id) {
 
 function infCardBody(inf, e) {
   let h = '';
-  // Entity-level fields (top-level, not source-specific)
   if (e?.id)          h += row('DB ID', `<code>${esc(e.id)}</code>`);
   if (e?.type)        h += row('Type', esc(e.type));
   h += row('Sector',      e?.sector      ? esc(e.sector)      : NA);
@@ -950,7 +922,6 @@ function infCardBody(inf, e) {
   h += row('Tags', e?.tags?.length
     ? `<span class="cs-tag-list">${e.tags.map(t => `<span class="cs-tag">${esc(t)}</span>`).join('')}</span>`
     : NA);
-  // Infonodes source fields
   h += row('Country',   inf.country   ? esc(inf.country)   : NA);
   h += row('Focus',     inf.main_focus ? esc(inf.main_focus) : NA);
   h += row('Tax ID',    inf.tax_id    ? `<code>${esc(inf.tax_id)}</code>` : NA);
@@ -1084,7 +1055,7 @@ function cbCardBody(cb) {
 
 function edfCardBody(item) {
   const org = item.edfOrg;
-  const edb = item.dbEntity?.sources?.edf || {};  // sources.edf from database.json
+  const edb = item.dbEntity?.sources?.edf || {};
   let h = `<div class="edf-identity-block">`;
   if (org.organization_name !== item.name) h += row('Legal name', esc(org.organization_name));
   h += row('PIC',          org.pic         ? `<code>${esc(String(org.pic))}</code>` : NA);
@@ -1110,17 +1081,40 @@ function edfCardBody(item) {
   const ext = edb.extracted_at;
   h += ext ? `<div class="cs-src-ts">Extracted: ${esc(ext)}</div>` : '';
   h += `</div>`;
-  const projCount = org.project_count || 0;
-  if (projCount > 0) {
-    h += `<div id="edf-proj-list">
-      <button class="edf-load-btn" id="edf-load-btn" data-pic="${esc(String(org.pic))}">
-        Load ${projCount} project${projCount !== 1 ? 's' : ''} ↓
-      </button>
-    </div>`;
+
+  const projRels = (REL_MAP[item.dbEntity?.id] || []).filter(r => r.role === 'edf_participant');
+  if (projRels.length) {
+    h += edfProjectListHtml(projRels);
   } else {
     h += `<div class="cs-na">No funded projects in this dataset.</div>`;
   }
   return h;
+}
+
+function edfProjectListHtml(projRels) {
+  let h = `<ul class="edf-projects">`;
+  projRels.forEach(({ rel, other: proj }, i) => {
+    if (!proj) return;
+    const ps = proj.sources?.edf_project || {};
+    const eu = fmtEur(rel.eu_contribution);
+    const role = rel.role || '';
+    const memberRels = (REL_MAP[proj.id] || []).filter(r => r.role === 'edf_member');
+    h += `<li class="edf-proj-item">
+      <div class="edf-proj-title">
+        ${ps.acronym ? `<strong>${esc(ps.acronym)}</strong> — ` : ''}${esc(proj.name)}
+      </div>
+      <div class="edf-proj-meta">
+        <span>${esc(ps.call_id || '')}</span>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${eu ? `<span>share: <span class="edf-contrib">${eu}</span></span>` : ''}
+        ${ps.start_date ? `<span>${esc(ps.start_date)}${ps.end_date ? ' → '+esc(ps.end_date) : ''}</span>` : ''}
+        ${ps.url ? `<a href="${esc(ps.url)}" target="_blank" class="edf-proj-link">EU Portal ↗</a>` : ''}
+      </div>
+      ${memberRels.length ? `<button class="edf-load-btn" data-edf-proj-id="${esc(proj.id)}" data-part-idx="${i}">Show ${memberRels.length} co-participant${memberRels.length !== 1 ? 's' : ''}</button>` : ''}
+      <ul class="edf-participants" id="edf-parts-${i}"></ul>
+    </li>`;
+  });
+  return h + `</ul>`;
 }
 
 function histCardBody(hist) {
@@ -1199,26 +1193,11 @@ function renderCards(item) {
   const container = document.getElementById('cs-cards');
   container.innerHTML = cards.join('');
 
-  // Collapse toggles
   container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
     hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
   });
 
-  // EDF lazy project load
-  container.querySelector('#edf-load-btn')?.addEventListener('click', async () => {
-    const btn = container.querySelector('#edf-load-btn');
-    btn.textContent = 'Loading…';
-    btn.disabled = true;
-    try {
-      await loadEdf();
-      renderEdfProjects(org.pic);
-    } catch {
-      document.getElementById('edf-proj-list').innerHTML =
-        `<div class="cs-na">Failed to load project data.</div>`;
-    }
-  });
-
-  // Clickable top-investor pills
+  wireEdfParticipantBtns(container);
   wireInvestorPills(container);
 }
 
@@ -1270,7 +1249,6 @@ function renderEdfProjects(pic) {
   html += `</ul>`;
   listEl.innerHTML = html;
 
-  // Bind participant load/toggle buttons
   listEl.querySelectorAll('[data-proj-idx]').forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = Number(btn.dataset.projIdx);
@@ -1307,6 +1285,146 @@ function renderProjectParticipants(partsEl, participants) {
     btn.addEventListener('click', () => {
       const item = PIC_MAP[btn.dataset.pic];
       if (item) selectItem(item);
+    });
+  });
+}
+
+function wireEdfParticipantBtns(container) {
+  container.querySelectorAll('[data-edf-proj-id]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projId = btn.dataset.edfProjId;
+      const idx    = btn.dataset.partIdx;
+      const partsEl = container.querySelector(`#edf-parts-${idx}`);
+      if (!partsEl) return;
+      if (partsEl.classList.contains('open')) {
+        partsEl.classList.remove('open');
+        partsEl.innerHTML = '';
+        const n = (REL_MAP[projId] || []).filter(r => r.role === 'edf_member').length;
+        btn.textContent = `Show ${n} co-participant${n !== 1 ? 's' : ''}`;
+        return;
+      }
+      const memberRels = (REL_MAP[projId] || []).filter(r => r.role === 'edf_member');
+      let html = '';
+      for (const { rel, other } of memberRels) {
+        if (!other) continue;
+        const eu   = fmtEur(rel.eu_contribution);
+        const role = rel.role || '';
+        const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || other.sources?.edf?.country || '';
+        html += `<li class="edf-participant-item">
+          <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+          ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+          ${country ? `<span class="edf-participant-country">${esc(country)}</span>` : ''}
+          ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+        </li>`;
+      }
+      partsEl.innerHTML = html;
+      partsEl.classList.add('open');
+      btn.textContent = 'Hide co-participants';
+      partsEl.querySelectorAll('.cs-portfolio-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          const targetItem = REGISTRY.find(r => r.dbEntity?.id === b.dataset.id || r.id === b.dataset.id);
+          if (targetItem) selectItem(targetItem);
+        });
+      });
+    });
+  });
+}
+
+// ── EDF project profile ───────────────────────────────────────────────────────
+function renderEdfProjectProfile(item) {
+  const profile = document.getElementById('cs-profile');
+  profile.classList.remove('visible');
+  void profile.offsetWidth;
+  profile.classList.add('visible');
+
+  const e  = item.dbEntity;
+  const ps = e?.sources?.edf_project || {};
+
+  document.getElementById('cs-logo').textContent = esc(ps.acronym || 'EDF');
+  document.getElementById('cs-name').textContent = e?.name || item.name;
+
+  let badges = typeBadge('edf_project');
+  if (e?.id) badges += `<span class="cs-hdr-id">${esc(e.id)}</span>`;
+  document.getElementById('cs-badges').innerHTML  = badges;
+  document.getElementById('cs-src-flags').innerHTML = '';
+  document.getElementById('cs-eu-status').innerHTML =
+    `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag"><span class="eu-status-funded">European Defence Fund project</span>`;
+
+  document.getElementById('cs-desc').textContent  = ps.type_of_action || '';
+  document.getElementById('cs-desc').style.display = ps.type_of_action ? '' : 'none';
+
+  let links = '';
+  if (ps.url) links += `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">EU Portal ↗</a>`;
+  document.getElementById('cs-links').innerHTML = links;
+
+  const memberRels = (REL_MAP[e?.id] || []).filter(r => r.role === 'edf_member');
+  const coordCount = memberRels.filter(r => r.rel.role === 'coordinator').length;
+  const stats = [
+    { v: memberRels.length, l: 'Participants', cls: 'edf-stat' },
+    ...(coordCount ? [{ v: coordCount, l: 'Coordinators', cls: 'edf-stat' }] : []),
+    ...(ps.eu_contribution ? [{ v: fmtEur(parseFloat(ps.eu_contribution)), l: 'EU contribution', cls: 'edf-stat' }] : []),
+    ...(ps.start_date ? [{ v: ps.start_date.slice(0,4), l: 'Start', cls: '' }] : []),
+    ...(ps.status     ? [{ v: ps.status, l: 'Status', cls: '' }] : []),
+  ];
+  document.getElementById('cs-stats').innerHTML = stats.map(s =>
+    `<div class="cs-stat${s.cls ? ' '+s.cls : ''}">
+      <div class="cs-stat-val">${esc(String(s.v ?? '—'))}</div>
+      <div class="cs-stat-lbl">${s.l}</div>
+    </div>`
+  ).join('');
+
+  const cards = [];
+
+  // Project details card
+  let dh = '';
+  if (ps.acronym)         dh += row('Acronym',         esc(ps.acronym));
+  if (ps.call_id)         dh += row('Call',             `<code>${esc(ps.call_id)}</code>${ps.call_title ? ` — ${esc(ps.call_title)}` : ''}`);
+  if (ps.type_of_action)  dh += row('Type of action',   esc(ps.type_of_action));
+  if (ps.status)          dh += row('Status',            esc(ps.status));
+  if (ps.start_date)      dh += row('Period',            `${esc(ps.start_date)}${ps.end_date ? ' → '+esc(ps.end_date) : ''}`);
+  if (ps.overall_budget)  dh += row('Overall budget',    fmtEur(parseFloat(ps.overall_budget)) || esc(ps.overall_budget));
+  if (ps.eu_contribution) dh += row('EU contribution',   `<span class="edf-contrib">${fmtEur(parseFloat(ps.eu_contribution)) || esc(ps.eu_contribution)}</span>`);
+  if (ps.project_id)      dh += row('Project ID',        `<code>${esc(ps.project_id)}</code>`);
+  if (ps.url)             dh += row('EU Portal',         `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">Open ↗</a>`);
+  cards.push(makeCard('edf', 'Project details', dh));
+
+  // Participants card
+  if (memberRels.length) {
+    const sorted = [...memberRels].sort((a, b) => {
+      const aC = a.rel.role === 'coordinator' ? 0 : 1;
+      const bC = b.rel.role === 'coordinator' ? 0 : 1;
+      if (aC !== bC) return aC - bC;
+      return (a.other?.name || '').localeCompare(b.other?.name || '');
+    });
+    let ph = `<ul class="edf-participants open" style="padding:0;margin:0;">`;
+    for (const { rel, other } of sorted) {
+      if (!other) continue;
+      const eu      = fmtEur(rel.eu_contribution);
+      const role    = rel.role || '';
+      const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || other.sources?.edf?.country || '';
+      ph += `<li class="edf-participant-item">
+        <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+        ${role ? `<span class="edf-proj-role ${role}">${esc(role)}</span>` : ''}
+        ${country ? `<span class="edf-participant-country">${esc(country)}</span>` : ''}
+        ${eu ? `<span class="edf-part-contrib">${eu}</span>` : ''}
+      </li>`;
+    }
+    ph += `</ul>`;
+    cards.push(makeCard('participants', 'Participants', ph, memberRels.length));
+  }
+
+  const hist = e?.history;
+  if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
+
+  const container = document.getElementById('cs-cards');
+  container.innerHTML = cards.join('');
+  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
+    hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
+  });
+  container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id || r.id === btn.dataset.id);
+      if (targetItem) selectItem(targetItem);
     });
   });
 }
@@ -1388,7 +1506,6 @@ async function init() {
       }
     });
 
-    // Search input events
     searchEl.addEventListener('input', () => renderAc(searchEl.value));
     searchEl.addEventListener('focus', () => {
       if (!searchEl.value) renderSuggestions();
@@ -1406,10 +1523,8 @@ async function init() {
       if (!e.target.closest('.cs-search-wrap')) closeAc();
     });
 
-    // Back button
     document.getElementById('cs-back').addEventListener('click', clearSelection);
 
-    // Filter pills
     document.querySelectorAll('.filter-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
@@ -1420,7 +1535,6 @@ async function init() {
       });
     });
 
-    // Stats summary in title
     const totalOrgs   = DB.entities.length;
     const totalCo     = DB.entities.filter(e => e.type === 'company').length;
     const totalInv    = DB.entities.filter(e => e.id.startsWith('IV-')).length;
@@ -1432,9 +1546,8 @@ async function init() {
     const initialCmpItem = Router.resolveCompare(REGISTRY);
 
     if (initialItem) {
-      selectItem(initialItem);
+      selectItem(initialItem, true);
       if (initialCmpItem) {
-        // Restore compare view
         selectedB = initialCmpItem;
         searchElB.value = initialCmpItem.name;
         document.getElementById('cs-clear-b').style.display = '';
