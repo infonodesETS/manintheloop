@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (relationship migrations: Arafura×4 + Indra×8 moved to canonical entities)
+> Last updated: 2026-04-23 (map: EU Funded filter checkbox added to toolbar)
 
 ## Session protocol
 
@@ -414,6 +414,7 @@ refactoringDB/
   - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
   - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
   - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
+  - **EU Funded filter (2026-04-23):** checkbox in toolbar (default off) dims all countries/nodes/arcs whose company-side has no EDF data. Covers 794 EDF companies across 28 countries. Composes with entity-click filter.
   - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
     - `index.html` → default panel
     - `index.html?country=840&countryname=United+States` → country selected
