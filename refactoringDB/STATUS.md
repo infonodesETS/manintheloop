@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (data quality pass: IV-0064 country fixed; audit_quality.py run (+566 reconciliation, +163 field_conflict); 4 WD country errors nulled; 65 cross-country CB HQ mismatches classified: 14 compatible_sources, 15 cb_hq_mismatch_severe, 31 cb_hq_mismatch_subsidiary)
+> Last updated: 2026-04-24 (CB wrong-entity cleanup: 12 CB blocks nulled, 3 downgraded to subsidiary, IN-1282 retired; Naval IN-0899 CB nulled — WD+EDF confirm Naval Group FR; validate.py PASSED)
 
 ## Session protocol
 
@@ -332,8 +332,10 @@ refactoringDB/
 | validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
 | validation: wikidata_country_corrected | 4 entities (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) — WD P17 errors nulled |
 | validation: compatible_sources | 14 entities — legitimate dual-location HQ (Anglo American, STmicro, Airbus Ops, KGHM Int'l, TSMC AZ, AMD, etc.) |
-| validation: cb_hq_mismatch_severe | 15 entities — CB matched completely different company (CDW, Apple, Nintendo, Telia, Baltic Workboats, etc.) |
-| validation: cb_hq_mismatch_subsidiary | 31 entities — CB matched regional subsidiary, not parent (Canon USA, Dentsu Americas, Thales USA, etc.) |
+| validation: cb_hq_mismatch_severe | ~~15~~ **0 remaining** — all resolved: 3 downgraded to subsidiary, 12 CB blocks nulled (cb_wrong_entity) |
+| validation: cb_wrong_entity | **12 entities** — CB block nulled (BCE, CDW, Fortescue, Informa, Lasertec, Telia, Naval, Patria IN-0951, Tecnobit, Ubitech, Nexa Technologies, United Aircraft) |
+| validation: cb_hq_mismatch_subsidiary | **34 entities** — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, Baltic Workboats, Commercial Metals, etc.) |
+| retired entities | **IN-1282** Fortescue Metals Group — duplicate of IN-0133, 0 relationships |
 | validation: needs_review | 2146 + 610 IV entries (ongoing) |
 
 ---
@@ -492,6 +494,13 @@ refactoringDB/
   - 14 `compatible_sources`: Anglo American, Logitech SA, Southern Copper, STmicro (dual HQ), Valterra Platinum, Airbus Operations ×2, Telespazio France, UMS ×2, AMD, KGHM Int'l, TSMC Arizona, Indra
   - 15 `cb_hq_mismatch_severe`: BCE, CDW, Commercial Metals, Fortescue, Informa, Lasertec, Nintendo, Telia, Baltic Workboats, Naval, Patria, Tecnobit, Ubitech, Nexa Technologies, United Aircraft — CB data for completely different entity; manual review needed to decide whether to null CB block
   - 31 `cb_hq_mismatch_subsidiary`: Canon USA, Apple Japan, Dentsu Americas, Thales USA, Omron Germany, NEC Brazil, etc. — CB matched a regional subsidiary
+- [x] validate.py PASSED (2026-04-24)
+
+### CB wrong-entity cleanup (2026-04-24)
+- [x] **3 downgraded** from `cb_hq_mismatch_severe` → `cb_hq_mismatch_subsidiary`: Nintendo (CB desc correct, HQ=LA wrong), Baltic Workboats (CB desc correct, HQ=Coral Gables FL wrong), Commercial Metals (user confirmed ok)
+- [x] **12 CB blocks nulled** (`cb_wrong_entity`): BCE (door automation IT≠Bell Canada), CDW (football club≠IT company), Fortescue (CB matched Fortescue Zero spinoff≠parent), Informa (German digital marketing≠Informa plc), Lasertec (Polish laser toner≠Japanese semiconductor), Telia (Greek CMS≠Swedish telecom), Naval (Brazilian valve maker≠Naval Group France), Patria IN-0951 (Bratislava trading≠Finnish defence; IN-0952/0953/0954 unaffected), Tecnobit (Italian CAD≠Spanish defence), Ubitech (Chinese entity≠Greek cybersecurity), Nexa Technologies (US trading tech≠French IoT), United Aircraft (Chinese drones≠Russian aerospace UAC)
+- [x] **IN-1282 Fortescue Metals Group retired** — duplicate of IN-0133, 0 relationships, wikidata_id already nulled as qid_nulled_duplicate
+- [x] **Naval Group (IN-0899) confirmed**: WD Q1227511 + EDF pic=998381522 both confirm French naval defence company. CB was naval valve manufacturer (Brazil) — nulled.
 - [x] validate.py PASSED (2026-04-24)
 
 ### EDF frontend (2026-04-23)
