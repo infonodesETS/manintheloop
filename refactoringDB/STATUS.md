@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (iShares Aerospace & Defense GICS 201010 imported: 57 new entities IN-1357–IN-1413, 20 existing updated; validate.py PASSED)
+> Last updated: 2026-04-24 (CB Cycle 2: 192 new + 46 updated; 5 re-nulled cb_wrong_entity; validate.py PASSED)
 
 ## Session protocol
 
@@ -323,17 +323,17 @@ refactoringDB/
 | Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
 | Companies with sources.ishares | 434 |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
+| Entities with sources.crunchbase | **969** (731 Cycle 1 + 192 new + 46 updated — Cycle 2 2026-04-24) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-24) — after iShares GICS 201010 aerospace import |
+| Last validate.py | PASSED (2026-04-24) — after CB Cycle 2 import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
 | validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
 | validation: wikidata_country_corrected | 4 entities (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) — WD P17 errors nulled |
 | validation: compatible_sources | 14 entities — legitimate dual-location HQ (Anglo American, STmicro, Airbus Ops, KGHM Int'l, TSMC AZ, AMD, etc.) |
 | validation: cb_hq_mismatch_severe | ~~15~~ **0 remaining** — all resolved: 3 downgraded to subsidiary, 12 CB blocks nulled (cb_wrong_entity) |
-| validation: cb_wrong_entity | **12 entities** — CB block nulled (BCE, CDW, Fortescue, Informa, Lasertec, Telia, Naval, Patria IN-0951, Tecnobit, Ubitech, Nexa Technologies, United Aircraft) |
+| validation: cb_wrong_entity | **5 entities remaining** — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft (7 resolved in Cycle 2: BCE, CDW, Informa, Patria, Naval Group, Ubitech, Lasertec now correct) |
 | validation: cb_hq_mismatch_subsidiary | **34 entities** — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, Baltic Workboats, Commercial Metals, etc.) |
 | retired entities | **IN-1282** Fortescue Metals Group — duplicate of IN-0133, 0 relationships |
 | validation: needs_review | 2146 + 610 IV entries (ongoing) |
@@ -581,16 +581,18 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
   - 12 relationships migrated to canonical entities (IN-1253→IN-0035 ×4, IN-1298→IN-0753 ×8)
   - ~~IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)~~ RESOLVED (2026-04-23): EDF PICs confirmed both German — IN-0723→Helsing GmbH (PIC 890415866, Q127380521, main entity, 5 CB rels restored, EDF thirdParty); IN-0724→Helsing Germany GmbH (PIC 892984620, subsidiary, EDF participant)
 
-### 1. Phase 2: Crunchbase enrichment — Cycle 1 COMPLETE
+### 1. Phase 2: Crunchbase enrichment — Cycle 2 COMPLETE (2026-04-24)
 
-**Status:** Real import complete (2026-04-14). 731 entities now have `sources.crunchbase`.
+**Cycle 2 status:** Import complete (2026-04-24). 969 entities now have `sources.crunchbase`.
+- Upload file: `data/crunchbase_sandbox/companies_no_cb_2026-04-24.csv` (430 rows)
+- CB returned: `companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv` (252 rows)
+- Non-matches: `companies_no_cb_2026-04-24-non-matches.csv` (121 rows)
+- Result: 192 new + 46 updated; 5 re-nulled as cb_wrong_entity
+- See `data/crunchbase_sandbox/CYCLE2.md` for full process doc
 
-**21 unresolved entities:** See `data/crunchbase_sandbox/CRUNCHBASE.md` — categorised as:
-- Category A (11): linkable but name too short/different for automatic matching — manual alias needed
-- Category B (3): wrong CB match (CB matched a different company) — do not import
-- Category C (7): genuine mismatches or entities not in DB — skip
+**38 unresolved from Cycle 2:** See `data/crunchbase_sandbox/unresolved_2026-04-24.csv`
 
-**Next cycle:** Run `python3 scripts/regenerate_export.py` to refresh the export, then re-upload to Crunchbase for a Cycle 2 enrichment pass.
+**Next cycle (Cycle 3):** Run `python3 scripts/regenerate_export.py`, re-upload for remaining ~237 companies still without CB data.
 
 ### 3. Phase 3: Investment graph — COMPLETE (Crunchbase + old DB migration)
 
