@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-23 (IV country coverage: 275→456/667; cross-border arcs: 129→130; SEK QID false-positive nulled; USA→United States normalised)
+> Last updated: 2026-04-24 (data quality pass: IV-0064 country fixed; audit_quality.py run (+566 reconciliation, +163 field_conflict); 4 WD country errors nulled; 65 cross-country CB HQ mismatches classified: 14 compatible_sources, 15 cb_hq_mismatch_severe, 31 cb_hq_mismatch_subsidiary)
 
 ## Session protocol
 
@@ -305,7 +305,7 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-04-23)
+## Current DB state (2026-04-24)
 
 | Metric | Value |
 |---|---|
@@ -326,10 +326,14 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-23) — after IV country batch 2 + USA normalisation |
+| Last validate.py | PASSED (2026-04-24) — after data quality pass |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
-| validation: reconciliation_documented | 165 entities (2 edf+ishares, 130 crunchbase migration, 33 wikidata name-match) |
-| validation: field_conflict | 44 originally — all resolved (2026-04-23): 3 country→confirmed, 15 country normalisation, 26 HQ→resolved/compatible |
+| validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
+| validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
+| validation: wikidata_country_corrected | 4 entities (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) — WD P17 errors nulled |
+| validation: compatible_sources | 14 entities — legitimate dual-location HQ (Anglo American, STmicro, Airbus Ops, KGHM Int'l, TSMC AZ, AMD, etc.) |
+| validation: cb_hq_mismatch_severe | 15 entities — CB matched completely different company (CDW, Apple, Nintendo, Telia, Baltic Workboats, etc.) |
+| validation: cb_hq_mismatch_subsidiary | 31 entities — CB matched regional subsidiary, not parent (Canon USA, Dentsu Americas, Thales USA, etc.) |
 | validation: needs_review | 2146 + 610 IV entries (ongoing) |
 
 ---
@@ -478,6 +482,17 @@ refactoringDB/
 **Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
 
 **Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
+
+### Data quality pass (2026-04-24)
+- [x] **IV-0064 BDT & MSD Partners**: sources.wikidata.country='United Kingdom' nulled — Wikidata P17 error; HQ=NYC confirms United States
+- [x] **audit_quality.py** run (not dry-run): +566 reconciliation_documented (CB legacy migrations) + 163 field_conflict (1 country + 188 HQ real conflicts, minus already-flagged)
+- [x] **4 WD country errors fixed** (sources.wikidata.country nulled): Airbus Helicopters (DE→null, Marignane is FR), STmicro Grenoble 2 (NL→null, Plan-les-Ouates is CH), Comec (CN→null, Italian EDF participant), RIO Tinto (UK→null, Melbourne AU operational HQ)
+- [x] **Chemring re-flag resolved**: audit_quality.py re-flagged IN-1262 (already resolved 2026-04-23); upgraded to field_conflict_resolved
+- [x] **65 cross-country CB HQ mismatches classified** via `scripts/patch_hq_conflicts2.py`:
+  - 14 `compatible_sources`: Anglo American, Logitech SA, Southern Copper, STmicro (dual HQ), Valterra Platinum, Airbus Operations ×2, Telespazio France, UMS ×2, AMD, KGHM Int'l, TSMC Arizona, Indra
+  - 15 `cb_hq_mismatch_severe`: BCE, CDW, Commercial Metals, Fortescue, Informa, Lasertec, Nintendo, Telia, Baltic Workboats, Naval, Patria, Tecnobit, Ubitech, Nexa Technologies, United Aircraft — CB data for completely different entity; manual review needed to decide whether to null CB block
+  - 31 `cb_hq_mismatch_subsidiary`: Canon USA, Apple Japan, Dentsu Americas, Thales USA, Omron Germany, NEC Brazil, etc. — CB matched a regional subsidiary
+- [x] validate.py PASSED (2026-04-24)
 
 ### EDF frontend (2026-04-23)
 - [x] `web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
