@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (DFND ETF name/ticker fixed in DB; rawdata/ISHARES.md created with metadata for all 4 ETFs)
+> Last updated: 2026-04-24 (metrics reconciled: ishares 511, IV 651, institutions 223, wikidata_id 659, crunchbase 906; glossary.json + STATUS rawdata listing updated for GICS 201010)
 
 ## Session protocol
 
@@ -222,7 +222,7 @@ python3 scripts/validate.py
 
 Build a graph database integrating three data universes:
 
-1. **iShares ETF holdings** — Mining (GICS 151040), Tech (GICS 45), Comm Services (GICS 50)
+1. **iShares ETF holdings** — Mining (GICS 151040), Tech (GICS 45), Comm Services (GICS 50), Aerospace & Defense (GICS 201010)
 2. **EDF (European Defence Fund) beneficiaries** — from `rawdata/edf_calls.json`
 3. **Companies/startups** — migrated from `../refactoring/data/database.json` (old DB, read-only)
 
@@ -273,9 +273,12 @@ refactoringDB/
 │       └── unresolved_2026-04-13.csv ← 21 CB rows not matched to DB entity
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
+│   ├── ISHARES.md             ← metadata registry for all 4 iShares ETFs (ETF name, ticker, GICS, date)
 │   ├── ishares_metals_mining_gics151040.csv
 │   ├── ishares_tech_gics45.csv
-│   └── ishares_comm_services_gics50.csv
+│   ├── ishares_comm_services_gics50.csv
+│   ├── ishare_aerospace_defense_GICS201010.csv        ← original Italian-locale file
+│   └── ishare_aerospace_defense_GICS201010_en.csv     ← normalised (dot decimal) version used for import
 ├── scripts/
 │   ├── parse_ishares.py       ← parses iShares CSVs → normalized dicts
 │   ├── build_database.py      ← builds DB from iShares CSVs (dedup by name_key)
@@ -312,20 +315,20 @@ refactoringDB/
 | Schema | 3.0 |
 | Total entities | **2158** |
 | — companies (IN-NNNN) | **1206** (1149 + 57 new from GICS 201010 aerospace ETF) |
-| — institutions + gov agencies | 207 |
+| — institutions + gov agencies | **223** (184 institution + 39 government_agency) |
 | — persons (PER-NNNN) | **0** — not yet built |
-| — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
+| — investors (IV-NNNN) | **651** (667 created − 16 merged into IN entities) |
 | — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
 | Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
-| IV entities with country | **456 / 667** — 275 prev + 1 SPARQL P159 + 15 manual (QID-bearing, WD missing P17) + 171 curated (no-QID recognisable names) + 54 normalised USA→United States (2026-04-23) |
+| IV entities with country | **444 / 651** |
 | Cross-border arc pairs | **130** (unique investor-country→company-country pairs) |
-| Companies with wikidata_id | 710 / 1149 (61.8%) — 2 wrong QIDs nulled (AVICOPTER, Sichuan Yahua) |
-| Companies with sources.wikidata | 710 / 710 (100% of QID-bearing entities) |
-| Companies with sources.ishares | 434 |
+| Companies with wikidata_id | **659 / 1206** — reduced from 710 by QID nulling (duplicates/subsidiaries) + 57 new aerospace entities |
+| Companies with sources.wikidata | **710** (includes 51 entities where QID was later nulled — stale block, harmless) |
+| Companies with sources.ishares | **511** (434 original + 77 from GICS 201010) |
 | Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | **969** (731 Cycle 1 + 192 new + 46 updated — Cycle 2 2026-04-24) |
-| Companies with Crunchbase top_investors | 306 / 1149 |
-| Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
+| Entities with sources.crunchbase | **906** current (969 cumulative — 63 CB blocks nulled as wrong matches) |
+| Companies with Crunchbase top_investors | **345 / 1206** |
+| Companies with sources.infonodes.website | **1010 / 1206** via infonodes; **1132 / 1206** via infonodes OR crunchbase |
 | Last validate.py | PASSED (2026-04-24) — after CB Cycle 2 import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
