@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (CB wrong-entity cleanup: 12 CB blocks nulled, 3 downgraded to subsidiary, IN-1282 retired; Naval IN-0899 CB nulled — WD+EDF confirm Naval Group FR; validate.py PASSED)
+> Last updated: 2026-04-24 (iShares Aerospace & Defense GICS 201010 imported: 57 new entities IN-1357–IN-1413, 20 existing updated; validate.py PASSED)
 
 ## Session protocol
 
@@ -310,8 +310,8 @@ refactoringDB/
 | Metric | Value |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2101** |
-| — companies (IN-NNNN) | 1149 |
+| Total entities | **2158** |
+| — companies (IN-NNNN) | **1206** (1149 + 57 new from GICS 201010 aerospace ETF) |
 | — institutions + gov agencies | 207 |
 | — persons (PER-NNNN) | **0** — not yet built |
 | — investors (IV-NNNN) | **667** — 610 from Crunchbase + 57 migrated from old DB (2026-04-22) |
@@ -326,7 +326,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **731** (601 new + 121 updated — Cycle 1 real import 2026-04-14) |
 | Companies with Crunchbase top_investors | 306 / 1149 |
 | Companies with sources.infonodes.website | 1126 / 1149 (98.0%) |
-| Last validate.py | PASSED (2026-04-24) — after data quality pass |
+| Last validate.py | PASSED (2026-04-24) — after iShares GICS 201010 aerospace import |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
 | validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
@@ -536,6 +536,24 @@ refactoringDB/
 ---
 
 ## Pending work (priority order)
+
+### 6. iShares Aerospace & Defense (GICS 201010) — COMPLETE (2026-04-24)
+
+**File:** `rawdata/ishare_aerospace_defense_GICS201010.csv`
+**Date of file:** 2026-03-30 (Al, 30/03/2026 header)
+**GICS sector:** 201010 — Aerospace & Defense (Industrials)
+**Rows:** ~65 EQUITY rows (+ cash/futures to skip) — Italian locale CSV (commas as decimal separators)
+
+**Key companies in this ETF not yet in DB (likely new):**
+RTX Corp, Boeing, GE Aerospace, Rolls-Royce, Lockheed Martin, Northrop Grumman, Airbus Group, General Dynamics, Howmet Aerospace, BAE Systems, Safran, Rheinmetall, TransDigm, L3Harris, Axon Enterprise, Hanwha Aerospace, Rocket Lab, Thales, Leonardo, Curtiss-Wright, Elbit Systems, Woodward, SAAB B, MTU Aero Engines, Carpenter Technology, ATI Inc, Kongsberg Gruppen, BWX Technologies, HEICO, Textron, Bombardier, Huntington Ingalls, Singapore Technologies, Kratos Defense, Korea Aerospace, CAE, Moog, Melrose, Babcock, Dassault Aviation, LIG Nex1, Hanwha Systems, Hexcel, Karman Holdings, AeroVironment, Hensoldt, StandardAero, VSE Corp, AAR Corp, Mercury Systems, Leonardo DRS, Archer Aviation, MDA Space, QinetiQ, DroneShield, Exosens, Astronics, Loar Holdings, Intuitive Machines, Chemring, Ducommun, Bet Shemesh Engines, V2X Inc, Exail Technologies, Avio, Austal, Cadre Holdings, National Presto, Astroscale, Satrec Initiative, Redwire Corp, MilDef Group, QPS Holdings, ispace, SNT Dynamics, Byrna Technologies
+
+**To do:**
+- Check which companies are already in DB (by name_key match or wikidata_id)
+- Parse using `scripts/parse_ishares.py` as reference, adapting for Italian locale (`.` thousands sep, `,` decimal)
+- Add new companies as `type=company`, `sources.ishares` array entry with `etf=aerospace_defense`, `gics=201010`
+- Update existing companies by appending to their `sources.ishares` array
+- Run `validate.py` after import
+- Consider writing `scripts/import_ishares_aerospace.py` following pattern of `build_database.py`
 
 ### 0. Data quality — resolve flagged conflicts
 
