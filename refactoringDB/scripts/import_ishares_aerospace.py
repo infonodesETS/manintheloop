@@ -32,10 +32,8 @@ from parse_ishares import parse_csv, normalize_name
 DATABASE_PATH = os.path.join(BASE, "data", "database.json")
 CSV_PATH = os.path.join(BASE, "rawdata", "ishare_aerospace_defense_GICS201010_en.csv")
 
-# TODO: verify ETF name and ticker — Italian CSV does not include fund metadata.
-# Likely: iShares Aerospace & Defence ETF (ARMA) or iShares MSCI Global Aerospace ETF.
-ETF_NAME = "iShares Aerospace & Defense ETF"
-ETF_TICKER = "ARMA"
+ETF_NAME = "iShares Global Aerospace & Defence UCITS ETF"
+ETF_TICKER = "DFND"
 GICS_CODE = "201010"
 EXTRACTED_AT = "2026-03-30"
 

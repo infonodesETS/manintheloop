@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (CB Cycle 2: 192 new + 46 updated; 5 re-nulled cb_wrong_entity; validate.py PASSED)
+> Last updated: 2026-04-24 (DFND ETF name/ticker fixed in DB; rawdata/ISHARES.md created with metadata for all 4 ETFs)
 
 ## Session protocol
 
