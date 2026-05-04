@@ -81,7 +81,20 @@
     .map-filter-clear { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
     .map-filter-clear:hover { border-color: var(--accent); }
     .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font-mono); cursor: help; white-space: nowrap; }
-    #map-arc-toggle, #map-edf-toggle { accent-color: var(--accent); }
+    /* EDF entity toggle switch */
+    .map-edf-switch { display: flex; align-items: center; gap: 8px; }
+    .map-edf-lbl { font-size: var(--fs-sm); color: var(--text-muted); transition: color .15s; user-select: none; white-space: nowrap; }
+    .map-edf-lbl.is-active { color: var(--text-primary); }
+    .map-switch { position: relative; display: inline-flex; width: 36px; height: 20px; flex-shrink: 0; cursor: pointer; }
+    .map-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .map-switch-track { position: absolute; inset: 0; background: rgba(255,255,255,0.08); border: 1px solid var(--border); border-radius: 20px; transition: background .2s, border-color .2s; }
+    .map-switch-knob { position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: var(--text-muted); border-radius: 50%; transition: transform .2s, background .2s; pointer-events: none; }
+    .map-switch:has(input:checked) .map-switch-track { background: rgba(0,255,65,0.15); border-color: rgba(0,255,65,0.4); }
+    .map-switch:has(input:checked) .map-switch-knob { transform: translateX(16px); background: var(--accent); }
+    [data-theme="light"] .map-switch-track { background: rgba(0,0,0,0.08); }
+    [data-theme="light"] .map-switch-knob { background: rgba(0,0,0,0.35); }
+    [data-theme="light"] .map-switch:has(input:checked) .map-switch-track { background: rgba(0,102,34,0.1); border-color: rgba(0,102,34,0.4); }
+    [data-theme="light"] .map-switch:has(input:checked) .map-switch-knob { background: var(--accent); }
     .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
     .map-toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 2px; }
     .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
@@ -137,14 +150,22 @@
     <!-- Map main -->
     <div id="map-main">
       <div id="map-toolbar">
-        <label class="map-toggle-label" title="Show only companies with EU Funding (EDF)">
-          <input type="checkbox" id="map-edf-toggle"> EU Funded
-        </label>
+        <div class="map-edf-switch" title="Filter entities by EU Funding (EDF)">
+          <span class="map-edf-lbl is-active" id="map-lbl-all">All Entities</span>
+          <label class="map-switch">
+            <input type="checkbox" id="map-edf-toggle">
+            <span class="map-switch-track"></span>
+            <span class="map-switch-knob"></span>
+          </label>
+          <span class="map-edf-lbl" id="map-lbl-edf">EU Funded Only</span>
+        </div>
         <span class="map-toolbar-sep"></span>
+        <!--
         <label class="map-toggle-label" title="Show investment flow arcs">
           <input type="checkbox" id="map-arc-toggle"> Show investment flow arcs
         </label>
         <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
+        -->
         <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
       </div>
       <div id="map-filter-bar" class="map-filter-bar" style="display:none">
@@ -728,7 +749,7 @@ function applyMapFilter() {
   }
 
   const arcEl = document.getElementById('map-arc-layer');
-  if (arcEl) arcEl.style.display = (mapState.showArcs || f) ? '' : 'none';
+  if (arcEl) arcEl.style.display = (mapState.showArcs || f || mapState.selectedIso) ? '' : 'none';
 
   // helper: arc visibility based on selected country + in/out button state
   const arcDimForCountry = (d, sel) => {
@@ -1031,13 +1052,15 @@ async function init() {
     // Wire toolbar
     document.getElementById('map-edf-toggle').addEventListener('change', e => {
       mapState.edfOnly = e.target.checked;
+      document.getElementById('map-lbl-all').classList.toggle('is-active', !e.target.checked);
+      document.getElementById('map-lbl-edf').classList.toggle('is-active', e.target.checked);
       applyMapFilter();
     });
-    document.getElementById('map-arc-toggle').addEventListener('change', e => {
-      mapState.showArcs = e.target.checked;
-      const arcEl = document.getElementById('map-arc-layer');
-      if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
-    });
+    // document.getElementById('map-arc-toggle').addEventListener('change', e => {
+    //   mapState.showArcs = e.target.checked;
+    //   const arcEl = document.getElementById('map-arc-layer');
+    //   if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+    // });
     document.getElementById('map-reset-zoom-btn').addEventListener('click', closeMapPanel);
     document.getElementById('map-close-panel-btn').addEventListener('click', closeMapPanel);
     document.getElementById('map-clear-filter-btn').addEventListener('click', clearMapFilter);
