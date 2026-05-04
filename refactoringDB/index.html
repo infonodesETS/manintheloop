@@ -98,6 +98,8 @@
     .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
     .map-toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 2px; }
     .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
+    .map-expand-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 10px; padding: 2px 4px; line-height: 1; transition: color .12s; flex-shrink: 0; }
+    .map-expand-btn:hover { color: var(--text-primary); }
     [data-theme="light"] .map-filter-bar { background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.25); }
     [data-theme="light"] .map-filter-clear { border-color: rgba(0,102,34,0.3); }
 
@@ -537,8 +539,8 @@ function showMapCountry(iso, skipHistory = false) {
     </div>`).join('') + (arr.length > 25 ? `<div class="map-item-more">+${arr.length - 25} more</div>` : '');
 
   const updateArcVis = () => {
-    const showIn  = !flowInArr.length  || document.getElementById('map-flow-in-btn')?.classList.contains('active');
-    const showOut = !flowOutArr.length || document.getElementById('map-flow-out-btn')?.classList.contains('active');
+    const showIn  = !flowInArr.length  || document.getElementById('map-flow-in-list')?.style.display !== 'none';
+    const showOut = !flowOutArr.length || document.getElementById('map-flow-out-list')?.style.display !== 'none';
     const edf = mapState.edfOnly;
     mapState.g?.selectAll('.map-arc').classed('arc-dim', d => {
       const dimEdf = edf && !mapState.edfISOs.has(d.tgt);
@@ -557,10 +559,10 @@ function showMapCountry(iso, skipHistory = false) {
     <div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd">
         <span id="map-co-count">${cd.companies.length}</span> Companies
-        <button id="map-toggle-co" class="sf-btn active">on</button>
+        <button id="map-toggle-co" class="map-expand-btn">▼</button>
       </div>
       <div id="map-companies-list">
-        ${cd.companies.map(c => {
+        ${[...cd.companies].sort((a, b) => a.name.localeCompare(b.name)).map(c => {
           const cbInvCount = c.sources?.crunchbase?.top_investors?.length || 0;
           const invBadge   = cbInvCount ? `<span class="map-item-id" title="${cbInvCount} investors (Crunchbase)">↓${cbInvCount}</span>` : '';
           return `
@@ -573,24 +575,24 @@ function showMapCountry(iso, skipHistory = false) {
     </div>
     ${flowInArr.length ? `<div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd map-flow-in-hd">↓ Capital Flowing In (${flowInArr.length})
-        <button id="map-flow-in-btn" class="sf-btn active">on</button>
+        <button id="map-flow-in-btn" class="map-expand-btn">▼</button>
       </div>
-      <div id="map-flow-in-list">${renderInvList(flowInArr)}</div>
+      <div id="map-flow-in-list">${renderInvList([...flowInArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
     </div>` : '<div class="map-no-flow">↓ No inbound cross-border investments recorded</div>'}
     ${flowOutArr.length ? `<div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd map-flow-out-hd">↑ Capital Flowing Out (${flowOutArr.length})
-        <button id="map-flow-out-btn" class="sf-btn active">on</button>
+        <button id="map-flow-out-btn" class="map-expand-btn">▼</button>
       </div>
-      <div id="map-flow-out-list">${renderInvList(flowOutArr)}</div>
+      <div id="map-flow-out-list">${renderInvList([...flowOutArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
     </div>` : '<div class="map-no-flow">↑ No outbound cross-border investments recorded</div>'}
   `;
 
   const toggleList = (btnId, listId) => {
     document.getElementById(btnId)?.addEventListener('click', function() {
-      this.classList.toggle('active');
-      const on = this.classList.contains('active');
-      this.textContent = on ? 'on' : 'off';
-      document.getElementById(listId).style.display = on ? '' : 'none';
+      const listEl = document.getElementById(listId);
+      const open = listEl.style.display === 'none';
+      listEl.style.display = open ? '' : 'none';
+      this.textContent = open ? '▼' : '▶';
       if (btnId.includes('flow')) updateArcVis();
     });
   };
@@ -753,8 +755,8 @@ function applyMapFilter() {
 
   // helper: arc visibility based on selected country + in/out button state
   const arcDimForCountry = (d, sel) => {
-    const showIn  = document.getElementById('map-flow-in-btn')?.classList.contains('active') ?? true;
-    const showOut = document.getElementById('map-flow-out-btn')?.classList.contains('active') ?? true;
+    const showIn  = document.getElementById('map-flow-in-list')?.style.display !== 'none' ?? true;
+    const showOut = document.getElementById('map-flow-out-list')?.style.display !== 'none' ?? true;
     if (d.tgt === sel) return !showIn;
     if (d.src === sel) return !showOut;
     return true;
