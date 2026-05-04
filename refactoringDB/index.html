@@ -535,7 +535,7 @@ function showMapCountry(iso, skipHistory = false) {
     <div class="map-sector-row"><span class="map-sector-lbl">Sectors:</span> ${sectorSummary}</div>
     <div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd">
-        ${cd.companies.length} Companies
+        <span id="map-co-count">${cd.companies.length}</span> Companies
         <button id="map-toggle-co" class="sf-btn active">on</button>
       </div>
       <div id="map-companies-list">
@@ -543,7 +543,7 @@ function showMapCountry(iso, skipHistory = false) {
           const cbInvCount = c.sources?.crunchbase?.top_investors?.length || 0;
           const invBadge   = cbInvCount ? `<span class="map-item-id" title="${cbInvCount} investors (Crunchbase)">↓${cbInvCount}</span>` : '';
           return `
-          <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+          <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}"${c.sources?.edf ? ' data-edf="1"' : ''}>
             <button class="map-entity-name">${esc(c.name)}</button>
             ${companyBadges(c)}${invBadge}
           </div>`;
@@ -748,6 +748,10 @@ function applyMapFilter() {
     } else {
       mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
     }
+    // Restore all companies in side panel
+    document.querySelectorAll('#map-companies-list .map-co-item').forEach(el => { el.style.display = ''; });
+    const countEl = document.getElementById('map-co-count');
+    if (countEl) countEl.textContent = document.querySelectorAll('#map-companies-list .map-co-item').length;
     return;
   }
 
@@ -768,6 +772,17 @@ function applyMapFilter() {
     const dimCountry = sel ? arcDimForCountry(d, sel) : false;
     d3.select(this).classed('arc-dim', dimEdf || dimFilter || dimCountry);
   });
+
+  // Update side panel companies list when EDF filter is active
+  const items = document.querySelectorAll('#map-companies-list .map-co-item');
+  if (items.length) {
+    items.forEach(el => { el.style.display = (edf && !el.dataset.edf) ? 'none' : ''; });
+    const countEl = document.getElementById('map-co-count');
+    if (countEl) {
+      const visible = edf ? [...items].filter(el => el.dataset.edf).length : items.length;
+      countEl.textContent = visible;
+    }
+  }
 }
 
 // ── drawArcs ──────────────────────────────────────────────────────────────────
