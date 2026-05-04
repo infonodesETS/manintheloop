@@ -166,8 +166,8 @@
         <label class="map-toggle-label" title="Show investment flow arcs">
           <input type="checkbox" id="map-arc-toggle"> Show investment flow arcs
         </label>
-        <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
         -->
+        <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
         <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
       </div>
       <div id="map-filter-bar" class="map-filter-bar" style="display:none">
@@ -518,8 +518,8 @@ function showMapCountry(iso, skipHistory = false) {
 
   const coStr       = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
   const localInvStr = localInvestorCount > 0 ? ` · ${localInvestorCount} local investor${localInvestorCount !== 1 ? 's' : ''}` : '';
-  const cbInvCos    = cd.companies.filter(c => c.sources?.crunchbase?.top_investors?.length).length;
-  const cbInvStr    = cbInvCos > 0 && !localInvestorCount ? ` · ${cbInvCos} with investor data` : '';
+  const cbInvCos    = cd.companies.filter(c => (mapState.liveInvCount?.[c.id] || 0) > 0).length;
+  const cbInvStr    = cbInvCos > 0 && !localInvestorCount ? ` · ${cbInvCos} with investors` : '';
   let introText = `${coStr}${localInvStr}${cbInvStr} headquartered in ${esc(cd.name)}.`;
   if (flowInArr.length || flowOutArr.length) {
     const parts = [];
@@ -563,8 +563,8 @@ function showMapCountry(iso, skipHistory = false) {
       </div>
       <div id="map-companies-list">
         ${[...cd.companies].sort((a, b) => a.name.localeCompare(b.name)).map(c => {
-          const cbInvCount = c.sources?.crunchbase?.top_investors?.length || 0;
-          const invBadge   = cbInvCount ? `<span class="map-item-id" title="${cbInvCount} investors (Crunchbase)">↓${cbInvCount}</span>` : '';
+          const invCount = mapState.liveInvCount?.[c.id] || 0;
+          const invBadge = invCount ? `<span class="map-item-id" title="${invCount} investors">↓${invCount}</span>` : '';
           return `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}"${c.sources?.edf ? ' data-edf="1"' : ''}>
             <button class="map-entity-name">${esc(c.name)}</button>
@@ -993,6 +993,13 @@ function buildMapView(db) {
     if (!iso) return;
     if (!mapState.countryData[iso]) mapState.countryData[iso] = { name: ISO_TO_NAME[iso] || country, companies: [] };
     mapState.countryData[iso].companies.push(c);
+  });
+
+  // Live investor count per company from relationships (source of truth)
+  mapState.liveInvCount = {};
+  relationships.forEach(r => {
+    if (r.type === 'investment' && r.target?.startsWith('IN-'))
+      mapState.liveInvCount[r.target] = (mapState.liveInvCount[r.target] || 0) + 1;
   });
 
   // EDF ISO set — countries with at least one EDF-funded company
