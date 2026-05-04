@@ -59,3 +59,27 @@ mapState.g.selectAll('.map-arc').each(function(d) {
 ```
 
 **File:** `index.html` — funzione `applyMapFilter()`, blocco `selectAll('.map-arc')`.
+
+---
+
+## Data — enrichment
+
+### [TODO] IV entities: wikidata_id presente ma dati non arricchiti da enrich_wikidata.py
+
+**Esempio:** `IV-0237` Goldman Sachs (`Q193326`) — il profilo mostra il QID e un blocco `sources.wikidata` sparso, ma mancano `official_website`, `inception`, `employees`, `instance_of`, `isin`, `wikipedia_url`.
+
+**Causa root:** i 209 IV con `wikidata_id` hanno un blocco `sources.wikidata` creato da `import_investors_crunchbase.py --wikidata` (SPARQL base: solo label, description, country, headquarters). Poiché il blocco esiste già, `enrich_wikidata.py` li salta (skip entities già arricchite). Il full enrichment via `wbgetentities` non è mai stato eseguito su questi.
+
+**Dati:**
+- IV con `wikidata_id`: **209**
+- IV con `instance_of` popolato (proxy di full enrichment): **26 / 209**
+- IN con `instance_of` popolato (enriched correttamente): **704 / 710**
+
+**Fix:** eseguire `enrich_wikidata.py --force` — il flag `--force` sovrascrive anche i blocchi già esistenti, eseguendo il full `wbgetentities` fetch per tutti i 209 IV con QID.
+
+```bash
+python3 scripts/enrich_wikidata.py --force
+python3 scripts/validate.py
+```
+
+**Attenzione:** `--force` re-enrichisce anche gli IN già corretti. Valutare se aggiungere un flag `--type investor` allo script per limitare il re-enrichment ai soli IV, evitando 700+ chiamate API non necessarie.
