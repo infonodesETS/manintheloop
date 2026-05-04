@@ -667,8 +667,8 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   if (entityId.startsWith('IN-')) {
     const cb  = ent.sources?.crunchbase || {};
     const wd  = ent.sources?.wikidata   || {};
-    const inv = relationships.filter(r => r.target === entityId).map(r => entityMap[r.source]).filter(Boolean);
-    const cbInvestors = cb.top_investors || [];
+    const inv = relationships.filter(r => r.target === entityId).map(r => entityMap[r.source]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+    const cbInvestors = [...(cb.top_investors || [])].sort((a, b) => a.localeCompare(b));
     const funding = cb.total_funding_usd ? fmtFunding(cb.total_funding_usd) : null;
     const stage   = cb.funding_status || cb.stage || null;
     const rounds  = cb.num_funding_rounds || null;
@@ -709,7 +709,7 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
       ${invSection()}
     `;
   } else {
-    const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean);
+    const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
     detail = `
       <div class="sl-section-lbl">${esc(ent.name)}</div>
       <div class="map-item-id" style="margin-bottom:10px">${esc(ent.type || '')}</div>
