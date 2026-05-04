@@ -175,6 +175,24 @@ function sectorBadge(s) {
   return `<span class="badge-sector badge-${esc(s)}">${esc(s)}</span>`;
 }
 
+const GICS_TAG = { '45': 'Tech', '50': 'Comm', '151040': 'Mining', '201010': 'Defence' };
+
+function companyBadges(c) {
+  const tags = [];
+  const ish = c.sources?.ishares;
+  if (ish?.length) {
+    const seen = new Set();
+    for (const entry of ish) {
+      const tag = GICS_TAG[entry.gics_code];
+      if (tag && !seen.has(tag)) { seen.add(tag); tags.push(tag); }
+    }
+  } else if (c.sector && c.sector !== 'Startup') {
+    tags.push(c.sector);
+  }
+  if (c.sector === 'Startup' && !tags.includes('Startup')) tags.push('Startup');
+  return tags.map(sectorBadge).join('');
+}
+
 function fmtFunding(n) {
   if (!n) return null;
   if (n >= 1e9) return `$${(n/1e9).toFixed(1)}B`;
@@ -525,7 +543,7 @@ function showMapCountry(iso, skipHistory = false) {
           return `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
             <button class="map-entity-name">${esc(c.name)}</button>
-            ${sectorBadge(c.sector)}${invBadge}
+            ${companyBadges(c)}${invBadge}
           </div>`;
         }).join('')}
       </div>

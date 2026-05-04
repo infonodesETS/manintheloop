@@ -44,6 +44,7 @@ th.sortable:hover { color: var(--text-primary); }
 .badge-Mining  { background: #2a1800; color: var(--c-mining);  }
 .badge-Tech    { background: #001a2a; color: var(--c-tech);    }
 .badge-Startup { background: #0a2a0a; color: var(--c-startup); }
+.badge-Comm    { background: #1a0a2a; color: #b87aff; }
 
 /* Investor / entity type badges */
 .badge-type { font-size: var(--fs-xs); padding: 1px 7px; border-radius: 50px; font-weight: var(--fw-semi); white-space: nowrap; }
@@ -391,6 +392,7 @@ th.sel-col .col-inner { color: var(--text-primary) !important; }
 [data-theme="light"] .badge-Mining  { background: #f0edd8; }
 [data-theme="light"] .badge-Tech    { background: #d8ece0; }
 [data-theme="light"] .badge-Startup { background: #d8eee0; }
+[data-theme="light"] .badge-Comm    { background: #ede8f8; color: #6600aa; }
 [data-theme="light"] .badge-type--fund              { background: rgba(204,34,0,0.07);   }
 [data-theme="light"] .badge-type--government_agency { background: rgba(153,0,0,0.07);    }
 [data-theme="light"] .badge-type--bank              { background: rgba(119,0,0,0.07);    }
