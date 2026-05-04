@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-04-24 (metrics reconciled: ishares 511, IV 651, institutions 223, wikidata_id 659, crunchbase 906; glossary.json + STATUS rawdata listing updated for GICS 201010)
+> Last updated: 2026-05-04 (map UI session: GICS tags, EU Funded toggle, live investor counts, EDF country fallback, A-Z sort, arc fixes; issues.md created)
 
 ## Session protocol
 
@@ -440,6 +440,15 @@ refactoringDB/
   - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
   - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
   - **EU Funded filter (2026-04-23):** checkbox in toolbar (default off) dims all countries/nodes/arcs whose company-side has no EDF data. Covers 794 EDF companies across 28 countries. Composes with entity-click filter.
+  - **Map fixes & features (2026-05-04):**
+    - **GICS sector tags:** company list in side panel shows ETF-derived tags (GICS 45→Tech, 50→Comm, 151040→Mining, 201010→Defence) + Startup if set; fallback to `sector` field for non-iShares entities. New `badge-Comm` CSS class added.
+    - **EU Funded toggle:** checkbox replaced with two-label toggle switch (All Entities ↔ EU Funded Only). Side panel companies list now filters on toggle (shows/hides items + updates count). Arc filter combined with country selection — no more spurious arcs when EU Funded + country open together.
+    - **Arc toggle hidden:** "Show investment flow arcs" checkbox commented out (code preserved); arcs always visible when a country is selected; arc direction legend restored to toolbar.
+    - **Alphabetical sort A-Z:** all lists in side panel (entities, capital flowing in/out, investors, portfolio companies) sorted via `localeCompare`.
+    - **Dropdown arrows:** section toggle buttons changed from "on/off" to ▼/▶; `updateArcVis` and `arcDimForCountry` updated to check list visibility instead of `.active` class.
+    - **Live investor count:** `↓N` badge computed from `relationships` at build time (`mapState.liveInvCount`), not from stored `cb.top_investors.length` — fixes 79 mismatches (e.g. Destinus 5→7, Tesla 5→22).
+    - **EDF country fallback:** `getCountry(e)` helper (`infonodes → wikidata → edf.country`) used in all country lookups — recovers 549 EDF-only entities missing from map (incl. Politecnico di Milano, Polimi Torino).
+    - **Label:** "Companies" → "Entities" in country side panel section header.
   - **Entity-level connection view (2026-04-23):** clicking an entity in the country side panel now updates the map — the country node label changes to the entity name, and only arcs connecting that specific entity to other countries are shown (investor→company for IN-; investor→portfolio countries for IV-). Clicking the entity-labeled node restores the country view. `restoreCountryLabels()` helper added; `activePairs` Set tracks entity-specific src→tgt arc pairs; entity ISO now included in `activeISOs` for IV entities (fixes investor country node being incorrectly dimmed).
   - **Clickable investors in company detail (2026-04-23):** resolved IV-* investors in the entity detail panel are now clickable — fires `filterMapByEntity` for the investor, showing investor profile + map connections. `restoreCountryLabels()` called at top of `filterMapByEntity` to clear stale entity label on entity→entity navigation.
   - **Clickable portfolio companies in investor detail (2026-04-23):** portfolio companies (IN-*) in IV entity detail panel are now clickable — same pattern as investor click, reuses existing `[data-action="filterMapByEntity"]` wiring.
