@@ -216,6 +216,8 @@ function companyBadges(c) {
   return tags.map(sectorBadge).join('');
 }
 
+const getCountry = e => e.sources?.infonodes?.country || e.sources?.wikidata?.country || e.sources?.edf?.country;
+
 function fmtFunding(n) {
   if (!n) return null;
   if (n >= 1e9) return `$${(n/1e9).toFixed(1)}B`;
@@ -496,10 +498,8 @@ function showMapCountry(iso, skipHistory = false) {
     const comp = entityMap[rel.target];
     const inv  = entityMap[rel.source];
     if (!comp || !inv) return;
-    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
-    const invCountry  = inv.sources?.infonodes?.country  || inv.sources?.wikidata?.country;
-    const compISO = WD_TO_ISO[compCountry];
-    const invISO  = WD_TO_ISO[invCountry];
+    const compISO = WD_TO_ISO[getCountry(comp)];
+    const invISO  = WD_TO_ISO[getCountry(inv)];
     if (compISO === iso && invISO && invISO !== iso && !flowIn[rel.source])  flowIn[rel.source]  = inv.name;
     if (invISO  === iso && compISO && compISO !== iso && !flowOut[rel.source]) flowOut[rel.source] = inv.name;
   });
@@ -512,8 +512,7 @@ function showMapCountry(iso, skipHistory = false) {
 
   const localInvestorCount = Object.values(entityMap).filter(e => {
     if (!e.id?.startsWith('IV-')) return false;
-    const c = e.sources?.infonodes?.country || e.sources?.wikidata?.country;
-    return WD_TO_ISO[c] === iso;
+    return WD_TO_ISO[getCountry(e)] === iso;
   }).length;
 
   const coStr       = cd.companies.length === 1 ? '1 company' : `${cd.companies.length} companies`;
@@ -558,7 +557,7 @@ function showMapCountry(iso, skipHistory = false) {
     <div class="map-sector-row"><span class="map-sector-lbl">Sectors:</span> ${sectorSummary}</div>
     <div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd">
-        <span id="map-co-count">${cd.companies.length}</span> Companies
+        <span id="map-co-count">${cd.companies.length}</span> Entities
         <button id="map-toggle-co" class="map-expand-btn">▼</button>
       </div>
       <div id="map-companies-list">
@@ -625,26 +624,24 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   let entityISO = null;
 
   if (entityId.startsWith('IN-')) {
-    const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
-    entityISO = WD_TO_ISO[country] || null;
+    entityISO = WD_TO_ISO[getCountry(ent)] || null;
     if (entityISO) activeISOs.add(entityISO);
     relationships.filter(r => r.target === entityId).forEach(rel => {
       const inv = entityMap[rel.source];
       if (!inv) return;
-      const invISO = WD_TO_ISO[inv.sources?.infonodes?.country || inv.sources?.wikidata?.country];
+      const invISO = WD_TO_ISO[getCountry(inv)];
       if (invISO) {
         activeISOs.add(invISO);
         if (entityISO && invISO !== entityISO) activePairs.add(`${invISO}→${entityISO}`);
       }
     });
   } else if (entityId.startsWith('IV-')) {
-    const country = ent.sources?.infonodes?.country || ent.sources?.wikidata?.country;
-    entityISO = WD_TO_ISO[country] || null;
+    entityISO = WD_TO_ISO[getCountry(ent)] || null;
     if (entityISO) activeISOs.add(entityISO);
     relationships.filter(r => r.source === entityId).forEach(rel => {
       const comp = entityMap[rel.target];
       if (!comp) return;
-      const compISO = WD_TO_ISO[comp.sources?.infonodes?.country || comp.sources?.wikidata?.country];
+      const compISO = WD_TO_ISO[getCountry(comp)];
       if (compISO) {
         activeISOs.add(compISO);
         if (entityISO && compISO !== entityISO) activePairs.add(`${entityISO}→${compISO}`);
@@ -987,7 +984,7 @@ function buildMapView(db) {
   // Country data from companies
   mapState.countryData = {};
   companies.forEach(c => {
-    const country = c.sources?.infonodes?.country || c.sources?.wikidata?.country;
+    const country = getCountry(c);
     if (!country) return;
     const iso = WD_TO_ISO[country];
     if (!iso) return;
@@ -1006,8 +1003,7 @@ function buildMapView(db) {
   mapState.edfISOs = new Set();
   companies.forEach(c => {
     if (!c.sources?.edf) return;
-    const country = c.sources?.infonodes?.country || c.sources?.wikidata?.country;
-    const iso = WD_TO_ISO[country];
+    const iso = WD_TO_ISO[getCountry(c)];
     if (iso) mapState.edfISOs.add(iso);
   });
 
@@ -1017,10 +1013,8 @@ function buildMapView(db) {
     const comp = entityMap[rel.target];
     const inv  = entityMap[rel.source];
     if (!comp || !inv) return;
-    const compCountry = comp.sources?.infonodes?.country || comp.sources?.wikidata?.country;
-    const invCountry  = inv.sources?.infonodes?.country  || inv.sources?.wikidata?.country;
-    const compISO = WD_TO_ISO[compCountry];
-    const invISO  = WD_TO_ISO[invCountry];
+    const compISO = WD_TO_ISO[getCountry(comp)];
+    const invISO  = WD_TO_ISO[getCountry(inv)];
     if (!compISO || !invISO || compISO === invISO) return;
     const key = `${invISO}→${compISO}`;
     pairWeight[key] = (pairWeight[key] || 0) + 1;
