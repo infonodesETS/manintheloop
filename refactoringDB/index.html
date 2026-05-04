@@ -518,9 +518,11 @@ function showMapCountry(iso, skipHistory = false) {
   const updateArcVis = () => {
     const showIn  = !flowInArr.length  || document.getElementById('map-flow-in-btn')?.classList.contains('active');
     const showOut = !flowOutArr.length || document.getElementById('map-flow-out-btn')?.classList.contains('active');
+    const edf = mapState.edfOnly;
     mapState.g?.selectAll('.map-arc').classed('arc-dim', d => {
-      if (d.tgt === iso) return !showIn;
-      if (d.src === iso) return !showOut;
+      const dimEdf = edf && !mapState.edfISOs.has(d.tgt);
+      if (d.tgt === iso) return dimEdf || !showIn;
+      if (d.src === iso) return dimEdf || !showOut;
       return true;
     });
   };
@@ -728,10 +730,24 @@ function applyMapFilter() {
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = (mapState.showArcs || f) ? '' : 'none';
 
+  // helper: arc visibility based on selected country + in/out button state
+  const arcDimForCountry = (d, sel) => {
+    const showIn  = document.getElementById('map-flow-in-btn')?.classList.contains('active') ?? true;
+    const showOut = document.getElementById('map-flow-out-btn')?.classList.contains('active') ?? true;
+    if (d.tgt === sel) return !showIn;
+    if (d.src === sel) return !showOut;
+    return true;
+  };
+
   if (!f && !edf) {
     mapState.g?.selectAll('.map-country').classed('country-dim', false);
     mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
-    mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
+    if (mapState.selectedIso) {
+      const sel = mapState.selectedIso;
+      mapState.g?.selectAll('.map-arc').classed('arc-dim', d => arcDimForCountry(d, sel));
+    } else {
+      mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
+    }
     return;
   }
 
@@ -748,7 +764,9 @@ function applyMapFilter() {
     const dimFilter = f && (f.pairs.size
       ? !f.pairs.has(`${d.src}→${d.tgt}`)
       : !(f.isos.has(d.src) && f.isos.has(d.tgt)));
-    d3.select(this).classed('arc-dim', dimEdf || dimFilter);
+    const sel = !f ? mapState.selectedIso : null;
+    const dimCountry = sel ? arcDimForCountry(d, sel) : false;
+    d3.select(this).classed('arc-dim', dimEdf || dimFilter || dimCountry);
   });
 }
 
