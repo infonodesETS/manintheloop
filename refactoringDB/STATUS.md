@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-04 (map UI session: GICS tags, EU Funded toggle, live investor counts, EDF country fallback, A-Z sort, arc fixes; issues.md created)
+> Last updated: 2026-05-07 (fix: removed old-DB sector fallback badges in companyBadges(); full Wikidata enrichment for 196 IV/fund/public_fund entities; --types flag added to enrich_wikidata.py; all issues.md TODOs closed)
 
 ## Session protocol
 
@@ -308,7 +308,7 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-04-24)
+## Current DB state (2026-05-07)
 
 | Metric | Value |
 |---|---|
@@ -320,7 +320,7 @@ refactoringDB/
 | — investors (IV-NNNN) | **651** (667 created − 16 merged into IN entities) |
 | — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
 | Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
-| IV entities with country | **444 / 651** |
+| IV entities with country | **444 / 651** (more recoverable from new WD enrichment — not yet re-counted) |
 | Cross-border arc pairs | **130** (unique investor-country→company-country pairs) |
 | Companies with wikidata_id | **659 / 1206** — reduced from 710 by QID nulling (duplicates/subsidiaries) + 57 new aerospace entities |
 | Companies with sources.wikidata | **710** (includes 51 entities where QID was later nulled — stale block, harmless) |
@@ -329,7 +329,7 @@ refactoringDB/
 | Entities with sources.crunchbase | **906** current (969 cumulative — 63 CB blocks nulled as wrong matches) |
 | Companies with Crunchbase top_investors | **345 / 1206** |
 | Companies with sources.infonodes.website | **1010 / 1206** via infonodes; **1132 / 1206** via infonodes OR crunchbase |
-| Last validate.py | PASSED (2026-04-24) — after CB Cycle 2 import |
+| Last validate.py | PASSED (2026-05-07) — after IV/fund/public_fund Wikidata enrichment |
 | qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
 | validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
 | validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
@@ -496,6 +496,13 @@ refactoringDB/
 **Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
 
 **Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
+
+### Session 2026-05-07
+
+- [x] **map: sector badge fallback removed** — `companyBadges()` in `index.html` no longer shows old-DB `sector` field (Mining, Defence, etc.) for non-iShares entities. Only `Startup` tag preserved. ~46 entities affected.
+- [x] **IV/fund/public_fund Wikidata enrichment** — `enrich_wikidata.py --force --types investor,fund,public_fund` run: 196/196 entities enriched (0 missing). Full `wbgetentities` data now present: `instance_of`, `country`, `headquarters`, `inception`, `official_website`, `wikipedia_url`.
+- [x] **`enrich_wikidata.py` --types flag** — new `--types TYPE,...` argument allows scoping enrichment to specific entity types without touching already-correct IN entities.
+- [x] **issues.md** — both open TODOs closed as FIXED.
 
 ### Data quality pass (2026-04-24)
 - [x] **IV-0064 BDT & MSD Partners**: sources.wikidata.country='United Kingdom' nulled — Wikidata P17 error; HQ=NYC confirms United States
