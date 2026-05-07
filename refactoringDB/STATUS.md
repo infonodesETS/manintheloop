@@ -644,3 +644,5 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 | `"video game"` removed from disqualify list | "video game **company**" is a valid org type; EA/Konami/Take-Two all have "company" in description |
 | P856 SPARQL batch size: 10 entities (≤80 URL variants) | Larger batches cause HTTP 414/431 on Wikidata SPARQL endpoint |
 | P856 false positives: accepted as review items | URL match is high-precision but some subsidiaries share parent's website; human reviewer corrects QID |
+| `Taiwan` mapped to ISO 158 in `WD_TO_ISO` | Taiwan appears as Wikidata `P17` country for TSMC and others; ISO 158 is the standard numeric code (ISO 3166-1). Deliberate inclusion despite geopolitical ambiguity — data reflects Wikidata, not a political stance. |
+| `'Internationality'` not mapped in `WD_TO_ISO` | Wikidata assigns `P17 = 'Internationality'` to supranational entities (EU, UN, etc.) — not a country, has no geographic coordinates. Mapping it to a proxy country (e.g. Belgium) would misrepresent the arc origin. Excluded: EU-as-investor arcs do not appear on the map. |
