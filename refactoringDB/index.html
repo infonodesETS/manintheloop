@@ -323,15 +323,25 @@ let relationships = [];
 // ── Routing ───────────────────────────────────────────────────────────────────
 function pushMapState({ country = null, countryname = null, entity = null, entityname = null } = {}) {
   const p = new URLSearchParams();
-  if (country)     p.set('country', String(country));
-  if (countryname) p.set('countryname', countryname);
-  if (entity)      p.set('entity', entity);
-  if (entityname)  p.set('entityname', entityname);
+  if (country)           p.set('country', String(country));
+  if (countryname)       p.set('countryname', countryname);
+  if (entity)            p.set('entity', entity);
+  if (entityname)        p.set('entityname', entityname);
+  if (mapState.edfOnly)  p.set('type', 'EUfunded');
   const qs = p.toString();
-  history.pushState({ country, entity }, '', qs ? `?${qs}` : location.pathname);
+  history.pushState({ country, entity, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
 }
 
-function restoreMapState({ country, entity } = {}) {
+function applyEdfToggle(edfOnly) {
+  mapState.edfOnly = edfOnly;
+  const toggle = document.getElementById('map-edf-toggle');
+  if (toggle) toggle.checked = edfOnly;
+  document.getElementById('map-lbl-all')?.classList.toggle('is-active', !edfOnly);
+  document.getElementById('map-lbl-edf')?.classList.toggle('is-active', edfOnly);
+}
+
+function restoreMapState({ country, entity, type } = {}) {
+  applyEdfToggle(type === 'EUfunded');
   mapState.activeFilter = null;
   applyMapFilter();
   if (entity && country) {
@@ -349,19 +359,25 @@ function restoreMapState({ country, entity } = {}) {
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
   document.getElementById('map-panel-title').textContent = 'About this map';
-  const coCount  = Object.keys(mapState.countryData).length;
-  const totCo    = Object.values(mapState.countryData).reduce((s, d) => s + d.companies.length, 0);
-  const totCbInv = Object.values(entityMap).filter(e => e.sources?.crunchbase?.top_investors?.length).length;
+  const edf = mapState.edfOnly;
+  const allCos = Object.values(entityMap).filter(e => e.id?.startsWith('IN-'));
+  const visCos = edf ? allCos.filter(e => e.sources?.edf) : allCos;
+  const visISOs = edf ? mapState.edfISOs : new Set(Object.keys(mapState.countryData));
+  const coCount  = visISOs.size;
+  const totCo    = visCos.length;
+  const totCbInv = visCos.filter(e => e.sources?.crunchbase?.top_investors?.length).length;
+  const visArcs  = edf ? mapState.arcData.filter(d => mapState.edfISOs.has(d.tgt)) : mapState.arcData;
+  const filterLabel = edf ? ' (EU Funded Only)' : '';
   document.getElementById('map-panel-body').innerHTML = `
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">What this map shows</div>
-      <p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} companies</strong>, with <strong>${mapState.arcData.length} cross-border investor connections</strong>.</p>
-      <p class="map-intro-text">Each circle represents a country with at least one company in the database. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs.</p>
-      <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end). Click a country circle or shaded area to explore its companies and investor relationships.</p>
+      <div class="sl-section-lbl">What this map shows${filterLabel}</div>
+      <p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} entities</strong>, with <strong>${visArcs.length} cross-border investor connections</strong>.</p>
+      <p class="map-intro-text">Each circle represents a country with at least one entity in the database. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs.</p>
+      <p class="map-intro-text">Arcs connect investor countries (faint end) to entity countries (bright end). Click a country circle or shaded area to explore its entities and investor relationships.</p>
     </div>
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">Investor data</div>
-      <p class="map-intro-text"><strong>${totCbInv}</strong> companies have investor data from Crunchbase. Click any company to see its backers. Toggle <em>Show investment flow arcs</em> to visualise cross-border capital flows — ${mapState.arcData.length > 0 ? `<strong>${mapState.arcData.length} cross-border arcs</strong> are currently mapped` : 'arcs appear as more investor countries are resolved'}.</p>
+      <div class="sl-section-lbl">Investor data${filterLabel}</div>
+      <p class="map-intro-text"><strong>${totCbInv}</strong> entities have investor data from Crunchbase. Click any entity to see its backers. Toggle <em>Show investment flow arcs</em> to visualise cross-border capital flows — ${visArcs.length > 0 ? `<strong>${visArcs.length} cross-border arcs</strong> are currently mapped` : 'arcs appear as more investor countries are resolved'}.</p>
     </div>
   `;
 }
@@ -1039,11 +1055,12 @@ async function init() {
     await buildMapView(db);
 
     // Restore state from URL on direct load / refresh
-    const initParams = new URLSearchParams(location.search);
+    const initParams  = new URLSearchParams(location.search);
     const initCountry = initParams.get('country') ? +initParams.get('country') : null;
     const initEntity  = initParams.get('entity') || null;
-    history.replaceState({ country: initCountry, entity: initEntity }, '', location.href);
-    if (initCountry || initEntity) restoreMapState({ country: initCountry, entity: initEntity });
+    const initType    = initParams.get('type') || null;
+    history.replaceState({ country: initCountry, entity: initEntity, type: initType }, '', location.href);
+    if (initCountry || initEntity || initType) restoreMapState({ country: initCountry, entity: initEntity, type: initType });
 
     window.addEventListener('popstate', e => {
       if (!mapState.built) return;
@@ -1052,10 +1069,15 @@ async function init() {
 
     // Wire toolbar
     document.getElementById('map-edf-toggle').addEventListener('change', e => {
-      mapState.edfOnly = e.target.checked;
-      document.getElementById('map-lbl-all').classList.toggle('is-active', !e.target.checked);
-      document.getElementById('map-lbl-edf').classList.toggle('is-active', e.target.checked);
+      applyEdfToggle(e.target.checked);
+      // Update URL in-place (replaceState — filter is a view setting, not a nav step)
+      const p = new URLSearchParams(location.search);
+      if (mapState.edfOnly) p.set('type', 'EUfunded'); else p.delete('type');
+      const qs = p.toString();
+      const cur = history.state || {};
+      history.replaceState({ ...cur, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
       applyMapFilter();
+      if (!mapState.selectedIso && !mapState.activeFilter) setDefaultPanelContent();
     });
     // document.getElementById('map-arc-toggle').addEventListener('change', e => {
     //   mapState.showArcs = e.target.checked;
