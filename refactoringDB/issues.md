@@ -64,7 +64,7 @@ mapState.g.selectAll('.map-arc').each(function(d) {
 
 ## Data — enrichment
 
-### [TODO] IV entities: wikidata_id presente ma dati non arricchiti da enrich_wikidata.py
+### [FIXED] IV entities: wikidata_id presente ma dati non arricchiti da enrich_wikidata.py
 
 **Esempio:** `IV-0237` Goldman Sachs (`Q193326`) — il profilo mostra il QID e un blocco `sources.wikidata` sparso, ma mancano `official_website`, `inception`, `employees`, `instance_of`, `isin`, `wikipedia_url`.
 

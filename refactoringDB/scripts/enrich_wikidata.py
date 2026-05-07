@@ -17,11 +17,13 @@ Uses wbgetentities API (batches of 50, 2 s delay between batches).
 On HTTP 429: exponential backoff [5, 10, 20] s before retrying the batch.
 
 Usage:
-  python3 scripts/enrich_wikidata.py [--dry-run] [--force]
+  python3 scripts/enrich_wikidata.py [--dry-run] [--force] [--types TYPE,...]
 
-  --dry-run   Fetch from Wikidata and print what would be written; no DB changes.
-  --force     Re-enrich entities that already have sources.wikidata populated.
-              Without --force, already-enriched entities are skipped.
+  --dry-run         Fetch from Wikidata and print what would be written; no DB changes.
+  --force           Re-enrich entities that already have sources.wikidata populated.
+                    Without --force, already-enriched entities are skipped.
+  --types TYPE,...  Comma-separated list of entity types to restrict enrichment to.
+                    Example: --types investor,fund,public_fund
 
 Safe to re-run without --force: skips entities that already have sources.wikidata.
 """
@@ -196,12 +198,27 @@ def parse_entity(ent: dict, item_labels: dict) -> dict:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
+def _parse_types_arg(argv: list[str]) -> set[str] | None:
+    """Return a set of type strings from --types TYPE,... or None if not specified."""
+    for arg in argv:
+        if arg.startswith("--types="):
+            return {t.strip() for t in arg[len("--types="):].split(",") if t.strip()}
+        if arg == "--types":
+            idx = argv.index(arg)
+            if idx + 1 < len(argv):
+                return {t.strip() for t in argv[idx + 1].split(",") if t.strip()}
+    return None
+
+
 def main():
-    dry_run = "--dry-run" in sys.argv
-    force   = "--force"   in sys.argv
+    dry_run    = "--dry-run" in sys.argv
+    force      = "--force"   in sys.argv
+    type_filter = _parse_types_arg(sys.argv)
 
     if dry_run:
         print("DRY RUN — no changes will be written to database.json")
+    if type_filter:
+        print(f"Type filter: {sorted(type_filter)}")
     print("=" * 60)
 
     with open(DATABASE_PATH, encoding="utf-8") as f:
@@ -210,9 +227,13 @@ def main():
     # All entity types (company, institution, government_agency, …) with a wikidata_id
     all_with_qid = [e for e in db["entities"] if e.get("wikidata_id")]
 
+    if type_filter:
+        all_with_qid = [e for e in all_with_qid if e.get("type") in type_filter]
+        print(f"Entities with wikidata_id (type-filtered): {len(all_with_qid)}")
+
     if force:
         targets = all_with_qid
-        print(f"--force: enriching all {len(targets)} entities with wikidata_id")
+        print(f"--force: enriching all {len(targets)} matching entities with wikidata_id")
     else:
         targets = [e for e in all_with_qid if not e.get("sources", {}).get("wikidata")]
         already = len(all_with_qid) - len(targets)
