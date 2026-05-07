@@ -308,38 +308,25 @@ refactoringDB/
 
 ---
 
-## Current DB state (2026-05-07)
+## Current DB state
 
-| Metric | Value |
+> Exact counts change as data evolves — run `python3 scripts/validate.py` and the enrichment analysis script for live figures.
+
+| Aspect | Status |
 |---|---|
 | Schema | 3.0 |
-| Total entities | **2158** |
-| — companies (IN-NNNN) | **1206** (1149 + 57 new from GICS 201010 aerospace ETF) |
-| — institutions + gov agencies | **223** (184 institution + 39 government_agency) |
-| — persons (PER-NNNN) | **0** — not yet built |
-| — investors (IV-NNNN) | **651** (667 created − 16 merged into IN entities) |
-| — EDF projects (EDF-NNNN) | **78** — from edf_calls.json (2026-04-23) |
-| Relationships | **2649** — 897 Crunchbase + 95 old DB + 1657 edf_participation (2026-04-23) |
-| IV entities with country | **444 / 651** (more recoverable from new WD enrichment — not yet re-counted) |
-| Cross-border arc pairs | **130** (unique investor-country→company-country pairs) |
-| Companies with wikidata_id | **659 / 1206** — reduced from 710 by QID nulling (duplicates/subsidiaries) + 57 new aerospace entities |
-| Companies with sources.wikidata | **710** (includes 51 entities where QID was later nulled — stale block, harmless) |
-| Companies with sources.ishares | **511** (434 original + 77 from GICS 201010) |
-| Companies with sources.edf | 587 |
-| Entities with sources.crunchbase | **906** current (969 cumulative — 63 CB blocks nulled as wrong matches) |
-| Companies with Crunchbase top_investors | **345 / 1206** |
-| Companies with sources.infonodes.website | **1010 / 1206** via infonodes; **1132 / 1206** via infonodes OR crunchbase |
+| Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
+| Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
 | Last validate.py | PASSED (2026-05-07) — after IV/fund/public_fund Wikidata enrichment |
-| qid_candidates.json | proposed=0, accepted=566, rejected=65, skipped=372 |
-| validation: reconciliation_documented | **731 entities** (566 crunchbase migration added 2026-04-24; 2 edf+ishares, 130 crunchbase legacy, 33 wikidata name-match from prior runs) |
-| validation: field_conflict | 44 original (all resolved 2026-04-23) + 163 new (2026-04-24 audit run) |
-| validation: wikidata_country_corrected | 4 entities (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) — WD P17 errors nulled |
-| validation: compatible_sources | 14 entities — legitimate dual-location HQ (Anglo American, STmicro, Airbus Ops, KGHM Int'l, TSMC AZ, AMD, etc.) |
-| validation: cb_hq_mismatch_severe | ~~15~~ **0 remaining** — all resolved: 3 downgraded to subsidiary, 12 CB blocks nulled (cb_wrong_entity) |
-| validation: cb_wrong_entity | **5 entities remaining** — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft (7 resolved in Cycle 2: BCE, CDW, Informa, Patria, Naval Group, Ubitech, Lasertec now correct) |
-| validation: cb_hq_mismatch_subsidiary | **34 entities** — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, Baltic Workboats, Commercial Metals, etc.) |
-| retired entities | **IN-1282** Fortescue Metals Group — duplicate of IN-0133, 0 relationships |
-| validation: needs_review | 2146 + 610 IV entries (ongoing) |
+| iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
+| EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
+| Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
+| Wikidata coverage | IN entities: partial (many EDF SMEs absent from Wikidata) · IV entities: fully enriched for all QID-bearing |
+| QID pipeline | All proposals reviewed; remaining skipped entries are EDF SMEs genuinely absent from Wikidata |
+| validation: cb_wrong_entity | 5 remaining — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft |
+| validation: cb_hq_mismatch_subsidiary | Several — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, etc.) |
+| validation: wikidata_country_corrected | 4 entities where WD P17 was wrong and nulled (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) |
+| retired entities | IN-1282 Fortescue Metals Group — duplicate of IN-0133 |
 
 ---
 
