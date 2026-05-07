@@ -209,8 +209,6 @@ function companyBadges(c) {
       const tag = GICS_TAG[entry.gics_code];
       if (tag && !seen.has(tag)) { seen.add(tag); tags.push(tag); }
     }
-  } else if (c.sector && c.sector !== 'Startup') {
-    tags.push(c.sector);
   }
   if (c.sector === 'Startup' && !tags.includes('Startup')) tags.push('Startup');
   return tags.map(sectorBadge).join('');

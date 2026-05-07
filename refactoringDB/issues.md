@@ -2,7 +2,7 @@
 
 ## Frontend — map side panel
 
-### [TODO] Nascondere i tag `sector` del vecchio DB (eccetto Startup)
+### [FIXED] Nascondere i tag `sector` del vecchio DB (eccetto Startup)
 
 **Contesto:** 46+ aziende importate dal vecchio DB infonodes hanno il campo `sector` impostato manualmente (es. `Mining`, `Defence`) senza essere in nessun ETF iShares. La logica attuale in `companyBadges()` (`index.html`) mostra questi tag come fallback quando non ci sono dati iShares.
 
