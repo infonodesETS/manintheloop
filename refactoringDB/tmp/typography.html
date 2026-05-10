@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography — Man in the Loop Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../web/base.css">
+  <link rel="stylesheet" href="../web/components.css">
+  <style>
+    html { font-size: 120%; }
+    body { padding: 40px 32px; overflow: auto; max-width: 900px; margin: 0 auto; padding-top: 40px; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+
+    /* ── Doc layout ── */
+    .ds-section { margin-bottom: 56px; }
+    .ds-section-title {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: rgba(0,255,65,0.55);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0,255,65,0.15);
+    }
+    .ds-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 260px;
+      gap: 16px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(65,67,69,0.2);
+    }
+    .ds-row:last-child { border-bottom: none; }
+    .ds-token {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-faint);
+    }
+    .ds-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+      text-align: right;
+    }
+    .ds-swatch-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(65,67,69,0.2);
+    }
+    .ds-swatch-row:last-child { border-bottom: none; }
+    .ds-swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .ds-swatch-info { flex: 1; }
+    .ds-swatch-name {
+      font-size: var(--fs-sm);
+      color: var(--text-primary);
+      font-weight: var(--fw-bold);
+      margin-bottom: 2px;
+    }
+    .ds-swatch-token {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-faint);
+    }
+    .ds-swatch-hex {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+    .ds-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .ds-note {
+      font-size: var(--fs-sm);
+      color: var(--text-muted);
+      line-height: var(--lh-body);
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid rgba(255,255,255,0.08);
+      border-radius: 2px;
+    }
+    .ds-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .ds-title {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--accent);
+      font-family: var(--font);
+      margin: 0 0 6px;
+      line-height: var(--lh-tight);
+    }
+    .ds-subtitle {
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    [data-theme="light"] .ds-section-title { color: rgba(0,102,34,0.6); border-bottom-color: rgba(0,102,34,0.15); }
+    [data-theme="light"] .ds-note { background: rgba(0,0,0,0.03); border-left-color: rgba(0,0,0,0.12); }
+    [data-theme="light"] .ds-swatch { border-color: rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body>
+
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+  <a href="../index.html" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);text-decoration:none;">← Man in the Loop</a>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+</div>
+
+<h1 class="ds-title">Design System — Typography</h1>
+<p class="ds-subtitle">Man in the Loop / info.nodes · All rules extracted from web/base.css, components.css, companysearch.css, index.html, networks.html, search.html · Any new page or component must conform to this system.</p>
+
+<!-- ══════════════════════════════════════════════
+     1. FONT FAMILIES
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">01 · Font Families</div>
+
+  <div class="ds-row">
+    <div class="ds-token">--font</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:var(--fs-body);">Barlow Condensed — UI, body, navigation, buttons, labels</div>
+    <div class="ds-meta">'Barlow Condensed', 'Inter', sans-serif</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--font-mono</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-body);">JetBrains Mono — IDs, badges, code, hero titles, source flags</div>
+    <div class="ds-meta">'JetBrains Mono', 'Courier New', monospace</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>Rule:</strong> <code>--font</code> (Barlow Condensed) for all prose, UI chrome, and reading text. <code>--font-mono</code> (JetBrains Mono) for machine-readable data — IDs, timestamps, source badges, hero/intro titles, terminal-style labels. Never mix within a single UI element. Google Fonts CDN loaded via <code>&lt;link&gt;</code> in every page <code>&lt;head&gt;</code>. Weights used: 400 (regular), 600 (semi-bold), 700 (bold).
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     2. SIZE SCALE
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">02 · Size Scale</div>
+  <div class="ds-note" style="margin-bottom:20px;">Base: <strong>html { font-size: 120% }</strong> → 1rem = 19.2px. All sizes scale proportionally. Minimum floor: 13px (--fs-xs). Nothing goes below this.</div>
+
+  <div class="ds-row">
+    <div class="ds-token">--fs-xs · .70rem</div>
+    <div style="font-size:var(--fs-xs);">Micro text — badges, IDs, stat labels, tiny UI chrome</div>
+    <div class="ds-meta">~13.4px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-sm · .75rem</div>
+    <div style="font-size:var(--fs-sm);">Caption — nav meta, table headers, chips, legend items</div>
+    <div class="ds-meta">~14.4px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-base · .875rem</div>
+    <div style="font-size:var(--fs-base);">Base — buttons, inputs, tooltips, form labels, sidebar rows</div>
+    <div class="ds-meta">~16.8px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-body · 1rem</div>
+    <div style="font-size:var(--fs-body);">Body — primary reading text, profile descriptions, sidebar values</div>
+    <div class="ds-meta">~19.2px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-lg · 1.2rem</div>
+    <div style="font-size:var(--fs-lg);">Large — sidebar titles, modal headings, brand logo</div>
+    <div class="ds-meta">~23.0px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-xl · 1.65rem</div>
+    <div style="font-size:var(--fs-xl);font-weight:700;">Display — hero h1, section h2, panel titles, search hero</div>
+    <div class="ds-meta">~31.7px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fs-stat · 2rem</div>
+    <div style="font-size:var(--fs-stat);font-weight:700;color:var(--accent);font-family:monospace;">2,158</div>
+    <div class="ds-meta">~38.4px · stat cards only</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>SVG fixed sizes</strong> (bypass rem cascade, used in D3 canvas): <code>--fs-svg-xs: 9px</code> · <code>--fs-svg-sm: 10px</code> · <code>--fs-svg-md: 13px</code><br>
+    <strong>Sidebar em-cascade base:</strong> <code>--scale-sidebar: 1.2rem</code>. Inside <code>.sidebar</code>, child elements using em fractions resolve against 23px: <code>.65em → ~15px</code> (ID chips, block headers), <code>.8em → ~18px</code> (placeholders). Do not use em fractions outside .sidebar context.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     3. WEIGHTS
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">03 · Font Weights</div>
+
+  <div class="ds-row">
+    <div class="ds-token">--fw-normal · 400</div>
+    <div style="font-weight:400;font-size:var(--fs-body);">Normal — body text, descriptions, hero mono titles (intentional)</div>
+    <div class="ds-meta">400</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fw-semi · 600</div>
+    <div style="font-weight:600;font-size:var(--fs-body);">Semi-bold — EDF project titles, important inline labels</div>
+    <div class="ds-meta">600</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--fw-bold · 700</div>
+    <div style="font-weight:700;font-size:var(--fs-body);">Bold — nav buttons, section labels, stat values, headings</div>
+    <div class="ds-meta">700</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     4. LINE HEIGHTS
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">04 · Line Heights</div>
+
+  <div class="ds-row">
+    <div class="ds-token">--lh-tight · 1.2</div>
+    <div style="line-height:1.2;font-size:var(--fs-body);">Tight — headings, display text, hero titles. Keeps large type compact.</div>
+    <div class="ds-meta">1.2</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--lh-snug · 1.35</div>
+    <div style="line-height:1.35;font-size:var(--fs-body);">Snug — sub-headings, condensed UI labels, tooltip content.</div>
+    <div class="ds-meta">1.35</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--lh-body · 1.55</div>
+    <div style="line-height:1.55;font-size:var(--fs-body);">Body — primary reading text, profile descriptions. Between Medium (1.5) and Substack (1.6). Default for prose.</div>
+    <div class="ds-meta">1.55</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--lh-loose · 1.65</div>
+    <div style="line-height:1.65;font-size:var(--fs-body);">Loose — captions, small text, sidebar rows, intro descriptions. More breathing room at small sizes.</div>
+    <div class="ds-meta">1.65</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     5. TEXT COLORS
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">05 · Text Colors</div>
+
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:rgba(255,255,255,0.95);"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:rgba(255,255,255,0.95);">text-primary</div>
+      <div class="ds-swatch-token">--text-primary · heading text, values, primary UI</div>
+    </div>
+    <div class="ds-swatch-hex">rgba(255,255,255,0.95)<br>dark: #000000 equiv.</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:rgba(255,255,255,0.80);"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:rgba(255,255,255,0.80);">text-secondary</div>
+      <div class="ds-swatch-token">--text-secondary · body descriptions, sidebar content</div>
+    </div>
+    <div class="ds-swatch-hex">rgba(255,255,255,0.80)</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:rgba(255,255,255,0.70);"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:rgba(255,255,255,0.70);">text-tertiary</div>
+      <div class="ds-swatch-token">--text-tertiary · intro descriptions, map labels, SVG text</div>
+    </div>
+    <div class="ds-swatch-hex">rgba(255,255,255,0.70)</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#7a7a7a;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#7a7a7a;">text-muted</div>
+      <div class="ds-swatch-token">--text-muted · row labels, stat card labels, meta text</div>
+    </div>
+    <div class="ds-swatch-hex">#7a7a7a</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#757575;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#757575;">text-faint</div>
+      <div class="ds-swatch-token">--text-faint · timestamps, IDs, very dim meta</div>
+    </div>
+    <div class="ds-swatch-hex">#757575</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:rgba(255,255,255,0.53);"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:rgba(255,255,255,0.53);">dim</div>
+      <div class="ds-swatch-token">--dim · inactive nav buttons, row labels, placeholder text</div>
+    </div>
+    <div class="ds-swatch-hex">rgba(255,255,255,0.53)</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#00ff41;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#00ff41;">accent</div>
+      <div class="ds-swatch-token">--accent · active states, links, section labels, stat values, logo</div>
+    </div>
+    <div class="ds-swatch-hex">#00ff41 (dark)<br>#006622 (light)</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>Semantic colors:</strong>
+    <code style="color:var(--error)">--error #ff4444</code> · inline errors ·
+    <code style="color:var(--warn)">--warn #ffaa44</code> · needs-review, WIP ·
+    <code style="color:var(--ok)">--ok #56d364</code> · success / log ok ·
+    <code style="color:var(--flow-out)">--flow-out #ff9944</code> · investment outflow ·
+    <code style="color:#64a0ff">EDF blue rgba(100,160,255)</code> · EDF contribution values
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     6. GREY PALETTE
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">06 · Grey Palette (+15% HSL from originals)</div>
+
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#595959;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name">grey-dark</div>
+      <div class="ds-swatch-token">--grey-dark · dim text, separators</div>
+    </div>
+    <div class="ds-swatch-hex">#595959</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#b0b0b0;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#b0b0b0;">grey-mid</div>
+      <div class="ds-swatch-token">--grey-mid · mid text, hover states</div>
+    </div>
+    <div class="ds-swatch-hex">#b0b0b0</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#d0d0d0;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#d0d0d0;">grey-light</div>
+      <div class="ds-swatch-token">--grey-light · light labels, company type badge text</div>
+    </div>
+    <div class="ds-swatch-hex">#d0d0d0</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#f0f0f0;"></div>
+    <div class="ds-swatch-info">
+      <div class="ds-swatch-name" style="color:#f0f0f0;">grey-pale</div>
+      <div class="ds-swatch-token">--grey-pale · bright text on dark (ki-body headings)</div>
+    </div>
+    <div class="ds-swatch-hex">#f0f0f0</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     7. ENTITY COLOR PALETTE
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">07 · Entity Color Palette</div>
+
+  <div style="margin-bottom:12px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Companies — greens (circles in graph)</div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#aaffdd;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#aaffdd;">Defence</div><div class="ds-swatch-token">--c-defence · aerospace & defense, iShares 201010</div></div>
+    <div class="ds-swatch-hex">#aaffdd</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#55ddaa;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#55ddaa;">Mining</div><div class="ds-swatch-token">--c-mining · metals & mining, iShares 151040</div></div>
+    <div class="ds-swatch-hex">#55ddaa</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#22bb66;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#22bb66;">Tech</div><div class="ds-swatch-token">--c-tech · technology, iShares GICS 45</div></div>
+    <div class="ds-swatch-hex">#22bb66</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#007744;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#007744;">Startup</div><div class="ds-swatch-token">--c-startup · startup / old DB sector tag</div></div>
+    <div class="ds-swatch-hex">#007744</div>
+  </div>
+
+  <div style="margin:20px 0 12px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Investors — reds (squares in graph)</div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#ff8888;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ff8888;">Fund</div><div class="ds-swatch-token">--c-fund · VC funds, investment funds</div></div>
+    <div class="ds-swatch-hex">#ff8888</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#ff3333;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ff3333;">Government</div><div class="ds-swatch-token">--c-govt · government agencies, public bodies</div></div>
+    <div class="ds-swatch-hex">#ff3333</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#aa0000;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#aa0000;">Bank</div><div class="ds-swatch-token">--c-bank · banks, financial institutions</div></div>
+    <div class="ds-swatch-hex">#aa0000</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#ff99bb;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ff99bb;">Institution</div><div class="ds-swatch-token">--c-inst · research institutions, universities</div></div>
+    <div class="ds-swatch-hex">#ff99bb</div>
+  </div>
+
+  <div style="margin:20px 0 12px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Special</div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#ffd700;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ffd700;">Dual-role</div><div class="ds-swatch-token">--c-dual · manufacturer that also invests (star shape)</div></div>
+    <div class="ds-swatch-hex">#ffd700</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#64a0ff;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#64a0ff;">EDF project</div><div class="ds-swatch-token">networks.html / ego graph — EDF project hub nodes</div></div>
+    <div class="ds-swatch-hex">#64a0ff</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#ffaa55;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ffaa55;">Investor (graph)</div><div class="ds-swatch-token">ego graph + networks.html investor (IV-*) nodes</div></div>
+    <div class="ds-swatch-hex">#ffaa55</div>
+  </div>
+  <div class="ds-swatch-row">
+    <div class="ds-swatch" style="background:#00ff41;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#00ff41;">Center node</div><div class="ds-swatch-token">ego graph center entity node (= accent color)</div></div>
+    <div class="ds-swatch-hex">#00ff41</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>Graph shape convention:</strong> company sectors → circle nodes · investor types → square nodes · EDF projects → diamond nodes · dual-role → star marker.<br>
+    <strong>Cytoscape ego graph</strong> (<code>web/graph.js</code>): center=#00ff41, company=#aaffdd, institution=#ff99bb, fund/investor=#ffaa55, gov_agency=#ff5555, bank=#cc3333, edf_project=#64a0ff, default=#888888.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     8. NAVIGATION CHROME
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">08 · Navigation Chrome</div>
+
+  <div class="ds-row">
+    <div class="ds-token">#topnav .brand</div>
+    <div><span style="font-family:var(--font);font-weight:700;font-size:var(--fs-lg);color:var(--accent);">Man in the Loop</span> <span style="color:var(--text-faint)">—</span> <span style="color:var(--text-primary)">info<span style="color:var(--accent)">.</span>nodes</span></div>
+    <div class="ds-meta">--font, fw-bold, fs-lg, letter-spacing:.5px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.tnav-btn</div>
+    <div><button class="tnav-btn">Networks</button> <button class="tnav-btn active">Active</button></div>
+    <div class="ds-meta">fw-bold, fs-base, uppercase, letter-spacing:.4px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.snav-btn</div>
+    <div><button class="snav-btn">Sub tab</button> <button class="snav-btn active">Active</button></div>
+    <div class="ds-meta">fw-bold, fs-base, uppercase, letter-spacing:.3px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.theme-toggle-btn</div>
+    <div><button class="theme-toggle-btn">◑ LIGHT</button></div>
+    <div class="ds-meta">fw-bold, fs-xs, uppercase, letter-spacing:.5px, border-radius:50px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.brand-wip</div>
+    <div><span class="brand-wip">WIP</span></div>
+    <div class="ds-meta">fw-bold, fs-xs, uppercase, letter-spacing:.6px, --warn color</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     9. BADGES
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">09 · Badges</div>
+
+  <div style="margin-bottom:10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Sector badges — fs-xs, fw-semi, border-radius:50px</div>
+  <div class="ds-badge-row">
+    <span class="badge-sector badge-Defence">Defence</span>
+    <span class="badge-sector badge-Mining">Mining</span>
+    <span class="badge-sector badge-Tech">Tech</span>
+    <span class="badge-sector badge-Startup">Startup</span>
+    <span class="badge-sector badge-Comm">Comm</span>
+  </div>
+
+  <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Entity type badges — fs-xs, fw-semi, border-radius:50px</div>
+  <div class="ds-badge-row">
+    <span class="badge-type badge-type--company">company</span>
+    <span class="badge-type badge-type--fund">fund</span>
+    <span class="badge-type badge-type--government_agency">government agency</span>
+    <span class="badge-type badge-type--bank">bank</span>
+    <span class="badge-type badge-type--institution">institution</span>
+    <span class="badge-dual">dual-role ★</span>
+  </div>
+
+  <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Source / data badges</div>
+  <div class="ds-badge-row">
+    <span class="badge-wd">Wikidata</span>
+    <span class="badge-miss">missing</span>
+    <span class="badge-lead">coordinator</span>
+    <span class="badge-follow">participant</span>
+    <span class="badge-val-review">⚠ needs review</span>
+    <span class="badge-val-flag">✕ flagged</span>
+  </div>
+
+  <div class="ds-note">All badges: <code>font-size: var(--fs-xs)</code>. Source/data blocks use colored border+background at low opacity for the source color (Wikidata=teal rgba(104,204,209), Crunchbase=orange rgba(244,161,71)). EDF roles: <code>.edf-proj-role</code> uses <code>--font-mono, fs-body</code>, not badges.</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     10. SIDEBAR / PANEL PRIMITIVES
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">10 · Sidebar & Panel Typography</div>
+
+  <div class="ds-row">
+    <div class="ds-token">--sl-title-fs = --fs-xl</div>
+    <div style="font-size:var(--fs-xl);font-weight:700;text-transform:uppercase;letter-spacing:.3px;">Panel Title</div>
+    <div class="ds-meta">~31.7px · .sl-title</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--sl-section-lbl-fs = --fs-base</div>
+    <div style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);">Section Label</div>
+    <div class="ds-meta">~16.8px · .sl-section-lbl</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--sl-row-lbl-fs = --fs-base</div>
+    <div style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);">Row Key</div>
+    <div class="ds-meta">~16.8px · .sl-row-lbl / .es-lbl</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--sl-row-val-fs = --fs-body</div>
+    <div style="font-size:var(--fs-body);color:var(--text-primary);">Row value text</div>
+    <div class="ds-meta">~19.2px · .sl-row-val / .es-val</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--sl-desc-fs = --fs-body</div>
+    <div style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);">Description / body paragraph text inside panels and sidebars.</div>
+    <div class="ds-meta">~19.2px · .es-desc / .gv-context</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>Sidebar widths:</strong> <code>--sl-w-sm: 380px</code> (participant sidebar) · <code>--sl-w-lg: 800px</code> (entity detail, wide) · <code>--sl-w-inline: 450px</code> (map panel, matrix, networks sidebar).<br>
+    <strong>Padding:</strong> header <code>--sl-header-pad: .9rem 1.25rem</code> · body <code>--sl-body-pad: 1.25rem</code>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     11. STAT CARDS
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">11 · Stat Cards</div>
+
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+    <div class="stat-card" style="min-width:140px;">
+      <div class="val">2,158</div>
+      <div class="lbl">Entities</div>
+    </div>
+    <div class="stat-card" style="min-width:140px;">
+      <div class="val">992</div>
+      <div class="lbl">Investments</div>
+    </div>
+    <div class="stat-card stat-card--link" style="min-width:140px;">
+      <div class="val">78</div>
+      <div class="lbl">EDF Projects</div>
+    </div>
+  </div>
+
+  <div class="ds-note">
+    <code>.stat-card .val</code>: <code>fs-stat (2rem ~38px), fw-bold, font-family:monospace, color:--accent</code>.<br>
+    <code>.stat-card .lbl</code>: <code>fs-sm, color:--text-muted, uppercase, letter-spacing:.5px, margin-top:4px</code>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     12. TABLES
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">12 · Tables</div>
+
+  <div class="ds-row">
+    <div class="ds-token">thead th</div>
+    <div style="font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;">Column Header</div>
+    <div class="ds-meta">fs-sm, fw-bold, uppercase, accent color</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">tbody td</div>
+    <div style="font-size:var(--fs-base);">Cell value text</div>
+    <div class="ds-meta">fs-base (~16.8px)</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.tbl-count</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-muted);font-family:monospace;">1,149 results</div>
+    <div class="ds-meta">fs-sm, --font-mono, text-muted</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     13. SEARCH / HERO (companysearch.css)
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">13 · Search Hero (search.html)</div>
+
+  <div class="ds-row">
+    <div class="ds-token">.cs-hero-prompt</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(0,255,65,0.45);letter-spacing:2px;text-transform:uppercase;">ENTITY SEARCH</div>
+    <div class="ds-meta">font-mono, fs-xs, 45% accent, letter-spacing:2px, uppercase</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.cs-hero-title</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-xl);color:var(--accent);font-weight:400;text-shadow:0 0 18px rgba(0,255,65,0.3);">Man in the Loop_</div>
+    <div class="ds-meta">font-mono, fs-xl, fw-normal, lh-tight, accent glow</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">#cs-search (expanded)</div>
+    <div style="font-family:var(--font);font-size:var(--fs-lg);">Search input large</div>
+    <div class="ds-meta">--font, fs-lg, compact→fs-body</div>
+  </div>
+
+  <div class="ds-note">
+    Hero title uses <code>--font-mono</code> at <code>fw-normal</code> — intentionally lightweight to contrast with bold UI chrome. Animated cursor (<code>.cs-cursor</code>) matches accent. Input shrinks from <code>fs-lg</code> to <code>fs-body</code> on <code>.compact</code> state.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     14. TOOLTIP
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">14 · Tooltip</div>
+
+  <div class="ds-row">
+    <div class="ds-token">#tip (D3 tooltip)</div>
+    <div style="font-size:var(--fs-body);">Name <span style="font-size:var(--fs-sm);color:var(--dim);">type · location</span></div>
+    <div class="ds-meta">fs-body, lh-body, max-w:280px</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">.gl-term (glossary)</div>
+    <div><span class="gl-term" data-tooltip="Tooltip example text">hover me</span></div>
+    <div class="ds-meta">dashed accent underline, ::after fs-xs, lh-snug</div>
+  </div>
+
+  <div class="ds-note">
+    Tooltip background: <code>--tooltip-bg rgba(8,8,8,0.97)</code> dark, <code>rgba(248,247,244,0.97)</code> light. Entity name in accent color (<code>.tn</code>), type in dim (<code>.ti</code>), location in tertiary at fs-sm (<code>.th</code>).
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     15. NETWORKS.HTML SPECIFIC
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">15 · Networks Page (networks.html)</div>
+
+  <div class="ds-row">
+    <div class="ds-token">Sidebar title</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(0,255,65,0.6);letter-spacing:2px;text-transform:uppercase;">DEFENCE NETWORK</div>
+    <div class="ds-meta">font-mono, fs-xs, 60% accent, letter-spacing:2px, uppercase</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">Section labels</div>
+    <div style="font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:1px;color:var(--text-faint);font-weight:700;">COUNTRY · STATS · LEGEND</div>
+    <div class="ds-meta">fs-xs, fw-bold, uppercase, letter-spacing:1px, text-faint</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">Stat values (EDF)</div>
+    <div style="font-size:var(--fs-body);font-family:var(--font-mono);color:rgba(100,160,255,0.9);font-weight:700;">279</div>
+    <div class="ds-meta">font-mono, fs-body, fw-bold, EDF blue</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">Stat values (Investment)</div>
+    <div style="font-size:var(--fs-body);font-family:var(--font-mono);color:rgba(255,170,80,0.9);font-weight:700;">86</div>
+    <div class="ds-meta">font-mono, fs-body, fw-bold, orange #ffaa50</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">Cytoscape node labels</div>
+    <div style="font-family:var(--font-mono);font-size:8px;color:rgba(255,255,255,0.75);">Thales</div>
+    <div class="ds-meta">font-mono, 8px fixed, rgba white 75%, text-valign:bottom</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">Center node label</div>
+    <div style="font-family:var(--font-mono);font-size:9px;font-weight:700;color:#fff;">Leonardo</div>
+    <div class="ds-meta">font-mono, 9px fixed, fw-bold, white</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     16. LIGHT THEME RULES
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">16 · Light Theme ("Declassified Document")</div>
+
+  <div class="ds-note" style="margin-bottom:20px;">
+    Applied via <code>[data-theme="light"]</code> on <code>&lt;html&gt;</code>. All <code>var(--token)</code> usages swap automatically. Warm paper palette: background <code>#f8f7f4</code>, accent <code>#006622</code> (dark military green). All <code>rgba(0,255,65,…)</code> tints in components must have corresponding <code>[data-theme="light"]</code> overrides using <code>rgba(0,102,34,…)</code>.
+  </div>
+
+  <div class="ds-row">
+    <div class="ds-token">--bg (light)</div>
+    <div style="background:#f8f7f4;padding:4px 8px;border-radius:3px;color:#000;font-size:var(--fs-sm);">Warm paper #f8f7f4</div>
+    <div class="ds-meta">#f8f7f4</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--accent (light)</div>
+    <div style="color:#006622;font-weight:700;font-size:var(--fs-body);">Dark military green</div>
+    <div class="ds-meta">#006622</div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-token">--text-primary (light)</div>
+    <div style="color:rgba(0,0,0,0.90);font-size:var(--fs-body);">Near-black text</div>
+    <div class="ds-meta">rgba(0,0,0,0.90)</div>
+  </div>
+
+  <div class="ds-note">
+    <strong>Light theme init:</strong> inline script in <code>&lt;head&gt;</code> before any CSS — <code>if(localStorage.getItem('mitl-theme')==='light') document.documentElement.setAttribute('data-theme','light')</code> — prevents flash of wrong theme. Toggle stored in <code>localStorage['mitl-theme']</code> via <code>web/theme.js</code>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     17. RULES & CONSTRAINTS
+══════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-title">17 · Rules & Constraints for New Pages / Components</div>
+
+  <div class="ds-note" style="font-size:var(--fs-body);line-height:var(--lh-body);">
+    <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:12px;">
+      <li><strong>Always import</strong> <code>web/base.css</code> and <code>web/components.css</code>. Never copy-paste their contents inline — single source of truth.</li>
+      <li><strong>Font loading:</strong> include the Google Fonts <code>&lt;link&gt;</code> block in every page <code>&lt;head&gt;</code> (Barlow Condensed 400/600/700 + JetBrains Mono 400/700). Order: preconnect → font link → base.css → components.css.</li>
+      <li><strong>Never use px for typography</strong> except SVG (<code>--fs-svg-*</code>) and Cytoscape canvas labels (8px/9px fixed). All other sizes via <code>var(--fs-*)</code> tokens.</li>
+      <li><strong>Never go below 13px</strong> (~--fs-xs at 120% base). Cytoscape canvas labels exempted (canvas coordinate space).</li>
+      <li><strong>Prose text</strong> → <code>--font</code> (Barlow Condensed). Machine-readable data → <code>--font-mono</code> (JetBrains Mono). No mixing within one element.</li>
+      <li><strong>accent color tints</strong>: dark mode uses <code>rgba(0,255,65,…)</code>; any such tint needs a <code>[data-theme="light"]</code> override with <code>rgba(0,102,34,…)</code> equivalent opacity.</li>
+      <li><strong>Uppercase labels</strong>: section headers, nav buttons, badge text → <code>text-transform:uppercase; letter-spacing:.4px–2px</code>. Never uppercase body prose.</li>
+      <li><strong>Entity colors</strong>: always use <code>--c-*</code> tokens. Never hardcode entity palette values. Graph libraries (Cytoscape) may use hex literals that mirror these tokens.</li>
+      <li><strong>Sidebar panels</strong>: use <code>--sl-*</code> token stack for all panel typography. Do not define ad-hoc panel font sizes.</li>
+      <li><strong>Light theme:</strong> always include the anti-flash inline script in <code>&lt;head&gt;</code> before CSS. Always include <code>&lt;script src="web/theme.js"&gt;&lt;/script&gt;</code> and a <code>&lt;button onclick="toggleTheme()"&gt;</code> in topnav.</li>
+    </ol>
+  </div>
+</div>
+
+<script src="../web/theme.js"></script>
+</body>
+</html>

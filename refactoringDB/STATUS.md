@@ -218,6 +218,7 @@ python3 scripts/validate.py
 | `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 | `status-map.md` | Map visualization analysis — architecture, data coverage, Playwright observations, 2 bugs, 10 UX problems, improvement backlog. **Not committed** (in .gitignore). |
 | `status-search.md` | Search/profile visualization analysis — architecture (REGISTRY, REL_MAP, scoring), data coverage, Playwright observations, 2 bugs, 4 search quality gaps, 8 UX problems, improvement backlog. **Not committed** (in .gitignore). |
+| `tmp/typography.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
 
 ---
 
