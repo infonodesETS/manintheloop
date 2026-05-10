@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-10 (feat: ego graph card in search.html + networks.html EDF collaboration network — branch `graph`; Cytoscape.js bipartite; country filter; all 4 ego graph shapes tested)
+> Last updated: 2026-05-10 (feat: Defence Network v2 — investment relationships + EDF checkbox toggles in networks.html; ego graph card open by default; all 4 shapes tested — branch `graph`)
 
 ## Session protocol
 
@@ -499,7 +499,8 @@ refactoringDB/
   - Card added to both `renderCards()` (IN entities) and `renderInvestorProfile()` (IV entities)
   - Tested: Tesla (22 investors), Leonardo (37 EDF projects), Sequoia (10 portfolio)
 - [x] **Branch `graph` created** from `main`
-- [x] **`networks.html`** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
+- [x] **`networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
+- [x] **`networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
 
 ### Session 2026-05-07
 
