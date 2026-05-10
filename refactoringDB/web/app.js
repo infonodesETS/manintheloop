@@ -897,6 +897,17 @@ function renderInvestorProfile(item) {
       if (targetItem) selectItem(targetItem);
     });
   });
+
+  if (e?.id && ivRels.length) {
+    const canvas = container.querySelector('.ego-graph-canvas');
+    if (canvas) {
+      canvas.dataset.inited = '1';
+      Graph.initEgoGraph(canvas, e.id, ENTITY_MAP, REL_MAP, navId => {
+        const target = REGISTRY.find(r => r.dbEntity?.id === navId || r.id === navId);
+        if (target) selectItem(target);
+      });
+    }
+  }
 }
 
 // ── Single-column cards ───────────────────────────────────────────────────────
@@ -921,7 +932,7 @@ function makeGraphCard(entityId, relCount) {
     { color: '#aaffdd', label: 'Company' },
   ].map(d => `<span class="graph-legend-item"><span class="graph-legend-dot" style="background:${d.color}"></span>${d.label}</span>`).join('');
 
-  return `<div class="cs-card cs-card-graph collapsed" id="card-graph">
+  return `<div class="cs-card cs-card-graph" id="card-graph">
     <div class="cs-card-hdr">
       <div class="cs-card-title"><span>Network</span><span class="cs-card-count">${relCount} connections</span></div>
       <span class="cs-card-toggle">▾</span>
@@ -1224,6 +1235,17 @@ function renderCards(item) {
   wireCardToggles(container, entityId);
   wireEdfParticipantBtns(container);
   wireInvestorPills(container);
+
+  if (entityId && rels.length) {
+    const canvas = container.querySelector('.ego-graph-canvas');
+    if (canvas) {
+      canvas.dataset.inited = '1';
+      Graph.initEgoGraph(canvas, entityId, ENTITY_MAP, REL_MAP, navId => {
+        const target = REGISTRY.find(r => r.dbEntity?.id === navId || r.id === navId);
+        if (target) selectItem(target);
+      });
+    }
+  }
 }
 
 function wireCardToggles(container, entityId) {
