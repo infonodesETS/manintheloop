@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-07 (fix: removed old-DB sector fallback badges in companyBadges(); full Wikidata enrichment for 196 IV/fund/public_fund entities; --types flag added to enrich_wikidata.py; all issues.md TODOs closed)
+> Last updated: 2026-05-10 (feat: Defence Network v2 — investment relationships + EDF checkbox toggles in networks.html; ego graph card open by default; all 4 shapes tested — branch `graph`)
 
 ## Session protocol
 
@@ -486,6 +486,21 @@ refactoringDB/
 **Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
 
 **Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
+
+### Session 2026-05-10 — Graph visualization (branch `graph`)
+
+- [x] **Ego graph card** in `search.html` — Cytoscape.js 3.30.2 (local `web/cytoscape.min.js`)
+  - `web/graph.js` module: `buildElements()`, `initEgoGraph()`, `destroyActive()`
+  - 1-hop bipartite view: center entity + direct neighbors only
+  - Concentric layout (≤40 nodes) / cose spring (>40 EDF nodes)
+  - Adaptive spacingFactor by node count (3.5 for tiny → 1.0 for large)
+  - Collapsed by default; lazy-rendered on first expand
+  - Click-to-navigate: tap any neighbor node → full profile + URL routing
+  - Card added to both `renderCards()` (IN entities) and `renderInvestorProfile()` (IV entities)
+  - Tested: Tesla (22 investors), Leonardo (37 EDF projects), Sequoia (10 portfolio)
+- [x] **Branch `graph` created** from `main`
+- [x] **`networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
+- [x] **`networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
 
 ### Session 2026-05-07
 

@@ -12,19 +12,180 @@
   <link rel="stylesheet" href="web/components.css">
   <style>
     html { font-size: 120%; }
-    body { overflow: auto; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
-    #page-content {
-      padding: calc(var(--nav-h) + var(--tab-h) + 48px) 40px 80px;
-      max-width: 760px;
+    body { overflow: hidden; padding-top: 0; }
+
+    /* ── Page shell ── */
+    #page {
+      display: flex;
+      height: calc(100vh - var(--nav-h) - var(--tab-h));
+      margin-top: calc(var(--nav-h) + var(--tab-h));
     }
-    .tbd-prompt { font-family: var(--font-mono); font-size: var(--fs-xs); color: rgba(0,255,65,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-    .tbd-title { font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin-bottom: 16px; }
-    .tbd-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.2); padding-left: 16px; margin-bottom: 32px; }
-    .tbd-badge {
-      display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs);
-      border: 1px solid var(--border); border-radius: 50px; padding: 3px 14px;
+
+    /* ── Sidebar ── */
+    #sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+      overflow-y: auto;
+      padding: 16px 14px 24px;
+    }
+
+    .net-section-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
       color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+
+    #net-title {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: rgba(100,160,255,.8);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    #country-select {
+      width: 100%;
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      background: var(--surface, #1a1a1a);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      outline: none;
+    }
+    #country-select:focus { border-color: rgba(100,160,255,.5); }
+
+    /* ── Rel-type filter ── */
+    .net-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .net-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+    }
+    .net-filter-row input[type=checkbox] {
+      accent-color: var(--accent);
+      cursor: pointer;
+      width: 13px; height: 13px;
+    }
+    .net-filter-row:hover { color: var(--text-primary); }
+
+    #net-stats {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .net-stat-val { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .net-stat-inv { color: rgba(255,165,80,.9); font-weight: var(--fw-bold); }
+
+    .net-legend { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .net-legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-secondary);
+    }
+    .net-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .net-legend-diamond {
+      width: 10px; height: 10px; flex-shrink: 0;
+      background: rgba(100,160,255,.85);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .net-legend-line-solid {
+      width: 18px; height: 2px;
+      background: rgba(100,160,255,.4); flex-shrink: 0;
+    }
+    .net-legend-line-dashed {
+      width: 18px; height: 0; flex-shrink: 0;
+      border-top: 2px dashed rgba(255,165,80,.5);
+    }
+
+    #net-note {
+      font-family: var(--font-mono);
+      font-size: calc(var(--fs-body) * .82);
+      color: var(--text-faint);
+      line-height: 1.5;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+    .all-edf-warn {
+      font-family: var(--font-mono);
+      font-size: calc(var(--fs-body) * .82);
+      color: rgba(255,200,0,.8);
+      margin-bottom: 8px;
+    }
+
+    /* ── Graph area ── */
+    #graph-area { flex: 1; position: relative; background: var(--bg); overflow: hidden; }
+    #cy { width: 100%; height: 100%; }
+
+    /* ── Loading overlay ── */
+    #net-loading {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint);
+      z-index: 10; pointer-events: none;
+    }
+    #net-loading.hidden { display: none; }
+
+    /* ── Project detail panel ── */
+    #proj-panel {
+      position: absolute; top: 16px; right: 16px;
+      width: 270px;
+      background: var(--surface, #1a1a1a);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 4px; padding: 14px;
+      font-size: var(--fs-body); z-index: 20; display: none;
+    }
+    #proj-panel.visible { display: block; }
+    #proj-close {
+      position: absolute; top: 8px; right: 10px;
+      background: none; border: none;
+      color: var(--text-faint); font-size: 14px; cursor: pointer; line-height: 1;
+    }
+    #proj-close:hover { color: var(--text-primary); }
+    .proj-panel-title {
+      font-weight: var(--fw-bold); color: rgba(100,160,255,.9);
+      margin-bottom: 10px; padding-right: 20px; word-break: break-word;
+    }
+    .proj-row { display: flex; gap: 8px; margin-bottom: 5px; font-family: var(--font-mono); }
+    .proj-lbl { color: var(--text-faint); white-space: nowrap; min-width: 80px; }
+    .proj-val { color: var(--text-secondary); word-break: break-word; }
+    .proj-contrib { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .proj-link { color: rgba(100,160,255,.8); text-decoration: none; }
+    .proj-link:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+
+    /* ── Hover tooltip ── */
+    #cy-tooltip {
+      position: absolute; pointer-events: none;
+      background: var(--surface, #1a1a1a);
+      border: 1px solid var(--border); border-radius: 3px;
+      padding: 4px 8px;
+      font-family: var(--font-mono); font-size: calc(var(--fs-body) * .85);
+      color: var(--text-primary); white-space: nowrap; z-index: 30; display: none;
     }
   </style>
 </head>
@@ -46,16 +207,460 @@
   <a href="about.html" class="tnav-btn">About</a>
 </div>
 
-<div id="page-content">
-  <div class="tbd-prompt">$ networks --init</div>
-  <div class="tbd-title">Networks</div>
-  <div class="tbd-desc">
-    Interactive network graph visualising relationships between organisations — investments,
-    partnerships, ownership structures — across the defence supply chain.<br><br>
-    Nodes: companies and investors. Edges: funding relationships from the database.
+<div id="page">
+
+  <!-- ── Sidebar ── -->
+  <div id="sidebar">
+    <div id="net-title">Defence Network</div>
+
+    <div class="net-section-label">Country</div>
+    <select id="country-select"></select>
+    <div id="all-edf-warn" class="all-edf-warn" style="display:none">
+      Large graph — layout may take a few seconds.
+    </div>
+
+    <div class="net-section-label">Relationships</div>
+    <div class="net-filter-group">
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-edf" checked> EDF participation
+      </label>
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-inv" checked> Investment
+      </label>
+    </div>
+
+    <div class="net-section-label">Stats</div>
+    <div id="net-stats">—</div>
+
+    <div class="net-section-label">Legend</div>
+    <div class="net-legend">
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company</div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution</div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund</div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency</div>
+      <div class="net-legend-item"><span class="net-legend-diamond"></span>EDF project hub</div>
+      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EDF participation</div>
+      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Investment</div>
+    </div>
+
+    <div id="net-note">
+      Node size = degree (projects / investors).<br>
+      Click entity → open profile.<br>
+      Click project diamond → details.
+    </div>
   </div>
-  <span class="tbd-badge">TBD — coming soon</span>
+
+  <!-- ── Graph area ── -->
+  <div id="graph-area">
+    <div id="cy"></div>
+    <div id="net-loading">Loading data…</div>
+
+    <div id="proj-panel">
+      <button id="proj-close" title="Close">×</button>
+      <div class="proj-panel-title" id="proj-name"></div>
+      <div id="proj-rows"></div>
+    </div>
+
+    <div id="cy-tooltip"></div>
+  </div>
+
 </div>
+
+<script src="web/cytoscape.min.js"></script>
+<script>
+'use strict';
+
+const NODE_COLORS = {
+  company:            '#aaffdd',
+  institution:        '#ff99bb',
+  fund:               '#ffaa55',
+  investor:           '#ffaa55',
+  public_fund:        '#ffaa55',
+  government_agency:  '#ff5555',
+  bank:               '#cc3333',
+  edf_project:        '#64a0ff',
+  default:            '#888888',
+};
+
+function nodeColor(type) { return NODE_COLORS[type] || NODE_COLORS.default; }
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function truncate(str, max) {
+  if (!str) return '';
+  return str.length > max ? str.slice(0, max - 1) + '…' : str;
+}
+function fmtEur(val) {
+  if (!val) return null;
+  const n = parseFloat(val);
+  if (isNaN(n) || n === 0) return null;
+  if (n >= 1e6) return `€${(n/1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
+  return `€${n.toFixed(0)}`;
+}
+function getCountry(e) {
+  const s = e.sources || {};
+  return (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+}
+
+// ── Data ─────────────────────────────────────────────────────────────────────
+let DB            = null;
+let entityMap     = {};
+let edfRels       = [];   // edf_participation: source=entity, target=EDF project
+let investmentRels= [];   // investment: source=IV investor, target=IN entity
+let countryIndex  = {};   // country → Set<entityId> (IN-* only)
+let countryCounts = [];   // [{country, count}] sorted desc
+
+async function loadData() {
+  DB = await fetch('data/database.json').then(r => r.json());
+  for (const e of DB.entities) entityMap[e.id] = e;
+
+  edfRels        = DB.relationships.filter(r => r.type === 'edf_participation');
+  investmentRels = DB.relationships.filter(r => r.type === 'investment');
+
+  // Country index: anchor on EDF participants (they define "country scope")
+  // but also capture iShares/other IN-* entities with a country
+  const ci = {};
+  for (const e of DB.entities) {
+    if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
+    const c = getCountry(e);
+    if (!c) continue;
+    if (!ci[c]) ci[c] = new Set();
+    ci[c].add(e.id);
+  }
+  countryIndex = ci;
+
+  countryCounts = Object.entries(ci)
+    .map(([country, ids]) => ({ country, count: ids.size }))
+    .sort((a, b) => b.count - a.count);
+}
+
+// ── Build elements ────────────────────────────────────────────────────────────
+function buildElements(country, showEdf, showInv) {
+  const isAll = country === '__all__';
+
+  // Anchor entities: IN-* in selected country
+  let entityIds;
+  if (isAll) {
+    entityIds = new Set();
+    for (const e of DB.entities) {
+      if (!e.id.startsWith('IV-') && !e.id.startsWith('EDF-')) entityIds.add(e.id);
+    }
+  } else {
+    entityIds = new Set(countryIndex[country] || []);
+  }
+
+  const nodes     = new Map();  // id → node data
+  const edgesList = [];
+
+  // Degree counters (for node sizing)
+  const deg = {};
+  const bump = id => { deg[id] = (deg[id] || 0) + 1; };
+
+  // ── EDF participation ────────────────────────────────────────────────────
+  const edfEdgesRaw = [];
+  if (showEdf) {
+    for (const r of edfRels) {
+      if (!entityIds.has(r.source)) continue;
+      edfEdgesRaw.push(r);
+      bump(r.source);
+      bump(r.target);
+    }
+  }
+
+  // ── Investment ───────────────────────────────────────────────────────────
+  const invEdgesRaw = [];
+  if (showInv) {
+    for (const r of investmentRels) {
+      if (!entityIds.has(r.target)) continue;
+      invEdgesRaw.push(r);
+      bump(r.source);  // investor
+      bump(r.target);  // entity
+    }
+  }
+
+  // If neither rel type is shown, still show entity nodes
+  if (!showEdf && !showInv) {
+    for (const eid of entityIds) bump(eid);
+  }
+
+  // ── Add entity nodes ─────────────────────────────────────────────────────
+  for (const eid of entityIds) {
+    const e = entityMap[eid];
+    if (!e) continue;
+    const d = deg[eid] || 1;
+    nodes.set(eid, {
+      data: { id: eid, label: truncate(e.name, 16), fullName: e.name,
+              type: e.type || 'company', kind: 'entity',
+              size: Math.min(36, Math.max(10, d * 5)) }
+    });
+  }
+
+  // ── Add EDF project nodes ─────────────────────────────────────────────────
+  for (const r of edfEdgesRaw) {
+    const pid = r.target;
+    if (!nodes.has(pid)) {
+      const p  = entityMap[pid];
+      const ps = p?.sources?.edf_project || {};
+      const d  = deg[pid] || 1;
+      nodes.set(pid, {
+        data: {
+          id: pid, label: truncate(ps.acronym || p?.name || pid, 12),
+          fullName: p?.name || pid, acronym: ps.acronym || '',
+          callId: ps.call_id || '', callTitle: ps.call_title || '',
+          status: ps.status || '', startDate: ps.start_date || '',
+          endDate: ps.end_date || '', euContrib: ps.eu_contribution || '',
+          url: ps.url || '', type: 'edf_project', kind: 'project',
+          size: Math.min(28, Math.max(10, d * 3))
+        }
+      });
+    }
+    edgesList.push({ data: { id: `ee${r.source}${pid}`, source: r.source, target: pid, etype: 'edf' } });
+  }
+
+  // ── Add investor nodes ────────────────────────────────────────────────────
+  for (const r of invEdgesRaw) {
+    const ivId = r.source;
+    if (!nodes.has(ivId)) {
+      const iv = entityMap[ivId];
+      const d  = deg[ivId] || 1;
+      nodes.set(ivId, {
+        data: { id: ivId, label: truncate(iv?.name || ivId, 16),
+                fullName: iv?.name || ivId, type: iv?.type || 'investor',
+                kind: 'investor', size: Math.min(28, Math.max(8, d * 4)) }
+      });
+    }
+    edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });
+  }
+
+  const projectIds  = new Set(edfEdgesRaw.map(r => r.target));
+  const investorIds = new Set(invEdgesRaw.map(r => r.source));
+
+  return {
+    elements: [...nodes.values(), ...edgesList],
+    nodeCount:     nodes.size,
+    entityCount:   entityIds.size,
+    projectCount:  projectIds.size,
+    investorCount: investorIds.size,
+    edfEdgeCount:  edfEdgesRaw.length,
+    invEdgeCount:  invEdgesRaw.length,
+  };
+}
+
+// ── Cytoscape ─────────────────────────────────────────────────────────────────
+let cy = null;
+
+const CY_STYLE = [
+  {
+    selector: 'node[kind = "entity"]',
+    style: {
+      'shape': 'ellipse',
+      'background-color': ele => nodeColor(ele.data('type')),
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(255,255,255,0.7)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
+      'border-width': 0,
+    }
+  },
+  {
+    selector: 'node[kind = "investor"]',
+    style: {
+      'shape': 'ellipse',
+      'background-color': '#ffaa55',
+      'background-opacity': 0.8,
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(255,165,80,0.85)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
+      'border-width': 1, 'border-color': 'rgba(255,165,80,0.3)',
+    }
+  },
+  {
+    selector: 'node[kind = "project"]',
+    style: {
+      'shape': 'diamond',
+      'background-color': '#64a0ff', 'background-opacity': 0.7,
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(100,160,255,0.9)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '56px',
+      'border-width': 0,
+    }
+  },
+  {
+    selector: 'node:selected',
+    style: { 'border-width': 2, 'border-color': '#fff', 'border-opacity': 0.6 }
+  },
+  {
+    selector: 'edge[etype = "edf"]',
+    style: {
+      'width': 0.8, 'line-color': 'rgba(100,160,255,0.2)',
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
+    }
+  },
+  {
+    selector: 'edge[etype = "investment"]',
+    style: {
+      'width': 0.8, 'line-color': 'rgba(255,165,80,0.25)',
+      'line-style': 'dashed', 'line-dash-pattern': [4, 3],
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
+    }
+  },
+];
+
+function buildLayout(nodeCount) {
+  if (nodeCount <= 1) return { name: 'grid' };
+  return {
+    name: 'cose',
+    animate: false,
+    randomize: false,
+    idealEdgeLength: nodeCount > 300 ? 45 : nodeCount > 150 ? 60 : 75,
+    nodeRepulsion: () => nodeCount > 300 ? 1500 : nodeCount > 150 ? 2500 : 4000,
+    gravity: 0.25,
+    numIter: nodeCount > 500 ? 400 : nodeCount > 200 ? 700 : 1000,
+    componentSpacing: 40,
+    coolingFactor: 0.95,
+  };
+}
+
+function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount }) {
+  const rows = [];
+  if (entityCount)   rows.push(`<span class="net-stat-val">${entityCount}</span> entities`);
+  if (projectCount)  rows.push(`<span class="net-stat-val">${projectCount}</span> EDF projects`);
+  if (investorCount) rows.push(`<span class="net-stat-inv">${investorCount}</span> investors`);
+  if (edfEdgeCount)  rows.push(`<span class="net-stat-val">${edfEdgeCount}</span> participations`);
+  if (invEdgeCount)  rows.push(`<span class="net-stat-inv">${invEdgeCount}</span> investments`);
+  document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
+}
+
+function renderNetwork(country) {
+  const loadingEl = document.getElementById('net-loading');
+  const isAll     = country === '__all__';
+  const showEdf   = document.getElementById('chk-edf').checked;
+  const showInv   = document.getElementById('chk-inv').checked;
+
+  document.getElementById('all-edf-warn').style.display = isAll ? '' : 'none';
+  loadingEl.classList.remove('hidden');
+  loadingEl.textContent = 'Building graph…';
+
+  setTimeout(() => {
+    const result = buildElements(country, showEdf, showInv);
+    updateStats(result);
+
+    if (cy) { cy.destroy(); cy = null; }
+    closeProjPanel();
+
+    if (result.nodeCount === 0) {
+      loadingEl.textContent = 'No data for this selection.';
+      return;
+    }
+
+    loadingEl.textContent = `Laying out ${result.nodeCount} nodes…`;
+
+    setTimeout(() => {
+      cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements:  result.elements,
+        style:     CY_STYLE,
+        layout:    buildLayout(result.nodeCount),
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+        minZoom: 0.05,
+        maxZoom: 5,
+      });
+
+      cy.fit(undefined, 32);
+      loadingEl.classList.add('hidden');
+
+      // Entity/investor click → open profile
+      cy.on('tap', 'node[kind = "entity"], node[kind = "investor"]', evt => {
+        const d = evt.target.data();
+        window.open(`search.html?organization=${encodeURIComponent(d.id)}&organizationName=${encodeURIComponent(d.fullName)}`, '_blank');
+      });
+
+      // Project click → detail panel
+      cy.on('tap', 'node[kind = "project"]', evt => showProjPanel(evt.target.data()));
+
+      cy.on('tap', evt => { if (evt.target === cy) closeProjPanel(); });
+
+      // Tooltip
+      const tooltip = document.getElementById('cy-tooltip');
+      cy.on('mouseover', 'node', evt => {
+        tooltip.textContent = evt.target.data('fullName') || evt.target.data('label');
+        tooltip.style.display = 'block';
+      });
+      cy.on('mousemove', 'node', evt => {
+        const rp = evt.renderedPosition;
+        tooltip.style.left = (rp.x + 10) + 'px';
+        tooltip.style.top  = (rp.y + 4)  + 'px';
+      });
+      cy.on('mouseout', 'node', () => { tooltip.style.display = 'none'; });
+
+    }, 20);
+  }, 20);
+}
+
+// ── Project panel ─────────────────────────────────────────────────────────────
+function showProjPanel(d) {
+  document.getElementById('proj-name').textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
+  const rows = [];
+  if (d.callId)    rows.push(['Call',         `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
+  if (d.status)    rows.push(['Status',       esc(d.status)]);
+  if (d.startDate) rows.push(['Period',       `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
+  if (d.euContrib) rows.push(['EU contrib.',  `<span class="proj-contrib">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
+  rows.push(['Participants', `<span class="proj-contrib">${d.degree ?? '—'}</span>`]);
+  if (d.url)       rows.push(['EU Portal',    `<a class="proj-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
+  document.getElementById('proj-rows').innerHTML = rows.map(([l, v]) =>
+    `<div class="proj-row"><span class="proj-lbl">${l}</span><span class="proj-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('proj-panel').classList.add('visible');
+}
+
+function closeProjPanel() {
+  document.getElementById('proj-panel').classList.remove('visible');
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  await loadData();
+
+  const select = document.getElementById('country-select');
+  for (const { country, count } of countryCounts) {
+    const opt = document.createElement('option');
+    opt.value = country;
+    opt.textContent = `${country} (${count})`;
+    select.appendChild(opt);
+  }
+  const allOpt = document.createElement('option');
+  allOpt.value = '__all__';
+  allOpt.textContent = `All entities`;
+  select.appendChild(allOpt);
+
+  select.value = countryCounts[0]?.country || '__all__';
+
+  const rerender = () => renderNetwork(select.value);
+  select.addEventListener('change', rerender);
+  document.getElementById('chk-edf').addEventListener('change', rerender);
+  document.getElementById('chk-inv').addEventListener('change', rerender);
+  document.getElementById('proj-close').addEventListener('click', closeProjPanel);
+
+  renderNetwork(select.value);
+}
+
+init().catch(err => {
+  document.getElementById('net-loading').textContent = 'Error: ' + err.message;
+  console.error(err);
+});
+</script>
 
 <script src="web/theme.js"></script>
 </body>

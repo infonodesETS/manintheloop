@@ -1,5 +1,6 @@
 'use strict';
 import * as Router from './router.js';
+import * as Graph  from './graph.js';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -426,6 +427,7 @@ function selectItem(item, replaceHistory = false) {
 
 function clearSelection() {
   currentItem = null;
+  Graph.destroyActive();
   searchEl.value = '';
   document.getElementById('cs-clear').style.display = 'none';
   document.getElementById('cs-hero').classList.remove('compact');
@@ -840,6 +842,9 @@ function renderInvestorProfile(item) {
 
   const cards = [];
 
+  const ivRels = (REL_MAP[e?.id] || []);
+  if (ivRels.length) cards.push(makeGraphCard(e.id, ivRels.length));
+
   if (portfolio.length) {
     let h = `<ul class="cs-elist">`;
     const sorted = [...portfolio].sort((a, b) => {
@@ -884,9 +889,7 @@ function renderInvestorProfile(item) {
   const container = document.getElementById('cs-cards');
   container.innerHTML = cards.join('');
 
-  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
-    hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
-  });
+  wireCardToggles(container, e?.id);
 
   container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -894,6 +897,17 @@ function renderInvestorProfile(item) {
       if (targetItem) selectItem(targetItem);
     });
   });
+
+  if (e?.id && ivRels.length) {
+    const canvas = container.querySelector('.ego-graph-canvas');
+    if (canvas) {
+      canvas.dataset.inited = '1';
+      Graph.initEgoGraph(canvas, e.id, ENTITY_MAP, REL_MAP, navId => {
+        const target = REGISTRY.find(r => r.dbEntity?.id === navId || r.id === navId);
+        if (target) selectItem(target);
+      });
+    }
+  }
 }
 
 // ── Single-column cards ───────────────────────────────────────────────────────
@@ -907,6 +921,27 @@ function makeCard(cls, title, bodyHtml, count, id) {
       <span class="cs-card-toggle">▾</span>
     </div>
     <div class="cs-card-body">${bodyHtml}</div>
+  </div>`;
+}
+
+function makeGraphCard(entityId, relCount) {
+  const legend = [
+    { color: '#00ff41', label: 'Entity' },
+    { color: '#64a0ff', label: 'EDF project' },
+    { color: '#ffaa55', label: 'Investor' },
+    { color: '#aaffdd', label: 'Company' },
+  ].map(d => `<span class="graph-legend-item"><span class="graph-legend-dot" style="background:${d.color}"></span>${d.label}</span>`).join('');
+
+  return `<div class="cs-card cs-card-graph" id="card-graph">
+    <div class="cs-card-hdr">
+      <div class="cs-card-title"><span>Network</span><span class="cs-card-count">${relCount} connections</span></div>
+      <span class="cs-card-toggle">▾</span>
+    </div>
+    <div class="cs-card-body">
+      <div class="ego-graph-canvas" data-entity="${esc(entityId)}"></div>
+      <div class="graph-legend">${legend}</div>
+      <div class="graph-note">Click a node to navigate · scroll to zoom · drag to pan</div>
+    </div>
   </div>`;
 }
 
@@ -1170,6 +1205,10 @@ function renderCards(item) {
   const org = item.edfOrg;
   const cards = [];
 
+  const entityId = e?.id;
+  const rels = entityId ? (REL_MAP[entityId] || []) : [];
+  if (rels.length) cards.push(makeGraphCard(entityId, rels.length));
+
   const inf = e?.sources?.infonodes || {};
   if (e) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf, e)));
 
@@ -1193,12 +1232,40 @@ function renderCards(item) {
   const container = document.getElementById('cs-cards');
   container.innerHTML = cards.join('');
 
-  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
-    hdr.addEventListener('click', () => hdr.closest('.cs-card').classList.toggle('collapsed'));
-  });
-
+  wireCardToggles(container, entityId);
   wireEdfParticipantBtns(container);
   wireInvestorPills(container);
+
+  if (entityId && rels.length) {
+    const canvas = container.querySelector('.ego-graph-canvas');
+    if (canvas) {
+      canvas.dataset.inited = '1';
+      Graph.initEgoGraph(canvas, entityId, ENTITY_MAP, REL_MAP, navId => {
+        const target = REGISTRY.find(r => r.dbEntity?.id === navId || r.id === navId);
+        if (target) selectItem(target);
+      });
+    }
+  }
+}
+
+function wireCardToggles(container, entityId) {
+  container.querySelectorAll('.cs-card-hdr').forEach(hdr => {
+    hdr.addEventListener('click', () => {
+      const card = hdr.closest('.cs-card');
+      const wasCollapsed = card.classList.contains('collapsed');
+      card.classList.toggle('collapsed');
+      if (wasCollapsed && card.classList.contains('cs-card-graph')) {
+        const canvas = card.querySelector('.ego-graph-canvas');
+        if (canvas && !canvas.dataset.inited && entityId) {
+          canvas.dataset.inited = '1';
+          Graph.initEgoGraph(canvas, entityId, ENTITY_MAP, REL_MAP, navId => {
+            const target = REGISTRY.find(r => r.dbEntity?.id === navId || r.id === navId);
+            if (target) selectItem(target);
+          });
+        }
+      }
+    });
+  });
 }
 
 function renderEdfProjects(pic) {
