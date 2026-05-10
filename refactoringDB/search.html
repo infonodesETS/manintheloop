@@ -347,6 +347,28 @@
     /* ── Error state ── */
     .cs-error { color: var(--error, #f44); font-family: var(--font-mono); font-size: var(--fs-body); }
 
+    /* ── Ego graph card ── */
+    .cs-card-graph { border-color: rgba(0,255,65,.15); background: rgba(0,255,65,.01); }
+    .cs-card-graph .cs-card-hdr { color: rgba(0,255,65,.7); border-bottom-color: rgba(0,255,65,.10); }
+    .ego-graph-canvas { width: 100%; min-height: 200px; border-radius: 3px; background: rgba(0,0,0,.25); }
+    .graph-placeholder {
+      font-family: var(--font-mono); font-size: var(--fs-body);
+      color: var(--text-faint); padding: 40px 0; text-align: center;
+    }
+    .graph-legend {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px;
+      font-family: var(--font-mono); font-size: calc(var(--fs-body) * .82);
+      color: var(--text-faint);
+    }
+    .graph-legend-item { display: flex; align-items: center; gap: 5px; }
+    .graph-legend-dot {
+      width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+    }
+    .graph-note {
+      font-family: var(--font-mono); font-size: calc(var(--fs-body) * .82);
+      color: var(--text-faint); margin-top: 8px;
+    }
+
     /* ── Single-column cards ── */
     #cs-cards { display: flex; flex-direction: column; gap: 0; padding: 0 20px 40px; max-width: 860px; }
     #cs-cards .cs-card { margin-bottom: 10px; }
@@ -484,6 +506,7 @@
   <div id="cs-loading">Loading data…</div>
 
 </div>
+<script src="web/cytoscape.min.js"></script>
 <script type="module" src="web/app.js"></script>
 
 <script src="web/theme.js"></script>
