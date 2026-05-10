@@ -13,11 +13,7 @@
   <style>
     html { font-size: 120%; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
-
-    body {
-      overflow: hidden;
-      padding-top: 0;
-    }
+    body { overflow: hidden; padding-top: 0; }
 
     /* ── Page shell ── */
     #page {
@@ -66,11 +62,35 @@
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 6px 8px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       cursor: pointer;
       outline: none;
     }
     #country-select:focus { border-color: rgba(100,160,255,.5); }
+
+    /* ── Rel-type filter ── */
+    .net-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .net-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+    }
+    .net-filter-row input[type=checkbox] {
+      accent-color: var(--accent);
+      cursor: pointer;
+      width: 13px; height: 13px;
+    }
+    .net-filter-row:hover { color: var(--text-primary); }
 
     #net-stats {
       font-family: var(--font-mono);
@@ -80,16 +100,27 @@
       line-height: 1.7;
     }
     .net-stat-val { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .net-stat-inv { color: rgba(255,165,80,.9); font-weight: var(--fw-bold); }
 
     .net-legend { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-    .net-legend-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-secondary); }
+    .net-legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-secondary);
+    }
     .net-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .net-legend-diamond {
       width: 10px; height: 10px; flex-shrink: 0;
       background: rgba(100,160,255,.85);
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
-    .net-legend-line-solid   { width: 18px; height: 2px; background: rgba(100,160,255,.4); flex-shrink: 0; }
+    .net-legend-line-solid {
+      width: 18px; height: 2px;
+      background: rgba(100,160,255,.4); flex-shrink: 0;
+    }
+    .net-legend-line-dashed {
+      width: 18px; height: 0; flex-shrink: 0;
+      border-top: 2px dashed rgba(255,165,80,.5);
+    }
 
     #net-note {
       font-family: var(--font-mono);
@@ -99,71 +130,48 @@
       margin-top: auto;
       padding-top: 16px;
     }
+    .all-edf-warn {
+      font-family: var(--font-mono);
+      font-size: calc(var(--fs-body) * .82);
+      color: rgba(255,200,0,.8);
+      margin-bottom: 8px;
+    }
 
     /* ── Graph area ── */
-    #graph-area {
-      flex: 1;
-      position: relative;
-      background: var(--bg);
-      overflow: hidden;
-    }
-
-    #cy {
-      width: 100%;
-      height: 100%;
-    }
+    #graph-area { flex: 1; position: relative; background: var(--bg); overflow: hidden; }
+    #cy { width: 100%; height: 100%; }
 
     /* ── Loading overlay ── */
     #net-loading {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
       background: var(--bg);
-      font-family: var(--font-mono);
-      font-size: var(--fs-body);
-      color: var(--text-faint);
-      z-index: 10;
-      pointer-events: none;
+      font-family: var(--font-mono); font-size: var(--fs-body); color: var(--text-faint);
+      z-index: 10; pointer-events: none;
     }
     #net-loading.hidden { display: none; }
 
     /* ── Project detail panel ── */
     #proj-panel {
-      position: absolute;
-      top: 16px;
-      right: 16px;
+      position: absolute; top: 16px; right: 16px;
       width: 270px;
       background: var(--surface, #1a1a1a);
       border: 1px solid rgba(100,160,255,.3);
-      border-radius: 4px;
-      padding: 14px;
-      font-size: var(--fs-body);
-      z-index: 20;
-      display: none;
+      border-radius: 4px; padding: 14px;
+      font-size: var(--fs-body); z-index: 20; display: none;
     }
     #proj-panel.visible { display: block; }
     #proj-close {
-      position: absolute;
-      top: 8px; right: 10px;
+      position: absolute; top: 8px; right: 10px;
       background: none; border: none;
-      color: var(--text-faint); font-size: 14px; cursor: pointer;
-      line-height: 1;
+      color: var(--text-faint); font-size: 14px; cursor: pointer; line-height: 1;
     }
     #proj-close:hover { color: var(--text-primary); }
     .proj-panel-title {
-      font-weight: var(--fw-bold);
-      color: rgba(100,160,255,.9);
-      margin-bottom: 10px;
-      padding-right: 20px;
-      word-break: break-word;
+      font-weight: var(--fw-bold); color: rgba(100,160,255,.9);
+      margin-bottom: 10px; padding-right: 20px; word-break: break-word;
     }
-    .proj-row {
-      display: flex; gap: 8px;
-      margin-bottom: 5px;
-      font-family: var(--font-mono);
-    }
+    .proj-row { display: flex; gap: 8px; margin-bottom: 5px; font-family: var(--font-mono); }
     .proj-lbl { color: var(--text-faint); white-space: nowrap; min-width: 80px; }
     .proj-val { color: var(--text-secondary); word-break: break-word; }
     .proj-contrib { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
@@ -172,26 +180,12 @@
 
     /* ── Hover tooltip ── */
     #cy-tooltip {
-      position: absolute;
-      pointer-events: none;
+      position: absolute; pointer-events: none;
       background: var(--surface, #1a1a1a);
-      border: 1px solid var(--border);
-      border-radius: 3px;
+      border: 1px solid var(--border); border-radius: 3px;
       padding: 4px 8px;
-      font-family: var(--font-mono);
-      font-size: calc(var(--fs-body) * .85);
-      color: var(--text-primary);
-      white-space: nowrap;
-      z-index: 30;
-      display: none;
-    }
-
-    /* ── All-EDF warning ── */
-    .all-edf-warn {
-      color: rgba(255,200,0,.8);
-      font-family: var(--font-mono);
-      font-size: calc(var(--fs-body) * .82);
-      margin-top: 6px;
+      font-family: var(--font-mono); font-size: calc(var(--fs-body) * .85);
+      color: var(--text-primary); white-space: nowrap; z-index: 30; display: none;
     }
   </style>
 </head>
@@ -217,7 +211,7 @@
 
   <!-- ── Sidebar ── -->
   <div id="sidebar">
-    <div id="net-title">EDF Collaboration Network</div>
+    <div id="net-title">Defence Network</div>
 
     <div class="net-section-label">Country</div>
     <select id="country-select"></select>
@@ -225,7 +219,17 @@
       Large graph — layout may take a few seconds.
     </div>
 
-    <div class="net-section-label" style="margin-top:4px;">Stats</div>
+    <div class="net-section-label">Relationships</div>
+    <div class="net-filter-group">
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-edf" checked> EDF participation
+      </label>
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-inv" checked> Investment
+      </label>
+    </div>
+
+    <div class="net-section-label">Stats</div>
     <div id="net-stats">—</div>
 
     <div class="net-section-label">Legend</div>
@@ -235,13 +239,14 @@
       <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund</div>
       <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency</div>
       <div class="net-legend-item"><span class="net-legend-diamond"></span>EDF project hub</div>
-      <div class="net-legend-item"><span class="net-legend-line-solid"></span>Participation</div>
+      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EDF participation</div>
+      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Investment</div>
     </div>
 
     <div id="net-note">
-      Node size = number of projects / participants.<br>
+      Node size = degree (projects / investors).<br>
       Click entity → open profile.<br>
-      Click project → show details.
+      Click project diamond → details.
     </div>
   </div>
 
@@ -250,14 +255,12 @@
     <div id="cy"></div>
     <div id="net-loading">Loading data…</div>
 
-    <!-- Project detail panel -->
     <div id="proj-panel">
       <button id="proj-close" title="Close">×</button>
       <div class="proj-panel-title" id="proj-name"></div>
       <div id="proj-rows"></div>
     </div>
 
-    <!-- Hover tooltip -->
     <div id="cy-tooltip"></div>
   </div>
 
@@ -284,12 +287,10 @@ function nodeColor(type) { return NODE_COLORS[type] || NODE_COLORS.default; }
 function esc(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
 function truncate(str, max) {
   if (!str) return '';
   return str.length > max ? str.slice(0, max - 1) + '…' : str;
 }
-
 function fmtEur(val) {
   if (!val) return null;
   const n = parseFloat(val);
@@ -298,38 +299,35 @@ function fmtEur(val) {
   if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
   return `€${n.toFixed(0)}`;
 }
-
 function getCountry(e) {
-  const src = e.sources || {};
-  return (src.infonodes || {}).country
-      || (src.wikidata  || {}).country
-      || (src.edf       || {}).country
-      || '';
+  const s = e.sources || {};
+  return (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
 }
 
 // ── Data ─────────────────────────────────────────────────────────────────────
-let DB         = null;
-let entityMap  = {};
-let edfRels    = [];           // [{source: entity_id, target: project_id, ...}]
-let countryIndex = {};         // country → Set of entity IDs
-let countryCounts = [];        // [{country, count}] sorted desc
+let DB            = null;
+let entityMap     = {};
+let edfRels       = [];   // edf_participation: source=entity, target=EDF project
+let investmentRels= [];   // investment: source=IV investor, target=IN entity
+let countryIndex  = {};   // country → Set<entityId> (IN-* only)
+let countryCounts = [];   // [{country, count}] sorted desc
 
 async function loadData() {
   DB = await fetch('data/database.json').then(r => r.json());
-
   for (const e of DB.entities) entityMap[e.id] = e;
 
-  edfRels = (DB.relationships || []).filter(r => r.type === 'edf_participation');
+  edfRels        = DB.relationships.filter(r => r.type === 'edf_participation');
+  investmentRels = DB.relationships.filter(r => r.type === 'investment');
 
-  // Build country index
+  // Country index: anchor on EDF participants (they define "country scope")
+  // but also capture iShares/other IN-* entities with a country
   const ci = {};
-  for (const r of edfRels) {
-    const e = entityMap[r.source];
-    if (!e) continue;
+  for (const e of DB.entities) {
+    if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
     const c = getCountry(e);
     if (!c) continue;
     if (!ci[c]) ci[c] = new Set();
-    ci[c].add(r.source);
+    ci[c].add(e.id);
   }
   countryIndex = ci;
 
@@ -338,84 +336,119 @@ async function loadData() {
     .sort((a, b) => b.count - a.count);
 }
 
-// ── Build Cytoscape elements ──────────────────────────────────────────────────
-function buildElements(country) {
+// ── Build elements ────────────────────────────────────────────────────────────
+function buildElements(country, showEdf, showInv) {
   const isAll = country === '__all__';
-  const entityIds = isAll
-    ? new Set(edfRels.map(r => r.source).filter(id => entityMap[id]))
-    : (countryIndex[country] || new Set());
 
-  const projectIds = new Set();
-  const relevantRels = [];
+  // Anchor entities: IN-* in selected country
+  let entityIds;
+  if (isAll) {
+    entityIds = new Set();
+    for (const e of DB.entities) {
+      if (!e.id.startsWith('IV-') && !e.id.startsWith('EDF-')) entityIds.add(e.id);
+    }
+  } else {
+    entityIds = new Set(countryIndex[country] || []);
+  }
 
-  for (const r of edfRels) {
-    if (entityIds.has(r.source)) {
-      projectIds.add(r.target);
-      relevantRels.push(r);
+  const nodes     = new Map();  // id → node data
+  const edgesList = [];
+
+  // Degree counters (for node sizing)
+  const deg = {};
+  const bump = id => { deg[id] = (deg[id] || 0) + 1; };
+
+  // ── EDF participation ────────────────────────────────────────────────────
+  const edfEdgesRaw = [];
+  if (showEdf) {
+    for (const r of edfRels) {
+      if (!entityIds.has(r.source)) continue;
+      edfEdgesRaw.push(r);
+      bump(r.source);
+      bump(r.target);
     }
   }
 
-  // Count degrees
-  const entityDeg  = {};
-  const projectDeg = {};
-  for (const r of relevantRels) {
-    entityDeg[r.source]  = (entityDeg[r.source]  || 0) + 1;
-    projectDeg[r.target] = (projectDeg[r.target] || 0) + 1;
+  // ── Investment ───────────────────────────────────────────────────────────
+  const invEdgesRaw = [];
+  if (showInv) {
+    for (const r of investmentRels) {
+      if (!entityIds.has(r.target)) continue;
+      invEdgesRaw.push(r);
+      bump(r.source);  // investor
+      bump(r.target);  // entity
+    }
   }
 
-  const nodes = [];
+  // If neither rel type is shown, still show entity nodes
+  if (!showEdf && !showInv) {
+    for (const eid of entityIds) bump(eid);
+  }
+
+  // ── Add entity nodes ─────────────────────────────────────────────────────
   for (const eid of entityIds) {
     const e = entityMap[eid];
     if (!e) continue;
-    const deg = entityDeg[eid] || 1;
-    const sz  = Math.min(36, Math.max(10, deg * 5));
-    nodes.push({
-      data: {
-        id:       eid,
-        label:    truncate(e.name, 16),
-        fullName: e.name,
-        type:     e.type || 'company',
-        kind:     'entity',
-        degree:   deg,
-        size:     sz,
-      }
+    const d = deg[eid] || 1;
+    nodes.set(eid, {
+      data: { id: eid, label: truncate(e.name, 16), fullName: e.name,
+              type: e.type || 'company', kind: 'entity',
+              size: Math.min(36, Math.max(10, d * 5)) }
     });
   }
 
-  for (const pid of projectIds) {
-    const p  = entityMap[pid];
-    const ps = p?.sources?.edf_project || {};
-    const deg = projectDeg[pid] || 1;
-    const sz  = Math.min(28, Math.max(10, deg * 3));
-    nodes.push({
-      data: {
-        id:          pid,
-        label:       truncate(ps.acronym || p?.name || pid, 12),
-        fullName:    p?.name || pid,
-        acronym:     ps.acronym || '',
-        callId:      ps.call_id || '',
-        callTitle:   ps.call_title || '',
-        status:      ps.status || '',
-        startDate:   ps.start_date || '',
-        endDate:     ps.end_date || '',
-        euContrib:   ps.eu_contribution || '',
-        url:         ps.url || '',
-        type:        'edf_project',
-        kind:        'project',
-        degree:      deg,
-        size:        sz,
-      }
-    });
+  // ── Add EDF project nodes ─────────────────────────────────────────────────
+  for (const r of edfEdgesRaw) {
+    const pid = r.target;
+    if (!nodes.has(pid)) {
+      const p  = entityMap[pid];
+      const ps = p?.sources?.edf_project || {};
+      const d  = deg[pid] || 1;
+      nodes.set(pid, {
+        data: {
+          id: pid, label: truncate(ps.acronym || p?.name || pid, 12),
+          fullName: p?.name || pid, acronym: ps.acronym || '',
+          callId: ps.call_id || '', callTitle: ps.call_title || '',
+          status: ps.status || '', startDate: ps.start_date || '',
+          endDate: ps.end_date || '', euContrib: ps.eu_contribution || '',
+          url: ps.url || '', type: 'edf_project', kind: 'project',
+          size: Math.min(28, Math.max(10, d * 3))
+        }
+      });
+    }
+    edgesList.push({ data: { id: `ee${r.source}${pid}`, source: r.source, target: pid, etype: 'edf' } });
   }
 
-  const edges = relevantRels.map(r => ({
-    data: { id: `e${r.source}${r.target}`, source: r.source, target: r.target }
-  }));
+  // ── Add investor nodes ────────────────────────────────────────────────────
+  for (const r of invEdgesRaw) {
+    const ivId = r.source;
+    if (!nodes.has(ivId)) {
+      const iv = entityMap[ivId];
+      const d  = deg[ivId] || 1;
+      nodes.set(ivId, {
+        data: { id: ivId, label: truncate(iv?.name || ivId, 16),
+                fullName: iv?.name || ivId, type: iv?.type || 'investor',
+                kind: 'investor', size: Math.min(28, Math.max(8, d * 4)) }
+      });
+    }
+    edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });
+  }
 
-  return { nodes, edges, entityCount: entityIds.size, projectCount: projectIds.size, edgeCount: relevantRels.length };
+  const projectIds  = new Set(edfEdgesRaw.map(r => r.target));
+  const investorIds = new Set(invEdgesRaw.map(r => r.source));
+
+  return {
+    elements: [...nodes.values(), ...edgesList],
+    nodeCount:     nodes.size,
+    entityCount:   entityIds.size,
+    projectCount:  projectIds.size,
+    investorCount: investorIds.size,
+    edfEdgeCount:  edfEdgesRaw.length,
+    invEdgeCount:  invEdgesRaw.length,
+  };
 }
 
-// ── Cytoscape instance ────────────────────────────────────────────────────────
+// ── Cytoscape ─────────────────────────────────────────────────────────────────
 let cy = null;
 
 const CY_STYLE = [
@@ -424,37 +457,41 @@ const CY_STYLE = [
     style: {
       'shape': 'ellipse',
       'background-color': ele => nodeColor(ele.data('type')),
-      'width': 'data(size)',
-      'height': 'data(size)',
+      'width': 'data(size)', 'height': 'data(size)',
       'label': 'data(label)',
-      'color': 'rgba(255,255,255,0.7)',
-      'font-size': '7px',
+      'color': 'rgba(255,255,255,0.7)', 'font-size': '7px',
       'font-family': '"JetBrains Mono", monospace',
-      'text-valign': 'bottom',
-      'text-halign': 'center',
-      'text-margin-y': '2px',
-      'text-wrap': 'wrap',
-      'text-max-width': '60px',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
       'border-width': 0,
+    }
+  },
+  {
+    selector: 'node[kind = "investor"]',
+    style: {
+      'shape': 'ellipse',
+      'background-color': '#ffaa55',
+      'background-opacity': 0.8,
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(255,165,80,0.85)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
+      'border-width': 1, 'border-color': 'rgba(255,165,80,0.3)',
     }
   },
   {
     selector: 'node[kind = "project"]',
     style: {
       'shape': 'diamond',
-      'background-color': '#64a0ff',
-      'background-opacity': 0.7,
-      'width': 'data(size)',
-      'height': 'data(size)',
+      'background-color': '#64a0ff', 'background-opacity': 0.7,
+      'width': 'data(size)', 'height': 'data(size)',
       'label': 'data(label)',
-      'color': 'rgba(100,160,255,0.9)',
-      'font-size': '7px',
+      'color': 'rgba(100,160,255,0.9)', 'font-size': '7px',
       'font-family': '"JetBrains Mono", monospace',
-      'text-valign': 'bottom',
-      'text-halign': 'center',
-      'text-margin-y': '2px',
-      'text-wrap': 'wrap',
-      'text-max-width': '56px',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '56px',
       'border-width': 0,
     }
   },
@@ -463,12 +500,18 @@ const CY_STYLE = [
     style: { 'border-width': 2, 'border-color': '#fff', 'border-opacity': 0.6 }
   },
   {
-    selector: 'edge',
+    selector: 'edge[etype = "edf"]',
     style: {
-      'width': 0.8,
-      'line-color': 'rgba(100,160,255,0.18)',
-      'curve-style': 'haystack',
-      'target-arrow-shape': 'none',
+      'width': 0.8, 'line-color': 'rgba(100,160,255,0.2)',
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
+    }
+  },
+  {
+    selector: 'edge[etype = "investment"]',
+    style: {
+      'width': 0.8, 'line-color': 'rgba(255,165,80,0.25)',
+      'line-style': 'dashed', 'line-dash-pattern': [4, 3],
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
     }
   },
 ];
@@ -479,95 +522,88 @@ function buildLayout(nodeCount) {
     name: 'cose',
     animate: false,
     randomize: false,
-    idealEdgeLength: nodeCount > 200 ? 50 : 70,
-    nodeRepulsion: () => nodeCount > 200 ? 2000 : 4000,
+    idealEdgeLength: nodeCount > 300 ? 45 : nodeCount > 150 ? 60 : 75,
+    nodeRepulsion: () => nodeCount > 300 ? 1500 : nodeCount > 150 ? 2500 : 4000,
     gravity: 0.25,
-    numIter: nodeCount > 400 ? 500 : 1000,
+    numIter: nodeCount > 500 ? 400 : nodeCount > 200 ? 700 : 1000,
     componentSpacing: 40,
     coolingFactor: 0.95,
   };
 }
 
+function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount }) {
+  const rows = [];
+  if (entityCount)   rows.push(`<span class="net-stat-val">${entityCount}</span> entities`);
+  if (projectCount)  rows.push(`<span class="net-stat-val">${projectCount}</span> EDF projects`);
+  if (investorCount) rows.push(`<span class="net-stat-inv">${investorCount}</span> investors`);
+  if (edfEdgeCount)  rows.push(`<span class="net-stat-val">${edfEdgeCount}</span> participations`);
+  if (invEdgeCount)  rows.push(`<span class="net-stat-inv">${invEdgeCount}</span> investments`);
+  document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
+}
+
 function renderNetwork(country) {
   const loadingEl = document.getElementById('net-loading');
-  const warnEl    = document.getElementById('all-edf-warn');
   const isAll     = country === '__all__';
+  const showEdf   = document.getElementById('chk-edf').checked;
+  const showInv   = document.getElementById('chk-inv').checked;
 
-  warnEl.style.display = isAll ? '' : 'none';
+  document.getElementById('all-edf-warn').style.display = isAll ? '' : 'none';
   loadingEl.classList.remove('hidden');
   loadingEl.textContent = 'Building graph…';
 
-  // Defer to let browser paint the loading state
   setTimeout(() => {
-    const { nodes, edges, entityCount, projectCount, edgeCount } = buildElements(country);
-    const nodeCount = nodes.length;
+    const result = buildElements(country, showEdf, showInv);
+    updateStats(result);
 
-    // Update stats
-    document.getElementById('net-stats').innerHTML =
-      `<span class="net-stat-val">${entityCount}</span> entities<br>` +
-      `<span class="net-stat-val">${projectCount}</span> EDF projects<br>` +
-      `<span class="net-stat-val">${edgeCount}</span> participations`;
-
-    // Destroy existing cy
     if (cy) { cy.destroy(); cy = null; }
     closeProjPanel();
 
-    if (nodeCount === 0) {
+    if (result.nodeCount === 0) {
       loadingEl.textContent = 'No data for this selection.';
       return;
     }
 
-    loadingEl.textContent = `Laying out ${nodeCount} nodes…`;
+    loadingEl.textContent = `Laying out ${result.nodeCount} nodes…`;
 
     setTimeout(() => {
       cy = cytoscape({
         container: document.getElementById('cy'),
-        elements: [...nodes, ...edges],
-        style: CY_STYLE,
-        layout: buildLayout(nodeCount),
+        elements:  result.elements,
+        style:     CY_STYLE,
+        layout:    buildLayout(result.nodeCount),
         userZoomingEnabled: true,
         userPanningEnabled: true,
         boxSelectionEnabled: false,
-        minZoom: 0.1,
+        minZoom: 0.05,
         maxZoom: 5,
       });
 
       cy.fit(undefined, 32);
       loadingEl.classList.add('hidden');
 
-      // Entity click → open in search.html
-      cy.on('tap', 'node[kind = "entity"]', evt => {
+      // Entity/investor click → open profile
+      cy.on('tap', 'node[kind = "entity"], node[kind = "investor"]', evt => {
         const d = evt.target.data();
         window.open(`search.html?organization=${encodeURIComponent(d.id)}&organizationName=${encodeURIComponent(d.fullName)}`, '_blank');
       });
 
-      // Project click → show detail panel
-      cy.on('tap', 'node[kind = "project"]', evt => {
-        showProjPanel(evt.target.data());
-      });
+      // Project click → detail panel
+      cy.on('tap', 'node[kind = "project"]', evt => showProjPanel(evt.target.data()));
 
-      // Tap on background → close panel
-      cy.on('tap', evt => {
-        if (evt.target === cy) closeProjPanel();
-      });
+      cy.on('tap', evt => { if (evt.target === cy) closeProjPanel(); });
 
-      // Tooltip on mouseover
+      // Tooltip
       const tooltip = document.getElementById('cy-tooltip');
       cy.on('mouseover', 'node', evt => {
-        const d = evt.target.data();
-        tooltip.textContent = d.fullName || d.label;
+        tooltip.textContent = evt.target.data('fullName') || evt.target.data('label');
         tooltip.style.display = 'block';
       });
       cy.on('mousemove', 'node', evt => {
         const rp = evt.renderedPosition;
-        const graphArea = document.getElementById('graph-area');
-        const rect = graphArea.getBoundingClientRect();
         tooltip.style.left = (rp.x + 10) + 'px';
         tooltip.style.top  = (rp.y + 4)  + 'px';
       });
-      cy.on('mouseout', 'node', () => {
-        tooltip.style.display = 'none';
-      });
+      cy.on('mouseout', 'node', () => { tooltip.style.display = 'none'; });
 
     }, 20);
   }, 20);
@@ -575,25 +611,18 @@ function renderNetwork(country) {
 
 // ── Project panel ─────────────────────────────────────────────────────────────
 function showProjPanel(d) {
-  const panel  = document.getElementById('proj-panel');
-  const nameEl = document.getElementById('proj-name');
-  const rowsEl = document.getElementById('proj-rows');
-
-  nameEl.textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
-
+  document.getElementById('proj-name').textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
   const rows = [];
-  if (d.callId)    rows.push(['Call', `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
-  if (d.status)    rows.push(['Status', esc(d.status)]);
-  if (d.startDate) rows.push(['Period', `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
-  if (d.euContrib) rows.push(['EU contrib.', `<span class="proj-contrib">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
-  rows.push(['Participants', `<span class="proj-contrib">${d.degree}</span>`]);
-  if (d.url)       rows.push(['EU Portal', `<a class="proj-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
-
-  rowsEl.innerHTML = rows.map(([l, v]) =>
+  if (d.callId)    rows.push(['Call',         `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
+  if (d.status)    rows.push(['Status',       esc(d.status)]);
+  if (d.startDate) rows.push(['Period',       `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
+  if (d.euContrib) rows.push(['EU contrib.',  `<span class="proj-contrib">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
+  rows.push(['Participants', `<span class="proj-contrib">${d.degree ?? '—'}</span>`]);
+  if (d.url)       rows.push(['EU Portal',    `<a class="proj-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
+  document.getElementById('proj-rows').innerHTML = rows.map(([l, v]) =>
     `<div class="proj-row"><span class="proj-lbl">${l}</span><span class="proj-val">${v}</span></div>`
   ).join('');
-
-  panel.classList.add('visible');
+  document.getElementById('proj-panel').classList.add('visible');
 }
 
 function closeProjPanel() {
@@ -605,25 +634,23 @@ async function init() {
   await loadData();
 
   const select = document.getElementById('country-select');
-
-  // Populate country selector
   for (const { country, count } of countryCounts) {
     const opt = document.createElement('option');
     opt.value = country;
     opt.textContent = `${country} (${count})`;
     select.appendChild(opt);
   }
-  // All EDF option at bottom
   const allOpt = document.createElement('option');
   allOpt.value = '__all__';
-  allOpt.textContent = `All EDF (${edfRels.filter((r,i,a) => a.findIndex(x=>x.source===r.source)===i).length})`;
+  allOpt.textContent = `All entities`;
   select.appendChild(allOpt);
 
-  // Default: France (first in sorted list)
   select.value = countryCounts[0]?.country || '__all__';
 
-  select.addEventListener('change', () => renderNetwork(select.value));
-
+  const rerender = () => renderNetwork(select.value);
+  select.addEventListener('change', rerender);
+  document.getElementById('chk-edf').addEventListener('change', rerender);
+  document.getElementById('chk-inv').addEventListener('change', rerender);
   document.getElementById('proj-close').addEventListener('click', closeProjPanel);
 
   renderNetwork(select.value);
