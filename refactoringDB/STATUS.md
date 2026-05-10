@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-10 (feat: ego graph card in search.html entity/investor profiles — branch `graph`; Cytoscape.js 3.30.2 local; 1-hop bipartite view, click-to-navigate, lazy init)
+> Last updated: 2026-05-10 (feat: ego graph card in search.html + networks.html EDF collaboration network — branch `graph`; Cytoscape.js bipartite; country filter; all 4 ego graph shapes tested)
 
 ## Session protocol
 
@@ -499,6 +499,7 @@ refactoringDB/
   - Card added to both `renderCards()` (IN entities) and `renderInvestorProfile()` (IV entities)
   - Tested: Tesla (22 investors), Leonardo (37 EDF projects), Sequoia (10 portfolio)
 - [x] **Branch `graph` created** from `main`
+- [x] **`networks.html`** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
 
 ### Session 2026-05-07
 
