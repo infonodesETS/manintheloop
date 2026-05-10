@@ -215,6 +215,7 @@ python3 scripts/validate.py
 | `docs/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
 | `docs/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
 | `data/crunchbase_sandbox/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
+| `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 
 ---
 
