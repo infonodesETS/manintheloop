@@ -745,7 +745,7 @@ function showProjDetail(d) {
   document.getElementById('detail-panel').classList.add('visible');
 }
 
-function showEntityDetail(id) {
+function showEntityDetail(id, notInGraph) {
   const e = entityMap[id];
   if (!e) return;
 
@@ -754,14 +754,15 @@ function showEntityDetail(id) {
   const desc    = e.sources?.wikidata?.description || '';
   const website = e.sources?.infonodes?.website || e.sources?.crunchbase?.website || '';
   const edfCount = edfRels.filter(r => r.source === id).length;
-  const invCount = investmentRels.filter(r => r.target === id).length;   // investors into this entity
-  const portCount= investmentRels.filter(r => r.source === id).length;   // portfolio (IV entities)
+  const invCount = investmentRels.filter(r => r.target === id).length;
+  const portCount= investmentRels.filter(r => r.source === id).length;
 
   const titleEl = document.getElementById('detail-title');
   titleEl.style.color = color;
   titleEl.textContent = e.name;
 
   const rows = [];
+  if (notInGraph) rows.push(['', '<span style="color:rgba(255,200,0,.75)">No connections in current country scope.</span>']);
   if (e.type)     rows.push(['Type',     TYPE_LABELS[e.type] || e.type]);
   if (country)    rows.push(['Country',  country]);
   if (desc)       rows.push(['About',    truncate(desc, 110)]);
@@ -874,6 +875,9 @@ function renderNetwork(country, restoreSelected) {
           applyFocus(restoreSelected);
           if (node.data('kind') === 'project') showProjDetail(node.data());
           else showEntityDetail(restoreSelected);
+        } else if (entityMap[restoreSelected]) {
+          // Entity exists in DB but has no edges in this country scope — show panel without graph focus
+          showEntityDetail(restoreSelected, true);
         }
       }
 
