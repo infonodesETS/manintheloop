@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-11 (networks.html v3: node focus/dim + unified detail panel + URL selected param + same-tab profile nav)
+> Last updated: 2026-05-11 (networks.html: zoom in on node click + zoom reset on panel close/background click)
 
 ## Session protocol
 
@@ -508,6 +508,10 @@ refactoringDB/
   - **`selected`/`selectedName` URL params**: every node click pushes `?selected=ID&selectedName=Name` (entity name or project acronym). Close/background click pushes without `selected`. Deep link restores focus + panel after layout. `selectedName` is readable in URL (no lookup needed).
   - **Same-tab profile navigation**: "Open full profile →" uses same tab — Back restores networks state. Intentional: routing is complete, new tab was a workaround.
   - **URL param schema decision**: `selected`/`selectedName` kept distinct from `search.html`'s `organization`/`organizationName` and `index.html`'s `entity`/`entityname` — each page's params describe its own state. Cross-page links from networks to search already use the correct `?organization=ID&organizationName=Name` format.
+- [x] **`networks.html` — zoom on interaction (2026-05-11)**
+  - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
+  - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
+  - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
 
 ### Session 2026-05-07
 
