@@ -667,15 +667,18 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 > Rule: **never commit directly to `main`**. All work happens on the page branch, then merges to `main` when done.
 
+**Remote policy (2026-05-11):** only `main` is pushed to `origin`. Feature branches are local only. `origin/graph` deleted — remote is now `origin/main` only.
+
 | Branch | Scope |
 |---|---|
 | `map` | `index.html` (D3 map) |
 | `search` | `search.html` + `web/app.js`, `web/router.js` |
 | `graph` | `networks.html` + `web/graph.js` |
 | `designfix` | `web/base.css`, `web/components.css`, `web/companysearch.css`, `tmp/typography.html` |
+| `datacleaning` | DB data quality work (scripts, database.json patches) |
 | `main` | Merge target only — receives merges from all branches |
 
-**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push both.
+**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push `main` only.
 
 ---
 
