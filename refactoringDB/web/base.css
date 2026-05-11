@@ -67,9 +67,9 @@
      ─────────────────────────────────────────────────────────────────────────
      Token       rem     ~px*   Usage
      ─────────── ──────  ─────  ───────────────────────────────────────────────
-     --fs-xs     .70     13.4   micro: badges, ids, stat labels, tiny UI
-     --fs-sm     .75     14.4   caption: nav meta, table headers, chips
-     --fs-base   .875    16.8   base: buttons, inputs, tooltips, form labels
+     --fs-xs     .80     15.4   micro: badges, ids, stat labels, tiny UI
+     --fs-sm     .85     16.3   caption: nav meta, table headers, chips
+     --fs-base   .95     18.2   base: buttons, inputs, tooltips, form labels
      --fs-body   1.00    19.2   body: primary reading/UI text
      --fs-lg     1.20    23.0   large: sidebar/modal titles, section h2
      --fs-xl     1.65    31.7   display: hero, h1, h2 headings
@@ -77,9 +77,9 @@
      * at html font-size: 120% (1rem = 19.2px — Medium-range editorial base)
      * minimum floor: 13px (--fs-xs). Nothing in the UI goes below this.
      ───────────────────────────────────────────────────────────────────────── */
-  --fs-xs:   .70rem;
-  --fs-sm:   .75rem;
-  --fs-base: .875rem;
+  --fs-xs:   .80rem;
+  --fs-sm:   .85rem;
+  --fs-base: .95rem;
   --fs-body: 1rem;
   --fs-lg:   1.2rem;
   --fs-xl:   1.65rem;
