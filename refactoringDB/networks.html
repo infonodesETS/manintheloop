@@ -629,11 +629,40 @@ function closeProjPanel() {
   document.getElementById('proj-panel').classList.remove('visible');
 }
 
+// ── URL routing ───────────────────────────────────────────────────────────────
+function readParams() {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    country: p.get('country') || null,
+    edf:     p.get('edf') !== '0',
+    inv:     p.get('inv') !== '0',
+  };
+}
+
+function pushURL(country, edf, inv) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  history.pushState({ country, edf, inv }, '', url);
+}
+
+function replaceURL(country, edf, inv) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  history.replaceState({ country, edf, inv }, '', url);
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   await loadData();
 
-  const select = document.getElementById('country-select');
+  const select  = document.getElementById('country-select');
+  const chkEdf  = document.getElementById('chk-edf');
+  const chkInv  = document.getElementById('chk-inv');
+
   for (const { country, count } of countryCounts) {
     const opt = document.createElement('option');
     opt.value = country;
@@ -645,13 +674,41 @@ async function init() {
   allOpt.textContent = `All entities`;
   select.appendChild(allOpt);
 
-  select.value = countryCounts[0]?.country || '__all__';
+  // Apply URL params or use defaults
+  const params = readParams();
+  const defaultCountry = countryCounts[0]?.country || '__all__';
+  const country = (params.country && (countryIndex[params.country] || params.country === '__all__'))
+    ? params.country
+    : defaultCountry;
 
-  const rerender = () => renderNetwork(select.value);
+  select.value    = country;
+  chkEdf.checked  = params.edf;
+  chkInv.checked  = params.inv;
+
+  // Canonicalize URL on first load (replaceState — no extra history entry)
+  replaceURL(select.value, chkEdf.checked, chkInv.checked);
+
+  // User-driven changes: push to history
+  const rerender = () => {
+    pushURL(select.value, chkEdf.checked, chkInv.checked);
+    renderNetwork(select.value);
+  };
   select.addEventListener('change', rerender);
-  document.getElementById('chk-edf').addEventListener('change', rerender);
-  document.getElementById('chk-inv').addEventListener('change', rerender);
+  chkEdf.addEventListener('change', rerender);
+  chkInv.addEventListener('change', rerender);
   document.getElementById('proj-close').addEventListener('click', closeProjPanel);
+
+  // Back/forward: apply URL state without pushing
+  window.addEventListener('popstate', () => {
+    const p = readParams();
+    const c = (p.country && (countryIndex[p.country] || p.country === '__all__'))
+      ? p.country
+      : defaultCountry;
+    select.value   = c;
+    chkEdf.checked = p.edf;
+    chkInv.checked = p.inv;
+    renderNetwork(select.value);
+  });
 
   renderNetwork(select.value);
 }
