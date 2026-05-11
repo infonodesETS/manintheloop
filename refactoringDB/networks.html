@@ -187,6 +187,71 @@
       font-family: var(--font); font-size: calc(var(--fs-body) * .85);
       color: var(--text-primary); white-space: nowrap; z-index: 30; display: none;
     }
+
+    /* ── Entity search (sidebar) ── */
+    .net-search-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    #net-search {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      background: var(--surface, #1a1a1a);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 28px 6px 8px;
+      outline: none;
+    }
+    #net-search:focus { border-color: rgba(100,160,255,.5); }
+    #net-search-clear {
+      position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: var(--dim); font-size: 14px; line-height: 1; padding: 2px 4px;
+      display: none;
+    }
+    #net-search-clear:hover { color: var(--text-primary); }
+
+    /* Overlay dropdown — position: fixed, not clipped by sidebar */
+    #net-search-ac {
+      position: fixed;
+      width: 400px;
+      max-height: 440px;
+      overflow-y: auto;
+      background: var(--surface-ac, #222);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 4px;
+      z-index: 300;
+      display: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,.7);
+    }
+    #net-search-ac.open { display: block; }
+    .net-ac-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(65,67,69,.2);
+      font-family: var(--font);
+      font-size: var(--fs-body);
+    }
+    .net-ac-item:last-child { border-bottom: none; }
+    .net-ac-item:hover, .net-ac-item.ac-active { background: rgba(100,160,255,.08); }
+    .net-ac-name {
+      flex: 1; color: var(--text-primary); min-width: 0;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .net-ac-type {
+      font-size: calc(var(--fs-body) * .78); font-family: var(--font);
+      padding: 1px 5px; border-radius: 3px; flex-shrink: 0;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    }
+    .net-ac-country { font-size: calc(var(--fs-body) * .82); color: var(--text-faint); flex-shrink: 0; }
+    .net-ac-empty {
+      padding: 14px 12px; color: var(--text-faint);
+      font-family: var(--font); font-size: var(--fs-body); text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -212,6 +277,13 @@
   <!-- ── Sidebar ── -->
   <div id="sidebar">
     <div id="net-title">Defence Network</div>
+
+    <div class="net-section-label">Find entity</div>
+    <div class="net-search-wrap" id="net-search-wrap">
+      <input id="net-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
+      <button id="net-search-clear" title="Clear">×</button>
+    </div>
+    <div id="net-search-ac" role="listbox"></div>
 
     <div class="net-section-label">Country</div>
     <select id="country-select"></select>
@@ -673,7 +745,7 @@ function showProjDetail(d) {
   document.getElementById('detail-panel').classList.add('visible');
 }
 
-function showEntityDetail(id) {
+function showEntityDetail(id, notInGraph) {
   const e = entityMap[id];
   if (!e) return;
 
@@ -682,14 +754,15 @@ function showEntityDetail(id) {
   const desc    = e.sources?.wikidata?.description || '';
   const website = e.sources?.infonodes?.website || e.sources?.crunchbase?.website || '';
   const edfCount = edfRels.filter(r => r.source === id).length;
-  const invCount = investmentRels.filter(r => r.target === id).length;   // investors into this entity
-  const portCount= investmentRels.filter(r => r.source === id).length;   // portfolio (IV entities)
+  const invCount = investmentRels.filter(r => r.target === id).length;
+  const portCount= investmentRels.filter(r => r.source === id).length;
 
   const titleEl = document.getElementById('detail-title');
   titleEl.style.color = color;
   titleEl.textContent = e.name;
 
   const rows = [];
+  if (notInGraph) rows.push(['', '<span style="color:rgba(255,200,0,.75)">No connections in current country scope.</span>']);
   if (e.type)     rows.push(['Type',     TYPE_LABELS[e.type] || e.type]);
   if (country)    rows.push(['Country',  country]);
   if (desc)       rows.push(['About',    truncate(desc, 110)]);
@@ -802,6 +875,9 @@ function renderNetwork(country, restoreSelected) {
           applyFocus(restoreSelected);
           if (node.data('kind') === 'project') showProjDetail(node.data());
           else showEntityDetail(restoreSelected);
+        } else if (entityMap[restoreSelected]) {
+          // Entity exists in DB but has no edges in this country scope — show panel without graph focus
+          showEntityDetail(restoreSelected, true);
         }
       }
 
@@ -849,9 +925,178 @@ function renderNetwork(country, restoreSelected) {
   }, 20);
 }
 
+// ── Entity search ─────────────────────────────────────────────────────────────
+const TYPE_AC_COLORS = {
+  company:           'rgba(170,255,221,.9)',
+  institution:       'rgba(255,153,187,.9)',
+  fund:              'rgba(255,170,85,.9)',
+  investor:          'rgba(255,170,85,.9)',
+  public_fund:       'rgba(255,170,85,.9)',
+  government_agency: 'rgba(255,85,85,.9)',
+  bank:              'rgba(204,51,51,.9)',
+  edf_project:       'rgba(100,160,255,.9)',
+};
+function typeBadgeColor(type) { return TYPE_AC_COLORS[type] || 'rgba(136,136,136,.9)'; }
+
+let searchIndex = [];
+let acActiveIdx = -1;
+
+function buildSearchIndex() {
+  searchIndex = Object.values(entityMap).map(e => ({
+    id: e.id,
+    name: e.name,
+    nameLower: (e.name || '').toLowerCase(),
+    type: e.type || 'company',
+    country: getCountry(e),
+  }));
+}
+
+function resolveEntityCountry(id) {
+  const e = entityMap[id];
+  if (!e) return null;
+  const c = getCountry(e);
+  if (c && countryIndex[c]) return c;
+  if (id.startsWith('IV-')) {
+    for (const r of investmentRels) {
+      if (r.source !== id) continue;
+      const te = entityMap[r.target];
+      if (!te) continue;
+      const tc = getCountry(te);
+      if (tc && countryIndex[tc]) return tc;
+    }
+  }
+  if (id.startsWith('EDF-')) {
+    for (const r of edfRels) {
+      if (r.target !== id) continue;
+      const se = entityMap[r.source];
+      if (!se) continue;
+      const sc = getCountry(se);
+      if (sc && countryIndex[sc]) return sc;
+    }
+  }
+  return null;
+}
+
+function openAc()  { document.getElementById('net-search-ac').classList.add('open'); }
+function closeAc() { document.getElementById('net-search-ac').classList.remove('open'); acActiveIdx = -1; }
+
+function positionAc() {
+  const rect = document.getElementById('net-search').getBoundingClientRect();
+  const ac   = document.getElementById('net-search-ac');
+  ac.style.top  = (rect.bottom + 4) + 'px';
+  ac.style.left = rect.left + 'px';
+}
+
+function renderAc(query) {
+  const ac = document.getElementById('net-search-ac');
+  const q  = query.toLowerCase().trim();
+  acActiveIdx = -1;
+
+  if (!q) { closeAc(); return; }
+
+  const results = searchIndex
+    .filter(e => e.nameLower.includes(q))
+    .sort((a, b) => {
+      const ai = a.nameLower.indexOf(q), bi = b.nameLower.indexOf(q);
+      if (ai !== bi) return ai - bi;
+      return a.name.localeCompare(b.name);
+    })
+    .slice(0, 14);
+
+  if (results.length === 0) {
+    ac.innerHTML = '<div class="net-ac-empty">No results</div>';
+    openAc(); positionAc(); return;
+  }
+
+  ac.innerHTML = results.map((e, i) => {
+    const c = typeBadgeColor(e.type);
+    const label = TYPE_LABELS[e.type] || e.type;
+    return `<div class="net-ac-item" data-id="${esc(e.id)}" data-idx="${i}">
+      <span class="net-ac-name" title="${esc(e.name)}">${esc(e.name)}</span>
+      <span class="net-ac-type" style="color:${c}">${esc(label)}</span>
+      ${e.country ? `<span class="net-ac-country">${esc(e.country)}</span>` : ''}
+    </div>`;
+  }).join('');
+
+  openAc(); positionAc();
+}
+
+function selectEntity(id) {
+  const e = entityMap[id];
+  if (!e) return;
+
+  document.getElementById('net-search').value = '';
+  document.getElementById('net-search-clear').style.display = 'none';
+  closeAc();
+
+  const country = resolveEntityCountry(id) || '__all__';
+  const select  = document.getElementById('country-select');
+  const chkEdf  = document.getElementById('chk-edf');
+  const chkInv  = document.getElementById('chk-inv');
+
+  select.value = country;
+  pushURL(country, chkEdf.checked, chkInv.checked, id, e.name);
+  renderNetwork(country, id);
+}
+
+function initSearch() {
+  buildSearchIndex();
+  const input    = document.getElementById('net-search');
+  const clearBtn = document.getElementById('net-search-clear');
+  const ac       = document.getElementById('net-search-ac');
+
+  input.addEventListener('input', () => {
+    clearBtn.style.display = input.value ? 'block' : 'none';
+    renderAc(input.value);
+  });
+
+  input.addEventListener('focus', () => {
+    if (input.value) { renderAc(input.value); }
+  });
+
+  input.addEventListener('keydown', ev => {
+    const items = ac.querySelectorAll('.net-ac-item[data-id]');
+    if (ev.key === 'ArrowDown') {
+      ev.preventDefault();
+      acActiveIdx = Math.min(acActiveIdx + 1, items.length - 1);
+      items.forEach((el, i) => el.classList.toggle('ac-active', i === acActiveIdx));
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      acActiveIdx = Math.max(acActiveIdx - 1, 0);
+      items.forEach((el, i) => el.classList.toggle('ac-active', i === acActiveIdx));
+    } else if (ev.key === 'Enter') {
+      ev.preventDefault();
+      if (acActiveIdx >= 0 && items[acActiveIdx]) selectEntity(items[acActiveIdx].dataset.id);
+      else if (items.length === 1) selectEntity(items[0].dataset.id);
+    } else if (ev.key === 'Escape') {
+      closeAc(); input.blur();
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    closeAc(); input.focus();
+  });
+
+  ac.addEventListener('mousedown', ev => {
+    const item = ev.target.closest('.net-ac-item[data-id]');
+    if (item) { ev.preventDefault(); selectEntity(item.dataset.id); }
+  });
+
+  document.addEventListener('click', ev => {
+    if (!ev.target.closest('#net-search-wrap') && !ev.target.closest('#net-search-ac')) closeAc();
+  });
+
+  window.addEventListener('resize', () => {
+    if (ac.classList.contains('open')) positionAc();
+  });
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   await loadData();
+  initSearch();
 
   const select  = document.getElementById('country-select');
   const chkEdf  = document.getElementById('chk-edf');
