@@ -379,11 +379,18 @@ function buildElements(country, showEdf, showInv) {
     }
   }
 
-  if (!showEdf && !showInv) {
-    for (const eid of entityIds) bump(eid);
-  }
+  if (!showEdf && !showInv) return {
+    elements: [], nodeCount: 0, entityCount: 0,
+    projectCount: 0, investorCount: 0, edfEdgeCount: 0, invEdgeCount: 0,
+  };
 
-  for (const eid of entityIds) {
+  // Only render entities that are actually connected to an active relationship type
+  const connectedIds = new Set();
+  if (showEdf) for (const r of edfEdgesRaw) connectedIds.add(r.source);
+  if (showInv) for (const r of invEdgesRaw) connectedIds.add(r.target);
+  const renderEntityIds = (showEdf || showInv) ? connectedIds : entityIds;
+
+  for (const eid of renderEntityIds) {
     const e = entityMap[eid];
     if (!e) continue;
     const d = deg[eid] || 1;
@@ -435,7 +442,7 @@ function buildElements(country, showEdf, showInv) {
   return {
     elements: [...nodes.values(), ...edgesList],
     nodeCount:     nodes.size,
-    entityCount:   entityIds.size,
+    entityCount:   renderEntityIds.size,
     projectCount:  projectIds.size,
     investorCount: investorIds.size,
     edfEdgeCount:  edfEdgesRaw.length,
