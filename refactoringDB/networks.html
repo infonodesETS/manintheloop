@@ -445,6 +445,7 @@ function buildElements(country, showEdf, showInv) {
 
 // ── Cytoscape ─────────────────────────────────────────────────────────────────
 let cy = null;
+let extraElements = null;
 
 const CY_STYLE = [
   {
@@ -545,12 +546,83 @@ function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, i
   document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
 }
 
+// ── Extra neighbors (cross-country) ──────────────────────────────────────────
+function removeExtraElements() {
+  if (extraElements && !extraElements.empty()) cy.remove(extraElements);
+  extraElements = null;
+}
+
+function addExtraNeighbors(nodeId) {
+  removeExtraElements();
+  if (!cy) return;
+
+  const existingIds = new Set(cy.nodes().map(n => n.id()));
+  const toAdd = [];
+  const addedIds = new Set();
+
+  const allRels = [...edfRels, ...investmentRels].filter(
+    r => r.source === nodeId || r.target === nodeId
+  );
+
+  for (const r of allRels) {
+    const otherId = r.source === nodeId ? r.target : r.source;
+    if (existingIds.has(otherId) || addedIds.has(otherId)) continue;
+    const other = entityMap[otherId];
+    if (!other) continue;
+
+    let nodeData;
+    if (other.id.startsWith('EDF-')) {
+      const ps = other.sources?.edf_project || {};
+      nodeData = {
+        id: otherId, fullName: other.name || otherId,
+        label: truncate(ps.acronym || other.name || otherId, 12),
+        acronym: ps.acronym || '', callId: ps.call_id || '',
+        callTitle: ps.call_title || '', status: ps.status || '',
+        startDate: ps.start_date || '', endDate: ps.end_date || '',
+        euContrib: ps.eu_contribution || '', url: ps.url || '',
+        type: 'edf_project', kind: 'project', size: 14, extra: true,
+      };
+    } else {
+      nodeData = {
+        id: otherId, label: truncate(other.name, 16), fullName: other.name,
+        type: other.type || 'company',
+        kind: other.id.startsWith('IV-') ? 'investor' : 'entity',
+        size: 12, extra: true,
+      };
+    }
+
+    toAdd.push({ data: nodeData });
+    addedIds.add(otherId);
+    toAdd.push({ data: {
+      id: `extra_${r.source}_${r.target}`,
+      source: r.source, target: r.target,
+      etype: r.type === 'edf_participation' ? 'edf' : 'investment',
+      extra: true,
+    }});
+  }
+
+  if (toAdd.length === 0) return;
+
+  const added = cy.add(toAdd);
+  extraElements = added;
+
+  // Position new nodes in a circle around the clicked node
+  const clickedPos = cy.$('#' + CSS.escape(nodeId)).position();
+  const newNodes = added.nodes();
+  const radius = Math.max(130, newNodes.length * 11);
+  newNodes.forEach((n, i) => {
+    const angle = (2 * Math.PI * i) / newNodes.length;
+    n.position({ x: clickedPos.x + radius * Math.cos(angle), y: clickedPos.y + radius * Math.sin(angle) });
+  });
+}
+
 // ── Focus / dim ───────────────────────────────────────────────────────────────
 function applyFocus(nodeId) {
   if (!cy) return;
+  addExtraNeighbors(nodeId);
   const node = cy.$('#' + CSS.escape(nodeId));
   if (node.empty()) return;
-  const hood = node.closedNeighborhood(); // node + connected edges + neighbor nodes
+  const hood = node.closedNeighborhood();
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
   cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
@@ -560,6 +632,7 @@ function clearFocus() {
   if (!cy) return;
   const hasDimmed = cy.elements('.dimmed').length > 0;
   cy.elements().removeClass('dimmed').removeClass('focused');
+  removeExtraElements();
   if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
 }
 
