@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <script>(function(){var p=new URLSearchParams(location.search),t=p.get('theme')||localStorage.getItem('mitl-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Networks — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -690,7 +690,7 @@ function showEntityDetail(id) {
   if (invCount)   rows.push(['Investors',`<span class="detail-accent">${invCount}</span>`]);
   if (portCount)  rows.push(['Portfolio',`<span class="detail-accent">${portCount}</span>`]);
   if (website)    rows.push(['Website',  `<a class="detail-link" href="${esc(website)}" target="_blank">${esc(truncate(website.replace(/^https?:\/\//, ''), 28))}</a>`]);
-  rows.push(['Profile', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(id)}&organizationName=${encodeURIComponent(e.name)}">Open full profile →</a>`]);
+  rows.push(['Profile', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(id)}&organizationName=${encodeURIComponent(e.name)}${themeParam()}">Open full profile →</a>`]);
 
   document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
     `<div class="detail-row"><span class="detail-lbl">${esc(l)}</span><span class="detail-val">${v}</span></div>`

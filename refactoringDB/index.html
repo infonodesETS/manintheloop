@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <script>(function(){var p=new URLSearchParams(location.search),t=p.get('theme')||localStorage.getItem('mitl-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Map — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -737,7 +737,7 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
     <div class="sl-panel-section">
       <div class="map-detail-header" style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <button id="map-back-btn" class="edfmap-back-btn">← Back</button>
-        <a class="edfmap-back-btn" href="search.html?organization=${encodeURIComponent(ent.id)}&organizationName=${encodeURIComponent(ent.name)}" style="margin-left:auto;text-decoration:none">Open profile →</a>
+        <a class="edfmap-back-btn" href="search.html?organization=${encodeURIComponent(ent.id)}&organizationName=${encodeURIComponent(ent.name)}${themeParam()}" style="margin-left:auto;text-decoration:none">Open profile →</a>
       </div>
       ${detail}
     </div>
