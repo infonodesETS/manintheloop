@@ -221,6 +221,27 @@
     }
     [data-theme="light"] .ds-cpick-hex { border-color: rgba(0,0,0,0.20); }
     [data-theme="light"] .ds-cpick-swatch { border-color: rgba(0,0,0,0.20); }
+
+    /* ── Section 09 badge bg toggle ── */
+    .ds-badge-bg-strip { display:flex; gap:6px; margin-bottom:16px; align-items:center; }
+    .ds-badge-bg-btn {
+      font-family:var(--font); font-size:var(--fs-xs); font-weight:700;
+      text-transform:uppercase; letter-spacing:.4px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12);
+      color:var(--text-muted); border-radius:4px; padding:3px 10px;
+      cursor:pointer; transition:all .1s;
+    }
+    .ds-badge-bg-btn.active { background:rgba(0,255,65,0.10); border-color:rgba(0,255,65,0.3); color:var(--accent); }
+    .ds-badge-preview { padding:14px 16px; border-radius:6px; transition:background .25s, border-color .25s; border:1px solid transparent; }
+    .ds-badge-preview[data-bg="dark"]  { background:#0a0a0a; border-color:rgba(255,255,255,0.06); }
+    .ds-badge-preview[data-bg="light"] { background:#f8f7f4; border-color:rgba(0,0,0,0.08); }
+    [data-theme="light"] .ds-badge-bg-btn { background:rgba(0,0,0,0.04); border-color:rgba(0,0,0,0.12); color:var(--text-muted); }
+    [data-theme="light"] .ds-badge-bg-btn.active { background:rgba(0,102,34,0.10); border-color:rgba(0,102,34,0.3); color:var(--accent); }
+
+    /* ── Section 13 glow slider ── */
+    .ds-glow-row { display:flex; align-items:center; gap:8px; }
+    .ds-glow-slider { width:72px; cursor:pointer; accent-color:var(--accent); }
+    .ds-glow-val { font-family:var(--font); font-size:var(--fs-xs); color:var(--accent); min-width:32px; }
   </style>
 </head>
 <body>
@@ -674,32 +695,55 @@
      8. NAVIGATION CHROME
 ══════════════════════════════════════════════ -->
 <div class="ds-section">
-  <div class="ds-section-title">08 · Navigation Chrome</div>
+  <div class="ds-section-header">
+    <div class="ds-section-title" style="margin:0;padding:0;border:none;">08 · Navigation Chrome</div>
+    <button class="ds-copy-btn" onclick="copyS08(this)">Copy for AI</button>
+  </div>
 
   <div class="ds-row">
     <div class="ds-token">#topnav .brand</div>
     <div><span style="font-family:var(--font);font-weight:700;font-size:var(--fs-lg);color:var(--accent);">Man in the Loop</span> <span style="color:var(--text-faint)">—</span> <span style="color:var(--text-primary)">info<span style="color:var(--accent)">.</span>nodes</span></div>
-    <div class="ds-meta">--font, fw-bold, fs-lg, letter-spacing:.5px</div>
+    <div class="ds-meta">fw-bold, fs-lg, letter-spacing:.5px</div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">.tnav-btn</div>
-    <div><button class="tnav-btn">Networks</button> <button class="tnav-btn active">Active</button></div>
-    <div class="ds-meta">fw-bold, fs-base, uppercase, letter-spacing:.4px</div>
+    <div id="nav-tnav-prev"><button class="tnav-btn">Networks</button> <button class="tnav-btn active">Active</button></div>
+    <div class="ds-meta">fw-bold, fs-base, uppercase</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="nav-tnav-prev" data-target-all=".tnav-btn" data-prop="letterSpacing" data-unit="px" data-val="0.4" data-step="0.1" data-min="0" data-max="5" data-decimals="1" data-token=".tnav-btn letter-spacing">
+        <button data-d="-1">−</button><span>0.4px</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">.snav-btn</div>
-    <div><button class="snav-btn">Sub tab</button> <button class="snav-btn active">Active</button></div>
-    <div class="ds-meta">fw-bold, fs-base, uppercase, letter-spacing:.3px</div>
+    <div id="nav-snav-prev"><button class="snav-btn">Sub tab</button> <button class="snav-btn active">Active</button></div>
+    <div class="ds-meta">fw-bold, fs-base, uppercase</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="nav-snav-prev" data-target-all=".snav-btn" data-prop="letterSpacing" data-unit="px" data-val="0.3" data-step="0.1" data-min="0" data-max="5" data-decimals="1" data-token=".snav-btn letter-spacing">
+        <button data-d="-1">−</button><span>0.3px</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">.theme-toggle-btn</div>
-    <div><button class="theme-toggle-btn">◑ LIGHT</button></div>
-    <div class="ds-meta">fw-bold, fs-xs, uppercase, letter-spacing:.5px, border-radius:50px</div>
+    <div id="nav-theme-prev"><button class="theme-toggle-btn" style="pointer-events:none;">◑ LIGHT</button></div>
+    <div class="ds-meta">fw-bold, fs-xs, uppercase</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="nav-theme-prev" data-target-all=".theme-toggle-btn" data-prop="letterSpacing" data-unit="px" data-val="0.5" data-step="0.1" data-min="0" data-max="5" data-decimals="1" data-token=".theme-toggle-btn letter-spacing">
+        <button data-d="-1">−</button><span>0.5px</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">.brand-wip</div>
-    <div><span class="brand-wip">WIP</span></div>
-    <div class="ds-meta">fw-bold, fs-xs, uppercase, letter-spacing:.6px, --warn color</div>
+    <div id="nav-wip-prev"><span class="brand-wip">WIP</span></div>
+    <div class="ds-meta">fw-bold, fs-xs, uppercase, --warn</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="nav-wip-prev" data-target-all=".brand-wip" data-prop="letterSpacing" data-unit="px" data-val="0.6" data-step="0.1" data-min="0" data-max="5" data-decimals="1" data-token=".brand-wip letter-spacing">
+        <button data-d="-1">−</button><span>0.6px</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -709,33 +753,42 @@
 <div class="ds-section">
   <div class="ds-section-title">09 · Badges</div>
 
-  <div style="margin-bottom:10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Sector badges — fs-xs, fw-semi, border-radius:50px</div>
-  <div class="ds-badge-row">
-    <span class="badge-sector badge-Defence">Defence</span>
-    <span class="badge-sector badge-Mining">Mining</span>
-    <span class="badge-sector badge-Tech">Tech</span>
-    <span class="badge-sector badge-Startup">Startup</span>
-    <span class="badge-sector badge-Comm">Comm</span>
+  <div class="ds-badge-bg-strip">
+    <span style="font-family:var(--font);font-size:var(--fs-xs);color:var(--text-faint);">Preview bg:</span>
+    <button class="ds-badge-bg-btn active" onclick="setBadgeBg('page',this)">Page</button>
+    <button class="ds-badge-bg-btn" onclick="setBadgeBg('dark',this)">Dark</button>
+    <button class="ds-badge-bg-btn" onclick="setBadgeBg('light',this)">Light</button>
   </div>
 
-  <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Entity type badges — fs-xs, fw-semi, border-radius:50px</div>
-  <div class="ds-badge-row">
-    <span class="badge-type badge-type--company">company</span>
-    <span class="badge-type badge-type--fund">fund</span>
-    <span class="badge-type badge-type--government_agency">government agency</span>
-    <span class="badge-type badge-type--bank">bank</span>
-    <span class="badge-type badge-type--institution">institution</span>
-    <span class="badge-dual">dual-role ★</span>
-  </div>
+  <div id="badge-preview" class="ds-badge-preview">
+    <div style="margin-bottom:10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Sector badges — fs-xs, fw-semi, border-radius:50px</div>
+    <div class="ds-badge-row">
+      <span class="badge-sector badge-Defence">Defence</span>
+      <span class="badge-sector badge-Mining">Mining</span>
+      <span class="badge-sector badge-Tech">Tech</span>
+      <span class="badge-sector badge-Startup">Startup</span>
+      <span class="badge-sector badge-Comm">Comm</span>
+    </div>
 
-  <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Source / data badges</div>
-  <div class="ds-badge-row">
-    <span class="badge-wd">Wikidata</span>
-    <span class="badge-miss">missing</span>
-    <span class="badge-lead">coordinator</span>
-    <span class="badge-follow">participant</span>
-    <span class="badge-val-review">⚠ needs review</span>
-    <span class="badge-val-flag">✕ flagged</span>
+    <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Entity type badges — fs-xs, fw-semi, border-radius:50px</div>
+    <div class="ds-badge-row">
+      <span class="badge-type badge-type--company">company</span>
+      <span class="badge-type badge-type--fund">fund</span>
+      <span class="badge-type badge-type--government_agency">government agency</span>
+      <span class="badge-type badge-type--bank">bank</span>
+      <span class="badge-type badge-type--institution">institution</span>
+      <span class="badge-dual">dual-role ★</span>
+    </div>
+
+    <div style="margin:20px 0 10px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Source / data badges</div>
+    <div class="ds-badge-row">
+      <span class="badge-wd">Wikidata</span>
+      <span class="badge-miss">missing</span>
+      <span class="badge-lead">coordinator</span>
+      <span class="badge-follow">participant</span>
+      <span class="badge-val-review">⚠ needs review</span>
+      <span class="badge-val-flag">✕ flagged</span>
+    </div>
   </div>
 
   <div class="ds-note">All badges: <code>font-size: var(--fs-xs)</code>. Source/data blocks use colored border+background at low opacity for the source color (Wikidata=teal rgba(104,204,209), Crunchbase=orange rgba(244,161,71)). EDF roles: <code>.edf-proj-role</code> uses <code>--font, fs-body</code>, not badges.</div>
@@ -745,32 +798,60 @@
      10. SIDEBAR / PANEL PRIMITIVES
 ══════════════════════════════════════════════ -->
 <div class="ds-section">
-  <div class="ds-section-title">10 · Sidebar & Panel Typography</div>
+  <div class="ds-section-header">
+    <div class="ds-section-title" style="margin:0;padding:0;border:none;">10 · Sidebar & Panel Typography</div>
+    <button class="ds-copy-btn" onclick="copyS10(this)">Copy for AI</button>
+  </div>
 
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--sl-title-fs = --fs-xl</div>
-    <div style="font-size:var(--fs-xl);font-weight:700;text-transform:uppercase;letter-spacing:.3px;">Panel Title</div>
-    <div class="ds-meta">~31.7px · .sl-title</div>
+    <div id="sl-title" style="font-size:var(--fs-xl);font-weight:700;text-transform:uppercase;letter-spacing:.3px;">Panel Title</div>
+    <div class="ds-meta">.sl-title</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="sl-title" data-val="1.65" data-token="--sl-title-fs">
+        <button data-d="-1">−</button><span>1.65rem</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--sl-section-lbl-fs = --fs-base</div>
-    <div style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);">Section Label</div>
-    <div class="ds-meta">~16.8px · .sl-section-lbl</div>
+    <div id="sl-section-lbl" style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);">Section Label</div>
+    <div class="ds-meta">.sl-section-lbl</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="sl-section-lbl" data-val="0.95" data-token="--sl-section-lbl-fs">
+        <button data-d="-1">−</button><span>0.95rem</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--sl-row-lbl-fs = --fs-base</div>
-    <div style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);">Row Key</div>
-    <div class="ds-meta">~16.8px · .sl-row-lbl / .es-lbl</div>
+    <div id="sl-row-lbl" style="font-size:var(--fs-base);font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);">Row Key</div>
+    <div class="ds-meta">.sl-row-lbl / .es-lbl</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="sl-row-lbl" data-val="0.95" data-token="--sl-row-lbl-fs">
+        <button data-d="-1">−</button><span>0.95rem</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--sl-row-val-fs = --fs-body</div>
-    <div style="font-size:var(--fs-body);color:var(--text-primary);">Row value text</div>
-    <div class="ds-meta">~19.2px · .sl-row-val / .es-val</div>
+    <div id="sl-row-val" style="font-size:var(--fs-body);color:var(--text-primary);">Row value text</div>
+    <div class="ds-meta">.sl-row-val / .es-val</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="sl-row-val" data-val="1.00" data-token="--sl-row-val-fs">
+        <button data-d="-1">−</button><span>1.00rem</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--sl-desc-fs = --fs-body</div>
-    <div style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);">Description / body paragraph text inside panels and sidebars.</div>
-    <div class="ds-meta">~19.2px · .es-desc / .gv-context</div>
+    <div id="sl-desc" style="font-size:var(--fs-body);color:var(--text-secondary);line-height:var(--lh-body);">Description / body paragraph text inside panels and sidebars.</div>
+    <div class="ds-meta">.es-desc / .gv-context</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="sl-desc" data-val="1.00" data-token="--sl-desc-fs">
+        <button data-d="-1">−</button><span>1.00rem</span><button data-d="1">+</button>
+      </div>
+    </div>
   </div>
 
   <div class="ds-note">
@@ -833,17 +914,37 @@
      13. SEARCH / HERO (companysearch.css)
 ══════════════════════════════════════════════ -->
 <div class="ds-section">
-  <div class="ds-section-title">13 · Search Hero (search.html)</div>
-
-  <div class="ds-row">
-    <div class="ds-token">.cs-hero-prompt</div>
-    <div style="font-family:var(--font);font-size:var(--fs-xs);color:rgba(0,255,65,0.45);letter-spacing:2px;text-transform:uppercase;">ENTITY SEARCH</div>
-    <div class="ds-meta">--font, fs-xs, 45% accent, letter-spacing:2px, uppercase</div>
+  <div class="ds-section-header">
+    <div class="ds-section-title" style="margin:0;padding:0;border:none;">13 · Search Hero (search.html)</div>
+    <button class="ds-copy-btn" onclick="copyS13(this)">Copy for AI</button>
   </div>
-  <div class="ds-row">
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+    <span style="font-family:var(--font);font-size:var(--fs-xs);color:var(--text-faint);white-space:nowrap;">Hero title:</span>
+    <input id="hero-text" class="ds-live-input" type="text" value="Man in the Loop_">
+  </div>
+
+  <div class="ds-row ds-row--live">
+    <div class="ds-token">.cs-hero-prompt</div>
+    <div id="hero-prompt" style="font-family:var(--font);font-size:var(--fs-xs);color:rgba(0,255,65,0.45);letter-spacing:2px;text-transform:uppercase;">ENTITY SEARCH</div>
+    <div class="ds-meta">fs-xs, 45% accent, uppercase</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="hero-prompt" data-prop="letterSpacing" data-unit="px" data-val="2.0" data-step="0.5" data-min="0" data-max="12" data-decimals="1" data-token=".cs-hero-prompt letter-spacing">
+        <button data-d="-1">−</button><span>2.0px</span><button data-d="1">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="ds-row ds-row--live">
     <div class="ds-token">.cs-hero-title</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-xl);color:var(--accent);font-weight:400;text-shadow:0 0 18px rgba(0,255,65,0.3);">Man in the Loop_</div>
-    <div class="ds-meta">--font-mono, fs-xl, fw-normal, lh-tight, accent glow</div>
+    <div id="hero-title" style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-xl);color:var(--accent);font-weight:400;text-shadow:0 0 18px rgba(0,255,65,0.3);">Man in the Loop_</div>
+    <div class="ds-meta">--font-mono, fs-xl, accent glow</div>
+    <div class="ds-live">
+      <div class="ds-glow-row">
+        <span style="font-family:var(--font);font-size:var(--fs-xs);color:var(--text-faint);">Glow</span>
+        <input type="range" class="ds-glow-slider" id="hero-glow" min="0" max="1" step="0.05" value="0.3">
+        <span class="ds-glow-val" id="hero-glow-val">0.30</span>
+      </div>
+    </div>
   </div>
   <div class="ds-row">
     <div class="ds-token">#cs-search (expanded)</div>
@@ -971,15 +1072,16 @@
 
 <script src="../web/theme.js"></script>
 <script>
-  // ── 1. Stepper (generalized: fontSize, lineHeight, fontWeight) ──
+  // ── 1. Stepper (generalized: fontSize, lineHeight, letterSpacing …) ──
   document.querySelectorAll('.ds-stepper').forEach(stepper => {
-    const getTarget = () => document.getElementById(stepper.dataset.target);
-    const prop     = stepper.dataset.prop  || 'fontSize';
-    const unit     = stepper.dataset.unit  !== undefined ? stepper.dataset.unit : 'rem';
-    const step     = parseFloat(stepper.dataset.step || '0.05');
-    const min      = parseFloat(stepper.dataset.min  || '0.5');
-    const max      = parseFloat(stepper.dataset.max  || '9999');
-    const decimals = stepper.dataset.decimals !== undefined ? parseInt(stepper.dataset.decimals) : 2;
+    const getTarget  = () => document.getElementById(stepper.dataset.target);
+    const targetAll  = stepper.dataset.targetAll;
+    const prop       = stepper.dataset.prop  || 'fontSize';
+    const unit       = stepper.dataset.unit  !== undefined ? stepper.dataset.unit : 'rem';
+    const step       = parseFloat(stepper.dataset.step || '0.05');
+    const min        = parseFloat(stepper.dataset.min  || '0.5');
+    const max        = parseFloat(stepper.dataset.max  || '9999');
+    const decimals   = stepper.dataset.decimals !== undefined ? parseInt(stepper.dataset.decimals) : 2;
     let val = parseFloat(stepper.dataset.val);
     const label = stepper.querySelector('span');
     const fmt = v => unit ? v.toFixed(decimals) + unit : v.toFixed(decimals);
@@ -987,7 +1089,12 @@
     stepper.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {
         val = Math.min(max, Math.max(min, Math.round((val + parseFloat(btn.dataset.d) * step) * 1000) / 1000));
-        getTarget().style[prop] = val + unit;
+        const cssVal = val + unit;
+        if (targetAll) {
+          getTarget().querySelectorAll(targetAll).forEach(el => el.style[prop] = cssVal);
+        } else {
+          getTarget().style[prop] = cssVal;
+        }
         label.textContent = fmt(val);
       });
     });
@@ -1209,6 +1316,76 @@
 
   function copyS05(btn) { copyColorSection('05 · Text Colors',  S05_TOKENS, btn); }
   function copyS06(btn) { copyColorSection('06 · Grey Palette', S06_TOKENS, btn); }
+  function setBadgeBg(mode, btn) {
+    const preview = document.getElementById('badge-preview');
+    if (mode === 'page') { preview.removeAttribute('data-bg'); }
+    else { preview.setAttribute('data-bg', mode); }
+    document.querySelectorAll('.ds-badge-bg-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  document.getElementById('hero-text')?.addEventListener('input', e => {
+    const el = document.getElementById('hero-title');
+    if (el) el.textContent = e.target.value || 'Man in the Loop_';
+  });
+
+  document.getElementById('hero-glow')?.addEventListener('input', e => {
+    const val = parseFloat(e.target.value);
+    const el = document.getElementById('hero-title');
+    if (el) el.style.textShadow = `0 0 18px rgba(0,255,65,${val})`;
+    const display = document.getElementById('hero-glow-val');
+    if (display) display.textContent = val.toFixed(2);
+  });
+
+  function copyS08(btn) {
+    const tokens = ['.tnav-btn letter-spacing', '.snav-btn letter-spacing', '.theme-toggle-btn letter-spacing', '.brand-wip letter-spacing'];
+    const rows = tokens.map(tok => {
+      const st = document.querySelector(`.ds-stepper[data-token="${tok}"]`);
+      const val = st?.querySelector('span')?.textContent || 'unchanged';
+      return `  ${tok.padEnd(36)} ${val}`;
+    });
+    doCopy([
+      '-- 08 · Navigation Chrome --',
+      'Letter-spacing values → Apply to: web/base.css or component CSS',
+      '',
+      ...rows,
+    ].join('\n'), btn);
+  }
+
+  function copyS10(btn) {
+    const map = [
+      ['--sl-title-fs',       'sl-title'],
+      ['--sl-section-lbl-fs', 'sl-section-lbl'],
+      ['--sl-row-lbl-fs',     'sl-row-lbl'],
+      ['--sl-row-val-fs',     'sl-row-val'],
+      ['--sl-desc-fs',        'sl-desc'],
+    ];
+    const rows = map.map(([token, id]) => {
+      const el = document.getElementById(id);
+      const val = el ? el.style.fontSize || 'unchanged' : 'unchanged';
+      return `  ${token.padEnd(22)} ${val}`;
+    });
+    doCopy([
+      '-- 10 · Sidebar & Panel Typography --',
+      'Font-size values → Apply to: web/base.css',
+      '',
+      ...rows,
+    ].join('\n'), btn);
+  }
+
+  function copyS13(btn) {
+    const promptSt = document.querySelector('.ds-stepper[data-token=".cs-hero-prompt letter-spacing"]');
+    const promptVal = promptSt?.querySelector('span')?.textContent || 'unchanged';
+    const glowVal = document.getElementById('hero-glow-val')?.textContent || 'unchanged';
+    doCopy([
+      '-- 13 · Search Hero --',
+      'Values → Apply to: web/companysearch.css',
+      '',
+      `  .cs-hero-prompt letter-spacing   ${promptVal}`,
+      `  .cs-hero-title text-shadow glow  opacity ${glowVal}  →  0 0 18px rgba(0,255,65,${glowVal})`,
+    ].join('\n'), btn);
+  }
+
   function copyS07(btn) {
     const darkRows = [], lightRows = [], graphRows = [];
     S07_TOKENS.forEach(token => {
