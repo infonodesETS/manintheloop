@@ -1075,10 +1075,12 @@
   }
 
   function updateSwatchTargets(wrap, color) {
-    const swEl  = wrap.dataset.swatch      ? document.getElementById(wrap.dataset.swatch)     : null;
-    const hexEl = wrap.dataset.hexDisplay  ? document.getElementById(wrap.dataset.hexDisplay)  : null;
-    if (swEl)  swEl.style.background = color;
-    if (hexEl) hexEl.textContent = color;
+    const swEl   = wrap.dataset.swatch     ? document.getElementById(wrap.dataset.swatch)    : null;
+    const hexEl  = wrap.dataset.hexDisplay ? document.getElementById(wrap.dataset.hexDisplay) : null;
+    const nameEl = wrap.closest('.ds-swatch-row')?.querySelector('.ds-swatch-name');
+    if (swEl)   swEl.style.background = color;
+    if (hexEl)  hexEl.textContent = color;
+    if (nameEl) nameEl.style.color = color;
   }
 
   document.querySelectorAll('.ds-cpick-wrap').forEach(wrap => {
