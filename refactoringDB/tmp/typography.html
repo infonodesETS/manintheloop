@@ -120,6 +120,40 @@
     [data-theme="light"] .ds-section-title { color: rgba(0,102,34,0.6); border-bottom-color: rgba(0,102,34,0.15); }
     [data-theme="light"] .ds-note { background: rgba(0,0,0,0.03); border-left-color: rgba(0,0,0,0.12); }
     [data-theme="light"] .ds-swatch { border-color: rgba(0,0,0,0.08); }
+
+    /* ── Live controls ── */
+    .ds-row--live { grid-template-columns: 220px 1fr 140px auto; }
+    .ds-live { display: flex; align-items: center; gap: 8px; }
+
+    .ds-stepper {
+      display: inline-flex; align-items: center;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;
+      overflow: hidden; height: 24px;
+    }
+    .ds-stepper button {
+      background: rgba(255,255,255,0.06); border: none; color: var(--text-secondary);
+      width: 22px; height: 24px; cursor: pointer; font-size: 14px; line-height: 1;
+      padding: 0; transition: background .1s;
+    }
+    .ds-stepper button:hover { background: rgba(255,255,255,0.14); color: var(--accent); }
+    .ds-stepper span {
+      font-size: var(--fs-xs); color: var(--accent); padding: 0 7px;
+      white-space: nowrap; min-width: 54px; text-align: center;
+    }
+
+    .ds-color { position: relative; cursor: pointer; }
+    .ds-color input[type=color] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .ds-swatch-live {
+      display: block; width: 24px; height: 24px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+      transition: border-color .1s;
+    }
+    .ds-swatch-live:hover { border-color: rgba(255,255,255,0.4); }
+
+    [data-theme="light"] .ds-stepper { border-color: rgba(0,0,0,0.15); }
+    [data-theme="light"] .ds-stepper button { background: rgba(0,0,0,0.05); color: var(--text-secondary); }
+    [data-theme="light"] .ds-stepper button:hover { background: rgba(0,0,0,0.12); }
+    [data-theme="light"] .ds-swatch-live { border-color: rgba(0,0,0,0.2); }
   </style>
 </head>
 <body>
@@ -161,40 +195,68 @@
   <div class="ds-section-title">02 · Size Scale</div>
   <div class="ds-note" style="margin-bottom:20px;">Base: <strong>html { font-size: 120% }</strong> → 1rem = 19.2px. All sizes scale proportionally. Minimum floor: 13px (--fs-xs). Nothing goes below this.</div>
 
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-xs · .70rem</div>
-    <div style="font-size:var(--fs-xs);">Micro text — badges, IDs, stat labels, tiny UI chrome</div>
+    <div id="prev-xs" style="font-size:var(--fs-xs);">Micro text — badges, IDs, stat labels, tiny UI chrome</div>
     <div class="ds-meta">~13.4px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-xs" data-val="0.70"><button data-d="-1">−</button><span>0.70rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-xs"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-sm · .75rem</div>
-    <div style="font-size:var(--fs-sm);">Caption — nav meta, table headers, chips, legend items</div>
+    <div id="prev-sm" style="font-size:var(--fs-sm);">Caption — nav meta, table headers, chips, legend items</div>
     <div class="ds-meta">~14.4px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-sm" data-val="0.75"><button data-d="-1">−</button><span>0.75rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-sm"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-base · .875rem</div>
-    <div style="font-size:var(--fs-base);">Base — buttons, inputs, tooltips, form labels, sidebar rows</div>
+    <div id="prev-base" style="font-size:var(--fs-base);">Base — buttons, inputs, tooltips, form labels, sidebar rows</div>
     <div class="ds-meta">~16.8px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-base" data-val="0.875"><button data-d="-1">−</button><span>0.875rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-base"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-body · 1rem</div>
-    <div style="font-size:var(--fs-body);">Body — primary reading text, profile descriptions, sidebar values</div>
+    <div id="prev-body" style="font-size:var(--fs-body);">Body — primary reading text, profile descriptions, sidebar values</div>
     <div class="ds-meta">~19.2px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-body" data-val="1.00"><button data-d="-1">−</button><span>1.00rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-body"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-lg · 1.2rem</div>
-    <div style="font-size:var(--fs-lg);">Large — sidebar titles, modal headings, brand logo</div>
+    <div id="prev-lg" style="font-size:var(--fs-lg);">Large — sidebar titles, modal headings, brand logo</div>
     <div class="ds-meta">~23.0px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-lg" data-val="1.20"><button data-d="-1">−</button><span>1.20rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-lg"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-xl · 1.65rem</div>
-    <div style="font-size:var(--fs-xl);font-weight:700;">Display — hero h1, section h2, panel titles, search hero</div>
+    <div id="prev-xl" style="font-size:var(--fs-xl);font-weight:700;">Display — hero h1, section h2, panel titles, search hero</div>
     <div class="ds-meta">~31.7px</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-xl" data-val="1.65"><button data-d="-1">−</button><span>1.65rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#f2f2f2" data-target="prev-xl"><span class="ds-swatch-live" style="background:#f2f2f2"></span></label>
+    </div>
   </div>
-  <div class="ds-row">
+  <div class="ds-row ds-row--live">
     <div class="ds-token">--fs-stat · 2rem</div>
-    <div style="font-size:var(--fs-stat);font-weight:700;color:var(--accent);font-family:monospace;">2,158</div>
+    <div id="prev-stat" style="font-size:var(--fs-stat);font-weight:700;color:var(--accent);">2,158</div>
     <div class="ds-meta">~38.4px · stat cards only</div>
+    <div class="ds-live">
+      <div class="ds-stepper" data-target="prev-stat" data-val="2.00"><button data-d="-1">−</button><span>2.00rem</span><button data-d="1">+</button></div>
+      <label class="ds-color"><input type="color" value="#00ff41" data-target="prev-stat"><span class="ds-swatch-live" style="background:#00ff41"></span></label>
+    </div>
   </div>
 
   <div class="ds-note">
@@ -745,5 +807,32 @@
 </div>
 
 <script src="../web/theme.js"></script>
+<script>
+  const STEP = 0.05;
+
+  document.querySelectorAll('.ds-stepper').forEach(stepper => {
+    const target = () => document.getElementById(stepper.dataset.target);
+    let val = parseFloat(stepper.dataset.val);
+    const label = stepper.querySelector('span');
+
+    stepper.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        val = Math.max(0.5, Math.round((val + parseFloat(btn.dataset.d) * STEP) * 1000) / 1000);
+        target().style.fontSize = val + 'rem';
+        label.textContent = val.toFixed(2) + 'rem';
+      });
+    });
+  });
+
+  document.querySelectorAll('.ds-color input[type=color]').forEach(input => {
+    const swatch = input.nextElementSibling;
+    input.addEventListener('input', () => {
+      const el = document.getElementById(input.dataset.target);
+      el.style.color = input.value;
+      swatch.style.background = input.value;
+    });
+    swatch.addEventListener('click', () => input.click());
+  });
+</script>
 </body>
 </html>
