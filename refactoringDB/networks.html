@@ -151,8 +151,8 @@
     }
     #net-loading.hidden { display: none; }
 
-    /* ── Project detail panel ── */
-    #proj-panel {
+    /* ── Detail panel (project + entity, unified) ── */
+    #detail-panel {
       position: absolute; top: 16px; right: 16px;
       width: 270px;
       background: var(--surface, #1a1a1a);
@@ -160,23 +160,23 @@
       border-radius: 4px; padding: 14px;
       font-size: var(--fs-body); z-index: 20; display: none;
     }
-    #proj-panel.visible { display: block; }
-    #proj-close {
+    #detail-panel.visible { display: block; }
+    #detail-close {
       position: absolute; top: 8px; right: 10px;
       background: none; border: none;
       color: var(--text-faint); font-size: 14px; cursor: pointer; line-height: 1;
     }
-    #proj-close:hover { color: var(--text-primary); }
-    .proj-panel-title {
-      font-weight: var(--fw-bold); color: rgba(100,160,255,.9);
+    #detail-close:hover { color: var(--text-primary); }
+    .detail-title {
+      font-weight: var(--fw-bold);
       margin-bottom: 10px; padding-right: 20px; word-break: break-word;
     }
-    .proj-row { display: flex; gap: 8px; margin-bottom: 5px; font-family: var(--font-mono); }
-    .proj-lbl { color: var(--text-faint); white-space: nowrap; min-width: 80px; }
-    .proj-val { color: var(--text-secondary); word-break: break-word; }
-    .proj-contrib { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
-    .proj-link { color: rgba(100,160,255,.8); text-decoration: none; }
-    .proj-link:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+    .detail-row { display: flex; gap: 8px; margin-bottom: 5px; font-family: var(--font-mono); }
+    .detail-lbl { color: var(--text-faint); white-space: nowrap; min-width: 80px; }
+    .detail-val { color: var(--text-secondary); word-break: break-word; }
+    .detail-accent { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .detail-link { color: rgba(100,160,255,.8); text-decoration: none; }
+    .detail-link:hover { color: rgba(100,160,255,1); text-decoration: underline; }
 
     /* ── Hover tooltip ── */
     #cy-tooltip {
@@ -245,8 +245,8 @@
 
     <div id="net-note">
       Node size = degree (projects / investors).<br>
-      Click entity → open profile.<br>
-      Click project diamond → details.
+      Click node → details + highlight.<br>
+      Click background → reset.
     </div>
   </div>
 
@@ -255,10 +255,10 @@
     <div id="cy"></div>
     <div id="net-loading">Loading data…</div>
 
-    <div id="proj-panel">
-      <button id="proj-close" title="Close">×</button>
-      <div class="proj-panel-title" id="proj-name"></div>
-      <div id="proj-rows"></div>
+    <div id="detail-panel">
+      <button id="detail-close" title="Close">×</button>
+      <div class="detail-title" id="detail-title"></div>
+      <div id="detail-rows"></div>
     </div>
 
     <div id="cy-tooltip"></div>
@@ -280,6 +280,12 @@ const NODE_COLORS = {
   bank:               '#cc3333',
   edf_project:        '#64a0ff',
   default:            '#888888',
+};
+
+const TYPE_LABELS = {
+  company: 'Company', institution: 'Institution', fund: 'Fund',
+  investor: 'Investor', public_fund: 'Public fund', government_agency: 'Gov. agency',
+  bank: 'Bank', edf_project: 'EDF Project',
 };
 
 function nodeColor(type) { return NODE_COLORS[type] || NODE_COLORS.default; }
@@ -307,10 +313,10 @@ function getCountry(e) {
 // ── Data ─────────────────────────────────────────────────────────────────────
 let DB            = null;
 let entityMap     = {};
-let edfRels       = [];   // edf_participation: source=entity, target=EDF project
-let investmentRels= [];   // investment: source=IV investor, target=IN entity
-let countryIndex  = {};   // country → Set<entityId> (IN-* only)
-let countryCounts = [];   // [{country, count}] sorted desc
+let edfRels       = [];
+let investmentRels= [];
+let countryIndex  = {};
+let countryCounts = [];
 
 async function loadData() {
   DB = await fetch('data/database.json').then(r => r.json());
@@ -319,8 +325,6 @@ async function loadData() {
   edfRels        = DB.relationships.filter(r => r.type === 'edf_participation');
   investmentRels = DB.relationships.filter(r => r.type === 'investment');
 
-  // Country index: anchor on EDF participants (they define "country scope")
-  // but also capture iShares/other IN-* entities with a country
   const ci = {};
   for (const e of DB.entities) {
     if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
@@ -340,7 +344,6 @@ async function loadData() {
 function buildElements(country, showEdf, showInv) {
   const isAll = country === '__all__';
 
-  // Anchor entities: IN-* in selected country
   let entityIds;
   if (isAll) {
     entityIds = new Set();
@@ -351,14 +354,11 @@ function buildElements(country, showEdf, showInv) {
     entityIds = new Set(countryIndex[country] || []);
   }
 
-  const nodes     = new Map();  // id → node data
+  const nodes     = new Map();
   const edgesList = [];
-
-  // Degree counters (for node sizing)
   const deg = {};
   const bump = id => { deg[id] = (deg[id] || 0) + 1; };
 
-  // ── EDF participation ────────────────────────────────────────────────────
   const edfEdgesRaw = [];
   if (showEdf) {
     for (const r of edfRels) {
@@ -369,23 +369,20 @@ function buildElements(country, showEdf, showInv) {
     }
   }
 
-  // ── Investment ───────────────────────────────────────────────────────────
   const invEdgesRaw = [];
   if (showInv) {
     for (const r of investmentRels) {
       if (!entityIds.has(r.target)) continue;
       invEdgesRaw.push(r);
-      bump(r.source);  // investor
-      bump(r.target);  // entity
+      bump(r.source);
+      bump(r.target);
     }
   }
 
-  // If neither rel type is shown, still show entity nodes
   if (!showEdf && !showInv) {
     for (const eid of entityIds) bump(eid);
   }
 
-  // ── Add entity nodes ─────────────────────────────────────────────────────
   for (const eid of entityIds) {
     const e = entityMap[eid];
     if (!e) continue;
@@ -397,7 +394,6 @@ function buildElements(country, showEdf, showInv) {
     });
   }
 
-  // ── Add EDF project nodes ─────────────────────────────────────────────────
   for (const r of edfEdgesRaw) {
     const pid = r.target;
     if (!nodes.has(pid)) {
@@ -419,7 +415,6 @@ function buildElements(country, showEdf, showInv) {
     edgesList.push({ data: { id: `ee${r.source}${pid}`, source: r.source, target: pid, etype: 'edf' } });
   }
 
-  // ── Add investor nodes ────────────────────────────────────────────────────
   for (const r of invEdgesRaw) {
     const ivId = r.source;
     if (!nodes.has(ivId)) {
@@ -514,6 +509,15 @@ const CY_STYLE = [
       'curve-style': 'haystack', 'target-arrow-shape': 'none',
     }
   },
+  // Focus/dim: elements with class 'dimmed' fade out; focused elements stay full
+  {
+    selector: '.dimmed',
+    style: { 'opacity': 0.07 }
+  },
+  {
+    selector: '.focused',
+    style: { 'opacity': 1, 'border-width': 2, 'border-color': '#fff', 'border-opacity': 0.5 }
+  },
 ];
 
 function buildLayout(nodeCount) {
@@ -541,7 +545,123 @@ function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, i
   document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
 }
 
-function renderNetwork(country) {
+// ── Focus / dim ───────────────────────────────────────────────────────────────
+function applyFocus(nodeId) {
+  if (!cy) return;
+  const node = cy.$('#' + CSS.escape(nodeId));
+  if (node.empty()) return;
+  const hood = node.closedNeighborhood(); // node + connected edges + neighbor nodes
+  cy.elements().addClass('dimmed').removeClass('focused');
+  hood.removeClass('dimmed').addClass('focused');
+}
+
+function clearFocus() {
+  if (!cy) return;
+  cy.elements().removeClass('dimmed').removeClass('focused');
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────────
+function showProjDetail(d) {
+  const titleEl = document.getElementById('detail-title');
+  titleEl.style.color = 'rgba(100,160,255,.9)';
+  titleEl.textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
+
+  const rows = [];
+  if (d.callId)    rows.push(['Call',        `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
+  if (d.status)    rows.push(['Status',      esc(d.status)]);
+  if (d.startDate) rows.push(['Period',      `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
+  if (d.euContrib) rows.push(['EU contrib.', `<span class="detail-accent">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
+  if (d.url)       rows.push(['EU Portal',   `<a class="detail-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
+
+  document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
+    `<div class="detail-row"><span class="detail-lbl">${l}</span><span class="detail-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('detail-panel').classList.add('visible');
+}
+
+function showEntityDetail(id) {
+  const e = entityMap[id];
+  if (!e) return;
+
+  const color   = nodeColor(e.type || 'company');
+  const country = getCountry(e);
+  const desc    = e.sources?.wikidata?.description || '';
+  const website = e.sources?.infonodes?.website || e.sources?.crunchbase?.website || '';
+  const edfCount = edfRels.filter(r => r.source === id).length;
+  const invCount = investmentRels.filter(r => r.target === id).length;   // investors into this entity
+  const portCount= investmentRels.filter(r => r.source === id).length;   // portfolio (IV entities)
+
+  const titleEl = document.getElementById('detail-title');
+  titleEl.style.color = color;
+  titleEl.textContent = e.name;
+
+  const rows = [];
+  if (e.type)     rows.push(['Type',     TYPE_LABELS[e.type] || e.type]);
+  if (country)    rows.push(['Country',  country]);
+  if (desc)       rows.push(['About',    truncate(desc, 110)]);
+  if (edfCount)   rows.push(['EDF proj', `<span class="detail-accent">${edfCount}</span>`]);
+  if (invCount)   rows.push(['Investors',`<span class="detail-accent">${invCount}</span>`]);
+  if (portCount)  rows.push(['Portfolio',`<span class="detail-accent">${portCount}</span>`]);
+  if (website)    rows.push(['Website',  `<a class="detail-link" href="${esc(website)}" target="_blank">${esc(truncate(website.replace(/^https?:\/\//, ''), 28))}</a>`]);
+  rows.push(['Profile', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(id)}&organizationName=${encodeURIComponent(e.name)}">Open full profile →</a>`]);
+
+  document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
+    `<div class="detail-row"><span class="detail-lbl">${esc(l)}</span><span class="detail-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('detail-panel').classList.add('visible');
+}
+
+function closeDetailSilent() {
+  document.getElementById('detail-panel').classList.remove('visible');
+  clearFocus();
+}
+
+// ── URL routing ───────────────────────────────────────────────────────────────
+function readParams() {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    country:      p.get('country') || null,
+    edf:          p.get('edf') !== '0',
+    inv:          p.get('inv') !== '0',
+    selected:     p.get('selected') || null,
+    selectedName: p.get('selectedName') || null,
+  };
+}
+
+function pushURL(country, edf, inv, selected, selectedName) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  if (selected) {
+    url.searchParams.set('selected', selected);
+    if (selectedName) url.searchParams.set('selectedName', selectedName);
+    else              url.searchParams.delete('selectedName');
+  } else {
+    url.searchParams.delete('selected');
+    url.searchParams.delete('selectedName');
+  }
+  history.pushState({ country, edf, inv, selected, selectedName }, '', url);
+}
+
+function replaceURL(country, edf, inv, selected, selectedName) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  if (selected) {
+    url.searchParams.set('selected', selected);
+    if (selectedName) url.searchParams.set('selectedName', selectedName);
+    else              url.searchParams.delete('selectedName');
+  } else {
+    url.searchParams.delete('selected');
+    url.searchParams.delete('selectedName');
+  }
+  history.replaceState({ country, edf, inv, selected, selectedName }, '', url);
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function renderNetwork(country, restoreSelected) {
   const loadingEl = document.getElementById('net-loading');
   const isAll     = country === '__all__';
   const showEdf   = document.getElementById('chk-edf').checked;
@@ -550,13 +670,13 @@ function renderNetwork(country) {
   document.getElementById('all-edf-warn').style.display = isAll ? '' : 'none';
   loadingEl.classList.remove('hidden');
   loadingEl.textContent = 'Building graph…';
+  closeDetailSilent();
 
   setTimeout(() => {
     const result = buildElements(country, showEdf, showInv);
     updateStats(result);
 
     if (cy) { cy.destroy(); cy = null; }
-    closeProjPanel();
 
     if (result.nodeCount === 0) {
       loadingEl.textContent = 'No data for this selection.';
@@ -581,16 +701,42 @@ function renderNetwork(country) {
       cy.fit(undefined, 32);
       loadingEl.classList.add('hidden');
 
-      // Entity/investor click → open profile
+      // Restore selected node from URL (after layout)
+      if (restoreSelected) {
+        const node = cy.$('#' + CSS.escape(restoreSelected));
+        if (!node.empty()) {
+          applyFocus(restoreSelected);
+          if (node.data('kind') === 'project') showProjDetail(node.data());
+          else showEntityDetail(restoreSelected);
+        }
+      }
+
+      // ── Event handlers ──────────────────────────────────────────────────────
+
+      const select = document.getElementById('country-select');
+      const chkEdf = document.getElementById('chk-edf');
+      const chkInv = document.getElementById('chk-inv');
+
       cy.on('tap', 'node[kind = "entity"], node[kind = "investor"]', evt => {
         const d = evt.target.data();
-        window.open(`search.html?organization=${encodeURIComponent(d.id)}&organizationName=${encodeURIComponent(d.fullName)}`, '_blank');
+        applyFocus(d.id);
+        showEntityDetail(d.id);
+        pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.fullName);
       });
 
-      // Project click → detail panel
-      cy.on('tap', 'node[kind = "project"]', evt => showProjPanel(evt.target.data()));
+      cy.on('tap', 'node[kind = "project"]', evt => {
+        const d = evt.target.data();
+        applyFocus(d.id);
+        showProjDetail(d);
+        pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.acronym || d.fullName);
+      });
 
-      cy.on('tap', evt => { if (evt.target === cy) closeProjPanel(); });
+      cy.on('tap', evt => {
+        if (evt.target === cy) {
+          closeDetailSilent();
+          pushURL(select.value, chkEdf.checked, chkInv.checked, null, null);
+        }
+      });
 
       // Tooltip
       const tooltip = document.getElementById('cy-tooltip');
@@ -607,52 +753,6 @@ function renderNetwork(country) {
 
     }, 20);
   }, 20);
-}
-
-// ── Project panel ─────────────────────────────────────────────────────────────
-function showProjPanel(d) {
-  document.getElementById('proj-name').textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
-  const rows = [];
-  if (d.callId)    rows.push(['Call',         `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
-  if (d.status)    rows.push(['Status',       esc(d.status)]);
-  if (d.startDate) rows.push(['Period',       `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
-  if (d.euContrib) rows.push(['EU contrib.',  `<span class="proj-contrib">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
-  rows.push(['Participants', `<span class="proj-contrib">${d.degree ?? '—'}</span>`]);
-  if (d.url)       rows.push(['EU Portal',    `<a class="proj-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
-  document.getElementById('proj-rows').innerHTML = rows.map(([l, v]) =>
-    `<div class="proj-row"><span class="proj-lbl">${l}</span><span class="proj-val">${v}</span></div>`
-  ).join('');
-  document.getElementById('proj-panel').classList.add('visible');
-}
-
-function closeProjPanel() {
-  document.getElementById('proj-panel').classList.remove('visible');
-}
-
-// ── URL routing ───────────────────────────────────────────────────────────────
-function readParams() {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    country: p.get('country') || null,
-    edf:     p.get('edf') !== '0',
-    inv:     p.get('inv') !== '0',
-  };
-}
-
-function pushURL(country, edf, inv) {
-  const url = new URL(window.location.href);
-  url.searchParams.set('country', country);
-  url.searchParams.set('edf',     edf  ? '1' : '0');
-  url.searchParams.set('inv',     inv  ? '1' : '0');
-  history.pushState({ country, edf, inv }, '', url);
-}
-
-function replaceURL(country, edf, inv) {
-  const url = new URL(window.location.href);
-  url.searchParams.set('country', country);
-  url.searchParams.set('edf',     edf  ? '1' : '0');
-  url.searchParams.set('inv',     inv  ? '1' : '0');
-  history.replaceState({ country, edf, inv }, '', url);
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
@@ -674,31 +774,31 @@ async function init() {
   allOpt.textContent = `All entities`;
   select.appendChild(allOpt);
 
-  // Apply URL params or use defaults
   const params = readParams();
   const defaultCountry = countryCounts[0]?.country || '__all__';
   const country = (params.country && (countryIndex[params.country] || params.country === '__all__'))
     ? params.country
     : defaultCountry;
 
-  select.value    = country;
-  chkEdf.checked  = params.edf;
-  chkInv.checked  = params.inv;
+  select.value   = country;
+  chkEdf.checked = params.edf;
+  chkInv.checked = params.inv;
 
-  // Canonicalize URL on first load (replaceState — no extra history entry)
-  replaceURL(select.value, chkEdf.checked, chkInv.checked);
+  replaceURL(select.value, chkEdf.checked, chkInv.checked, params.selected, params.selectedName);
 
-  // User-driven changes: push to history
   const rerender = () => {
-    pushURL(select.value, chkEdf.checked, chkInv.checked);
+    pushURL(select.value, chkEdf.checked, chkInv.checked, null);
     renderNetwork(select.value);
   };
   select.addEventListener('change', rerender);
   chkEdf.addEventListener('change', rerender);
   chkInv.addEventListener('change', rerender);
-  document.getElementById('proj-close').addEventListener('click', closeProjPanel);
 
-  // Back/forward: apply URL state without pushing
+  document.getElementById('detail-close').addEventListener('click', () => {
+    closeDetailSilent();
+    pushURL(select.value, chkEdf.checked, chkInv.checked, null, null);
+  });
+
   window.addEventListener('popstate', () => {
     const p = readParams();
     const c = (p.country && (countryIndex[p.country] || p.country === '__all__'))
@@ -707,10 +807,10 @@ async function init() {
     select.value   = c;
     chkEdf.checked = p.edf;
     chkInv.checked = p.inv;
-    renderNetwork(select.value);
+    renderNetwork(select.value, p.selected);
   });
 
-  renderNetwork(select.value);
+  renderNetwork(select.value, params.selected);
 }
 
 init().catch(err => {

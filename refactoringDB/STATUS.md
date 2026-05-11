@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-11 (routing convention documented + index.html EU-funded toggle fixed to pushState; networks.html URL routing added)
+> Last updated: 2026-05-11 (networks.html v3: node focus/dim + unified detail panel + URL selected param + same-tab profile nav)
 
 ## Session protocol
 
@@ -502,6 +502,12 @@ refactoringDB/
 - [x] **Branch `graph` created** from `main`
 - [x] **`networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
 - [x] **`networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
+- [x] **`networks.html` v3 — node interaction (2026-05-11)**
+  - **Focus/dim on click**: click any node → `closedNeighborhood()` stays at full opacity (`.focused`), all other elements fade to `opacity: 0.07` (`.dimmed`). Click background → reset.
+  - **Unified `#detail-panel`**: replaces separate `#proj-panel`. Project click → project details (call, period, EU contrib, portal link). Entity/investor click → entity details (type, country, Wikidata description, EDF proj count, investor/portfolio count, website, profile link). No longer navigates away on entity click.
+  - **`selected`/`selectedName` URL params**: every node click pushes `?selected=ID&selectedName=Name` (entity name or project acronym). Close/background click pushes without `selected`. Deep link restores focus + panel after layout. `selectedName` is readable in URL (no lookup needed).
+  - **Same-tab profile navigation**: "Open full profile →" uses same tab — Back restores networks state. Intentional: routing is complete, new tab was a workaround.
+  - **URL param schema decision**: `selected`/`selectedName` kept distinct from `search.html`'s `organization`/`organizationName` and `index.html`'s `entity`/`entityname` — each page's params describe its own state. Cross-page links from networks to search already use the correct `?organization=ID&organizationName=Name` format.
 
 ### Session 2026-05-07
 
@@ -664,7 +670,7 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 |---|---|---|
 | `search.html` | `web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name` |
 | `index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded` |
-| `networks.html` | Inline | `?country=France&edf=1&inv=1` |
+| `networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II]` |
 
 **`web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
 
