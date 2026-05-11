@@ -694,9 +694,17 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 | Page | Routing module | URL scheme |
 |---|---|---|
-| `search.html` | `web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name` |
-| `index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded` |
-| `networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II]` |
+| `search.html` | `web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name[&theme=light]` |
+| `index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded[&theme=light]` |
+| `networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II][&theme=light]` |
+
+**Theme param (2026-05-11):** `theme=light` added to all pages. Dark is default (no param). Managed by `web/theme.js`:
+- `initTheme()`: reads URL param > localStorage > dark; `replaceState` to canonicalize
+- `toggleTheme()`: `pushState` with updated param (back button undoes theme change)
+- `popstate` listener: applies theme from URL on back/forward
+- `updateNavLinks()`: keeps all `a.tnav-btn` and `a.brand` hrefs in sync
+- `themeParam()`: returns `&theme=light` or `''` — used in dynamic cross-page link builders
+- FOUC prevention: all 3 pages read URL param before DOMContentLoaded (inline `<script>` in `<head>`)
 
 **`web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
 

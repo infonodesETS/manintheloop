@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <script>(function(){var p=new URLSearchParams(location.search),t=p.get('theme')||localStorage.getItem('mitl-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
