@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-11 (networks.html: zoom in on node click + zoom reset on panel close/background click)
+> Last updated: 2026-05-11 (networks.html: cross-country neighbor expansion on node click)
 
 ## Session protocol
 
@@ -512,6 +512,12 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+- [x] **`networks.html` — cross-country neighbor expansion on node click (2026-05-11)**
+  - `addExtraNeighbors(nodeId)`: scans all `edfRels` + `investmentRels` for the clicked node; for each neighbor not already in `cy`, adds node + edge via `cy.add()`
+  - New nodes positioned in a circle around the clicked node (`radius = max(130, count × 11)`)
+  - EDF project nodes carry full `sources.edf_project` data so `showProjDetail` works on extras too
+  - `removeExtraElements()`: called from `clearFocus()` (panel close / background click) and at top of each `addExtraNeighbors()` call (node→node navigation)
+  - No routing change needed: `country` param describes base graph scope; extras are derived state from `selected` — deep-link restore works automatically via `restoreSelected` → `applyFocus`
 
 ### Session 2026-05-07
 
