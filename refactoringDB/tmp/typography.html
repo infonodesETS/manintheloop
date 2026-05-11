@@ -192,7 +192,10 @@
      2. SIZE SCALE
 ══════════════════════════════════════════════ -->
 <div class="ds-section">
-  <div class="ds-section-title">02 · Size Scale</div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;padding-bottom:8px;border-bottom:1px solid rgba(0,255,65,0.15);">
+    <div class="ds-section-title" style="margin:0;padding:0;border:none;">02 · Size Scale</div>
+    <button id="copy-ai-btn" onclick="copyForAI()" style="font-family:var(--font);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:rgba(0,255,65,0.07);border:1px solid rgba(0,255,65,0.3);color:var(--accent);border-radius:50px;padding:3px 12px;cursor:pointer;transition:all .1s;">Copy for AI</button>
+  </div>
   <div class="ds-note" style="margin-bottom:20px;">Base: <strong>html { font-size: 120% }</strong> → 1rem = 19.2px. All sizes scale proportionally. Minimum floor: 13px (--fs-xs). Nothing goes below this.</div>
 
   <div class="ds-row ds-row--live">
@@ -833,6 +836,47 @@
     });
     swatch.addEventListener('click', () => input.click());
   });
+
+  const DEFAULTS = {
+    'prev-xs':   { token: '--fs-xs',   rem: 0.70,  color: '#f2f2f2' },
+    'prev-sm':   { token: '--fs-sm',   rem: 0.75,  color: '#f2f2f2' },
+    'prev-base': { token: '--fs-base', rem: 0.875, color: '#f2f2f2' },
+    'prev-body': { token: '--fs-body', rem: 1.00,  color: '#f2f2f2' },
+    'prev-lg':   { token: '--fs-lg',   rem: 1.20,  color: '#f2f2f2' },
+    'prev-xl':   { token: '--fs-xl',   rem: 1.65,  color: '#f2f2f2' },
+    'prev-stat': { token: '--fs-stat', rem: 2.00,  color: '#00ff41' },
+  };
+
+  function copyForAI() {
+    const rows = [];
+    document.querySelectorAll('.ds-stepper').forEach(stepper => {
+      const id = stepper.dataset.target;
+      const def = DEFAULTS[id];
+      const curRem = parseFloat(stepper.querySelector('span').textContent);
+      const curColor = document.querySelector(`.ds-color input[data-target="${id}"]`).value;
+      const remChanged = Math.abs(curRem - def.rem) > 0.001;
+      const colorChanged = curColor.toLowerCase() !== def.color.toLowerCase();
+      const remNote = remChanged ? `${curRem.toFixed(3)}rem  ← was ${def.rem}rem` : `${def.rem}rem  (unchanged)`;
+      const colorNote = colorChanged ? `${curColor}  ← was ${def.color}` : `${def.color}  (unchanged)`;
+      rows.push(`  ${def.token.padEnd(12)} ${remNote.padEnd(30)} color: ${colorNote}`);
+    });
+
+    const text = [
+      '-- typography live-test export --',
+      'Apply to: web/base.css (font-size tokens) and relevant CSS rules (colors)',
+      '',
+      ...rows,
+      '',
+      'Only lines marked ← need changes.',
+    ].join('\n');
+
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-ai-btn');
+      btn.textContent = 'Copied!';
+      btn.style.borderColor = 'var(--accent)';
+      setTimeout(() => { btn.textContent = 'Copy for AI'; btn.style.borderColor = ''; }, 1800);
+    });
+  }
 </script>
 </body>
 </html>
