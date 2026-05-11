@@ -640,24 +640,28 @@
 
   <div style="margin:20px 0 12px;font-size:var(--fs-sm);color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;">Special</div>
   <div class="ds-swatch-row">
-    <div class="ds-swatch" style="background:#ffd700;"></div>
+    <div class="ds-swatch" id="sw-c-dual" style="background:#ffd700;"></div>
     <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ffd700;">Dual-role</div><div class="ds-swatch-token">--c-dual · manufacturer that also invests (star shape)</div></div>
-    <div class="ds-swatch-hex">#ffd700</div>
+    <div class="ds-swatch-hex" id="shex-c-dual">#ffd700</div>
+    <div class="ds-cpick-wrap" data-token="--c-dual" data-swatch="sw-c-dual" data-hex-display="shex-c-dual"><input type="color" class="ds-cpick-hex" value="#ffd700"><span class="ds-cpick-swatch"></span></div>
   </div>
   <div class="ds-swatch-row">
-    <div class="ds-swatch" style="background:#64a0ff;"></div>
-    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#64a0ff;">EDF project</div><div class="ds-swatch-token">networks.html / ego graph — EDF project hub nodes</div></div>
-    <div class="ds-swatch-hex">#64a0ff</div>
+    <div class="ds-swatch" id="sw-graph-edf" style="background:#64a0ff;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#64a0ff;">EDF project</div><div class="ds-swatch-token">graph literal · networks.html / ego graph — EDF project hub nodes</div></div>
+    <div class="ds-swatch-hex" id="shex-graph-edf">#64a0ff</div>
+    <div class="ds-cpick-wrap" data-token="--graph-edf-proj" data-swatch="sw-graph-edf" data-hex-display="shex-graph-edf"><input type="color" class="ds-cpick-hex" value="#64a0ff"><span class="ds-cpick-swatch"></span></div>
   </div>
   <div class="ds-swatch-row">
-    <div class="ds-swatch" style="background:#ffaa55;"></div>
-    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ffaa55;">Investor (graph)</div><div class="ds-swatch-token">ego graph + networks.html investor (IV-*) nodes</div></div>
-    <div class="ds-swatch-hex">#ffaa55</div>
+    <div class="ds-swatch" id="sw-graph-inv" style="background:#ffaa55;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#ffaa55;">Investor (graph)</div><div class="ds-swatch-token">graph literal · ego graph + networks.html investor (IV-*) nodes</div></div>
+    <div class="ds-swatch-hex" id="shex-graph-inv">#ffaa55</div>
+    <div class="ds-cpick-wrap" data-token="--graph-investor" data-swatch="sw-graph-inv" data-hex-display="shex-graph-inv"><input type="color" class="ds-cpick-hex" value="#ffaa55"><span class="ds-cpick-swatch"></span></div>
   </div>
   <div class="ds-swatch-row">
-    <div class="ds-swatch" style="background:#00ff41;"></div>
-    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#00ff41;">Center node</div><div class="ds-swatch-token">ego graph center entity node (= accent color)</div></div>
-    <div class="ds-swatch-hex">#00ff41</div>
+    <div class="ds-swatch" id="sw-graph-center" style="background:#00ff41;"></div>
+    <div class="ds-swatch-info"><div class="ds-swatch-name" style="color:#00ff41;">Center node</div><div class="ds-swatch-token">graph literal · ego graph center entity node (= accent color)</div></div>
+    <div class="ds-swatch-hex" id="shex-graph-center">#00ff41</div>
+    <div class="ds-cpick-wrap" data-token="--graph-center" data-swatch="sw-graph-center" data-hex-display="shex-graph-center"><input type="color" class="ds-cpick-hex" value="#00ff41"><span class="ds-cpick-swatch"></span></div>
   </div>
 
   <div class="ds-note">
@@ -1046,6 +1050,11 @@
     '--c-govt':         { dark:['#ff3333',1.00], light:['#990000',1.00] },
     '--c-bank':         { dark:['#aa0000',1.00], light:['#770000',1.00] },
     '--c-inst':         { dark:['#ff99bb',1.00], light:['#aa2255',1.00] },
+    '--c-dual':         { dark:['#ffd700',1.00], light:['#ffd700',1.00] },
+    // graph.js hardcoded literals (mode-agnostic — canvas context)
+    '--graph-edf-proj': { dark:['#64a0ff',1.00], light:['#64a0ff',1.00] },
+    '--graph-investor': { dark:['#ffaa55',1.00], light:['#ffaa55',1.00] },
+    '--graph-center':   { dark:['#00ff41',1.00], light:['#00ff41',1.00] },
   };
 
   // Per-mode stored values (starts from baseline; updated as user edits)
@@ -1194,11 +1203,45 @@
 
   const S05_TOKENS = ['--text-primary','--text-secondary','--text-tertiary','--text-muted','--text-faint','--dim','--accent'];
   const S06_TOKENS = ['--grey-dark','--grey-mid','--grey-light','--grey-pale'];
-  const S07_TOKENS = ['--c-defence','--c-mining','--c-tech','--c-startup','--c-fund','--c-govt','--c-bank','--c-inst'];
+  const S07_TOKENS        = ['--c-defence','--c-mining','--c-tech','--c-startup','--c-fund','--c-govt','--c-bank','--c-inst','--c-dual'];
+  const S07_GRAPH_TOKENS  = ['--graph-edf-proj','--graph-investor','--graph-center'];
+  const S07_GRAPH_LABELS  = { '--graph-edf-proj':'edf_project', '--graph-investor':'investor (IV-*)', '--graph-center':'center node' };
 
   function copyS05(btn) { copyColorSection('05 · Text Colors',  S05_TOKENS, btn); }
   function copyS06(btn) { copyColorSection('06 · Grey Palette', S06_TOKENS, btn); }
-  function copyS07(btn) { copyColorSection('07 · Entity Colors',S07_TOKENS, btn); }
+  function copyS07(btn) {
+    const darkRows = [], lightRows = [], graphRows = [];
+    S07_TOKENS.forEach(token => {
+      const [dh,da]   = cValues[token]?.dark  || CBASE[token].dark;
+      const [lh,la]   = cValues[token]?.light || CBASE[token].light;
+      const [bDh,bDa] = CBASE[token].dark, [bLh,bLa] = CBASE[token].light;
+      const dCur = toColorStr(dh,da), dBase = toColorStr(bDh,bDa);
+      const lCur = toColorStr(lh,la), lBase = toColorStr(bLh,bLa);
+      darkRows.push(`  ${token.padEnd(14)} ${dCur !== dBase ? `${dCur}  ← was ${dBase}` : `${dBase}  (unchanged)`}`);
+      lightRows.push(`  ${token.padEnd(14)} ${lCur !== lBase ? `${lCur}  ← was ${lBase}` : `${lBase}  (unchanged)`}`);
+    });
+    S07_GRAPH_TOKENS.forEach(token => {
+      const [h] = cValues[token]?.dark || CBASE[token].dark;
+      const [bh] = CBASE[token].dark;
+      const label = S07_GRAPH_LABELS[token];
+      graphRows.push(`  ${label.padEnd(20)} ${h !== bh ? `${h}  ← was ${bh}` : `${bh}  (unchanged)`}`);
+    });
+    doCopy([
+      '-- 07 · Entity Colors --',
+      'CSS tokens → Apply to: web/base.css',
+      '',
+      '/* dark (default, :root) */',
+      ...darkRows,
+      '',
+      '/* light ([data-theme="light"]) */',
+      ...lightRows,
+      '',
+      'Graph literals → Apply to: web/graph.js (hardcoded hex, mode-agnostic)',
+      ...graphRows,
+      '',
+      'Only lines marked ← need changes.',
+    ].join('\n'), btn);
+  }
 </script>
 </body>
 </html>
