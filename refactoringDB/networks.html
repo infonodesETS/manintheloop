@@ -553,11 +553,14 @@ function applyFocus(nodeId) {
   const hood = node.closedNeighborhood(); // node + connected edges + neighbor nodes
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
+  cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
 }
 
 function clearFocus() {
   if (!cy) return;
+  const hasDimmed = cy.elements('.dimmed').length > 0;
   cy.elements().removeClass('dimmed').removeClass('focused');
+  if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
 }
 
 // ── Detail panel ──────────────────────────────────────────────────────────────
