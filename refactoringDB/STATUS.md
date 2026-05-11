@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-10 (feat: Defence Network v2 — investment relationships + EDF checkbox toggles in networks.html; ego graph card open by default; all 4 shapes tested — branch `graph`)
+> Last updated: 2026-05-11 (routing convention documented + index.html EU-funded toggle fixed to pushState; networks.html URL routing added)
 
 ## Session protocol
 
@@ -644,6 +644,29 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - All 267 proposals reviewed and applied (2026-04-13)
 - 411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
 - Optional: run `reprocess_skipped_qids.py` again for any remaining matches
+
+---
+
+## Routing convention (all pages)
+
+> Rule: **every user-driven state change uses `pushState`; initial page load uses `replaceState`.**
+
+| Action | Method | Reason |
+|---|---|---|
+| User changes any filter or selection | `pushState` | Back must always restore the previous state |
+| Page load / URL canonicalization | `replaceState` | Avoids a duplicate history entry on first load |
+
+**Do not use `replaceState` for user interactions**, even if the change feels like a "view setting". The browser Back button is the user's primary undo mechanism — any state that can be set by the user must be undoable.
+
+### Implementation per page
+
+| Page | Routing module | URL scheme |
+|---|---|---|
+| `search.html` | `web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name` |
+| `index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded` |
+| `networks.html` | Inline | `?country=France&edf=1&inv=1` |
+
+**`web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
 
 ---
 

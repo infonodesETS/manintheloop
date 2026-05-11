@@ -1071,12 +1071,11 @@ async function init() {
     // Wire toolbar
     document.getElementById('map-edf-toggle').addEventListener('change', e => {
       applyEdfToggle(e.target.checked);
-      // Update URL in-place (replaceState — filter is a view setting, not a nav step)
       const p = new URLSearchParams(location.search);
       if (mapState.edfOnly) p.set('type', 'EUfunded'); else p.delete('type');
       const qs = p.toString();
       const cur = history.state || {};
-      history.replaceState({ ...cur, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
+      history.pushState({ ...cur, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
       applyMapFilter();
       if (!mapState.selectedIso && !mapState.activeFilter) setDefaultPanelContent();
     });
