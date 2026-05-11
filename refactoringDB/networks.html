@@ -1029,10 +1029,17 @@ function selectEntity(id) {
   document.getElementById('net-search-clear').style.display = 'none';
   closeAc();
 
-  const country = resolveEntityCountry(id) || '__all__';
+  const country = resolveEntityCountry(id);
   const select  = document.getElementById('country-select');
   const chkEdf  = document.getElementById('chk-edf');
   const chkInv  = document.getElementById('chk-inv');
+
+  if (!country) {
+    // Entity has no resolvable country and no connections — show panel over current graph, no re-render
+    showEntityDetail(id, true);
+    pushURL(select.value, chkEdf.checked, chkInv.checked, id, e.name);
+    return;
+  }
 
   select.value = country;
   pushURL(country, chkEdf.checked, chkInv.checked, id, e.name);
