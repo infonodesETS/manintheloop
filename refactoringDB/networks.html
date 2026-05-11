@@ -510,6 +510,17 @@ const CY_STYLE = [
       'curve-style': 'haystack', 'target-arrow-shape': 'none',
     }
   },
+  // Extra nodes (cross-country neighbors): smaller font + opaque label background
+  {
+    selector: 'node[?extra]',
+    style: {
+      'font-size': '6px',
+      'text-background-color': '#0d0d0d',
+      'text-background-opacity': 0.85,
+      'text-background-padding': '2px',
+      'text-background-shape': 'roundrectangle',
+    }
+  },
   // Focus/dim: elements with class 'dimmed' fade out; focused elements stay full
   {
     selector: '.dimmed',
@@ -606,10 +617,10 @@ function addExtraNeighbors(nodeId) {
   const added = cy.add(toAdd);
   extraElements = added;
 
-  // Position new nodes in a circle around the clicked node
+  // Position new nodes in a circle — radius sized so labels don't collide
   const clickedPos = cy.$('#' + CSS.escape(nodeId)).position();
   const newNodes = added.nodes();
-  const radius = Math.max(130, newNodes.length * 11);
+  const radius = Math.max(180, newNodes.length * 28);
   newNodes.forEach((n, i) => {
     const angle = (2 * Math.PI * i) / newNodes.length;
     n.position({ x: clickedPos.x + radius * Math.cos(angle), y: clickedPos.y + radius * Math.sin(angle) });
