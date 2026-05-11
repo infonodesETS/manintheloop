@@ -663,6 +663,22 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 ---
 
+## Branch convention
+
+> Rule: **never commit directly to `main`**. All work happens on the page branch, then merges to `main` when done.
+
+| Branch | Scope |
+|---|---|
+| `map` | `index.html` (D3 map) |
+| `search` | `search.html` + `web/app.js`, `web/router.js` |
+| `graph` | `networks.html` + `web/graph.js` |
+| `designfix` | `web/base.css`, `web/components.css`, `web/companysearch.css`, `tmp/typography.html` |
+| `main` | Merge target only — receives merges from all branches |
+
+**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push both.
+
+---
+
 ## Routing convention (all pages)
 
 > Rule: **every user-driven state change uses `pushState`; initial page load uses `replaceState`.**
