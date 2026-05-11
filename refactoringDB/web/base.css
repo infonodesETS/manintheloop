@@ -251,7 +251,7 @@ body.legend-hidden.subnav-hidden #content { margin-top: var(--tab-h); }
 .snav-sep { width: 1px; height: 16px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
 .snav-copy-ai-btn {
   margin-left: auto; height: 22px; padding: 0 11px;
-  font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 400;
+  font-family: var(--font); font-size: var(--fs-xs); font-weight: 400;
   background: transparent; border: 1px solid var(--border); border-radius: 50px;
   color: var(--text-faint); cursor: pointer; white-space: nowrap; transition: all .12s; flex-shrink: 0;
 }
@@ -318,7 +318,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 
 /* ── Global utilities ── */
 .hidden       { display: none; }
-.loading-text { color: var(--text-faint); font-size: var(--fs-xs); font-family: var(--font-mono); }
+.loading-text { color: var(--text-faint); font-size: var(--fs-xs); font-family: var(--font); }
 .ctrl-sep     { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex-shrink: 0; align-self: center; }
 .ctrl-group-lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .8px; color: var(--text-faint); font-weight: var(--fw-bold); white-space: nowrap; flex-shrink: 0; padding-right: 2px; }
 
@@ -353,10 +353,10 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 .prog-fill  { height: 100%; border-radius: 3px; background: var(--accent); }
 
 /* ── Geographic distribution chart ── */
-.ov-geo-legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: 10px; font-family: var(--font-mono); }
+.ov-geo-legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: 10px; font-family: var(--font); }
 .ov-geo-dot    { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .ov-geo-lbl    { width: 100px; font-size: var(--fs-sm); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 0; }
-.ov-geo-val    { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-muted); width: 22px; text-align: right; flex-shrink: 0; }
+.ov-geo-val    { font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); width: 22px; text-align: right; flex-shrink: 0; }
 
 /* ── Intro tab ── */
 #tab-intro {
@@ -366,7 +366,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 #tab-intro.active { display: flex; }
 .intro-wrap { max-width: 680px; width: 100%; margin: auto; }
 .intro-prompt {
-  font-family: var(--font-mono);
+  font-family: var(--font);
   color: rgba(0,255,65,0.45); font-size: var(--fs-sm); margin-bottom: 20px;
 }
 .intro-title {
@@ -381,7 +381,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .intro-sub {
-  font-family: var(--font-mono);
+  font-family: var(--font);
   color: rgba(0,255,65,0.45); font-size: var(--fs-base); margin-bottom: 28px;
 }
 .intro-desc {
@@ -395,7 +395,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 .intro-areas { display: flex; flex-direction: column; gap: 24px; }
 .intro-area { display: flex; gap: 20px; }
 .intro-area-num {
-  font-family: var(--font-mono);
+  font-family: var(--font);
   color: var(--accent); font-size: var(--fs-base); min-width: 32px; padding-top: 2px;
   opacity: .6;
 }
@@ -409,7 +409,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
   margin-bottom: 6px;
 }
 .intro-area-tabs {
-  font-family: var(--font-mono);
+  font-family: var(--font);
   font-size: var(--fs-sm); color: rgba(0,255,65,0.5);
 }
 /* ── Intro: clickable area titles ── */
@@ -418,7 +418,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 }
 .intro-area-nav:hover { color: var(--accent); }
 .intro-area-arrow {
-  font-family: var(--font-mono); font-size: var(--fs-sm);
+  font-family: var(--font); font-size: var(--fs-sm);
   opacity: 0; margin-left: 4px; transition: opacity 0.15s;
 }
 .intro-area-nav:hover .intro-area-arrow { opacity: 1; }
@@ -428,7 +428,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
   display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;
 }
 .intro-cta-btn {
-  font-family: var(--font-mono); font-size: var(--fs-base);
+  font-family: var(--font); font-size: var(--fs-base);
   color: var(--accent); background: rgba(0,255,65,0.06);
   border: 1px solid rgba(0,255,65,0.35); border-radius: 4px;
   padding: 8px 18px; cursor: pointer;
@@ -443,7 +443,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
   margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);
 }
 .intro-context-label {
-  font-family: var(--font-mono); font-size: var(--fs-xs);
+  font-family: var(--font); font-size: var(--fs-xs);
   color: rgba(0,255,65,0.45); letter-spacing: 2px;
   text-transform: uppercase; margin-bottom: 10px;
 }
@@ -459,7 +459,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
   font-size: var(--fs-base); color: var(--text-tertiary); line-height: var(--lh-body);
 }
 .intro-sector-label {
-  font-family: var(--font-mono); font-size: var(--fs-xs);
+  font-family: var(--font); font-size: var(--fs-xs);
   font-weight: var(--fw-bold); text-transform: uppercase;
   letter-spacing: .5px; padding: 2px 7px; border-radius: 3px;
   margin-right: 8px; display: inline-block;
@@ -468,7 +468,7 @@ a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 .intro-sector--mining  { background: rgba(85,221,170,0.12);  color: var(--c-mining); }
 .intro-sector--tech    { background: rgba(34,187,102,0.12);  color: var(--c-tech); }
 .intro-about-link {
-  font-family: var(--font-mono); font-size: var(--fs-sm);
+  font-family: var(--font); font-size: var(--fs-sm);
   color: rgba(0,255,65,0.5); background: none; border: none;
   padding: 0; cursor: pointer; display: block; transition: color 0.15s;
 }

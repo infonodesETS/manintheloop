@@ -18,7 +18,7 @@
     /* ── Doc layout ── */
     .ds-section { margin-bottom: 56px; }
     .ds-section-title {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-xs);
       color: rgba(0,255,65,0.55);
       letter-spacing: 3px;
@@ -37,12 +37,12 @@
     }
     .ds-row:last-child { border-bottom: none; }
     .ds-token {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-xs);
       color: var(--text-faint);
     }
     .ds-meta {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-xs);
       color: var(--text-muted);
       text-align: right;
@@ -70,12 +70,12 @@
       margin-bottom: 2px;
     }
     .ds-swatch-token {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-xs);
       color: var(--text-faint);
     }
     .ds-swatch-hex {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-xs);
       color: var(--text-muted);
       text-align: right;
@@ -112,7 +112,7 @@
       line-height: var(--lh-tight);
     }
     .ds-subtitle {
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--fs-sm);
       color: var(--text-muted);
       margin-bottom: 40px;
@@ -125,7 +125,7 @@
 <body>
 
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-  <a href="../index.html" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-faint);text-decoration:none;">← Man in the Loop</a>
+  <a href="../index.html" style="font-family:var(--font);font-size:var(--fs-xs);color:var(--text-faint);text-decoration:none;">← Man in the Loop</a>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
 </div>
 
@@ -145,12 +145,12 @@
   </div>
   <div class="ds-row">
     <div class="ds-token">--font-mono</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-body);">JetBrains Mono — IDs, badges, code, hero titles, source flags</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-body);">JetBrains Mono — hero titles and animated cursors only</div>
     <div class="ds-meta">'JetBrains Mono', 'Courier New', monospace</div>
   </div>
 
   <div class="ds-note">
-    <strong>Rule:</strong> <code>--font</code> (Barlow Condensed) for all prose, UI chrome, and reading text. <code>--font-mono</code> (JetBrains Mono) for machine-readable data — IDs, timestamps, source badges, hero/intro titles, terminal-style labels. Never mix within a single UI element. Google Fonts CDN loaded via <code>&lt;link&gt;</code> in every page <code>&lt;head&gt;</code>. Weights used: 400 (regular), 600 (semi-bold), 700 (bold).
+    <strong>Rule:</strong> <code>--font</code> (Barlow Condensed) for all text — prose, UI chrome, badges, IDs, labels, stats. <code>--font-mono</code> (JetBrains Mono) is reserved exclusively for the hero title (<code>.cs-hero-title</code>, <code>.intro-title</code>) and animated cursors (<code>.cs-cursor</code>, <code>.intro-cursor</code>). Never use <code>--font-mono</code> elsewhere. Google Fonts CDN loaded via <code>&lt;link&gt;</code> in every page <code>&lt;head&gt;</code>. Weights used: 400 (regular), 600 (semi-bold), 700 (bold).
   </div>
 </div>
 
@@ -513,7 +513,7 @@
     <span class="badge-val-flag">✕ flagged</span>
   </div>
 
-  <div class="ds-note">All badges: <code>font-size: var(--fs-xs)</code>. Source/data blocks use colored border+background at low opacity for the source color (Wikidata=teal rgba(104,204,209), Crunchbase=orange rgba(244,161,71)). EDF roles: <code>.edf-proj-role</code> uses <code>--font-mono, fs-body</code>, not badges.</div>
+  <div class="ds-note">All badges: <code>font-size: var(--fs-xs)</code>. Source/data blocks use colored border+background at low opacity for the source color (Wikidata=teal rgba(104,204,209), Crunchbase=orange rgba(244,161,71)). EDF roles: <code>.edf-proj-role</code> uses <code>--font, fs-body</code>, not badges.</div>
 </div>
 
 <!-- ══════════════════════════════════════════════
@@ -599,8 +599,8 @@
   </div>
   <div class="ds-row">
     <div class="ds-token">.tbl-count</div>
-    <div style="font-size:var(--fs-sm);color:var(--text-muted);font-family:monospace;">1,149 results</div>
-    <div class="ds-meta">fs-sm, --font-mono, text-muted</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-muted);">1,149 results</div>
+    <div class="ds-meta">fs-sm, --font, text-muted</div>
   </div>
 </div>
 
@@ -612,13 +612,13 @@
 
   <div class="ds-row">
     <div class="ds-token">.cs-hero-prompt</div>
-    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(0,255,65,0.45);letter-spacing:2px;text-transform:uppercase;">ENTITY SEARCH</div>
-    <div class="ds-meta">font-mono, fs-xs, 45% accent, letter-spacing:2px, uppercase</div>
+    <div style="font-family:var(--font);font-size:var(--fs-xs);color:rgba(0,255,65,0.45);letter-spacing:2px;text-transform:uppercase;">ENTITY SEARCH</div>
+    <div class="ds-meta">--font, fs-xs, 45% accent, letter-spacing:2px, uppercase</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">.cs-hero-title</div>
-    <div style="font-family:var(--font-mono);font-size:var(--fs-xl);color:var(--accent);font-weight:400;text-shadow:0 0 18px rgba(0,255,65,0.3);">Man in the Loop_</div>
-    <div class="ds-meta">font-mono, fs-xl, fw-normal, lh-tight, accent glow</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--fs-xl);color:var(--accent);font-weight:400;text-shadow:0 0 18px rgba(0,255,65,0.3);">Man in the Loop_</div>
+    <div class="ds-meta">--font-mono, fs-xl, fw-normal, lh-tight, accent glow</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">#cs-search (expanded)</div>
@@ -627,7 +627,7 @@
   </div>
 
   <div class="ds-note">
-    Hero title uses <code>--font-mono</code> at <code>fw-normal</code> — intentionally lightweight to contrast with bold UI chrome. Animated cursor (<code>.cs-cursor</code>) matches accent. Input shrinks from <code>fs-lg</code> to <code>fs-body</code> on <code>.compact</code> state.
+    Hero title (<code>.cs-hero-title</code>) is the only element using <code>--font-mono</code> on this page. Animated cursor (<code>.cs-cursor</code>) inherits it. Everything else — prompt, input, badges, stats — uses <code>--font</code>. Input shrinks from <code>fs-lg</code> to <code>fs-body</code> on <code>.compact</code> state.
   </div>
 </div>
 
@@ -661,8 +661,8 @@
 
   <div class="ds-row">
     <div class="ds-token">Sidebar title</div>
-    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(0,255,65,0.6);letter-spacing:2px;text-transform:uppercase;">DEFENCE NETWORK</div>
-    <div class="ds-meta">font-mono, fs-xs, 60% accent, letter-spacing:2px, uppercase</div>
+    <div style="font-family:var(--font);font-size:var(--fs-xs);color:rgba(0,255,65,0.6);letter-spacing:2px;text-transform:uppercase;">DEFENCE NETWORK</div>
+    <div class="ds-meta">--font, fs-xs, 60% accent, letter-spacing:2px, uppercase</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">Section labels</div>
@@ -671,23 +671,23 @@
   </div>
   <div class="ds-row">
     <div class="ds-token">Stat values (EDF)</div>
-    <div style="font-size:var(--fs-body);font-family:var(--font-mono);color:rgba(100,160,255,0.9);font-weight:700;">279</div>
-    <div class="ds-meta">font-mono, fs-body, fw-bold, EDF blue</div>
+    <div style="font-size:var(--fs-body);color:rgba(100,160,255,0.9);font-weight:700;">279</div>
+    <div class="ds-meta">--font, fs-body, fw-bold, EDF blue</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">Stat values (Investment)</div>
-    <div style="font-size:var(--fs-body);font-family:var(--font-mono);color:rgba(255,170,80,0.9);font-weight:700;">86</div>
-    <div class="ds-meta">font-mono, fs-body, fw-bold, orange #ffaa50</div>
+    <div style="font-size:var(--fs-body);color:rgba(255,170,80,0.9);font-weight:700;">86</div>
+    <div class="ds-meta">--font, fs-body, fw-bold, orange #ffaa50</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">Cytoscape node labels</div>
-    <div style="font-family:var(--font-mono);font-size:8px;color:rgba(255,255,255,0.75);">Thales</div>
-    <div class="ds-meta">font-mono, 8px fixed, rgba white 75%, text-valign:bottom</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,0.75);">Thales</div>
+    <div class="ds-meta">canvas-only: JetBrains Mono 8px fixed (canvas coordinate space — exempt from --font rule)</div>
   </div>
   <div class="ds-row">
     <div class="ds-token">Center node label</div>
-    <div style="font-family:var(--font-mono);font-size:9px;font-weight:700;color:#fff;">Leonardo</div>
-    <div class="ds-meta">font-mono, 9px fixed, fw-bold, white</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:#fff;">Leonardo</div>
+    <div class="ds-meta">canvas-only: JetBrains Mono 9px fixed, fw-bold, white</div>
   </div>
 </div>
 
@@ -734,7 +734,7 @@
       <li><strong>Font loading:</strong> include the Google Fonts <code>&lt;link&gt;</code> block in every page <code>&lt;head&gt;</code> (Barlow Condensed 400/600/700 + JetBrains Mono 400/700). Order: preconnect → font link → base.css → components.css.</li>
       <li><strong>Never use px for typography</strong> except SVG (<code>--fs-svg-*</code>) and Cytoscape canvas labels (8px/9px fixed). All other sizes via <code>var(--fs-*)</code> tokens.</li>
       <li><strong>Never go below 13px</strong> (~--fs-xs at 120% base). Cytoscape canvas labels exempted (canvas coordinate space).</li>
-      <li><strong>Prose text</strong> → <code>--font</code> (Barlow Condensed). Machine-readable data → <code>--font-mono</code> (JetBrains Mono). No mixing within one element.</li>
+      <li><strong>All text</strong> → <code>--font</code> (Barlow Condensed). <code>--font-mono</code> (JetBrains Mono) is reserved exclusively for <code>.cs-hero-title</code>, <code>.intro-title</code>, and their animated cursors. Never use <code>--font-mono</code> elsewhere. Cytoscape canvas labels are exempt (canvas coordinate space).</li>
       <li><strong>accent color tints</strong>: dark mode uses <code>rgba(0,255,65,…)</code>; any such tint needs a <code>[data-theme="light"]</code> override with <code>rgba(0,102,34,…)</code> equivalent opacity.</li>
       <li><strong>Uppercase labels</strong>: section headers, nav buttons, badge text → <code>text-transform:uppercase; letter-spacing:.4px–2px</code>. Never uppercase body prose.</li>
       <li><strong>Entity colors</strong>: always use <code>--c-*</code> tokens. Never hardcode entity palette values. Graph libraries (Cytoscape) may use hex literals that mirror these tokens.</li>
