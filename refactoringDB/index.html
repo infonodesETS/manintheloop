@@ -602,7 +602,7 @@ function showMapCountry(iso, skipHistory = false) {
           return `
           <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}"${c.sources?.edf ? ' data-edf="1"' : ''}>
             <button class="map-entity-name">${esc(c.name)}</button>
-            ${companyBadges(c)}${invBadge}
+            ${invBadge}${companyBadges(c)}
           </div>`;
         }).join('')}
       </div>
