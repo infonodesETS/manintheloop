@@ -106,6 +106,7 @@
     .net-legend-item {
       display: flex; align-items: center; gap: 8px;
       font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);
+      justify-content: space-between;
     }
     .net-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .net-legend-diamond {
@@ -117,6 +118,13 @@
       width: 18px; height: 2px;
       background: rgba(100,160,255,.4); flex-shrink: 0;
     }
+    .net-legend-count {
+      margin-left: auto;
+      color: var(--text-faint);
+      font-size: calc(var(--fs-body) * .85);
+      font-family: var(--font-mono, monospace);
+    }
+
     .net-legend-line-dashed {
       width: 18px; height: 0; flex-shrink: 0;
       border-top: 2px dashed rgba(255,165,80,.5);
@@ -301,23 +309,28 @@
       </label>
     </div>
 
-    <div class="net-section-label">Stats</div>
-    <div id="net-stats">—</div>
+    <div class="net-section-label">In this view</div>
+    <div id="net-stats">Select a country to see stats.</div>
 
-    <div class="net-section-label">Legend</div>
+    <div class="net-section-label">Actors</div>
     <div class="net-legend">
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency</div>
-      <div class="net-legend-item"><span class="net-legend-diamond"></span>EDF project hub</div>
-      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EDF participation</div>
-      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Investment</div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company <span class="net-legend-count" id="lc-company"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution <span class="net-legend-count" id="lc-institution"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund <span class="net-legend-count" id="lc-investor"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency <span class="net-legend-count" id="lc-gov"></span></div>
+    </div>
+
+    <div class="net-section-label">Connections</div>
+    <div class="net-legend">
+      <div class="net-legend-item"><span class="net-legend-diamond"></span>EU funded projects <span class="net-legend-count" id="lc-project"></span></div>
+      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EU funded connections <span class="net-legend-count" id="lc-edf"></span></div>
+      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Private investments <span class="net-legend-count" id="lc-inv"></span></div>
     </div>
 
     <div id="net-note">
-      Node size = degree (projects / investors).<br>
-      Click node → details + highlight.<br>
+      <b>In this view</b> counts nodes and edges visible for the selected country. Entities are organisations based in that country; EDF projects and investors are their direct connections.<br><br>
+      Diamond size = EU budget. Circles are uniform.<br>
+      Click node → details + cross-country connections.<br>
       Click background → reset.
     </div>
   </div>
@@ -413,6 +426,9 @@ async function loadData() {
 }
 
 // ── Build elements ────────────────────────────────────────────────────────────
+const CIRCLE_SIZE = 14;
+const DIAM_MIN = 10, DIAM_MAX = 36;
+
 function buildElements(country, showEdf, showInv) {
   const isAll = country === '__all__';
 
@@ -465,20 +481,27 @@ function buildElements(country, showEdf, showInv) {
   for (const eid of renderEntityIds) {
     const e = entityMap[eid];
     if (!e) continue;
-    const d = deg[eid] || 1;
     nodes.set(eid, {
       data: { id: eid, label: truncate(e.name, 16), fullName: e.name,
-              type: e.type || 'company', kind: 'entity',
-              size: Math.min(36, Math.max(10, d * 5)) }
+              type: e.type || 'company', kind: 'entity', size: CIRCLE_SIZE }
     });
   }
+
+  // Compute eu_contribution range for diamond scaling
+  const budgets = edfEdgesRaw.map(r => parseFloat(entityMap[r.target]?.sources?.edf_project?.eu_contribution) || 0);
+  const budgetMin = Math.min(...budgets);
+  const budgetMax = Math.max(...budgets);
+  const diamondSize = b => {
+    if (!b || budgetMax === budgetMin) return DIAM_MIN;
+    return DIAM_MIN + (b - budgetMin) / (budgetMax - budgetMin) * (DIAM_MAX - DIAM_MIN);
+  };
 
   for (const r of edfEdgesRaw) {
     const pid = r.target;
     if (!nodes.has(pid)) {
       const p  = entityMap[pid];
       const ps = p?.sources?.edf_project || {};
-      const d  = deg[pid] || 1;
+      const budget = parseFloat(ps.eu_contribution) || 0;
       nodes.set(pid, {
         data: {
           id: pid, label: truncate(ps.acronym || p?.name || pid, 12),
@@ -487,7 +510,7 @@ function buildElements(country, showEdf, showInv) {
           status: ps.status || '', startDate: ps.start_date || '',
           endDate: ps.end_date || '', euContrib: ps.eu_contribution || '',
           url: ps.url || '', type: 'edf_project', kind: 'project',
-          size: Math.min(28, Math.max(10, d * 3))
+          size: diamondSize(budget)
         }
       });
     }
@@ -498,11 +521,10 @@ function buildElements(country, showEdf, showInv) {
     const ivId = r.source;
     if (!nodes.has(ivId)) {
       const iv = entityMap[ivId];
-      const d  = deg[ivId] || 1;
       nodes.set(ivId, {
         data: { id: ivId, label: truncate(iv?.name || ivId, 16),
                 fullName: iv?.name || ivId, type: iv?.type || 'investor',
-                kind: 'investor', size: Math.min(28, Math.max(8, d * 4)) }
+                kind: 'investor', size: CIRCLE_SIZE }
       });
     }
     edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });
@@ -510,6 +532,15 @@ function buildElements(country, showEdf, showInv) {
 
   const projectIds  = new Set(edfEdgesRaw.map(r => r.target));
   const investorIds = new Set(invEdgesRaw.map(r => r.source));
+
+  const typeCounts = { company: 0, institution: 0, investor: 0, gov: 0 };
+  for (const [id, n] of nodes) {
+    const t = n.data.type;
+    if (t === 'company')                                       typeCounts.company++;
+    else if (t === 'institution')                              typeCounts.institution++;
+    else if (t === 'investor' || t === 'fund' || t === 'public_fund' || t === 'bank') typeCounts.investor++;
+    else if (t === 'government_agency')                        typeCounts.gov++;
+  }
 
   return {
     elements: [...nodes.values(), ...edgesList],
@@ -519,6 +550,7 @@ function buildElements(country, showEdf, showInv) {
     investorCount: investorIds.size,
     edfEdgeCount:  edfEdgesRaw.length,
     invEdgeCount:  invEdgesRaw.length,
+    typeCounts,
   };
 }
 
@@ -626,7 +658,7 @@ function buildLayout(nodeCount) {
   };
 }
 
-function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount }) {
+function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount, typeCounts }) {
   const rows = [];
   if (entityCount)   rows.push(`<span class="net-stat-val">${entityCount}</span> entities`);
   if (projectCount)  rows.push(`<span class="net-stat-val">${projectCount}</span> EDF projects`);
@@ -634,6 +666,15 @@ function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, i
   if (edfEdgeCount)  rows.push(`<span class="net-stat-val">${edfEdgeCount}</span> participations`);
   if (invEdgeCount)  rows.push(`<span class="net-stat-inv">${invEdgeCount}</span> investments`);
   document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
+
+  const fmt = n => n ? String(n) : '';
+  document.getElementById('lc-company').textContent     = fmt(typeCounts?.company);
+  document.getElementById('lc-institution').textContent = fmt(typeCounts?.institution);
+  document.getElementById('lc-investor').textContent    = fmt(typeCounts?.investor);
+  document.getElementById('lc-gov').textContent         = fmt(typeCounts?.gov);
+  document.getElementById('lc-project').textContent     = fmt(projectCount);
+  document.getElementById('lc-edf').textContent         = fmt(edfEdgeCount);
+  document.getElementById('lc-inv').textContent         = fmt(invEdgeCount);
 }
 
 // ── Extra neighbors (cross-country) ──────────────────────────────────────────
@@ -670,14 +711,14 @@ function addExtraNeighbors(nodeId) {
         callTitle: ps.call_title || '', status: ps.status || '',
         startDate: ps.start_date || '', endDate: ps.end_date || '',
         euContrib: ps.eu_contribution || '', url: ps.url || '',
-        type: 'edf_project', kind: 'project', size: 14, extra: true,
+        type: 'edf_project', kind: 'project', size: DIAM_MIN, extra: true,
       };
     } else {
       nodeData = {
         id: otherId, label: truncate(other.name, 16), fullName: other.name,
         type: other.type || 'company',
         kind: other.id.startsWith('IV-') ? 'investor' : 'entity',
-        size: 12, extra: true,
+        size: CIRCLE_SIZE, extra: true,
       };
     }
 
@@ -699,7 +740,7 @@ function addExtraNeighbors(nodeId) {
   // Position new nodes in a circle — radius sized so labels don't collide
   const clickedPos = cy.$('#' + CSS.escape(nodeId)).position();
   const newNodes = added.nodes();
-  const radius = Math.max(180, newNodes.length * 28);
+  const radius = Math.max(150, Math.min(newNodes.length * 20, 260));
   newNodes.forEach((n, i) => {
     const angle = (2 * Math.PI * i) / newNodes.length;
     n.position({ x: clickedPos.x + radius * Math.cos(angle), y: clickedPos.y + radius * Math.sin(angle) });
@@ -715,7 +756,14 @@ function applyFocus(nodeId) {
   const hood = node.closedNeighborhood();
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
-  cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+
+  // Project nodes can have many extra neighbors spread in a large radius —
+  // center on the node at a fixed zoom instead of fitting the whole hood.
+  if (node.data('kind') === 'project') {
+    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.2), duration: 350, easing: 'ease-in-out-cubic' });
+  } else {
+    cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+  }
 }
 
 function clearFocus() {
@@ -897,6 +945,14 @@ function renderNetwork(country, restoreSelected) {
 
       cy.on('tap', 'node[kind = "project"]', evt => {
         const d = evt.target.data();
+        if (!chkEdf.checked) {
+          // EDF filter was off — enable it, re-render with this project focused
+          chkEdf.checked = true;
+          showProjDetail(d);
+          pushURL(select.value, true, chkInv.checked, d.id, d.acronym || d.fullName);
+          renderNetwork(select.value, d.id);
+          return;
+        }
         applyFocus(d.id);
         showProjDetail(d);
         pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.acronym || d.fullName);
