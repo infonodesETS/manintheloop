@@ -106,6 +106,7 @@
     .net-legend-item {
       display: flex; align-items: center; gap: 8px;
       font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);
+      justify-content: space-between;
     }
     .net-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .net-legend-diamond {
@@ -117,6 +118,13 @@
       width: 18px; height: 2px;
       background: rgba(100,160,255,.4); flex-shrink: 0;
     }
+    .net-legend-count {
+      margin-left: auto;
+      color: var(--text-faint);
+      font-size: calc(var(--fs-body) * .85);
+      font-family: var(--font-mono, monospace);
+    }
+
     .net-legend-line-dashed {
       width: 18px; height: 0; flex-shrink: 0;
       border-top: 2px dashed rgba(255,165,80,.5);
@@ -306,13 +314,13 @@
 
     <div class="net-section-label">Legend</div>
     <div class="net-legend">
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund</div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency</div>
-      <div class="net-legend-item"><span class="net-legend-diamond"></span>EDF project hub</div>
-      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EDF participation</div>
-      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Investment</div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company <span class="net-legend-count" id="lc-company"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution <span class="net-legend-count" id="lc-institution"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund <span class="net-legend-count" id="lc-investor"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency <span class="net-legend-count" id="lc-gov"></span></div>
+      <div class="net-legend-item"><span class="net-legend-diamond"></span>EDF project hub <span class="net-legend-count" id="lc-project"></span></div>
+      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EDF participation <span class="net-legend-count" id="lc-edf"></span></div>
+      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Investment <span class="net-legend-count" id="lc-inv"></span></div>
     </div>
 
     <div id="net-note">
@@ -521,6 +529,15 @@ function buildElements(country, showEdf, showInv) {
   const projectIds  = new Set(edfEdgesRaw.map(r => r.target));
   const investorIds = new Set(invEdgesRaw.map(r => r.source));
 
+  const typeCounts = { company: 0, institution: 0, investor: 0, gov: 0 };
+  for (const [id, n] of nodes) {
+    const t = n.data.type;
+    if (t === 'company')                                       typeCounts.company++;
+    else if (t === 'institution')                              typeCounts.institution++;
+    else if (t === 'investor' || t === 'fund' || t === 'public_fund' || t === 'bank') typeCounts.investor++;
+    else if (t === 'government_agency')                        typeCounts.gov++;
+  }
+
   return {
     elements: [...nodes.values(), ...edgesList],
     nodeCount:     nodes.size,
@@ -529,6 +546,7 @@ function buildElements(country, showEdf, showInv) {
     investorCount: investorIds.size,
     edfEdgeCount:  edfEdgesRaw.length,
     invEdgeCount:  invEdgesRaw.length,
+    typeCounts,
   };
 }
 
@@ -636,7 +654,7 @@ function buildLayout(nodeCount) {
   };
 }
 
-function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount }) {
+function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount, typeCounts }) {
   const rows = [];
   if (entityCount)   rows.push(`<span class="net-stat-val">${entityCount}</span> entities`);
   if (projectCount)  rows.push(`<span class="net-stat-val">${projectCount}</span> EDF projects`);
@@ -644,6 +662,15 @@ function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, i
   if (edfEdgeCount)  rows.push(`<span class="net-stat-val">${edfEdgeCount}</span> participations`);
   if (invEdgeCount)  rows.push(`<span class="net-stat-inv">${invEdgeCount}</span> investments`);
   document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
+
+  const fmt = n => n ? String(n) : '';
+  document.getElementById('lc-company').textContent     = fmt(typeCounts?.company);
+  document.getElementById('lc-institution').textContent = fmt(typeCounts?.institution);
+  document.getElementById('lc-investor').textContent    = fmt(typeCounts?.investor);
+  document.getElementById('lc-gov').textContent         = fmt(typeCounts?.gov);
+  document.getElementById('lc-project').textContent     = fmt(projectCount);
+  document.getElementById('lc-edf').textContent         = fmt(edfEdgeCount);
+  document.getElementById('lc-inv').textContent         = fmt(invEdgeCount);
 }
 
 // ── Extra neighbors (cross-country) ──────────────────────────────────────────
