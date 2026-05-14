@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-14 (arc click bilateral panel + map panel UX)
+> Last updated: 2026-05-14 (bilateral arc panel table styling)
 
 ## Session protocol
 
@@ -530,6 +530,14 @@ refactoringDB/
 - [x] **`index.html` — country panel reorder**: Capital Flowing In → Capital Flowing Out → Organizations (was: Organizations first)
 - [x] **`index.html` — label rename**: "Entities" → "Organizations" in country panel
 - [x] **`index.html` — org list badge order**: `↓N investor badge` before sector badge (was after)
+- [x] **`index.html` — bilateral arc panel table redesign**:
+  - FROM/TO two-column CSS grid; investor appears once, portfolio companies as `<ul><li>` in TO cell
+  - Row height auto-spans the full `<ul>` (no overflow/clipping)
+  - Header `th`: bg `#d3d8d8`, font `#1a1a1a`, bold uppercase
+  - All table borders `1px solid #d3d8d8`
+  - TO list marker: `➜` (U+279C) via `list-style-type:'➜ '` (single quotes required inside `style=""`)
+  - Investor IDs hidden from panel; section arrows (↑↓) removed — direction expressed by `A → B` label only
+  - Sections grouped: `relsAB` (src→tgt) and `relsBA` (tgt→src), each showing investor count + connection count
 
 - [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `index.html`: arcs and detail panel cover both directions. `networks.html`: `kind='entity'` assigned consistently regardless of country scope. `web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
 - [x] **Ma'aden dedup** — IV-0377 merged into IN-1307. IN-0178 Ivanhoe Electric country set to United States.
