@@ -598,6 +598,8 @@ function buildProfileColHtml(item, colId) {
   } else {
     const stats = [];
     if (cb?.total_funding_usd) stats.push({ v: fmtFunding(cb.total_funding_usd), l: 'Total Funding', cls: '' });
+    const dualRolePortfolio = (REL_MAP[e?.id] || []).filter(r => r.role === 'investor').length;
+    if (dualRolePortfolio) stats.push({ v: dualRolePortfolio, l: 'Portfolio', cls: '' });
     if (wd?.employees)         stats.push({ v: Number(wd.employees).toLocaleString(), l: 'Employees', cls: '' });
     if (wd?.inception)         stats.push({ v: String(wd.inception).slice(0,4), l: 'Founded', cls: '' });
     if (org) {
@@ -1208,6 +1210,42 @@ function renderCards(item) {
   const entityId = e?.id;
   const rels = entityId ? (REL_MAP[entityId] || []) : [];
   if (rels.length) cards.push(makeGraphCard(entityId, rels.length));
+
+  // Portfolio card for dual-role IN-* entities that are also investment sources
+  const portfolioRels = rels.filter(r => r.role === 'investor');
+  if (portfolioRels.length) {
+    const sorted = [...portfolioRels].sort((a, b) => {
+      const aL = a.rel.details?.lead ? 1 : 0;
+      const bL = b.rel.details?.lead ? 1 : 0;
+      if (bL !== aL) return bL - aL;
+      return (a.other?.name || '').localeCompare(b.other?.name || '');
+    });
+    let h = `<ul class="cs-elist">`;
+    for (const { rel, other } of sorted) {
+      if (!other) continue;
+      const cbi     = other.sources?.crunchbase;
+      const isLead  = rel.details?.lead;
+      const funding = cbi?.total_funding_usd ? fmtFunding(cbi.total_funding_usd) : null;
+      const stage   = cbi?.last_funding_type || cbi?.funding_status || null;
+      const country = other.sources?.infonodes?.country || other.sources?.wikidata?.country || cbi?.headquarters?.split(',').pop()?.trim() || '';
+      const inds    = (cbi?.industries || []).slice(0,3).join(' · ');
+      h += `<li class="cs-portfolio-item${isLead ? ' cs-portfolio-lead' : ''}">
+        <div class="cs-elist-item-main">
+          <button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>
+          <div class="cs-elist-meta">
+            ${esc(other.id)}
+            ${isLead ? `<span class="cs-lead-badge">lead</span>` : ''}
+            ${stage   ? `· ${esc(stage)}` : ''}
+            ${funding ? `· <strong>${esc(funding)}</strong>` : ''}
+          </div>
+          ${inds ? `<div class="cs-portfolio-inds">${esc(inds)}</div>` : ''}
+        </div>
+        ${country ? `<span class="cs-elist-country">${esc(country)}</span>` : ''}
+      </li>`;
+    }
+    h += `</ul>`;
+    cards.push(makeCard('portfolio', 'Portfolio', h, portfolioRels.length));
+  }
 
   const inf = e?.sources?.infonodes || {};
   if (e) cards.push(makeCard('inf', 'Infonodes', infCardBody(inf, e)));
