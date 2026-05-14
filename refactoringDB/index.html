@@ -315,6 +315,7 @@ const mapState = {
   selectedIso: null, activeFilter: null,
   showArcs: false, defaultTransform: null,
   edfOnly: false, edfISOs: new Set(),
+  selectedArc: null,
 };
 
 // Data (loaded once)
@@ -322,15 +323,16 @@ let entityMap = {};
 let relationships = [];
 
 // ── Routing ───────────────────────────────────────────────────────────────────
-function pushMapState({ country = null, countryname = null, entity = null, entityname = null } = {}) {
+function pushMapState({ country = null, countryname = null, entity = null, entityname = null, arc = null } = {}) {
   const p = new URLSearchParams();
   if (country)           p.set('country', String(country));
   if (countryname)       p.set('countryname', countryname);
   if (entity)            p.set('entity', entity);
   if (entityname)        p.set('entityname', entityname);
+  if (arc)               p.set('arc', arc);
   if (mapState.edfOnly)  p.set('type', 'EUfunded');
   const qs = p.toString();
-  history.pushState({ country, entity, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
+  history.pushState({ country, entity, type: mapState.edfOnly ? 'EUfunded' : null, arc }, '', qs ? `?${qs}` : location.pathname);
 }
 
 function applyEdfToggle(edfOnly) {
@@ -341,10 +343,14 @@ function applyEdfToggle(edfOnly) {
   document.getElementById('map-lbl-edf')?.classList.toggle('is-active', edfOnly);
 }
 
-function restoreMapState({ country, entity, type } = {}) {
+function restoreMapState({ country, entity, type, arc } = {}) {
   applyEdfToggle(type === 'EUfunded');
   mapState.activeFilter = null;
   applyMapFilter();
+  if (arc) {
+    const [srcIso, tgtIso] = arc.split('-').map(Number);
+    if (srcIso && tgtIso) { showArcDetail(srcIso, tgtIso, true); return; }
+  }
   if (entity && country) {
     showMapCountry(+country, true);
     filterMapByEntity(entity, +country, true);
@@ -413,6 +419,7 @@ function closeMapPanel(skipHistory = false) {
   }
   mapState.activeFilter = null;
   mapState.selectedIso  = null;
+  mapState.selectedArc  = null;
   restoreCountryLabels();
   mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
   mapState.g?.selectAll('.map-country').classed('country-dim', false);
@@ -459,7 +466,8 @@ function showMapCountry(iso, skipHistory = false) {
   const cd = mapState.countryData[iso];
   if (!cd) return;
 
-  // Clear any entity-level filter and restore country labels/dims
+  // Clear arc selection and entity-level filter; restore labels/dims
+  mapState.selectedArc  = null;
   mapState.activeFilter = null;
   restoreCountryLabels();
   document.getElementById('map-filter-bar').style.display = 'none';
@@ -619,6 +627,98 @@ function showMapCountry(iso, skipHistory = false) {
   });
 
   document.getElementById('map-panel').classList.remove('d-none');
+}
+
+// ── showArcDetail ─────────────────────────────────────────────────────────────
+function showArcDetail(srcIso, tgtIso, skipHistory = false) {
+  srcIso = +srcIso; tgtIso = +tgtIso;
+
+  // Clear country + entity selection state
+  mapState.selectedIso  = null;
+  mapState.activeFilter = null;
+  mapState.selectedArc  = { src: srcIso, tgt: tgtIso };
+  restoreCountryLabels();
+  document.getElementById('map-filter-bar').style.display = 'none';
+  d3.select('#map-svg').selectAll('.map-country').classed('selected', false);
+
+  if (!skipHistory) pushMapState({ arc: `${srcIso}-${tgtIso}` });
+
+  // Show arc layer, dim all arcs except the active pair
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = '';
+  mapState.g?.selectAll('.map-arc').each(function(d) {
+    const active = (d.src === srcIso && d.tgt === tgtIso) || (d.src === tgtIso && d.tgt === srcIso);
+    d3.select(this).classed('arc-dim', !active);
+    if (active) d3.select(this).attr('stroke', '#b06aff').attr('stroke-opacity', 1.0);
+  });
+
+  // Dim nodes / countries — keep only the two endpoints bright
+  mapState.g?.selectAll('.map-node').each(function(d) {
+    const active = d.iso === srcIso || d.iso === tgtIso;
+    d3.select(this).classed('node-dim', !active).classed('node-focus', active);
+  });
+  mapState.g?.selectAll('.map-country.has-data').classed('country-dim', d => {
+    const iso = +d.id;
+    return iso !== srcIso && iso !== tgtIso;
+  });
+
+  fitMapToISOs([srcIso, tgtIso]);
+
+  // Collect relationships in both directions
+  const relsAB = [], relsBA = [];
+  relationships.forEach(rel => {
+    if (rel.type === 'edf_participation') return;
+    const comp = entityMap[rel.target];
+    const inv  = entityMap[rel.source];
+    if (!comp || !inv) return;
+    const compISO = WD_TO_ISO[getCountry(comp)];
+    const invISO  = WD_TO_ISO[getCountry(inv)];
+    if (invISO === srcIso && compISO === tgtIso) relsAB.push({ inv, comp });
+    if (invISO === tgtIso && compISO === srcIso) relsBA.push({ inv, comp });
+  });
+  relsAB.sort((a, b) => a.inv.name.localeCompare(b.inv.name));
+  relsBA.sort((a, b) => a.inv.name.localeCompare(b.inv.name));
+
+  const srcName = ISO_TO_NAME[srcIso] || String(srcIso);
+  const tgtName = ISO_TO_NAME[tgtIso] || String(tgtIso);
+  const total   = relsAB.length + relsBA.length;
+
+  const arcLegend = document.querySelector('.map-arc-legend');
+  if (arcLegend) {
+    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-bi"></span>${esc(srcName)} ↔ ${esc(tgtName)}`;
+    arcLegend.title = `${total} cross-border investment connection${total !== 1 ? 's' : ''}`;
+  }
+
+  const titleEl = document.getElementById('map-panel-title');
+  titleEl.textContent = `${srcName} ↔ ${tgtName}`;
+
+  const renderPairs = (pairs, fromName, toName, colorClass) => {
+    if (!pairs.length) return '';
+    return `
+      <div class="sl-panel-section">
+        <div class="sl-section-lbl map-section-hd ${colorClass}">
+          ${esc(fromName)} → ${esc(toName)} (${pairs.length})
+        </div>
+        ${pairs.map(({ inv, comp }) => `
+          <div class="map-co-item" style="flex-direction:column;align-items:flex-start;gap:1px;padding:5px 0">
+            <button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(inv.id)}" style="font-size:var(--fs-sm);font-weight:600">${esc(inv.name)}</button>
+            <span style="font-size:var(--fs-xs);color:var(--text-muted);padding-left:4px">→&nbsp;<button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(comp.id)}" style="font-size:var(--fs-xs);display:inline;padding:0">${esc(comp.name)}</button></span>
+          </div>`).join('')}
+      </div>`;
+  };
+
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <p class="map-intro-text"><strong>${total}</strong> cross-border investment connection${total !== 1 ? 's' : ''} between ${esc(srcName)} and ${esc(tgtName)}.</p>
+    </div>
+    ${renderPairs(relsAB, srcName, tgtName, 'map-flow-out-hd')}
+    ${renderPairs(relsBA, tgtName, srcName, 'map-flow-in-hd')}
+  `;
+
+  document.getElementById('map-panel').classList.remove('d-none');
+  document.getElementById('map-panel-body').querySelectorAll('[data-action="filterMapByEntity"]').forEach(el => {
+    el.addEventListener('click', () => filterMapByEntity(el.dataset.id, null));
+  });
 }
 
 // ── filterMapByEntity ─────────────────────────────────────────────────────────
@@ -858,14 +958,28 @@ function drawArcs(layer) {
         g.append('stop').attr('offset','100%').attr('stop-color', arcColor).attr('stop-opacity', op);
       });
 
+    const arcPath = `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`;
+
     layer.append('path')
       .datum({ src: arc.src, tgt: arc.tgt, baseSw: sw, gradId: gid })
       .attr('class','map-arc')
-      .attr('d', `M${s[0]},${s[1]} Q${mx},${my} ${t[0]},${t[1]}`)
+      .attr('d', arcPath)
       .attr('stroke', `url(#${gid})`)
       .attr('stroke-width', sw)
       .append('title')
       .text(`${ISO_TO_NAME[arc.src]||arc.src} → ${ISO_TO_NAME[arc.tgt]||arc.tgt} (${arc.weight})`);
+
+    // Invisible wide hit area for click interaction
+    layer.append('path')
+      .datum({ src: arc.src, tgt: arc.tgt })
+      .attr('class', 'map-arc-hit')
+      .attr('d', arcPath)
+      .attr('fill', 'none')
+      .attr('stroke', 'transparent')
+      .attr('stroke-width', 12)
+      .attr('cursor', 'pointer')
+      .attr('pointer-events', 'stroke')
+      .on('click', e => { e.stopPropagation(); showArcDetail(arc.src, arc.tgt); });
   });
 }
 
@@ -975,6 +1089,9 @@ function drawMap(world) {
     mapState.g.selectAll('.map-arc').each(function(d) {
       d3.select(this).attr('stroke-width', d.baseSw / k);
     });
+    mapState.g.selectAll('.map-arc-hit').each(function() {
+      d3.select(this).attr('stroke-width', 12 / k);
+    });
   });
   mapState.svg.call(mapState.zoom);
 
@@ -1073,8 +1190,9 @@ async function init() {
     const initCountry = initParams.get('country') ? +initParams.get('country') : null;
     const initEntity  = initParams.get('entity') || null;
     const initType    = initParams.get('type') || null;
-    history.replaceState({ country: initCountry, entity: initEntity, type: initType }, '', location.href);
-    if (initCountry || initEntity || initType) restoreMapState({ country: initCountry, entity: initEntity, type: initType });
+    const initArc     = initParams.get('arc') || null;
+    history.replaceState({ country: initCountry, entity: initEntity, type: initType, arc: initArc }, '', location.href);
+    if (initCountry || initEntity || initType || initArc) restoreMapState({ country: initCountry, entity: initEntity, type: initType, arc: initArc });
 
     window.addEventListener('popstate', e => {
       if (!mapState.built) return;
