@@ -578,6 +578,19 @@ refactoringDB/
 
 ## Pending work (priority order)
 
+### ~~OPEN BUG~~ FIXED — dual-role entity frontend rendering (2026-05-14)
+
+**Status:** Fixed in branch `datacleaning` (2026-05-14). Affected entities: `IN-0053` BHP, `IN-0233` Microsoft, `IN-1307` Ma'aden, `IN-1336` Tianqi Lithium.
+
+**Fix applied per page:**
+- `index.html`: arc computation now processes both incoming and outgoing investment rels for any entity; detail panel shows portfolio section alongside investors section for dual-role IN-* entities
+- `networks.html`: `buildElements()` assigns `kind='entity'` (not `'investor'`) when investment source is an IN-* entity — consistent styling regardless of which country is selected
+- `web/app.js` (search): `renderCards()` adds a "Portfolio" card and `renderProfile()` stats show portfolio count for dual-role IN-* entities
+
+**Root cause (for reference):** ID prefix used as proxy for role. Fixed by checking `ivId.startsWith('IV-')` before assigning `kind`, and by processing both relationship directions regardless of entity prefix.
+
+---
+
 ### 6. iShares Aerospace & Defense (GICS 201010) — COMPLETE (2026-04-24)
 
 **File:** `rawdata/ishare_aerospace_defense_GICS201010.csv`
@@ -667,15 +680,18 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 > Rule: **never commit directly to `main`**. All work happens on the page branch, then merges to `main` when done.
 
+**Remote policy (2026-05-11):** only `main` is pushed to `origin`. Feature branches are local only. `origin/graph` deleted — remote is now `origin/main` only.
+
 | Branch | Scope |
 |---|---|
 | `map` | `index.html` (D3 map) |
 | `search` | `search.html` + `web/app.js`, `web/router.js` |
 | `graph` | `networks.html` + `web/graph.js` |
 | `designfix` | `web/base.css`, `web/components.css`, `web/companysearch.css`, `tmp/typography.html` |
+| `datacleaning` | DB data quality work (scripts, database.json patches) |
 | `main` | Merge target only — receives merges from all branches |
 
-**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push both.
+**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push `main` only.
 
 ---
 

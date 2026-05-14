@@ -524,7 +524,8 @@ function buildElements(country, showEdf, showInv) {
       nodes.set(ivId, {
         data: { id: ivId, label: truncate(iv?.name || ivId, 16),
                 fullName: iv?.name || ivId, type: iv?.type || 'investor',
-                kind: 'investor', size: CIRCLE_SIZE }
+                kind: ivId.startsWith('IV-') ? 'investor' : 'entity',
+                size: CIRCLE_SIZE }
       });
     }
     edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });

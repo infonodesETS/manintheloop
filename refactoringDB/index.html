@@ -638,10 +638,11 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   const activePairs = new Set();
   let entityISO = null;
 
-  if (entityId.startsWith('IN-')) {
+  if (entityId.startsWith('IN-') || entityId.startsWith('IV-')) {
     entityISO = WD_TO_ISO[getCountry(ent)] || null;
     if (entityISO) activeISOs.add(entityISO);
-    relationships.filter(r => r.target === entityId).forEach(rel => {
+    // Incoming: investors into this entity
+    relationships.filter(r => r.target === entityId && r.type !== 'edf_participation').forEach(rel => {
       const inv = entityMap[rel.source];
       if (!inv) return;
       const invISO = WD_TO_ISO[getCountry(inv)];
@@ -650,10 +651,8 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
         if (entityISO && invISO !== entityISO) activePairs.add(`${invISO}→${entityISO}`);
       }
     });
-  } else if (entityId.startsWith('IV-')) {
-    entityISO = WD_TO_ISO[getCountry(ent)] || null;
-    if (entityISO) activeISOs.add(entityISO);
-    relationships.filter(r => r.source === entityId).forEach(rel => {
+    // Outgoing: entities this entity invests in (covers IV-* and dual-role IN-*)
+    relationships.filter(r => r.source === entityId && r.type !== 'edf_participation').forEach(rel => {
       const comp = entityMap[rel.target];
       if (!comp) return;
       const compISO = WD_TO_ISO[getCountry(comp)];
@@ -705,6 +704,14 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
       return '';
     };
 
+    const portfolio = relationships.filter(r => r.source === entityId && r.type !== 'edf_participation').map(r => entityMap[r.target]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+    const portfolioSection = () => portfolio.length ? `
+      <div class="sl-section-lbl" style="margin-top:12px">${portfolio.length} Portfolio Compan${portfolio.length !== 1 ? 'ies' : 'y'}</div>
+      ${portfolio.map(c => `<div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+        <button class="map-entity-name">${esc(c.name)}</button>
+        ${sectorBadge(c.sector)}
+      </div>`).join('')}` : '';
+
     detail = `
       <div class="sl-section-lbl">${esc(ent.name)}</div>
       <div class="map-detail-meta">
@@ -719,6 +726,7 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
       </div>
       ${cb.description ? `<p class="map-intro-text" style="margin-top:8px;font-size:var(--fs-sm)">${esc(cb.description)}</p>` : ''}
       ${invSection()}
+      ${portfolioSection()}
     `;
   } else {
     const portfolio = relationships.filter(r => r.source === entityId).map(r => entityMap[r.target]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
