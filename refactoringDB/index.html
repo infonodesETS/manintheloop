@@ -706,20 +706,23 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
     return `
       <div class="sl-panel-section">
-        <div class="sl-section-lbl map-section-hd ${colorClass}">
+        <div class="sl-section-lbl map-section-hd ${colorClass}" style="margin-bottom:6px">
           ${dirLabel} (${invCount} investor${invCount !== 1 ? 's' : ''} · ${pairs.length} connection${pairs.length !== 1 ? 's' : ''})
         </div>
-        ${sorted.map(({ inv, comps }) => {
-          const compList = [...comps.values()];
-          return `
-            <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(inv.id)}">
-              <button class="map-entity-name">${esc(inv.name)}</button>
-            </div>
-            ${compList.map(c => `
-              <div class="map-co-item clickable" style="padding-left:14px" data-action="filterMapByEntity" data-id="${esc(c.id)}">
-                <button class="map-entity-name" style="font-size:var(--fs-base)">→ ${esc(c.name)}</button>
-              </div>`).join('')}`;
-        }).join('')}
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(65,67,69,0.3)">
+          <div style="font-size:var(--fs-xs);color:var(--text-faint);padding:3px 0;text-transform:uppercase;letter-spacing:.4px">From</div>
+          <div style="font-size:var(--fs-xs);color:var(--text-faint);padding:3px 0;text-transform:uppercase;letter-spacing:.4px">To</div>
+          ${sorted.map(({ inv, comps }) => {
+            const compList = [...comps.values()];
+            return `
+              <div style="padding:4px 4px 4px 0;border-top:1px solid rgba(65,67,69,0.15);align-self:start">
+                <button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(inv.id)}">${esc(inv.name)}</button>
+              </div>
+              <div style="padding:4px 0;border-top:1px solid rgba(65,67,69,0.15);display:flex;flex-direction:column;gap:3px">
+                ${compList.map(c => `<button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(c.id)}">${esc(c.name)}</button>`).join('')}
+              </div>`;
+          }).join('')}
+        </div>
       </div>`;
   };
 
