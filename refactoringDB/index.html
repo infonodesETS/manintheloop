@@ -999,8 +999,13 @@ function drawMap(world) {
 
 // ── buildMapView ──────────────────────────────────────────────────────────────
 function buildMapView(db) {
+  const retiredIds = new Set(
+    db.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  db.entities      = db.entities.filter(e => !retiredIds.has(e.id));
+  db.relationships = (db.relationships || []).filter(r => !retiredIds.has(r.source) && !retiredIds.has(r.target));
   const companies = db.entities.filter(e => e.id?.startsWith('IN-'));
-  relationships   = db.relationships || [];
+  relationships   = db.relationships;
   entityMap       = {};
   for (const e of db.entities) entityMap[e.id] = e;
 
