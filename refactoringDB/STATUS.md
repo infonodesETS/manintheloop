@@ -578,6 +578,30 @@ refactoringDB/
 
 ## Pending work (priority order)
 
+### OPEN BUG — dual-role entity frontend rendering (issue #TBD, 2026-05-14)
+
+**Symptom:** `IN-*` entities that are also sources of `investment` relationships (dual-role, after IV→IN merges) are not rendered correctly in map, networks, and search.
+
+**Root cause:** All three pages use ID prefix (`IV-` vs `IN-`) as a proxy for role instead of checking actual relationship direction or `roles[]` array. Assumptions:
+- `IN-*` = always investment target → never shown as investor in detail panels
+- `IV-*` = always investment source → always styled orange in networks
+
+**Affected entities (2026-05-14):** `IN-0053` BHP, `IN-0233` Microsoft, `IN-1307` Ma'aden, `IN-1336` Tianqi Lithium
+
+**Impact per page:**
+- `index.html`: portfolio companies not shown in entity detail panel for dual-role IN-* entities
+- `networks.html`: dual-role IN-* gets `kind='investor'` (orange) when seen from portfolio's country, `kind='entity'` (green) from home country — inconsistent
+- `search.html`: portfolio section may not render for dual-role IN-* entities
+
+**Fix:** Replace `entityId.startsWith('IV-')` role checks with relationship-direction check:
+```js
+const isInvestor = entity.id.startsWith('IV-') ||
+  relationships.some(r => r.source === entityId && r.type === 'investment');
+```
+Must be applied consistently across all three pages. See GitHub issue #TBD for full spec.
+
+---
+
 ### 6. iShares Aerospace & Defense (GICS 201010) — COMPLETE (2026-04-24)
 
 **File:** `rawdata/ishare_aerospace_defense_GICS201010.csv`

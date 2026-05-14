@@ -301,6 +301,8 @@ python3 scripts/validate.py
 
 > **Rule:** `dedup_entities.py` only updates `database.json`. If the loser entity had a `sources.edf` block, its PIC will still point to the loser ID in `data/edf_orgs.json`. Always run step 4 after any merge involving an EDF entity — skipping it leaves stale `db_id` references that break the web UI registry.
 
+> **⚠ Dual-role warning (IV-* loser merged into IN-* winner):** After this merge, the winning IN-* entity becomes the source of investment relationships. The frontend (map, networks, search) uses ID prefix (`IV-` vs `IN-`) to determine rendering role and will **not** display the portfolio companies in entity detail panels, nor style the node correctly as an investor. This is a known bug tracked in GitHub issue #TBD. Until fixed: document the dual-role nature in the `dedup_decision` history entry and note the affected entity ID in `STATUS.md` under the open bug section.
+
 After applying a merge, add a `dedup_decision` history entry on the winner explaining **why** the pair was identified as the same entity (name pattern, Wikidata label match, iShares ticker-as-name, etc.). The script's auto-generated history entry records *what* was absorbed; the manual annotation records *why* the decision was made.
 
 For `qid_removed` actions (subsidiaries with wrong parent QID), the `wikidata_id` history entry must state:

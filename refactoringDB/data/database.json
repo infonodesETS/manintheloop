@@ -35586,7 +35586,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -35621,6 +35621,15 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "United States",
+          "description": "Country set to United States. Confirmed via official website https://ivanhoeelectric.com/ (NYSE: IE, headquartered in Scottsdale, Arizona, USA)"
         }
       ],
       "validation": [
@@ -35647,6 +35656,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "confirmed",
+          "description": "Country United States confirmed via ivanhoeelectric.com (NYSE-listed, Scottsdale AZ HQ)",
+          "author": "nelsonmau",
+          "datestamp": "2026-05-14"
         }
       ],
       "tags": []
