@@ -708,7 +708,7 @@ function addExtraNeighbors(nodeId) {
   // Position new nodes in a circle — radius sized so labels don't collide
   const clickedPos = cy.$('#' + CSS.escape(nodeId)).position();
   const newNodes = added.nodes();
-  const radius = Math.max(180, newNodes.length * 28);
+  const radius = Math.max(150, Math.min(newNodes.length * 20, 260));
   newNodes.forEach((n, i) => {
     const angle = (2 * Math.PI * i) / newNodes.length;
     n.position({ x: clickedPos.x + radius * Math.cos(angle), y: clickedPos.y + radius * Math.sin(angle) });
