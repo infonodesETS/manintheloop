@@ -388,7 +388,7 @@ function buildElements(country, showEdf, showInv) {
   const connectedIds = new Set();
   if (showEdf) for (const r of edfEdgesRaw) connectedIds.add(r.source);
   if (showInv) for (const r of invEdgesRaw) connectedIds.add(r.target);
-  const renderEntityIds = (showEdf || showInv) ? connectedIds : entityIds;
+  const renderEntityIds = (showEdf || showInv) && connectedIds.size > 0 ? connectedIds : entityIds;
 
   for (const eid of renderEntityIds) {
     const e = entityMap[eid];
