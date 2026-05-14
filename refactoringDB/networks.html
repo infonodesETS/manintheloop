@@ -1010,8 +1010,7 @@ function buildSearchIndex() {
 function resolveEntityCountry(id) {
   const e = entityMap[id];
   if (!e) return null;
-  const c = getCountry(e);
-  if (c && countryIndex[c]) return c;
+  // For IV-* investors: prefer a portfolio company's country — guarantees visible connections
   if (id.startsWith('IV-')) {
     for (const r of investmentRels) {
       if (r.source !== id) continue;
@@ -1021,6 +1020,8 @@ function resolveEntityCountry(id) {
       if (tc && countryIndex[tc]) return tc;
     }
   }
+  const c = getCountry(e);
+  if (c && countryIndex[c]) return c;
   if (id.startsWith('EDF-')) {
     for (const r of edfRels) {
       if (r.target !== id) continue;
