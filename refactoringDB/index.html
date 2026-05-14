@@ -692,18 +692,35 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
   const titleEl = document.getElementById('map-panel-title');
   titleEl.textContent = `${srcName} ↔ ${tgtName}`;
 
-  const renderPairs = (pairs, fromName, toName, colorClass) => {
-    if (!pairs.length) return '';
+  const renderSection = (pairs, dirLabel, colorClass, noFlowMsg) => {
+    if (!pairs.length) return `<div class="map-no-flow">${noFlowMsg}</div>`;
+
+    // Group by investor, deduplicate portfolio companies per investor
+    const byInvestor = new Map();
+    pairs.forEach(({ inv, comp }) => {
+      if (!byInvestor.has(inv.id)) byInvestor.set(inv.id, { inv, comps: new Map() });
+      byInvestor.get(inv.id).comps.set(comp.id, comp);
+    });
+    const sorted = [...byInvestor.values()].sort((a, b) => a.inv.name.localeCompare(b.inv.name));
+    const invCount = sorted.length;
+
     return `
       <div class="sl-panel-section">
         <div class="sl-section-lbl map-section-hd ${colorClass}">
-          ${esc(fromName)} → ${esc(toName)} (${pairs.length})
+          ${dirLabel} (${invCount} investor${invCount !== 1 ? 's' : ''} · ${pairs.length} connection${pairs.length !== 1 ? 's' : ''})
         </div>
-        ${pairs.map(({ inv, comp }) => `
-          <div class="map-co-item" style="flex-direction:column;align-items:flex-start;gap:1px;padding:5px 0">
-            <button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(inv.id)}" style="font-size:var(--fs-sm);font-weight:600">${esc(inv.name)}</button>
-            <span style="font-size:var(--fs-xs);color:var(--text-muted);padding-left:4px">→&nbsp;<button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(comp.id)}" style="font-size:var(--fs-xs);display:inline;padding:0">${esc(comp.name)}</button></span>
-          </div>`).join('')}
+        ${sorted.map(({ inv, comps }) => {
+          const compList = [...comps.values()];
+          return `
+            <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(inv.id)}">
+              <button class="map-entity-name">${esc(inv.name)}</button>
+              <span class="map-item-id">${esc(inv.id)}</span>
+            </div>
+            ${compList.map(c => `
+              <div class="map-co-item clickable" style="padding-left:14px" data-action="filterMapByEntity" data-id="${esc(c.id)}">
+                <button class="map-entity-name" style="font-size:var(--fs-xs);color:var(--text-muted)">→ ${esc(c.name)}</button>
+              </div>`).join('')}`;
+        }).join('')}
       </div>`;
   };
 
@@ -711,8 +728,8 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
     <div class="sl-panel-section">
       <p class="map-intro-text"><strong>${total}</strong> cross-border investment connection${total !== 1 ? 's' : ''} between ${esc(srcName)} and ${esc(tgtName)}.</p>
     </div>
-    ${renderPairs(relsAB, srcName, tgtName, 'map-flow-out-hd')}
-    ${renderPairs(relsBA, tgtName, srcName, 'map-flow-in-hd')}
+    ${renderSection(relsAB, `↑ ${esc(srcName)} → ${esc(tgtName)}`, 'map-flow-out-hd', `↑ No investments from ${esc(srcName)} into ${esc(tgtName)}`)}
+    ${renderSection(relsBA, `↓ ${esc(tgtName)} → ${esc(srcName)}`, 'map-flow-in-hd', `↓ No investments from ${esc(tgtName)} into ${esc(srcName)}`)}
   `;
 
   document.getElementById('map-panel').classList.remove('d-none');
