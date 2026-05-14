@@ -291,7 +291,7 @@ function renderAc(raw) {
       else if (dbId.includes(q))   s = Math.max(s, 50);
     }
     return { item, s };
-  }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
+  }).filter(x => x.s > 0).sort((a,b) => a.item.name.localeCompare(b.item.name));
 
   if (!scored.length) {
     acEl.innerHTML = `<div class="cs-ac-empty">No results for "<strong>${esc(raw)}</strong>"</div>`;
@@ -356,7 +356,7 @@ function renderAc(raw) {
 
 function renderSuggestions() {
   const pool = filteredRegistry().filter(r => r.kind !== 'investor');
-  const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 24);
+  const shuffled = [...pool].sort((a,b) => a.name.localeCompare(b.name)).slice(0, 24);
   acList = [];
   const groups = { merged: [], 'db-only': [], 'edf-only': [] };
   for (const item of shuffled) groups[item.kind]?.push(item);
@@ -472,7 +472,7 @@ function renderAcB(raw) {
       else if (dbId.includes(q))   s = Math.max(s, 50);
     }
     return { item, s };
-  }).filter(x => x.s > 0).sort((a,b) => b.s - a.s || a.item.name.localeCompare(b.item.name));
+  }).filter(x => x.s > 0).sort((a,b) => a.item.name.localeCompare(b.item.name));
 
   if (!scored.length) {
     acElB.innerHTML = `<div class="cs-ac-empty">No results for "<strong>${esc(raw)}</strong>"</div>`;
