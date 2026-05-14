@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-14 (frontend fixes: dual-role entities, retired filter, networks outbound investments)
+> Last updated: 2026-05-14 (about.html: GitHub repo link + data/ file index)
 
 ## Session protocol
 
@@ -512,6 +512,10 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-05-14 (about page)
+
+- [x] **`about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
+
 ### Session 2026-05-14
 
 - [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `index.html`: arcs and detail panel cover both directions. `networks.html`: `kind='entity'` assigned consistently regardless of country scope. `web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
