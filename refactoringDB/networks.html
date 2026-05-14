@@ -316,7 +316,7 @@
     </div>
 
     <div id="net-note">
-      Node size = degree (projects / investors).<br>
+      Diamond size = EU budget. Circles are uniform.<br>
       Click node → details + highlight.<br>
       Click background → reset.
     </div>
@@ -413,6 +413,9 @@ async function loadData() {
 }
 
 // ── Build elements ────────────────────────────────────────────────────────────
+const CIRCLE_SIZE = 14;
+const DIAM_MIN = 10, DIAM_MAX = 36;
+
 function buildElements(country, showEdf, showInv) {
   const isAll = country === '__all__';
 
@@ -465,20 +468,27 @@ function buildElements(country, showEdf, showInv) {
   for (const eid of renderEntityIds) {
     const e = entityMap[eid];
     if (!e) continue;
-    const d = deg[eid] || 1;
     nodes.set(eid, {
       data: { id: eid, label: truncate(e.name, 16), fullName: e.name,
-              type: e.type || 'company', kind: 'entity',
-              size: Math.min(36, Math.max(10, d * 5)) }
+              type: e.type || 'company', kind: 'entity', size: CIRCLE_SIZE }
     });
   }
+
+  // Compute eu_contribution range for diamond scaling
+  const budgets = edfEdgesRaw.map(r => parseFloat(entityMap[r.target]?.sources?.edf_project?.eu_contribution) || 0);
+  const budgetMin = Math.min(...budgets);
+  const budgetMax = Math.max(...budgets);
+  const diamondSize = b => {
+    if (!b || budgetMax === budgetMin) return DIAM_MIN;
+    return DIAM_MIN + (b - budgetMin) / (budgetMax - budgetMin) * (DIAM_MAX - DIAM_MIN);
+  };
 
   for (const r of edfEdgesRaw) {
     const pid = r.target;
     if (!nodes.has(pid)) {
       const p  = entityMap[pid];
       const ps = p?.sources?.edf_project || {};
-      const d  = deg[pid] || 1;
+      const budget = parseFloat(ps.eu_contribution) || 0;
       nodes.set(pid, {
         data: {
           id: pid, label: truncate(ps.acronym || p?.name || pid, 12),
@@ -487,7 +497,7 @@ function buildElements(country, showEdf, showInv) {
           status: ps.status || '', startDate: ps.start_date || '',
           endDate: ps.end_date || '', euContrib: ps.eu_contribution || '',
           url: ps.url || '', type: 'edf_project', kind: 'project',
-          size: Math.min(28, Math.max(10, d * 3))
+          size: diamondSize(budget)
         }
       });
     }
@@ -498,11 +508,10 @@ function buildElements(country, showEdf, showInv) {
     const ivId = r.source;
     if (!nodes.has(ivId)) {
       const iv = entityMap[ivId];
-      const d  = deg[ivId] || 1;
       nodes.set(ivId, {
         data: { id: ivId, label: truncate(iv?.name || ivId, 16),
                 fullName: iv?.name || ivId, type: iv?.type || 'investor',
-                kind: 'investor', size: Math.min(28, Math.max(8, d * 4)) }
+                kind: 'investor', size: CIRCLE_SIZE }
       });
     }
     edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });
@@ -670,14 +679,14 @@ function addExtraNeighbors(nodeId) {
         callTitle: ps.call_title || '', status: ps.status || '',
         startDate: ps.start_date || '', endDate: ps.end_date || '',
         euContrib: ps.eu_contribution || '', url: ps.url || '',
-        type: 'edf_project', kind: 'project', size: 14, extra: true,
+        type: 'edf_project', kind: 'project', size: DIAM_MIN, extra: true,
       };
     } else {
       nodeData = {
         id: otherId, label: truncate(other.name, 16), fullName: other.name,
         type: other.type || 'company',
         kind: other.id.startsWith('IV-') ? 'investor' : 'entity',
-        size: 12, extra: true,
+        size: CIRCLE_SIZE, extra: true,
       };
     }
 
