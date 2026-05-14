@@ -409,7 +409,7 @@ async function loadData() {
 
   countryCounts = Object.entries(ci)
     .map(([country, ids]) => ({ country, count: ids.size }))
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => a.country.localeCompare(b.country));
 }
 
 // ── Build elements ────────────────────────────────────────────────────────────
@@ -1109,16 +1109,17 @@ async function init() {
   const chkEdf  = document.getElementById('chk-edf');
   const chkInv  = document.getElementById('chk-inv');
 
+  const allOpt = document.createElement('option');
+  allOpt.value = '__all__';
+  allOpt.textContent = `All entities`;
+  select.appendChild(allOpt);
+
   for (const { country, count } of countryCounts) {
     const opt = document.createElement('option');
     opt.value = country;
     opt.textContent = `${country} (${count})`;
     select.appendChild(opt);
   }
-  const allOpt = document.createElement('option');
-  allOpt.value = '__all__';
-  allOpt.textContent = `All entities`;
-  select.appendChild(allOpt);
 
   const params = readParams();
   const defaultCountry = countryCounts[0]?.country || '__all__';
