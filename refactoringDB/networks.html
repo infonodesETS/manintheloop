@@ -737,7 +737,8 @@ function showProjDetail(d) {
   if (d.status)    rows.push(['Status',      esc(d.status)]);
   if (d.startDate) rows.push(['Period',      `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
   if (d.euContrib) rows.push(['EU contrib.', `<span class="detail-accent">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
-  if (d.url)       rows.push(['EU Portal',   `<a class="detail-link" href="${esc(d.url)}" target="_blank">Open ↗</a>`]);
+  if (d.id)        rows.push(['Project detail', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(d.id)}&organizationName=${encodeURIComponent(d.acronym || d.fullName)}${themeParam()}">Open full profile →</a>`]);
+  if (d.url)       rows.push(['EU website',    `<a class="detail-link" href="${esc(d.url)}" target="_blank">See on EU website ↗</a>`]);
 
   document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
     `<div class="detail-row"><span class="detail-lbl">${l}</span><span class="detail-val">${v}</span></div>`
