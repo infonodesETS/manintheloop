@@ -1117,7 +1117,7 @@ async function init() {
   for (const { country, count } of countryCounts) {
     const opt = document.createElement('option');
     opt.value = country;
-    opt.textContent = `${country} (${count})`;
+    opt.textContent = country;
     select.appendChild(opt);
   }
 
