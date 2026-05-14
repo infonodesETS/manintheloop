@@ -280,7 +280,7 @@ def cmd_merge(winner_id, loser_id):
             key = (src, tgt, r.get("type"))
             if key in seen_pairs:
                 # Duplicate after redirect — mark for removal
-                rels_to_remove.append(r["id"])
+                rels_to_remove.append(r.get("id") or f"{src}_{tgt}_{r.get('type')}")
             else:
                 seen_pairs.add(key)
                 rels_redirected += 1
@@ -292,7 +292,8 @@ def cmd_merge(winner_id, loser_id):
                 })
 
     if rels_to_remove:
-        db["relationships"] = [r for r in relationships if r["id"] not in set(rels_to_remove)]
+        remove_set = set(rels_to_remove)
+        db["relationships"] = [r for r in relationships if (r.get("id") or f"{r.get('source')}_{r.get('target')}_{r.get('type')}") not in remove_set]
         absorbed.append(f"relationships[{rels_redirected} redirected, {len(rels_to_remove)} deduped]")
     elif rels_redirected:
         absorbed.append(f"relationships[{rels_redirected} redirected]")
