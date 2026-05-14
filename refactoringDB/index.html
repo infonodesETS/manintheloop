@@ -728,8 +728,8 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
     <div class="sl-panel-section">
       <p class="map-intro-text"><strong>${total}</strong> cross-border investment connection${total !== 1 ? 's' : ''} between ${esc(srcName)} and ${esc(tgtName)}.</p>
     </div>
-    ${renderSection(relsAB, `↑ ${esc(srcName)} → ${esc(tgtName)}`, 'map-flow-out-hd', `↑ No investments from ${esc(srcName)} into ${esc(tgtName)}`)}
-    ${renderSection(relsBA, `↓ ${esc(tgtName)} → ${esc(srcName)}`, 'map-flow-in-hd', `↓ No investments from ${esc(tgtName)} into ${esc(srcName)}`)}
+    ${renderSection(relsAB, `${esc(srcName)} → ${esc(tgtName)}`, 'map-flow-out-hd', `No investments from ${esc(srcName)} into ${esc(tgtName)}`)}
+    ${renderSection(relsBA, `${esc(tgtName)} → ${esc(srcName)}`, 'map-flow-in-hd', `No investments from ${esc(tgtName)} into ${esc(srcName)}`)}
   `;
 
   document.getElementById('map-panel').classList.remove('d-none');
