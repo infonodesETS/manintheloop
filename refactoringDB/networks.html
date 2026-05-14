@@ -724,7 +724,14 @@ function applyFocus(nodeId) {
   const hood = node.closedNeighborhood();
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
-  cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+
+  // Project nodes can have many extra neighbors spread in a large radius —
+  // center on the node at a fixed zoom instead of fitting the whole hood.
+  if (node.data('kind') === 'project') {
+    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.2), duration: 350, easing: 'ease-in-out-cubic' });
+  } else {
+    cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+  }
 }
 
 function clearFocus() {
