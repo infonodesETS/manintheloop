@@ -714,7 +714,6 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
           return `
             <div class="map-co-item clickable" data-action="filterMapByEntity" data-id="${esc(inv.id)}">
               <button class="map-entity-name">${esc(inv.name)}</button>
-              <span class="map-item-id">${esc(inv.id)}</span>
             </div>
             ${compList.map(c => `
               <div class="map-co-item clickable" style="padding-left:14px" data-action="filterMapByEntity" data-id="${esc(c.id)}">
