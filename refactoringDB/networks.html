@@ -409,7 +409,7 @@ async function loadData() {
 
   countryCounts = Object.entries(ci)
     .map(([country, ids]) => ({ country, count: ids.size }))
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => a.country.localeCompare(b.country));
 }
 
 // ── Build elements ────────────────────────────────────────────────────────────
@@ -1101,6 +1101,34 @@ function initSearch() {
   });
 }
 
+// ── Browser-locale → default country ─────────────────────────────────────────
+const LOCALE_TO_COUNTRY = {
+  AD:'Andorra', AE:'United Arab Emirates', AL:'Albania', AM:'Armenia',
+  AT:'Austria', AU:'Australia', AZ:'Azerbaijan', BA:'Bosnia and Herzegovina',
+  BE:'Belgium', BG:'Bulgaria', BH:'Bahrain', BR:'Brazil', BY:'Belarus',
+  CA:'Canada', CH:'Switzerland', CL:'Chile', CN:'China', CO:'Colombia',
+  CY:'Cyprus', CZ:'Czech Republic', DE:'Germany', DK:'Denmark',
+  DZ:'Algeria', EE:'Estonia', EG:'Egypt', ES:'Spain', FI:'Finland',
+  FR:'France', GB:'United Kingdom', GE:'Georgia', GR:'Greece',
+  HR:'Croatia', HU:'Hungary', ID:'Indonesia', IE:'Ireland', IL:'Israel',
+  IN:'India', IQ:'Iraq', IS:'Iceland', IT:'Italy', JO:'Jordan',
+  JP:'Japan', KR:'South Korea', KW:'Kuwait', KZ:'Kazakhstan',
+  LB:'Lebanon', LI:'Liechtenstein', LT:'Lithuania', LU:'Luxembourg',
+  LV:'Latvia', MA:'Morocco', MD:'Moldova', ME:'Montenegro', MK:'North Macedonia',
+  MT:'Malta', MX:'Mexico', MY:'Malaysia', NL:'Netherlands', NO:'Norway',
+  NZ:'New Zealand', PH:'Philippines', PL:'Poland', PT:'Portugal',
+  QA:'Qatar', RO:'Romania', RS:'Serbia', RU:'Russia', SA:'Saudi Arabia',
+  SE:'Sweden', SG:'Singapore', SI:'Slovenia', SK:'Slovakia',
+  TH:'Thailand', TR:'Turkey', TW:'Taiwan', UA:'Ukraine',
+  US:'United States', UZ:'Uzbekistan', ZA:'South Africa',
+};
+
+function browserDefaultCountry() {
+  const tag = navigator.language || navigator.languages?.[0] || '';
+  const region = tag.split('-')[1]?.toUpperCase();
+  return region ? (LOCALE_TO_COUNTRY[region] || null) : null;
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   await loadData();
@@ -1110,19 +1138,23 @@ async function init() {
   const chkEdf  = document.getElementById('chk-edf');
   const chkInv  = document.getElementById('chk-inv');
 
-  for (const { country, count } of countryCounts) {
-    const opt = document.createElement('option');
-    opt.value = country;
-    opt.textContent = `${country} (${count})`;
-    select.appendChild(opt);
-  }
   const allOpt = document.createElement('option');
   allOpt.value = '__all__';
   allOpt.textContent = `All entities`;
   select.appendChild(allOpt);
 
+  for (const { country, count } of countryCounts) {
+    const opt = document.createElement('option');
+    opt.value = country;
+    opt.textContent = country;
+    select.appendChild(opt);
+  }
+
   const params = readParams();
-  const defaultCountry = countryCounts[0]?.country || '__all__';
+  const localeCountry = browserDefaultCountry();
+  const defaultCountry = (localeCountry && countryIndex[localeCountry])
+    ? localeCountry
+    : (countryCounts[0]?.country || '__all__');
   const country = (params.country && (countryIndex[params.country] || params.country === '__all__'))
     ? params.country
     : defaultCountry;
