@@ -578,9 +578,21 @@ function showMapCountry(iso, skipHistory = false) {
   document.getElementById('map-panel-body').innerHTML = `
     <p class="map-intro-text" style="margin-bottom:10px">${introText}</p>
     <div class="map-sector-row"><span class="map-sector-lbl">Sectors:</span> ${sectorSummary}</div>
+    ${flowInArr.length ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd map-flow-in-hd">↓ Capital Flowing In (${flowInArr.length})
+        <button id="map-flow-in-btn" class="map-expand-btn">▼</button>
+      </div>
+      <div id="map-flow-in-list">${renderInvList([...flowInArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
+    </div>` : '<div class="map-no-flow">↓ No inbound cross-border investments recorded</div>'}
+    ${flowOutArr.length ? `<div class="sl-panel-section">
+      <div class="sl-section-lbl map-section-hd map-flow-out-hd">↑ Capital Flowing Out (${flowOutArr.length})
+        <button id="map-flow-out-btn" class="map-expand-btn">▼</button>
+      </div>
+      <div id="map-flow-out-list">${renderInvList([...flowOutArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
+    </div>` : '<div class="map-no-flow">↑ No outbound cross-border investments recorded</div>'}
     <div class="sl-panel-section">
       <div class="sl-section-lbl map-section-hd">
-        <span id="map-co-count">${cd.companies.length}</span> Entities
+        <span id="map-co-count">${cd.companies.length}</span> Organizations
         <button id="map-toggle-co" class="map-expand-btn">▼</button>
       </div>
       <div id="map-companies-list">
@@ -595,18 +607,6 @@ function showMapCountry(iso, skipHistory = false) {
         }).join('')}
       </div>
     </div>
-    ${flowInArr.length ? `<div class="sl-panel-section">
-      <div class="sl-section-lbl map-section-hd map-flow-in-hd">↓ Capital Flowing In (${flowInArr.length})
-        <button id="map-flow-in-btn" class="map-expand-btn">▼</button>
-      </div>
-      <div id="map-flow-in-list">${renderInvList([...flowInArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
-    </div>` : '<div class="map-no-flow">↓ No inbound cross-border investments recorded</div>'}
-    ${flowOutArr.length ? `<div class="sl-panel-section">
-      <div class="sl-section-lbl map-section-hd map-flow-out-hd">↑ Capital Flowing Out (${flowOutArr.length})
-        <button id="map-flow-out-btn" class="map-expand-btn">▼</button>
-      </div>
-      <div id="map-flow-out-list">${renderInvList([...flowOutArr].sort((a, b) => a[1].localeCompare(b[1])))}</div>
-    </div>` : '<div class="map-no-flow">↑ No outbound cross-border investments recorded</div>'}
   `;
 
   const toggleList = (btnId, listId) => {
