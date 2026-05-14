@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-11 (networks.html: cross-country neighbor expansion on node click)
+> Last updated: 2026-05-14 (frontend fixes: dual-role entities, retired filter, networks outbound investments)
 
 ## Session protocol
 
@@ -512,6 +512,17 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-05-14
+
+- [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `index.html`: arcs and detail panel cover both directions. `networks.html`: `kind='entity'` assigned consistently regardless of country scope. `web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
+- [x] **Ma'aden dedup** — IV-0377 merged into IN-1307. IN-0178 Ivanhoe Electric country set to United States.
+- [x] **Retired entities hidden from UI** — entities with `history[].action === 'entity_retired'` stripped from `DB.entities` and `DB.relationships` at load time in all three pages. Currently: IN-1282 Fortescue Metals Group. DB record preserved.
+- [x] **`networks.html` — search autocomplete A-Z** — results always sorted `localeCompare` instead of match-position heuristic.
+- [x] **`networks.html` — search dropdown limit 14 → 30**.
+- [x] **`networks.html` — IV-* search navigates to portfolio country** — `resolveEntityCountry()` now prefers a portfolio company's country for IV-* investors (guarantees visible connection in graph). Previously used investor's home country, which often had no connected entities.
+- [x] **`networks.html` — outbound investments rendered** — `buildElements()` now collects investment rels where the source is a local investor (country match) and target is foreign. Outbound investor shown as orange node, foreign target as green node. Fixes countries like Indonesia (local investors, no inbound).
+- [x] **`networks.html` — no-data fallback** — when `connectedIds` is empty, falls back to showing all `entityIds` instead of blank "No data" screen.
+
 - [x] **`networks.html` — cross-country neighbor expansion on node click (2026-05-11)**
   - `addExtraNeighbors(nodeId)`: scans all `edfRels` + `investmentRels` for the clicked node; for each neighbor not already in `cy`, adds node + edge via `cy.add()`
   - New nodes positioned in a circle around the clicked node (`radius = max(130, count × 11)`)
