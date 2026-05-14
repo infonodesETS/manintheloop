@@ -944,6 +944,14 @@ function renderNetwork(country, restoreSelected) {
 
       cy.on('tap', 'node[kind = "project"]', evt => {
         const d = evt.target.data();
+        if (!chkEdf.checked) {
+          // EDF filter was off — enable it, re-render with this project focused
+          chkEdf.checked = true;
+          showProjDetail(d);
+          pushURL(select.value, true, chkInv.checked, d.id, d.acronym || d.fullName);
+          renderNetwork(select.value, d.id);
+          return;
+        }
         applyFocus(d.id);
         showProjDetail(d);
         pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.acronym || d.fullName);
