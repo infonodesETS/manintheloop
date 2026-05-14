@@ -709,16 +709,16 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
         <div class="sl-section-lbl map-section-hd ${colorClass}" style="margin-bottom:6px">
           ${dirLabel} (${invCount} investor${invCount !== 1 ? 's' : ''} · ${pairs.length} connection${pairs.length !== 1 ? 's' : ''})
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:6px;border-radius:3px;overflow:hidden;border:1px solid white">
-          <div style="font-size:var(--fs-xs);color:var(--text-secondary);font-weight:var(--fw-bold);padding:5px 8px;text-transform:uppercase;letter-spacing:.5px;background:rgba(255,255,255,0.06)">From</div>
-          <div style="font-size:var(--fs-xs);color:var(--text-secondary);font-weight:var(--fw-bold);padding:5px 8px;text-transform:uppercase;letter-spacing:.5px;background:rgba(255,255,255,0.06);border-left:1px solid white">To</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:6px;border-radius:3px;overflow:hidden;border:1px solid #d3d8d8">
+          <div style="font-size:var(--fs-xs);color:#1a1a1a;font-weight:var(--fw-bold);padding:5px 8px;text-transform:uppercase;letter-spacing:.5px;background:#d3d8d8">From</div>
+          <div style="font-size:var(--fs-xs);color:#1a1a1a;font-weight:var(--fw-bold);padding:5px 8px;text-transform:uppercase;letter-spacing:.5px;background:#d3d8d8;border-left:1px solid #d3d8d8">To</div>
           ${sorted.map(({ inv, comps }) => {
             const compList = [...comps.values()];
             return `
-              <div style="padding:5px 8px;border-top:1px solid white;align-self:start">
+              <div style="padding:5px 8px;border-top:1px solid #d3d8d8;align-self:start">
                 <button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(inv.id)}" style="white-space:normal">${esc(inv.name)}</button>
               </div>
-              <ul style="margin:0;padding:5px 8px 5px 24px;border-top:1px solid white;border-left:1px solid white;list-style:disc">
+              <ul style="margin:0;padding:5px 8px 5px 24px;border-top:1px solid #d3d8d8;border-left:1px solid #d3d8d8;list-style:disc">
                 ${compList.map(c => `<li><button class="map-entity-name" data-action="filterMapByEntity" data-id="${esc(c.id)}" style="white-space:normal">${esc(c.name)}</button></li>`).join('')}
               </ul>`;
           }).join('')}
