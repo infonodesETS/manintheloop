@@ -87,6 +87,11 @@ async function loadData() {
   DB       = await dbRes.json();
   ORGS     = await orgsRes.json();
   GLOSSARY = await glossRes.json();
+  const retiredIds = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  DB.entities      = DB.entities.filter(e => !retiredIds.has(e.id));
+  DB.relationships = DB.relationships.filter(r => !retiredIds.has(r.source) && !retiredIds.has(r.target));
 }
 
 async function loadEdf() {

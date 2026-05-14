@@ -405,6 +405,11 @@ let countryCounts = [];
 
 async function loadData() {
   DB = await fetch('data/database.json').then(r => r.json());
+  const retiredIds = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  DB.entities      = DB.entities.filter(e => !retiredIds.has(e.id));
+  DB.relationships = DB.relationships.filter(r => !retiredIds.has(r.source) && !retiredIds.has(r.target));
   for (const e of DB.entities) entityMap[e.id] = e;
 
   edfRels        = DB.relationships.filter(r => r.type === 'edf_participation');
