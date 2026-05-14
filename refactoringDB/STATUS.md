@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-14 (about.html: GitHub repo link + data/ file index)
+> Last updated: 2026-05-14 (arc click bilateral panel + map panel UX)
 
 ## Session protocol
 
@@ -516,7 +516,20 @@ refactoringDB/
 
 - [x] **`about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
 
-### Session 2026-05-14
+### Session 2026-05-14 — Arc click bilateral panel + map panel UX
+
+- [x] **`index.html` — arc click → bilateral investment panel**
+  - Click any visible arc between two countries opens a bilateral panel in the side panel
+  - Hit area: invisible 12px transparent `stroke` path overlaid on each arc (scaled with zoom) — makes 1.5px SVG paths reliably clickable
+  - `showArcDetail(srcIso, tgtIso)`: dims all other arcs + nodes; highlights active arc in purple; fits map to the two endpoints
+  - Panel content: grouped by investor (deduplicated), portfolio companies as indented sub-items; both investor and company rows are clickable → `filterMapByEntity`
+  - Directions labeled `{srcName} → {tgtName}` and `{tgtName} → {srcName}` (no ↑↓ arrows — no selected-country reference in bilateral context)
+  - URL routing: `?arc={srcISO}-{tgtISO}` — deep-linkable, back-button aware, restored on page load
+  - `mapState.selectedArc` added; cleared by `closeMapPanel()` and `showMapCountry()`
+  - `restoreMapState()` and `init()` extended to parse and restore `arc` param
+- [x] **`index.html` — country panel reorder**: Capital Flowing In → Capital Flowing Out → Organizations (was: Organizations first)
+- [x] **`index.html` — label rename**: "Entities" → "Organizations" in country panel
+- [x] **`index.html` — org list badge order**: `↓N investor badge` before sector badge (was after)
 
 - [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `index.html`: arcs and detail panel cover both directions. `networks.html`: `kind='entity'` assigned consistently regardless of country scope. `web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
 - [x] **Ma'aden dedup** — IV-0377 merged into IN-1307. IN-0178 Ivanhoe Electric country set to United States.
