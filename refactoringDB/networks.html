@@ -1052,11 +1052,7 @@ function renderAc(query) {
 
   const results = searchIndex
     .filter(e => e.nameLower.includes(q))
-    .sort((a, b) => {
-      const ai = a.nameLower.indexOf(q), bi = b.nameLower.indexOf(q);
-      if (ai !== bi) return ai - bi;
-      return a.name.localeCompare(b.name);
-    })
+    .sort((a, b) => a.name.localeCompare(b.name))
     .slice(0, 14);
 
   if (results.length === 0) {
