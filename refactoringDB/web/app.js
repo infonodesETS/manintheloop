@@ -674,7 +674,6 @@ function buildProfileColHtml(item, colId) {
   return `
     <div class="cs-cmp-col-title">Entity ${colId.toUpperCase()}</div>
     <div class="cs-hdr-card">
-      <div class="cs-logo">${esc(initials(item.name))}</div>
       <div class="cs-hdr-main">
         <div class="cs-hdr-name">${esc(item.name)}</div>
         <div class="cs-hdr-badges">${badges}</div>
@@ -735,7 +734,6 @@ function renderProfile(item) {
   const wd  = e?.sources?.wikidata;
   const inf = e?.sources?.infonodes;
 
-  document.getElementById('cs-logo').textContent = initials(item.name);
   document.getElementById('cs-name').textContent = item.name;
 
   let badges = '';
@@ -814,7 +812,6 @@ function renderInvestorProfile(item) {
   const e = item.dbEntity;
   const wd = e?.sources?.wikidata;
 
-  document.getElementById('cs-logo').textContent = initials(item.name);
   document.getElementById('cs-name').textContent  = item.name;
   document.getElementById('cs-desc').textContent  = wd?.description || '';
   document.getElementById('cs-desc').style.display = wd?.description ? '' : 'none';
@@ -1450,7 +1447,6 @@ function renderEdfProjectProfile(item) {
   const e  = item.dbEntity;
   const ps = e?.sources?.edf_project || {};
 
-  document.getElementById('cs-logo').textContent = esc(ps.acronym || 'EDF');
   document.getElementById('cs-name').textContent = e?.name || item.name;
 
   let badges = typeBadge('edf_project');
