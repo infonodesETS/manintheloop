@@ -378,7 +378,7 @@ function setDefaultPanelContent() {
     </div>
     <div class="sl-panel-section">
       <div class="sl-section-lbl">Investor data${filterLabel}</div>
-      <p class="map-intro-text"><strong>${totCbInv}</strong> entities have investor data from Crunchbase. Click any entity to see its backers. Toggle <em>Show investment flow arcs</em> to visualise cross-border capital flows — ${visArcs.length > 0 ? `<strong>${visArcs.length} cross-border arcs</strong> are currently mapped` : 'arcs appear as more investor countries are resolved'}.</p>
+      <p class="map-intro-text"><strong>${totCbInv}</strong> entities have investor data from Crunchbase. Click any entity to see its backers. ${visArcs.length > 0 ? `<strong>${visArcs.length} cross-border arcs</strong> are currently mapped` : 'Arcs appear as more investor countries are resolved'}.</p>
     </div>
   `;
 }
