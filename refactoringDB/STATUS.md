@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-14 (bilateral arc panel table styling)
+> Last updated: 2026-05-21 (reports/ — statistical indicators)
 
 ## Session protocol
 
@@ -512,6 +512,14 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-05-21 — Statistical indicators report
+
+- [x] **`reports/`** — new folder for analytical reports
+  - `reports/report1.md` — 3 editorial angles (Chi controlla la difesa EU · Dove va il soldo pubblico · Chi sono i nuovi player), 10 statistical indicators, research questions per angle
+  - `reports/generate_charts.py` — reproducible chart generation via matplotlib (10 charts in `reports/charts/`)
+  - `reports/generate_pdf.py` — markdown → HTML (base64 images) → PDF via Chromium headless; output: `reports/report1.pdf`
+  - Charts and PDF in `.gitignore` (generated artifacts); scripts and MD committed
+
 ### Session 2026-05-14 (about page)
 
 - [x] **`about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
