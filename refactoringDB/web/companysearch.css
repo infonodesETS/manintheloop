@@ -187,6 +187,13 @@
   font-size: var(--fs-sm);
   color: var(--text-muted);
 }
+.cs-ac-count {
+  padding: 5px 12px 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  letter-spacing: .03em;
+}
 #cs-ac::-webkit-scrollbar { width: 4px; }
 #cs-ac::-webkit-scrollbar-track { background: var(--surface-ac); }
 #cs-ac::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }

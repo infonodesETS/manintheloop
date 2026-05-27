@@ -343,7 +343,8 @@ function renderAc(raw) {
   renderGroup('EDF only', edfOnly,   groupLimit ?? 12);
   renderGroup('Investors', investors, groupLimit ?? 6);
 
-  acEl.innerHTML = html;
+  const countLabel = `<div class="cs-ac-count">${acList.length} result${acList.length !== 1 ? 's' : ''}</div>`;
+  acEl.innerHTML = countLabel + html;
   acEl.classList.add('open');
   acEl.querySelectorAll('.cs-ac-item').forEach(el => {
     el.addEventListener('mousedown', ev => {
