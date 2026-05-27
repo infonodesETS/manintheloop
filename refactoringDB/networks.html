@@ -692,12 +692,14 @@ function buildLayout(nodeCount) {
     name: 'cose',
     animate: false,
     randomize: false,
-    idealEdgeLength: nodeCount > 300 ? 45 : nodeCount > 150 ? 60 : 75,
-    nodeRepulsion: () => nodeCount > 300 ? 1500 : nodeCount > 150 ? 2500 : 4000,
-    gravity: 0.25,
-    numIter: nodeCount > 500 ? 400 : nodeCount > 200 ? 700 : 1000,
-    componentSpacing: 40,
-    coolingFactor: 0.95,
+    idealEdgeLength:  nodeCount > 300 ? 90  : nodeCount > 150 ? 120 : 150,
+    nodeRepulsion:    () => nodeCount > 300 ? 5000 : nodeCount > 150 ? 9000 : 14000,
+    nodeOverlap:      20,
+    gravity:          nodeCount > 300 ? 0.06 : 0.03,
+    numIter:          nodeCount > 500 ? 600  : nodeCount > 200 ? 1000 : 1400,
+    componentSpacing: 80,
+    coolingFactor:    0.95,
+    edgeElasticity:   () => 70,
   };
 }
 
