@@ -1105,8 +1105,8 @@ function drawMap(world) {
       .append('title')
       .text(`${cd.name}: ${cd.companies.length} companies · ${arcDegree[iso]||0} cross-border connections`);
 
-    if (r >= 8) {
-      const baseFs = 13.75;
+    {
+      const baseFs = r >= 8 ? 13.75 : 9;
       nodeLayer.append('text')
         .datum({ cy: c[1], baseR: r, baseFs })
         .attr('class','map-label')
