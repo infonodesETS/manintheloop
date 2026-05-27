@@ -600,6 +600,7 @@ function buildElements(country, showEdf, showInv) {
 // ── Cytoscape ─────────────────────────────────────────────────────────────────
 let cy = null;
 let extraElements = null;
+let savedPositions = null;
 
 const CY_STYLE = [
   {
@@ -779,41 +780,52 @@ function addExtraNeighbors(nodeId) {
 
   if (toAdd.length === 0) return;
 
-  const added = cy.add(toAdd);
-  extraElements = added;
-
-  // Position new nodes in a circle — radius sized so labels don't collide
-  const clickedPos = cy.$('#' + CSS.escape(nodeId)).position();
-  const newNodes = added.nodes();
-  const radius = Math.max(150, Math.min(newNodes.length * 20, 260));
-  newNodes.forEach((n, i) => {
-    const angle = (2 * Math.PI * i) / newNodes.length;
-    n.position({ x: clickedPos.x + radius * Math.cos(angle), y: clickedPos.y + radius * Math.sin(angle) });
-  });
+  extraElements = cy.add(toAdd);
 }
 
 // ── Focus / dim ───────────────────────────────────────────────────────────────
+function restorePositions() {
+  if (!savedPositions || !cy) return;
+  for (const [id, pos] of Object.entries(savedPositions)) {
+    const n = cy.$('#' + CSS.escape(id));
+    if (!n.empty()) n.position(pos);
+  }
+  savedPositions = null;
+}
+
 function applyFocus(nodeId) {
   if (!cy) return;
+  restorePositions();
   addExtraNeighbors(nodeId);
   const node = cy.$('#' + CSS.escape(nodeId));
   if (node.empty()) return;
+
+  // Reposition all neighbors (existing + cross-country extra) in a uniform circle
+  const neighbors = node.neighborhood().nodes();
+  const center = node.position();
+  const count = neighbors.length;
+  if (count > 0) {
+    savedPositions = {};
+    neighbors.forEach(n => {
+      if (!n.data('extra')) savedPositions[n.id()] = { ...n.position() };
+    });
+    const radius = Math.max(160, Math.min(count * 28, 440));
+    neighbors.forEach((n, i) => {
+      const angle = (2 * Math.PI * i) / count;
+      n.position({ x: center.x + radius * Math.cos(angle), y: center.y + radius * Math.sin(angle) });
+    });
+  }
+
   const hood = node.closedNeighborhood();
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
-
-  // Project nodes can have many extra neighbors spread in a large radius —
-  // center on the node at a fixed zoom instead of fitting the whole hood.
-  if (node.data('kind') === 'project') {
-    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.2), duration: 350, easing: 'ease-in-out-cubic' });
-  } else {
-    cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
-  }
+  cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
 }
 
 function clearFocus() {
   if (!cy) return;
   const hasDimmed = cy.elements('.dimmed').length > 0;
+  restorePositions();
   cy.elements().removeClass('dimmed').removeClass('focused');
   removeExtraElements();
   if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
