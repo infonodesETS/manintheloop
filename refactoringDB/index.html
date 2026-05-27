@@ -696,8 +696,8 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
-    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-bi"></span>${esc(srcName)} ↔ ${esc(tgtName)}`;
-    arcLegend.title = `${total} cross-border investment connection${total !== 1 ? 's' : ''}`;
+    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
+    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
   }
 
   const titleEl = document.getElementById('map-panel-title');
