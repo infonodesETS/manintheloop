@@ -309,7 +309,7 @@
       </label>
     </div>
 
-    <div class="net-section-label">In this view</div>
+    <div class="net-section-label" id="view-label">In this view</div>
     <div id="net-stats">Select a country to see stats.</div>
 
     <div class="net-section-label">Actors</div>
@@ -601,6 +601,7 @@ function buildElements(country, showEdf, showInv) {
 let cy = null;
 let extraElements = null;
 let savedPositions = null;
+let cachedStats    = null;
 
 const CY_STYLE = [
   {
@@ -783,6 +784,35 @@ function addExtraNeighbors(nodeId) {
   extraElements = cy.add(toAdd);
 }
 
+// ── Focus stats ───────────────────────────────────────────────────────────────
+function updateFocusStats(nodeId) {
+  if (!cy) return;
+  const node = cy.$('#' + CSS.escape(nodeId));
+  if (node.empty()) return;
+
+  const neighborNodes = node.neighborhood().nodes();
+  const neighborEdges = node.neighborhood().edges();
+
+  const typeCounts = { company: 0, institution: 0, investor: 0, gov: 0 };
+  neighborNodes.forEach(n => {
+    const t = n.data('type');
+    if      (t === 'company')       typeCounts.company++;
+    else if (t === 'institution')   typeCounts.institution++;
+    else if (t === 'investor' || t === 'fund' || t === 'public_fund') typeCounts.investor++;
+    else if (t === 'government_agency') typeCounts.gov++;
+  });
+
+  document.getElementById('view-label').textContent = 'Selected node';
+  updateStats({
+    entityCount:   neighborNodes.filter(n => n.data('kind') === 'entity').length,
+    projectCount:  neighborNodes.filter(n => n.data('kind') === 'project').length,
+    investorCount: neighborNodes.filter(n => n.data('kind') === 'investor').length,
+    edfEdgeCount:  neighborEdges.filter(e => e.data('etype') === 'edf').length,
+    invEdgeCount:  neighborEdges.filter(e => e.data('etype') === 'investment').length,
+    typeCounts,
+  });
+}
+
 // ── Focus / dim ───────────────────────────────────────────────────────────────
 function restorePositions() {
   if (!savedPositions || !cy) return;
@@ -820,6 +850,7 @@ function applyFocus(nodeId) {
   cy.elements().addClass('dimmed').removeClass('focused');
   hood.removeClass('dimmed').addClass('focused');
   cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+  updateFocusStats(nodeId);
 }
 
 function clearFocus() {
@@ -828,6 +859,10 @@ function clearFocus() {
   restorePositions();
   cy.elements().removeClass('dimmed').removeClass('focused');
   removeExtraElements();
+  if (cachedStats) {
+    document.getElementById('view-label').textContent = 'In this view';
+    updateStats(cachedStats);
+  }
   if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
 }
 
@@ -947,6 +982,8 @@ function renderNetwork(country, restoreSelected) {
 
   setTimeout(() => {
     const result = buildElements(country, showEdf, showInv);
+    cachedStats = result;
+    document.getElementById('view-label').textContent = 'In this view';
     updateStats(result);
 
     if (cy) { cy.destroy(); cy = null; }
