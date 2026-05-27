@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-21 (reports/ — statistical indicators)
+> Last updated: 2026-05-27 (networks — layout spacing + NETWORKS_LAYOUT.md)
 
 ## Session protocol
 
@@ -214,6 +214,7 @@ python3 scripts/validate.py
 | `docs/SCHEMA.md` | Full schema v3.0 spec: entity types, ID prefixes, sources blocks, relationship types, history/validation format |
 | `docs/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
 | `docs/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
+| `docs/NETWORKS_LAYOUT.md` | Cytoscape cose layout parameter reference for `networks.html`: what each param does, current values, tuning guide, node size constants |
 | `data/crunchbase_sandbox/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
 | `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 | `status-map.md` | Map visualization analysis — architecture, data coverage, Playwright observations, 2 bugs, 10 UX problems, improvement backlog. **Not committed** (in .gitignore). |
@@ -512,6 +513,11 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-05-27 — Networks layout spacing
+
+- [x] **`networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
+- [x] **`docs/NETWORKS_LAYOUT.md`** — parameter reference: all cose params explained, current values, tuning guide, node size constants. Indexed in STATUS.md.
+
 ### Session 2026-05-21 — Statistical indicators report
 
 - [x] **`reports/`** — new folder for analytical reports
