@@ -1456,8 +1456,8 @@ function renderEdfProjectProfile(item) {
   document.getElementById('cs-eu-status').innerHTML =
     `<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" aria-hidden="true" class="eu-flag"><span class="eu-status-funded">European Defence Fund project</span>`;
 
-  document.getElementById('cs-desc').textContent  = ps.type_of_action || '';
-  document.getElementById('cs-desc').style.display = ps.type_of_action ? '' : 'none';
+  document.getElementById('cs-desc').textContent  = ps.objective || '';
+  document.getElementById('cs-desc').style.display = ps.objective ? '' : 'none';
 
   let links = '';
   if (ps.url) links += `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">EU Portal ↗</a>`;
