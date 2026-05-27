@@ -657,10 +657,21 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
   // Show arc layer, dim all arcs except the active pair
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = '';
+  const hasAB = mapState.arcData.some(a => a.src === srcIso && a.tgt === tgtIso);
+  const hasBA = mapState.arcData.some(a => a.src === tgtIso && a.tgt === srcIso);
+  const isBi  = hasAB && hasBA;
+
   mapState.g?.selectAll('.map-arc').each(function(d) {
     const active = (d.src === srcIso && d.tgt === tgtIso) || (d.src === tgtIso && d.tgt === srcIso);
     d3.select(this).classed('arc-dim', !active).classed('arc-selected', active);
-    if (active) d3.select(this).attr('stroke-opacity', 1.0);
+    if (active) {
+      const currentStroke = d3.select(this).attr('stroke') || '';
+      if (currentStroke.startsWith('url(')) {
+        // No directional color from country view — derive from arc data
+        d3.select(this).attr('stroke', isBi ? '#b06aff' : '#4d9fff');
+      }
+      d3.select(this).attr('stroke-opacity', 1.0);
+    }
   });
 
   // Dim nodes / countries — keep only the two endpoints bright
