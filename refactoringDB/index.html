@@ -30,6 +30,7 @@
     .map-node:hover { opacity: 1; }
     .map-arc { fill: none; stroke-width: 1.5; transition: opacity .2s; }
     .map-arc.arc-dim { opacity: 0.06 !important; }
+    .map-arc.arc-selected { /* stroke-width 2.5× applied by zoom handler */ }
     .arc-legend-swatch { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 2px; vertical-align: middle; }
     .arc-legend-out { background: #4d9fff; }
     .arc-legend-in  { background: #ff5555; }
@@ -407,7 +408,11 @@ function closeMapPanel(skipHistory = false) {
   mapState.g?.selectAll('.map-arc').classed('arc-dim', false);
   // Restore original gradient stroke on all arcs
   mapState.g?.selectAll('.map-arc').each(function(d) {
-    if (d.gradId) d3.select(this).attr('stroke', `url(#${d.gradId})`).attr('stroke-opacity', null);
+    if (d.gradId) d3.select(this)
+      .classed('arc-selected', false)
+      .attr('stroke', `url(#${d.gradId})`)
+      .attr('stroke-opacity', null)
+      .attr('stroke-width', d.baseSw);
   });
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
@@ -485,6 +490,12 @@ function showMapCountry(iso, skipHistory = false) {
     if (arc.tgt === iso) connectedISOs.add(arc.src);
   });
   fitMapToISOs(connectedISOs);
+
+  // Dim countries and nodes not connected to the selected country
+  mapState.g?.selectAll('.map-country.has-data').classed('country-dim', d => !connectedISOs.has(+d.id));
+  mapState.g?.selectAll('.map-node')
+    .classed('node-dim',   d => !connectedISOs.has(d.iso))
+    .classed('node-focus', d => d.iso === iso);
 
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = '';
@@ -648,8 +659,8 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
   if (arcEl) arcEl.style.display = '';
   mapState.g?.selectAll('.map-arc').each(function(d) {
     const active = (d.src === srcIso && d.tgt === tgtIso) || (d.src === tgtIso && d.tgt === srcIso);
-    d3.select(this).classed('arc-dim', !active);
-    if (active) d3.select(this).attr('stroke', '#b06aff').attr('stroke-opacity', 1.0);
+    d3.select(this).classed('arc-dim', !active).classed('arc-selected', active);
+    if (active) d3.select(this).attr('stroke-opacity', 1.0);
   });
 
   // Dim nodes / countries — keep only the two endpoints bright
@@ -1106,7 +1117,8 @@ function drawMap(world) {
       d3.select(this).style('font-size', fs + 'px').attr('y', d.cy + d.baseR / k + fs);
     });
     mapState.g.selectAll('.map-arc').each(function(d) {
-      d3.select(this).attr('stroke-width', d.baseSw / k);
+      const isActive = d3.select(this).classed('arc-selected');
+      d3.select(this).attr('stroke-width', (isActive ? d.baseSw * 2.5 : d.baseSw) / k);
     });
     mapState.g.selectAll('.map-arc-hit').each(function() {
       d3.select(this).attr('stroke-width', 12 / k);
