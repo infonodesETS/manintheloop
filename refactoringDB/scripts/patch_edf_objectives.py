@@ -29,8 +29,11 @@ def main():
     def is_valid_objective(text: str) -> bool:
         if len(text) < 60:
             return False
-        low = text.lower()
-        return not any(p in low for p in SKIP_PATTERNS)
+        if len(text) < 200:
+            low = text.lower()
+            if any(p in low for p in SKIP_PATTERNS):
+                return False
+        return True
 
     # Build project_id → objective index
     obj_map: dict[str, str] = {}

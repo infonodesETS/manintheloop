@@ -54,8 +54,13 @@ SKIP_OBJECTIVE_PATTERNS = {"n/a", "not provided", "restricted", "included in par
 def is_valid_objective(text: str) -> bool:
     if not text or len(text) < 60:
         return False
-    low = text.lower()
-    return not any(p in low for p in SKIP_OBJECTIVE_PATTERNS)
+    # Only check skip patterns on short texts — they are placeholder phrases,
+    # not words that can legitimately appear inside a long paragraph.
+    if len(text) < 200:
+        low = text.lower()
+        if any(p in low for p in SKIP_OBJECTIVE_PATTERNS):
+            return False
+    return True
 
 
 def make_edf_entity(edf_id: str, project: dict, call_key: str, call_title: str, objective: str | None) -> dict:
