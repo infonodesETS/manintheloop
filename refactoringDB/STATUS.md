@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-03 (EDF data update — +6 project entities, +78 edf_participation rels)
+> Last updated: 2026-06-03 (EDF full update — 2196 entities, 2791 relationships)
 
 ## Session protocol
 
@@ -329,7 +329,7 @@ refactoringDB/
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-06-03) — after EDF data update |
+| Last validate.py | PASSED (2026-06-03) — after EDF full update (new orgs + rels) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
@@ -520,12 +520,17 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
-### Session 2026-06-03 — EDF data update
+### Session 2026-06-03 — EDF full update
 
 - [x] **Full re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 207 → 212 calls, 76 → 79 projects
-- [x] **`import_edf_projects.py`**: +6 EDF project entities (EDF-0079–EDF-0084), +78 `edf_participation` rels. 26 new participant PICs skipped (not in edf_orgs.json).
-- [x] validate.py PASSED. Total DB: 2163 entities, 2725 relationships.
-- [ ] **Pending**: `patch_edf_objectives.py` — add objective text to 6 new EDF entities
+- [x] **`import_edf_projects.py`**: +6 EDF project entities (EDF-0079–EDF-0084), +78 `edf_participation` rels
+- [x] **`patch_edf_objectives.py`**: objectives added to EDF-0079–0084 (68/84 total have objectives; 16 genuinely N/A from API). Fixed false-positive bug in `is_valid_objective()` — "restricted" substring in long text was filtering out EDF-0081 S.W.I.F.T
+- [x] **Objective logic merged** into `import_edf_projects.py` — future imports write objective at creation time
+- [x] **`build_edf_entities.py`**: +33 new IN-NNNN org entities (26 missing participants from new projects + 7 from other new calls). Zero name-match merges — all genuinely new
+- [x] **`import_edf_projects.py`** re-run: +66 `edf_participation` rels (0 missing PICs). All 6 new projects fully connected
+- [x] **`docs/UPDATE_PROTOCOL.md`**: EDF data refresh pipeline documented (5-step process, constraints, commit format)
+- [x] **Fixed SyntaxError** in `build_edf_entities.py` docstring (triple-quote clash)
+- [x] validate.py PASSED. Total DB: **2196 entities, 2791 relationships**
 
 ### Session 2026-05-27 — Networks layout spacing
 
