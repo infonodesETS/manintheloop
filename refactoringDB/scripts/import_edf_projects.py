@@ -4,11 +4,11 @@ import_edf_projects.py — Creates EDF-NNNN project entities and edf_participati
 relationships from rawdata/edf_calls.json.
 
 Source data:
-  rawdata/edf_calls.json  — 201 calls, 64 with projects, 78 projects, 1657 participant slots
-  data/edf_orgs.json      — PIC→db_id crosswalk for 794 EDF orgs
+  rawdata/edf_calls.json  — calls, projects, participant slots
+  data/edf_orgs.json      — PIC→db_id crosswalk for EDF orgs
 
 Output (written to data/database.json):
-  - EDF-NNNN entities  (type: edf_project)
+  - EDF-NNNN entities  (type: edf_project, includes objective when available)
   - edf_participation relationships  (source=db_id, target=EDF-NNNN)
 
 Re-run safe: skips existing EDF-NNNN entities and duplicate relationships.
@@ -48,9 +48,34 @@ def next_edf_id(existing_ids: set[str]) -> str:
     return f"EDF-{n:04d}"
 
 
-def make_edf_entity(edf_id: str, project: dict, call_key: str, call_title: str) -> dict:
+SKIP_OBJECTIVE_PATTERNS = {"n/a", "not provided", "restricted", "included in part b"}
+
+
+def is_valid_objective(text: str) -> bool:
+    if not text or len(text) < 60:
+        return False
+    low = text.lower()
+    return not any(p in low for p in SKIP_OBJECTIVE_PATTERNS)
+
+
+def make_edf_entity(edf_id: str, project: dict, call_key: str, call_title: str, objective: str | None) -> dict:
     start = project.get("start_date", "") or ""
     end = project.get("end_date", "") or ""
+    edf_src = {
+        "project_id": project.get("project_id"),
+        "acronym": project.get("acronym"),
+        "call_id": call_key,
+        "call_title": call_title,
+        "status": project.get("status"),
+        "start_date": start[:10] if start else None,
+        "end_date": end[:10] if end else None,
+        "overall_budget": project.get("overall_budget"),
+        "eu_contribution": project.get("eu_contribution"),
+        "url": project.get("url"),
+        "type_of_action": project.get("type_of_action"),
+    }
+    if objective:
+        edf_src["objective"] = objective
     return {
         "id": edf_id,
         "type": "edf_project",
@@ -59,19 +84,7 @@ def make_edf_entity(edf_id: str, project: dict, call_key: str, call_title: str) 
         "sector": None,
         "wikidata_id": None,
         "sources": {
-            "edf_project": {
-                "project_id": project.get("project_id"),
-                "acronym": project.get("acronym"),
-                "call_id": call_key,
-                "call_title": call_title,
-                "status": project.get("status"),
-                "start_date": start[:10] if start else None,
-                "end_date": end[:10] if end else None,
-                "overall_budget": project.get("overall_budget"),
-                "eu_contribution": project.get("eu_contribution"),
-                "url": project.get("url"),
-                "type_of_action": project.get("type_of_action"),
-            }
+            "edf_project": edf_src
         },
         "history": [
             {
@@ -106,6 +119,17 @@ def main():
 
     calls = edf_calls_data["calls"]
     orgs = edf_orgs_data["orgs"]
+
+    # Build project_id → objective index
+    obj_map: dict[str, str] = {}
+    for call in calls.values():
+        for proj in call.get("projects") or []:
+            if not isinstance(proj, dict):
+                continue
+            pid = proj.get("project_id")
+            obj = (proj.get("objective") or "").strip()
+            if pid and is_valid_objective(obj):
+                obj_map[pid] = obj
 
     entities: list = db["entities"]
     relationships: list = db["relationships"]
@@ -146,7 +170,7 @@ def main():
             else:
                 all_ids = existing_entity_ids | {e["id"] for e in new_entities}
                 edf_id = next_edf_id(all_ids)
-                entity = make_edf_entity(edf_id, project, call_key, call_title)
+                entity = make_edf_entity(edf_id, project, call_key, call_title, obj_map.get(project_id))
                 new_entities.append(entity)
                 existing_project_ids[project_id] = edf_id
                 existing_entity_ids.add(edf_id)
