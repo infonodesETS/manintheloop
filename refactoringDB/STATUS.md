@@ -17,6 +17,10 @@
 > Run `python3 scripts/validate.py` after any script that modifies `database.json`.
 > All paths are relative to `refactoringDB/`.
 
+### Playwright screenshots
+
+All screenshots taken during Playwright sessions must be saved to `tmp/playwright/` (create the folder if it doesn't exist). The entire `tmp/` directory is in `.gitignore` — never commit screenshots.
+
 ### Always-safe commands
 
 | Command | What it does | Safe to re-run? |
