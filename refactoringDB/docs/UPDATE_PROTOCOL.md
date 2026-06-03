@@ -132,6 +132,88 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
 
 ---
 
+## EDF data refresh pipeline
+
+Run this pipeline whenever new EDF call/project data is available from the EU Participant Portal.
+The goal is: raw data fetched → new org entities created → project entities created → relationships wired → objectives patched → validated → committed.
+
+### Step 1 — Fetch raw data
+
+```bash
+# Full re-fetch (discovers new calls + re-fetches all project/participant details)
+# Overwrites rawdata/edf_calls.json in place
+python3 scripts/fetch_edf_bulk.py
+```
+
+> **Why not `--update`?** The `--update` flag re-checks only calls whose `status` field contains "open" or "forthcoming". In practice the API returns empty or numeric status strings, so `--update` finds 0 calls to re-check. Always use the full fetch.
+
+### Step 2 — Create entities for new participant organisations
+
+New calls may include organisations not seen before — their PICs will not be in `data/edf_orgs.json`, so Step 3 would silently skip their relationships. Fix this first.
+
+```bash
+# Dry-run: shows new IN-NNNN entities that would be created + any name-match merges
+python3 scripts/build_edf_entities.py --dry-run
+
+# Review output carefully:
+#   - New entities: check names look correct (not truncated / garbled)
+#   - Name matches: confirm the matched existing entity is truly the same org
+#   - edf_orgs.json: existing db_id mappings must not be changed
+
+# Apply
+python3 scripts/build_edf_entities.py
+```
+
+**Constraints:**
+- `build_edf_entities.py` deduplicates by PIC — same PIC can never produce two entities.
+- It also tries to match new orgs against existing entities by normalised name. Verify the dry-run: a wrong name match would assign the wrong `db_id` in `edf_orgs.json`, causing a future project relationship to point at the wrong entity.
+- New `IN-NNNN` IDs are assigned sequentially after the current max — correct per schema rules, no action needed.
+- `edf_orgs.json` is rewritten by this script. After running, spot-check a few existing PICs to confirm their `db_id` values are unchanged.
+
+### Step 3 — Import project entities and relationships
+
+```bash
+# Dry-run: shows new EDF-NNNN entities + new edf_participation rels
+# Also reports any PICs still missing from edf_orgs.json (should be 0 after Step 2)
+python3 scripts/import_edf_projects.py --dry-run
+
+# Apply (re-run safe: skips existing EDF-NNNN entities and duplicate rels)
+python3 scripts/import_edf_projects.py
+```
+
+### Step 4 — Patch objectives for any new project entities
+
+```bash
+# Adds sources.edf_project.objective to EDF-NNNN entities that lack it
+# Skips entities that already have objective set — safe to re-run
+python3 scripts/patch_edf_objectives.py --dry-run
+python3 scripts/patch_edf_objectives.py
+```
+
+> **Note:** `import_edf_projects.py` already writes `objective` at creation time for newly created entities. This patch is only needed for entities created before that logic was added (EDF-0001–0084 created before 2026-06-03), or if the API later adds objectives to projects that previously had none.
+
+### Step 5 — Validate and commit
+
+```bash
+python3 scripts/validate.py
+```
+
+```
+# Commit format:
+data: update EDF — +N project entities, +N edf_participation rels (YYYY-MM-DD)
+
+Full re-fetch of rawdata/edf_calls.json (X→Y calls, X→Y projects).
+Import: N new EDF-NNNN entities, N new edf_participation relationships.
+N participant PICs skipped (not in edf_orgs.json) [if any].
+Validation: all checks passed.
+```
+
+### What "WARN: PIC not in edf_orgs" means
+
+If Step 3 still prints PIC warnings after Step 2, it means those organisations were returned by the API but `build_edf_entities.py` could not create entities for them (e.g., the org data was malformed). Each warning represents a missing edge in the graph — that participant has no entity and no `edf_participation` relationship. Document them and investigate manually if coverage matters.
+
+---
+
 ## Safe script execution (dry-run protocol)
 
 ### Scripts with built-in `--dry-run` (preferred)
