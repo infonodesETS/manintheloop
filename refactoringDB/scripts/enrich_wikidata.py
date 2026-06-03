@@ -17,11 +17,14 @@ Uses wbgetentities API (batches of 50, 2 s delay between batches).
 On HTTP 429: exponential backoff [5, 10, 20] s before retrying the batch.
 
 Usage:
-  python3 scripts/enrich_wikidata.py [--dry-run] [--force] [--types TYPE,...]
+  python3 scripts/enrich_wikidata.py [--dry-run] [--force] [--diff] [--types TYPE,...]
 
   --dry-run         Fetch from Wikidata and print what would be written; no DB changes.
   --force           Re-enrich entities that already have sources.wikidata populated.
                     Without --force, already-enriched entities are skipped.
+  --diff            After --force run, print field-level changes (old → new) for every
+                    entity where at least one field changed. Also prints a summary table
+                    of which fields changed most. Works with --dry-run too.
   --types TYPE,...  Comma-separated list of entity types to restrict enrichment to.
                     Example: --types investor,fund,public_fund
 
@@ -210,9 +213,29 @@ def _parse_types_arg(argv: list[str]) -> set[str] | None:
     return None
 
 
+def _diff_wd(old: dict | None, new: dict) -> list[tuple[str, object, object]]:
+    """Return list of (field, old_val, new_val) for fields that changed.
+    Skips retrieved_at (always changes) and aliases (list comparison noise).
+    """
+    SKIP = {"retrieved_at", "aliases"}
+    FIELDS = ["label", "description", "instance_of", "country", "inception",
+              "headquarters", "official_website", "isin", "employees", "wikipedia_url"]
+    changes = []
+    if old is None:
+        return changes  # first-time enrichment — no meaningful diff
+    for f in FIELDS:
+        if f in SKIP:
+            continue
+        o, n = old.get(f), new.get(f)
+        if o != n:
+            changes.append((f, o, n))
+    return changes
+
+
 def main():
     dry_run    = "--dry-run" in sys.argv
     force      = "--force"   in sys.argv
+    show_diff  = "--diff"    in sys.argv
     type_filter = _parse_types_arg(sys.argv)
 
     if dry_run:
@@ -282,6 +305,9 @@ def main():
     print("\nApplying to database.json...")
     enriched = 0
     skipped_missing = 0
+    diff_records: list[tuple[str, str, list]] = []  # (id, name, changes)
+    from collections import Counter
+    field_change_counts: Counter = Counter()
 
     entity_map = {e["id"]: e for e in db["entities"]}
 
@@ -295,12 +321,18 @@ def main():
             continue
 
         wd_data = parse_entity(raw, item_labels)
+        old_wd  = entity.get("sources", {}).get("wikidata")
+        changes = _diff_wd(old_wd, wd_data) if show_diff else []
 
         if dry_run:
             print(f"  [dry] {entity['id']} {entity['name']!r} → {qid}")
             print(f"        label={wd_data['label']!r}  country={wd_data['country']!r}"
                   f"  HQ={wd_data['headquarters']!r}  inception={wd_data['inception']!r}")
             enriched += 1
+            if show_diff and changes:
+                diff_records.append((entity["id"], entity["name"], changes))
+                for f, _, _ in changes:
+                    field_change_counts[f] += 1
             continue
 
         entity["sources"]["wikidata"] = wd_data
@@ -323,12 +355,34 @@ def main():
             "datestamp": TODAY,
         })
         enriched += 1
-        print(f"  ✓ {entity['id']} {entity['name']!r} → {qid}")
+        if show_diff and changes:
+            diff_records.append((entity["id"], entity["name"], changes))
+            for f, _, _ in changes:
+                field_change_counts[f] += 1
+        if not show_diff:
+            print(f"  ✓ {entity['id']} {entity['name']!r} → {qid}")
 
     if not dry_run:
         db["_updated"] = TODAY
         with open(DATABASE_PATH, "w", encoding="utf-8") as f:
             json.dump(db, f, ensure_ascii=False, indent=2)
+
+    # ── Diff report ───────────────────────────────────────────────────────────
+    if show_diff:
+        print(f"\n{'=' * 60}")
+        print(f"DIFF REPORT — {len(diff_records)} entities with field changes\n")
+        for eid, ename, changes in diff_records:
+            print(f"  {eid}  {ename}")
+            for field, old_val, new_val in changes:
+                print(f"    {field}:")
+                print(f"      - {old_val!r}")
+                print(f"      + {new_val!r}")
+        if field_change_counts:
+            print(f"\n  Field change frequency:")
+            for field, count in field_change_counts.most_common():
+                print(f"    {field:25s}  {count:4d} entities")
+        else:
+            print("  No field changes detected.")
 
     print(f"\n{'=' * 60}")
     if dry_run:
