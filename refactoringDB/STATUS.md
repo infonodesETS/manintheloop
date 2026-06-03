@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-05-27 (networks — layout spacing + NETWORKS_LAYOUT.md)
+> Last updated: 2026-06-03 (EDF data update — +6 project entities, +78 edf_participation rels)
 
 ## Session protocol
 
@@ -329,7 +329,7 @@ refactoringDB/
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-05-07) — after IV/fund/public_fund Wikidata enrichment |
+| Last validate.py | PASSED (2026-06-03) — after EDF data update |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
@@ -520,6 +520,13 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-06-03 — EDF data update
+
+- [x] **Full re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 207 → 212 calls, 76 → 79 projects
+- [x] **`import_edf_projects.py`**: +6 EDF project entities (EDF-0079–EDF-0084), +78 `edf_participation` rels. 26 new participant PICs skipped (not in edf_orgs.json).
+- [x] validate.py PASSED. Total DB: 2163 entities, 2725 relationships.
+- [ ] **Pending**: `patch_edf_objectives.py` — add objective text to 6 new EDF entities
+
 ### Session 2026-05-27 — Networks layout spacing
 
 - [x] **`networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
