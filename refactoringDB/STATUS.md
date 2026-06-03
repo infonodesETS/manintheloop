@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-03 (EDF full update — 2196 entities, 2791 relationships)
+> Last updated: 2026-06-03 (feat: Network ↗ button on EDF project profiles)
 
 ## Session protocol
 
@@ -520,6 +520,14 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-06-03 — EDF full update + Network button
+
+- [x] **`search.html` — Network ↗ button** on EDF project profiles (`renderEdfProjectProfile`)
+  - Links to `networks.html?edf=1&inv=0&selected=EDF-NNNN` (no country param)
+  - `networks.html`: `resolveEntityCountry()` for EDF-* now prefers coordinator's country (sorts coordinator rel first, falls back to first participant)
+  - `networks.html` init: resolves country from `selected` entity when `country` param absent
+  - No impact on org/investor profiles
+
 ### Session 2026-06-03 — EDF full update
 
 - [x] **Full re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 207 → 212 calls, 76 → 79 projects
