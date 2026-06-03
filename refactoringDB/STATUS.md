@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-03 (feat: Network ↗ button on EDF project profiles)
+> Last updated: 2026-06-03 (session complete — EDF update + Network button)
 
 ## Session protocol
 
@@ -329,7 +329,7 @@ refactoringDB/
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-06-03) — after EDF full update (new orgs + rels) |
+| Last validate.py | PASSED (2026-06-03) — after EDF full update (2196 entities, 2791 rels) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
