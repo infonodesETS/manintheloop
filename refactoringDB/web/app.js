@@ -1461,6 +1461,8 @@ function renderEdfProjectProfile(item) {
   document.getElementById('cs-desc').style.display = ps.objective ? '' : 'none';
 
   let links = '';
+  const netUrl = `networks.html?edf=1&inv=0&selected=${encodeURIComponent(e.id)}&selectedName=${encodeURIComponent(e.name || '')}`;
+  links += `<a class="cs-ext-link" href="${netUrl}">Network ↗</a>`;
   if (ps.url) links += `<a class="cs-ext-link" href="${esc(ps.url)}" target="_blank">EU Portal ↗</a>`;
   document.getElementById('cs-links').innerHTML = links;
 

@@ -1118,8 +1118,9 @@ function resolveEntityCountry(id) {
   const c = getCountry(e);
   if (c && countryIndex[c]) return c;
   if (id.startsWith('EDF-')) {
-    for (const r of edfRels) {
-      if (r.target !== id) continue;
+    // Prefer coordinator's country, fall back to first participant with a known country
+    const projRels = edfRels.filter(r => r.target === id);
+    for (const r of [...projRels].sort((a, b) => (a.role === 'coordinator' ? -1 : 1))) {
       const se = entityMap[r.source];
       if (!se) continue;
       const sc = getCountry(se);
@@ -1302,9 +1303,12 @@ async function init() {
   const defaultCountry = (localeCountry && countryIndex[localeCountry])
     ? localeCountry
     : (countryCounts[0]?.country || '__all__');
+  const resolvedFromSelected = (!params.country && params.selected)
+    ? resolveEntityCountry(params.selected)
+    : null;
   const country = (params.country && (countryIndex[params.country] || params.country === '__all__'))
     ? params.country
-    : defaultCountry;
+    : (resolvedFromSelected || defaultCountry);
 
   select.value   = country;
   chkEdf.checked = params.edf;
