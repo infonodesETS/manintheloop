@@ -85,11 +85,8 @@ def significant_tokens(name_key: str, min_len: int = 3) -> list[str]:
 
 
 def clean_csv_name(raw: str) -> str:
-    """
-    Strip outer CSV quoting and unescape doubled double-quotes.
-    Some EDF org names arrive as: '"NAME WITH ""NICKNAME"""'
-    Correct result: 'NAME WITH "NICKNAME"'
-    """
+    # Strip outer CSV quoting and unescape doubled double-quotes.
+    # e.g. input:  '"NAME WITH ""NICKNAME"""'  →  output: 'NAME WITH "NICKNAME"'
     s = raw.strip()
     if s.startswith('"') and s.endswith('"'):
         s = s[1:-1]
