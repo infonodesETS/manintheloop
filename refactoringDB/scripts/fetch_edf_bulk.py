@@ -67,34 +67,52 @@ DELAY_PROJECT = 0.8   # between projects during detail fetch
 # HTTP helpers
 # ══════════════════════════════════════════════════════════════════════════════
 
-def http_get(url: str, timeout: int = 20) -> dict | list | None:
-    """GET request → parsed JSON, or None on error."""
-    try:
-        req = Request(url, headers={"Accept": "application/json", "User-Agent": "infonodes-fetcher/1.0"})
-        with urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode())
-    except (HTTPError, URLError, json.JSONDecodeError) as e:
-        print(f"    [warn] GET {url[:80]}… → {e}", file=sys.stderr)
-        return None
+def http_get(url: str, timeout: int = 20, retries: int = 3) -> dict | list | None:
+    """GET request → parsed JSON, or None on error. Retries on transient OSError."""
+    for attempt in range(1, retries + 1):
+        try:
+            req = Request(url, headers={"Accept": "application/json", "User-Agent": "infonodes-fetcher/1.0"})
+            with urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode())
+        except (HTTPError, URLError, json.JSONDecodeError) as e:
+            print(f"    [warn] GET {url[:80]}… → {e}", file=sys.stderr)
+            return None
+        except OSError as e:
+            if attempt < retries:
+                wait = 5 * attempt
+                print(f"    [retry {attempt}/{retries}] {e} — waiting {wait}s…", file=sys.stderr)
+                time.sleep(wait)
+            else:
+                print(f"    [warn] GET {url[:80]}… → {e}", file=sys.stderr)
+                return None
 
 
-def http_post(url: str, params: dict, timeout: int = 20) -> dict | None:
+def http_post(url: str, params: dict, timeout: int = 20, retries: int = 3) -> dict | None:
     """POST request with application/x-www-form-urlencoded body → parsed JSON."""
     body = urlencode(params).encode()
-    try:
-        req = Request(
-            url, data=body,
-            headers={
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Accept": "application/json",
-                "User-Agent": "infonodes-fetcher/1.0",
-            }
-        )
-        with urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode())
-    except (HTTPError, URLError, json.JSONDecodeError) as e:
-        print(f"    [warn] POST {url[:80]}… → {e}", file=sys.stderr)
-        return None
+    for attempt in range(1, retries + 1):
+        try:
+            req = Request(
+                url, data=body,
+                headers={
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Accept": "application/json",
+                    "User-Agent": "infonodes-fetcher/1.0",
+                }
+            )
+            with urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode())
+        except (HTTPError, URLError, json.JSONDecodeError) as e:
+            print(f"    [warn] POST {url[:80]}… → {e}", file=sys.stderr)
+            return None
+        except OSError as e:
+            if attempt < retries:
+                wait = 5 * attempt
+                print(f"    [retry {attempt}/{retries}] {e} — waiting {wait}s…", file=sys.stderr)
+                time.sleep(wait)
+            else:
+                print(f"    [warn] POST {url[:80]}… → {e}", file=sys.stderr)
+                return None
 
 
 # ══════════════════════════════════════════════════════════════════════════════
