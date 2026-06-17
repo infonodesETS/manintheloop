@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="web/components.css">
   <style>
     html { font-size: 120%; }
+    :root { --nav-h: 64px; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 
     /* ── Map layout (copied from refactoring css/map.css) ── */
@@ -105,6 +106,12 @@
     [data-theme="light"] .map-filter-bar { background: rgba(0,102,34,0.06); border-color: rgba(0,102,34,0.25); }
     [data-theme="light"] .map-filter-clear { border-color: rgba(0,102,34,0.3); }
 
+    /* ── Language switcher ── */
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+
     /* loading overlay */
     #map-loading {
       position: absolute; inset: 0; display: flex; flex-direction: column;
@@ -118,9 +125,15 @@
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="./" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-muted);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
 </div>
 
 <!-- ── Tabnav ── -->
@@ -139,14 +152,14 @@
     <!-- Side panel -->
     <div id="map-panel">
       <div id="map-panel-header">
-        <span id="map-panel-title" class="sl-title">About this map</span>
+        <span id="map-panel-title" class="sl-title" data-i18n="map.about_this_map">About this map</span>
         <button id="map-close-panel-btn" class="sl-close">✕</button>
       </div>
       <div id="map-panel-body">
         <div class="sl-panel-section">
-          <div class="sl-section-lbl">What this map shows</div>
-          <p class="map-intro-text">Each circle represents a country with at least one company in the database. Circle size reflects the number of cross-border investor connections.</p>
-          <p class="map-intro-text">Arcs connect investor countries (faint end) to company countries (bright end). Click a country to explore its companies and investor relationships.</p>
+          <div class="sl-section-lbl" data-i18n="map.section_title">Cosa trovi in questa sezione</div>
+          <p class="map-intro-text" data-i18n="map.intro">In questa pagina è possibile tracciare alcuni dei finanziamenti più rilevanti dal Paese di origine alle società di un Paese terzo.</p>
+          <p class="map-intro-text" data-i18n="map.circle_explanation">Ogni cerchio rappresenta un Paese con almeno un soggetto nel database. Il diametro riflette il numero di relazioni transnazionali. Selezionando un Paese, appariranno degli archi di connessione.</p>
         </div>
       </div>
     </div>
@@ -155,13 +168,13 @@
     <div id="map-main">
       <div id="map-toolbar">
         <div class="map-edf-switch" title="Filter entities by EU Funding (EDF)">
-          <span class="map-edf-lbl is-active" id="map-lbl-all">All Entities</span>
+          <span class="map-edf-lbl is-active" id="map-lbl-all" data-i18n="map.all_entities">All Entities</span>
           <label class="map-switch">
             <input type="checkbox" id="map-edf-toggle">
             <span class="map-switch-track"></span>
             <span class="map-switch-knob"></span>
           </label>
-          <span class="map-edf-lbl" id="map-lbl-edf">EU Funded Only</span>
+          <span class="map-edf-lbl" id="map-lbl-edf" data-i18n="map.eu_funded">EU Funded Only</span>
         </div>
         <span class="map-toolbar-sep"></span>
         <!--
@@ -170,7 +183,7 @@
         </label>
         -->
         <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
-        <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn">Reset zoom</button>
+        <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn" data-i18n="map.reset_zoom">Reset zoom</button>
       </div>
       <div id="map-filter-bar" class="map-filter-bar" style="display:none">
         <span>Filtering by: <strong id="map-filter-label"></strong></span>
@@ -178,7 +191,7 @@
       </div>
       <div id="map-loading">
         <div class="spin"></div>
-        <span>Loading map data…</span>
+        <span data-i18n="map.loading">Loading map data…</span>
       </div>
       <svg id="map-svg"></svg>
     </div>
@@ -189,6 +202,7 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
 <script>
 'use strict';
 
@@ -367,7 +381,7 @@ function restoreMapState({ country, entity, type, arc } = {}) {
 
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
-  document.getElementById('map-panel-title').textContent = 'About this map';
+  document.getElementById('map-panel-title').textContent = t('map.about_this_map');
   const edf = mapState.edfOnly;
   const allCos = Object.values(entityMap).filter(e => e.id?.startsWith('IN-'));
   const visCos = edf ? allCos.filter(e => e.sources?.edf) : allCos;
@@ -376,17 +390,25 @@ function setDefaultPanelContent() {
   const totCo    = visCos.length;
   const totCbInv = visCos.filter(e => e.sources?.crunchbase?.top_investors?.length).length;
   const visArcs  = edf ? mapState.arcData.filter(d => mapState.edfISOs.has(d.tgt)) : mapState.arcData;
-  const filterLabel = edf ? ' (EU Funded Only)' : '';
+  const filterLabel = edf ? ` (${t('map.eu_funded')})` : '';
   document.getElementById('map-panel-body').innerHTML = `
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">What this map shows${filterLabel}</div>
-      <p class="map-intro-text">The dataset covers <strong>${coCount} countries</strong> and <strong>${totCo} entities</strong>, with <strong>${visArcs.length} cross-border investor connections</strong>.</p>
-      <p class="map-intro-text">Each circle represents a country with at least one entity in the database. Circle size reflects the number of cross-border investor connections — larger circles are financial hubs.</p>
-      <p class="map-intro-text">Arcs connect investor countries (faint end) to entity countries (bright end). Click a country circle or shaded area to explore its entities and investor relationships.</p>
+      <div class="sl-section-lbl">${t('map.section_title')}${filterLabel}</div>
+      <p class="map-intro-text">${t('map.intro')}</p>
+      <p class="map-intro-text">${t('map.dataset_stats', { countries: coCount, entities: totCo, arcs: visArcs.length })} ${t('map.circle_explanation')}</p>
     </div>
     <div class="sl-panel-section">
-      <div class="sl-section-lbl">Investor data${filterLabel}</div>
-      <p class="map-intro-text"><strong>${totCbInv}</strong> entities have investor data from Crunchbase. Click any entity to see its backers. ${visArcs.length > 0 ? `<strong>${visArcs.length} cross-border arcs</strong> are currently mapped` : 'Arcs appear as more investor countries are resolved'}.</p>
+      <div class="sl-section-lbl">${t('map.how_to_read')}</div>
+      <p class="map-intro-text">${t('map.arc_colors')}<br>
+        <span style="color:#4d9fff">■</span> ${t('map.arc_blue')}<br>
+        <span style="color:#ff5555">■</span> ${t('map.arc_red')}<br>
+        <span style="color:#b06aff">■</span> ${t('map.arc_purple')}
+      </p>
+      <p class="map-intro-text">${t('map.arc_click')}</p>
+    </div>
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">${t('map.our_data')}${filterLabel}</div>
+      <p class="map-intro-text">${t('map.data_source', { investors: totCbInv })}</p>
     </div>
   `;
 }
@@ -1269,6 +1291,12 @@ async function init() {
 }
 
 init();
+
+document.addEventListener('mitl-lang-change', () => {
+  if (mapState.built && !mapState.selectedIso && !mapState.activeFilter && !mapState.selectedArc) {
+    setDefaultPanelContent();
+  }
+});
 </script>
 </body>
 </html>

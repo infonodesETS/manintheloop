@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="web/components.css">
   <style>
     html { font-size: 120%; }
+    :root { --nav-h: 64px; }
     body { overflow: auto; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
     #page-content {
@@ -26,15 +27,26 @@
       border: 1px solid var(--border); border-radius: 50px; padding: 3px 14px;
       color: var(--text-faint);
     }
+    /* ── Language switcher ── */
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
   </style>
 </head>
 <body>
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="index.html" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-muted);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
 </div>
 
 <!-- ── Tabnav ── -->
@@ -48,13 +60,46 @@
 
 <div id="page-content">
   <div class="tbd-prompt">$ man-in-the-loop --about</div>
-  <div class="tbd-title">About</div>
-  <div class="tbd-desc">
-    Man in the Loop is an experimental open-data research project mapping companies and investors
-    in the defence sector — tracking who finances whom across the global defence supply chain,
-    with a focus on European Defence Fund beneficiaries (2021–2027).<br><br>
-    Methodology, data sources, known issues, and team information will be documented here.
+  <div class="tbd-title" data-i18n="about.title">About</div>
+  <div class="tbd-desc" data-i18n="about.intro">
+    La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di Privacy International, nell'ambito del programma globale "Militarisation of Tech".
   </div>
+
+  <div style="margin-bottom: 32px;">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ team --current-prototype</div>
+    <p data-i18n="about.team_lead" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">L'attuale prototipo è stato sviluppato da:</p>
+    <ul data-i18n-html="about.team_list" style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
+      <li>Davide Del Monte — Coordinatore e Lead Researcher</li>
+      <li>Laura Carrer — Researcher</li>
+      <li>Andrea Daniele Signorelli — Researcher</li>
+    </ul>
+    <p data-i18n="about.collab" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">in collaborazione con DATAPITCH:</p>
+    <ul data-i18n-html="about.datapitch_list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
+      <li>Andrea Nelson Mauro — Developer e Data expert</li>
+      <li>Emma Besseghini — Junior Researcher</li>
+    </ul>
+  </div>
+
+  <div style="margin-bottom: 32px;">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --methodology</div>
+    <p data-i18n="about.data_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">I dati di Man in the Loop</p>
+    <p data-i18n="about.data_p1" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Il progetto di ricerca sperimentale open data ha lo scopo di mappare le aziende e gli investitori nel settore delle armi autonome, lungo tutta la catena di approvvigionamento globale.</p>
+    <p data-i18n="about.data_p2" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 8px;">Per lo sviluppo di questo prototipo abbiamo costruito un database inserendo le seguenti società quotate alla borsa di Wall Street e identificate per settore utilizzando i codici GICS:</p>
+    <ul data-i18n-html="about.data_sectors" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 12px;">
+      <li>Settore Minerario: Materials, con focus su Metals &amp; Mining (Codice GICS 151040).</li>
+      <li>Settore Tech: Information Technology (Codice GICS 45), Communication Services (Codice GICS 50).</li>
+      <li>Settore della difesa: Aerospace &amp; Defence (Codice GICS 201010).</li>
+    </ul>
+    <p data-i18n="about.data_p3" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo inoltre aggiunto 18 start-up europee ritenute rilevanti nel settore. Creato il database, abbiamo ricavato i dati relativi ai Lead Investors e ai Top Investors dalla piattaforma a pagamento Crunchbase.</p>
+    <p data-i18n="about.data_nota" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body);">NOTA: tutte le informazioni presenti nelle sezioni della piattaforma sono la fotografia alla data in cui abbiamo scaricato le informazioni da Crunchbase (aprile 2026).</p>
+  </div>
+
+  <div style="margin-bottom: 32px;">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --edf-focus</div>
+    <p data-i18n="about.edf_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Il Focus EDF</p>
+    <p data-i18n="about.edf_text" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body);">Abbiamo raccolto e inserito nel database tutte le entità (società, università, centri di ricerca, istituzioni pubbliche) che hanno partecipato a progetti EDF (European Defence Fund) e che quindi hanno ricevuto, direttamente o indirettamente, dei fondi dall'Unione Europea per fare ricerca, sviluppare, produrre e commercializzare dei sistemi d'arma autonomi.</p>
+  </div>
+
   <div style="margin-bottom: 32px;">
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ links</div>
     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
@@ -71,10 +116,9 @@
       <li><a href="data/qid_candidates.json" style="color: var(--accent); text-decoration: none;">data/qid_candidates.json</a> — Wikidata QID review file: 1003 entries (accepted / rejected / skipped)</li>
     </ul>
   </div>
-
-  <span class="tbd-badge">TBD — coming soon</span>
 </div>
 
 <script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
 </body>
 </html>

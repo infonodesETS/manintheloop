@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="web/components.css">
   <style>
     html { font-size: 120%; }
+    :root { --nav-h: 64px; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
     body { overflow: hidden; padding-top: 0; }
 
@@ -260,15 +261,26 @@
       padding: 14px 12px; color: var(--text-faint);
       font-family: var(--font); font-size: var(--fs-body); text-align: center;
     }
+    /* ── Language switcher ── */
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
   </style>
 </head>
 <body>
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="index.html" class="brand">Man in the Loop <span>—</span> <span class="brand-infonodes">info<span class="brand-dot">.</span>nodes</span></a>
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-muted);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
 </div>
 
 <!-- ── Tabnav ── -->
@@ -284,22 +296,22 @@
 
   <!-- ── Sidebar ── -->
   <div id="sidebar">
-    <div id="net-title">Defence Network</div>
+    <div id="net-title" data-i18n="net.title">Defence Network</div>
 
-    <div class="net-section-label">Find entity</div>
+    <div class="net-section-label" data-i18n="net.find_entity">Find entity</div>
     <div class="net-search-wrap" id="net-search-wrap">
-      <input id="net-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false">
+      <input id="net-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:net.search_placeholder">
       <button id="net-search-clear" title="Clear">×</button>
     </div>
     <div id="net-search-ac" role="listbox"></div>
 
-    <div class="net-section-label">Country</div>
+    <div class="net-section-label" data-i18n="net.country">Country</div>
     <select id="country-select"></select>
     <div id="all-edf-warn" class="all-edf-warn" style="display:none">
       Large graph — layout may take a few seconds.
     </div>
 
-    <div class="net-section-label">Relationships</div>
+    <div class="net-section-label" data-i18n="net.relationships">Relationships</div>
     <div class="net-filter-group">
       <label class="net-filter-row">
         <input type="checkbox" id="chk-edf" checked> EDF participation
@@ -309,10 +321,10 @@
       </label>
     </div>
 
-    <div class="net-section-label" id="view-label">In this view</div>
-    <div id="net-stats">Select a country to see stats.</div>
+    <div class="net-section-label" id="view-label" data-i18n="net.in_view">In this view</div>
+    <div id="net-stats" data-i18n="net.select_country">Select a country to see stats.</div>
 
-    <div class="net-section-label">Actors</div>
+    <div class="net-section-label" data-i18n="net.actors">Actors</div>
     <div class="net-legend">
       <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company <span class="net-legend-count" id="lc-company"></span></div>
       <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution <span class="net-legend-count" id="lc-institution"></span></div>
@@ -320,18 +332,19 @@
       <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency <span class="net-legend-count" id="lc-gov"></span></div>
     </div>
 
-    <div class="net-section-label">Connections</div>
+    <div class="net-section-label" data-i18n="net.connections">Connections</div>
     <div class="net-legend">
       <div class="net-legend-item"><span class="net-legend-diamond"></span>EU funded projects <span class="net-legend-count" id="lc-project"></span></div>
       <div class="net-legend-item"><span class="net-legend-line-solid"></span>EU funded connections <span class="net-legend-count" id="lc-edf"></span></div>
       <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Private investments <span class="net-legend-count" id="lc-inv"></span></div>
     </div>
 
-    <div id="net-note">
-      <b>In this view</b> counts nodes and edges visible for the selected country. Entities are organisations based in that country; EDF projects and investors are their direct connections.<br><br>
-      Diamond size = EU budget. Circles are uniform.<br>
-      Click node → details + cross-country connections.<br>
-      Click background → reset.
+    <div id="net-note" data-i18n-html="net.note">
+      In questa sezione è possibile esplorare le relazioni economiche tra i soggetti presenti nel database.<br><br>
+      È possibile visualizzare i soli progetti finanziati attraverso EDF (European Defence Funds).<br><br>
+      Dimensione del rombo = bilancio UE. I cerchi sono uniformi.<br>
+      Clicca sul nodo → dettagli + collegamenti transnazionali.<br>
+      Clicca sullo sfondo → ripristina.
     </div>
   </div>
 
@@ -802,7 +815,7 @@ function updateFocusStats(nodeId) {
     else if (t === 'government_agency') typeCounts.gov++;
   });
 
-  document.getElementById('view-label').textContent = 'Selected node';
+  document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.selected_node') : 'Selected node';
   updateStats({
     entityCount:   neighborNodes.filter(n => n.data('kind') === 'entity').length,
     projectCount:  neighborNodes.filter(n => n.data('kind') === 'project').length,
@@ -860,7 +873,7 @@ function clearFocus() {
   cy.elements().removeClass('dimmed').removeClass('focused');
   removeExtraElements();
   if (cachedStats) {
-    document.getElementById('view-label').textContent = 'In this view';
+    document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.in_view') : 'In this view';
     updateStats(cachedStats);
   }
   if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
@@ -983,7 +996,7 @@ function renderNetwork(country, restoreSelected) {
   setTimeout(() => {
     const result = buildElements(country, showEdf, showInv);
     cachedStats = result;
-    document.getElementById('view-label').textContent = 'In this view';
+    document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.in_view') : 'In this view';
     updateStats(result);
 
     if (cy) { cy.destroy(); cy = null; }
@@ -1347,8 +1360,20 @@ init().catch(err => {
   document.getElementById('net-loading').textContent = 'Error: ' + err.message;
   console.error(err);
 });
+
+document.addEventListener('mitl-lang-change', () => {
+  const viewLabel = document.getElementById('view-label');
+  const netStats  = document.getElementById('net-stats');
+  if (viewLabel && viewLabel.getAttribute('data-i18n')) {
+    viewLabel.textContent = t(viewLabel.getAttribute('data-i18n'));
+  }
+  if (netStats && netStats.getAttribute('data-i18n')) {
+    netStats.textContent = t(netStats.getAttribute('data-i18n'));
+  }
+});
 </script>
 
 <script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 # Titolo nell'Header
 
-**Man in the loop - Prototipo v.1-20260715**
+**Riga 1 (verde, font +50%):** Man in the loop
 
-Powered by info.nodes + DATAPITCH
+**Riga 2 (grigio, font -50%):** Prototype v.1-20260715
 
 
 
