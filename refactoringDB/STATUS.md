@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-17 (STATUS cleanup — aerospace ETF todo removed, import confirmed complete)
+> Last updated: 2026-06-17 (EDF refresh — 79→82 projects, +2 org entities, +7 rels; Wikidata: nothing new)
 
 ## Session protocol
 
@@ -329,7 +329,7 @@ refactoringDB/
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-06-03) — after EDF full update (2196 entities, 2791 rels) |
+| Last validate.py | PASSED (2026-06-17) — after EDF refresh (2198 entities, 2798 rels) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
@@ -520,6 +520,16 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-06-17 — EDF refresh + Wikidata (no-op)
+
+- [x] **EDF re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 212 calls, 79→82 projects
+  - Fixed `RemoteDisconnected` crash: added `OSError` retry with backoff (3 attempts, 5s/10s) to `http_get`/`http_post`
+- [x] **`build_edf_entities.py`**: +2 new IN-NNNN participant org entities (815 matched to existing)
+- [x] **`import_edf_projects.py`**: +7 `edf_participation` rels (0 new project entities — all 82 already exist)
+- [x] **`patch_edf_objectives.py`**: 0 updates needed (68 already have objectives; 16 remain N/A from API — unchanged)
+- [x] **Wikidata enrichment**: nothing to do — 868 QID-bearing entities already enriched; 2 new orgs have no QID
+- [x] validate.py PASSED. Total DB: **2198 entities, 2798 relationships**
+
 ### Session 2026-06-03 — EDF full update + Network button
 
 - [x] **`search.html` — Network ↗ button** on EDF project profiles (`renderEdfProjectProfile`)
