@@ -1,0 +1,304 @@
+Man in
+the loop
+show of force
+Davide Del Monte
+www.infonodes.org
+
+Artwork by
+@npprgl
+
+0. Who we are
+info.nodes is an Italian nonprofit organization, founded
+in 2019 by journalists and activists to experiment new
+solutions in the Italian civil society and media
+landscape.
+We focus on social and climate justice, the impact of
+new technologies on human rights, and the protection
+of freedom of speech.
+We produce investigations, connect tech-activists,
+researchers, and artists, develop innovative advocacy
+and communication formats to reach wider audiences.
+We also organize exhibitions, networking events, offer
+technical training for journalists and activists, and
+create investigative-based comms materials.
+We love to work in collaboration with other
+organizations, because “no man is an island”.
+Project team: Davide Del Monte, Laura Carrer, Andrea
+Daniele Signorelli
+
+In collaboration with:
+Datapitch
+An Italian company providing support in data analysis
+and data visualization, thanks to their experience in
+database development and management, multimedia
+content production, and the creation of digital tools.
+TBD
+We are still looking for an editorial partner.
+We need to obtain some preliminary results, in order to
+decide which type of publication can ensure the
+maximum impact: a series of articles, a single
+investigation, an academic-style research, a book?
+
+1. Objective and scope
+Identifying who truly holds the reins of autonomous
+weapons research and production, by reconstructing
+decision-making influence and investments across the
+entire supply chain.
+
+Our ideal goal:
+
+Companies
+Tech: ≈ 15.000 billion of USD
+Defence: ≈ 1.000 billion of USD
+Mining: ≈ 900 billion of USD
+
+Tech / Defence / Mining
+
+Investment Funds
+BlackRock, Vanguard Group, Fidelity Investments,
+State Street Global Advisors, JP Morgan
+Venture Capital
+Andreessen Horowitz (a16z), Sequoia Capital, Tiger
+Global Management, New Enterprise Associates
+(NEA), Lightspeed Venture Partners
+
+Identify the main investors and governance
+relationships in:
+
+2. The 3 main focus
+
+1.
+
+2.
+
+3.
+
+Start-up in Europe
+
+Private investors in MoT
+
+Public EU funding to MoT
+
+We want to highlight the significant growth
+of the European startup sector dedicated to
+the development of autonomous systems
+and defense technologies.
+
+As mentioned, one of the pieces of
+information we are most interested in is
+which funds, other companies, or
+individuals are investing in the sector.
+Ideally, we would be able to determine if
+certain entities are investing across
+multiple segments of the supply chain,
+thereby securing a position of not just
+economic advantage, but of decisionmaking power.
+If an entity is present at every stage of
+the chain (raw material extraction →
+development of AI-based technologies
+→ production of armaments using such
+technology), it is evident that their power
+increases considerably.
+
+Regarding the startup sector in particular,
+we also want to understand the role
+played by European institutions,
+specifically in financially backing and thus
+promoting the development of this
+industrial sector.
+At this stage, we are mapping the various
+European funds and programs directing
+capital toward this area.
+Starting from April, we plan to collect all
+data on funding, projects, and
+beneficiaries from the various European
+portals.
+
+Helsing
+ARX Robotics
+Quantum Systems
+Destinus
+Tekever
+Comand AI
+Intelic (nome legale Avalor AI)
+Arondite
+Origin Robotics
+Roark Aerospace
+Unmanned Defence Systems
+Alpine Eagle
+Alta Ares
+C2Grid
+Delian
+ICEYE
+Nordic Air Defence
+XRF
+
+Germany
+Germany
+Germany
+Netherlands
+Portugal
+France
+Netherlands
+United Kingdom
+Latvia
+United Kingdom
+Lithuania
+Germany
+France
+Estonia
+United Kingdom
+Finland
+Sweden
+Spain
+
+3. Methodology in brief
+
+1.
+
+2.
+
+3.
+
+4.
+
+Identification of companies
+
+Data collection
+
+Data Analysis
+
+Research / Investigation
+
+Ongoing (test completed)
+
+Ongoing
+
+Testing phase
+
+Final phase
+
+A first test list of companies
+was created in February.
+
+We are now collecting all
+the information about
+investors.
+
+We are already «playing»
+with data, in order to better
+understand what we can
+extract from them.
+
+Once we have collected all
+the information and
+processed all the data, we
+will go in-depth with
+companies or cases that
+seem particularly intresting.
+
+We will add a new wave of
+companies and other
+subjects (April / June).
+
+In a next phase we will try to
+collect information about
+governance and or
+relationships with public
+universities.
+
+Any advice is welcome
+here!
+
+4. The research
+
+1.
+Identification of companies
+
+a) We created a test list of companies based
+on market capitalization or economic valuation
+(for unlisted companies, such as startups).
+Additionally, we asked several Italian and
+international organizations to suggest names
+of companies they considered interesting for
+inclusion in the list.
+The list is actually composed by:
+• 18 European start-up companies
+• 22 Global Tech companies
+• 65 Global Defence companies
+• 67 Global Mining companies
+
+b) Enrichment of the list of companies with
+all the subjects (companies, universities,
+research centers) that received European
+funds (ex. EDF, Horizon, etc…)
+Connect -> EU Call Checker
+
+4. The research
+
+2.
+Data collection
+
+a) In mid-February, we opened a one-month
+paid subscription on Crunchbase, one of the
+most well-known private databases for
+information on companies and investment
+funds. This subscription allowed us to upload
+our list of companies, view detailed
+information on them, and export the relevant
+data for our work in CSV format.
+*Unfortunately, a direct API connection is not
+
+possible, as the cost exceeds 35,000 USD per
+year.
+
+b) Datapitch developed a script to create a
+GitHub-hosted mini-site for info.nodes.
+The site lists every company previously
+identified and includes dedicated pages that
+organize their Wikipedia data according to a
+custom schema we designed.
+Connect -> Wikidata Inspector
+
+4. The research
+
+3.
+Data analysis
+
+a) Together with Datapitch, we developed a
+code (using Claude) to analyze the collected
+data and create network analysis
+visualizations.
+Our core question is: 'Who is investing money
+in multiple companies and across multiple
+interconnected sectors?
+
+b) In this case as well, we created a GitHub
+repository to host the data analysis and
+network visualization.
+We want to make all our results accessible
+and free for all.
+Connect > Data Analysis
+
+4. The research
+
+4.
+Research / Investigation
+
+a) The research team (Davide, Laura, Andrea
+Daniele) will analyse and investigate the most
+interest information and publish a report
+focuses on the European start-up ecosystems,
+the main private investors in the MoT sector
+and the stream of EU funds.
+
+Possibility to investigate governance
+connections and relationships with public
+universities too.
+
+a) Proposal for a follow up:
+
+Hackaton with P.I. using the data collected by
+info.nodes and DataPitch.
+
+

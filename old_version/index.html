@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>info.nodes — experiments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/nav.css">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:#000;
+  color:#fff;
+  font-family:'Barlow Condensed','Inter',sans-serif;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* ── HERO ── */
+main {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:44px;
+}
+
+.terminal-line {
+  font-family:'JetBrains Mono','Courier New',monospace;
+  color:#00ff41;
+  font-size:1.35rem;
+  display:flex;
+  align-items:center;
+  text-shadow:0 0 12px rgba(0,255,65,0.4);
+}
+
+.cursor {
+  display:inline-block;
+  width:0.55em;
+  height:1.1em;
+  background:#00ff41;
+  margin-left:3px;
+  vertical-align:text-bottom;
+  box-shadow:0 0 8px rgba(0,255,65,0.6);
+  animation:blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity:1; }
+  50%       { opacity:0; }
+}
+</style>
+</head>
+<body>
+
+<nav id="in-nav">
+  <a href="./" class="in-brand">info<span>.</span>nodes</a>
+  <div class="in-links">
+    <a href="crunchbase_scraping/test_startup/" class="in-link">Startup Map</a>
+    <a href="crunchbase_full/"                  class="in-link">Investment Map</a>
+    <a href="wikidata_inspector/"               class="in-link">Wikidata</a>
+    <a href="call-checker_infonodes/"           class="in-link">EU Call Checker</a>
+    <a href="about.html"                        class="in-link">About</a>
+    <span class="in-sep"></span>
+    <a href="https://github.com/infonodesETS/manintheloop" target="_blank" class="in-link in-gh">↗ GitHub</a>
+  </div>
+</nav>
+
+<main>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;max-width:560px;">
+    <div class="terminal-line">
+      Hello World!
+    </div>
+    <div class="terminal-line" style="font-size:1rem;opacity:0.75;">
+      This is an experimental research to map companies working either as manufacturers or investors in the Defence field, in Europe and abroad.
+    </div>
+    <div class="terminal-line" style="font-size:1rem;opacity:0.75;">
+      <span id="co-count">…</span>
+    </div>
+  </div>
+</main>
+
+<script>
+fetch('crunchbase_full/investments.json')
+  .then(r => r.json())
+  .then(data => {
+    const n = Array.isArray(data.companies) ? data.companies.length : Object.keys(data).length;
+    const date = new Date().toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+    document.getElementById('co-count').innerHTML = `Currently mapped: <b>${n} companies</b> by now (${date})<span class="cursor"></span>`;
+  })
+  .catch(() => { document.getElementById('co-count').textContent = '?'; });
+</script>
+
+</body>
+</html>

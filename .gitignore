@@ -1,7 +1,11 @@
+*.pyc
+__pycache__/
+.playwright-mcp/
 issues.md
-Intro-Manintheloop.pdf
-Intro-Manintheloop.txt
-.claude/
-refactoring/.playwright-mcp
-refactoring/screenshots
-
+status-graph.md
+status-map.md
+status-search.md
+tmp/
+reports/charts/
+reports/*.pdf
+reports/_*.html
