@@ -2,7 +2,7 @@
 
 **Man in the loop - Prototipo v.1-20260715**
 
-Powered by info.nodes
+Powered by info.nodes + DATAPITCH
 
 
 
@@ -56,21 +56,16 @@ I dati sono stati raccolti da Crunchbase, sulla base delle società della filier
 
 La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di Privacy International, nell'ambito del programma globale "Militarisation of Tech".
 
-
-
 L'attuale prototipo è stato sviluppato da:
 
-
-
 Davide Del Monte - Coordinatore e Lead Researcher
-
-Andrea Nelson Mauro - Developer e Data expert
-
 Laura Carrer - Researcher
-
 Andrea Daniele Signorelli - Researcher
 
-Emma Basseghini - Junior Developer and Researcher
+in collaborazione con DATAPITCH:
+
+Andrea Nelson Mauro - Developer e Data expert
+Emma Besseghini - Junior Researcher
 
 
 
