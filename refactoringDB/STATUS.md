@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-03 (session complete — EDF update + Network button)
+> Last updated: 2026-06-17 (STATUS cleanup — aerospace ETF todo removed, import confirmed complete)
 
 ## Session protocol
 
@@ -670,21 +670,10 @@ refactoringDB/
 
 ### 6. iShares Aerospace & Defense (GICS 201010) — COMPLETE (2026-04-24)
 
-**File:** `rawdata/ishare_aerospace_defense_GICS201010.csv`
-**Date of file:** 2026-03-30 (Al, 30/03/2026 header)
-**GICS sector:** 201010 — Aerospace & Defense (Industrials)
-**Rows:** ~65 EQUITY rows (+ cash/futures to skip) — Italian locale CSV (commas as decimal separators)
-
-**Key companies in this ETF not yet in DB (likely new):**
-RTX Corp, Boeing, GE Aerospace, Rolls-Royce, Lockheed Martin, Northrop Grumman, Airbus Group, General Dynamics, Howmet Aerospace, BAE Systems, Safran, Rheinmetall, TransDigm, L3Harris, Axon Enterprise, Hanwha Aerospace, Rocket Lab, Thales, Leonardo, Curtiss-Wright, Elbit Systems, Woodward, SAAB B, MTU Aero Engines, Carpenter Technology, ATI Inc, Kongsberg Gruppen, BWX Technologies, HEICO, Textron, Bombardier, Huntington Ingalls, Singapore Technologies, Kratos Defense, Korea Aerospace, CAE, Moog, Melrose, Babcock, Dassault Aviation, LIG Nex1, Hanwha Systems, Hexcel, Karman Holdings, AeroVironment, Hensoldt, StandardAero, VSE Corp, AAR Corp, Mercury Systems, Leonardo DRS, Archer Aviation, MDA Space, QinetiQ, DroneShield, Exosens, Astronics, Loar Holdings, Intuitive Machines, Chemring, Ducommun, Bet Shemesh Engines, V2X Inc, Exail Technologies, Avio, Austal, Cadre Holdings, National Presto, Astroscale, Satrec Initiative, Redwire Corp, MilDef Group, QPS Holdings, ispace, SNT Dynamics, Byrna Technologies
-
-**To do:**
-- Check which companies are already in DB (by name_key match or wikidata_id)
-- Parse using `scripts/parse_ishares.py` as reference, adapting for Italian locale (`.` thousands sep, `,` decimal)
-- Add new companies as `type=company`, `sources.ishares` array entry with `etf=aerospace_defense`, `gics=201010`
-- Update existing companies by appending to their `sources.ishares` array
-- Run `validate.py` after import
-- Consider writing `scripts/import_ishares_aerospace.py` following pattern of `build_database.py`
+**ETF:** iShares Global Aerospace & Defence UCITS ETF (DFND), GICS 201010
+**File:** `rawdata/ishare_aerospace_defense_GICS201010_en.csv` (converted from Italian locale original)
+**Script:** `scripts/import_ishares_aerospace.py`
+**Result:** 77 equity rows imported — all matched to existing entities (73 by name_key, 4 via MANUAL_ALIASES: Thales SA→IN-1132, Dassault Aviation SA→IN-1276, Leonardo Finmeccanica→IN-0841, SAAB Class B→IN-1329). Zero new entities created.
 
 ### 0. Data quality — resolve flagged conflicts
 
