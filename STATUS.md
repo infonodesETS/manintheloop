@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID + Wikidata enrichment + IV countries; DB: 2311 entities, 2990 rels)
+> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID + Wikidata enrichment + IV countries + CB HQ country patch; DB: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -714,6 +714,22 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 ---
 
 ## Pending work (priority order)
+
+### Session 2026-06-18 — CB HQ country patch (Networks bug fix)
+
+**Bug:** 18/23 MINTL entities (and ~74 other IN-* entities) invisible in Networks — no country in infonodes/wikidata/edf sources.
+**Root cause:** `getCountry()` in networks.html doesn't check `sources.crunchbase.headquarters`; entities added via MINTL import had only CB data.
+**Fix:** `scripts/patch_country_from_cb_hq.py` — extracts country from last segment of CB headquarters string.
+
+- [x] 92 IN entities patched: `sources.infonodes.country` ← last segment of `sources.crunchbase.headquarters`
+- [x] 32 IN entities normalised: `sources.wikidata.country` "People's Republic of China" → "China"
+- [x] Filters: skips entities with `wikidata_id` set, `cb_hq_mismatch_*` validation flags, and 8 SKIP_IDS (known CB subsidiary mismatches)
+- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
+
+**SKIP_IDS (known wrong CB HQ — CB matched a regional subsidiary):**
+IN-0138 Fujifilm (JP, CB=Korea), IN-0167 IGO (AU, CB=Colombia), IN-0252 Nexon (KR, CB=UAE), IN-0269 NTT (JP, CB=UK), IN-0321 Screen (JP, CB=Norway), IN-0334 Sims (AU, CB=US), IN-1354 Comec (IT EDF, WD country wrong), IN-1361 Safran SA (FR, CB=US)
+
+---
 
 ### TODO — `patch_iv_countries_p159.py` (2026-06-18)
 
