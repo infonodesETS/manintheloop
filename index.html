@@ -84,32 +84,6 @@
     .map-filter-clear { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
     .map-filter-clear:hover { border-color: var(--accent); }
     .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font); cursor: help; white-space: nowrap; text-transform: uppercase; letter-spacing: .4px; }
-    /* ── Nelson easter egg ── */
-    @keyframes neon-pulse {
-      0%,100% { opacity:1; box-shadow: 0 0 6px #ff0099, 0 0 14px #ff0099, 0 0 28px #ff0099; border-color:#ff0099; color:#ff0099; }
-      50%      { opacity:.35; box-shadow: 0 0 2px #ff0099; border-color:rgba(255,0,153,.3); color:rgba(255,0,153,.5); }
-    }
-    #nelson-egg {
-      position: fixed;
-      z-index: 200;
-      border: 1.5px solid #ff0099;
-      border-radius: 6px;
-      padding: 8px 14px;
-      font-family: var(--font); font-size: var(--fs-sm);
-      color: #ff0099;
-      background: rgba(0,0,0,.85);
-      backdrop-filter: blur(4px);
-      white-space: nowrap;
-      cursor: pointer;
-      animation: neon-pulse 1.2s ease-in-out infinite;
-      user-select: none;
-    }
-    #nelson-egg::before {
-      content: '';
-      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-      border: 7px solid transparent;
-      border-bottom-color: #ff0099;
-    }
 
     /* Mode switch (Investment / EDF Funding) */
     .map-mode-switch { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 5px; padding: 2px; }
@@ -192,8 +166,7 @@
 
     <!-- Map main -->
     <div id="map-main">
-      <div id="map-toolbar" style="position:relative;">
-        <div id="nelson-egg" onclick="document.getElementById('nelson-egg').remove(); switchMapMode('edf');">Hey Nelson, prova questa nuova feature e dimmi se ti piace! ✦</div>
+      <div id="map-toolbar">
         <div class="map-mode-switch">
           <button class="map-mode-btn is-active" id="mode-btn-investment">Investments</button>
           <button class="map-mode-btn" id="mode-btn-edf">EDF Funding</button>
@@ -1469,15 +1442,6 @@ async function init() {
     document.getElementById('map-close-panel-btn').addEventListener('click', closeMapPanel);
     document.getElementById('map-clear-filter-btn').addEventListener('click', clearMapFilter);
 
-    // Position nelson egg below the EDF button
-    const egg = document.getElementById('nelson-egg');
-    const btn = document.getElementById('mode-btn-edf');
-    if (egg && btn) {
-      const r = btn.getBoundingClientRect();
-      egg.style.top  = (r.bottom + 12) + 'px';
-      egg.style.left = (r.left + r.width / 2) + 'px';
-      egg.style.transform = 'translateX(-50%)';
-    }
   } catch (err) {
     document.getElementById('map-loading').innerHTML =
       `<span style="color:var(--error)">Error: ${esc(String(err))}</span>`;
