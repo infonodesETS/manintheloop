@@ -152,7 +152,7 @@
     <!-- Side panel -->
     <div id="map-panel">
       <div id="map-panel-header">
-        <span id="map-panel-title" class="sl-title" data-i18n="map.about_this_map">About this map</span>
+        <span id="map-panel-title" class="sl-title"></span>
         <button id="map-close-panel-btn" class="sl-close">✕</button>
       </div>
       <div id="map-panel-body">
@@ -381,7 +381,8 @@ function restoreMapState({ country, entity, type, arc } = {}) {
 
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
-  document.getElementById('map-panel-title').textContent = t('map.about_this_map');
+  document.getElementById('map-panel-header').style.display = 'none';
+  document.getElementById('map-panel-title').textContent = '';
   const edf = mapState.edfOnly;
   const allCos = Object.values(entityMap).filter(e => e.id?.startsWith('IN-'));
   const visCos = edf ? allCos.filter(e => e.sources?.edf) : allCos;
@@ -606,6 +607,7 @@ function showMapCountry(iso, skipHistory = false) {
     });
   };
 
+  document.getElementById('map-panel-header').style.display = '';
   const titleEl = document.getElementById('map-panel-title');
   titleEl.textContent = cd.name; titleEl.title = cd.name;
 
@@ -734,6 +736,7 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
     arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
   }
 
+  document.getElementById('map-panel-header').style.display = '';
   const titleEl = document.getElementById('map-panel-title');
   titleEl.textContent = `${srcName} ↔ ${tgtName}`;
 
