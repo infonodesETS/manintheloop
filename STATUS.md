@@ -556,7 +556,7 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] validate.py PASSED (2026-06-18) — **2311 entities, 2990 relationships**
 - [x] QID Phase 1 (`search_missing_qids.py --search`): 5 proposals from MINTL (Anthropic, DeepSeek, Mistral AI, Shin-Etsu Chemical, SUMCO) + 37 from prior aerospace/defense batch
 - [x] QID Phase 1b (`sparql_search_qids.py`): +5 additional (Arafura Resources, LIG Nex1, Standardaero, ST Engineering, PTC Industries)
-- [x] Review: 43 accepted, 4 rejected — IN-1282 (retired entity), IN-1300 KGHM International (parent QID ≠ Canadian subsidiary), IN-1404 Cadre (QID = English word "cadre", not the company), IN-1409 Mildef (Q105806178 = Malaysian entity, not Swedish Mildef Group AB)
+- [x] Review: 43 accepted, 4 rejected — IN-1282 (retired entity), IN-1300 KGHM International (parent QID ≠ Canadian subsidiary; Canadian subsidiary confirmed absent from Wikidata), IN-1404 Cadre (QID = English word "cadre", not the company; Cadre confirmed absent from Wikidata), IN-1409 Mildef (Q105806178 = Malaysian entity; Swedish Mildef Group AB confirmed absent from Wikidata)
 - [x] `search_missing_qids.py --apply`: 85 QIDs written
 - [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
 - [x] `enrich_wikidata.py` — 42 entities enriched (Anthropic, DeepSeek, Mistral AI, Shin-Etsu, SUMCO + 37 aerospace/defense batch)
