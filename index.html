@@ -84,21 +84,47 @@
     .map-filter-clear { background: none; border: 1px solid rgba(0,255,65,0.3); border-radius: 3px; color: var(--accent); font-size: var(--fs-sm); padding: 2px 8px; cursor: pointer; }
     .map-filter-clear:hover { border-color: var(--accent); }
     .map-arc-legend { font-size: var(--fs-xs); color: var(--text-faint); font-family: var(--font); cursor: help; white-space: nowrap; text-transform: uppercase; letter-spacing: .4px; }
-    /* EDF entity toggle switch */
-    .map-edf-switch { display: flex; align-items: center; gap: 8px; }
-    .map-edf-lbl { font-size: var(--fs-sm); color: var(--text-muted); transition: color .15s; user-select: none; white-space: nowrap; text-transform: uppercase; letter-spacing: .4px; }
-    .map-edf-lbl.is-active { color: var(--text-primary); }
-    .map-switch { position: relative; display: inline-flex; width: 36px; height: 20px; flex-shrink: 0; cursor: pointer; }
-    .map-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
-    .map-switch-track { position: absolute; inset: 0; background: rgba(255,255,255,0.08); border: 1px solid var(--border); border-radius: 20px; transition: background .2s, border-color .2s; }
-    .map-switch-knob { position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: var(--text-muted); border-radius: 50%; transition: transform .2s, background .2s; pointer-events: none; }
-    .map-switch:has(input:checked) .map-switch-track { background: rgba(0,255,65,0.15); border-color: rgba(0,255,65,0.4); }
-    .map-switch:has(input:checked) .map-switch-knob { transform: translateX(16px); background: var(--accent); }
-    [data-theme="light"] .map-switch-track { background: rgba(0,0,0,0.08); }
-    [data-theme="light"] .map-switch-knob { background: rgba(0,0,0,0.35); }
-    [data-theme="light"] .map-switch:has(input:checked) .map-switch-track { background: rgba(0,102,34,0.1); border-color: rgba(0,102,34,0.4); }
-    [data-theme="light"] .map-switch:has(input:checked) .map-switch-knob { background: var(--accent); }
+    /* ── Nelson easter egg ── */
+    @keyframes neon-pulse {
+      0%,100% { opacity:1; box-shadow: 0 0 6px #ff0099, 0 0 14px #ff0099, 0 0 28px #ff0099; border-color:#ff0099; color:#ff0099; }
+      50%      { opacity:.35; box-shadow: 0 0 2px #ff0099; border-color:rgba(255,0,153,.3); color:rgba(255,0,153,.5); }
+    }
+    #nelson-egg {
+      position: fixed;
+      z-index: 200;
+      border: 1.5px solid #ff0099;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-family: var(--font); font-size: var(--fs-sm);
+      color: #ff0099;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+      cursor: pointer;
+      animation: neon-pulse 1.2s ease-in-out infinite;
+      user-select: none;
+    }
+    #nelson-egg::before {
+      content: '';
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-bottom-color: #ff0099;
+    }
+
+    /* Mode switch (Investment / EDF Funding) */
+    .map-mode-switch { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 5px; padding: 2px; }
+    .map-mode-btn { background: none; border: none; border-radius: 3px; padding: 3px 12px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); cursor: pointer; text-transform: uppercase; letter-spacing: .4px; transition: color .15s, background .15s; white-space: nowrap; }
+    .map-mode-btn.is-active { background: var(--accent); color: #000; }
+    .map-mode-btn:not(.is-active):hover { color: var(--text-primary); }
+    [data-theme="light"] .map-mode-btn.is-active { color: #fff; }
     .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
+    /* EDF panel funding list */
+    .edf-fund-item { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 3px 0; border-bottom: 1px solid rgba(65,67,69,0.2); font-size: calc(var(--fs-body) * .82); }
+    .edf-fund-item:last-child { border-bottom: none; }
+    .edf-fund-name { color: var(--text-secondary); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-decoration: none; cursor: pointer; }
+    .edf-fund-name:hover { color: var(--accent); text-decoration: underline; }
+    .edf-fund-amt  { color: rgba(100,200,100,0.9); font-family: var(--font-mono, monospace); font-size: calc(var(--fs-body) * .78); flex-shrink: 0; }
+    .edf-fund-total { display: flex; justify-content: space-between; padding: 8px 0 0; font-size: calc(var(--fs-body) * .85); font-weight: var(--fw-bold); color: var(--text-primary); border-top: 1px solid var(--border); margin-top: 4px; }
     .map-toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 2px; }
     .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
     .map-expand-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 10px; padding: 2px 4px; line-height: 1; transition: color .12s; flex-shrink: 0; }
@@ -166,15 +192,11 @@
 
     <!-- Map main -->
     <div id="map-main">
-      <div id="map-toolbar">
-        <div class="map-edf-switch" title="Filter entities by EU Funding (EDF)">
-          <span class="map-edf-lbl is-active" id="map-lbl-all" data-i18n="map.all_entities">All Entities</span>
-          <label class="map-switch">
-            <input type="checkbox" id="map-edf-toggle">
-            <span class="map-switch-track"></span>
-            <span class="map-switch-knob"></span>
-          </label>
-          <span class="map-edf-lbl" id="map-lbl-edf" data-i18n="map.eu_funded">EU Funded Only</span>
+      <div id="map-toolbar" style="position:relative;">
+        <div id="nelson-egg" onclick="document.getElementById('nelson-egg').remove(); switchMapMode('edf');">Hey Nelson, prova questa nuova feature e dimmi se ti piace! ✦</div>
+        <div class="map-mode-switch">
+          <button class="map-mode-btn is-active" id="mode-btn-investment">Investments</button>
+          <button class="map-mode-btn" id="mode-btn-edf">EDF Funding</button>
         </div>
         <span class="map-toolbar-sep"></span>
         <!--
@@ -320,10 +342,14 @@ for (const [name, iso] of Object.entries(WD_TO_ISO)) {
   if (!(iso in ISO_TO_NAME)) ISO_TO_NAME[iso] = name;
 }
 
+// ── EU member states (ISO 3166-1 numeric) ─────────────────────────────────────
+const EU_ISO = new Set([40,56,100,191,196,203,208,233,246,250,276,300,348,372,380,428,440,442,470,528,616,620,642,703,705,724,752]);
+
 // ── Local map state (replaces AppState.ui.map) ────────────────────────────────
 const mapState = {
   built: false,
   countryData: {},
+  edfCountryData: {},
   arcData: [],
   centroids: {},
   svg: null, g: null,
@@ -332,6 +358,7 @@ const mapState = {
   showArcs: false, defaultTransform: null,
   edfOnly: false, edfISOs: new Set(),
   selectedArc: null,
+  mode: 'investment',
 };
 
 // Data (loaded once)
@@ -360,7 +387,7 @@ function applyEdfToggle(edfOnly) {
 }
 
 function restoreMapState({ country, entity, type, arc } = {}) {
-  applyEdfToggle(type === 'EUfunded');
+  // legacy EUfunded param — ignored, mode managed by switchMapMode()
   mapState.activeFilter = null;
   applyMapFilter();
   if (arc) {
@@ -381,8 +408,23 @@ function restoreMapState({ country, entity, type, arc } = {}) {
 
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
-  document.getElementById('map-panel-header').style.display = 'none';
-  document.getElementById('map-panel-title').textContent = '';
+  const header  = document.getElementById('map-panel-header');
+  const titleEl = document.getElementById('map-panel-title');
+
+  if (mapState.mode === 'edf') {
+    header.style.display = '';
+    titleEl.textContent  = t('map.edf_title');
+    document.getElementById('map-panel-body').innerHTML = `
+      <div class="sl-panel-section">
+        <p class="map-intro-text">${t('map.edf_mode_desc')}</p>
+      </div>`;
+    return;
+  }
+
+  // Investment mode: show title + current content
+  header.style.display = '';
+  titleEl.textContent  = t('map.investments_title');
+
   const edf = mapState.edfOnly;
   const allCos = Object.values(entityMap).filter(e => e.id?.startsWith('IN-'));
   const visCos = edf ? allCos.filter(e => e.sources?.edf) : allCos;
@@ -450,7 +492,7 @@ function closeMapPanel(skipHistory = false) {
   mapState.selectedIso  = null;
   mapState.selectedArc  = null;
   restoreCountryLabels();
-  mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false);
+  mapState.g?.selectAll('.map-node').classed('node-dim', false).classed('node-focus', false).style('opacity', null);
   mapState.g?.selectAll('.map-country').classed('country-dim', false);
   setDefaultPanelContent();
 }
@@ -923,8 +965,130 @@ function filterMapByEntity(entityId, fromIso, skipHistory = false) {
   });
 }
 
+// ── switchMapMode ─────────────────────────────────────────────────────────────
+function switchMapMode(mode) {
+  mapState.mode = mode;
+  const isEdf = mode === 'edf';
+
+  document.getElementById('mode-btn-investment').classList.toggle('is-active', !isEdf);
+  document.getElementById('mode-btn-edf').classList.toggle('is-active', isEdf);
+
+  const arcLegend = document.querySelector('.map-arc-legend');
+  if (arcLegend) arcLegend.style.display = isEdf ? 'none' : '';
+  const arcEl = document.getElementById('map-arc-layer');
+  if (arcEl) arcEl.style.display = 'none';
+
+  // Helper: format funding amount as abbreviated label
+  const fmtShort = n => {
+    if (n >= 1e9) return (n / 1e9).toFixed(1).replace('.0','') + 'B';
+    if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.0','') + 'M';
+    if (n >= 1e3) return Math.round(n / 1e3) + 'K';
+    return Math.round(n) + '';
+  };
+
+  // Remove any previous EDF funding labels
+  mapState.g?.selectAll('.edf-fund-label').remove();
+
+  if (isEdf) {
+    const maxFunding = Math.max(...Object.values(mapState.edfCountryData).map(d => d.totalFunding), 1);
+    const rScaleEdf  = d3.scaleSqrt().domain([0, maxFunding]).range([6, 30]);
+
+    mapState.g?.selectAll('.map-node').each(function(d) {
+      const edfData = mapState.edfCountryData[d.iso];
+      const show = EU_ISO.has(d.iso) && !!edfData;
+      const r    = show ? rScaleEdf(edfData.totalFunding) : 0;
+      d3.select(this).datum({ ...d, baseR: r })
+        .attr('r', r)
+        .style('fill', show ? 'rgba(100,200,100,0.85)' : null)
+        .style('display', show ? null : 'none');
+    });
+
+    mapState.g?.selectAll('.map-label').style('display', 'none');
+    mapState.g?.selectAll('.map-country').style('opacity', d => EU_ISO.has(+d.id) ? 1 : 0.2);
+
+    // Fit view to EU (without going through closeMapPanel which resets zoom)
+    const euISOs = new Set(Object.keys(mapState.edfCountryData).map(Number).filter(i => EU_ISO.has(i)));
+    const t = computeTransformForISOs(euISOs, false);
+    mapState.svg?.transition().duration(700).call(mapState.zoom.transform, t);
+
+  } else {
+    // Restore investment mode
+    const arcDegree = {};
+    mapState.arcData.forEach(arc => {
+      arcDegree[arc.src] = (arcDegree[arc.src] || 0) + 1;
+      arcDegree[arc.tgt] = (arcDegree[arc.tgt] || 0) + 1;
+    });
+    const maxDegree = Math.max(...Object.values(arcDegree), 1);
+    const rScale = d3.scaleSqrt().domain([0, maxDegree]).range([4, 22]);
+
+    mapState.g?.selectAll('.map-node').each(function(d) {
+      if (!mapState.countryData[d.iso]) return;
+      const r = rScale(arcDegree[d.iso] || 0);
+      d3.select(this).datum({ ...d, baseR: r })
+        .attr('r', r)
+        .style('fill', null)
+        .style('display', null)
+        .style('opacity', null);
+    });
+    mapState.g?.selectAll('.map-label').each(function() {
+      const iso = +this.getAttribute('data-iso');
+      d3.select(this).style('display', mapState.countryData[iso] ? null : 'none');
+    });
+    mapState.g?.selectAll('.map-country').style('opacity', null);
+
+    const allISOs = new Set(Object.keys(mapState.countryData).map(Number));
+    const t = computeTransformForISOs(allISOs, false);
+    mapState.svg?.transition().duration(700).call(mapState.zoom.transform, t);
+  }
+
+  // Reset panel without resetting zoom (avoid closeMapPanel which resets zoom)
+  mapState.activeFilter = null;
+  mapState.selectedIso  = null;
+  mapState.selectedArc  = null;
+  mapState.g?.selectAll('.map-node').style('opacity', null);
+  setDefaultPanelContent();
+}
+
+// ── showEdfCountry ────────────────────────────────────────────────────────────
+function showEdfCountry(iso) {
+  const cd = mapState.edfCountryData[iso];
+  if (!cd) return;
+
+  mapState.selectedIso = iso;
+  document.getElementById('map-panel-header').style.display = '';
+  const titleEl = document.getElementById('map-panel-title');
+  titleEl.textContent = cd.name; titleEl.title = cd.name;
+
+  const fmtEur = n => '€ ' + Math.round(n).toLocaleString('it-IT');
+
+  const rows = cd.entities.map(e =>
+    `<div class="edf-fund-item">
+      <a class="edf-fund-name" title="${esc(e.name)}"
+         href="search.html?organization=${encodeURIComponent(e.id)}&organizationName=${encodeURIComponent(e.name)}${themeParam()}"
+      >${esc(e.name)}</a>
+      <span class="edf-fund-amt">${fmtEur(e.funding)}</span>
+    </div>`
+  ).join('');
+
+  document.getElementById('map-panel-body').innerHTML = `
+    <div class="sl-panel-section">
+      <div class="sl-section-lbl">EDF — ${esc(cd.name)}</div>
+      <div>${rows}</div>
+      <div class="edf-fund-total">
+        <span>Totale</span>
+        <span>${fmtEur(cd.totalFunding)}</span>
+      </div>
+    </div>`;
+
+  // Highlight selected node
+  mapState.g?.selectAll('.map-node').each(function(d) {
+    d3.select(this).style('opacity', d.iso === iso ? 1 : 0.35);
+  });
+}
+
 // ── applyMapFilter ────────────────────────────────────────────────────────────
 function applyMapFilter() {
+  if (mapState.mode === 'edf') return;
   const bar = document.getElementById('map-filter-bar');
   const f   = mapState.activeFilter;
   const edf = mapState.edfOnly;
@@ -1094,7 +1258,7 @@ function drawMap(world) {
     .join('path')
     .attr('class', d => 'map-country' + (mapState.countryData[+d.id] ? ' has-data' : ''))
     .attr('d', path)
-    .on('click', (e, d) => { const iso = +d.id; if (mapState.countryData[iso]) showMapCountry(iso); })
+    .on('click', (e, d) => { const iso = +d.id; if (mapState.mode === 'edf') { if (mapState.edfCountryData[iso]) showEdfCountry(iso); } else { if (mapState.countryData[iso]) showMapCountry(iso); } })
     .append('title')
     .text(d => {
       const iso = +d.id;
@@ -1126,7 +1290,7 @@ function drawMap(world) {
       .datum({ iso, baseR: r })
       .attr('class','map-node').attr('data-iso', iso)
       .attr('cx', c[0]).attr('cy', c[1]).attr('r', r)
-      .on('click', e => { e.stopPropagation(); showMapCountry(iso); })
+      .on('click', e => { e.stopPropagation(); if (mapState.mode === 'edf') { if (mapState.edfCountryData[iso]) showEdfCountry(iso); } else { showMapCountry(iso); } })
       .append('title')
       .text(`${cd.name}: ${cd.companies.length} companies · ${arcDegree[iso]||0} cross-border connections`);
 
@@ -1220,6 +1384,32 @@ function buildMapView(db) {
     if (iso) mapState.edfISOs.add(iso);
   });
 
+  // EDF funding per country (sum eu_contribution per entity, grouped by country)
+  mapState.edfCountryData = {};
+  const edfRels = relationships.filter(r => r.type === 'edf_participation');
+  const entityEdfFunding = {};
+  edfRels.forEach(r => {
+    if (!r.eu_contribution || r.eu_contribution <= 0) return;
+    const e = entityMap[r.source];
+    if (!e || e.type === 'edf_project') return;
+    entityEdfFunding[r.source] = (entityEdfFunding[r.source] || 0) + r.eu_contribution;
+  });
+  Object.entries(entityEdfFunding).forEach(([id, funding]) => {
+    const e = entityMap[id];
+    if (!e) return;
+    const country = getCountry(e);
+    const iso = WD_TO_ISO[country];
+    if (!iso) return;
+    if (!mapState.edfCountryData[iso]) {
+      mapState.edfCountryData[iso] = { name: ISO_TO_NAME[iso] || country, totalFunding: 0, entities: [] };
+    }
+    mapState.edfCountryData[iso].totalFunding += funding;
+    mapState.edfCountryData[iso].entities.push({ id, name: e.name, funding });
+  });
+  Object.values(mapState.edfCountryData).forEach(cd => {
+    cd.entities.sort((a, b) => a.name.localeCompare(b.name));
+  });
+
   // Arc data: directed investor-country → company-country
   const pairWeight = {};
   relationships.forEach(rel => {
@@ -1267,17 +1457,9 @@ async function init() {
       restoreMapState(e.state || {});
     });
 
-    // Wire toolbar
-    document.getElementById('map-edf-toggle').addEventListener('change', e => {
-      applyEdfToggle(e.target.checked);
-      const p = new URLSearchParams(location.search);
-      if (mapState.edfOnly) p.set('type', 'EUfunded'); else p.delete('type');
-      const qs = p.toString();
-      const cur = history.state || {};
-      history.pushState({ ...cur, type: mapState.edfOnly ? 'EUfunded' : null }, '', qs ? `?${qs}` : location.pathname);
-      applyMapFilter();
-      if (!mapState.selectedIso && !mapState.activeFilter) setDefaultPanelContent();
-    });
+    // Wire toolbar mode buttons
+    document.getElementById('mode-btn-investment').addEventListener('click', () => switchMapMode('investment'));
+    document.getElementById('mode-btn-edf').addEventListener('click', () => switchMapMode('edf'));
     // document.getElementById('map-arc-toggle').addEventListener('change', e => {
     //   mapState.showArcs = e.target.checked;
     //   const arcEl = document.getElementById('map-arc-layer');
@@ -1286,6 +1468,16 @@ async function init() {
     document.getElementById('map-reset-zoom-btn').addEventListener('click', closeMapPanel);
     document.getElementById('map-close-panel-btn').addEventListener('click', closeMapPanel);
     document.getElementById('map-clear-filter-btn').addEventListener('click', clearMapFilter);
+
+    // Position nelson egg below the EDF button
+    const egg = document.getElementById('nelson-egg');
+    const btn = document.getElementById('mode-btn-edf');
+    if (egg && btn) {
+      const r = btn.getBoundingClientRect();
+      egg.style.top  = (r.bottom + 12) + 'px';
+      egg.style.left = (r.left + r.width / 2) + 'px';
+      egg.style.transform = 'translateX(-50%)';
+    }
   } catch (err) {
     document.getElementById('map-loading').innerHTML =
       `<span style="color:var(--error)">Error: ${esc(String(err))}</span>`;

@@ -35,9 +35,12 @@ const TRANSLATIONS = {
     // MAP — toolbar
     'map.all_entities':   'All Entities',
     'map.eu_funded':      'EU Funded Only',
-    'map.reset_zoom':     'Reset zoom',
-    'map.about_this_map': 'About this map',
-    'map.loading':        'Loading map data…',
+    'map.reset_zoom':        'Reset zoom',
+    'map.about_this_map':    'About this map',
+    'map.investments_title': 'Investments',
+    'map.edf_title':         'EDF',
+    'map.edf_mode_desc':     'Questa visualizzazione ti permette di vedere quanti finanziamenti europei dello European Defence Fund sono andati ai singoli Stati Membri dell\'Unione Europea e, in dettaglio, a quali aziende, università o altri soggetti pubblici e privati.<br><br>Il diametro dei cerchi è proporzionato al totale dei finanziamenti ricevuti dallo Stato Membro.<br><br>Cliccando sul cerchio corrispondente a uno Stato Membro si aprirà qui l\'elenco di tutti i soggetti che hanno beneficiato di finanziamenti europei tramite progetti EDF. Potrai cliccare sul nome del soggetto che ti interessa e aprire la sua scheda di dettaglio, contenente tutte le informazioni che siamo riusciti a raccogliere.',
+    'map.loading':           'Loading map data…',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -106,8 +109,11 @@ const TRANSLATIONS = {
     'map.all_entities':   'All Entities',
     'map.eu_funded':      'EU Funded Only',
     'map.reset_zoom':     'Reset zoom',
-    'map.about_this_map': 'About this map',
-    'map.loading':        'Loading map data…',
+    'map.about_this_map':    'About this map',
+    'map.investments_title': 'Investments',
+    'map.edf_title':         'EDF',
+    'map.edf_mode_desc':     'This visualisation shows how much European Defence Fund (EDF) funding has gone to individual EU Member States and, in detail, to which companies, universities or other public and private entities.<br><br>The diameter of each circle is proportional to the total funding received by that Member State.<br><br>Clicking on the circle for a Member State will open a list of all entities that have received EDF funding. You can click on any entity to open its detail page, containing all the information we have been able to collect.',
+    'map.loading':           'Loading map data…',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -176,8 +182,11 @@ const TRANSLATIONS = {
     'map.all_entities':   'Toutes les entités',
     'map.eu_funded':      'Financées UE seulement',
     'map.reset_zoom':     'Réinitialiser zoom',
-    'map.about_this_map': 'À propos de la carte',
-    'map.loading':        'Chargement des données…',
+    'map.about_this_map':    'À propos de la carte',
+    'map.investments_title': 'Investments',
+    'map.edf_title':         'EDF',
+    'map.edf_mode_desc':     'Cette visualisation vous permet de voir quels financements européens du Fonds européen de défense (FED) ont été alloués aux États membres de l\'Union européenne et, en détail, aux entreprises, universités ou autres acteurs publics et privés.<br><br>Le diamètre des cercles est proportionnel au total des financements reçus par l\'État membre.<br><br>En cliquant sur le cercle correspondant à un État membre, la liste de tous les acteurs ayant bénéficié de financements européens via des projets EDF s\'affichera ici. Vous pourrez cliquer sur le nom d\'un acteur pour accéder à sa fiche détaillée, contenant toutes les informations que nous avons pu collecter.',
+    'map.loading':           'Chargement des données…',
 
     // NETWORKS — sidebar
     'net.title':          'Réseau de défense',
@@ -246,8 +255,11 @@ const TRANSLATIONS = {
     'map.all_entities':   'Todas las entidades',
     'map.eu_funded':      'Solo financiadas UE',
     'map.reset_zoom':     'Restablecer zoom',
-    'map.about_this_map': 'Acerca del mapa',
-    'map.loading':        'Cargando datos del mapa…',
+    'map.about_this_map':    'Acerca del mapa',
+    'map.investments_title': 'Investments',
+    'map.edf_title':         'EDF',
+    'map.edf_mode_desc':     'Esta visualización permite ver cuánta financiación europea del Fondo Europeo de Defensa (FED) ha ido a los distintos Estados miembros de la Unión Europea y, en detalle, a qué empresas, universidades u otros actores públicos y privados.<br><br>El diámetro de los círculos es proporcional al total de la financiación recibida por el Estado miembro.<br><br>Al hacer clic en el círculo correspondiente a un Estado miembro, se mostrará aquí la lista de todos los actores que han recibido financiación europea a través de proyectos EDF. Puedes hacer clic en el nombre del actor que te interese para abrir su ficha de detalle, con toda la información que hemos podido recopilar.',
+    'map.loading':           'Cargando datos del mapa…',
 
     // NETWORKS — sidebar
     'net.title':          'Red de defensa',
