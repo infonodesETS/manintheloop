@@ -47,24 +47,11 @@ def extract_country_from_hq(hq):
 
 CB_MISMATCH_FLAGS = {"cb_hq_mismatch_subsidiary", "cb_hq_mismatch_severe", "cb_wrong_entity"}
 
-# Entities where CB HQ is known to be a regional subsidiary / wrong entity
-# (no validation flag, but confirmed wrong from domain knowledge)
-SKIP_IDS = {
-    "IN-0138",  # Fujifilm — JP company; CB matched Korean subsidiary
-    "IN-0167",  # IGO — AU miner; CB matched unrelated Colombian entity
-    "IN-0252",  # Nexon — KR company; CB matched UAE entity
-    "IN-0269",  # NTT — JP company; CB matched UK subsidiary
-    "IN-0321",  # Screen Holdings — JP company; CB matched Norwegian entity
-    "IN-0334",  # Sims Limited — AU company; CB matched US entity
-    "IN-1354",  # Comec — IT EDF participant; wikidata P17 is wrong (CN), skip NORM too
-    "IN-1361",  # Safran SA — FR company; CB matched US Safran subsidiary
-}
-
 
 def has_cb_mismatch(e):
     """True if the entity has any CB HQ mismatch or wrong-entity validation flag."""
     for v in (e.get("validation") or []):
-        if v.get("type") in CB_MISMATCH_FLAGS:
+        if v.get("status") in CB_MISMATCH_FLAGS:
             return True
     return False
 
@@ -79,9 +66,6 @@ def main():
     for e in db["entities"]:
         if not e["id"].startswith("IN-"):
             continue
-        if e["id"] in SKIP_IDS:
-            continue
-
         s   = e.setdefault("sources", {}) or {}
         if not s.get("infonodes"):
             s["infonodes"] = {}
@@ -113,6 +97,9 @@ def main():
             patched += 1
 
         # Case 2: wikidata.country needs normalisation
+        # Skip: entities with CB mismatch flags (their wikidata.country may also be wrong)
+        if has_cb_mismatch(e):
+            continue
         wd = s.get("wikidata") or {}
         wd_country = wd.get("country", "")
         if wd_country and wd_country in NORMALISE:

@@ -29669,6 +29669,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -29695,6 +29702,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Seoul South Korea) is for a regional subsidiary. Fujifilm Holdings HQ is Minato Tokyo Japan — CB matched Fujifilm Korea.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -35662,6 +35675,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -35688,6 +35708,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Tuluá Colombia) is an unrelated Colombian entity, not IGO Limited. IGO Limited HQ is West Perth Western Australia.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -54021,6 +54047,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -54047,6 +54080,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Dubai UAE) is for a regional subsidiary. Nexon Co. HQ is Seongnam-si South Korea — CB matched Nexon Gulf entity.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -57561,6 +57600,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -57587,6 +57633,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=London England UK) is for a subsidiary. NTT Corporation HQ is Chiyoda-ku Tokyo Japan — CB matched NTT Europe/UK entity.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -69126,6 +69178,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -69152,6 +69211,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Kristiansand Norway) is for an unrelated Norwegian entity, not Screen Holdings. Screen Holdings HQ is Fushimi-ku Kyoto Japan.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -71564,6 +71629,13 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -71590,6 +71662,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Clarksville Indiana United States) is for a US subsidiary. Sims Limited HQ is Sydney New South Wales Australia.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -248720,6 +248798,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q5613742)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5613742)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -248789,6 +248874,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5613742). label='CSSC Offshore & Marine Engineering Company'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters data is unreliable for this entity; also wikidata.country=China is wrong (Italian EDF participant). Both sources inconsistent — country not patchable from CB HQ.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301835,6 +301926,13 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "validation_added",
+          "field": "validation",
+          "value": "cb_hq_mismatch_subsidiary",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -301849,6 +301947,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "cb_hq_mismatch_subsidiary",
+          "description": "CB headquarters (CB=Brea California United States) is for a US subsidiary. Safran SA HQ is Le Plessis-Robinson Hauts-de-Seine France — CB matched Safran USA entity.",
+          "author": "patch_country_from_cb_hq.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
