@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-06-17",
+  "_updated": "2026-06-18",
   "entities": [
     {
       "id": "IN-0001",
@@ -304775,6 +304775,2251 @@
         }
       ],
       "tags": []
+    },
+    {
+      "id": "IN-1449",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Anthropic",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/anthropic",
+          "stage": null,
+          "description": "Anthropic is an artificial intelligence company that develops large language models and AI systems for business and research use.",
+          "description_full": "Anthropic develops artificial intelligence tools and research initiatives focused on creating AI systems and models for business and research use. The company produces the Claude family of AI products, including conversational and coding assistants, integrations with productivity applications, and developer APIs that organizations can deploy for automation, information retrieval, and task workflows. It also engages in systematic research and analysis of AI behavior, safety methods, and policy issues to inform product design and external stakeholders. Beyond product development, Anthropic generates documented insights and collaborates with academic, civil society, and industry groups to explore implications of AI on economic and societal systems. These efforts aim to connect foundational research with practical AI applications in enterprise environments.",
+          "website": "https://www.anthropic.com",
+          "cb_rank": 104,
+          "headquarters": "San Francisco, California, United States",
+          "headquarters_regions": "San Francisco Bay Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2021-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": "Machine Learning",
+          "primary_industry_url": "https://www.crunchbase.com/category/machine-learning",
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Agentic AI",
+            "Artificial Intelligence (AI)",
+            "Foundational AI",
+            "Generative AI",
+            "Machine Learning",
+            "Software"
+          ],
+          "founders": [
+            "Benjamin Mann",
+            "Daniela Amodei",
+            "Dario Amodei",
+            "Jack Clark",
+            "Jared Kaplan",
+            "Sam McCandlish",
+            "Tom Brown"
+          ],
+          "num_funding_rounds": 20,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2026-06-09",
+          "last_funding_amount_usd": null,
+          "last_funding_type": "Debt Financing",
+          "total_equity_funding_usd": 120904000000,
+          "total_funding_usd": 128740377627,
+          "total_funding_native": {
+            "amount": 128740377627,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Temasek",
+            "General Catalyst",
+            "General Atlantic",
+            "Lightspeed Venture Partners",
+            "Menlo Ventures"
+          ],
+          "num_investors": 133,
+          "revenue_range": "$10B+",
+          "patents_granted": null,
+          "domain": "anthropic.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1450",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Castelion",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/pallas-4707",
+          "stage": null,
+          "description": "Castelion is a defense tech company that applies modern hardware development and manufacturing processes to national security challenges.",
+          "description_full": "Castelion is a venture-backed defense tech company applying modern hardware development and manufacturing processes to critical national security challenges, specifically to solve affordability, scale, and supply chain robustness. The company combines vertical integration, rapid iteration, and high-cadence testing to build hardware that is engineered from the ground up for scalable production. Castelion’s core offerings include solid-rocket motors, missile avionics, flight-control systems, seekers, and full strike-weapon assemblies, all designed for compatibility with existing military launch platforms.",
+          "website": "https://www.castelion.com",
+          "cb_rank": 816,
+          "headquarters": "Torrance, California, United States",
+          "headquarters_regions": "Greater Los Angeles Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2022-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Government and Military",
+            "Information Technology",
+            "Manufacturing",
+            "Science and Engineering"
+          ],
+          "industries": [
+            "Aerospace",
+            "Government",
+            "Manufacturing",
+            "Military",
+            "National Security"
+          ],
+          "founders": [
+            "Andrew Kreitz",
+            "Bryon Hargis",
+            "Sean Pitt"
+          ],
+          "num_funding_rounds": 5,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2025-12-05",
+          "last_funding_amount_usd": 350000000,
+          "last_funding_type": "Series B",
+          "total_equity_funding_usd": 439614995,
+          "total_funding_usd": 469614995,
+          "total_funding_native": {
+            "amount": 469614995,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "General Catalyst",
+            "Lightspeed Venture Partners",
+            "Quiet Capital",
+            "Valor Equity Partners"
+          ],
+          "num_investors": 20,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "castelion.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1451",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "DeepSeek",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/deepseek",
+          "stage": null,
+          "description": "DeepSeek is an artificial intelligence software company that focuses on developing open-source large language models (LLMs).",
+          "description_full": "DeepSeek is an artificial intelligence software company that focuses on developing open-source large language models (LLMs). The company researches and develops AI models, machine learning, natural language processing (NLP), and other advanced AI applications. DeepSeek offers an AI assistant app powered by its latest DeepSeek-V3 model. The company has released DeepSeek-R1, an open-source model that rivals OpenAI's offerings, which can be freely distilled and commercialized under the MIT license.",
+          "website": "https://www.deepseek.com",
+          "cb_rank": 16,
+          "headquarters": "Hangzhou, Zhejiang, China",
+          "headquarters_regions": "Asia-Pacific (APAC)",
+          "operating_status": "Active",
+          "founded_date": "2023-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Artificial Intelligence (AI)",
+            "Developer APIs",
+            "Foundational AI",
+            "Generative AI",
+            "Machine Learning",
+            "Software"
+          ],
+          "founders": [
+            "Liang Wenfeng"
+          ],
+          "num_funding_rounds": 1,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2026-06-16",
+          "last_funding_amount_usd": 7396121474,
+          "last_funding_type": "Series A",
+          "total_equity_funding_usd": 7396121474,
+          "total_funding_usd": 7396121474,
+          "total_funding_native": {
+            "amount": 50000000000,
+            "currency": "CNY"
+          },
+          "top_investors": [
+            "Guozhi Investment",
+            "Contemporary Amperex Technology",
+            "Tencent",
+            "IDG Capital",
+            "Monolith Management"
+          ],
+          "num_investors": 10,
+          "revenue_range": "$100M to $500M",
+          "patents_granted": null,
+          "domain": "deepseek.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1452",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Enveil",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/enveil-inc",
+          "stage": null,
+          "description": "Enveil is a privacy enhancing technology company that specializes in secure data usage, collaboration, and monetization services.",
+          "description_full": "Enveil uses homomorphic crypto to protect data interactions including search and analytics. They allow enterprises to securely operate on both encrypted and unencrypted data in the cloud, on-prem, or anywhere in between.",
+          "website": "https://www.enveil.com",
+          "cb_rank": 18891,
+          "headquarters": "Fulton, Maryland, United States",
+          "headquarters_regions": "Greater Baltimore-Maryland Area, East Coast, Southern US",
+          "operating_status": "Active",
+          "founded_date": "2016-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Data and Analytics",
+            "Information Technology",
+            "Internet Services",
+            "Privacy and Security",
+            "Software"
+          ],
+          "industries": [
+            "Analytics",
+            "Cloud Data Services",
+            "Privacy",
+            "Security",
+            "Software"
+          ],
+          "founders": [
+            "Ellison Williams"
+          ],
+          "num_funding_rounds": 4,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2022-04-27",
+          "last_funding_amount_usd": 25000000,
+          "last_funding_type": "Series B",
+          "total_equity_funding_usd": 40000000,
+          "total_funding_usd": 40000000,
+          "total_funding_native": {
+            "amount": 40000000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Mastercard",
+            "Thomson Reuters",
+            "Bloomberg Beta",
+            "IQT",
+            "1843 Capital"
+          ],
+          "num_investors": 11,
+          "revenue_range": "$1M to $10M",
+          "patents_granted": null,
+          "domain": "enveil.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1453",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Epirus",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/epirus",
+          "stage": null,
+          "description": "Epirus builds directed energy and power management systems to solve some of the world’s most complex problems.",
+          "description_full": "Epirus develops solid-state, software-defined directed energy systems for counter-electronics applications and power management in defense and commercial sectors. The company specializes in long-pulse high-power microwaves combined with AI and advanced electronics for electronic warfare.",
+          "website": "https://www.epirusinc.com",
+          "cb_rank": 3732,
+          "headquarters": "Torrance, California, United States",
+          "headquarters_regions": "Greater Los Angeles Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2018-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Consumer Electronics",
+            "Consumer Goods",
+            "Energy",
+            "Government and Military",
+            "Hardware",
+            "Information Technology",
+            "Manufacturing",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Aerospace",
+            "Drone Management",
+            "Drones",
+            "Energy Management",
+            "Machinery Manufacturing",
+            "Military",
+            "Software"
+          ],
+          "founders": [
+            "Bo Marr",
+            "Grant Verstandig",
+            "John Tenet",
+            "Max Mednik",
+            "Nathan Mintz"
+          ],
+          "num_funding_rounds": 6,
+          "funding_status": null,
+          "last_funding_date": "2025-10-09",
+          "last_funding_amount_usd": null,
+          "last_funding_type": "Corporate Round",
+          "total_equity_funding_usd": 537388878,
+          "total_funding_usd": 537631878,
+          "total_funding_native": {
+            "amount": 537631878,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Gaingels",
+            "8VC",
+            "I Squared Capital",
+            "National Science Foundation",
+            "Washington Harbour Partners"
+          ],
+          "num_investors": 28,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "epirusinc.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1454",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Expert.ai",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/expert-system",
+          "stage": null,
+          "description": "Expert.ai is an artificial intelligence platform for language understanding.",
+          "description_full": "Expert.ai is a developer of enterprise natural language processing (NLP) technologies. Expert.ai is the developer of the software Cogito Discover, which taps AI to perform analytics, extraction, and categorization across taxonomies, making text from XML, RDF, and other formats available for automation and more. Expert.ai also offers Clinical Research Navigator, which supports biomedical clients with a platform designed to drive research into therapies for infectious diseases like COVID-19.",
+          "website": "https://www.expert.ai",
+          "cb_rank": 38561,
+          "headquarters": "Modena, Emilia-Romagna, Italy",
+          "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+          "operating_status": "Active",
+          "founded_date": "1989-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Education",
+            "Financial Services",
+            "Internet Services",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Artificial Intelligence (AI)",
+            "InsurTech",
+            "Language Learning",
+            "Natural Language Processing",
+            "Semantic Search",
+            "Software",
+            "Text Analytics"
+          ],
+          "founders": [
+            "Marco Varone",
+            "Paolo Lombardi",
+            "Stefano Spaggiari"
+          ],
+          "num_funding_rounds": 3,
+          "funding_status": "IPO",
+          "last_funding_date": "2020-08-05",
+          "last_funding_amount_usd": 29400000,
+          "last_funding_type": "Post-IPO Equity",
+          "total_equity_funding_usd": 32651662,
+          "total_funding_usd": 32651662,
+          "total_funding_native": {
+            "amount": 32651662,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Invesco",
+            "Indaco Venture Partners",
+            "Atlante Ventures"
+          ],
+          "num_investors": 3,
+          "revenue_range": "$10M to $50M",
+          "patents_granted": null,
+          "domain": "expert.ai",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1455",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Hadean",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/hadean",
+          "stage": null,
+          "description": "Hadean are a venture backed startup, reimagining distributed, spatial and scalable computing for web 3.0 and the metaverse.",
+          "description_full": "Hadean are a venture backed startup, reimagining distributed, spatial and scalable computing for web 3.0 and the metaverse. The distributed cloud platform provides the foundations of web 3.0 applications for the metaverse and enterprise organisations alike. Bridging physical and virtual worlds, their technology enables unprecedented scale and fidelity in the digital realm to enhance and improve the physical one. Customers include CAE, Microsoft, Minecraft, the Francis Crick Institute, PixelMax and GamesCoin and BAE Systems. Visit: www.hadean.com",
+          "website": "https://www.hadean.com",
+          "cb_rank": 10707,
+          "headquarters": "London, England, United Kingdom",
+          "headquarters_regions": "Europe, Middle East, and Africa (EMEA)",
+          "operating_status": "Active",
+          "founded_date": "2015-10-03",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Internet Services",
+            "Media and Entertainment",
+            "Platforms",
+            "Software"
+          ],
+          "industries": [
+            "Cloud Computing",
+            "Developer Tools",
+            "Metaverse",
+            "Operating Systems"
+          ],
+          "founders": [
+            "Aidan Hobson Sayers",
+            "Alec Mocatta",
+            "Jason Hardjosoekatmo",
+            "Rashid Mansoor"
+          ],
+          "num_funding_rounds": 13,
+          "funding_status": null,
+          "last_funding_date": "2026-03-11",
+          "last_funding_amount_usd": 15000000,
+          "last_funding_type": "Venture - Series Unknown",
+          "total_equity_funding_usd": 87473584,
+          "total_funding_usd": 87571612,
+          "total_funding_native": {
+            "amount": 87571612,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Alumni Ventures",
+            "British Business Bank",
+            "Entrepreneurs First",
+            "Tencent",
+            "Epic Games"
+          ],
+          "num_investors": 25,
+          "revenue_range": "$10M to $50M",
+          "patents_granted": null,
+          "domain": "hadean.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1456",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Hadrian",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/hadrian-caa2",
+          "stage": null,
+          "description": "Hadrian builds AI-powered automated factories that manufacture precision parts for defense, aerospace, and space industries.",
+          "description_full": "Hadrian is a precision manufacturing company that manufactures precision components to serve aerospace and defense clients. It builds autonomous, software-defined precision component factories that help its customers make rockets, satellites, jets, and eVTOLs.",
+          "website": "https://hadrian.co",
+          "cb_rank": 561,
+          "headquarters": "Hawthorne, California, United States",
+          "headquarters_regions": "Greater Los Angeles Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2020-11-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": "Aerospace",
+          "primary_industry_url": "https://www.crunchbase.com/category/aerospace-8a20",
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Manufacturing",
+            "Science and Engineering",
+            "Software",
+            "Transportation"
+          ],
+          "industries": [
+            "Aerospace",
+            "Artificial Intelligence (AI)",
+            "Machinery Manufacturing",
+            "Manufacturing",
+            "Supply Chain Management"
+          ],
+          "founders": [
+            "Chris Power"
+          ],
+          "num_funding_rounds": 7,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2025-12-30",
+          "last_funding_amount_usd": 131307594,
+          "last_funding_type": "Series C",
+          "total_equity_funding_usd": 432807547,
+          "total_funding_usd": 607807547,
+          "total_funding_native": {
+            "amount": 607807547,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "Founders Fund",
+            "Lux Capital",
+            "137 Ventures",
+            "a16z crypto"
+          ],
+          "num_investors": 35,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "hadrian.co",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1457",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Hypersonica",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/hypersonica",
+          "stage": null,
+          "description": "Hypersonica develops advanced hypersonic vehicles to enhance Europe's space capabilities.",
+          "description_full": "Hypersonica develops advanced hypersonic vehicles to enhance Europe's space capabilities.",
+          "website": "https://www.hypersonica.space",
+          "cb_rank": 12551,
+          "headquarters": "Weßling, Bayern, Germany",
+          "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+          "operating_status": "Active",
+          "founded_date": "2023-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Manufacturing",
+            "Transportation"
+          ],
+          "industries": [
+            "Autonomous Vehicles",
+            "Manufacturing",
+            "Space Travel"
+          ],
+          "founders": [],
+          "num_funding_rounds": 2,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2026-02-10",
+          "last_funding_amount_usd": 27740077,
+          "last_funding_type": "Series A",
+          "total_equity_funding_usd": 30499234,
+          "total_funding_usd": 30499234,
+          "total_funding_native": {
+            "amount": 25800000,
+            "currency": "EUR"
+          },
+          "top_investors": [
+            "General Catalyst",
+            "Plural Platform",
+            "201 Ventures",
+            "SPRIN-D"
+          ],
+          "num_investors": 4,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "hypersonica.space",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1458",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Latent AI",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/latent-ai",
+          "stage": null,
+          "description": "Latent AI accelerates AI implementation and workflows for the enterprise cost-effectively anywhere on the edge continuum with Adaptive AI.",
+          "description_full": "Latent AI accelerates AI implementation and workflows for the enterprise cost-effectively anywhere on the edge continuum with Adaptive AI.",
+          "website": "http://latentai.com/",
+          "cb_rank": 17804,
+          "headquarters": "Princeton, New Jersey, United States",
+          "headquarters_regions": "East Coast, Northeastern US",
+          "operating_status": "Active",
+          "founded_date": "2018-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Consumer Electronics",
+            "Data and Analytics",
+            "Hardware",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Artificial Intelligence (AI)",
+            "Computer",
+            "Machine Learning",
+            "Software"
+          ],
+          "founders": [
+            "Jags Kandasamy",
+            "Sek Chai"
+          ],
+          "num_funding_rounds": 4,
+          "funding_status": null,
+          "last_funding_date": "2026-03-03",
+          "last_funding_amount_usd": null,
+          "last_funding_type": "Venture - Series Unknown",
+          "total_equity_funding_usd": 22500000,
+          "total_funding_usd": 22500000,
+          "total_funding_native": {
+            "amount": 22500000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Voyager Technologies",
+            "Booz Allen Ventures",
+            "Blackhorn Ventures",
+            "Lockheed Martin Ventures",
+            "Future Ventures"
+          ],
+          "num_investors": 15,
+          "revenue_range": "$1M to $10M",
+          "patents_granted": null,
+          "domain": "latentai.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1459",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Mistral AI",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/mistral-ai",
+          "stage": null,
+          "description": "Mistral AI is an AI platform that provides large language models and AI services tailored to diverse enterprise applications.",
+          "description_full": "Mistral AI presents a suite of configurable large language models and AI services tailored for diverse enterprise applications. It offers both open-weight and commercially licensed models that support tasks such as advanced reasoning, code generation, multitasking across modalities, and chatbot interactions. The company delivers full-stack AI capabilities, spanning model customization, deployment via APIs, agent-based automation, and scalable infrastructure, enabling integration into existing enterprise systems. Responses draw on publicly available technical information and aim for clarity and neutrality.",
+          "website": "https://mistral.ai",
+          "cb_rank": 10,
+          "headquarters": "Paris, Ile-de-France, France",
+          "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+          "operating_status": "Active",
+          "founded_date": "2023-04-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": "Machine Learning",
+          "primary_industry_url": "https://www.crunchbase.com/category/machine-learning",
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Agentic AI",
+            "Artificial Intelligence (AI)",
+            "Foundational AI",
+            "Generative AI",
+            "Machine Learning",
+            "Natural Language Processing",
+            "Open Source",
+            "Virtual Assistant"
+          ],
+          "founders": [
+            "Arthur Mensch",
+            "Charles Gorintin",
+            "Guillaume Lample",
+            "Jean Charles Samuelian",
+            "Timothee Lacroix"
+          ],
+          "num_funding_rounds": 9,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2026-03-30",
+          "last_funding_amount_usd": 830000000,
+          "last_funding_type": "Debt Financing",
+          "total_equity_funding_usd": 3036049080,
+          "total_funding_usd": 4007817947,
+          "total_funding_native": {
+            "amount": 4007817947,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "General Catalyst",
+            "Lightspeed Venture Partners",
+            "Headline",
+            "Bpifrance"
+          ],
+          "num_investors": 46,
+          "revenue_range": "$100M to $500M",
+          "patents_granted": null,
+          "domain": "mistral.ai",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1460",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Nominal",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/nominal-3771",
+          "stage": null,
+          "description": "Nominal develops software platforms that support hardware engineering teams with testing, monitoring, and analysis of operational data.",
+          "description_full": "Nominal develops software platforms that support hardware engineering teams with testing, monitoring, and analysis of operational data. The company provides products such as Nominal Core and Nominal Connect, which capture and organize telemetry, logs, video, and simulation outputs from hardware systems into a unified data environment. Its software enables engineers to run automated tests, stream real-time data from instruments, and analyze system behavior during development, validation, and operational phases.",
+          "website": "https://www.nominal.io",
+          "cb_rank": 1896,
+          "headquarters": "Austin, Texas, United States",
+          "headquarters_regions": "Southern US",
+          "operating_status": "Active",
+          "founded_date": "2022-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Data and Analytics",
+            "Information Technology",
+            "Software"
+          ],
+          "industries": [
+            "Analytics",
+            "Database",
+            "Information Technology",
+            "SaaS",
+            "Software",
+            "Test and Measurement"
+          ],
+          "founders": [
+            "Bryce Strauss",
+            "Cameron McCord",
+            "Jason Hoch"
+          ],
+          "num_funding_rounds": 5,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2026-03-05",
+          "last_funding_amount_usd": 80000000,
+          "last_funding_type": "Series B",
+          "total_equity_funding_usd": 182500000,
+          "total_funding_usd": 182500000,
+          "total_funding_native": {
+            "amount": 182500000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "General Catalyst",
+            "BoxGroup",
+            "Lightspeed Venture Partners",
+            "Sequoia Capital",
+            "Founders Fund"
+          ],
+          "num_investors": 14,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "nominal.io",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1461",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "PhysicsX",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/physicsx",
+          "stage": null,
+          "description": "PhysicsX develops AI-powered engineering software that combines physics-based modeling, simulation, data management, and machine learning.",
+          "description_full": "PhysicsX develops AI-powered engineering software that combines physics-based modeling, simulation, data management, and machine learning to support product development, manufacturing, and operational workflows. Its platform enables organizations to build, train, deploy, and manage AI models that work alongside numerical simulations, helping engineers evaluate designs, optimize processes, and analyze complex physical systems. The company provides tools for simulation orchestration, AI model development, data integration, and engineering applications within a unified environment. PhysicsX serves industries such as aerospace, automotive, semiconductors, materials, and energy, where engineering teams use its software to support design exploration, performance analysis, and decision-making across the product lifecycle.",
+          "website": "https://www.physicsx.ai",
+          "cb_rank": 232,
+          "headquarters": "London, England, United Kingdom",
+          "headquarters_regions": "Europe, Middle East, and Africa (EMEA)",
+          "operating_status": "Active",
+          "founded_date": "2019-08-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": "Artificial Intelligence (AI)",
+          "primary_industry_url": "https://www.crunchbase.com/category/artificial-intelligence",
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Hardware",
+            "Information Technology",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "AI Infrastructure",
+            "Artificial Intelligence (AI)",
+            "Information Technology",
+            "Machine Learning",
+            "Semiconductor",
+            "Simulation",
+            "Software"
+          ],
+          "founders": [
+            "Jacomo Corbo",
+            "Robin Tuluie"
+          ],
+          "num_funding_rounds": 4,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2026-06-08",
+          "last_funding_amount_usd": 300000000,
+          "last_funding_type": "Series C",
+          "total_equity_funding_usd": 487000000,
+          "total_funding_usd": 487000000,
+          "total_funding_native": {
+            "amount": 487000000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Temasek",
+            "General Catalyst",
+            "NVIDIA",
+            "Siemens",
+            "NVentures"
+          ],
+          "num_investors": 15,
+          "revenue_range": "$10M to $50M",
+          "patents_granted": null,
+          "domain": "physicsx.ai",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1462",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Plural.com",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/plural",
+          "stage": null,
+          "description": "Plural.com is the first AI-driven marketplace for human talent.",
+          "description_full": "Plural.com is the first AI-driven marketplace for human talent. Our disruptive approach cuts 80% of the boring work and captures the market horizontally. We achieve this through a holistic understanding of humans, collecting rich data sets that niche incumbents cannot access.",
+          "website": "https://plural.com/",
+          "cb_rank": 75677,
+          "headquarters": "Palo Alto, California, United States",
+          "headquarters_regions": "San Francisco Bay Area, Silicon Valley, West Coast",
+          "operating_status": "Active",
+          "founded_date": "2021-06-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Administrative Services",
+            "Apps",
+            "Artificial Intelligence (AI)",
+            "Commerce and Shopping",
+            "Community and Lifestyle",
+            "Data and Analytics",
+            "Education",
+            "Internet Services",
+            "Mobile",
+            "Professional Services",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Apps",
+            "Artificial Intelligence (AI)",
+            "Internet",
+            "Machine Learning",
+            "Marketplace",
+            "Mobile Apps",
+            "Professional Networking",
+            "Skill Assessment",
+            "Virtual Workforce"
+          ],
+          "founders": [
+            "Ahmed Mohamed",
+            "Tim Saval"
+          ],
+          "num_funding_rounds": 1,
+          "funding_status": "Seed",
+          "last_funding_date": "2022-02-27",
+          "last_funding_amount_usd": 750000,
+          "last_funding_type": "Pre-Seed",
+          "total_equity_funding_usd": 750000,
+          "total_funding_usd": 750000,
+          "total_funding_native": {
+            "amount": 750000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "7percent Ventures",
+            "On Deck",
+            "Pareto Holdings",
+            "David S. Kidder",
+            "Bjoern Zinssmeister"
+          ],
+          "num_investors": 9,
+          "revenue_range": "Less than $1M",
+          "patents_granted": null,
+          "domain": "plural.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1463",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Red Hat",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/red-hat",
+          "stage": null,
+          "description": "Red Hat is a software company that offers enterprise open-source software solutions.",
+          "description_full": "Red Hat is a company dedicated to free and open source software, and a major Linux distribution vendor. The company is known for its enterprise operating system Red Hat Enterprise Linux, and more recently through the acquisition of open source enterprise middleware vendor JBoss. Red Hat provides operating system platforms along with middleware, applications, and management solutions, as well as support, training, and consulting services.",
+          "website": "http://www.redhat.com",
+          "cb_rank": 24026,
+          "headquarters": "Raleigh, North Carolina, United States",
+          "headquarters_regions": "Research Triangle, East Coast, Southern US",
+          "operating_status": "Active",
+          "founded_date": "1993-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Financial Services",
+            "Platforms",
+            "Software"
+          ],
+          "industries": [
+            "Enterprise Software",
+            "InsurTech",
+            "Linux",
+            "Open Source",
+            "Operating Systems",
+            "Software"
+          ],
+          "founders": [
+            "Bob Young",
+            "Emmanuel Bernard",
+            "Marc Ewing"
+          ],
+          "num_funding_rounds": 2,
+          "funding_status": "M&A",
+          "last_funding_date": "1999-03-09",
+          "last_funding_amount_usd": null,
+          "last_funding_type": "Corporate Round",
+          "total_equity_funding_usd": null,
+          "total_funding_usd": null,
+          "total_funding_native": {
+            "amount": null,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Benchmark",
+            "Greylock",
+            "IBM",
+            "Oracle",
+            "Intel"
+          ],
+          "num_investors": 8,
+          "revenue_range": "$1B to $10B",
+          "patents_granted": null,
+          "domain": "redhat.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1464",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Saronic",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/saronic",
+          "stage": null,
+          "description": "Saronic designs and manufactures unmanned surface vehicles for maritime security and domain awareness.",
+          "description_full": "Saronic is a defense technology company that designs, builds, and deploys autonomous surface vessels (ASVs) for naval and maritime applications. The company focuses on integrating advanced hardware, artificial intelligence, and software into scalable unmanned systems that enhance maritime awareness, extend operational reach, and improve survivability in complex environments. Its vessels are capable of functions such as navigation, target identification, communication, and payload deployment, enabling both independent and coordinated mission execution. Saronic emphasizes rapid innovation and high-throughput manufacturing to support defense and commercial maritime needs. The company primarily serves government and defense customers, aiming to modernize naval operations and strengthen maritime capabilities through autonomous, software-driven platforms.",
+          "website": "https://www.saronic.com",
+          "cb_rank": 231,
+          "headquarters": "Austin, Texas, United States",
+          "headquarters_regions": "Southern US",
+          "operating_status": "Active",
+          "founded_date": "2022-09-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Government and Military",
+            "Hardware",
+            "Information Technology",
+            "Manufacturing",
+            "Science and Engineering",
+            "Software",
+            "Transportation"
+          ],
+          "industries": [
+            "Artificial Intelligence (AI)",
+            "Autonomous Vehicles",
+            "Manufacturing",
+            "Marine Technology",
+            "Military",
+            "Robotics"
+          ],
+          "founders": [
+            "Dino Mavrookas",
+            "Doug Lambert",
+            "Rob Lehman",
+            "Vibhav Altekar"
+          ],
+          "num_funding_rounds": 6,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2026-03-31",
+          "last_funding_amount_usd": 1750000000,
+          "last_funding_type": "Series D",
+          "total_equity_funding_usd": 2595499911,
+          "total_funding_usd": 2745499911,
+          "total_funding_native": {
+            "amount": 2745499911,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "Franklin Templeton",
+            "General Catalyst",
+            "Lightspeed Venture Partners",
+            "Advent International"
+          ],
+          "num_investors": 26,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "saronic.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1465",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Scale",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/scale-2",
+          "stage": null,
+          "description": "Scale AI provides a data-oriented platform that assists in the development of AI applications.",
+          "description_full": "Scale AI develops a data-oriented platform that provides training and validation data for artificial intelligence applications. The company's LiDAR, video, and image annotation APIs allow self-driving, drone, and robotics teams at companies like Lyft, OpenAI, Zoox, Pinterest, and Airbnb to focus on building differentiated models vs. labeling data.",
+          "website": "https://scale.com",
+          "cb_rank": 1543,
+          "headquarters": "San Francisco, California, United States",
+          "headquarters_regions": "San Francisco Bay Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2016-08-25",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Science and Engineering",
+            "Software",
+            "Transportation"
+          ],
+          "industries": [
+            "Agentic AI",
+            "Artificial Intelligence (AI)",
+            "Autonomous Vehicles",
+            "Data Collection and Labeling",
+            "Generative AI",
+            "Image Recognition",
+            "Machine Learning"
+          ],
+          "founders": [
+            "Alexandr Wang",
+            "Lucy Guo"
+          ],
+          "num_funding_rounds": 10,
+          "funding_status": null,
+          "last_funding_date": "2025-06-10",
+          "last_funding_amount_usd": 14300000000,
+          "last_funding_type": "Corporate Round",
+          "total_equity_funding_usd": 15902620000,
+          "total_funding_usd": 15902620000,
+          "total_funding_native": {
+            "amount": 15902620000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Accel",
+            "NVIDIA",
+            "Founders Fund",
+            "Index Ventures",
+            "Wellington Management"
+          ],
+          "num_investors": 49,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "scale.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1466",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Shield AI",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/shield-ai",
+          "stage": null,
+          "description": "Shield AI is a deep-tech company that focuses on developing AI-powered systems to enhance the safety of service members and civilians.",
+          "description_full": "Shield AI is an enterprise-focused company specializing in AI-powered mission autonomy, developing and deploying advanced autonomous systems for defense and security. The company builds AI pilots that operate aircraft and drones, enabling autonomous flight in environments where communication and GPS may be unavailable. Its platform supports mission planning, navigation, and real-time decision-making for aerial systems used in reconnaissance and operational tasks. Shield AI also integrates hardware and software components to deploy autonomous capabilities across different types of unmanned systems. The company works with government and defense organizations to support missions that require autonomous operation and data-driven coordination.",
+          "website": "http://www.shield.ai",
+          "cb_rank": 1567,
+          "headquarters": "San Diego, California, United States",
+          "headquarters_regions": "Greater San Diego Area, West Coast, Western US",
+          "operating_status": "Active",
+          "founded_date": "2015-12-10",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": "Artificial Intelligence (AI)",
+          "primary_industry_url": "https://www.crunchbase.com/category/artificial-intelligence",
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Consumer Electronics",
+            "Consumer Goods",
+            "Data and Analytics",
+            "Government and Military",
+            "Hardware",
+            "Science and Engineering",
+            "Software",
+            "Transportation"
+          ],
+          "industries": [
+            "Aerospace",
+            "Artificial Intelligence (AI)",
+            "Autonomous Vehicles",
+            "Drones",
+            "Machine Learning",
+            "National Security"
+          ],
+          "founders": [
+            "Andrew Reiter",
+            "Brandon Tseng",
+            "Ryan Tseng"
+          ],
+          "num_funding_rounds": 18,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2026-03-26",
+          "last_funding_amount_usd": 2000000000,
+          "last_funding_type": "Series G",
+          "total_equity_funding_usd": 3038144999,
+          "total_funding_usd": 3583144999,
+          "total_funding_native": {
+            "amount": 3583144999,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "Advent International",
+            "Gaingels",
+            "Dorm Room Fund",
+            "Washington Harbour Partners"
+          ],
+          "num_investors": 36,
+          "revenue_range": "$100M to $500M",
+          "patents_granted": null,
+          "domain": "shield.ai",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1467",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "Shin-Etsu Chemical",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/shin-etsuchemical",
+          "stage": null,
+          "description": "Shin-Etsu Chemical provides key materials and technologies people's daily lives as well as to the advance of industry and society.",
+          "description_full": "Shin-Etsu Chemical is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+          "website": "http://www.shinetsu.co.jp/en",
+          "cb_rank": 277708,
+          "headquarters": "Tokyo, Tokyo, Japan",
+          "headquarters_regions": "Asia-Pacific (APAC)",
+          "operating_status": "Active",
+          "founded_date": "1926-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Hardware",
+            "Manufacturing",
+            "Science and Engineering"
+          ],
+          "industries": [
+            "Chemical",
+            "Manufacturing",
+            "Semiconductor"
+          ],
+          "founders": [
+            "Juzaburo Koto"
+          ],
+          "num_funding_rounds": null,
+          "funding_status": "IPO",
+          "last_funding_date": null,
+          "last_funding_amount_usd": null,
+          "last_funding_type": null,
+          "total_equity_funding_usd": null,
+          "total_funding_usd": null,
+          "total_funding_native": {
+            "amount": null,
+            "currency": "USD"
+          },
+          "top_investors": [],
+          "num_investors": null,
+          "revenue_range": "$10B+",
+          "patents_granted": null,
+          "domain": "shinetsu.co.jp",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1468",
+      "type": "bank",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "State Street",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/state-street-corporation",
+          "stage": null,
+          "description": "State Street offers a range of financial services, including investment management, research and trading, as well as asset management.",
+          "description_full": "State Street is a financial services company that serves sophisticated institutions. State Street provides a range of financial services, including investment management, research, trading, and custodial services to institutional investors. The company is known for its role in servicing and safeguarding assets for a wide array of clients, including mutual funds, pension funds, and other institutional investors.",
+          "website": "https://www.statestreet.com/",
+          "cb_rank": 3721,
+          "headquarters": "Boston, Massachusetts, United States",
+          "headquarters_regions": "Greater Boston Area, East Coast, New England",
+          "operating_status": "Active",
+          "founded_date": "1792-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Financial Services",
+            "Lending and Investments"
+          ],
+          "industries": [
+            "Banking",
+            "Finance",
+            "Financial Services"
+          ],
+          "founders": [],
+          "num_funding_rounds": 10,
+          "funding_status": "IPO",
+          "last_funding_date": "2026-04-24",
+          "last_funding_amount_usd": 1500000000,
+          "last_funding_type": "Post-IPO Debt",
+          "total_equity_funding_usd": 750000000,
+          "total_funding_usd": 13553500000,
+          "total_funding_native": {
+            "amount": 13553500000,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Siebert Williams Shank",
+            "Independence Point Advisors",
+            "CAVU Securities"
+          ],
+          "num_investors": 3,
+          "revenue_range": "$10B+",
+          "patents_granted": null,
+          "domain": "statestreet.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1469",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "SUMCO",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/sumco",
+          "stage": null,
+          "description": "SUMCO is a manufacturer of electronic silicon wafers for the semiconductor industry.",
+          "description_full": "SUMCO is a producer of electronic-grade silicon wafers for the semiconductor industry. Their wafers are used by companies to make circuits and semiconductor devices that power a myriad of electronic products, including computers, cell phones, digital watches, and automobile engine systems.",
+          "website": "https://www.sumcosi.com",
+          "cb_rank": 586041,
+          "headquarters": "Shibaura, Tokyo, Japan",
+          "headquarters_regions": "Asia-Pacific (APAC)",
+          "operating_status": "Active",
+          "founded_date": "1999-07-30",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Commerce and Shopping",
+            "Hardware",
+            "Manufacturing",
+            "Science and Engineering"
+          ],
+          "industries": [
+            "Manufacturing",
+            "Semiconductor",
+            "Wholesale"
+          ],
+          "founders": [],
+          "num_funding_rounds": null,
+          "funding_status": "IPO",
+          "last_funding_date": null,
+          "last_funding_amount_usd": null,
+          "last_funding_type": null,
+          "total_equity_funding_usd": null,
+          "total_funding_usd": null,
+          "total_funding_native": {
+            "amount": null,
+            "currency": "USD"
+          },
+          "top_investors": [],
+          "num_investors": null,
+          "revenue_range": "$1B to $10B",
+          "patents_granted": null,
+          "domain": "sumcosi.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1470",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "xAI",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/xai",
+          "stage": null,
+          "description": "XAI is an artificial intelligence startup that develops AI solutions and tools to enhance reasoning and search capabilities.",
+          "description_full": "xAI develops artificial intelligence systems and tools centered on large language models and AI-powered applications that support reasoning, real-time data integration, and natural language interaction. The company offers products such as the Grok chatbot and associated APIs for embedding conversational AI into third-party applications, and it builds infrastructure to support model training and deployment at scale. Its technology is designed to leverage extensive data sources and computational resources to provide contextual insights, information retrieval, and automated responses for diverse use cases. xAI also works on complementary AI platforms and knowledge services that extend AI utility beyond simple chatbots, while continuously iterating on its models and deployment frameworks.",
+          "website": "https://x.ai",
+          "cb_rank": 2,
+          "headquarters": "Palo Alto, California, United States",
+          "headquarters_regions": "San Francisco Bay Area, Silicon Valley, West Coast",
+          "operating_status": "Active",
+          "founded_date": "2023-07-12",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Artificial Intelligence (AI)",
+            "Data and Analytics",
+            "Information Technology",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Artificial Intelligence (AI)",
+            "Foundational AI",
+            "Generative AI",
+            "Information Technology",
+            "Machine Learning"
+          ],
+          "founders": [
+            "Antoine Caironi",
+            "Christian Szegedy",
+            "Elon Musk",
+            "Greg Yang",
+            "Igor Babuschkin",
+            "Jimmy Ba",
+            "Kyle Kosic",
+            "Manuel Kroiss",
+            "Toby Pohlen",
+            "Tony Wu"
+          ],
+          "num_funding_rounds": 12,
+          "funding_status": "M&A",
+          "last_funding_date": "2026-01-06",
+          "last_funding_amount_usd": 20000000000,
+          "last_funding_type": "Series E",
+          "total_equity_funding_usd": 37884918163,
+          "total_funding_usd": 42885218163,
+          "total_funding_native": {
+            "amount": 42885218163,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "Lightspeed Venture Partners",
+            "NVIDIA",
+            "Sequoia Capital",
+            "BlackRock"
+          ],
+          "num_investors": 62,
+          "revenue_range": null,
+          "patents_granted": null,
+          "domain": "x.ai",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "id": "IN-1471",
+      "type": "company",
+      "roles": [
+        "manufacturer"
+      ],
+      "name": "ZeroMark",
+      "sector": "Startup",
+      "wikidata_id": null,
+      "sources": {
+        "ishares": null,
+        "crunchbase": {
+          "extracted_at": "2026-06-18",
+          "source_file": "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/zeromark",
+          "stage": null,
+          "description": "ZeroMark is a defense product company building technology to ensure safety and precision when using kinetic and non lethal weapons.",
+          "description_full": null,
+          "website": "https://zeromark.com",
+          "cb_rank": 24280,
+          "headquarters": "New York, New York, United States",
+          "headquarters_regions": "Greater New York Area, East Coast, Northeastern US",
+          "operating_status": "Active",
+          "founded_date": "2022-08-23",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": null,
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Government and Military",
+            "Hardware",
+            "Privacy and Security",
+            "Science and Engineering",
+            "Software"
+          ],
+          "industries": [
+            "Augmented Reality",
+            "Government",
+            "Law Enforcement",
+            "National Security",
+            "Robotics"
+          ],
+          "founders": [
+            "Joel Anderson"
+          ],
+          "num_funding_rounds": 2,
+          "funding_status": "Early Stage Venture",
+          "last_funding_date": "2025-09-09",
+          "last_funding_amount_usd": 235596,
+          "last_funding_type": "Series A",
+          "total_equity_funding_usd": 7235596,
+          "total_funding_usd": 7235596,
+          "total_funding_native": {
+            "amount": 7235596,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Andreessen Horowitz",
+            "Gaingels",
+            "Anorak Ventures",
+            "Calm",
+            "Ludlow Ventures"
+          ],
+          "num_investors": 14,
+          "revenue_range": "$1M to $10M",
+          "patents_granted": null,
+          "domain": "zeromark.com",
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
+        "infonodes": null,
+        "wikidata": null
+      },
+      "tags": [],
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_mintl_companies.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
+          "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        }
+      ]
     }
   ],
   "relationships": [

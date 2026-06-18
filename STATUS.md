@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-17 (EDF refresh — 79→82 projects, +2 org entities, +7 rels; Wikidata: nothing new)
+> Last updated: 2026-06-18 (MINTL import — +23 new entities via import_mintl_companies.py; DB: 2221 entities)
 
 ## Session protocol
 
@@ -520,6 +520,45 @@ refactoringDB/
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
+### Session 2026-06-18 — MINTL import (+23 new entities)
+
+**Source:** `rawdata/mintl-update-companies-20260618-foglio1-csv6-18-2026.csv` (25 CB rows)
+**Script:** `scripts/import_mintl_companies.py` (new, one-shot creation script)
+
+#### Reconciliation
+
+| Status | Count | Detail |
+|---|---|---|
+| Already in DB | 2 | see below |
+| False positives (name substring match, different entity) | 2 | see below |
+| New entities created | 23 | IN-1449–IN-1471 |
+
+**Already in DB (skipped):**
+- `IN-0356` Taiwan Semiconductor Manufacturing — name in CSV: "Taiwan Semiconductor Manufacturing Company"; already has CB + WD + iShares data
+- `IN-1236` Intelic — exact match; CB data from April 2026 (minor staleness, not updated this cycle)
+
+**False positives found during pre-import search (these are NEW and were correctly imported):**
+- "xAI" → matched `IN-0672/0673/1401` "Exail*" (French robotics company — different entity)
+- "Scale" → matched `IV-0489` "Scale Venture Partners", `IV-0490` "Scale-Up Ventures", `IN-1406` "Astroscale" (all different entities; Scale AI is new as `IN-1465`)
+
+**New entities (IN-1449–IN-1471, alphabetical):**
+Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hypersonica, Latent AI, Mistral AI, Nominal, PhysicsX, Plural.com, Red Hat, Saronic, Scale, Shield AI, Shin-Etsu Chemical, State Street, SUMCO, xAI, ZeroMark
+
+- All created with `sources.crunchbase` fully populated from CSV
+- `sector: 'Startup'` set for VC-backed companies (Early/Late Stage Venture, Seed)
+- `type: 'bank'` set for State Street; `company` for all others
+- `roles: ['manufacturer']` for all — **review needed**: some are pure software/AI (no manufacturing)
+- `wikidata_id: null` for all — QID pipeline can be run to enrich
+
+- [x] validate.py PASSED (2026-06-18) — 2221 entities, 2798 relationships
+
+#### Note: script design
+`import_mintl_companies.py` is the creation counterpart to `import_crunchbase_csv.py`:
+- `import_crunchbase_csv.py` — matches CB rows to EXISTING entities (unresolved rows are not created)
+- `import_mintl_companies.py` — creates NEW entities from a curated CB CSV; skips known existing entities via hardcoded `ALREADY_IN_DB` dict
+
+---
+
 ### Session 2026-06-17 — EDF refresh + Wikidata (no-op)
 
 - [x] **EDF re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 212 calls, 79→82 projects
