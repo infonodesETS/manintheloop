@@ -306652,7 +306652,7 @@
       "id": "IN-1468",
       "type": "bank",
       "roles": [
-        "manufacturer"
+        "investor"
       ],
       "name": "State Street",
       "sector": null,
@@ -306724,6 +306724,19 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "manual",
+          "author": "nelsonmau",
+          "field": "roles",
+          "old": [
+            "manufacturer"
+          ],
+          "new": [
+            "investor"
+          ],
+          "description": "State Street is a financial institution / asset manager, not a manufacturer — role corrected to investor"
         }
       ],
       "validation": [
@@ -307020,6 +307033,4056 @@
           "datestamp": "2026-06-18"
         }
       ]
+    },
+    {
+      "id": "IV-0668",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "1843 Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0669",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "201 Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0670",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "7percent Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0671",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "a16z crypto",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0672",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Advent International",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0673",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Allseas Group",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0674",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Alumni Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0675",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Anorak Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0676",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Apax Partners",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0677",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Atlante Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0678",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Azimut Libera Impresa",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0679",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Azulis Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0680",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Benchmark",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0681",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Bjoern Zinssmeister",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0682",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Blackhorn Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0683",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Bloomberg Beta",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0684",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "BNP Paribas Développement",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0685",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Booz Allen Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0686",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "BoxGroup",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0687",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Breizh Up",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0688",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "British Business Bank",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0689",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "California Public Utilities Commission",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0690",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Calm",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0691",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "CAVU Securities",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0692",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "David S. Kidder",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0693",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Deep Ocean Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0694",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Defense Security Cooperation Agency",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0695",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Dorm Room Fund",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0696",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Enagas Emprende",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0697",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Encino Environmental Services",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0698",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Entrepreneurs First",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0699",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Epic Games",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0700",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Erkki Veikkolainen",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0701",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "European Space Agency",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0702",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Fincantieri",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0703",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Franklin Templeton",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0704",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Future Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0705",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Gaingels",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0706",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Glencore",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0707",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Government of British Columbia",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0708",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Guozhi Investment",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0709",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Headline",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0710",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Hi Inov - Dentressangle",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0711",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Horizon 2020",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0712",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Horizon Europe",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0713",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "I Squared Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0714",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "IBM",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0715",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Indaco Venture Partners",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0716",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Independence Point Advisors",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0717",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Indico Capital Partners",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0718",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Intel",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0719",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Invesco",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0720",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "IQT",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0721",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Italian Angels for Growth",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0722",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Korea Zinc",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0723",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "LitCapital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0724",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Lockheed Martin Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0725",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Ludlow Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0726",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Macquarie Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0727",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Maersk",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0728",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Massachussetts Broadband Institute",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0729",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Mastercard",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0730",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Ma’aden",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0731",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Menlo Ventures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0732",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Monolith Management",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0733",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "National Science Foundation",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0734",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "NVentures",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0735",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "On Deck",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0736",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Oracle",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0737",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Pareto Holdings",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0738",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Plural Platform",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0739",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Practica Capital",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0740",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Royal Bafokeng Holdings",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0741",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Sakhumnotho Group",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0742",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Seed Capital Bizkaia",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0743",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Siebert Williams Shank",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0744",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Siemens",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0745",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "SPRIN-D",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0746",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Swen Capital Partners",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0747",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Telefonica",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0748",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Temasek",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0749",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "The European Innovation Fund",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0750",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Thomson Reuters",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0751",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Trian Fund Management",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0752",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "UNIIQ",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0753",
+      "type": "public_fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "United Overseas Bank",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0754",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Ventive Group",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0755",
+      "type": "investor",
+      "roles": [
+        "investor"
+      ],
+      "name": "Voyager Technologies",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0756",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Washington Harbour Partners",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "IV-0757",
+      "type": "fund",
+      "roles": [
+        "investor"
+      ],
+      "name": "Wellington Management",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "edf": null,
+        "ishares": null,
+        "crunchbase": null,
+        "infonodes": {
+          "extracted_at": "2026-06-18",
+          "sector": null,
+          "country": null,
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null,
+          "website": null
+        },
+        "wikidata": null
+      },
+      "history": [
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
+          "author": "import_investors_crunchbase.py",
+          "datestamp": "2026-06-18"
+        }
+      ],
+      "tags": []
     }
   ],
   "relationships": [
@@ -328705,6 +332768,1350 @@
       "role": "participant",
       "eu_contribution": 399946.22,
       "created_at": "2026-06-17"
+    },
+    {
+      "source": "IV-0437",
+      "target": "IN-0043",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0676",
+      "target": "IN-0046",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0406",
+      "target": "IN-0050",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0256",
+      "target": "IN-0069",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0751",
+      "target": "IN-0095",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0689",
+      "target": "IN-0095",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0728",
+      "target": "IN-0095",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0365",
+      "target": "IN-0095",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0136",
+      "target": "IN-0095",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0081",
+      "target": "IN-0097",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0123",
+      "target": "IN-0097",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0086",
+      "target": "IN-0121",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0730",
+      "target": "IN-0178",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0740",
+      "target": "IN-0266",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0741",
+      "target": "IN-0266",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0582",
+      "target": "IN-0270",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0240",
+      "target": "IN-0307",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0260",
+      "target": "IN-0335",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0521",
+      "target": "IN-0335",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0154",
+      "target": "IN-0335",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0340",
+      "target": "IN-0335",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0753",
+      "target": "IN-0335",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0707",
+      "target": "IN-0363",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0706",
+      "target": "IN-0383",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0722",
+      "target": "IN-0383",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0726",
+      "target": "IN-0383",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0727",
+      "target": "IN-0383",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0673",
+      "target": "IN-0383",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0572",
+      "target": "IN-0461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0086",
+      "target": "IN-0495",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0710",
+      "target": "IN-0495",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0684",
+      "target": "IN-0495",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0687",
+      "target": "IN-0495",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0700",
+      "target": "IN-0532",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0700",
+      "target": "IN-0533",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0694",
+      "target": "IN-0575",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-0590",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0190",
+      "target": "IN-0616",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0604",
+      "target": "IN-0644",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-0664",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-0676",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0086",
+      "target": "IN-0676",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0176",
+      "target": "IN-0676",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0712",
+      "target": "IN-0676",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0043",
+      "target": "IN-0676",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0105",
+      "target": "IN-0716",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0754",
+      "target": "IN-0716",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0721",
+      "target": "IN-0716",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0693",
+      "target": "IN-0716",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0678",
+      "target": "IN-0716",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0110",
+      "target": "IN-0833",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0679",
+      "target": "IN-0870",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0749",
+      "target": "IN-0888",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-1013",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0747",
+      "target": "IN-1037",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0697",
+      "target": "IN-1037",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0742",
+      "target": "IN-1037",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-1037",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0696",
+      "target": "IN-1037",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0752",
+      "target": "IN-1068",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0604",
+      "target": "IN-1068",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-1116",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-1128",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1135",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1136",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1137",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1138",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1139",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1142",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1143",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1144",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1147",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1148",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0723",
+      "target": "IN-1158",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0194",
+      "target": "IN-1159",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0701",
+      "target": "IN-1159",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0739",
+      "target": "IN-1159",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0173",
+      "target": "IN-1159",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0711",
+      "target": "IN-1159",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0105",
+      "target": "IN-1220",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0717",
+      "target": "IN-1220",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0746",
+      "target": "IN-1220",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0702",
+      "target": "IN-1220",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0048",
+      "target": "IN-1220",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0207",
+      "target": "IN-1253",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0097",
+      "target": "IN-1253",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0400",
+      "target": "IN-1253",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0065",
+      "target": "IN-1253",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0195",
+      "target": "IN-1298",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0323",
+      "target": "IN-1298",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0657",
+      "target": "IN-1298",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0730",
+      "target": "IN-1344",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0748",
+      "target": "IN-1449",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1449",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0227",
+      "target": "IN-1449",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1449",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0731",
+      "target": "IN-1449",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1450",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1450",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1450",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0461",
+      "target": "IN-1450",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0586",
+      "target": "IN-1450",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0708",
+      "target": "IN-1451",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0137",
+      "target": "IN-1451",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0550",
+      "target": "IN-1451",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0275",
+      "target": "IN-1451",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0732",
+      "target": "IN-1451",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0729",
+      "target": "IN-1452",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0750",
+      "target": "IN-1452",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0683",
+      "target": "IN-1452",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0720",
+      "target": "IN-1452",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0668",
+      "target": "IN-1452",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0705",
+      "target": "IN-1453",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0003",
+      "target": "IN-1453",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0713",
+      "target": "IN-1453",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0733",
+      "target": "IN-1453",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0756",
+      "target": "IN-1453",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0719",
+      "target": "IN-1454",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0715",
+      "target": "IN-1454",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0677",
+      "target": "IN-1454",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0674",
+      "target": "IN-1455",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0688",
+      "target": "IN-1455",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0698",
+      "target": "IN-1455",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0550",
+      "target": "IN-1455",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0699",
+      "target": "IN-1455",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1456",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0221",
+      "target": "IN-1456",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0363",
+      "target": "IN-1456",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0001",
+      "target": "IN-1456",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0671",
+      "target": "IN-1456",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1457",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0738",
+      "target": "IN-1457",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0669",
+      "target": "IN-1457",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0745",
+      "target": "IN-1457",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0755",
+      "target": "IN-1458",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0685",
+      "target": "IN-1458",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0682",
+      "target": "IN-1458",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0724",
+      "target": "IN-1458",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0704",
+      "target": "IN-1458",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1459",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1459",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1459",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0709",
+      "target": "IN-1459",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0086",
+      "target": "IN-1459",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1460",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0686",
+      "target": "IN-1460",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1460",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0500",
+      "target": "IN-1460",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0221",
+      "target": "IN-1460",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0748",
+      "target": "IN-1461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0423",
+      "target": "IN-1461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0744",
+      "target": "IN-1461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0734",
+      "target": "IN-1461",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0670",
+      "target": "IN-1462",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0735",
+      "target": "IN-1462",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0737",
+      "target": "IN-1462",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0692",
+      "target": "IN-1462",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0681",
+      "target": "IN-1462",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0680",
+      "target": "IN-1463",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0247",
+      "target": "IN-1463",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0714",
+      "target": "IN-1463",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0736",
+      "target": "IN-1463",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0718",
+      "target": "IN-1463",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1464",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0703",
+      "target": "IN-1464",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0228",
+      "target": "IN-1464",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1464",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0672",
+      "target": "IN-1464",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0006",
+      "target": "IN-1465",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0423",
+      "target": "IN-1465",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0221",
+      "target": "IN-1465",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0283",
+      "target": "IN-1465",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0757",
+      "target": "IN-1465",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1466",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0672",
+      "target": "IN-1466",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0705",
+      "target": "IN-1466",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0695",
+      "target": "IN-1466",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0756",
+      "target": "IN-1466",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0743",
+      "target": "IN-1468",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0716",
+      "target": "IN-1468",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0691",
+      "target": "IN-1468",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1470",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0354",
+      "target": "IN-1470",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0423",
+      "target": "IN-1470",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0500",
+      "target": "IN-1470",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0077",
+      "target": "IN-1470",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0026",
+      "target": "IN-1471",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0705",
+      "target": "IN-1471",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0675",
+      "target": "IN-1471",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0690",
+      "target": "IN-1471",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
+    },
+    {
+      "source": "IV-0725",
+      "target": "IN-1471",
+      "type": "investment",
+      "source_ref": "crunchbase_top_investors",
+      "created_at": "2026-06-18"
     }
   ]
 }

@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-18 (MINTL import — +23 new entities via import_mintl_companies.py; DB: 2221 entities)
+> Last updated: 2026-06-18 (MINTL import + investor pipeline — +23 entities, +90 IV, +192 rels; DB: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -551,6 +551,9 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - `wikidata_id: null` for all — QID pipeline can be run to enrich
 
 - [x] validate.py PASSED (2026-06-18) — 2221 entities, 2798 relationships
+- [x] `import_investors_crunchbase.py` — +90 IV entities, +192 investment relationships from `top_investors` of new companies
+- [x] `IN-1468 State Street` — `roles` corrected from `['manufacturer']` to `['investor']` (bank/asset manager, not a manufacturer)
+- [x] validate.py PASSED (2026-06-18) — **2311 entities, 2990 relationships**
 
 #### Note: script design
 `import_mintl_companies.py` is the creation counterpart to `import_crunchbase_csv.py`:
