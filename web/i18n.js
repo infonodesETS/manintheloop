@@ -51,10 +51,13 @@ const TRANSLATIONS = {
     'net.in_view':        'In this view',
     'net.selected_node':  'Selected node',
     'net.select_country': 'Select a country to see stats.',
+    'net.edf_tip':        'Flaggando "EDF projects" il sistema mostrerà tutti i soggetti che hanno ricevuto finanziamenti attraverso il programma EDF (European Defence Fund), le relazioni fra loro e le informazioni di ogni singolo progetto.',
+    'net.inv_tip':        'Flaggando "Investments" il sistema mostrerà tutti i soggetti economici (società quotate, start-up, fondi, etc...) che abbiamo inserito nel database e le relazioni fra loro in termini di investimento.',
 
     // ABOUT — content
     'about.title':        'About',
     'about.intro':        'La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell\'ambito del programma globale "Militarisation of Tech".',
+    'about.last_update':  'Ultimo aggiornamento dati: 16/06/2026',
     'about.team_lead':    'L\'attuale prototipo è stato sviluppato da:',
     'about.team_list':    '<li>Davide Del Monte — Coordinatore e Lead Researcher</li><li>Laura Carrer — Researcher</li><li>Andrea Daniele Signorelli — Researcher</li>',
     'about.collab':       'in collaborazione con DATAPITCH:',
@@ -118,10 +121,13 @@ const TRANSLATIONS = {
     'net.in_view':        'In this view',
     'net.selected_node':  'Selected node',
     'net.select_country': 'Select a country to see stats.',
+    'net.edf_tip':        'By checking "EDF projects" the system will show all entities that have received funding through the EDF programme (European Defence Fund), the relationships between them and the details of each individual project.',
+    'net.inv_tip':        'By checking "Investments" the system will show all economic entities (listed companies, start-ups, funds, etc.) included in the database and the investment relationships between them.',
 
     // ABOUT — content
     'about.title':        'About',
     'about.intro':        'The Man in the Loop platform is developed by info.nodes, an Italian non-profit organisation founded in 2019, with financial support from <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, as part of the global programme "Militarisation of Tech".',
+    'about.last_update':  'Last data update: 16/06/2026',
     'about.team_lead':    'The current prototype was developed by:',
     'about.team_list':    '<li>Davide Del Monte — Coordinator and Lead Researcher</li><li>Laura Carrer — Researcher</li><li>Andrea Daniele Signorelli — Researcher</li>',
     'about.collab':       'in collaboration with DATAPITCH:',
@@ -185,10 +191,13 @@ const TRANSLATIONS = {
     'net.in_view':        'Dans cette vue',
     'net.selected_node':  'Nœud sélectionné',
     'net.select_country': 'Sélectionnez un pays pour voir les statistiques.',
+    'net.edf_tip':        'En cochant "EDF projects", le système affichera toutes les entités ayant reçu des financements dans le cadre du programme EDF (Fonds européen de défense), les relations entre elles et les informations de chaque projet.',
+    'net.inv_tip':        'En cochant "Investments", le système affichera toutes les entités économiques (sociétés cotées, start-ups, fonds, etc.) présentes dans la base de données et les relations d\'investissement entre elles.',
 
     // ABOUT — content
     'about.title':        'À propos',
     'about.intro':        'La plateforme Man in the Loop est développée par info.nodes, organisation à but non lucratif italienne fondée en 2019, grâce au soutien financier de <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, dans le cadre du programme mondial « Militarisation of Tech ».',
+    'about.last_update':  'Dernière mise à jour des données : 16/06/2026',
     'about.team_lead':    'Le prototype actuel a été développé par :',
     'about.team_list':    '<li>Davide Del Monte — Coordinateur et chercheur principal</li><li>Laura Carrer — Chercheuse</li><li>Andrea Daniele Signorelli — Chercheur</li>',
     'about.collab':       'en collaboration avec DATAPITCH :',
@@ -252,10 +261,13 @@ const TRANSLATIONS = {
     'net.in_view':        'En esta vista',
     'net.selected_node':  'Nodo seleccionado',
     'net.select_country': 'Seleccione un país para ver estadísticas.',
+    'net.edf_tip':        'Al marcar "EDF projects", el sistema mostrará todas las entidades que han recibido financiación a través del programa EDF (Fondo Europeo de Defensa), las relaciones entre ellas y la información de cada proyecto.',
+    'net.inv_tip':        'Al marcar "Investments", el sistema mostrará todas las entidades económicas (empresas cotizadas, start-ups, fondos, etc.) incluidas en la base de datos y las relaciones de inversión entre ellas.',
 
     // ABOUT — content
     'about.title':        'Acerca de',
     'about.intro':        'La plataforma Man in the Loop es desarrollada por info.nodes, organización sin ánimo de lucro italiana fundada en 2019, gracias al apoyo económico de <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, en el marco del programa global «Militarisation of Tech».',
+    'about.last_update':  'Última actualización de datos: 16/06/2026',
     'about.team_lead':    'El prototipo actual fue desarrollado por:',
     'about.team_list':    '<li>Davide Del Monte — Coordinador e investigador principal</li><li>Laura Carrer — Investigadora</li><li>Andrea Daniele Signorelli — Investigador</li>',
     'about.collab':       'en colaboración con DATAPITCH:',
