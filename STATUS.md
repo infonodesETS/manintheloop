@@ -715,6 +715,19 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 
 ## Pending work (priority order)
 
+### TODO — `patch_iv_countries_p159.py` (2026-06-18)
+
+23 IV entities have QID but no country. `patch_iv_countries_p159.py --dry-run` confirmed all 23 resolvable via SPARQL P159/P17, but the apply run failed due to Wikidata SPARQL endpoint outage (HTTP 429). Re-run when the endpoint is stable:
+
+```bash
+python3 scripts/patch_iv_countries_p159.py
+python3 scripts/validate.py
+```
+
+Confirmed candidates (from dry-run): Affinity Partners (USA), Balderton Capital (UK), Barclays Investment Bank (UK), Bharti Enterprises (India), General Atlantic (USA), IDG Capital (China), Index Ventures (Switzerland), Partech (France), Sekunjalo Group (South Africa), + 14 others (all USA).
+
+---
+
 ### ~~OPEN BUG~~ FIXED — dual-role entity frontend rendering (2026-05-14)
 
 **Status:** Fixed in branch `datacleaning` (2026-05-14). Affected entities: `IN-0053` BHP, `IN-0233` Microsoft, `IN-1307` Ma'aden, `IN-1336` Tianqi Lithium.
