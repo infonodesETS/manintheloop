@@ -61018,7 +61018,7 @@
       ],
       "name": "PLS",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q56064089",
       "sources": {
         "ishares": [
           {
@@ -61178,6 +61178,15 @@
           "new": null,
           "note": "Duplicate of IN-1320 Pilbara Minerals (PLS is ASX ticker abbreviation). IN-1320 canonical. QID nulled here.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q56064089",
+          "description": "wikidata_id set via search: label='Pilbara Minerals', description='Australian lithium mining company'. Search name used: 'PLS'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -61229,6 +61238,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q56064089 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -62010,7 +62025,7 @@
       ],
       "name": "PTC Industries",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q139552877",
       "sources": {
         "ishares": [
           {
@@ -62119,6 +62134,15 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q139552877",
+          "description": "wikidata_id set via search: label='PTC Industries Limited', description='Indian manufacturing company'. Search name used: 'Ptc Industries'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -62145,6 +62169,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q139552877 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -78327,7 +78357,7 @@
       ],
       "name": "Telecom Italia S.p.a",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q144617",
       "sources": {
         "ishares": [
           {
@@ -78430,6 +78460,15 @@
           "new": null,
           "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q144617",
+          "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -78469,6 +78508,12 @@
           "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q144617 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -85126,7 +85171,7 @@
       ],
       "name": "VALE DO RIO DOCE",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q583268",
       "sources": {
         "ishares": [
           {
@@ -85229,6 +85274,15 @@
           "new": null,
           "note": "Old company name (VALE DO RIO DOCE). IN-1344 Vale is canonical (current name, CB data, 6 relationships). QID nulled here.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q583268",
+          "description": "wikidata_id set via search: label='Vale', description='multinational diversified metals and mining corporation'. Search name used: 'VALE DO RIO DOCE'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -85268,6 +85322,12 @@
           "note": "Old company name (VALE DO RIO DOCE). IN-1344 Vale is canonical (current name, CB data, 6 relationships). QID nulled here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q583268 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -96619,7 +96679,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q15529123",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -96776,6 +96836,15 @@
           "new": null,
           "note": "Airbus D&S national subsidiary. Q15529123=ADS division kept on parent; subsidiary needs own QID.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q15529123",
+          "description": "wikidata_id set via search: label='Airbus Defence and Space', description='division of Airbus Group (SE) specialized in the defense and aerospace industry. Search name used: 'Airbus Defence And Space'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -96827,6 +96896,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -96839,7 +96914,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q15529123",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -96996,6 +97071,15 @@
           "new": null,
           "note": "Airbus D&S national subsidiary. Q15529123=ADS division kept on parent; subsidiary needs own QID.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q15529123",
+          "description": "wikidata_id set via search: label='Airbus Defence and Space', description='division of Airbus Group (SE) specialized in the defense and aerospace industry. Search name used: 'Airbus Defence And Space'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -97047,6 +97131,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -97059,7 +97149,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q15529123",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -97216,6 +97306,15 @@
           "new": null,
           "note": "Airbus D&S national subsidiary. Q15529123=ADS division kept on parent; subsidiary needs own QID.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q15529123",
+          "description": "wikidata_id set via search: label='Airbus Defence and Space', description='division of Airbus Group (SE) specialized in the defense and aerospace industry. Search name used: 'Airbus Defence And Space'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -97267,6 +97366,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -97279,7 +97384,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q15529123",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -97508,6 +97613,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 959580455, 1 projects, €315,492 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q15529123",
+          "description": "wikidata_id set via search: label='Airbus Defence and Space', description='division of Airbus Group (SE) specialized in the defense and aerospace industry. Search name used: 'Airbus Defence And Space'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -97559,6 +97673,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -98138,7 +98258,7 @@
       ],
       "name": "Airbus Operations",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q4698478",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -98290,6 +98410,15 @@
           "new": null,
           "note": "National sibling subsidiaries (Airbus Operations SAS France PIC 991247948, Airbus Operations GmbH Germany PIC 999964756). Q4698478 is the parent. QID nulled.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q4698478",
+          "description": "wikidata_id set via search: label='Airbus Operations Limited', description='subsidiary of Airbus in United Kingdom'. Search name used: 'Airbus Operations'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -98353,6 +98482,12 @@
           "description": "headquarters dual-location: Airbus Operations: Bristol UK + Hamburg DE — two legitimate Airbus Operations sites; both are real entity addresses",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q4698478 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -98365,7 +98500,7 @@
       ],
       "name": "Airbus Operations",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q4698478",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -98553,6 +98688,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999964756, 1 projects, €152,000 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q4698478",
+          "description": "wikidata_id set via search: label='Airbus Operations Limited', description='subsidiary of Airbus in United Kingdom'. Search name used: 'Airbus Operations'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -98616,6 +98760,12 @@
           "description": "headquarters dual-location: Airbus Operations: Bristol UK + Hamburg DE — two legitimate Airbus Operations sites; both are real entity addresses",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q4698478 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -102766,7 +102916,7 @@
       ],
       "name": "Arianegroup",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q19951610",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -102917,6 +103067,15 @@
           "new": null,
           "note": "National sibling subsidiaries (ArianeGroup SAS France PIC 932228201, ArianeGroup GmbH Germany PIC 931927113). Q19951610 is the parent. QID nulled.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q19951610",
+          "description": "wikidata_id set via search: label='ArianeGroup', description='European space company'. Search name used: 'Arianegroup'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -102974,6 +103133,12 @@
           "description": "headquarters real conflict: sources.wikidata.headquarters='Les Mureaux' vs sources.crunchbase.headquarters='Issy-les-moulineaux, Ile-de-France, France' — sources disagree; manual review required to set canonical value.",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q19951610 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -102986,7 +103151,7 @@
       ],
       "name": "Arianegroup",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q19951610",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -103173,6 +103338,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 931927113, 2 projects, €558,712 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q19951610",
+          "description": "wikidata_id set via search: label='ArianeGroup', description='European space company'. Search name used: 'Arianegroup'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -103230,6 +103404,12 @@
           "description": "headquarters real conflict: sources.wikidata.headquarters='Les Mureaux' vs sources.crunchbase.headquarters='Issy-les-moulineaux, Ile-de-France, France' — sources disagree; manual review required to set canonical value.",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q19951610 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -107248,7 +107428,7 @@
       ],
       "name": "Beyond Gravity Austria",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q663885",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -107423,6 +107603,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 972664300, 1 projects, €151,999 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q663885",
+          "description": "wikidata_id set via search: label='Beyond Gravity', description='Swiss aerospace business'. Search name used: 'Beyond Gravity Austria'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -107480,6 +107669,12 @@
           "description": "headquarters real conflict: sources.wikidata.headquarters='Zurich' vs sources.crunchbase.headquarters='Bern, Bern, Switzerland' — sources disagree; manual review required to set canonical value.",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q663885 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -107492,7 +107687,7 @@
       ],
       "name": "Beyond Gravity Sweden",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q663885",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -107667,6 +107862,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999653095, 1 projects, €81,944 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q663885",
+          "description": "wikidata_id set via search: label='Beyond Gravity', description='Swiss aerospace business'. Search name used: 'Beyond Gravity Sweden'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -107724,6 +107928,12 @@
           "description": "headquarters real conflict: sources.wikidata.headquarters='Zurich' vs sources.crunchbase.headquarters='Bern, Bern, Switzerland' — sources disagree; manual review required to set canonical value.",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q663885 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -108202,7 +108412,7 @@
       ],
       "name": "Bittium Safemove",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30302789",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -108385,6 +108595,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 897241465, 1 projects, €171,756 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30302789",
+          "description": "wikidata_id set via search: label='Bittium', description='company'. Search name used: 'Bittium Safemove'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -108430,6 +108649,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30302789 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -108442,7 +108667,7 @@
       ],
       "name": "Bittium Wireless",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30302789",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -108625,6 +108850,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999647372, 4 projects, €9,059,384 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30302789",
+          "description": "wikidata_id set via search: label='Bittium', description='company'. Search name used: 'Bittium Wireless'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -108670,6 +108904,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30302789 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -118037,7 +118277,7 @@
       ],
       "name": "Damen Naval",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q950580",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -118159,6 +118399,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 874038774, 3 projects, €3,188,333 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q950580",
+          "description": "wikidata_id set via search: label='Damen Group', description='shipbuilding company'. Search name used: 'Damen Naval'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -118198,6 +118447,12 @@
           "note": "Damen Naval is subsidiary. Q950580=Damen Group parent; neither subsidiary matches.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q950580 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -118210,7 +118465,7 @@
       ],
       "name": "Damen Research Development Innovation",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q950580",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -118389,6 +118644,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 888269353, 1 projects, €781,535 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q950580",
+          "description": "wikidata_id set via search: label='Damen Group', description='shipbuilding company'. Search name used: 'Damen Research Development Innovation'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -118434,6 +118698,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q950580 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -127446,7 +127716,7 @@
       ],
       "name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q52618",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -127576,6 +127846,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999944289, 1 projects, €156,280 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q52618",
+          "description": "wikidata_id set via search: label='Ericsson', description='Swedish provider of communications technology and services'. Search name used: 'Ericsson Magyarorszag Kommunikacios Rendszerek Kft'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -127615,6 +127894,12 @@
           "note": "Ericsson Magyaroszag is Hungarian subsidiary. Q52618=Ericsson parent kept on IN-0655.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q52618 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -129293,7 +129578,7 @@
       ],
       "name": "Eviden Austria",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q117442701",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -129465,6 +129750,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 964110452, 1 projects, €348,422 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q117442701",
+          "description": "wikidata_id set via search: label='Eviden', description=''. Search name used: 'Eviden Austria'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -129516,6 +129810,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q117442701 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -137829,7 +138129,7 @@
       ],
       "name": "Helsing Germany GmbH",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q127380521",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -138026,6 +138326,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 892984620, 1 projects, €137,738 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q127380521",
+          "description": "wikidata_id set via search: label='Helsing', description='German company specializing in artificial intelligence for defense purposes'. Search name used: 'Helsing Germany'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -138076,6 +138385,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q127380521 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -142002,7 +142317,7 @@
       ],
       "name": "Indra Espacio Slu",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1661823",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -142123,6 +142438,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 877159943, 4 projects, €8,434,440 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1661823",
+          "description": "wikidata_id set via search: label='Indra Sistemas', description='Spanish defense and information tech company'. Search name used: 'Indra Espacio Slu'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -142162,6 +142486,12 @@
           "note": "Indra Espacio Slu is subsidiary of Indra Sistemas. Q1661823=Indra Sistemas kept on IN-0753.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1661823 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -146148,7 +146478,7 @@
       ],
       "name": "Integrasys",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30254805",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -146307,6 +146637,15 @@
           "new": null,
           "note": "National sibling subsidiaries (Spain PIC 997636853, Luxembourg PIC 884472579). Q30254805 is the parent Integrasys entity, not either subsidiary. QID nulled — subsidiary-specific QIDs should be assigned when found.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30254805",
+          "description": "wikidata_id set via search: label='Integrasys', description='company in Madrid, Spain'. Search name used: 'Integrasys'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -146358,6 +146697,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30254805 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -146370,7 +146715,7 @@
       ],
       "name": "Integrasys",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30254805",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -146565,6 +146910,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 884472579, 1 projects, €953,439 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30254805",
+          "description": "wikidata_id set via search: label='Integrasys', description='company in Madrid, Spain'. Search name used: 'Integrasys'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -146616,6 +146970,12 @@
           "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30254805 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -150983,7 +151343,7 @@
       ],
       "name": "Knds Ammo France",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q571665",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -151106,6 +151466,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 893906605, 1 projects, €2,661,167 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q571665",
+          "description": "wikidata_id set via search: label='KNDS France', description='French weapons manufacturer'. Search name used: 'Knds Ammo France'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -151145,6 +151514,12 @@
           "note": "Knds Ammo France is ammunition division. Q571665=KNDS France kept on IN-0823.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q571665 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -151345,7 +151720,7 @@
       ],
       "name": "Knds Belgium",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q19966744",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -151467,6 +151842,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 892829129, 1 projects, €92,500 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q19966744",
+          "description": "wikidata_id set via search: label='KNDS', description='European defence company'. Search name used: 'Knds Belgium'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -151506,6 +151890,12 @@
           "note": "KNDS Belgium is subsidiary. Q19966744=KNDS parent kept on IN-1301.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q19966744 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -151988,7 +152378,7 @@
       ],
       "name": "Knds France Robotics",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q19966744",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -152110,6 +152500,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 940660023, 2 projects, €1,478,469 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q19966744",
+          "description": "wikidata_id set via search: label='KNDS', description='European defence company'. Search name used: 'Knds France Robotics'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -152149,6 +152548,12 @@
           "note": "KNDS France Robotics is subsidiary. Q19966744=KNDS parent kept on IN-1301.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q19966744 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -153105,7 +153510,7 @@
       ],
       "name": "L M Ericsson",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q52618",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -153235,6 +153640,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999942931, 1 projects, €281,849 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q52618",
+          "description": "wikidata_id set via search: label='Ericsson', description='Swedish provider of communications technology and services'. Search name used: 'L M Ericsson'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -153274,6 +153688,12 @@
           "note": "L M Ericsson is duplicate name for Ericsson. Q52618 kept on IN-0655 Ericsson.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q52618 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -158480,7 +158900,7 @@
       ],
       "name": "Mbda Espana Sl",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q131887361",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -158598,6 +159018,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 892729801, 1 projects, €358,291 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q131887361",
+          "description": "wikidata_id set via search: label='', description=''. Search name used: 'Mbda Espana Sl'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -158637,6 +159066,12 @@
           "note": "Q131887361 not found in Wikidata. Both MBDA entities are subsidiaries; parent QID not applied here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q131887361 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -158833,7 +159268,7 @@
       ],
       "name": "Mbda Italia",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q131887361",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -158951,6 +159386,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 990040007, 11 projects, €6,060,601 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q131887361",
+          "description": "wikidata_id set via search: label='MBDA Italia SpA', description=''. Search name used: 'Mbda Italia'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -158990,6 +159434,12 @@
           "note": "Q131887361 not found in Wikidata. Both MBDA entities are subsidiaries; parent QID not applied here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q131887361 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -163238,7 +163688,7 @@
       ],
       "name": "Nammo Raufoss As",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1964355",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -163360,6 +163810,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 986597186, 3 projects, €11,529,746 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1964355",
+          "description": "wikidata_id set via search: label='Nammo', description='Norwegian-Finnish defence company'. Search name used: 'Nammo Raufoss As'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -163399,6 +163858,12 @@
           "note": "Nammo Raufoss As is Norwegian subsidiary. Q1964355=Nammo parent kept on IN-1312.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1964355 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -171199,7 +171664,7 @@
       ],
       "name": "Patria Aerostructures",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q613116",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -171321,6 +171786,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 881717100, 2 projects, €103,807 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q613116",
+          "description": "wikidata_id set via search: label='Patria', description='Finnish defence and aviation company'. Search name used: 'Patria Aerostructures'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -171360,6 +171834,12 @@
           "note": "Patria Aerostructures is subsidiary. Q613116=Patria parent kept on IN-0951.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q613116 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -175537,7 +176017,7 @@
       ],
       "name": "Renk Magnet Motor",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2144015",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -175712,6 +176192,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 973065977, 1 projects, €106,862 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2144015",
+          "description": "wikidata_id set via search: label='Renk', description='German defence company'. Search name used: 'Renk Magnet Motor'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -175757,6 +176246,12 @@
           "description": "sources.crunchbase imported from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24)",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2144015 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -180725,7 +181220,7 @@
       ],
       "name": "Saab Aktiebolag",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q219501",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -180849,6 +181344,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999959615, 17 projects, €48,865,372 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q219501",
+          "description": "wikidata_id set via search: label='Saab Group', description='Swedish aerospace and defense company'. Search name used: 'Saab Aktiebolag'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -180888,6 +181392,12 @@
           "note": "Saab Aktiebolag (legal name). IN-1329 Saab is canonical (common name, CB data, 5 relationships). QID nulled here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q219501 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -181369,7 +181879,7 @@
       ],
       "name": "Safran Ai",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q773875",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -181492,6 +182002,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 913589360, 1 projects, €315,293 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q773875",
+          "description": "wikidata_id set via search: label='Safran Aircraft Engines', description='aircraft and rocket engine manufacturer based in France'. Search name used: 'Safran Ai'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -181531,6 +182050,12 @@
           "note": "Safran Ai: QID Q773875=Safran Aircraft Engines was misassigned. SAE kept on IN-1020.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q773875 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -181811,7 +182336,7 @@
       ],
       "name": "Safran Data Systems",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q3461386",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -181986,6 +182511,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 934220290, 3 projects, €1,867,221 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q3461386",
+          "description": "wikidata_id set via search: label='Safran Electronics & Defense', description='company in the Safran Group'. Search name used: 'Safran Data Systems'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -182049,6 +182583,12 @@
           "description": "CB headquarters (CB=Grand Prairie TX) is for a subsidiary/regional entity, not the parent. Safran Data Systems HQ is Paris France — CB matched US entity in Grand Prairie TX",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q3461386 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -198468,7 +199008,7 @@
       ],
       "name": "Tekever Uas",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q24293069",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -198586,6 +199126,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 899397387, 1 projects, €1,150,990 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q24293069",
+          "description": "wikidata_id set via search: label='Tekever', description='communications and defense company based in Lisbon, Portugal'. Search name used: 'Tekever Uas'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -198625,6 +199174,12 @@
           "note": "Tekever Uas is a product/division. Q24293069=Tekever parent kept on IN-1241.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q24293069 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -199044,7 +199599,7 @@
       ],
       "name": "Telefonica Moviles Espana",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q160229",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -199167,6 +199722,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999946908, 1 projects, €1,359,792 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q160229",
+          "description": "wikidata_id set via search: label='Telefónica', description='telecommunications company based in Madrid, Spain'. Search name used: 'Telefonica Moviles Espana'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -199206,6 +199770,12 @@
           "note": "Telefonica Moviles Espana is subsidiary. Q160229=Telefónica parent kept on IN-0369 Telefonica SA.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q160229 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -199801,7 +200371,7 @@
       ],
       "name": "Telespazio France",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q662824",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -199974,6 +200544,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 997899044, 1 projects, €568,023 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q662824",
+          "description": "wikidata_id set via search: label='Telespazio', description='Italian company'. Search name used: 'Telespazio France'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -200037,6 +200616,12 @@
           "description": "headquarters dual-location: Telespazio France: WD=Rome (parent Telespazio Italy) vs CB=Toulouse (French subsidiary correct HQ) — CB is canonical for this entity",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q662824 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -205191,7 +205776,7 @@
       ],
       "name": "Tkms",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q551068",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -205381,6 +205966,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 950773049, 1 projects, €2,118,537 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q551068",
+          "description": "wikidata_id set via search: label='TKMS', description='German naval vessel company'. Search name used: 'Tkms'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -205438,6 +206032,12 @@
           "description": "headquarters real conflict: sources.wikidata.headquarters='Essen' vs sources.crunchbase.headquarters='Schinkel über Kiel, Schleswig-Holstein, Germany' — sources disagree; manual review required to set canonical value.",
           "author": "audit_quality.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q551068 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -208307,7 +208907,7 @@
       ],
       "name": "United Monolithic Semiconductors",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30285570",
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -208464,6 +209064,15 @@
           "new": null,
           "note": "National sibling subsidiaries (France PIC 996281278, Germany PIC 999485770). Q30285570 is the parent UMS entity. QID nulled on both national entities.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30285570",
+          "description": "wikidata_id set via search: label='United Monolithic Semiconductors (Germany)', description='company in Ulm, Germany'. Search name used: 'United Monolithic Semiconductors'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -208527,6 +209136,12 @@
           "description": "headquarters dual-location: United Monolithic Semiconductors: Ulm DE + Villebon-sur-Yvette FR — UMS is Franco-German JV; both sites are real",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30285570 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -208539,7 +209154,7 @@
       ],
       "name": "United Monolithic Semiconductors",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30285570",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -208732,6 +209347,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999485770, 1 projects, €1,257,593 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30285570",
+          "description": "wikidata_id set via search: label='United Monolithic Semiconductors (Germany)', description='company in Ulm, Germany'. Search name used: 'United Monolithic Semiconductors'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -208795,6 +209419,12 @@
           "description": "headquarters dual-location: United Monolithic Semiconductors: Ulm DE + Villebon-sur-Yvette FR — UMS is Franco-German JV; both sites are real",
           "author": "patch_hq_conflicts2.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30285570 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -211358,7 +211988,7 @@
       ],
       "name": "Valneva Austria",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q20663010",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -211467,6 +212097,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 949830209, 1 projects, €0 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q20663010",
+          "description": "wikidata_id set via search: label='Valneva SE', description='French vaccine producer'. Search name used: 'Valneva Austria'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -211506,6 +212145,12 @@
           "note": "Valneva Austria is subsidiary. Q20663010=Valneva SE parent kept on IN-1193.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q20663010 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -221060,7 +221705,7 @@
       ],
       "name": "Arafura Resources",
       "sector": "Mining",
-      "wikidata_id": null,
+      "wikidata_id": "Q16829889",
       "sources": {
         "ishares": null,
         "edf": null,
@@ -221248,6 +221893,15 @@
           "old": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase updated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv. Changed fields: description_full, cb_rank"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q16829889",
+          "description": "wikidata_id set via search: label='Arafura Rare Earths', description='Australian mining company'. Search name used: 'Arafura Resources'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -221305,6 +221959,12 @@
           "description": "sources.crunchbase updated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24). Changed: description_full, cb_rank",
           "author": "import_crunchbase_csv.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q16829889 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299420,7 +300080,7 @@
       ],
       "name": "Boeing",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q66",
       "sources": {
         "ishares": [
           {
@@ -299452,6 +300112,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q66",
+          "description": "wikidata_id set via search: label='Boeing', description='American global aerospace and defense corporation'. Search name used: 'Boeing'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299460,6 +300129,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q66 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299472,7 +300147,7 @@
       ],
       "name": "GE Aerospace",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1485061",
       "sources": {
         "ishares": [
           {
@@ -299504,6 +300179,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1485061",
+          "description": "wikidata_id set via search: label='GE Aerospace', description='American aircraft engine supplier'. Search name used: 'Ge Aerospace'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299512,6 +300196,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1485061 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299524,7 +300214,7 @@
       ],
       "name": "Howmet Aerospace",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q25104597",
       "sources": {
         "ishares": [
           {
@@ -299556,6 +300246,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q25104597",
+          "description": "wikidata_id set via search: label='Howmet Aerospace', description='American industrial company'. Search name used: 'Howmet Aerospace'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299564,6 +300263,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q25104597 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299688,7 +300393,7 @@
       ],
       "name": "Transdigm",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q7833612",
       "sources": {
         "ishares": [
           {
@@ -299720,6 +300425,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q7833612",
+          "description": "wikidata_id set via search: label='TransDigm Group Inc.', description='TransDigm Group Incorporated is a global designer, producer and supplier of com. Search name used: 'Transdigm'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299728,6 +300442,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q7833612 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299740,7 +300460,7 @@
       ],
       "name": "AXON Enterprise",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q690604",
       "sources": {
         "ishares": [
           {
@@ -299772,6 +300492,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q690604",
+          "description": "wikidata_id set via search: label='Axon Enterprise', description='US American weapons manufacturer'. Search name used: 'Axon Enterprise'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299780,6 +300509,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q690604 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299792,7 +300527,7 @@
       ],
       "name": "Hanwha Aerospace",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q563107",
       "sources": {
         "ishares": [
           {
@@ -299824,6 +300559,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q563107",
+          "description": "wikidata_id set via search: label='Hanwha Aerospace', description='South Korean aerospace and defense company'. Search name used: 'Hanwha Aerospace'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299832,6 +300576,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q563107 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -299844,7 +300594,7 @@
       ],
       "name": "Rocket LAB",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q116319",
       "sources": {
         "ishares": [
           {
@@ -299876,6 +300626,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q116319",
+          "description": "wikidata_id set via search: label='Rocket Lab', description='U.S. & New Zealand aerospace manufacturer and launch service provider'. Search name used: 'Rocket Lab'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -299884,6 +300643,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q116319 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300000,7 +300765,7 @@
       ],
       "name": "Carpenter Technology",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q5045738",
       "sources": {
         "ishares": [
           {
@@ -300032,6 +300797,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q5045738",
+          "description": "wikidata_id set via search: label='Carpenter Technology Corporation', description='American metals manufacturer'. Search name used: 'Carpenter Technology'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300040,6 +300814,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q5045738 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300156,7 +300936,7 @@
       ],
       "name": "BWX Technologies",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q4836852",
       "sources": {
         "ishares": [
           {
@@ -300188,6 +300968,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q4836852",
+          "description": "wikidata_id set via search: label='BWX Technologies', description='American nuclear energy and technology company'. Search name used: 'Bwx Technologies'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300196,6 +300985,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q4836852 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300208,7 +301003,7 @@
       ],
       "name": "Heico Class A",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q5629432",
       "sources": {
         "ishares": [
           {
@@ -300240,6 +301035,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q5629432",
+          "description": "wikidata_id set via search: label='HEICO', description='aerospace and electronics company'. Search name used: 'Heico'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300248,6 +301052,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q5629432 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300260,7 +301070,7 @@
       ],
       "name": "Textron",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2140315",
       "sources": {
         "ishares": [
           {
@@ -300292,6 +301102,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2140315",
+          "description": "wikidata_id set via search: label='Textron', description='American industrial conglomerate'. Search name used: 'Textron'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300300,6 +301119,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2140315 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300312,7 +301137,7 @@
       ],
       "name": "Bombardier Class B",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q333498",
       "sources": {
         "ishares": [
           {
@@ -300344,6 +301169,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q333498",
+          "description": "wikidata_id set via search: label='Bombardier', description='aerospace and transportation manufacturer in Canada'. Search name used: 'Bombardier'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300352,6 +301186,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q333498 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300364,7 +301204,7 @@
       ],
       "name": "Huntington Ingalls Industries",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q7257522",
       "sources": {
         "ishares": [
           {
@@ -300396,6 +301236,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q7257522",
+          "description": "wikidata_id set via search: label='Huntington Ingalls Industries', description='American shipbuilding company'. Search name used: 'Huntington Ingalls Industries'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300404,6 +301253,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q7257522 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300416,7 +301271,7 @@
       ],
       "name": "Singapore Technologies Engineering",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q3719328",
       "sources": {
         "ishares": [
           {
@@ -300448,6 +301303,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q3719328",
+          "description": "wikidata_id set via search: label='ST Engineering', description='Global technology, defense, and engineering group headquartered in Singapore'. Search name used: 'Singapore Technologies Engineering'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300456,6 +301320,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q3719328 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300520,7 +301390,7 @@
       ],
       "name": "Heico",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q5629432",
       "sources": {
         "ishares": [
           {
@@ -300552,6 +301422,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q5629432",
+          "description": "wikidata_id set via search: label='HEICO', description='aerospace and electronics company'. Search name used: 'Heico'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300560,6 +301439,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q5629432 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300572,7 +301457,7 @@
       ],
       "name": "Korea Aerospace Industries",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q488470",
       "sources": {
         "ishares": [
           {
@@ -300604,6 +301489,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q488470",
+          "description": "wikidata_id set via search: label='Korea Aerospace Industries', description='aerospace manufacturer in south korea'. Search name used: 'Korea Aerospace Industries'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300612,6 +301506,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q488470 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300728,7 +301628,7 @@
       ],
       "name": "LIG Nex1",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6458668",
       "sources": {
         "ishares": [
           {
@@ -300760,6 +301660,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6458668",
+          "description": "wikidata_id set via search: label='LIG Defense&Aerospace', description='South Korean aerospace manufacturer and defense company'. Search name used: 'Lig Nex1'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300768,6 +301677,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q6458668 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -300936,7 +301851,7 @@
       ],
       "name": "Standardaero",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q25212746",
       "sources": {
         "ishares": [
           {
@@ -300968,6 +301883,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q25212746",
+          "description": "wikidata_id set via search: label='Standard Aero Corporation', description='company'. Search name used: 'Standardaero'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -300976,6 +301900,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q25212746 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301092,7 +302022,7 @@
       ],
       "name": "Mercury Systems",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6818651",
       "sources": {
         "ishares": [
           {
@@ -301124,6 +302054,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6818651",
+          "description": "wikidata_id set via search: label='Mercury Systems', description='defense-related information technology company'. Search name used: 'Mercury Systems'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301132,6 +302071,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q6818651 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301196,7 +302141,7 @@
       ],
       "name": "Archer Aviation Class A",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q109369035",
       "sources": {
         "ishares": [
           {
@@ -301228,6 +302173,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q109369035",
+          "description": "wikidata_id set via search: label='Archer Aviation', description='American electric aircraft manufacturer'. Search name used: 'Archer Aviation'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301236,6 +302190,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q109369035 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301248,7 +302208,7 @@
       ],
       "name": "MDA Space",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q1165227",
       "sources": {
         "ishares": [
           {
@@ -301280,6 +302240,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q1165227",
+          "description": "wikidata_id set via search: label='MDA Space', description='Canadian space technology company'. Search name used: 'Mda Space'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301288,6 +302257,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q1165227 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301300,7 +302275,7 @@
       ],
       "name": "Droneshield",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q112074473",
       "sources": {
         "ishares": [
           {
@@ -301332,6 +302307,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q112074473",
+          "description": "wikidata_id set via search: label='DroneShield', description='Australian company'. Search name used: 'Droneshield'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301340,6 +302324,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q112074473 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301352,7 +302342,7 @@
       ],
       "name": "Exosens SA",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2602577",
       "sources": {
         "ishares": [
           {
@@ -301384,6 +302374,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2602577",
+          "description": "wikidata_id set via search: label='Exosens', description='French imaging and detection technologies company'. Search name used: 'Exosens'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301392,6 +302391,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2602577 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301404,7 +302409,7 @@
       ],
       "name": "Astronics",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q27963459",
       "sources": {
         "ishares": [
           {
@@ -301436,6 +302441,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q27963459",
+          "description": "wikidata_id set via search: label='Astronics', description='American aerospace electronics company'. Search name used: 'Astronics'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301444,6 +302458,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q27963459 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301508,7 +302528,7 @@
       ],
       "name": "Intuitive Machines Class A",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q60760151",
       "sources": {
         "ishares": [
           {
@@ -301540,6 +302560,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q60760151",
+          "description": "wikidata_id set via search: label='Intuitive Machines', description='American space products and services company'. Search name used: 'Intuitive Machines'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301548,6 +302577,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q60760151 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301716,7 +302751,7 @@
       ],
       "name": "Exail Technologies SA",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q125849806",
       "sources": {
         "ishares": [
           {
@@ -301748,6 +302783,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q125849806",
+          "description": "wikidata_id set via search: label='Exail Technologies', description='French technology company'. Search name used: 'Exail Technologies'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301756,6 +302800,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q125849806 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301820,7 +302870,7 @@
       ],
       "name": "Austal",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q780696",
       "sources": {
         "ishares": [
           {
@@ -301852,6 +302902,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q780696",
+          "description": "wikidata_id set via search: label='Austal', description='Australian-based global ship building company'. Search name used: 'Austal'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301860,6 +302919,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q780696 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301924,7 +302989,7 @@
       ],
       "name": "National Presto Industries",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q6975043",
       "sources": {
         "ishares": [
           {
@@ -301956,6 +303021,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6975043",
+          "description": "wikidata_id set via search: label='National Presto Industries', description='manufacturer of kitchen appliances'. Search name used: 'National Presto Industries'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -301964,6 +303038,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q6975043 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -301976,7 +303056,7 @@
       ],
       "name": "Astroscale",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q60753705",
       "sources": {
         "ishares": [
           {
@@ -302008,6 +303088,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q60753705",
+          "description": "wikidata_id set via search: label='Astroscale', description='orbital debris removal company'. Search name used: 'Astroscale'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -302016,6 +303105,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q60753705 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -302028,7 +303123,7 @@
       ],
       "name": "Satrec Initiative",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q55731469",
       "sources": {
         "ishares": [
           {
@@ -302060,6 +303155,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q55731469",
+          "description": "wikidata_id set via search: label='Satrec Initiative', description='South Korean aerospace company'. Search name used: 'Satrec Initiative'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -302068,6 +303172,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q55731469 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -302080,7 +303190,7 @@
       ],
       "name": "Redwire",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q106432676",
       "sources": {
         "ishares": [
           {
@@ -302112,6 +303222,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q106432676",
+          "description": "wikidata_id set via search: label='Redwire', description='American public aerospace developer and manufacturer'. Search name used: 'Redwire'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -302120,6 +303239,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q106432676 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -302236,7 +303361,7 @@
       ],
       "name": "Ispace",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q24862548",
       "sources": {
         "ishares": [
           {
@@ -302268,6 +303393,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q24862548",
+          "description": "wikidata_id set via search: label='ispace Inc', description='private Japanese company developing robotic spacecraft technologies'. Search name used: 'Ispace'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -302276,6 +303410,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q24862548 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -302288,7 +303428,7 @@
       ],
       "name": "SNT Dynamics",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q7387008",
       "sources": {
         "ishares": [
           {
@@ -302320,6 +303460,15 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q7387008",
+          "description": "wikidata_id set via search: label='SNT Dynamics', description='South Korean company'. Search name used: 'Snt Dynamics'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -302328,6 +303477,12 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q7387008 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -303500,7 +304655,7 @@
       ],
       "name": "Hellenic Aerospace Industry",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q838397",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -303542,6 +304697,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999975232, 4 projects, €4,219,081 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q838397",
+          "description": "wikidata_id set via search: label='Hellenic Aerospace Industry', description='company'. Search name used: 'Hellenic Aerospace Industry'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -303550,6 +304714,12 @@
           "description": "Entity added from EDF participant data. Roles and sector need manual review. Check if this org appears in iShares ETFs or Crunchbase.",
           "author": "build_edf_entities.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q838397 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -304120,7 +305290,7 @@
       ],
       "name": "Oledcomm",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q77956357",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -304162,6 +305332,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 916612074, 1 projects, €462,633 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q77956357",
+          "description": "wikidata_id set via search: label='Oledcomm', description='French \"LiFi\" equipment manufacturer'. Search name used: 'Oledcomm'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -304170,6 +305349,12 @@
           "description": "Entity added from EDF participant data. Roles and sector need manual review. Check if this org appears in iShares ETFs or Crunchbase.",
           "author": "build_edf_entities.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q77956357 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -304244,7 +305429,7 @@
       ],
       "name": "Risa Sicherheitsanalysen",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q30285277",
       "sources": {
         "edf": {
           "extracted_at": "2026-06-17",
@@ -304286,6 +305471,15 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999512930, 1 projects, €210,763 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q30285277",
+          "description": "wikidata_id set via search: label='RISA Sicherheitsanalysen', description='company in Berlin, Germany'. Search name used: 'Risa Sicherheitsanalysen'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -304294,6 +305488,12 @@
           "description": "Entity added from EDF participant data. Roles and sector need manual review. Check if this org appears in iShares ETFs or Crunchbase.",
           "author": "build_edf_entities.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q30285277 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
         }
       ],
       "tags": []
@@ -304784,7 +305984,7 @@
       ],
       "name": "Anthropic",
       "sector": "Startup",
-      "wikidata_id": null,
+      "wikidata_id": "Q116758847",
       "sources": {
         "ishares": null,
         "crunchbase": {
@@ -304867,6 +306067,15 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q116758847",
+          "description": "wikidata_id set via search: label='Anthropic', description='American artificial intelligence corporation'. Search name used: 'Anthropic'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -304874,6 +306083,12 @@
           "status": "needs_review",
           "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
           "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q116758847 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -304983,7 +306198,7 @@
       ],
       "name": "DeepSeek",
       "sector": "Startup",
-      "wikidata_id": null,
+      "wikidata_id": "Q131577453",
       "sources": {
         "ishares": null,
         "crunchbase": {
@@ -305060,6 +306275,15 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q131577453",
+          "description": "wikidata_id set via search: label='DeepSeek', description='Chinese artificial intelligence company'. Search name used: 'Deepseek'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -305067,6 +306291,12 @@
           "status": "needs_review",
           "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
           "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q131577453 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -305760,7 +306990,7 @@
       ],
       "name": "Mistral AI",
       "sector": "Startup",
-      "wikidata_id": null,
+      "wikidata_id": "Q119718658",
       "sources": {
         "ishares": null,
         "crunchbase": {
@@ -305843,6 +307073,15 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q119718658",
+          "description": "wikidata_id set via search: label='Mistral AI', description='French AI company'. Search name used: 'Mistral Ai'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -305850,6 +307089,12 @@
           "status": "needs_review",
           "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
           "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q119718658 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -306570,7 +307815,7 @@
       ],
       "name": "Shin-Etsu Chemical",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q904284",
       "sources": {
         "ishares": null,
         "crunchbase": {
@@ -306637,6 +307882,15 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q904284",
+          "description": "wikidata_id set via search: label='Shin-Etsu Chemical', description='company'. Search name used: 'Shin-Etsu Chemical'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -306644,6 +307898,12 @@
           "status": "needs_review",
           "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
           "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q904284 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -306756,7 +308016,7 @@
       ],
       "name": "SUMCO",
       "sector": null,
-      "wikidata_id": null,
+      "wikidata_id": "Q2208172",
       "sources": {
         "ishares": null,
         "crunchbase": {
@@ -306822,6 +308082,15 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2208172",
+          "description": "wikidata_id set via search: label='SUMCO', description='Japanese Company'. Search name used: 'Sumco'. Human-reviewed via qid_candidates.json before applying."
         }
       ],
       "validation": [
@@ -306829,6 +308098,12 @@
           "status": "needs_review",
           "description": "Entity created from MINTL Crunchbase CSV export — type, roles, and sector require human review",
           "author": "import_mintl_companies.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "needs_review",
+          "description": "wikidata_id Q2208172 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
+          "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
         }
       ]

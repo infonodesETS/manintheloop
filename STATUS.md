@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-18 (MINTL import + investor pipeline — +23 entities, +90 IV, +192 rels; DB: 2311 entities, 2990 rels)
+> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID pipeline — +23 entities, +90 IV, +192 rels, +85 QIDs; DB: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -554,6 +554,11 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] `import_investors_crunchbase.py` — +90 IV entities, +192 investment relationships from `top_investors` of new companies
 - [x] `IN-1468 State Street` — `roles` corrected from `['manufacturer']` to `['investor']` (bank/asset manager, not a manufacturer)
 - [x] validate.py PASSED (2026-06-18) — **2311 entities, 2990 relationships**
+- [x] QID Phase 1 (`search_missing_qids.py --search`): 5 proposals from MINTL (Anthropic, DeepSeek, Mistral AI, Shin-Etsu Chemical, SUMCO) + 37 from prior aerospace/defense batch
+- [x] QID Phase 1b (`sparql_search_qids.py`): +5 additional (Arafura Resources, LIG Nex1, Standardaero, ST Engineering, PTC Industries)
+- [x] Review: 43 accepted, 4 rejected — IN-1282 (retired entity), IN-1300 KGHM International (parent QID ≠ Canadian subsidiary), IN-1404 Cadre (QID = English word "cadre", not the company), IN-1409 Mildef (Q105806178 = Malaysian entity, not Swedish Mildef Group AB)
+- [x] `search_missing_qids.py --apply`: 85 QIDs written
+- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
 
 #### Note: script design
 `import_mintl_companies.py` is the creation counterpart to `import_crunchbase_csv.py`:
