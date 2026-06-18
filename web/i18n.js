@@ -54,7 +54,7 @@ const TRANSLATIONS = {
 
     // ABOUT — content
     'about.title':        'About',
-    'about.intro':        'La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di Privacy International, nell\'ambito del programma globale "Militarisation of Tech".',
+    'about.intro':        'La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell\'ambito del programma globale "Militarisation of Tech".',
     'about.team_lead':    'L\'attuale prototipo è stato sviluppato da:',
     'about.team_list':    '<li>Davide Del Monte — Coordinatore e Lead Researcher</li><li>Laura Carrer — Researcher</li><li>Andrea Daniele Signorelli — Researcher</li>',
     'about.collab':       'in collaborazione con DATAPITCH:',
@@ -121,7 +121,7 @@ const TRANSLATIONS = {
 
     // ABOUT — content
     'about.title':        'About',
-    'about.intro':        'The Man in the Loop platform is developed by info.nodes, an Italian non-profit organisation founded in 2019, with financial support from Privacy International, as part of the global programme "Militarisation of Tech".',
+    'about.intro':        'The Man in the Loop platform is developed by info.nodes, an Italian non-profit organisation founded in 2019, with financial support from <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, as part of the global programme "Militarisation of Tech".',
     'about.team_lead':    'The current prototype was developed by:',
     'about.team_list':    '<li>Davide Del Monte — Coordinator and Lead Researcher</li><li>Laura Carrer — Researcher</li><li>Andrea Daniele Signorelli — Researcher</li>',
     'about.collab':       'in collaboration with DATAPITCH:',
@@ -188,7 +188,7 @@ const TRANSLATIONS = {
 
     // ABOUT — content
     'about.title':        'À propos',
-    'about.intro':        'La plateforme Man in the Loop est développée par info.nodes, organisation à but non lucratif italienne fondée en 2019, grâce au soutien financier de Privacy International, dans le cadre du programme mondial « Militarisation of Tech ».',
+    'about.intro':        'La plateforme Man in the Loop est développée par info.nodes, organisation à but non lucratif italienne fondée en 2019, grâce au soutien financier de <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, dans le cadre du programme mondial « Militarisation of Tech ».',
     'about.team_lead':    'Le prototype actuel a été développé par :',
     'about.team_list':    '<li>Davide Del Monte — Coordinateur et chercheur principal</li><li>Laura Carrer — Chercheuse</li><li>Andrea Daniele Signorelli — Chercheur</li>',
     'about.collab':       'en collaboration avec DATAPITCH :',
@@ -255,7 +255,7 @@ const TRANSLATIONS = {
 
     // ABOUT — content
     'about.title':        'Acerca de',
-    'about.intro':        'La plataforma Man in the Loop es desarrollada por info.nodes, organización sin ánimo de lucro italiana fundada en 2019, gracias al apoyo económico de Privacy International, en el marco del programa global «Militarisation of Tech».',
+    'about.intro':        'La plataforma Man in the Loop es desarrollada por info.nodes, organización sin ánimo de lucro italiana fundada en 2019, gracias al apoyo económico de <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, en el marco del programa global «Militarisation of Tech».',
     'about.team_lead':    'El prototipo actual fue desarrollado por:',
     'about.team_list':    '<li>Davide Del Monte — Coordinador e investigador principal</li><li>Laura Carrer — Investigadora</li><li>Andrea Daniele Signorelli — Investigador</li>',
     'about.collab':       'en colaboración con DATAPITCH:',
