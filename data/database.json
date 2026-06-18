@@ -85,7 +85,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -120,6 +120,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -843,7 +851,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -3002,7 +3010,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -3037,6 +3045,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -3523,7 +3539,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -3558,6 +3574,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -3661,7 +3685,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -3696,6 +3720,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -4288,7 +4320,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -4323,6 +4355,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -5605,7 +5645,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United Kingdom",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -5640,6 +5680,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United Kingdom",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -5982,7 +6030,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -6017,6 +6065,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -7774,7 +7830,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -7809,6 +7865,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -7910,7 +7974,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "The Netherlands",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -7945,6 +8009,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "The Netherlands",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -9250,7 +9322,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United Kingdom",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -9285,6 +9357,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United Kingdom",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -9419,7 +9499,7 @@
             "online community",
             "organization"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2000-01",
           "headquarters": "Beijing",
           "official_website": "https://www.baidu.com/",
@@ -9509,6 +9589,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q14772)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q14772)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -9656,7 +9744,7 @@
           "instance_of": [
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2008-01-01",
           "headquarters": null,
           "official_website": "http://www.bynmc.com",
@@ -9746,6 +9834,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q30636134)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q30636134)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -9849,7 +9945,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2000-02-03",
           "headquarters": "Shanghai",
           "official_website": "http://www.baosteel.com",
@@ -9930,6 +10026,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q11452539)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q11452539)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -11711,7 +11815,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -11746,6 +11850,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -12100,7 +12212,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United Kingdom",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -12135,6 +12247,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United Kingdom",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -14169,7 +14289,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -14204,6 +14324,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -15305,7 +15433,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -15340,6 +15468,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -16185,7 +16321,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -16220,6 +16356,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -16333,7 +16477,7 @@
             "enterprise",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1994-01-01",
           "headquarters": "Hong Kong",
           "official_website": "http://hongqiaochina.com/",
@@ -16432,6 +16576,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q10874559)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q10874559)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -16547,7 +16699,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2000",
           "headquarters": "Guangzhou",
           "official_website": "http://www.chinametalrecycle.com/",
@@ -16628,6 +16780,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q5099783)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5099783)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -16767,7 +16927,7 @@
           "instance_of": [
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Luanchuan County",
           "official_website": "https://en.cmoc.com/",
@@ -16857,6 +17017,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q5099785)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5099785)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -17010,7 +17178,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Hong Kong",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -17045,6 +17213,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Hong Kong",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -17149,7 +17325,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -17184,6 +17360,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -17234,7 +17418,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -17564,7 +17748,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -17599,6 +17783,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -17704,7 +17896,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -17739,6 +17931,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -18365,7 +18565,7 @@
             "public company",
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": null,
           "official_website": "https://www.citicsteel.com",
@@ -18455,6 +18655,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q105975716)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q105975716)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -18844,7 +19052,7 @@
           "instance_of": [
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Luanchuan County",
           "official_website": "https://en.cmoc.com/",
@@ -18934,6 +19142,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q5099785)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5099785)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -19583,7 +19799,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -19618,6 +19834,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -24117,7 +24341,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -24152,6 +24376,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -24497,7 +24729,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Saudi Arabia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -24532,6 +24764,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Saudi Arabia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -25137,7 +25377,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -25172,6 +25412,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -27307,7 +27555,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -27342,6 +27590,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -28149,7 +28405,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -28184,6 +28440,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -30962,7 +31226,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Russian Federation",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -30997,6 +31261,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Russian Federation",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -31342,7 +31614,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -31377,6 +31649,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -31717,7 +31997,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -31752,6 +32032,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -32573,7 +32861,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -32608,6 +32896,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -32704,7 +33000,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -32739,6 +33035,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -33100,7 +33404,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Sweden",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -33135,6 +33439,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Sweden",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -34588,7 +34900,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1999",
           "headquarters": "Changsha",
           "official_website": null,
@@ -34678,6 +34990,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q5942059)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5942059)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -36657,7 +36977,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-03",
           "label": "Inner Mongolia Baotou Steel Union Co., Ltd.",
@@ -36862,7 +37182,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "China"
+        },
         "wikidata": null
       },
       "history": [
@@ -36883,6 +37205,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -37491,7 +37821,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -37526,6 +37856,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -38690,7 +39028,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1979",
           "headquarters": "Guixi",
           "official_website": null,
@@ -38780,6 +39118,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1518015)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1518015)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -38954,7 +39300,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1979",
           "headquarters": "Guixi",
           "official_website": null,
@@ -39044,6 +39390,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1518015)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1518015)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -39195,7 +39549,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Hong Kong",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -39230,6 +39584,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Hong Kong",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -39402,7 +39764,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -39437,6 +39799,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -40028,7 +40398,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1958",
           "headquarters": "Xi'an",
           "official_website": "http://www.jdcmoly.com/English/Index.aspx",
@@ -40118,6 +40488,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q15891886)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q15891886)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -42035,7 +42413,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -42070,6 +42448,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -42420,7 +42806,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Japan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -42455,6 +42841,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Japan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -43060,7 +43454,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -43095,6 +43489,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -43674,7 +44076,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -43709,6 +44111,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -44321,7 +44731,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -44356,6 +44766,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -45910,7 +46328,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Japan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -45945,6 +46363,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Japan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -46277,7 +46703,7 @@
             "subsidiary company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1993",
           "headquarters": "Ma'anshan",
           "official_website": "http://www.magang.com.hk",
@@ -46358,6 +46784,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1859119)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1859119)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -48306,7 +48740,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -48341,6 +48775,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -52688,7 +53130,7 @@
             "enterprise",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1997-06-01",
           "headquarters": "Hangzhou",
           "official_website": "https://www.163.com/",
@@ -52778,6 +53220,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q196259)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q196259)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -53396,7 +53846,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -53431,6 +53881,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -54643,7 +55101,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -54678,6 +55136,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -55821,7 +56287,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Finland",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -55856,6 +56322,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Finland",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -56673,7 +57147,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -56708,6 +57182,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -59888,7 +60370,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Finland",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -59923,6 +60405,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Finland",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -60707,7 +61197,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -60742,6 +61232,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -61326,7 +61824,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "South Korea",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -61361,6 +61859,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "South Korea",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -61952,7 +62458,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -61987,6 +62493,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -62524,7 +63038,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Qatar",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -62559,6 +63073,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Qatar",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -63633,7 +64155,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -63668,6 +64190,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -63779,7 +64309,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -63814,6 +64344,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -67549,7 +68087,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -67584,6 +68122,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -67931,7 +68477,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -67966,6 +68512,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -70049,7 +70603,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -70084,6 +70638,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -70423,7 +70985,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Hong Kong",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -70458,6 +71020,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Hong Kong",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -70811,7 +71381,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -70846,6 +71416,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -72315,7 +72893,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -72350,6 +72928,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -73450,7 +74036,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -73485,6 +74071,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -75805,7 +76399,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -75840,6 +76434,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -80625,7 +81227,7 @@
             "conglomerate",
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1998-11-12",
           "headquarters": "Maling",
           "official_website": "https://www.tencent.com/",
@@ -80715,6 +81317,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q860580)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q860580)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -81790,7 +82400,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -81972,7 +82582,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -82007,6 +82617,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -82570,7 +83188,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -82605,6 +83223,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -83028,7 +83654,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -83063,6 +83689,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -83411,7 +84045,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -83446,6 +84080,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -84423,7 +85065,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -84458,6 +85100,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -84825,7 +85475,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -84860,6 +85510,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -84969,7 +85627,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "India",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -85004,6 +85662,14 @@
           "old": null,
           "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
           "description": "sources.crunchbase populated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "India",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -86771,7 +87437,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Canada",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -86806,6 +87472,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Canada",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -87890,7 +88564,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Australia",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -87925,6 +88599,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Australia",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -88274,7 +88956,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "United States",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -88309,6 +88991,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -89376,7 +90066,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "China",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -89411,6 +90101,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -90710,7 +91408,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1997-01-01",
           "headquarters": null,
           "official_website": "http://www.xiamentungsten.com/",
@@ -90791,6 +91489,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q108737124)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q108737124)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -90954,7 +91660,7 @@
             "business",
             "corporation"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2010-04-06",
           "headquarters": "Beijing",
           "official_website": "https://www.mi.com/",
@@ -91044,6 +91750,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1636958)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1636958)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -91174,7 +91888,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "China"
+        },
         "wikidata": null
       },
       "history": [
@@ -91195,6 +91911,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "China",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -91531,7 +92255,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "Taiwan",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -91566,6 +92290,14 @@
           "old": null,
           "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
           "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Taiwan",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -91979,7 +92711,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1998",
           "headquarters": "Kunming",
           "official_website": "http://www.ytc.cn/",
@@ -92069,6 +92801,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q8061336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q8061336)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -92587,7 +93327,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -92863,7 +93603,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -95666,7 +96406,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -104388,7 +105128,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -104524,7 +105264,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -105023,7 +105763,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -105675,7 +106415,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -117759,7 +118499,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -118266,7 +119006,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -119755,7 +120495,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -124155,7 +124895,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -139941,7 +140681,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -145143,7 +145883,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -145214,7 +145954,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -148559,7 +149299,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -157416,7 +158156,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -158184,7 +158924,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -161530,7 +162270,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -161592,7 +162332,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -163333,7 +164073,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -170074,7 +170814,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-03",
           "label": null,
@@ -170993,7 +171733,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -172442,7 +173182,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -185179,7 +185919,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -206439,7 +207179,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -210956,7 +211696,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -211018,7 +211758,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -213488,7 +214228,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -215301,7 +216041,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -216054,7 +216794,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -223851,7 +224591,7 @@
             "business",
             "launch service provider"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1999",
           "headquarters": "Beijing",
           "official_website": "http://www.casic.com.cn/",
@@ -223977,6 +224717,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q10874081)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q10874081)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -224426,7 +225174,7 @@
             "Chinese wholly state-owned enterprise",
             "launch service provider"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1999-07-01",
           "headquarters": "Haidian District",
           "official_website": "http://www.spacechina.com/",
@@ -224552,6 +225300,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q2777589)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2777589)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -224682,7 +225438,7 @@
             "Chinese state-owned enterprise",
             "trading company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1950-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.minmetals.com/",
@@ -224817,6 +225573,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q846839)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q846839)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -225230,7 +225994,7 @@
             "group of companies",
             "subsidiary company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1995",
           "headquarters": "Beijing",
           "official_website": "http://www.csec.com/",
@@ -225347,6 +226111,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1073509)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1073509)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -227011,7 +227783,7 @@
             "shipbuilding company",
             "holding company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2019-11-26",
           "headquarters": "Huangpu District",
           "official_website": "http://www.cssc.net.cn",
@@ -227146,6 +227918,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1073512)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1073512)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -229588,7 +230368,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": null,
           "official_website": "https://www.ganfenglithium.com/",
@@ -229714,6 +230494,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q10954805)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q10954805)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -229851,7 +230639,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Hong Kong",
           "official_website": null,
@@ -229986,6 +230774,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q124670561)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q124670561)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -238143,7 +238939,7 @@
             "Chinese state-owned enterprise",
             "conglomerate"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1980-01-01",
           "headquarters": "Beijing",
           "official_website": "http://www.norincogroup.com.cn/",
@@ -238269,6 +239065,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q1538336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1538336)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -242058,7 +242862,7 @@
             "public company",
             "Chinese state-owned enterprise"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Chengdu",
           "official_website": "http://www.shengheholding.com/",
@@ -242193,6 +242997,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q15916333)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q15916333)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -245689,7 +246501,7 @@
           "instance_of": [
             "company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Guangdong",
           "official_website": null,
@@ -245824,6 +246636,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q121407257)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q121407257)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -246457,7 +247277,7 @@
           "instance_of": [
             "business"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": null,
           "headquarters": "Xinjiang",
           "official_website": null,
@@ -246592,6 +247412,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q124670171)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q124670171)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -246732,7 +247560,7 @@
             "business",
             "public company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "1956",
           "headquarters": null,
           "official_website": null,
@@ -246867,6 +247695,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q20063580)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20063580)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -247008,7 +247844,7 @@
             "Chinese state-owned enterprise",
             "mining company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2000-01-01",
           "headquarters": "Longyan",
           "official_website": "http://www.zjky.cn",
@@ -247125,6 +247961,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q202841)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q202841)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -300562,7 +301406,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -300614,7 +301458,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Boeing",
@@ -300717,7 +301561,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "GE Aerospace",
@@ -300821,7 +301665,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Howmet Aerospace",
@@ -301035,7 +301879,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "TransDigm Group Inc.",
@@ -301137,7 +301981,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Axon Enterprise",
@@ -301244,7 +302088,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Hanwha Aerospace",
@@ -301342,7 +302186,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Rocket Lab",
@@ -301442,7 +302286,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -301494,7 +302338,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -301546,7 +302390,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Carpenter Technology Corporation",
@@ -301644,7 +302488,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -301696,7 +302540,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -301748,7 +302592,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "BWX Technologies",
@@ -301846,7 +302690,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "HEICO",
@@ -301947,7 +302791,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Textron",
@@ -302047,7 +302891,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Bombardier",
@@ -302149,7 +302993,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Huntington Ingalls Industries",
@@ -302252,7 +303096,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "ST Engineering",
@@ -302356,7 +303200,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302408,7 +303252,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "HEICO",
@@ -302509,7 +303353,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Korea Aerospace Industries",
@@ -302612,7 +303456,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302664,7 +303508,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302716,7 +303560,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "LIG Defense&Aerospace",
@@ -302817,7 +303661,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302869,7 +303713,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302921,7 +303765,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -302973,7 +303817,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Standard Aero Corporation",
@@ -303072,7 +303916,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -303124,7 +303968,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -303176,7 +304020,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Mercury Systems",
@@ -303277,7 +304121,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -303329,7 +304173,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Archer Aviation",
@@ -303430,7 +304274,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "MDA Space",
@@ -303532,7 +304376,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "DroneShield",
@@ -303629,7 +304473,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Exosens",
@@ -303730,7 +304574,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": null,
@@ -303827,7 +304671,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -303879,7 +304723,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Intuitive Machines",
@@ -303979,7 +304823,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304031,7 +304875,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304083,7 +304927,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304135,7 +304979,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Exail Technologies",
@@ -304232,7 +305076,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304284,7 +305128,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Austal",
@@ -304383,7 +305227,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304435,7 +305279,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "National Presto Industries",
@@ -304533,7 +305377,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Astroscale",
@@ -304630,7 +305474,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Satrec Initiative",
@@ -304732,7 +305576,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Redwire",
@@ -304835,7 +305679,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304887,7 +305731,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -304939,7 +305783,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "ispace Inc",
@@ -305037,7 +305881,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "SNT Dynamics",
@@ -305137,7 +305981,7 @@
           }
         ],
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null,
         "edf": null,
         "edf_project": null
@@ -305450,7 +306294,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305503,7 +306347,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305556,7 +306400,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305618,7 +306462,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305680,7 +306524,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305742,7 +306586,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305804,7 +306648,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305866,7 +306710,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305928,7 +306772,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -305990,7 +306834,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306052,7 +306896,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306114,7 +306958,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306176,7 +307020,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306238,7 +307082,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306300,7 +307144,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Hellenic Aerospace Industry",
@@ -306410,7 +307254,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306472,7 +307316,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306534,7 +307378,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306596,7 +307440,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306658,7 +307502,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306720,7 +307564,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306782,7 +307626,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306844,7 +307688,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306906,7 +307750,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -306968,7 +307812,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Oledcomm",
@@ -307077,7 +307921,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307139,7 +307983,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "RISA Sicherheitsanalysen",
@@ -307246,7 +308090,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307308,7 +308152,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307370,7 +308214,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307432,7 +308276,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307494,7 +308338,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307556,7 +308400,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307618,7 +308462,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307671,7 +308515,7 @@
         },
         "ishares": null,
         "crunchbase": null,
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": null
       },
       "history": [
@@ -307773,7 +308617,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Anthropic",
@@ -307918,7 +308762,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -307931,6 +308777,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308014,7 +308868,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "DeepSeek",
@@ -308027,7 +308881,7 @@
             "startup company",
             "technology company"
           ],
-          "country": "People's Republic of China",
+          "country": "China",
           "inception": "2023-05",
           "headquarters": "Hangzhou",
           "official_website": "https://deepseek.com",
@@ -308064,6 +308918,14 @@
           "old": null,
           "new": "sources.wikidata populated (Q131577453)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q131577453)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_normalised",
+          "field": "sources.wikidata.country",
+          "from": "People's Republic of China",
+          "to": "China",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308159,7 +309021,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308172,6 +309036,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308265,7 +309137,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308278,6 +309152,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308365,7 +309247,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "Italy"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308378,6 +309262,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Italy",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308462,7 +309354,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United Kingdom"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308475,6 +309369,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United Kingdom",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308559,7 +309461,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308572,6 +309476,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308647,7 +309559,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "Germany"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308660,6 +309574,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "Germany",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308744,7 +309666,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -308757,6 +309681,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -308846,7 +309778,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Mistral AI",
@@ -308991,7 +309923,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309004,6 +309938,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309091,7 +310033,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United Kingdom"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309104,6 +310048,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United Kingdom",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309199,7 +310151,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309212,6 +310166,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309296,7 +310258,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309309,6 +310273,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309400,7 +310372,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309413,6 +310387,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309499,7 +310481,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309512,6 +310496,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309602,7 +310594,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309615,6 +310609,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309688,7 +310690,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "Shin-Etsu Chemical",
@@ -309825,7 +310827,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -309851,6 +310855,14 @@
             "investor"
           ],
           "description": "State Street is a financial institution / asset manager, not a manufacturer — role corrected to investor"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -309923,7 +310935,7 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {},
         "wikidata": {
           "retrieved_at": "2026-06-18",
           "label": "SUMCO",
@@ -310078,7 +311090,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -310091,6 +311105,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
@@ -310174,7 +311196,9 @@
           "acquired_by_url": null,
           "board": []
         },
-        "infonodes": null,
+        "infonodes": {
+          "country": "United States"
+        },
         "wikidata": null
       },
       "tags": [],
@@ -310187,6 +311211,14 @@
           "old": null,
           "new": null,
           "description": "New entity created from MINTL CB export (mintl-update-companies-20260618-foglio1-csv6-18-2026.csv)"
+        },
+        {
+          "date": "2026-06-18",
+          "action": "field_set",
+          "field": "sources.infonodes.country",
+          "value": "United States",
+          "source": "crunchbase_headquarters",
+          "by": "patch_country_from_cb_hq.py"
         }
       ],
       "validation": [
