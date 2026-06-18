@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID pipeline — +23 entities, +90 IV, +192 rels, +85 QIDs; DB: 2311 entities, 2990 rels)
+> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID + Wikidata enrichment + IV countries; DB: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -558,6 +558,9 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] QID Phase 1b (`sparql_search_qids.py`): +5 additional (Arafura Resources, LIG Nex1, Standardaero, ST Engineering, PTC Industries)
 - [x] Review: 43 accepted, 4 rejected — IN-1282 (retired entity), IN-1300 KGHM International (parent QID ≠ Canadian subsidiary), IN-1404 Cadre (QID = English word "cadre", not the company), IN-1409 Mildef (Q105806178 = Malaysian entity, not Swedish Mildef Group AB)
 - [x] `search_missing_qids.py --apply`: 85 QIDs written
+- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
+- [x] `enrich_wikidata.py` — 42 entities enriched (Anthropic, DeepSeek, Mistral AI, Shin-Etsu, SUMCO + 37 aerospace/defense batch)
+- [x] `patch_investor_countries.py` — 58 IV entities assigned country (mostly USA; British Business Bank → UK, Siemens → Germany)
 - [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
 
 #### Note: script design

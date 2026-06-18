@@ -62105,7 +62105,22 @@
           "wikipedia_url": null,
           "website": "https://www.ptcil.com"
         },
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "PTC Industries Limited",
+          "description": "Indian manufacturing company",
+          "aliases": [],
+          "instance_of": [
+            "company"
+          ],
+          "country": null,
+          "inception": null,
+          "headquarters": null,
+          "official_website": null,
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/PTC%20Industries%20Limited"
+        }
       },
       "history": [
         {
@@ -62143,6 +62158,15 @@
           "old": null,
           "new": "Q139552877",
           "description": "wikidata_id set via search: label='PTC Industries Limited', description='Indian manufacturing company'. Search name used: 'Ptc Industries'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q139552877)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q139552877)"
         }
       ],
       "validation": [
@@ -62174,6 +62198,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q139552877 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q139552877). label='PTC Industries Limited'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -248735,7 +248765,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -248825,6 +248855,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q2578125)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2578125)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -250187,7 +250226,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -250275,6 +250314,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q4034010)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q4034010)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -250540,7 +250588,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -250575,6 +250623,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -250603,7 +250660,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -250638,6 +250695,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -250918,7 +250984,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -250953,6 +251019,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -252632,7 +252707,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -252726,6 +252801,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q487907)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q487907)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -253292,7 +253376,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -253390,6 +253474,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q119840385)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q119840385)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -253772,7 +253865,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -253862,6 +253955,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q4896433)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q4896433)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -254300,7 +254402,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -254335,6 +254437,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -254417,7 +254528,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -254508,6 +254619,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q219635)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q219635)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -254554,7 +254674,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -254589,6 +254709,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -257444,7 +257573,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -257479,6 +257608,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -257507,7 +257645,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -257601,6 +257739,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q857063)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q857063)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -259383,7 +259530,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -259418,6 +259565,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -260245,7 +260401,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -260280,6 +260436,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -261016,7 +261181,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -261051,6 +261216,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -261566,7 +261740,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -261601,6 +261775,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -263250,7 +263433,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -263343,6 +263526,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q1384697)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1384697)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -263533,7 +263725,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -263619,6 +263811,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q138002080)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q138002080)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -264078,7 +264279,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -264165,6 +264366,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q1439864)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1439864)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -264718,7 +264928,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -264805,6 +265015,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q5531757)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5531757)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -265397,7 +265616,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -265495,6 +265714,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q193326)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q193326)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -266108,7 +266336,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -266197,6 +266425,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q108704611)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q108704611)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -266243,7 +266480,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -266296,6 +266533,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -266934,7 +267180,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -266969,6 +267215,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -269718,7 +269973,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -269753,6 +270008,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -269781,7 +270045,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -269868,6 +270132,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q18351734)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q18351734)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -270762,7 +271035,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -270797,6 +271070,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -271577,7 +271859,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -271612,6 +271894,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -271640,7 +271931,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -271675,6 +271966,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -271703,7 +272003,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -271738,6 +272038,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -272581,7 +272890,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -272616,6 +272925,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -272698,7 +273016,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -272733,6 +273051,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -273469,7 +273796,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -273556,6 +273883,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q6546580)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q6546580)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -274730,7 +275066,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -274765,6 +275101,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -275503,7 +275848,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -275594,6 +275939,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q2283)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2283)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -276337,7 +276691,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -276430,6 +276784,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q334204)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q334204)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -277676,7 +278039,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -277765,6 +278128,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q17083173)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q17083173)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -278652,7 +279024,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -278687,6 +279059,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -278715,7 +279096,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -278750,6 +279131,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -281625,7 +282015,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -281660,6 +282050,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -284462,7 +284861,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -284552,6 +284951,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q1852025)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1852025)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -285114,7 +285522,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -285149,6 +285557,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -287474,7 +287891,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -287565,6 +287982,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q3511946)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q3511946)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -287779,7 +288205,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -287868,6 +288294,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q107144758)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q107144758)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -289096,7 +289531,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -289131,6 +289566,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -289329,7 +289773,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -289364,6 +289808,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -289392,7 +289845,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -289427,6 +289880,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -290650,7 +291112,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -290685,6 +291147,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -290935,7 +291406,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -290970,6 +291441,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -292763,7 +293243,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -292835,6 +293315,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q5020471)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q5020471)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -294195,7 +294684,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -294263,6 +294752,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q30259102)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q30259102)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -295899,7 +296397,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -295934,6 +296432,15 @@
           "old": "USA",
           "new": "United States",
           "description": "Normalised USA→United States for consistency"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -296603,7 +297110,7 @@
         "infonodes": {
           "extracted_at": "2026-04-22",
           "sector": null,
-          "country": "United States",
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -296679,6 +297186,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q744149)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q744149)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -300099,7 +300615,28 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Boeing",
+          "description": "American global aerospace and defense corporation",
+          "aliases": [
+            "Boeing Company",
+            "United Aircraft and Transport Corp",
+            "The Boeing Company (Chicago, IL)"
+          ],
+          "instance_of": [
+            "public company",
+            "aerospace manufacturer",
+            "rail vehicle manufacturer"
+          ],
+          "country": "United States",
+          "inception": "1916-07-15",
+          "headquarters": "Chicago",
+          "official_website": "https://boeing.com/",
+          "isin": "US0970231058",
+          "employees": 171000,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Boeing"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300121,6 +300658,15 @@
           "old": null,
           "new": "Q66",
           "description": "wikidata_id set via search: label='Boeing', description='American global aerospace and defense corporation'. Search name used: 'Boeing'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q66)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q66)"
         }
       ],
       "validation": [
@@ -300134,6 +300680,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q66 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q66). label='Boeing'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300166,7 +300718,29 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "GE Aerospace",
+          "description": "American aircraft engine supplier",
+          "aliases": [
+            "General Electric Aircraft Engines",
+            "GEAE",
+            "GE Aircraft Engines",
+            "GE Aviation",
+            "General Electric Company"
+          ],
+          "instance_of": [
+            "business",
+            "aerospace manufacturer"
+          ],
+          "country": "United States",
+          "inception": "1917-01-01",
+          "headquarters": "Evendale",
+          "official_website": "https://www.geaerospace.com/",
+          "isin": "US3696043013",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/GE%20Aerospace"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300188,6 +300762,15 @@
           "old": null,
           "new": "Q1485061",
           "description": "wikidata_id set via search: label='GE Aerospace', description='American aircraft engine supplier'. Search name used: 'Ge Aerospace'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q1485061)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q1485061)"
         }
       ],
       "validation": [
@@ -300201,6 +300784,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q1485061 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q1485061). label='GE Aerospace'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300233,7 +300822,27 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Howmet Aerospace",
+          "description": "American industrial company",
+          "aliases": [
+            "Arconic Inc.",
+            "Howmet Aerospace Inc",
+            "HWM"
+          ],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "2016-11-01",
+          "headquarters": "Pittsburgh",
+          "official_website": "http://www.howmet.com",
+          "isin": "US03965L1008",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Howmet%20Aerospace"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300255,6 +300864,15 @@
           "old": null,
           "new": "Q25104597",
           "description": "wikidata_id set via search: label='Howmet Aerospace', description='American industrial company'. Search name used: 'Howmet Aerospace'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q25104597)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q25104597)"
         }
       ],
       "validation": [
@@ -300268,6 +300886,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q25104597 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q25104597). label='Howmet Aerospace'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300412,7 +301036,27 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "TransDigm Group Inc.",
+          "description": "TransDigm Group Incorporated is a global designer, producer and supplier of commercial and military aerospace components",
+          "aliases": [
+            "TransDigm Group Incorporated",
+            "TDG",
+            "TransDigm Group"
+          ],
+          "instance_of": [
+            "public company",
+            "business"
+          ],
+          "country": "United States",
+          "inception": "1993",
+          "headquarters": "Cleveland",
+          "official_website": "http://www.transdigm.com/",
+          "isin": "US8936411003",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/TransDigm%20Group"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300434,6 +301078,15 @@
           "old": null,
           "new": "Q7833612",
           "description": "wikidata_id set via search: label='TransDigm Group Inc.', description='TransDigm Group Incorporated is a global designer, producer and supplier of com. Search name used: 'Transdigm'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q7833612)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q7833612)"
         }
       ],
       "validation": [
@@ -300447,6 +301100,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q7833612 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q7833612). label='TransDigm Group Inc.'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300479,7 +301138,32 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Axon Enterprise",
+          "description": "US American weapons manufacturer",
+          "aliases": [
+            "TASER International, Inc.",
+            "TASER International Incorporated",
+            "TASER",
+            "Taser International",
+            "Axon Enterprise",
+            "Axon Enterprise, Inc."
+          ],
+          "instance_of": [
+            "business",
+            "enterprise",
+            "small arms manufacturing company",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1993-09-01",
+          "headquarters": "Scottsdale",
+          "official_website": "https://www.axon.com/",
+          "isin": "US87651B1044",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Axon%20Enterprise"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300501,6 +301185,15 @@
           "old": null,
           "new": "Q690604",
           "description": "wikidata_id set via search: label='Axon Enterprise', description='US American weapons manufacturer'. Search name used: 'Axon Enterprise'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q690604)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q690604)"
         }
       ],
       "validation": [
@@ -300514,6 +301207,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q690604 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q690604). label='Axon Enterprise'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300546,7 +301245,23 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Hanwha Aerospace",
+          "description": "South Korean aerospace and defense company",
+          "aliases": [],
+          "instance_of": [
+            "business",
+            "enterprise"
+          ],
+          "country": "South Korea",
+          "inception": "1977-08-01",
+          "headquarters": "Changwon",
+          "official_website": "https://www.hanwhaaerospace.com/eng/index.do",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Hanwha%20Aerospace"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300568,6 +301283,15 @@
           "old": null,
           "new": "Q563107",
           "description": "wikidata_id set via search: label='Hanwha Aerospace', description='South Korean aerospace and defense company'. Search name used: 'Hanwha Aerospace'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q563107)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q563107)"
         }
       ],
       "validation": [
@@ -300581,6 +301305,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q563107 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q563107). label='Hanwha Aerospace'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300613,7 +301343,25 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Rocket Lab",
+          "description": "U.S. & New Zealand aerospace manufacturer and launch service provider",
+          "aliases": [
+            "Rocket Labs"
+          ],
+          "instance_of": [
+            "aerospace manufacturer",
+            "launch service provider"
+          ],
+          "country": "United States",
+          "inception": "2006-06",
+          "headquarters": "Huntington Beach",
+          "official_website": "https://rocketlabcorp.com/",
+          "isin": "US7731211089",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Rocket%20Lab"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300635,6 +301383,15 @@
           "old": null,
           "new": "Q116319",
           "description": "wikidata_id set via search: label='Rocket Lab', description='U.S. & New Zealand aerospace manufacturer and launch service provider'. Search name used: 'Rocket Lab'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q116319)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q116319)"
         }
       ],
       "validation": [
@@ -300648,6 +301405,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q116319 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q116319). label='Rocket Lab'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300784,7 +301547,23 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Carpenter Technology Corporation",
+          "description": "American metals manufacturer",
+          "aliases": [],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1889-06-01",
+          "headquarters": "Reading",
+          "official_website": "http://www.cartech.com",
+          "isin": "US1442851036",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Carpenter%20Technology%20Corporation"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300806,6 +301585,15 @@
           "old": null,
           "new": "Q5045738",
           "description": "wikidata_id set via search: label='Carpenter Technology Corporation', description='American metals manufacturer'. Search name used: 'Carpenter Technology'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q5045738)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q5045738)"
         }
       ],
       "validation": [
@@ -300819,6 +301607,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q5045738 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q5045738). label='Carpenter Technology Corporation'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -300955,7 +301749,23 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "BWX Technologies",
+          "description": "American nuclear energy and technology company",
+          "aliases": [],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": null,
+          "headquarters": "Lynchburg",
+          "official_website": "http://www.bwxt.com/",
+          "isin": "US05605H1005",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/BWX%20Technologies"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -300977,6 +301787,15 @@
           "old": null,
           "new": "Q4836852",
           "description": "wikidata_id set via search: label='BWX Technologies', description='American nuclear energy and technology company'. Search name used: 'Bwx Technologies'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q4836852)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q4836852)"
         }
       ],
       "validation": [
@@ -300990,6 +301809,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q4836852 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q4836852). label='BWX Technologies'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301022,7 +301847,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "HEICO",
+          "description": "aerospace and electronics company",
+          "aliases": [
+            "Heinecke Instruments Co",
+            "HEICO Corporation"
+          ],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1957",
+          "headquarters": "Hollywood",
+          "official_website": "http://www.heico.com",
+          "isin": "US4228061093",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/HEICO"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301044,6 +301888,15 @@
           "old": null,
           "new": "Q5629432",
           "description": "wikidata_id set via search: label='HEICO', description='aerospace and electronics company'. Search name used: 'Heico'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q5629432)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q5629432)"
         }
       ],
       "validation": [
@@ -301057,6 +301910,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q5629432 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301089,7 +301948,25 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Textron",
+          "description": "American industrial conglomerate",
+          "aliases": [
+            "Textron Incorporated"
+          ],
+          "instance_of": [
+            "conglomerate",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1923",
+          "headquarters": "Providence",
+          "official_website": "https://www.textron.com/",
+          "isin": "US8832031012",
+          "employees": 40000,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Textron"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301111,6 +301988,15 @@
           "old": null,
           "new": "Q2140315",
           "description": "wikidata_id set via search: label='Textron', description='American industrial conglomerate'. Search name used: 'Textron'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2140315)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2140315)"
         }
       ],
       "validation": [
@@ -301124,6 +302010,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q2140315 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q2140315). label='Textron'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301156,7 +302048,27 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Bombardier",
+          "description": "aerospace and transportation manufacturer in Canada",
+          "aliases": [
+            "L'Auto-Neige Bombardier Limitée",
+            "Bombardier Inc.",
+            "BOMBARDIER INC.     (Dorval)"
+          ],
+          "instance_of": [
+            "public company",
+            "aerospace manufacturer"
+          ],
+          "country": "Canada",
+          "inception": "1942-01-29",
+          "headquarters": "Dorval",
+          "official_website": "https://www.bombardier.com/",
+          "isin": "CA0977512007",
+          "employees": 13800,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Bombardier%20Inc."
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301178,6 +302090,15 @@
           "old": null,
           "new": "Q333498",
           "description": "wikidata_id set via search: label='Bombardier', description='aerospace and transportation manufacturer in Canada'. Search name used: 'Bombardier'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q333498)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q333498)"
         }
       ],
       "validation": [
@@ -301191,6 +302112,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q333498 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q333498). label='Bombardier'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301223,7 +302150,28 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Huntington Ingalls Industries",
+          "description": "American shipbuilding company",
+          "aliases": [
+            "Northrop Grumman Shipbuilding",
+            "HII",
+            "Huntington Ingalls"
+          ],
+          "instance_of": [
+            "business",
+            "enterprise",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "2011-03-31",
+          "headquarters": "Newport News",
+          "official_website": "https://hii.com",
+          "isin": "US4464131063",
+          "employees": 44000,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301245,6 +302193,15 @@
           "old": null,
           "new": "Q7257522",
           "description": "wikidata_id set via search: label='Huntington Ingalls Industries', description='American shipbuilding company'. Search name used: 'Huntington Ingalls Industries'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q7257522)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q7257522)"
         }
       ],
       "validation": [
@@ -301258,6 +302215,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q7257522 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q7257522). label='Huntington Ingalls Industries'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301290,7 +302253,29 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "ST Engineering",
+          "description": "Global technology, defense, and engineering group headquartered in Singapore",
+          "aliases": [
+            "Singapore Technologies Engineering Ltd",
+            "ST Engg",
+            "STEG"
+          ],
+          "instance_of": [
+            "business",
+            "public company",
+            "enterprise",
+            "organization"
+          ],
+          "country": "Singapore",
+          "inception": "1967-01-01",
+          "headquarters": "Singapore",
+          "official_website": "https://www.stengg.com/",
+          "isin": "SG1F60858221",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/ST%20Engineering"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301312,6 +302297,15 @@
           "old": null,
           "new": "Q3719328",
           "description": "wikidata_id set via search: label='ST Engineering', description='Global technology, defense, and engineering group headquartered in Singapore'. Search name used: 'Singapore Technologies Engineering'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q3719328)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q3719328)"
         }
       ],
       "validation": [
@@ -301325,6 +302319,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q3719328 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q3719328). label='ST Engineering'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301409,7 +302409,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "HEICO",
+          "description": "aerospace and electronics company",
+          "aliases": [
+            "Heinecke Instruments Co",
+            "HEICO Corporation"
+          ],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1957",
+          "headquarters": "Hollywood",
+          "official_website": "http://www.heico.com",
+          "isin": "US4228061093",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/HEICO"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301431,6 +302450,15 @@
           "old": null,
           "new": "Q5629432",
           "description": "wikidata_id set via search: label='HEICO', description='aerospace and electronics company'. Search name used: 'Heico'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q5629432)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q5629432)"
         }
       ],
       "validation": [
@@ -301444,6 +302472,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q5629432 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301476,7 +302510,28 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Korea Aerospace Industries",
+          "description": "aerospace manufacturer in south korea",
+          "aliases": [
+            "KAI"
+          ],
+          "instance_of": [
+            "aerospace manufacturer",
+            "defense contractor",
+            "public company",
+            "business",
+            "enterprise"
+          ],
+          "country": "South Korea",
+          "inception": "1999-10-01",
+          "headquarters": "Sacheon",
+          "official_website": "https://www.koreaaero.com/EN/",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Korea%20Aerospace%20Industries"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301498,6 +302553,15 @@
           "old": null,
           "new": "Q488470",
           "description": "wikidata_id set via search: label='Korea Aerospace Industries', description='aerospace manufacturer in south korea'. Search name used: 'Korea Aerospace Industries'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q488470)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q488470)"
         }
       ],
       "validation": [
@@ -301511,6 +302575,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q488470 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q488470). label='Korea Aerospace Industries'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301647,7 +302717,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "LIG Defense&Aerospace",
+          "description": "South Korean aerospace manufacturer and defense company",
+          "aliases": [
+            "LG Innotek",
+            "LIG Nex1"
+          ],
+          "instance_of": [
+            "business",
+            "enterprise"
+          ],
+          "country": "South Korea",
+          "inception": "1976",
+          "headquarters": "Yongin",
+          "official_website": "https://www.lignex1.com/web/kor/main.do",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/LIG%20Defense%20%26%20Aerospace"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301669,6 +302758,15 @@
           "old": null,
           "new": "Q6458668",
           "description": "wikidata_id set via search: label='LIG Defense&Aerospace', description='South Korean aerospace manufacturer and defense company'. Search name used: 'Lig Nex1'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6458668)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6458668)"
         }
       ],
       "validation": [
@@ -301682,6 +302780,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q6458668 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q6458668). label='LIG Defense&Aerospace'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -301870,7 +302974,24 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Standard Aero Corporation",
+          "description": "company",
+          "aliases": [
+            "StandardAero"
+          ],
+          "instance_of": [
+            "business"
+          ],
+          "country": null,
+          "inception": "1937",
+          "headquarters": null,
+          "official_website": "http://www.standardaero.com/",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/StandardAero"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -301892,6 +303013,15 @@
           "old": null,
           "new": "Q25212746",
           "description": "wikidata_id set via search: label='Standard Aero Corporation', description='company'. Search name used: 'Standardaero'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q25212746)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q25212746)"
         }
       ],
       "validation": [
@@ -301905,6 +303035,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q25212746 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q25212746). label='Standard Aero Corporation'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302041,7 +303177,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Mercury Systems",
+          "description": "defense-related information technology company",
+          "aliases": [
+            "Mercury Systems (United States)"
+          ],
+          "instance_of": [
+            "business",
+            "public company",
+            "organization"
+          ],
+          "country": "United States",
+          "inception": "1981",
+          "headquarters": "Andover",
+          "official_website": "https://mrcy.com/",
+          "isin": "US5893781089",
+          "employees": null,
+          "wikipedia_url": null
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302063,6 +303218,15 @@
           "old": null,
           "new": "Q6818651",
           "description": "wikidata_id set via search: label='Mercury Systems', description='defense-related information technology company'. Search name used: 'Mercury Systems'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6818651)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6818651)"
         }
       ],
       "validation": [
@@ -302076,6 +303240,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q6818651 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q6818651). label='Mercury Systems'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302160,7 +303330,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Archer Aviation",
+          "description": "American electric aircraft manufacturer",
+          "aliases": [
+            "Archer Aviation Inc."
+          ],
+          "instance_of": [
+            "company",
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": null,
+          "headquarters": "San Jose",
+          "official_website": "http://archer.com/",
+          "isin": "US03945R1023",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Archer%20Aviation"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302182,6 +303371,15 @@
           "old": null,
           "new": "Q109369035",
           "description": "wikidata_id set via search: label='Archer Aviation', description='American electric aircraft manufacturer'. Search name used: 'Archer Aviation'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q109369035)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q109369035)"
         }
       ],
       "validation": [
@@ -302195,6 +303393,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q109369035 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q109369035). label='Archer Aviation'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302227,7 +303431,27 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "MDA Space",
+          "description": "Canadian space technology company",
+          "aliases": [
+            "MacDonald, Dettwiler and Associates",
+            "MDA Corporation",
+            "MDA Ltd."
+          ],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "Canada",
+          "inception": "1969",
+          "headquarters": "Brampton",
+          "official_website": "https://mda.space/",
+          "isin": "CA5542821031",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/MDA%20Space"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302249,6 +303473,15 @@
           "old": null,
           "new": "Q1165227",
           "description": "wikidata_id set via search: label='MDA Space', description='Canadian space technology company'. Search name used: 'Mda Space'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q1165227)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q1165227)"
         }
       ],
       "validation": [
@@ -302262,6 +303495,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q1165227 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q1165227). label='MDA Space'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302294,7 +303533,22 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "DroneShield",
+          "description": "Australian company",
+          "aliases": [],
+          "instance_of": [
+            "public company"
+          ],
+          "country": "Australia",
+          "inception": null,
+          "headquarters": "Sydney",
+          "official_website": "https://www.droneshield.com/",
+          "isin": "AU000000DRO2",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/DroneShield"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302316,6 +303570,15 @@
           "old": null,
           "new": "Q112074473",
           "description": "wikidata_id set via search: label='DroneShield', description='Australian company'. Search name used: 'Droneshield'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q112074473)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q112074473)"
         }
       ],
       "validation": [
@@ -302329,6 +303592,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q112074473 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q112074473). label='DroneShield'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302361,7 +303630,26 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Exosens",
+          "description": "French imaging and detection technologies company",
+          "aliases": [
+            "Photonis Technologies",
+            "Photonis Group"
+          ],
+          "instance_of": [
+            "business",
+            "company"
+          ],
+          "country": "France",
+          "inception": "1937",
+          "headquarters": "Mérignac",
+          "official_website": "https://www.exosens.com/",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": null
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302383,6 +303671,15 @@
           "old": null,
           "new": "Q2602577",
           "description": "wikidata_id set via search: label='Exosens', description='French imaging and detection technologies company'. Search name used: 'Exosens'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2602577)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2602577)"
         }
       ],
       "validation": [
@@ -302396,6 +303693,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q2602577 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q2602577). label='Exosens'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302428,7 +303731,22 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": null,
+          "description": "American aerospace electronics company",
+          "aliases": [],
+          "instance_of": [
+            "business"
+          ],
+          "country": "United States",
+          "inception": "1968-12-05",
+          "headquarters": "East Aurora",
+          "official_website": "http://www.astronics.com",
+          "isin": "US0464331083",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Astronics"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302450,6 +303768,15 @@
           "old": null,
           "new": "Q27963459",
           "description": "wikidata_id set via search: label='Astronics', description='American aerospace electronics company'. Search name used: 'Astronics'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q27963459)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q27963459)"
         }
       ],
       "validation": [
@@ -302463,6 +303790,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q27963459 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q27963459). label=None",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302547,7 +303880,25 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Intuitive Machines",
+          "description": "American space products and services company",
+          "aliases": [
+            "Intuitive Machines, Inc."
+          ],
+          "instance_of": [
+            "business",
+            "company"
+          ],
+          "country": "United States",
+          "inception": "2013",
+          "headquarters": "Houston",
+          "official_website": "https://www.intuitivemachines.com/",
+          "isin": "US46125A1007",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Intuitive%20Machines"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302569,6 +303920,15 @@
           "old": null,
           "new": "Q60760151",
           "description": "wikidata_id set via search: label='Intuitive Machines', description='American space products and services company'. Search name used: 'Intuitive Machines'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q60760151)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q60760151)"
         }
       ],
       "validation": [
@@ -302582,6 +303942,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q60760151 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q60760151). label='Intuitive Machines'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302770,7 +304136,22 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Exail Technologies",
+          "description": "French technology company",
+          "aliases": [],
+          "instance_of": [
+            "business"
+          ],
+          "country": "France",
+          "inception": null,
+          "headquarters": "La Garde",
+          "official_website": "https://www.exail-technologies.com/fr",
+          "isin": "FR0000062671",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Exail%20Technologies"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302792,6 +304173,15 @@
           "old": null,
           "new": "Q125849806",
           "description": "wikidata_id set via search: label='Exail Technologies', description='French technology company'. Search name used: 'Exail Technologies'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q125849806)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q125849806)"
         }
       ],
       "validation": [
@@ -302805,6 +304195,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q125849806 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q125849806). label='Exail Technologies'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -302889,7 +304285,24 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Austal",
+          "description": "Australian-based global ship building company",
+          "aliases": [
+            "Austal Limited"
+          ],
+          "instance_of": [
+            "public company"
+          ],
+          "country": "Australia",
+          "inception": "1988-01-01",
+          "headquarters": "Henderson",
+          "official_website": "https://www.austal.com/",
+          "isin": "AU000000ASB3",
+          "employees": 2400,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Austal"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -302911,6 +304324,15 @@
           "old": null,
           "new": "Q780696",
           "description": "wikidata_id set via search: label='Austal', description='Australian-based global ship building company'. Search name used: 'Austal'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q780696)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q780696)"
         }
       ],
       "validation": [
@@ -302924,6 +304346,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q780696 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q780696). label='Austal'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303008,7 +304436,23 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "National Presto Industries",
+          "description": "manufacturer of kitchen appliances",
+          "aliases": [],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "1905",
+          "headquarters": "Eau Claire",
+          "official_website": "http://www.gopresto.com/",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/National%20Presto%20Industries"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303030,6 +304474,15 @@
           "old": null,
           "new": "Q6975043",
           "description": "wikidata_id set via search: label='National Presto Industries', description='manufacturer of kitchen appliances'. Search name used: 'National Presto Industries'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6975043)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6975043)"
         }
       ],
       "validation": [
@@ -303043,6 +304496,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q6975043 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q6975043). label='National Presto Industries'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303075,7 +304534,22 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Astroscale",
+          "description": "orbital debris removal company",
+          "aliases": [],
+          "instance_of": [
+            "business"
+          ],
+          "country": "Japan",
+          "inception": "2013-05-04",
+          "headquarters": "Tokyo",
+          "official_website": "https://astroscale.com/about/",
+          "isin": "JP3119820003",
+          "employees": 130,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Astroscale"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303097,6 +304571,15 @@
           "old": null,
           "new": "Q60753705",
           "description": "wikidata_id set via search: label='Astroscale', description='orbital debris removal company'. Search name used: 'Astroscale'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q60753705)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q60753705)"
         }
       ],
       "validation": [
@@ -303110,6 +304593,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q60753705 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q60753705). label='Astroscale'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303142,7 +304631,27 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Satrec Initiative",
+          "description": "South Korean aerospace company",
+          "aliases": [
+            "SI",
+            "Satrec Initiative Co., Ltd.",
+            "Satrec I"
+          ],
+          "instance_of": [
+            "space company",
+            "manufacturing company"
+          ],
+          "country": "South Korea",
+          "inception": "1999-12-29",
+          "headquarters": "Daejeon",
+          "official_website": "https://www.satreci.com/",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Satrec%20Initiative"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303164,6 +304673,15 @@
           "old": null,
           "new": "Q55731469",
           "description": "wikidata_id set via search: label='Satrec Initiative', description='South Korean aerospace company'. Search name used: 'Satrec Initiative'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55731469)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55731469)"
         }
       ],
       "validation": [
@@ -303177,6 +304695,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q55731469 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q55731469). label='Satrec Initiative'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303209,7 +304733,28 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Redwire",
+          "description": "American public aerospace developer and manufacturer",
+          "aliases": [
+            "Redwire Space",
+            "Redwire  Space, Inc.",
+            "Redwire Corp",
+            "Redwire Corporation"
+          ],
+          "instance_of": [
+            "business",
+            "public company"
+          ],
+          "country": "United States",
+          "inception": "2020-06-01",
+          "headquarters": "Jacksonville",
+          "official_website": "https://rdw.com/",
+          "isin": "US75776W1036",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Redwire"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303231,6 +304776,15 @@
           "old": null,
           "new": "Q106432676",
           "description": "wikidata_id set via search: label='Redwire', description='American public aerospace developer and manufacturer'. Search name used: 'Redwire'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q106432676)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q106432676)"
         }
       ],
       "validation": [
@@ -303244,6 +304798,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q106432676 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q106432676). label='Redwire'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303380,7 +304940,23 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "ispace Inc",
+          "description": "private Japanese company developing robotic spacecraft technologies",
+          "aliases": [],
+          "instance_of": [
+            "business",
+            "kabushiki gaisha"
+          ],
+          "country": "Japan",
+          "inception": "2010-09-10",
+          "headquarters": "Tokyo",
+          "official_website": "https://ispace-inc.com/",
+          "isin": "JP3102360009",
+          "employees": 282,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Ispace%20Inc."
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303402,6 +304978,15 @@
           "old": null,
           "new": "Q24862548",
           "description": "wikidata_id set via search: label='ispace Inc', description='private Japanese company developing robotic spacecraft technologies'. Search name used: 'Ispace'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q24862548)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q24862548)"
         }
       ],
       "validation": [
@@ -303415,6 +305000,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q24862548 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q24862548). label='ispace Inc'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -303447,7 +305038,25 @@
         ],
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null,
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "SNT Dynamics",
+          "description": "South Korean company",
+          "aliases": [
+            "S&T Dynamics",
+            "SNT"
+          ],
+          "instance_of": [
+            "business"
+          ],
+          "country": "South Korea",
+          "inception": "1959",
+          "headquarters": "Changwon",
+          "official_website": "http://www.hisntd.com/cn/main/main.html",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/SNT%20Dynamics"
+        },
         "edf": null,
         "edf_project": null
       },
@@ -303469,6 +305078,15 @@
           "old": null,
           "new": "Q7387008",
           "description": "wikidata_id set via search: label='SNT Dynamics', description='South Korean company'. Search name used: 'Snt Dynamics'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q7387008)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q7387008)"
         }
       ],
       "validation": [
@@ -303482,6 +305100,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q7387008 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q7387008). label='SNT Dynamics'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -304677,7 +306301,25 @@
         "ishares": null,
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Hellenic Aerospace Industry",
+          "description": "company",
+          "aliases": [
+            "Elliniki Aeroporiki Viomichania",
+            "ΕΑΒ"
+          ],
+          "instance_of": [
+            "business"
+          ],
+          "country": "Greece",
+          "inception": "1975-01-01",
+          "headquarters": "Tanagra",
+          "official_website": "http://www.haicorp.com",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Hellenic%20Aerospace%20Industry"
+        }
       },
       "history": [
         {
@@ -304706,6 +306348,15 @@
           "old": null,
           "new": "Q838397",
           "description": "wikidata_id set via search: label='Hellenic Aerospace Industry', description='company'. Search name used: 'Hellenic Aerospace Industry'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q838397)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q838397)"
         }
       ],
       "validation": [
@@ -304719,6 +306370,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q838397 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q838397). label='Hellenic Aerospace Industry'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -305312,7 +306969,24 @@
         "ishares": null,
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Oledcomm",
+          "description": "French \"LiFi\" equipment manufacturer",
+          "aliases": [
+            "Oledcomm SAS"
+          ],
+          "instance_of": [
+            "organization"
+          ],
+          "country": "France",
+          "inception": "2011",
+          "headquarters": "Vélizy-Villacoublay",
+          "official_website": "https://www.oledcomm.net",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": null
+        }
       },
       "history": [
         {
@@ -305341,6 +307015,15 @@
           "old": null,
           "new": "Q77956357",
           "description": "wikidata_id set via search: label='Oledcomm', description='French \"LiFi\" equipment manufacturer'. Search name used: 'Oledcomm'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q77956357)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q77956357)"
         }
       ],
       "validation": [
@@ -305354,6 +307037,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q77956357 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q77956357). label='Oledcomm'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -305451,7 +307140,22 @@
         "ishares": null,
         "crunchbase": null,
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "RISA Sicherheitsanalysen",
+          "description": "company in Berlin, Germany",
+          "aliases": [],
+          "instance_of": [
+            "business"
+          ],
+          "country": "Germany",
+          "inception": "1990-01-01",
+          "headquarters": "Berlin",
+          "official_website": "https://www.risa.eu/en/index.php",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": null
+        }
       },
       "history": [
         {
@@ -305480,6 +307184,15 @@
           "old": null,
           "new": "Q30285277",
           "description": "wikidata_id set via search: label='RISA Sicherheitsanalysen', description='company in Berlin, Germany'. Search name used: 'Risa Sicherheitsanalysen'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q30285277)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q30285277)"
         }
       ],
       "validation": [
@@ -305493,6 +307206,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q30285277 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q30285277). label='RISA Sicherheitsanalysen'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ],
@@ -306055,7 +307774,25 @@
           "board": []
         },
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Anthropic",
+          "description": "American artificial intelligence corporation",
+          "aliases": [],
+          "instance_of": [
+            "company",
+            "business",
+            "technology company",
+            "benefit corporation"
+          ],
+          "country": "United States",
+          "inception": "2021-01-26",
+          "headquarters": "San Francisco",
+          "official_website": "https://www.anthropic.com/",
+          "isin": null,
+          "employees": 2500,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Anthropic"
+        }
       },
       "tags": [],
       "history": [
@@ -306076,6 +307813,15 @@
           "old": null,
           "new": "Q116758847",
           "description": "wikidata_id set via search: label='Anthropic', description='American artificial intelligence corporation'. Search name used: 'Anthropic'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q116758847)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q116758847)"
         }
       ],
       "validation": [
@@ -306089,6 +307835,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q116758847 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q116758847). label='Anthropic'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -306263,7 +308015,26 @@
           "board": []
         },
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "DeepSeek",
+          "description": "Chinese artificial intelligence company",
+          "aliases": [
+            "deepseek.com",
+            "Hangzhou DeepSeek Artificial Intelligence Basic Technology Research Co., Ltd."
+          ],
+          "instance_of": [
+            "startup company",
+            "technology company"
+          ],
+          "country": "People's Republic of China",
+          "inception": "2023-05",
+          "headquarters": "Hangzhou",
+          "official_website": "https://deepseek.com",
+          "isin": null,
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/DeepSeek"
+        }
       },
       "tags": [],
       "history": [
@@ -306284,6 +308055,15 @@
           "old": null,
           "new": "Q131577453",
           "description": "wikidata_id set via search: label='DeepSeek', description='Chinese artificial intelligence company'. Search name used: 'Deepseek'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q131577453)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q131577453)"
         }
       ],
       "validation": [
@@ -306297,6 +308077,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q131577453 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q131577453). label='DeepSeek'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -307061,7 +308847,25 @@
           "board": []
         },
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Mistral AI",
+          "description": "French AI company",
+          "aliases": [
+            "Mistral"
+          ],
+          "instance_of": [
+            "software company",
+            "organization"
+          ],
+          "country": "France",
+          "inception": "2023-04-28",
+          "headquarters": "Paris",
+          "official_website": "https://mistral.ai/",
+          "isin": null,
+          "employees": 350,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Mistral%20AI"
+        }
       },
       "tags": [],
       "history": [
@@ -307082,6 +308886,15 @@
           "old": null,
           "new": "Q119718658",
           "description": "wikidata_id set via search: label='Mistral AI', description='French AI company'. Search name used: 'Mistral Ai'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q119718658)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q119718658)"
         }
       ],
       "validation": [
@@ -307095,6 +308908,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q119718658 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q119718658). label='Mistral AI'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -307870,7 +309689,27 @@
           "board": []
         },
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "Shin-Etsu Chemical",
+          "description": "company",
+          "aliases": [
+            "Shin-Etsu Chemical Co., Ltd.",
+            "Shin'etsu Kagaku Kōgyō Kabushiki-gaisha",
+            "Shin-Etsu Nitrogen Fertilizer"
+          ],
+          "instance_of": [
+            "public company",
+            "business"
+          ],
+          "country": "Japan",
+          "inception": "1926-09-16",
+          "headquarters": "Chiyoda",
+          "official_website": "http://www.shinetsu.co.jp/",
+          "isin": "JP3371200001",
+          "employees": 19206,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Shin-Etsu%20Chemical"
+        }
       },
       "tags": [],
       "history": [
@@ -307891,6 +309730,15 @@
           "old": null,
           "new": "Q904284",
           "description": "wikidata_id set via search: label='Shin-Etsu Chemical', description='company'. Search name used: 'Shin-Etsu Chemical'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q904284)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q904284)"
         }
       ],
       "validation": [
@@ -307904,6 +309752,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q904284 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q904284). label='Shin-Etsu Chemical'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -308070,7 +309924,27 @@
           "board": []
         },
         "infonodes": null,
-        "wikidata": null
+        "wikidata": {
+          "retrieved_at": "2026-06-18",
+          "label": "SUMCO",
+          "description": "Japanese Company",
+          "aliases": [
+            "SUMCO Corporation",
+            "Kabushiki-gaisha Samuko",
+            "Silicon United Manufacturing Corporation",
+            "Sumitomo Mitsubishi Silicon Corporation"
+          ],
+          "instance_of": [
+            "public company"
+          ],
+          "country": "Japan",
+          "inception": "1999-07-30",
+          "headquarters": "Shibaura",
+          "official_website": "https://www.sumcosi.com/english/",
+          "isin": "JP3322930003",
+          "employees": null,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/SUMCO"
+        }
       },
       "tags": [],
       "history": [
@@ -308091,6 +309965,15 @@
           "old": null,
           "new": "Q2208172",
           "description": "wikidata_id set via search: label='SUMCO', description='Japanese Company'. Search name used: 'Sumco'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2208172)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2208172)"
         }
       ],
       "validation": [
@@ -308104,6 +309987,12 @@
           "status": "needs_review",
           "description": "wikidata_id Q2208172 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
+          "datestamp": "2026-06-18"
+        },
+        {
+          "status": "wikidata_enriched",
+          "description": "sources.wikidata populated from Wikidata API (Q2208172). label='SUMCO'",
+          "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
         }
       ]
@@ -309225,7 +311114,7 @@
         "infonodes": {
           "extracted_at": "2026-06-18",
           "sector": null,
-          "country": null,
+          "country": "United Kingdom",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -309242,6 +311131,15 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "United Kingdom",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -310845,7 +312743,7 @@
         "infonodes": {
           "extracted_at": "2026-06-18",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -310862,6 +312760,15 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -311250,7 +313157,7 @@
         "infonodes": {
           "extracted_at": "2026-06-18",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -311267,6 +313174,15 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
@@ -311745,7 +313661,7 @@
         "infonodes": {
           "extracted_at": "2026-06-18",
           "sector": null,
-          "country": null,
+          "country": "Germany",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -311762,6 +313678,15 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "Germany",
+          "description": "Country assigned from curated known-investor lookup table"
         }
       ],
       "validation": [
