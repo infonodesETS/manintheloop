@@ -5,7 +5,7 @@
 
 ## Session protocol
 
-- **At session start**: read this file before taking any action.
+- **At session start**: run `git fetch && git pull` first, list any changes pulled (commits received, files changed), then read this file before taking any action.
 - **At session end** (or after significant progress): update this file, then commit.
 - **Commit rule**: every STATUS.md update must be committed with message `docs(refactoringDB): update STATUS.md`.
 - **Note:** `issues.md` is gitignored (local only) — temporary choice, may be revisited.
