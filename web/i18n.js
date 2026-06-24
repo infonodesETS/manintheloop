@@ -83,8 +83,7 @@ const TRANSLATIONS = {
     'pub.contact':        'Se vuoi segnalarci la tua pubblicazione, fatta anche grazie a MAN IN THE LOOP, per inserirla in questa sezione, scrivici a:',
 
     // Common — export buttons
-    'common.save_png':    'Salva PNG',
-    'common.save_pdf':    'Salva PDF',
+    'common.print':       'Stampa',
   },
 
   en: {
@@ -160,8 +159,7 @@ const TRANSLATIONS = {
     'pub.contact':        'If you want to share a publication made possible with MAN IN THE LOOP, write to us at:',
 
     // Common — export buttons
-    'common.save_png':    'Save PNG',
-    'common.save_pdf':    'Save PDF',
+    'common.print':       'Print',
   },
 
   fr: {
@@ -237,8 +235,7 @@ const TRANSLATIONS = {
     'pub.contact':        'Si vous souhaitez nous signaler une publication réalisée grâce à MAN IN THE LOOP, écrivez-nous à :',
 
     // Common — export buttons
-    'common.save_png':    'Enregistrer PNG',
-    'common.save_pdf':    'Enregistrer PDF',
+    'common.print':       'Imprimer',
   },
 
   es: {
@@ -314,8 +311,7 @@ const TRANSLATIONS = {
     'pub.contact':        'Si quieres compartir una publicación realizada gracias a MAN IN THE LOOP, escríbenos a:',
 
     // Common — export buttons
-    'common.save_png':    'Guardar PNG',
-    'common.save_pdf':    'Guardar PDF',
+    'common.print':       'Imprimir',
   },
 };
 
