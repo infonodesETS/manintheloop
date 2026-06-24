@@ -81,6 +81,10 @@ const TRANSLATIONS = {
     'pub.title':          'Research',
     'pub.desc':           'Ricerche, articoli e inchieste prodotti dal team del progetto Man in the Loop o da ricercatori, ricercatrici, giornalisti e giornaliste che hanno utilizzato la piattaforma per il loro lavoro.',
     'pub.contact':        'Se vuoi segnalarci la tua pubblicazione, fatta anche grazie a MAN IN THE LOOP, per inserirla in questa sezione, scrivici a:',
+
+    // Common — export buttons
+    'common.save_png':    'Salva PNG',
+    'common.save_pdf':    'Salva PDF',
   },
 
   en: {
@@ -154,6 +158,10 @@ const TRANSLATIONS = {
     'pub.title':          'Research',
     'pub.desc':           'Research papers, articles and investigations produced by the Man in the Loop team or by researchers and journalists who used the platform in their work.',
     'pub.contact':        'If you want to share a publication made possible with MAN IN THE LOOP, write to us at:',
+
+    // Common — export buttons
+    'common.save_png':    'Save PNG',
+    'common.save_pdf':    'Save PDF',
   },
 
   fr: {
@@ -227,6 +235,10 @@ const TRANSLATIONS = {
     'pub.title':          'Recherche',
     'pub.desc':           'Recherches, articles et enquêtes produits par l\'équipe du projet Man in the Loop ou par des chercheurs et journalistes ayant utilisé la plateforme.',
     'pub.contact':        'Si vous souhaitez nous signaler une publication réalisée grâce à MAN IN THE LOOP, écrivez-nous à :',
+
+    // Common — export buttons
+    'common.save_png':    'Enregistrer PNG',
+    'common.save_pdf':    'Enregistrer PDF',
   },
 
   es: {
@@ -300,6 +312,10 @@ const TRANSLATIONS = {
     'pub.title':          'Investigación',
     'pub.desc':           'Investigaciones, artículos e informes producidos por el equipo del proyecto Man in the Loop o por investigadores y periodistas que han utilizado la plataforma.',
     'pub.contact':        'Si quieres compartir una publicación realizada gracias a MAN IN THE LOOP, escríbenos a:',
+
+    // Common — export buttons
+    'common.save_png':    'Guardar PNG',
+    'common.save_pdf':    'Guardar PDF',
   },
 };
 

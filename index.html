@@ -179,6 +179,7 @@
         -->
         <span class="map-arc-legend" title="Arc direction: faint = investor country · bright = company country">arc: faint→investor · bright→company</span>
         <button class="tnav-btn map-ctrl-btn" id="map-reset-zoom-btn" data-i18n="map.reset_zoom">Reset zoom</button>
+        <button class="tnav-btn map-ctrl-btn" id="map-export-btn" data-i18n="common.save_png" title="Salva la mappa corrente come immagine PNG">Salva PNG</button>
       </div>
       <div id="map-filter-bar" class="map-filter-bar" style="display:none">
         <span>Filtering by: <strong id="map-filter-label"></strong></span>
@@ -1456,6 +1457,76 @@ document.addEventListener('mitl-lang-change', () => {
     setDefaultPanelContent();
   }
 });
+</script>
+
+<!-- ── PNG export of the current map view ── -->
+<script>
+'use strict';
+(function(){
+  function downloadBlob(blob, name){
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  function stamp(){
+    const d = new Date(), p = n => String(n).padStart(2,'0');
+    return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}`;
+  }
+  // Inline computed presentation styles so the standalone SVG renders the same
+  // colours/strokes as on the page (external CSS is not available inside an <img>).
+  // fill/stroke set via attribute (e.g. url(#gradient) on arcs) are left untouched.
+  const STYLE_PROPS = ['fill','fill-opacity','fill-rule','stroke','stroke-width',
+    'stroke-opacity','stroke-dasharray','stroke-linejoin','stroke-linecap','opacity',
+    'color','font-family','font-size','font-weight','font-style','text-anchor',
+    'dominant-baseline','letter-spacing','display','visibility','paint-order'];
+  function inlineStyle(src, dst){
+    const cs = getComputedStyle(src);
+    let s = '';
+    for (const p of STYLE_PROPS){
+      if ((p === 'fill' || p === 'stroke') && src.hasAttribute(p)) continue;
+      const v = cs.getPropertyValue(p);
+      if (v) s += p + ':' + v + ';';
+    }
+    dst.setAttribute('style', s);
+  }
+  function inlineTree(src, dst){
+    inlineStyle(src, dst);
+    const a = src.children, b = dst.children;
+    for (let i = 0; i < a.length; i++) inlineTree(a[i], b[i]);
+  }
+  function exportMapPng(){
+    const svg = document.getElementById('map-svg');
+    if (!svg) return;
+    const rect = svg.getBoundingClientRect();
+    const w = Math.max(1, Math.round(rect.width));
+    const h = Math.max(1, Math.round(rect.height));
+    const clone = svg.cloneNode(true);
+    inlineTree(svg, clone);
+    clone.setAttribute('width', w);
+    clone.setAttribute('height', h);
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    const bg = getComputedStyle(document.body).backgroundColor || '#000';
+    const xml = new XMLSerializer().serializeToString(clone);
+    const svgUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+    const img = new Image();
+    img.onload = function(){
+      const scale = 2;
+      const canvas = document.createElement('canvas');
+      canvas.width = w * scale; canvas.height = h * scale;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      ctx.drawImage(img, 0, 0);
+      canvas.toBlob(b => { if (b) downloadBlob(b, `manintheloop-map-${stamp()}.png`); }, 'image/png');
+    };
+    img.onerror = function(){ alert('Export non riuscito.'); };
+    img.src = svgUrl;
+  }
+  const btn = document.getElementById('map-export-btn');
+  if (btn) btn.addEventListener('click', exportMapPng);
+})();
 </script>
 </body>
 </html>

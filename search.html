@@ -20,6 +20,14 @@
     /* ── Page shell ── */
     #app { min-height: 100vh; display: flex; flex-direction: column; }
     #cs-profile { width: 100%; }
+    #cs-export-pdf {
+      position: fixed; right: 20px; bottom: 20px; z-index: 600; display: none;
+      align-items: center; gap: 6px; font-family: var(--font); font-size: var(--fs-sm);
+      background: var(--accent); color: var(--on-accent, #001); border: 1px solid var(--accent);
+      border-radius: 4px; padding: 8px 14px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.4);
+    }
+    #cs-export-pdf:hover { filter: brightness(1.1); }
+    #cs-export-pdf:disabled { opacity: .6; cursor: default; }
 
     /* ── Source badge for EDF-only / DB-only / merged ── */
     .src-badge {
@@ -517,10 +525,77 @@
   <div id="cs-loading">Loading data…</div>
 
 </div>
+
+<!-- ── Floating PDF export (visible only when a profile is open) ── -->
+<button id="cs-export-pdf" data-i18n="common.save_pdf" title="Scarica la scheda come PDF">Salva PDF</button>
+
 <script src="web/cytoscape.min.js"></script>
 <script type="module" src="web/app.js"></script>
 
 <script src="web/theme.js"></script>
 <script src="web/i18n.js"></script>
+
+<!-- ── One-click PDF export of the entity profile card ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  const profile = document.getElementById('cs-profile');
+  const btn = document.getElementById('cs-export-pdf');
+  if (!profile || !btn) return;
+
+  // Show the button only while a profile is visible.
+  function sync(){ btn.style.display = profile.classList.contains('visible') ? 'inline-flex' : 'none'; }
+  sync();
+  new MutationObserver(sync).observe(profile, { attributes: true, attributeFilter: ['class'] });
+
+  function fileName(){
+    const n = (document.getElementById('cs-name')?.textContent || 'scheda').trim();
+    const slug = n.replace(/[^\w\-]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 60) || 'scheda';
+    return 'manintheloop-' + slug + '.pdf';
+  }
+
+  async function exportPdf(){
+    if (!window.html2canvas || !window.jspdf){ alert('Librerie non ancora caricate, riprova tra un istante.'); return; }
+    const prev = btn.textContent;
+    btn.disabled = true; btn.textContent = '…';
+    // Neutralise the entry animation (cs-fadeUp leaves the card at opacity:0 /
+    // translateY at capture time), otherwise html2canvas renders it blank.
+    profile.style.opacity = '1';
+    profile.style.transform = 'none';
+    profile.style.animation = 'none';
+    try {
+      // Render the card on a white background using the site's light theme,
+      // applied only to the off-screen clone so the page on screen is untouched
+      // (no flash). The same opacity fix is mirrored on the clone.
+      const canvas = await html2canvas(profile, {
+        backgroundColor: '#ffffff', scale: 2, useCORS: true, logging: false,
+        onclone: (doc) => {
+          doc.documentElement.setAttribute('data-theme', 'light');
+          const p = doc.getElementById('cs-profile');
+          if (p) { p.style.opacity = '1'; p.style.transform = 'none'; p.style.animation = 'none'; }
+        }
+      });
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pw = pdf.internal.pageSize.getWidth();
+      const ph = pdf.internal.pageSize.getHeight();
+      const imgW = pw;
+      const imgH = canvas.height * imgW / canvas.width;
+      const imgData = canvas.toDataURL('image/jpeg', 0.92);
+      let pos = 0, left = imgH;
+      pdf.addImage(imgData, 'JPEG', 0, pos, imgW, imgH);
+      left -= ph;
+      while (left > 0){ pos -= ph; pdf.addPage(); pdf.addImage(imgData, 'JPEG', 0, pos, imgW, imgH); left -= ph; }
+      pdf.save(fileName());
+    } catch (e){ console.error(e); alert('Generazione PDF non riuscita.'); }
+    finally {
+      profile.style.opacity = ''; profile.style.transform = ''; profile.style.animation = '';
+      btn.disabled = false; btn.textContent = prev;
+    }
+  }
+  btn.addEventListener('click', exportPdf);
+})();
+</script>
 </body>
 </html>
