@@ -622,8 +622,10 @@ button.cs-tag-investor.cs-tag-investor--linked:hover {
 [data-theme="light"] .cs-hero-title  { text-shadow: 0 0 18px rgba(0,102,34,0.18); }
 [data-theme="light"] .cs-cursor      { box-shadow: 0 0 8px rgba(0,102,34,0.35); }
 [data-theme="light"] .cs-showing     { color: rgba(0,102,34,0.55); }
+[data-theme="light"] #cs-search,
+[data-theme="light"] #cs-search-b { background: #ffffff; border-color: #d0cdc8; }
 [data-theme="light"] #cs-search:focus,
-[data-theme="light"] #cs-search-b:focus { box-shadow: 0 0 0 2px rgba(0,102,34,0.12); }
+[data-theme="light"] #cs-search-b:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(0,102,34,0.12); }
 [data-theme="light"] .cs-ac-item:hover, [data-theme="light"] .cs-ac-item.kbd { background: rgba(0,102,34,0.07); }
 [data-theme="light"] .cs-logo        { text-shadow: 0 0 12px rgba(0,102,34,0.25); }
 [data-theme="light"] .cs-founder     { background: rgba(0,102,34,0.05); border-color: rgba(0,102,34,0.2); color: rgba(0,102,34,0.80); }

@@ -252,8 +252,9 @@
       padding-bottom: 6px; border-bottom: 1px solid var(--border);
     }
 
-    /* ── surface-ac fallback if not in base.css ── */
+    /* ── Autocomplete dropdown background (theme-aware) ── */
     :root { --surface-ac: #2a2a2a; }
+    [data-theme="light"] { --surface-ac: #ffffff; }
 
     /* ── Static elements ── */
     #cs-clear {
