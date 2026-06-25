@@ -16,10 +16,11 @@
     body { overflow: auto; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
     #page-content {
-      padding: calc(var(--nav-h) + var(--tab-h) + 48px) 40px 80px;
+      padding: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h) + 48px) 40px 80px;
       max-width: 760px;
     }
     .tbd-prompt { font-family: var(--font); font-size: var(--fs-xs); color: rgba(0,255,65,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    [data-theme="light"] .tbd-prompt { color: rgba(0,102,34,0.55); }
     .tbd-title { font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin-bottom: 16px; }
     .tbd-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.2); padding-left: 16px; margin-bottom: 32px; }
     .tbd-badge {
@@ -27,6 +28,10 @@
       border: 1px solid var(--border); border-radius: 50px; padding: 3px 14px;
       color: var(--text-faint);
     }
+    /* ── Glossary ── */
+    .gloss-list { margin: 0; display: flex; flex-direction: column; gap: 18px; }
+    .gloss-item dt { font-family: var(--font); font-size: var(--fs-body); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 4px; }
+    .gloss-item dd { margin: 0; font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); }
     /* ── Language switcher ── */
     .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
     .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
@@ -58,15 +63,27 @@
   <a href="about.html" class="tnav-btn active">About</a>
 </div>
 
-<div id="page-content">
-  <div class="tbd-prompt">$ man-in-the-loop --about</div>
-  <div class="tbd-title" data-i18n="about.title">About</div>
-  <div class="tbd-desc" data-i18n-html="about.intro">
-    La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell'ambito del programma globale "Militarisation of Tech".
+<!-- ── Subnav (About sections) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <button class="snav-btn active" data-section="sec-about"      data-i18n="about.nav_about"      onclick="showAboutSection('sec-about')">Chi siamo</button>
+    <button class="snav-btn"        data-section="sec-data"       data-i18n="about.nav_data"       onclick="showAboutSection('sec-data')">Metodologia e dati</button>
+    <button class="snav-btn"        data-section="sec-glossary"   data-i18n="about.nav_glossary"   onclick="showAboutSection('sec-glossary')">Glossario</button>
+    <button class="snav-btn"        data-section="sec-contribute" data-i18n="about.nav_contribute" onclick="showAboutSection('sec-contribute')">Contribuisci</button>
   </div>
-  <p data-i18n="about.last_update" style="font-size: var(--fs-body); color: var(--text-secondary); margin-top: 12px; margin-bottom: 32px;">Ultimo aggiornamento dati: 16/06/2026</p>
+</div>
 
-  <div style="margin-bottom: 32px;">
+<div id="page-content">
+
+  <!-- ════ Sezione 1 — Chi siamo ════ -->
+  <section id="sec-about" class="about-section">
+    <div class="tbd-prompt">$ man-in-the-loop --about</div>
+    <div class="tbd-title" data-i18n="about.title">About</div>
+    <div class="tbd-desc" data-i18n-html="about.intro">
+      La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell'ambito del programma globale "Militarisation of Tech".
+    </div>
+    <p data-i18n="about.last_update" style="font-size: var(--fs-body); color: var(--text-secondary); margin-top: 12px; margin-bottom: 32px;">Ultimo aggiornamento dati: 16/06/2026</p>
+
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ team --current-prototype</div>
     <p data-i18n="about.team_lead" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">L'attuale prototipo è stato sviluppato da:</p>
     <ul data-i18n-html="about.team_list" style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);">
@@ -79,21 +96,10 @@
       <li>Andrea Nelson Mauro — Developer e Data expert</li>
       <li>Emma Besseghini — Junior Researcher</li>
     </ul>
-  </div>
+  </section>
 
-  <div style="margin-bottom: 32px;">
-    <div class="tbd-prompt" style="margin-bottom: 12px;">$ contribute</div>
-    <p data-i18n="about.contribute_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Contribuisci</p>
-    <p data-i18n="about.contribute_intro" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo fatto il possibile per verificare l'accuratezza dei dati inseriti nella piattaforma, ma è un lavoro molto complicato e il nostro team ha risorse limitate. Per questo ti chiediamo di darci una mano nei seguenti modi, se ti va:</p>
-    <ul data-i18n-html="about.contribute_list" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 10px;">
-      <li>Segnalaci gli <strong>errori nei dati o i bug</strong> che riscontri utilizzando la piattaforma, scrivendoci a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
-      <li>Segnalaci una o più <strong>società</strong> che ti interessano e che al momento non sono presenti nel database. Scrivi a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a> indicandoci il nome della società e possibilmente il suo codice identificativo e l'url del suo sito internet ufficiale.</li>
-      <li>Segnalaci una tua <strong>pubblicazione</strong>, se hai utilizzato Man in the loop per una tua ricerca o inchiesta. Se ti fa piacere la aggiungeremo nella sezione "Pubblicazioni". Invia la tua pubblicazione a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
-      <li>Se ti piace il lavoro che stiamo facendo e vuoi vederlo sopravvivere ed espandersi in futuro, fai una donazione a info.nodes utilizzando il tasto "dona" nel footer del sito <a href="https://www.infonodes.org" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">www.infonodes.org</a></li>
-    </ul>
-  </div>
-
-  <div style="margin-bottom: 32px;">
+  <!-- ════ Sezione 2 — Metodologia e dati ════ -->
+  <section id="sec-data" class="about-section" style="display:none">
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --methodology</div>
     <p data-i18n="about.data_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">I dati di Man in the Loop</p>
     <p data-i18n="about.data_p1" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Il progetto di ricerca sperimentale open data ha lo scopo di mappare le aziende e gli investitori nel settore delle armi autonome, lungo tutta la catena di approvvigionamento globale.</p>
@@ -104,23 +110,17 @@
       <li>Settore della difesa: Aerospace &amp; Defence (Codice GICS 201010).</li>
     </ul>
     <p data-i18n="about.data_p3" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo inoltre aggiunto 18 start-up europee ritenute rilevanti nel settore. Creato il database, abbiamo ricavato i dati relativi ai Lead Investors e ai Top Investors dalla piattaforma a pagamento Crunchbase.</p>
-    <p data-i18n="about.data_nota" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body);">NOTA: tutte le informazioni presenti nelle sezioni della piattaforma sono la fotografia alla data in cui abbiamo scaricato le informazioni da Crunchbase (aprile 2026).</p>
-  </div>
+    <p data-i18n="about.data_nota" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;">NOTA: tutte le informazioni presenti nelle sezioni della piattaforma sono la fotografia alla data in cui abbiamo scaricato le informazioni da Crunchbase (aprile 2026).</p>
 
-  <div style="margin-bottom: 32px;">
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --edf-focus</div>
     <p data-i18n="about.edf_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Il Focus EDF</p>
-    <p data-i18n="about.edf_text" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body);">Abbiamo raccolto e inserito nel database tutte le entità (società, università, centri di ricerca, istituzioni pubbliche) che hanno partecipato a progetti EDF (European Defence Fund) e che quindi hanno ricevuto, direttamente o indirettamente, dei fondi dall'Unione Europea per fare ricerca, sviluppare, produrre e commercializzare dei sistemi d'arma autonomi.</p>
-  </div>
+    <p data-i18n="about.edf_text" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;">Abbiamo raccolto e inserito nel database tutte le entità (società, università, centri di ricerca, istituzioni pubbliche) che hanno partecipato a progetti EDF (European Defence Fund) e che quindi hanno ricevuto, direttamente o indirettamente, dei fondi dall'Unione Europea per fare ricerca, sviluppare, produrre e commercializzare dei sistemi d'arma autonomi.</p>
 
-  <div style="margin-bottom: 32px;">
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ links</div>
-    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
+    <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
       <li><a href="https://github.com/infonodesETS/manintheloop" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">github.com/infonodesETS/manintheloop</a> — source code &amp; documentation</li>
     </ul>
-  </div>
 
-  <div style="margin-bottom: 32px;">
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ data/</div>
     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
       <li><a href="data/database.json" style="color: var(--accent); text-decoration: none;">data/database.json</a> — main entity database: companies, investors, EDF projects, relationships (schema v3.0)</li>
@@ -128,9 +128,126 @@
       <li><a href="data/glossary.json" style="color: var(--accent); text-decoration: none;">data/glossary.json</a> — source flag descriptions (CB / EDF / iShares / WD / INF)</li>
       <li><a href="data/qid_candidates.json" style="color: var(--accent); text-decoration: none;">data/qid_candidates.json</a> — Wikidata QID review file: 1003 entries (accepted / rejected / skipped)</li>
     </ul>
-  </div>
+  </section>
+
+  <!-- ════ Sezione 3 — Glossario ════ -->
+  <section id="sec-glossary" class="about-section" style="display:none">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ glossary</div>
+    <p data-i18n="about.glossary_intro" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 24px;">I termini chiave usati nella piattaforma, spiegati in modo semplice.</p>
+    <dl id="gloss-list" class="gloss-list"></dl>
+  </section>
+
+  <!-- ════ Sezione 4 — Contribuisci ════ -->
+  <section id="sec-contribute" class="about-section" style="display:none">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ contribute</div>
+    <p data-i18n="about.contribute_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Contribuisci</p>
+    <p data-i18n="about.contribute_intro" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo fatto il possibile per verificare l'accuratezza dei dati inseriti nella piattaforma, ma è un lavoro molto complicato e il nostro team ha risorse limitate. Per questo ti chiediamo di darci una mano nei seguenti modi, se ti va:</p>
+    <ul data-i18n-html="about.contribute_list" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 10px;">
+      <li>Segnalaci gli <strong>errori nei dati o i bug</strong> che riscontri utilizzando la piattaforma, scrivendoci a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
+      <li>Segnalaci una o più <strong>società</strong> che ti interessano e che al momento non sono presenti nel database. Scrivi a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a> indicandoci il nome della società e possibilmente il suo codice identificativo e l'url del suo sito internet ufficiale.</li>
+      <li>Segnalaci una tua <strong>pubblicazione</strong>, se hai utilizzato Man in the loop per una tua ricerca o inchiesta. Se ti fa piacere la aggiungeremo nella sezione "Pubblicazioni". Invia la tua pubblicazione a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
+      <li>Se ti piace il lavoro che stiamo facendo e vuoi vederlo sopravvivere ed espandersi in futuro, fai una donazione a info.nodes utilizzando il tasto "dona" nel footer del sito <a href="https://www.infonodes.org" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">www.infonodes.org</a></li>
+    </ul>
+  </section>
+
 </div>
 
+<script>
+// ── Glossary content (4 languages, rendered client-side, re-rendered on language change) ──
+const GLOSS_LANGS = ['it', 'en', 'fr', 'es'];
+const _A = 'style="color: var(--accent); text-decoration: none;"'; // link style helper
+const GLOSSARY = {
+  it: [
+    { t: 'Arma autonoma', d: `Sistema d'arma che, una volta attivato da un essere umano, è in grado di selezionare e ingaggiare bersagli senza ulteriore intervento umano. È il fenomeno al centro di questo progetto: mappiamo le aziende, le università, gli investitori e i soggetti più rilevanti legati allo sviluppo di queste tecnologie. Se non trovi un soggetto di tuo interesse, visita la sezione <a href="#contribute" ${_A}>contribuisci</a> per sapere cosa puoi fare al riguardo.` },
+    { t: 'EDF — European Defence Fund (Fondo Europeo per la Difesa)', d: `Il programma con cui la Commissione Europea finanzia la ricerca e lo sviluppo nel settore della difesa. Nel database segnala le entità che hanno partecipato a progetti EDF, con il loro codice PIC, il contributo ricevuto dall'UE, i bandi e i progetti.` },
+    { t: 'PIC — Participant Identification Code', d: `Codice identificativo univoco a 9 cifre che la Commissione Europea assegna a ogni organizzazione che partecipa ai suoi programmi di finanziamento. Lo usiamo per collegare i partecipanti EDF alle entità del nostro database.` },
+    { t: 'GICS — Global Industry Classification Standard', d: `Sistema internazionale che classifica le aziende quotate in base al loro settore di attività. Lo usiamo per individuare i settori rilevanti — ad esempio Aerospazio &amp; Difesa corrisponde al codice 201010.` },
+    { t: 'ETF — Exchange-Traded Fund', d: `Fondo di investimento scambiato in borsa come se fosse un'azione, che replica un intero paniere di titoli (ad esempio tutte le aziende di un settore). Gli ETF iShares ci servono per individuare le società dei settori che monitoriamo.` },
+    { t: 'ISIN — International Securities Identification Number', d: `Codice internazionale a 12 caratteri che identifica in modo univoco un titolo finanziario (un'azione, un'obbligazione).` },
+    { t: 'Lead Investor', d: `L'investitore che guida un round di finanziamento: di solito mette la quota più consistente e fissa le condizioni dell'operazione.` },
+    { t: 'Top Investor', d: `Uno dei principali investitori di un'azienda per peso o importanza, secondo la classificazione di Crunchbase.` },
+    { t: 'Crunchbase (CB)', d: `Piattaforma commerciale di dati sulle aziende. Da qui provengono le informazioni su round di finanziamento, investitori, settore, sede e team.` },
+    { t: 'Wikidata (WD) e QID', d: `Wikidata è una base di dati aperta e collaborativa; da qui ricaviamo nome legale, Paese, data di fondazione, sede, numero di dipendenti, codice ISIN e link a Wikipedia. Il <em>QID</em> è l'identificativo univoco di una voce su Wikidata (es. Q12345), che usiamo per agganciare un'azienda alla sua scheda.` },
+    { t: 'iShares ETF', d: `Famiglia di ETF di BlackRock. Usiamo le loro composizioni per individuare le aziende quotate dei settori che ci interessano (estrazione mineraria, tecnologia, servizi di comunicazione, aerospazio e difesa).` },
+    { t: 'Infonodes (INF)', d: `I campi curati e verificati a mano dal nostro team: nome canonico, Paese, sito web, settore di riferimento, codice fiscale e altri attributi controllati direttamente da noi.` },
+  ],
+  en: [
+    { t: 'Autonomous weapon', d: `A weapons system that, once activated by a human being, is able to select and engage targets without further human intervention. It is the phenomenon at the heart of this project: we map the companies, universities, investors and the most relevant actors connected to the development of these technologies. If you can't find an actor you are interested in, visit the <a href="#contribute" ${_A}>contribute</a> section to find out what you can do about it.` },
+    { t: 'EDF — European Defence Fund', d: `The programme through which the European Commission funds research and development in the defence sector. In the database it flags the entities that took part in EDF projects, with their PIC code, the EU contribution received, the calls and the projects.` },
+    { t: 'PIC — Participant Identification Code', d: `A unique 9-digit identifier that the European Commission assigns to every organisation taking part in its funding programmes. We use it to link EDF participants to the entities in our database.` },
+    { t: 'GICS — Global Industry Classification Standard', d: `An international system that classifies listed companies by their business sector. We use it to identify the relevant sectors — for example Aerospace &amp; Defence corresponds to code 201010.` },
+    { t: 'ETF — Exchange-Traded Fund', d: `An investment fund traded on the stock exchange like a share, which tracks a whole basket of securities (for example all the companies in a sector). iShares ETFs help us identify the listed companies in the sectors we monitor.` },
+    { t: 'ISIN — International Securities Identification Number', d: `A 12-character international code that uniquely identifies a financial security (a share, a bond).` },
+    { t: 'Lead Investor', d: `The investor that leads a funding round: it usually puts in the largest share and sets the terms of the deal.` },
+    { t: 'Top Investor', d: `One of a company's main investors by weight or importance, according to Crunchbase's ranking.` },
+    { t: 'Crunchbase (CB)', d: `A commercial company-data platform. It is the source of the information on funding rounds, investors, sector, headquarters and team.` },
+    { t: 'Wikidata (WD) and QID', d: `Wikidata is an open, collaborative database; from it we obtain legal name, country, founding date, headquarters, employee count, ISIN code and Wikipedia link. The <em>QID</em> is the unique identifier of an item on Wikidata (e.g. Q12345), which we use to link a company to its entry.` },
+    { t: 'iShares ETF', d: `A family of BlackRock ETFs. We use their holdings to identify the listed companies in the sectors we are interested in (mining, technology, communication services, aerospace and defence).` },
+    { t: 'Infonodes (INF)', d: `The fields curated and manually verified by our team: canonical name, country, website, reference sector, tax ID and other attributes we check directly.` },
+  ],
+  fr: [
+    { t: 'Arme autonome', d: `Un système d'arme qui, une fois activé par un être humain, est capable de sélectionner et d'engager des cibles sans intervention humaine supplémentaire. C'est le phénomène au cœur de ce projet : nous cartographions les entreprises, les universités, les investisseurs et les acteurs les plus pertinents liés au développement de ces technologies. Si vous ne trouvez pas un acteur qui vous intéresse, consultez la section <a href="#contribute" ${_A}>contribuez</a> pour savoir ce que vous pouvez faire.` },
+    { t: 'EDF — Fonds européen de la défense', d: `Le programme par lequel la Commission européenne finance la recherche et le développement dans le secteur de la défense. Dans la base de données, il signale les entités ayant participé à des projets EDF, avec leur code PIC, la contribution reçue de l'UE, les appels et les projets.` },
+    { t: 'PIC — Participant Identification Code', d: `Identifiant unique à 9 chiffres que la Commission européenne attribue à chaque organisation participant à ses programmes de financement. Nous l'utilisons pour relier les participants EDF aux entités de notre base de données.` },
+    { t: 'GICS — Global Industry Classification Standard', d: `Système international qui classe les sociétés cotées selon leur secteur d'activité. Nous l'utilisons pour repérer les secteurs pertinents — par exemple Aérospatiale &amp; Défense correspond au code 201010.` },
+    { t: 'ETF — Exchange-Traded Fund', d: `Fonds d'investissement négocié en bourse comme une action, qui réplique tout un panier de titres (par exemple toutes les entreprises d'un secteur). Les ETF iShares nous servent à repérer les sociétés cotées des secteurs que nous suivons.` },
+    { t: 'ISIN — International Securities Identification Number', d: `Code international de 12 caractères qui identifie de manière unique un titre financier (une action, une obligation).` },
+    { t: 'Lead Investor', d: `L'investisseur qui mène un tour de financement : il apporte en général la part la plus importante et fixe les conditions de l'opération.` },
+    { t: 'Top Investor', d: `L'un des principaux investisseurs d'une entreprise par poids ou importance, selon le classement de Crunchbase.` },
+    { t: 'Crunchbase (CB)', d: `Plateforme commerciale de données sur les entreprises. Elle est la source des informations sur les tours de financement, les investisseurs, le secteur, le siège et l'équipe.` },
+    { t: 'Wikidata (WD) et QID', d: `Wikidata est une base de données ouverte et collaborative ; nous en tirons la dénomination légale, le pays, la date de fondation, le siège, le nombre d'employés, le code ISIN et le lien Wikipédia. Le <em>QID</em> est l'identifiant unique d'un élément sur Wikidata (ex. Q12345), que nous utilisons pour rattacher une entreprise à sa fiche.` },
+    { t: 'iShares ETF', d: `Famille d'ETF de BlackRock. Nous utilisons leurs compositions pour repérer les sociétés cotées des secteurs qui nous intéressent (extraction minière, technologie, services de communication, aérospatiale et défense).` },
+    { t: 'Infonodes (INF)', d: `Les champs curés et vérifiés manuellement par notre équipe : nom canonique, pays, site web, secteur de référence, identifiant fiscal et autres attributs que nous contrôlons directement.` },
+  ],
+  es: [
+    { t: 'Arma autónoma', d: `Un sistema de armas que, una vez activado por un ser humano, es capaz de seleccionar y atacar objetivos sin más intervención humana. Es el fenómeno en el centro de este proyecto: mapeamos las empresas, las universidades, los inversores y los actores más relevantes vinculados al desarrollo de estas tecnologías. Si no encuentras un actor de tu interés, visita la sección <a href="#contribute" ${_A}>contribuye</a> para saber qué puedes hacer al respecto.` },
+    { t: 'EDF — Fondo Europeo de Defensa', d: `El programa con el que la Comisión Europea financia la investigación y el desarrollo en el sector de la defensa. En la base de datos señala las entidades que han participado en proyectos EDF, con su código PIC, la contribución recibida de la UE, las convocatorias y los proyectos.` },
+    { t: 'PIC — Participant Identification Code', d: `Código identificativo único de 9 dígitos que la Comisión Europea asigna a cada organización que participa en sus programas de financiación. Lo usamos para vincular a los participantes EDF con las entidades de nuestra base de datos.` },
+    { t: 'GICS — Global Industry Classification Standard', d: `Sistema internacional que clasifica las empresas cotizadas según su sector de actividad. Lo usamos para identificar los sectores relevantes — por ejemplo, Aeroespacial &amp; Defensa corresponde al código 201010.` },
+    { t: 'ETF — Exchange-Traded Fund', d: `Fondo de inversión que cotiza en bolsa como una acción y que replica toda una cesta de valores (por ejemplo, todas las empresas de un sector). Los ETF de iShares nos sirven para identificar las empresas cotizadas de los sectores que monitorizamos.` },
+    { t: 'ISIN — International Securities Identification Number', d: `Código internacional de 12 caracteres que identifica de forma única un valor financiero (una acción, un bono).` },
+    { t: 'Lead Investor', d: `El inversor que lidera una ronda de financiación: normalmente aporta la mayor parte y fija las condiciones de la operación.` },
+    { t: 'Top Investor', d: `Uno de los principales inversores de una empresa por peso o importancia, según la clasificación de Crunchbase.` },
+    { t: 'Crunchbase (CB)', d: `Plataforma comercial de datos sobre empresas. De aquí provienen los datos sobre rondas de financiación, inversores, sector, sede y equipo.` },
+    { t: 'Wikidata (WD) y QID', d: `Wikidata es una base de datos abierta y colaborativa; de ella obtenemos el nombre legal, el país, la fecha de fundación, la sede, el número de empleados, el código ISIN y el enlace a Wikipedia. El <em>QID</em> es el identificador único de un elemento en Wikidata (p. ej. Q12345), que usamos para vincular una empresa con su ficha.` },
+    { t: 'iShares ETF', d: `Familia de ETF de BlackRock. Usamos sus composiciones para identificar las empresas cotizadas de los sectores que nos interesan (minería, tecnología, servicios de comunicación, aeroespacial y defensa).` },
+    { t: 'Infonodes (INF)', d: `Los campos curados y verificados manualmente por nuestro equipo: nombre canónico, país, sitio web, sector de referencia, identificación fiscal y otros atributos que comprobamos directamente.` },
+  ],
+};
+
+function _glossLang() {
+  const p = new URLSearchParams(location.search).get('lang');
+  if (GLOSS_LANGS.includes(p)) return p;
+  const ls = localStorage.getItem('mitl-lang');
+  return GLOSS_LANGS.includes(ls) ? ls : 'it';
+}
+function renderGlossary(lang) {
+  const data = GLOSSARY[lang] || GLOSSARY.it;
+  const el = document.getElementById('gloss-list');
+  if (el) el.innerHTML = data.map(x => `<div class="gloss-item"><dt>${x.t}</dt><dd>${x.d}</dd></div>`).join('');
+}
+
+// ── About sub-section switching (sub-tabs). Deep-linkable via #hash. ──
+function showAboutSection(id) {
+  document.querySelectorAll('.about-section').forEach(s => { s.style.display = (s.id === id) ? 'block' : 'none'; });
+  document.querySelectorAll('#subnav .snav-btn').forEach(b => b.classList.toggle('active', b.dataset.section === id));
+  const slug = id.replace('sec-', '');
+  if (history.replaceState) history.replaceState(history.state, '', location.pathname + location.search + '#' + slug);
+  window.scrollTo(0, 0);
+}
+
+const _VALID_SECTIONS = ['about', 'data', 'glossary', 'contribute'];
+document.addEventListener('DOMContentLoaded', () => {
+  renderGlossary(_glossLang());
+  const slug = (location.hash || '').replace('#', '');
+  showAboutSection(_VALID_SECTIONS.includes(slug) ? 'sec-' + slug : 'sec-about');
+});
+window.addEventListener('hashchange', () => {
+  const slug = (location.hash || '').replace('#', '');
+  if (_VALID_SECTIONS.includes(slug)) showAboutSection('sec-' + slug);
+});
+document.addEventListener('mitl-lang-change', e => renderGlossary((e.detail && e.detail.lang) || _glossLang()));
+</script>
 <script src="web/theme.js"></script>
 <script src="web/i18n.js"></script>
 </body>
