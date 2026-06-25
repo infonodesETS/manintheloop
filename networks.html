@@ -413,6 +413,20 @@ const NODE_COLORS = {
   default:            '#888888',
 };
 
+// Label colours: same hue family as the node fills, but slightly deeper so the
+// text stays readable on BOTH the dark and the light canvas background.
+const LABEL_COLORS = {
+  company:            '#15997a',
+  institution:        '#d63384',
+  fund:               '#d9730d',
+  investor:           '#d9730d',
+  public_fund:        '#d9730d',
+  government_agency:  '#e03131',
+  bank:               '#c92a2a',
+  edf_project:        '#2f7fe0',
+  default:            '#6c757d',
+};
+
 const TYPE_LABELS = {
   company: 'Company', institution: 'Institution', fund: 'Fund',
   investor: 'Investor', public_fund: 'Public fund', government_agency: 'Gov. agency',
@@ -420,6 +434,7 @@ const TYPE_LABELS = {
 };
 
 function nodeColor(type) { return NODE_COLORS[type] || NODE_COLORS.default; }
+function labelColor(type) { return LABEL_COLORS[type] || LABEL_COLORS.default; }
 
 function esc(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -657,7 +672,7 @@ const CY_STYLE = [
       'background-color': ele => nodeColor(ele.data('type')),
       'width': 'data(size)', 'height': 'data(size)',
       'label': 'data(label)',
-      'color': 'rgba(255,255,255,0.7)', 'font-size': '7px',
+      'color': ele => labelColor(ele.data('type')), 'font-size': '7px',
       'font-family': '"JetBrains Mono", monospace',
       'text-valign': 'bottom', 'text-halign': 'center',
       'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
