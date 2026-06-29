@@ -1,0 +1,77 @@
+{
+  "_help": "Glossario della pagina About. Per modificare: agisci sull'array 'terms'. Ogni termine ha le 4 lingue (it/en/fr/es), ciascuna con titolo 't' e definizione 'd'. Per aggiungere un termine, copia un blocco { } e compilalo nelle 4 lingue. L'ordine NON conta: il glossario si ordina da solo in alfabetico in ogni lingua. Note: usa le virgolette singole per eventuali link HTML (es. <a href='#contribute' style='color: var(--accent); text-decoration: none;'>contribuisci</a>); usa &amp; al posto di &.",
+  "terms": [
+    {
+      "it": { "t": "Arma autonoma", "d": "Sistema d'arma che, una volta attivato da un essere umano, è in grado di selezionare e ingaggiare bersagli senza ulteriore intervento umano. È il fenomeno al centro di questo progetto: mappiamo le aziende, le università, gli investitori e i soggetti più rilevanti legati allo sviluppo di queste tecnologie. Se non trovi un soggetto di tuo interesse, visita la sezione <a href='#contribute' style='color: var(--accent); text-decoration: none;'>contribuisci</a> per sapere cosa puoi fare al riguardo." },
+      "en": { "t": "Autonomous weapon", "d": "A weapons system that, once activated by a human being, is able to select and engage targets without further human intervention. It is the phenomenon at the heart of this project: we map the companies, universities, investors and the most relevant actors connected to the development of these technologies. If you can't find an actor you are interested in, visit the <a href='#contribute' style='color: var(--accent); text-decoration: none;'>contribute</a> section to find out what you can do about it." },
+      "fr": { "t": "Arme autonome", "d": "Un système d'arme qui, une fois activé par un être humain, est capable de sélectionner et d'engager des cibles sans intervention humaine supplémentaire. C'est le phénomène au cœur de ce projet : nous cartographions les entreprises, les universités, les investisseurs et les acteurs les plus pertinents liés au développement de ces technologies. Si vous ne trouvez pas un acteur qui vous intéresse, consultez la section <a href='#contribute' style='color: var(--accent); text-decoration: none;'>contribuez</a> pour savoir ce que vous pouvez faire." },
+      "es": { "t": "Arma autónoma", "d": "Un sistema de armas que, una vez activado por un ser humano, es capaz de seleccionar y atacar objetivos sin más intervención humana. Es el fenómeno en el centro de este proyecto: mapeamos las empresas, las universidades, los inversores y los actores más relevantes vinculados al desarrollo de estas tecnologías. Si no encuentras un actor de tu interés, visita la sección <a href='#contribute' style='color: var(--accent); text-decoration: none;'>contribuye</a> para saber qué puedes hacer al respecto." }
+    },
+    {
+      "it": { "t": "EDF — European Defence Fund (Fondo Europeo per la Difesa)", "d": "Il programma con cui la Commissione Europea finanzia la ricerca e lo sviluppo nel settore della difesa. Nel database segnala le entità che hanno partecipato a progetti EDF, con il loro codice PIC, il contributo ricevuto dall'UE, i bandi e i progetti." },
+      "en": { "t": "EDF — European Defence Fund", "d": "The programme through which the European Commission funds research and development in the defence sector. In the database it flags the entities that took part in EDF projects, with their PIC code, the EU contribution received, the calls and the projects." },
+      "fr": { "t": "EDF — Fonds européen de la défense", "d": "Le programme par lequel la Commission européenne finance la recherche et le développement dans le secteur de la défense. Dans la base de données, il signale les entités ayant participé à des projets EDF, avec leur code PIC, la contribution reçue de l'UE, les appels et les projets." },
+      "es": { "t": "EDF — Fondo Europeo de Defensa", "d": "El programa con el que la Comisión Europea financia la investigación y el desarrollo en el sector de la defensa. En la base de datos señala las entidades que han participado en proyectos EDF, con su código PIC, la contribución recibida de la UE, las convocatorias y los proyectos." }
+    },
+    {
+      "it": { "t": "PIC — Participant Identification Code", "d": "Codice identificativo univoco a 9 cifre che la Commissione Europea assegna a ogni organizzazione che partecipa ai suoi programmi di finanziamento. Lo usiamo per collegare i partecipanti EDF alle entità del nostro database." },
+      "en": { "t": "PIC — Participant Identification Code", "d": "A unique 9-digit identifier that the European Commission assigns to every organisation taking part in its funding programmes. We use it to link EDF participants to the entities in our database." },
+      "fr": { "t": "PIC — Participant Identification Code", "d": "Identifiant unique à 9 chiffres que la Commission européenne attribue à chaque organisation participant à ses programmes de financement. Nous l'utilisons pour relier les participants EDF aux entités de notre base de données." },
+      "es": { "t": "PIC — Participant Identification Code", "d": "Código identificativo único de 9 dígitos que la Comisión Europea asigna a cada organización que participa en sus programas de financiación. Lo usamos para vincular a los participantes EDF con las entidades de nuestra base de datos." }
+    },
+    {
+      "it": { "t": "GICS — Global Industry Classification Standard", "d": "Sistema internazionale che classifica le aziende quotate in base al loro settore di attività. Lo usiamo per individuare i settori rilevanti — ad esempio Aerospazio &amp; Difesa corrisponde al codice 201010." },
+      "en": { "t": "GICS — Global Industry Classification Standard", "d": "An international system that classifies listed companies by their business sector. We use it to identify the relevant sectors — for example Aerospace &amp; Defence corresponds to code 201010." },
+      "fr": { "t": "GICS — Global Industry Classification Standard", "d": "Système international qui classe les sociétés cotées selon leur secteur d'activité. Nous l'utilisons pour repérer les secteurs pertinents — par exemple Aérospatiale &amp; Défense correspond au code 201010." },
+      "es": { "t": "GICS — Global Industry Classification Standard", "d": "Sistema internacional que clasifica las empresas cotizadas según su sector de actividad. Lo usamos para identificar los sectores relevantes — por ejemplo, Aeroespacial &amp; Defensa corresponde al código 201010." }
+    },
+    {
+      "it": { "t": "ETF — Exchange-Traded Fund", "d": "Fondo di investimento scambiato in borsa come se fosse un'azione, che replica un intero paniere di titoli (ad esempio tutte le aziende di un settore). Gli ETF iShares ci servono per individuare le società dei settori che monitoriamo." },
+      "en": { "t": "ETF — Exchange-Traded Fund", "d": "An investment fund traded on the stock exchange like a share, which tracks a whole basket of securities (for example all the companies in a sector). iShares ETFs help us identify the listed companies in the sectors we monitor." },
+      "fr": { "t": "ETF — Exchange-Traded Fund", "d": "Fonds d'investissement négocié en bourse comme une action, qui réplique tout un panier de titres (par exemple toutes les entreprises d'un secteur). Les ETF iShares nous servent à repérer les sociétés cotées des secteurs que nous suivons." },
+      "es": { "t": "ETF — Exchange-Traded Fund", "d": "Fondo de inversión que cotiza en bolsa como una acción y que replica toda una cesta de valores (por ejemplo, todas las empresas de un sector). Los ETF de iShares nos sirven para identificar las empresas cotizadas de los sectores que monitorizamos." }
+    },
+    {
+      "it": { "t": "ISIN — International Securities Identification Number", "d": "Codice internazionale a 12 caratteri che identifica in modo univoco un titolo finanziario (un'azione, un'obbligazione)." },
+      "en": { "t": "ISIN — International Securities Identification Number", "d": "A 12-character international code that uniquely identifies a financial security (a share, a bond)." },
+      "fr": { "t": "ISIN — International Securities Identification Number", "d": "Code international de 12 caractères qui identifie de manière unique un titre financier (une action, une obligation)." },
+      "es": { "t": "ISIN — International Securities Identification Number", "d": "Código internacional de 12 caracteres que identifica de forma única un valor financiero (una acción, un bono)." }
+    },
+    {
+      "it": { "t": "Lead Investor", "d": "L'investitore che guida un round di finanziamento: di solito mette la quota più consistente e fissa le condizioni dell'operazione." },
+      "en": { "t": "Lead Investor", "d": "The investor that leads a funding round: it usually puts in the largest share and sets the terms of the deal." },
+      "fr": { "t": "Lead Investor", "d": "L'investisseur qui mène un tour de financement : il apporte en général la part la plus importante et fixe les conditions de l'opération." },
+      "es": { "t": "Lead Investor", "d": "El inversor que lidera una ronda de financiación: normalmente aporta la mayor parte y fija las condiciones de la operación." }
+    },
+    {
+      "it": { "t": "Top Investor", "d": "Uno dei principali investitori di un'azienda per peso o importanza, secondo la classificazione di Crunchbase." },
+      "en": { "t": "Top Investor", "d": "One of a company's main investors by weight or importance, according to Crunchbase's ranking." },
+      "fr": { "t": "Top Investor", "d": "L'un des principaux investisseurs d'une entreprise par poids ou importance, selon le classement de Crunchbase." },
+      "es": { "t": "Top Investor", "d": "Uno de los principales inversores de una empresa por peso o importancia, según la clasificación de Crunchbase." }
+    },
+    {
+      "it": { "t": "Crunchbase (CB)", "d": "Piattaforma commerciale di dati sulle aziende. Da qui provengono le informazioni su round di finanziamento, investitori, settore, sede e team." },
+      "en": { "t": "Crunchbase (CB)", "d": "A commercial company-data platform. It is the source of the information on funding rounds, investors, sector, headquarters and team." },
+      "fr": { "t": "Crunchbase (CB)", "d": "Plateforme commerciale de données sur les entreprises. Elle est la source des informations sur les tours de financement, les investisseurs, le secteur, le siège et l'équipe." },
+      "es": { "t": "Crunchbase (CB)", "d": "Plataforma comercial de datos sobre empresas. De aquí provienen los datos sobre rondas de financiación, inversores, sector, sede y equipo." }
+    },
+    {
+      "it": { "t": "Wikidata (WD) e QID", "d": "Wikidata è una base di dati aperta e collaborativa; da qui ricaviamo nome legale, Paese, data di fondazione, sede, numero di dipendenti, codice ISIN e link a Wikipedia. Il <em>QID</em> è l'identificativo univoco di una voce su Wikidata (es. Q12345), che usiamo per agganciare un'azienda alla sua scheda." },
+      "en": { "t": "Wikidata (WD) and QID", "d": "Wikidata is an open, collaborative database; from it we obtain legal name, country, founding date, headquarters, employee count, ISIN code and Wikipedia link. The <em>QID</em> is the unique identifier of an item on Wikidata (e.g. Q12345), which we use to link a company to its entry." },
+      "fr": { "t": "Wikidata (WD) et QID", "d": "Wikidata est une base de données ouverte et collaborative ; nous en tirons la dénomination légale, le pays, la date de fondation, le siège, le nombre d'employés, le code ISIN et le lien Wikipédia. Le <em>QID</em> est l'identifiant unique d'un élément sur Wikidata (ex. Q12345), que nous utilisons pour rattacher une entreprise à sa fiche." },
+      "es": { "t": "Wikidata (WD) y QID", "d": "Wikidata es una base de datos abierta y colaborativa; de ella obtenemos el nombre legal, el país, la fecha de fundación, la sede, el número de empleados, el código ISIN y el enlace a Wikipedia. El <em>QID</em> es el identificador único de un elemento en Wikidata (p. ej. Q12345), que usamos para vincular una empresa con su ficha." }
+    },
+    {
+      "it": { "t": "iShares ETF", "d": "Famiglia di ETF di BlackRock. Usiamo le loro composizioni per individuare le aziende quotate dei settori che ci interessano (estrazione mineraria, tecnologia, servizi di comunicazione, aerospazio e difesa)." },
+      "en": { "t": "iShares ETF", "d": "A family of BlackRock ETFs. We use their holdings to identify the listed companies in the sectors we are interested in (mining, technology, communication services, aerospace and defence)." },
+      "fr": { "t": "iShares ETF", "d": "Famille d'ETF de BlackRock. Nous utilisons leurs compositions pour repérer les sociétés cotées des secteurs qui nous intéressent (extraction minière, technologie, services de communication, aérospatiale et défense)." },
+      "es": { "t": "iShares ETF", "d": "Familia de ETF de BlackRock. Usamos sus composiciones para identificar las empresas cotizadas de los sectores que nos interesan (minería, tecnología, servicios de comunicación, aeroespacial y defensa)." }
+    },
+    {
+      "it": { "t": "Infonodes (INF)", "d": "I campi curati e verificati a mano dal nostro team: nome canonico, Paese, sito web, settore di riferimento, codice fiscale e altri attributi controllati direttamente da noi." },
+      "en": { "t": "Infonodes (INF)", "d": "The fields curated and manually verified by our team: canonical name, country, website, reference sector, tax ID and other attributes we check directly." },
+      "fr": { "t": "Infonodes (INF)", "d": "Les champs curés et vérifiés manuellement par notre équipe : nom canonique, pays, site web, secteur de référence, identifiant fiscal et autres attributs que nous contrôlons directement." },
+      "es": { "t": "Infonodes (INF)", "d": "Los campos curados y verificados manualmente por nuestro equipo: nombre canónico, país, sitio web, sector de referencia, identificación fiscal y otros atributos que comprobamos directamente." }
+    }
+  ]
+}
