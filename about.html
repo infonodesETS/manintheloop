@@ -222,7 +222,8 @@ function _glossLang() {
   return GLOSS_LANGS.includes(ls) ? ls : 'it';
 }
 function renderGlossary(lang) {
-  const data = GLOSSARY[lang] || GLOSSARY.it;
+  // Sort alphabetically by term, per language (locale-aware, case/accent-insensitive).
+  const data = [...(GLOSSARY[lang] || GLOSSARY.it)].sort((a, b) => a.t.localeCompare(b.t, lang, { sensitivity: 'base' }));
   const el = document.getElementById('gloss-list');
   if (el) el.innerHTML = data.map(x => `<div class="gloss-item"><dt>${x.t}</dt><dd>${x.d}</dd></div>`).join('');
 }
