@@ -82,8 +82,7 @@
     <div class="tbd-desc" data-i18n-html="about.intro">
       La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell'ambito del programma globale "Militarisation of Tech".
     </div>
-    <div id="why-block"></div>
-    <p data-i18n="about.last_update" style="font-size: var(--fs-body); color: var(--text-secondary); margin-top: 12px; margin-bottom: 32px;">Ultimo aggiornamento dati: 16/06/2026</p>
+    <div id="why-block" style="margin-bottom: 20px;"></div>
 
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ team --current-prototype</div>
     <p data-i18n="about.team_lead" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">L'attuale prototipo è stato sviluppato da:</p>
@@ -101,6 +100,9 @@
 
   <!-- ════ Sezione 2 — Metodologia e dati ════ -->
   <section id="sec-data" class="about-section" style="display:none">
+    <div class="tbd-prompt" data-i18n="about.last_update_label" style="margin-bottom: 12px;">Ultimo aggiornamento dati</div>
+    <p id="last-update-date" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;">16/06/2026</p>
+
     <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --methodology</div>
     <p data-i18n="about.data_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">I dati di Man in the Loop</p>
     <p data-i18n="about.data_p1" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Il progetto di ricerca sperimentale open data ha lo scopo di mappare le aziende e gli investitori nel settore delle armi autonome, lungo tutta la catena di approvvigionamento globale.</p>
@@ -190,6 +192,12 @@ function renderWhy(lang) {
 fetch('data/about_why.json')
   .then(r => r.json())
   .then(d => { WHY_PARAS = (d && d.paragraphs) || []; renderWhy(_glossLang()); })
+  .catch(() => {});
+
+// ── Last data-update date — loaded from data/last_update.json (edit the date there). ──
+fetch('data/last_update.json')
+  .then(r => r.json())
+  .then(d => { const el = document.getElementById('last-update-date'); if (el && d && d.date) el.textContent = d.date; })
   .catch(() => {});
 
 // ── About sub-section switching (sub-tabs). Deep-linkable via #hash. ──
