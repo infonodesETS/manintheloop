@@ -19,7 +19,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| 1 | **Espansione progressiva del grafo** (Networks) | Ogni click su un nodo aggiunge le connessioni invece di sostituire la vista. Feature complessa, pianificata per release futura. Vedi alternativa breadcrumb già in lavorazione. | 🟡 |
+| 1 | **Espansione progressiva del grafo** (Networks) | Ogni click su un nodo aggiunge le connessioni invece di sostituire la vista. Feature complessa, pianificata per release futura. Tentato breadcrumb come alternativa leggera ma accantonato — meglio affrontare l'espansione completa in una sessione dedicata. | 🟡 |
 | 2 | **Classifiche / "Sfoglia"** (Search) | Top 20 beneficiari EDF, per Paese, per settore. Calcolabile client-side dal JSON esistente. | 🟡 |
 | 3 | **Filtri avanzati** (Search) | Filtrare per Paese, settore, fonte dati, "ha finanziamenti EDF sì/no". | 🟡 |
 | 4 | **Pagina "Scarica i dati / Come citare"** | I dati sono già pubblici ma non presentati come risorsa. CSV/JSON + licenza CC + istruzioni di citazione. | 🟡 |
