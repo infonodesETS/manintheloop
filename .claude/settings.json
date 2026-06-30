@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "OUT=$(git fetch 2>&1 && git pull 2>&1); printf \"%s\" \"$OUT\" | jq -Rs '{\"systemMessage\": (\"Session start — git fetch+pull:\\n\" + .)}'",
+            "timeout": 30,
+            "statusMessage": "git fetch + pull..."
+          }
+        ]
+      }
+    ]
+  }
+}
