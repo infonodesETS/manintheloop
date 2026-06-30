@@ -92,6 +92,16 @@ const TRANSLATIONS = {
     'pub.desc':           'Ricerche, articoli e inchieste prodotti dal team del progetto Man in the Loop o da ricercatori, ricercatrici, giornalisti e giornaliste che hanno utilizzato la piattaforma per il loro lavoro.',
     'pub.contact':        'Se vuoi segnalarci la tua pubblicazione, fatta anche grazie a MAN IN THE LOOP, per inserirla in questa sezione, scrivici a:',
 
+    // ONBOARDING overlay
+    'onboard.subtitle':  'Un database open data sulle aziende, gli investitori e i soggetti pubblici coinvolti nella ricerca e produzione di armi autonome.',
+    'onboard.1_title':   '① Esplora la Mappa',
+    'onboard.1_desc':    'Ogni cerchio è un paese. Clicca per scoprire le connessioni finanziarie tra investitori e aziende, o passa alla modalità EDF per vedere i finanziamenti dello European Defence Fund paese per paese.',
+    'onboard.2_title':   '② Cerca un\'entità',
+    'onboard.2_desc':    'Nella sezione Search trovi le schede di tutte le entità presenti nel database: società, università, investitori, etc.',
+    'onboard.3_title':   '③ Analizza le Reti',
+    'onboard.3_desc':    'La sezione Networks visualizza le relazioni tra tutti i soggetti: investimenti e collaborazioni. Se spunti EDF, vedrai tutte le connessioni e le entità finanziate dallo European Defence Fund con il dettaglio di ogni singolo progetto.',
+    'onboard.cta':       'Inizia a esplorare →',
+
     // Common — export buttons
     'common.print':       'Stampa',
   },
@@ -177,6 +187,16 @@ const TRANSLATIONS = {
     'pub.title':          'Research',
     'pub.desc':           'Research papers, articles and investigations produced by the Man in the Loop team or by researchers and journalists who used the platform in their work.',
     'pub.contact':        'If you want to share a publication made possible with MAN IN THE LOOP, write to us at:',
+
+    // ONBOARDING overlay
+    'onboard.subtitle':  'An open data database on the companies, investors and public bodies involved in the research and production of autonomous weapons.',
+    'onboard.1_title':   '① Explore the Map',
+    'onboard.1_desc':    'Every circle is a country. Click to discover the financial connections between investors and companies, or switch to EDF mode to see European Defence Fund financing country by country.',
+    'onboard.2_title':   '② Search for an entity',
+    'onboard.2_desc':    'The Search section contains profiles of all entities in the database: companies, universities, investors, etc.',
+    'onboard.3_title':   '③ Analyse the Networks',
+    'onboard.3_desc':    'The Networks section visualises the relationships between all actors: investments and collaborations. Check EDF to see all connections and entities funded by the European Defence Fund, with details of each individual project.',
+    'onboard.cta':       'Start exploring →',
 
     // Common — export buttons
     'common.print':       'Print',
@@ -264,6 +284,16 @@ const TRANSLATIONS = {
     'pub.desc':           'Recherches, articles et enquêtes produits par l\'équipe du projet Man in the Loop ou par des chercheurs et journalistes ayant utilisé la plateforme.',
     'pub.contact':        'Si vous souhaitez nous signaler une publication réalisée grâce à MAN IN THE LOOP, écrivez-nous à :',
 
+    // ONBOARDING overlay
+    'onboard.subtitle':  'Une base de données open data sur les entreprises, les investisseurs et les organismes publics impliqués dans la recherche et la production d\'armes autonomes.',
+    'onboard.1_title':   '① Explorer la Carte',
+    'onboard.1_desc':    'Chaque cercle représente un pays. Cliquez pour découvrir les connexions financières entre investisseurs et entreprises, ou passez en mode EDF pour voir les financements du Fonds européen de défense pays par pays.',
+    'onboard.2_title':   '② Rechercher une entité',
+    'onboard.2_desc':    'La section Search contient les fiches de toutes les entités de la base de données : sociétés, universités, investisseurs, etc.',
+    'onboard.3_title':   '③ Analyser les Réseaux',
+    'onboard.3_desc':    'La section Networks visualise les relations entre tous les acteurs : investissements et collaborations. Cochez EDF pour voir toutes les connexions et les entités financées par le Fonds européen de défense, avec le détail de chaque projet.',
+    'onboard.cta':       'Commencer à explorer →',
+
     // Common — export buttons
     'common.print':       'Imprimer',
   },
@@ -349,6 +379,16 @@ const TRANSLATIONS = {
     'pub.title':          'Investigación',
     'pub.desc':           'Investigaciones, artículos e informes producidos por el equipo del proyecto Man in the Loop o por investigadores y periodistas que han utilizado la plataforma.',
     'pub.contact':        'Si quieres compartir una publicación realizada gracias a MAN IN THE LOOP, escríbenos a:',
+
+    // ONBOARDING overlay
+    'onboard.subtitle':  'Una base de datos open data sobre las empresas, los inversores y los organismos públicos involucrados en la investigación y producción de armas autónomas.',
+    'onboard.1_title':   '① Explorar el Mapa',
+    'onboard.1_desc':    'Cada círculo es un país. Haz clic para descubrir las conexiones financieras entre inversores y empresas, o cambia al modo EDF para ver la financiación del Fondo Europeo de Defensa país por país.',
+    'onboard.2_title':   '② Buscar una entidad',
+    'onboard.2_desc':    'La sección Search contiene las fichas de todas las entidades de la base de datos: empresas, universidades, inversores, etc.',
+    'onboard.3_title':   '③ Analizar las Redes',
+    'onboard.3_desc':    'La sección Networks visualiza las relaciones entre todos los actores: inversiones y colaboraciones. Marca EDF para ver todas las conexiones y las entidades financiadas por el Fondo Europeo de Defensa, con el detalle de cada proyecto.',
+    'onboard.cta':       'Empezar a explorar →',
 
     // Common — export buttons
     'common.print':       'Imprimir',

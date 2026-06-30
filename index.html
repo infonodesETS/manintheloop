@@ -195,6 +195,122 @@
   </div>
 </div>
 
+<!-- ── Onboarding overlay (first visit only) ── -->
+<div id="onboard-overlay" style="display:none">
+  <div id="onboard-box">
+    <div id="onboard-logo">Man in the Loop</div>
+    <p id="onboard-subtitle" data-i18n="onboard.subtitle"></p>
+    <div id="onboard-blocks">
+      <div class="onboard-block">
+        <div class="onboard-block-title" data-i18n="onboard.1_title"></div>
+        <div class="onboard-block-desc" data-i18n="onboard.1_desc"></div>
+      </div>
+      <div class="onboard-block">
+        <div class="onboard-block-title" data-i18n="onboard.2_title"></div>
+        <div class="onboard-block-desc" data-i18n="onboard.2_desc"></div>
+      </div>
+      <div class="onboard-block">
+        <div class="onboard-block-title" data-i18n="onboard.3_title"></div>
+        <div class="onboard-block-desc" data-i18n="onboard.3_desc"></div>
+      </div>
+    </div>
+    <button id="onboard-cta" data-i18n="onboard.cta" onclick="closeOnboard()"></button>
+    <div id="onboard-langs">
+      <button onclick="setLang('it')" data-lang="it">IT</button>
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+      <button onclick="setLang('fr')" data-lang="fr">FR</button>
+      <button onclick="setLang('es')" data-lang="es">ES</button>
+    </div>
+  </div>
+</div>
+
+<style>
+#onboard-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,.72);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(3px);
+}
+#onboard-box {
+  background: var(--surface, #111);
+  border: 1px solid rgba(0,255,65,.25);
+  border-radius: 6px;
+  padding: 36px 40px 32px;
+  max-width: 580px; width: calc(100% - 48px);
+  font-family: var(--font);
+}
+#onboard-logo {
+  font-size: calc(var(--fs-lg) * 1.4);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  letter-spacing: .5px;
+  margin-bottom: 10px;
+}
+#onboard-subtitle {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: var(--lh-body);
+  margin-bottom: 28px;
+  border-left: 2px solid rgba(0,255,65,.2);
+  padding-left: 14px;
+}
+#onboard-blocks {
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 28px;
+}
+.onboard-block { padding: 12px 14px; border: 1px solid var(--border); border-radius: 4px; }
+.onboard-block-title {
+  font-size: var(--fs-body); font-weight: var(--fw-bold);
+  color: var(--text-primary); margin-bottom: 4px;
+}
+.onboard-block-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); }
+#onboard-cta {
+  display: block; width: 100%;
+  background: var(--accent); color: #000;
+  font-family: var(--font); font-size: var(--fs-body); font-weight: var(--fw-bold);
+  border: none; border-radius: 4px; padding: 11px 0;
+  cursor: pointer; letter-spacing: .5px;
+  transition: opacity .15s;
+}
+#onboard-cta:hover { opacity: .85; }
+#onboard-langs {
+  display: flex; justify-content: center; gap: 8px; margin-top: 14px;
+}
+#onboard-langs button {
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs);
+  padding: 2px 8px; cursor: pointer; transition: color .15s, border-color .15s;
+}
+#onboard-langs button:hover { color: var(--text-primary); border-color: var(--text-muted); }
+#onboard-langs button.active { color: var(--accent); border-color: var(--accent); }
+[data-theme="light"] #onboard-box { background: #fff; }
+[data-theme="light"] #onboard-overlay { background: rgba(255,255,255,.6); }
+</style>
+
+<script>
+(function() {
+  if (!localStorage.getItem('mitl-onboarded')) {
+    document.getElementById('onboard-overlay').style.display = 'flex';
+  }
+})();
+function closeOnboard() {
+  document.getElementById('onboard-overlay').style.display = 'none';
+  localStorage.setItem('mitl-onboarded', '1');
+}
+document.getElementById('onboard-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeOnboard();
+});
+document.addEventListener('mitl-lang-change', function(e) {
+  const lang = (e.detail && e.detail.lang) || localStorage.getItem('mitl-lang') || 'it';
+  document.querySelectorAll('#onboard-overlay [data-i18n]').forEach(function(el) {
+    if (window.t) el.textContent = window.t(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('#onboard-langs button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+});
+</script>
+
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="web/theme.js"></script>
