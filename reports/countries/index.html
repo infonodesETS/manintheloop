@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organizzazioni — Man in The Loop</title>
+<style>
+.viz-root {
+  --surface-1:      #fcfcfb;
+  --page:           #f9f9f7;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --baseline:       #c3c2b7;
+  --border:         rgba(11,11,11,0.10);
+  --series-1: #2a78d6; /* blue */
+  --series-2: #1baf7a; /* aqua */
+  --series-3: #eda100; /* yellow */
+  --series-4: #008300; /* green */
+  --series-5: #4a3aa7; /* violet */
+  --series-6: #e34948; /* red */
+  --series-7: #e87ba4; /* magenta */
+  --series-8: #eb6834; /* orange */
+}
+@media (prefers-color-scheme: dark) {
+  .viz-root {
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1: #3987e5;
+    --series-2: #199e70;
+    --series-3: #c98500;
+    --series-4: #008300;
+    --series-5: #9085e9;
+    --series-6: #e66767;
+    --series-7: #d55181;
+    --series-8: #d95926;
+  }
+}
+:root[data-theme="dark"] .viz-root {
+  --surface-1:      #1a1a19;
+  --page:           #0d0d0d;
+  --text-primary:   #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted:     #898781;
+  --grid:           #2c2c2a;
+  --baseline:       #383835;
+  --border:         rgba(255,255,255,0.10);
+  --series-1: #3987e5;
+  --series-2: #199e70;
+  --series-3: #c98500;
+  --series-4: #008300;
+  --series-5: #9085e9;
+  --series-6: #e66767;
+  --series-7: #d55181;
+  --series-8: #d95926;
+}
+:root[data-theme="light"] .viz-root {
+  --surface-1:      #fcfcfb;
+  --page:           #f9f9f7;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --baseline:       #c3c2b7;
+  --border:         rgba(11,11,11,0.10);
+  --series-1: #2a78d6;
+  --series-2: #1baf7a;
+  --series-3: #eda100;
+  --series-4: #008300;
+  --series-5: #4a3aa7;
+  --series-6: #e34948;
+  --series-7: #e87ba4;
+  --series-8: #eb6834;
+}
+
+* { box-sizing: border-box; }
+body { margin:0; background: var(--page); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--text-primary); }
+.viz-root { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+h1 { font-size: 1.6rem; margin: 0 0 2px; }
+h2.country-title { font-size: 1.15rem; margin: 0 0 20px; color: var(--text-secondary); font-weight: 500; }
+.subtitle { color: var(--text-secondary); margin: 0 0 20px; font-size: 0.95rem; }
+h3.section-title { font-size: 1.05rem; margin: 40px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 18px; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 12px; }
+.stat-tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stat-value { font-size: 1.7rem; font-weight: 600; }
+.stat-label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 2px; }
+.bar-row { display: grid; grid-template-columns: 190px 1fr 40px; align-items: center; gap: 10px; margin: 7px 0; font-size: 0.85rem; }
+.bar-label { color: var(--text-secondary); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { background: var(--grid); border-radius: 3px; height: 16px; position: relative; }
+.bar-fill { height: 100%; border-radius: 3px 0 0 3px; }
+.bar-value { font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.note { font-size: 0.82rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5; }
+.caveat { border-left: 3px solid var(--series-6); padding: 10px 14px; background: var(--surface-1); border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--text-secondary); margin: 14px 0; }
+.empty-state { font-size: 0.85rem; color: var(--text-muted); font-style: italic; padding: 6px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--grid); }
+th { color: var(--text-muted); font-weight: 500; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.02em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.type-list { columns: 2; column-gap: 24px; font-size: 0.85rem; }
+@media (max-width: 560px) { .type-list { columns: 1; } .bar-row { grid-template-columns: 120px 1fr 32px; } }
+
+.investor-name { cursor: pointer; text-decoration: none; }
+.investor-name:hover { text-decoration: underline; text-decoration-color: var(--text-muted); }
+.investor-name.active { text-decoration: underline; color: var(--series-1); }
+.investor-tooltip {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  max-width: 280px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.investor-tooltip strong { color: var(--text-primary); }
+
+.type-badge { cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; color:#fff; white-space:nowrap; }
+
+.country-picker { position: sticky; top: 0; z-index: 5; background: var(--page); padding: 14px 0 18px; margin-bottom: 6px; }
+.country-picker label { display:block; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px; }
+.country-picker select {
+  width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 0.95rem; font-family: inherit;
+  color: var(--text-primary); background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+}
+.loading { font-size: 0.9rem; color: var(--text-muted); padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>Organizzazioni in Man in The Loop</h1>
+  <h2 class="country-title" id="country-title">—</h2>
+  <p class="subtitle">Analisi di sola lettura, calcolata interamente lato client su <code>data/database.json</code> — nessuna scrittura sul database. Cambia paese dal menu qui sotto.</p>
+
+  <div class="country-picker">
+    <label for="country-select">Paese</label>
+    <select id="country-select"></select>
+  </div>
+
+  <div id="app-content">
+    <div class="loading">Caricamento dati…</div>
+  </div>
+
+  <p class="note">Metodo: paese risolto con fallback <code>sources.infonodes.country → sources.edf.country → sources.wikidata.country → sede da Crunchbase</code> (l'EDF ha priorità su Wikidata perché descrive l'entità legale partecipante, non l'azienda madre), con normalizzazione di alcuni alias noti (USA/United States, Czechia/Czech Republic, ecc.). Script di riferimento (analisi equivalente in Python, usata per validare i calcoli): <code>reports/scripts/analyze_italy.py</code>.</p>
+</div>
+
+<div id="investor-tooltip" class="investor-tooltip" role="tooltip"></div>
+
+<script>
+(function () {
+  var SERIES = ['var(--series-1)','var(--series-2)','var(--series-3)','var(--series-4)','var(--series-5)','var(--series-6)','var(--series-7)','var(--series-8)'];
+  var TYPE_LABEL = {
+    company: 'Azienda', institution: 'Istituzione', investor: 'Investitore',
+    fund: 'Fondo', public_fund: 'Fondo pubblico', government_agency: 'Ente pubblico',
+    bank: 'Banca', edf_project: 'Progetto EDF'
+  };
+  var TYPE_COLOR = {
+    company: SERIES[0], institution: SERIES[1], investor: SERIES[2],
+    fund: SERIES[3], public_fund: SERIES[4], government_agency: SERIES[5],
+    bank: SERIES[6], edf_project: SERIES[7]
+  };
+  var COUNTRY_ALIASES = {
+    'usa': 'United States',
+    "people's republic of china": 'China',
+    'russian federation': 'Russia',
+    'the netherlands': 'Netherlands',
+    'czech republic': 'Czechia'
+  };
+
+  var state = { entities: [], relationships: [], byId: {}, byCountry: {} };
+
+  function normalizeCountry(raw) {
+    if (!raw) return null;
+    var key = raw.trim().toLowerCase();
+    return COUNTRY_ALIASES[key] || raw.trim();
+  }
+
+  function getCountry(e) {
+    var s = e.sources || {};
+    var inf = s.infonodes || {};
+    if (inf.country) return normalizeCountry(inf.country);
+    var edf = s.edf || {};
+    if (edf.country) return normalizeCountry(edf.country);
+    var wd = s.wikidata || {};
+    if (wd.country) return normalizeCountry(wd.country);
+    var cb = s.crunchbase || {};
+    if (cb.headquarters) {
+      var parts = cb.headquarters.split(',').map(function (p) { return p.trim(); });
+      if (parts.length) return normalizeCountry(parts[parts.length - 1]);
+    }
+    return null;
+  }
+
+  function fmtInt(n) { return Math.round(n).toLocaleString('it-IT'); }
+  function fmtPct(n) { return n.toFixed(1).replace('.', ',') + '%'; }
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function el(tag, attrs, html) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === 'style') e.style.cssText = attrs[k]; else e.setAttribute(k, attrs[k]);
+    });
+    if (html != null) e.innerHTML = html;
+    return e;
+  }
+
+  function emptyState(msg) {
+    return '<div class="empty-state">' + esc(msg) + '</div>';
+  }
+
+  // ---------- Data loading ----------
+  fetch('../../data/database.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (db) {
+      state.entities = db.entities;
+      state.relationships = db.relationships;
+      state.entities.forEach(function (e) { state.byId[e.id] = e; e._country = getCountry(e); });
+      state.entities.forEach(function (e) {
+        if (!e._country) return;
+        (state.byCountry[e._country] = state.byCountry[e._country] || []).push(e);
+      });
+      buildCountryPicker();
+      var params = new URLSearchParams(location.search);
+      var initial = params.get('country') || 'Italy';
+      if (!state.byCountry[initial]) {
+        initial = Object.keys(state.byCountry).sort(function (a, b) {
+          return state.byCountry[b].length - state.byCountry[a].length;
+        })[0];
+      }
+      document.getElementById('country-select').value = initial;
+      render(initial);
+    })
+    .catch(function (err) {
+      document.getElementById('app-content').innerHTML =
+        '<div class="empty-state">Errore nel caricamento di data/database.json: ' + esc(err.message) +
+        '. Servi la pagina con un server locale (es. <code>python3 -m http.server</code> dalla root del progetto) invece di aprirla direttamente da file.</div>';
+    });
+
+  function buildCountryPicker() {
+    var select = document.getElementById('country-select');
+    var countries = Object.keys(state.byCountry).sort(function (a, b) {
+      return state.byCountry[b].length - state.byCountry[a].length;
+    });
+    countries.forEach(function (c) {
+      var opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c + ' (' + state.byCountry[c].length + ' organizzazioni)';
+      select.appendChild(opt);
+    });
+    select.addEventListener('change', function () {
+      var c = select.value;
+      var url = new URL(location.href);
+      url.searchParams.set('country', c);
+      history.replaceState(null, '', url);
+      render(c);
+    });
+  }
+
+  // ---------- Rendering ----------
+  function render(country) {
+    document.getElementById('country-title').textContent = country;
+    var countryEntities = state.byCountry[country] || [];
+    var countryIds = new Set(countryEntities.map(function (e) { return e.id; }));
+
+    if (countryEntities.length === 0) {
+      document.getElementById('app-content').innerHTML =
+        '<div class="empty-state">Dati non disponibili per questa sezione e questo paese: nessuna organizzazione trovata per "' + esc(country) + '".</div>';
+      return;
+    }
+
+    var dedupe = computeEdfDedupe(countryEntities);
+
+    var html = '';
+    html += renderStatHeader(country, countryEntities, countryIds, dedupe);
+    html += renderTypeComposition(countryEntities);
+    html += renderSourceCoverage(countryEntities);
+    html += renderEdfSection(country, countryEntities, countryIds, dedupe);
+    html += renderInvestorsSection(country, countryIds);
+    html += renderTopInvestedSection(country, countryIds);
+    html += renderDataQuality(country, countryEntities, dedupe);
+    html += renderFullList(countryEntities);
+
+    document.getElementById('app-content').innerHTML = html;
+    wireInvestorTooltips();
+    wireTypeBadgeFilters();
+  }
+
+  function renderStatHeader(country, countryEntities, countryIds, dedupe) {
+    var edfRels = state.relationships.filter(function (r) {
+      return r.type === 'edf_participation' && countryIds.has(canonical(r.source, dedupe));
+    });
+    var edfProjects = new Set(edfRels.map(function (r) { return r.target; }));
+    var invIn = state.relationships.filter(function (r) { return r.type === 'investment' && countryIds.has(r.target); });
+    var qidCount = countryEntities.filter(function (e) { return e.wikidata_id; }).length;
+
+    return '' +
+      '<div class="stat-row">' +
+        statTile(fmtInt(countryEntities.length), 'organizzazioni in ' + esc(country) + ' / ' + fmtInt(state.entities.length) + ' totali') +
+        statTile(fmtInt(edfProjects.size), 'progetti EDF con partecipazione locale') +
+        statTile(fmtInt(invIn.length), 'relazioni di investimento ricevute') +
+        statTile(fmtPct(countryEntities.length ? qidCount / countryEntities.length * 100 : 0), 'entità con QID Wikidata') +
+      '</div>';
+  }
+  function statTile(value, label) {
+    return '<div class="stat-tile"><div class="stat-value">' + esc(value) + '</div><div class="stat-label">' + esc(label) + '</div></div>';
+  }
+
+  function barRows(pairs, maxOverride) {
+    if (!pairs.length) return emptyState('Dati non disponibili per questa sezione e questo paese.');
+    var max = maxOverride || Math.max.apply(null, pairs.map(function (p) { return p.value; }));
+    return pairs.map(function (p, i) {
+      var pct = max ? (p.value / max * 100) : 0;
+      var color = p.color || SERIES[i % SERIES.length];
+      var labelHtml = p.labelHtml || esc(p.label);
+      return '<div class="bar-row"><div class="bar-label">' + labelHtml + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%;background:' + color + '"></div></div>' +
+        '<div class="bar-value">' + esc(p.display != null ? p.display : p.value) + '</div></div>';
+    }).join('');
+  }
+
+  function renderTypeComposition(countryEntities) {
+    var counts = {};
+    countryEntities.forEach(function (e) { counts[e.type] = (counts[e.type] || 0) + 1; });
+    var pairs = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })
+      .map(function (t) { return { label: TYPE_LABEL[t] || t, value: counts[t], color: TYPE_COLOR[t] || SERIES[0] }; });
+    return '<h3 class="section-title">Composizione per tipo di entità</h3><div class="card">' + barRows(pairs) + '</div>';
+  }
+
+  function renderSourceCoverage(countryEntities) {
+    var counts = { iShares: 0, Crunchbase: 0, EDF: 0, Wikidata: 0 };
+    countryEntities.forEach(function (e) {
+      var s = e.sources || {};
+      if (s.ishares && s.ishares.length) counts.iShares++;
+      if (s.crunchbase) counts.Crunchbase++;
+      if (s.edf) counts.EDF++;
+      if (s.wikidata) counts.Wikidata++;
+    });
+    var pairs = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })
+      .map(function (k) { return { label: k, value: counts[k] }; });
+    return '<h3 class="section-title">Copertura per fonte dati</h3><div class="card">' + barRows(pairs) + '</div>';
+  }
+
+  // ---------- EDF funding ----------
+  function computeEdfDedupe(countryEntities) {
+    var byPic = {};
+    countryEntities.forEach(function (e) {
+      var pic = e.sources && e.sources.edf && e.sources.edf.pic;
+      if (!pic) return;
+      (byPic[pic] = byPic[pic] || []).push(e);
+    });
+    var map = {}; // otherId -> canonicalId
+    var groups = [];
+    Object.keys(byPic).forEach(function (pic) {
+      var group = byPic[pic];
+      if (group.length < 2) return;
+      var sorted = group.slice().sort(function (a, b) { return a.id < b.id ? -1 : 1; });
+      var canon = sorted[0];
+      sorted.slice(1).forEach(function (dup) { map[dup.id] = canon.id; });
+      groups.push({ canon: canon, dups: sorted.slice(1) });
+    });
+    return { map: map, groups: groups };
+  }
+  function canonical(id, dedupe) { return dedupe.map[id] || id; }
+
+  function renderEdfSection(country, countryEntities, countryIds, dedupe) {
+    var rels = state.relationships.filter(function (r) {
+      return r.type === 'edf_participation' && countryIds.has(r.source);
+    });
+    var html = '<h3 class="section-title">Chi incassa i fondi EDF in ' + esc(country) + '</h3><div class="card">';
+    if (!rels.length) {
+      html += emptyState('Dati non disponibili per questa sezione e questo paese: nessuna partecipazione EDF registrata.');
+      html += '</div>';
+      return html;
+    }
+
+    var perOrg = {}, perOrgCount = {}, perOrgCity = {}, perOrgType = {};
+    var total = 0;
+    rels.forEach(function (r) {
+      var cid = canonical(r.source, dedupe);
+      var amt = r.eu_contribution || 0;
+      perOrg[cid] = (perOrg[cid] || 0) + amt;
+      perOrgCount[cid] = (perOrgCount[cid] || 0) + 1;
+      total += amt;
+      var e = state.byId[cid];
+      perOrgCity[cid] = (e.sources.edf && e.sources.edf.city) || 'N/D';
+      perOrgType[cid] = e.type;
+    });
+
+    var ranked = Object.keys(perOrg).sort(function (a, b) { return perOrg[b] - perOrg[a]; });
+    var top = ranked.slice(0, 5);
+    var top5Share = top.reduce(function (s, id) { return s + perOrg[id]; }, 0) / total * 100;
+
+    html += '<div class="stat-row" style="margin-bottom:16px">' +
+      statTile('€' + fmtInt(total / 1e6) + 'M', 'contributo EU totale ricevuto') +
+      statTile(fmtInt(ranked.length), 'organizzazioni beneficiarie') +
+      statTile(fmtPct(perOrg[ranked[0]] / total * 100), 'quota del primo beneficiario') +
+      statTile(fmtPct(top5Share), 'quota dei primi 5 beneficiari') +
+      '</div>';
+
+    html += '<div style="max-height:380px; overflow-y:auto; border:1px solid var(--border); border-radius:8px;">' +
+      '<table><thead style="position:sticky; top:0; background:var(--surface-1); z-index:1;"><tr>' +
+      '<th title="Posizione in classifica per contributo EU decrescente">#</th>' +
+      '<th title="Nome dell\'organizzazione beneficiaria">Organizzazione</th>' +
+      '<th title="Tipo di entità nel database">Tipo</th>' +
+      '<th title="Città della sede, da fonte EDF">Città</th>' +
+      '<th class="num" title="Contributo UE totale ricevuto, sommato su tutti i progetti EDF">Contributo EU (€)</th>' +
+      '<th class="num" title="Quota sul totale ricevuto dal paese">Quota</th>' +
+      '<th class="num" title="Numero di progetti EDF distinti a cui partecipa">Progetti</th>' +
+      '</tr></thead><tbody>';
+    var cum = 0;
+    ranked.forEach(function (id, i) {
+      var pct = perOrg[id] / total * 100;
+      cum += pct;
+      var t = perOrgType[id];
+      html += '<tr><td>' + (i + 1) + '</td><td>' + esc(state.byId[id].name) + '</td>' +
+        '<td><span class="type-badge" data-type-filter="' + esc(t) + '" style="background:' + (TYPE_COLOR[t] || SERIES[0]) + '">' + esc(TYPE_LABEL[t] || t) + '</span></td>' +
+        '<td>' + esc(perOrgCity[id]) + '</td>' +
+        '<td class="num">' + fmtInt(perOrg[id]) + '</td>' +
+        '<td class="num">' + fmtPct(pct) + '</td>' +
+        '<td class="num">' + perOrgCount[id] + '</td></tr>';
+    });
+    html += '</tbody></table></div>';
+
+    // Geographic concentration
+    var byCity = {};
+    Object.keys(perOrg).forEach(function (id) {
+      var city = perOrgCity[id];
+      byCity[city] = (byCity[city] || 0) + perOrg[id];
+    });
+    var cityPairs = Object.keys(byCity).sort(function (a, b) { return byCity[b] - byCity[a]; })
+      .slice(0, 8).map(function (c) { return { label: c, value: byCity[c], display: fmtPct(byCity[c] / total * 100) }; });
+    html += '<h4 style="font-size:0.9rem;margin:22px 0 10px;">Concentrazione geografica</h4>' + barRows(cityPairs);
+
+    // SME vs large
+    var smeAmt = 0, largeAmt = 0, smeKnown = false;
+    Object.keys(perOrg).forEach(function (id) {
+      var e = state.byId[id];
+      var sme = e.sources.edf && e.sources.edf.sme;
+      if (sme === true) { smeAmt += perOrg[id]; smeKnown = true; }
+      else if (sme === false) { largeAmt += perOrg[id]; smeKnown = true; }
+    });
+    if (smeKnown) {
+      var smePairs = [
+        { label: 'Grandi imprese/enti', value: largeAmt, display: fmtPct(largeAmt / total * 100), color: SERIES[5] },
+        { label: 'PMI (SME)', value: smeAmt, display: fmtPct(smeAmt / total * 100), color: SERIES[1] }
+      ];
+      html += '<h4 style="font-size:0.9rem;margin:22px 0 10px;">Grandi player vs PMI</h4>' + barRows(smePairs, Math.max(largeAmt, smeAmt));
+    }
+
+    // Coordinators
+    var coordRels = rels.filter(function (r) { return r.role === 'coordinator'; });
+    if (coordRels.length) {
+      var byCoord = {};
+      coordRels.forEach(function (r) {
+        var cid = canonical(r.source, dedupe);
+        (byCoord[cid] = byCoord[cid] || []).push(r.target);
+      });
+      var coordIds = Object.keys(byCoord).sort(function (a, b) { return byCoord[b].length - byCoord[a].length; }).slice(0, 5);
+      html += '<h4 style="font-size:0.9rem;margin:22px 0 10px;">Progetti EDF coordinati da organizzazioni di ' + esc(country) + '</h4>';
+      html += '<table><thead><tr><th>Organizzazione</th><th>Acronimo</th><th>Progetto</th><th class="num">Budget EU progetto</th></tr></thead><tbody>';
+      coordIds.forEach(function (cid) {
+        byCoord[cid].forEach(function (pid) {
+          var proj = state.byId[pid];
+          var ep = (proj.sources && proj.sources.edf_project) || {};
+          html += '<tr><td>' + esc(state.byId[cid].name) + '</td><td>' + esc(ep.acronym || '') + '</td>' +
+            '<td>' + esc(proj.name) + '</td><td class="num">' + (ep.eu_contribution ? '€' + fmtInt(ep.eu_contribution) : 'N/D') + '</td></tr>';
+        });
+      });
+      html += '</tbody></table>';
+    }
+
+    if (dedupe.groups.length) {
+      html += '<div class="caveat">Rilevate ' + dedupe.groups.length + ' possibili entità duplicate (stesso PIC EDF) per questo paese — vedi sezione "Note sulla qualità dei dati" più sotto. I totali qui sopra le trattano come una sola organizzazione.</div>';
+    }
+
+    html += '</div>';
+    return html;
+  }
+
+  // ---------- Investors ----------
+  function renderInvestorsSection(country, countryIds) {
+    var rels = state.relationships.filter(function (r) { return r.type === 'investment' && countryIds.has(r.target); });
+    var html = '<h3 class="section-title">Investitori più attivi su organizzazioni di ' + esc(country) + '</h3><div class="card">';
+    if (!rels.length) {
+      html += emptyState('Dati non disponibili per questa sezione e questo paese: nessuna relazione di investimento registrata.');
+      html += '</div>';
+      return html;
+    }
+    var byInvestor = {};
+    rels.forEach(function (r) {
+      (byInvestor[r.source] = byInvestor[r.source] || []).push(state.byId[r.target].name);
+    });
+    var ranked = Object.keys(byInvestor).sort(function (a, b) { return byInvestor[b].length - byInvestor[a].length; }).slice(0, 10);
+    var pairs = ranked.map(function (id) {
+      var name = state.byId[id].name;
+      var targets = byInvestor[id];
+      var labelHtml = '<span class="investor-name" data-investments="' + esc(targets.join(' · ')) + '">' + esc(name) + '</span>';
+      return { label: name, labelHtml: labelHtml, value: targets.length };
+    });
+    html += barRows(pairs);
+    html += '<div class="note">Clicca il nome di un investitore per vedere in cosa ha investito in ' + esc(country) + '.</div>';
+    html += '</div>';
+    return html;
+  }
+
+  function renderTopInvestedSection(country, countryIds) {
+    var rels = state.relationships.filter(function (r) { return r.type === 'investment' && countryIds.has(r.target); });
+    var html = '<h3 class="section-title">Organizzazioni con più investitori</h3><div class="card">';
+    if (!rels.length) {
+      html += emptyState('Dati non disponibili per questa sezione e questo paese.');
+      html += '</div>';
+      return html;
+    }
+    var byTarget = {};
+    rels.forEach(function (r) { byTarget[r.target] = (byTarget[r.target] || 0) + 1; });
+    var ranked = Object.keys(byTarget).sort(function (a, b) { return byTarget[b] - byTarget[a]; }).slice(0, 10);
+    var pairs = ranked.map(function (id) { return { label: state.byId[id].name, value: byTarget[id] }; });
+    html += barRows(pairs);
+    html += '</div>';
+    return html;
+  }
+
+  // ---------- Data quality ----------
+  function renderDataQuality(country, countryEntities, dedupe) {
+    var html = '<h3 class="section-title">Note sulla qualità dei dati</h3>';
+    var caveats = [];
+
+    dedupe.groups.forEach(function (g) {
+      var dupNames = g.dups.map(function (d) { return d.name + ' (' + d.id + ')'; }).join(', ');
+      caveats.push('<strong>' + esc(g.canon.name) + '</strong> (' + g.canon.id + ') e ' + esc(dupNames) +
+        ' condividono lo stesso PIC EDF — probabile stessa entità reale duplicata nel database.');
+    });
+
+    var byName = {};
+    countryEntities.forEach(function (e) {
+      var key = e.name.trim().toLowerCase();
+      (byName[key] = byName[key] || []).push(e);
+    });
+    Object.keys(byName).forEach(function (key) {
+      var group = byName[key];
+      if (group.length > 1) {
+        caveats.push('<strong>' + esc(group[0].name) + '</strong> compare come ' + group.length + ' entità distinte (' +
+          group.map(function (e) { return e.id; }).join(', ') + ') con lo stesso nome — possibile duplicato non riconciliato.');
+      }
+    });
+
+    countryEntities.forEach(function (e) {
+      var s = e.sources || {};
+      var wd = (s.wikidata || {}).country;
+      var edf = (s.edf || {}).country;
+      if (wd && edf && normalizeCountry(wd) !== normalizeCountry(edf)) {
+        caveats.push('<strong>' + esc(e.name) + '</strong> (' + e.id + '): Wikidata indica "' + esc(wd) + '" ma EDF indica "' + esc(edf) +
+          '" — possibile falso positivo di enrichment o sede legale multipla.');
+      }
+    });
+
+    if (!caveats.length) {
+      html += '<div class="empty-state">Nessuna anomalia rilevata automaticamente per ' + esc(country) + '.</div>';
+    } else {
+      caveats.forEach(function (c) { html += '<div class="caveat">' + c + '</div>'; });
+    }
+    return html;
+  }
+
+  // ---------- Full list ----------
+  function renderFullList(countryEntities) {
+    var byType = {};
+    countryEntities.forEach(function (e) { (byType[e.type] = byType[e.type] || []).push(e.name); });
+    var html = '<h3 class="section-title">Elenco completo per tipo</h3><div class="card">';
+    Object.keys(byType).sort(function (a, b) { return byType[b].length - byType[a].length; }).forEach(function (t) {
+      var names = byType[t].slice().sort(function (a, b) { return a.localeCompare(b); });
+      html += '<strong>' + esc(TYPE_LABEL[t] || t) + ' (' + names.length + ')</strong>' +
+        '<div class="type-list">' + names.map(esc).join(' · ') + '</div><br>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  // ---------- Interaction wiring ----------
+  function wireInvestorTooltips() {
+    var tooltip = document.getElementById('investor-tooltip');
+    var names = Array.prototype.slice.call(document.querySelectorAll('.investor-name'));
+    var activeEl = null;
+
+    function closeTooltip() {
+      tooltip.style.display = 'none';
+      if (activeEl) activeEl.classList.remove('active');
+      activeEl = null;
+    }
+
+    names.forEach(function (elx) {
+      elx.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (activeEl === elx) { closeTooltip(); return; }
+        if (activeEl) activeEl.classList.remove('active');
+        activeEl = elx;
+        elx.classList.add('active');
+        var investments = (elx.getAttribute('data-investments') || '').split('·').map(function (s) { return s.trim(); }).filter(Boolean);
+        var list = investments.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('');
+        tooltip.innerHTML = '<strong>' + esc(elx.textContent) + '</strong> investe su:<ul style="margin:6px 0 0; padding-left:18px;">' + list + '</ul>';
+        var rect = elx.getBoundingClientRect();
+        tooltip.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+        tooltip.style.left = (rect.left + window.scrollX) + 'px';
+        tooltip.style.display = 'block';
+        var tRect = tooltip.getBoundingClientRect();
+        if (tRect.right > window.innerWidth - 12) {
+          tooltip.style.left = (window.innerWidth - tRect.width - 12 + window.scrollX) + 'px';
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (tooltip.style.display === 'block' && !tooltip.contains(e.target)) closeTooltip();
+    }, { once: false });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeTooltip(); });
+  }
+
+  function wireTypeBadgeFilters() {
+    // Type badges in the EDF table are informational in this generic view (no dedicated filter bar yet).
+  }
+})();
+</script>
+</body>
+</html>

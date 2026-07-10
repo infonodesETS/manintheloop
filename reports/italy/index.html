@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organizzazioni Italiane — Man in The Loop</title>
+<style>
+.viz-root {
+  --surface-1:      #fcfcfb;
+  --page:           #f9f9f7;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --baseline:       #c3c2b7;
+  --border:         rgba(11,11,11,0.10);
+  --series-1: #2a78d6; /* blue */
+  --series-2: #1baf7a; /* aqua */
+  --series-3: #eda100; /* yellow */
+  --series-4: #008300; /* green */
+  --series-5: #4a3aa7; /* violet */
+  --series-6: #e34948; /* red */
+  --series-7: #e87ba4; /* magenta */
+  --series-8: #eb6834; /* orange */
+}
+@media (prefers-color-scheme: dark) {
+  .viz-root {
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1: #3987e5;
+    --series-2: #199e70;
+    --series-3: #c98500;
+    --series-4: #008300;
+    --series-5: #9085e9;
+    --series-6: #e66767;
+    --series-7: #d55181;
+    --series-8: #d95926;
+  }
+}
+:root[data-theme="dark"] .viz-root {
+  --surface-1:      #1a1a19;
+  --page:           #0d0d0d;
+  --text-primary:   #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted:     #898781;
+  --grid:           #2c2c2a;
+  --baseline:       #383835;
+  --border:         rgba(255,255,255,0.10);
+  --series-1: #3987e5;
+  --series-2: #199e70;
+  --series-3: #c98500;
+  --series-4: #008300;
+  --series-5: #9085e9;
+  --series-6: #e66767;
+  --series-7: #d55181;
+  --series-8: #d95926;
+}
+:root[data-theme="light"] .viz-root {
+  --surface-1:      #fcfcfb;
+  --page:           #f9f9f7;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --baseline:       #c3c2b7;
+  --border:         rgba(11,11,11,0.10);
+  --series-1: #2a78d6;
+  --series-2: #1baf7a;
+  --series-3: #eda100;
+  --series-4: #008300;
+  --series-5: #4a3aa7;
+  --series-6: #e34948;
+  --series-7: #e87ba4;
+  --series-8: #eb6834;
+}
+
+* { box-sizing: border-box; }
+body { margin:0; background: var(--page); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--text-primary); }
+.viz-root { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+h1 { font-size: 1.6rem; margin: 0 0 4px; }
+.subtitle { color: var(--text-secondary); margin: 0 0 28px; font-size: 0.95rem; }
+h2 { font-size: 1.05rem; margin: 40px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 18px; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 12px; }
+.stat-tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stat-value { font-size: 1.7rem; font-weight: 600; }
+.stat-label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 2px; }
+.bar-row { display: grid; grid-template-columns: 190px 1fr 40px; align-items: center; gap: 10px; margin: 7px 0; font-size: 0.85rem; }
+.bar-label { color: var(--text-secondary); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { background: var(--grid); border-radius: 3px; height: 16px; position: relative; }
+.bar-fill { height: 100%; border-radius: 3px 0 0 3px; }
+.bar-value { font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.note { font-size: 0.82rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5; }
+.caveat { border-left: 3px solid var(--series-6); padding: 10px 14px; background: var(--surface-1); border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--text-secondary); margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--grid); }
+th { color: var(--text-muted); font-weight: 500; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.02em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.legend { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px; font-size:0.8rem; color: var(--text-secondary); }
+.legend span { display:inline-flex; align-items:center; gap:6px; }
+.dot { width:10px; height:10px; border-radius:2px; display:inline-block; }
+.type-list { columns: 2; column-gap: 24px; font-size: 0.85rem; }
+.investor-name { cursor: pointer; text-decoration: none; }
+.investor-name:hover { text-decoration: underline; text-decoration-color: var(--text-muted); }
+.investor-name.active { text-decoration: underline; color: var(--series-1); }
+.investor-tooltip {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  max-width: 280px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.investor-tooltip strong { color: var(--text-primary); }
+@media (max-width: 560px) { .type-list { columns: 1; } .bar-row { grid-template-columns: 120px 1fr 32px; } }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>Organizzazioni italiane in Man in The Loop</h1>
+  <p class="subtitle">Analisi di sola lettura — branch <code>data-analysis</code>, nessuna modifica al database. Dati al 2026-06-18 (ultimo snapshot committato).</p>
+
+  <div class="stat-row">
+    <div class="stat-tile"><div class="stat-value">79</div><div class="stat-label">entità italiane / 2311 totali (3.4%)</div></div>
+    <div class="stat-tile"><div class="stat-value">57</div><div class="stat-label">progetti EDF con partecipazione italiana</div></div>
+    <div class="stat-tile"><div class="stat-value">32</div><div class="stat-label">relazioni di investimento ricevute</div></div>
+    <div class="stat-tile"><div class="stat-value">27</div><div class="stat-label">entità con QID Wikidata (34%)</div></div>
+  </div>
+
+  <h2>Composizione per tipo di entità</h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">Company</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">53</div></div>
+    <div class="bar-row"><div class="bar-label">Institution</div><div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--series-2)"></div></div><div class="bar-value">18</div></div>
+    <div class="bar-row"><div class="bar-label">Investor</div><div class="bar-track"><div class="bar-fill" style="width:7.5%;background:var(--series-3)"></div></div><div class="bar-value">4</div></div>
+    <div class="bar-row"><div class="bar-label">Fund</div><div class="bar-track"><div class="bar-fill" style="width:5.7%;background:var(--series-5)"></div></div><div class="bar-value">3</div></div>
+    <div class="bar-row"><div class="bar-label">Government agency</div><div class="bar-track"><div class="bar-fill" style="width:1.9%;background:var(--series-6)"></div></div><div class="bar-value">1</div></div>
+    <div class="note">Le 18 "institution" sono quasi tutte università/centri di ricerca coinvolti in progetti EDF (Politecnico di Milano e Torino, CNR, 5 atenei, ISS, IAI…).</div>
+  </div>
+
+  <h2>Copertura per fonte dati</h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">EDF (Fondo Difesa UE)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">68</div></div>
+    <div class="bar-row"><div class="bar-label">Crunchbase</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--series-2)"></div></div><div class="bar-value">38</div></div>
+    <div class="bar-row"><div class="bar-label">Wikidata</div><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--series-5)"></div></div><div class="bar-value">27</div></div>
+    <div class="bar-row"><div class="bar-label">iShares (ETF)</div><div class="bar-track"><div class="bar-fill" style="width:6%;background:var(--series-8)"></div></div><div class="bar-value">4</div></div>
+    <div class="note">La presenza italiana in questo DB è dominata dalla componente EDF (difesa europea): 68/79 entità (86%) vengono da bandi EDF. Solo 4 sono grandi società quotate presenti negli ETF iShares tracciati (settori Tech/Mining/Comm/Difesa).</div>
+  </div>
+
+  <h2>Investitori più attivi su aziende italiane</h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Telecom Italia · D-Orbit · Thales Italia">European Investment Bank</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">3</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Civitanavi Systems · Stam · Technology For Propulsion And Innovation">EISMEA</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">3</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="D-Orbit · Gyala S.r.l. · WSense">CDP Venture Capital</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">3</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Telecom Italia">European Investment Fund</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Telecom Italia">CPP Investments</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Telecom Italia">Poste Italiane</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="D-Orbit">Endeavor Catalyst</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="D-Orbit">Seraphim Space</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="D-Orbit">United Ventures</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="bar-row"><div class="bar-label"><span class="investor-name" data-investments="Fincantieri">Deutsche Bank</span></div><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--series-2)"></div></div><div class="bar-value">1</div></div>
+    <div class="note">Le istituzioni pubbliche europee (BEI, EISMEA, EIF) dominano — coerente con il profilo "difesa/spazio" del dataset, non un quadro completo del venture capital italiano. Clicca il nome di un investitore per vedere in cosa ha investito.</div>
+  </div>
+  <div id="investor-tooltip" class="investor-tooltip" role="tooltip"></div>
+
+  <h2>Aziende italiane con più investitori</h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">D-Orbit</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">5</div></div>
+    <div class="bar-row"><div class="bar-label">Fincantieri</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">5</div></div>
+    <div class="bar-row"><div class="bar-label">Gyala S.r.l.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">5</div></div>
+    <div class="bar-row"><div class="bar-label">WSense</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-1)"></div></div><div class="bar-value">5</div></div>
+    <div class="bar-row"><div class="bar-label">Telecom Italia</div><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--series-2)"></div></div><div class="bar-value">4</div></div>
+    <div class="bar-row"><div class="bar-label">Expert.ai</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--series-2)"></div></div><div class="bar-value">3</div></div>
+  </div>
+
+  <h2>Chi incassa i fondi EDF in Italia</h2>
+  <div class="card">
+    <p class="note" style="margin-top:0">
+      Il Fondo Europeo per la Difesa (EDF) copre parte del budget di ogni progetto per ciascuna organizzazione partecipante
+      (campo <code>eu_contribution</code> a livello di relazione, non l'intero budget del progetto). Sommando questi contributi
+      per le 66 organizzazioni italiane coinvolte in 84 progetti EDF si ottiene un quadro molto concentrato — sia per player
+      che per territorio.
+    </p>
+    <div class="stat-row" style="margin-bottom:18px">
+      <div class="stat-tile"><div class="stat-value">€304,2M</div><div class="stat-label">totale EU contribution ricevuto da entità italiane</div></div>
+      <div class="stat-tile"><div class="stat-value">66</div><div class="stat-label">organizzazioni italiane beneficiarie</div></div>
+      <div class="stat-tile"><div class="stat-value">56,6%</div><div class="stat-label">quota del solo Leonardo S.p.A.</div></div>
+      <div class="stat-tile"><div class="stat-value">83,7%</div><div class="stat-label">quota concentrata su Roma</div></div>
+    </div>
+
+    <h3 style="font-size:0.95rem;margin:22px 0 10px;">Classifica completa dei beneficiari (66 organizzazioni, per contributo EU cumulato)</h3>
+
+    <div style="position:relative; margin-bottom:10px;">
+      <input
+        id="edf-search"
+        type="text"
+        placeholder="Cerca organizzazione o città…"
+        autocomplete="off"
+        style="width:100%; box-sizing:border-box; padding:8px 12px; font-size:0.85rem; font-family:inherit; color:var(--text-primary); background:var(--surface-1); border:1px solid var(--border); border-radius:8px; outline:none;"
+        oninput="filterEdfTable(this.value)"
+      >
+      <div id="edf-search-count" class="note" style="margin-top:6px;"></div>
+    </div>
+
+    <div style="max-height:420px; overflow-y:auto; border:1px solid var(--border); border-radius:8px;">
+      <table>
+        <thead style="position:sticky; top:0; background:var(--surface-1); z-index:1;">
+          <tr>
+            <th title="Posizione in classifica, ordinata per contributo EU decrescente">#</th>
+            <th title="Nome dell'organizzazione beneficiaria del contributo EDF">Organizzazione</th>
+            <th title="Tipo di entità nel database (Azienda / Istituzione / Ente pubblico) — clicca un'etichetta per filtrare solo quel tipo">Tipo</th>
+            <th title="Città della sede legale/operativa, da fonte EDF">Città</th>
+            <th class="num" title="Contributo UE ricevuto da questa organizzazione, sommato su tutti i progetti EDF a cui partecipa">Contributo EU (€)</th>
+            <th class="num" title="Percentuale di questo singolo contributo sul totale complessivo (€304,2M) ricevuto da tutte le organizzazioni italiane">Quota</th>
+            <th class="num" title="Percentuale cumulata: somma di questa quota e di tutte quelle sopra, in ordine di classifica — mostra quanta parte del totale è già &quot;coperta&quot; scendendo fino a questa riga">Cumulata</th>
+            <th class="num" title="Numero di progetti EDF distinti in cui l'organizzazione compare come partecipante, coordinatore o terza parte">Progetti</th>
+          </tr>
+        </thead>
+        <tbody id="edf-table-body">
+        <tr data-org="leonardo s.p.a." data-type="company"><td>1</td><td>Leonardo S.p.A.</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">172.231.983</td><td class="num">56.61%</td><td class="num">56.6%</td><td class="num">37</td></tr>
+        <tr data-org="elettronica" data-type="company"><td>2</td><td>Elettronica</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">36.780.626</td><td class="num">12.09%</td><td class="num">68.7%</td><td class="num">19</td></tr>
+        <tr data-org="ministero della difesa" data-type="government_agency"><td>3</td><td>Ministero Della Difesa</td><td><span class="type-badge" data-type-filter="government_agency" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-6); color:#fff; white-space:nowrap;" onclick="filterEdfByType('government_agency', this)">Ente pubblico</span></td><td>Roma</td><td class="num">13.720.650</td><td class="num">4.51%</td><td class="num">73.2%</td><td class="num">2</td></tr>
+        <tr data-org="telespazio" data-type="company"><td>4</td><td>Telespazio</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">8.436.035</td><td class="num">2.77%</td><td class="num">76.0%</td><td class="num">6</td></tr>
+        <tr data-org="mbda italia" data-type="company"><td>5</td><td>MBDA Italia</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">6.060.600</td><td class="num">1.99%</td><td class="num">78.0%</td><td class="num">11</td></tr>
+        <tr data-org="iveco defence vehicles" data-type="company"><td>6</td><td>Iveco Defence Vehicles</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Bolzano</td><td class="num">6.025.451</td><td class="num">1.98%</td><td class="num">80.0%</td><td class="num">5</td></tr>
+        <tr data-org="politecnico di milano" data-type="institution"><td>7</td><td>Politecnico Di Milano</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Milano</td><td class="num">4.732.070</td><td class="num">1.56%</td><td class="num">81.5%</td><td class="num">6</td></tr>
+        <tr data-org="stam" data-type="company"><td>8</td><td>Stam</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Genova</td><td class="num">3.666.767</td><td class="num">1.21%</td><td class="num">82.7%</td><td class="num">8</td></tr>
+        <tr data-org="cnit" data-type="institution"><td>9</td><td>CNIT</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Parma</td><td class="num">3.237.027</td><td class="num">1.06%</td><td class="num">83.8%</td><td class="num">5</td></tr>
+        <tr data-org="fincantieri nextech" data-type="company"><td>10</td><td>Fincantieri Nextech</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Milano</td><td class="num">2.938.076</td><td class="num">0.97%</td><td class="num">84.7%</td><td class="num">4</td></tr>
+        <tr data-org="thales italia" data-type="company"><td>11</td><td>Thales Italia</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Sesto Fiorentino</td><td class="num">2.610.142</td><td class="num">0.86%</td><td class="num">85.6%</td><td class="num">5</td></tr>
+        <tr data-org="cy4gate" data-type="company"><td>12</td><td>Cy4Gate</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">2.493.934</td><td class="num">0.82%</td><td class="num">86.4%</td><td class="num">6</td></tr>
+        <tr data-org="flysight" data-type="company"><td>13</td><td>Flysight</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Livorno</td><td class="num">2.461.250</td><td class="num">0.81%</td><td class="num">87.2%</td><td class="num">2</td></tr>
+        <tr data-org="siel" data-type="company"><td>14</td><td>Siel</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Moncalieri</td><td class="num">2.349.029</td><td class="num">0.77%</td><td class="num">88.0%</td><td class="num">2</td></tr>
+        <tr data-org="consiglio nazionale delle ricerche" data-type="institution"><td>15</td><td>Consiglio Nazionale Delle Ricerche</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">2.186.056</td><td class="num">0.72%</td><td class="num">88.7%</td><td class="num">3</td></tr>
+        <tr data-org="rheinmetall italia" data-type="company"><td>16</td><td>Rheinmetall Italia</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">2.102.806</td><td class="num">0.69%</td><td class="num">89.4%</td><td class="num">2</td></tr>
+        <tr data-org="universita di trento" data-type="institution"><td>17</td><td>Universita di Trento</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Trento</td><td class="num">1.798.632</td><td class="num">0.59%</td><td class="num">90.0%</td><td class="num">1</td></tr>
+        <tr data-org="cira" data-type="institution"><td>18</td><td>CIRA</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Capua</td><td class="num">1.722.566</td><td class="num">0.57%</td><td class="num">90.6%</td><td class="num">3</td></tr>
+        <tr data-org="saipem" data-type="company"><td>19</td><td>Saipem</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Milano</td><td class="num">1.595.060</td><td class="num">0.52%</td><td class="num">91.1%</td><td class="num">1</td></tr>
+        <tr data-org="ids ingegneria dei sistemi" data-type="company"><td>20</td><td>IDS Ingegneria dei Sistemi</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Pisa</td><td class="num">1.505.620</td><td class="num">0.49%</td><td class="num">91.6%</td><td class="num">3</td></tr>
+        <tr data-org="officina stellare" data-type="company"><td>21</td><td>Officina Stellare</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Sarcedo</td><td class="num">1.500.000</td><td class="num">0.49%</td><td class="num">92.1%</td><td class="num">1</td></tr>
+        <tr data-org="on air consulting solutions" data-type="company"><td>22</td><td>On Air Consulting Solutions</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">1.500.000</td><td class="num">0.49%</td><td class="num">92.6%</td><td class="num">1</td></tr>
+        <tr data-org="wsense" data-type="company"><td>23</td><td>Wsense</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">1.468.522</td><td class="num">0.48%</td><td class="num">93.1%</td><td class="num">1</td></tr>
+        <tr data-org="cetena" data-type="company"><td>24</td><td>CETENA</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Genova</td><td class="num">1.397.429</td><td class="num">0.46%</td><td class="num">93.5%</td><td class="num">3</td></tr>
+        <tr data-org="fondazione safe" data-type="institution"><td>25</td><td>Fondazione Safe</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">1.384.150</td><td class="num">0.45%</td><td class="num">94.0%</td><td class="num">2</td></tr>
+        <tr data-org="wass submarine systems" data-type="company"><td>26</td><td>WASS Submarine Systems</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Livorno</td><td class="num">1.339.557</td><td class="num">0.44%</td><td class="num">94.4%</td><td class="num">1</td></tr>
+        <tr data-org="fincantieri" data-type="company"><td>27</td><td>Fincantieri</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Trieste</td><td class="num">1.122.780</td><td class="num">0.37%</td><td class="num">94.8%</td><td class="num">3</td></tr>
+        <tr data-org="universita di bologna" data-type="institution"><td>28</td><td>Universita di Bologna</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Bologna</td><td class="num">1.083.687</td><td class="num">0.36%</td><td class="num">95.1%</td><td class="num">1</td></tr>
+        <tr data-org="larimart" data-type="company"><td>29</td><td>Larimart</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">1.025.091</td><td class="num">0.34%</td><td class="num">95.5%</td><td class="num">3</td></tr>
+        <tr data-org="deep blue" data-type="company"><td>30</td><td>Deep Blue</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">881.250</td><td class="num">0.29%</td><td class="num">95.8%</td><td class="num">1</td></tr>
+        <tr data-org="txt e-tech" data-type="company"><td>31</td><td>TXT e-Tech</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Cologno Monzese</td><td class="num">774.133</td><td class="num">0.25%</td><td class="num">96.0%</td><td class="num">2</td></tr>
+        <tr data-org="mes" data-type="company"><td>32</td><td>MES</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">744.575</td><td class="num">0.24%</td><td class="num">96.3%</td><td class="num">1</td></tr>
+        <tr data-org="politecnico di torino" data-type="institution"><td>33</td><td>Politecnico Di Torino</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Torino</td><td class="num">715.388</td><td class="num">0.24%</td><td class="num">96.5%</td><td class="num">2</td></tr>
+        <tr data-org="universita di roma tor vergata" data-type="institution"><td>34</td><td>Universita di Roma Tor Vergata</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">673.700</td><td class="num">0.22%</td><td class="num">96.7%</td><td class="num">1</td></tr>
+        <tr data-org="universita campus bio medico di roma" data-type="institution"><td>35</td><td>Universita Campus Bio Medico Di Roma</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">636.875</td><td class="num">0.21%</td><td class="num">96.9%</td><td class="num">1</td></tr>
+        <tr data-org="telespazio france" data-type="company"><td>36</td><td>Telespazio France</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Toulouse</td><td class="num">568.023</td><td class="num">0.19%</td><td class="num">97.1%</td><td class="num">1</td></tr>
+        <tr data-org="free space" data-type="company"><td>37</td><td>Free Space</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Pisa</td><td class="num">550.000</td><td class="num">0.18%</td><td class="num">97.3%</td><td class="num">1</td></tr>
+        <tr data-org="italwatt" data-type="company"><td>38</td><td>Italwatt</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Leini</td><td class="num">507.750</td><td class="num">0.17%</td><td class="num">97.5%</td><td class="num">1</td></tr>
+        <tr data-org="drass galeazzi" data-type="company"><td>39</td><td>Drass Galeazzi</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">502.051</td><td class="num">0.17%</td><td class="num">97.6%</td><td class="num">1</td></tr>
+        <tr data-org="tech" data-type="company"><td>40</td><td>Tech</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Milano</td><td class="num">472.198</td><td class="num">0.16%</td><td class="num">97.8%</td><td class="num">1</td></tr>
+        <tr data-org="e-geos" data-type="company"><td>41</td><td>e-GEOS</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Matera</td><td class="num">449.644</td><td class="num">0.15%</td><td class="num">97.9%</td><td class="num">1</td></tr>
+        <tr data-org="airbus italia" data-type="company"><td>42</td><td>Airbus Italia</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">442.377</td><td class="num">0.15%</td><td class="num">98.1%</td><td class="num">1</td></tr>
+        <tr data-org="ase" data-type="company"><td>43</td><td>Ase</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Milano</td><td class="num">422.500</td><td class="num">0.14%</td><td class="num">98.2%</td><td class="num">1</td></tr>
+        <tr data-org="istituto affari internazionali" data-type="institution"><td>44</td><td>Istituto Affari Internazionali</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">410.000</td><td class="num">0.13%</td><td class="num">98.4%</td><td class="num">2</td></tr>
+        <tr data-org="enea" data-type="institution"><td>45</td><td>ENEA</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">406.440</td><td class="num">0.13%</td><td class="num">98.5%</td><td class="num">1</td></tr>
+        <tr data-org="d-orbit" data-type="company"><td>46</td><td>D-Orbit</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Fino Mornasco (CO)</td><td class="num">406.250</td><td class="num">0.13%</td><td class="num">98.6%</td><td class="num">1</td></tr>
+        <tr data-org="universita di napoli federico ii" data-type="institution"><td>47</td><td>Universita di Napoli Federico Ii</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Napoli</td><td class="num">400.000</td><td class="num">0.13%</td><td class="num">98.8%</td><td class="num">1</td></tr>
+        <tr data-org="issel nord" data-type="company"><td>48</td><td>Issel Nord</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Follo</td><td class="num">397.500</td><td class="num">0.13%</td><td class="num">98.9%</td><td class="num">1</td></tr>
+        <tr data-org="universita di pavia" data-type="institution"><td>49</td><td>Universita di Pavia</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Pavia</td><td class="num">350.525</td><td class="num">0.12%</td><td class="num">99.0%</td><td class="num">1</td></tr>
+        <tr data-org="fondazione links" data-type="institution"><td>50</td><td>Fondazione LINKS</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Torino</td><td class="num">337.845</td><td class="num">0.11%</td><td class="num">99.1%</td><td class="num">1</td></tr>
+        <tr data-org="gyala s.r.l." data-type="company"><td>51</td><td>Gyala S.r.l.</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">307.355</td><td class="num">0.10%</td><td class="num">99.2%</td><td class="num">1</td></tr>
+        <tr data-org="aisent" data-type="company"><td>52</td><td>Aisent</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Bergamo</td><td class="num">278.305</td><td class="num">0.09%</td><td class="num">99.3%</td><td class="num">2</td></tr>
+        <tr data-org="universita di genova" data-type="institution"><td>53</td><td>Universita di Genova</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Genova</td><td class="num">241.522</td><td class="num">0.08%</td><td class="num">99.4%</td><td class="num">1</td></tr>
+        <tr data-org="gem elettronica" data-type="company"><td>54</td><td>GEM Elettronica</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>San Benedetto Del Tronto</td><td class="num">239.419</td><td class="num">0.08%</td><td class="num">99.5%</td><td class="num">1</td></tr>
+        <tr data-org="sentech" data-type="company"><td>55</td><td>Sentech</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">226.515</td><td class="num">0.07%</td><td class="num">99.5%</td><td class="num">2</td></tr>
+        <tr data-org="isotta fraschini motori" data-type="company"><td>56</td><td>Isotta Fraschini Motori</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Bari</td><td class="num">200.000</td><td class="num">0.07%</td><td class="num">99.6%</td><td class="num">1</td></tr>
+        <tr data-org="sitael" data-type="company"><td>57</td><td>Sitael</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Mola Di Bari</td><td class="num">199.887</td><td class="num">0.07%</td><td class="num">99.7%</td><td class="num">1</td></tr>
+        <tr data-org="knds ammo italy" data-type="company"><td>58</td><td>KNDS Ammo Italy</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Colleferro</td><td class="num">189.652</td><td class="num">0.06%</td><td class="num">99.7%</td><td class="num">1</td></tr>
+        <tr data-org="gg partners" data-type="company"><td>59</td><td>GG Partners</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Montichiari (BS)</td><td class="num">172.925</td><td class="num">0.06%</td><td class="num">99.8%</td><td class="num">1</td></tr>
+        <tr data-org="universita di modena e reggio emilia" data-type="institution"><td>60</td><td>Universita di Modena e Reggio Emilia</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Modena</td><td class="num">150.223</td><td class="num">0.05%</td><td class="num">99.8%</td><td class="num">1</td></tr>
+        <tr data-org="technology for propulsion and innovation" data-type="company"><td>61</td><td>Technology For Propulsion And Innovation</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Padova</td><td class="num">128.018</td><td class="num">0.04%</td><td class="num">99.9%</td><td class="num">1</td></tr>
+        <tr data-org="dp (development and production of electronic systems)" data-type="company"><td>62</td><td>DP (Development and Production of Electronic Systems)</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Frascati</td><td class="num">117.140</td><td class="num">0.04%</td><td class="num">99.9%</td><td class="num">1</td></tr>
+        <tr data-org="este" data-type="company"><td>63</td><td>ESTE</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Ferrara</td><td class="num">100.032</td><td class="num">0.03%</td><td class="num">99.9%</td><td class="num">1</td></tr>
+        <tr data-org="sira" data-type="company"><td>64</td><td>SIRA</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Roma</td><td class="num">89.315</td><td class="num">0.03%</td><td class="num">100.0%</td><td class="num">1</td></tr>
+        <tr data-org="civitanavi systems" data-type="company"><td>65</td><td>Civitanavi Systems</td><td><span class="type-badge" data-type-filter="company" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-1); color:#fff; white-space:nowrap;" onclick="filterEdfByType('company', this)">Azienda</span></td><td>Porto Sant'Elpidio</td><td class="num">63.533</td><td class="num">0.02%</td><td class="num">100.0%</td><td class="num">1</td></tr>
+        <tr data-org="istituto superiore di sanita" data-type="institution"><td>66</td><td>Istituto Superiore Di Sanita</td><td><span class="type-badge" data-type-filter="institution" role="button" tabindex="0" style="cursor:pointer; display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.75rem; background:var(--series-2); color:#fff; white-space:nowrap;" onclick="filterEdfByType('institution', this)">Istituzione</span></td><td>Roma</td><td class="num">0</td><td class="num">0.00%</td><td class="num">100.0%</td><td class="num">1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      Elenco completo, ordinabile per scroll (le prime righe restano visibili in alto grazie all'header fisso). I primi 5
+      soggetti assorbono il <strong>78%</strong> di tutto il denaro EDF che arriva in Italia; i primi 10 arrivano all'<strong>84,8%</strong>.
+      Le altre 56 organizzazioni (università, PMI, centri di ricerca, piccole aziende) si dividono il restante 15%, spesso con
+      un solo progetto a testa e contributi sotto il milione di euro. L'ultima riga (Istituto Superiore di Sanità, €0) è un
+      partecipante EDF con contributo UE non ancora valorizzato nella fonte.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:0.95rem;margin:0 0 10px;">Concentrazione geografica: Roma assorbe l'84% dei fondi</h3>
+    <div class="bar-row"><div class="bar-label">Roma (24 org.)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-6)"></div></div><div class="bar-value">83,7%</div></div>
+    <div class="bar-row"><div class="bar-label">Milano (4 org.)</div><div class="bar-track"><div class="bar-fill" style="width:3.3%;background:var(--series-1)"></div></div><div class="bar-value">2,8%</div></div>
+    <div class="bar-row"><div class="bar-label">Bolzano (1 org.)</div><div class="bar-track"><div class="bar-fill" style="width:2.4%;background:var(--series-1)"></div></div><div class="bar-value">2,0%</div></div>
+    <div class="bar-row"><div class="bar-label">Livorno (2 org.)</div><div class="bar-track"><div class="bar-fill" style="width:1.4%;background:var(--series-2)"></div></div><div class="bar-value">1,2%</div></div>
+    <div class="bar-row"><div class="bar-label">Genova (1 org.)</div><div class="bar-track"><div class="bar-fill" style="width:1.4%;background:var(--series-2)"></div></div><div class="bar-value">1,2%</div></div>
+    <div class="bar-row"><div class="bar-label">Parma (1 org.)</div><div class="bar-track"><div class="bar-fill" style="width:1.3%;background:var(--series-2)"></div></div><div class="bar-value">1,1%</div></div>
+    <div class="bar-row"><div class="bar-label">Sesto Fiorentino</div><div class="bar-track"><div class="bar-fill" style="width:1.1%;background:var(--series-2)"></div></div><div class="bar-value">0,9%</div></div>
+    <div class="bar-row"><div class="bar-label">Tutte le altre città (30+)</div><div class="bar-track"><div class="bar-fill" style="width:7%;background:var(--series-8)"></div></div><div class="bar-value">~5,9%</div></div>
+    <div class="note">
+      Su 66 organizzazioni italiane coinvolte, solo due si trovano nel Sud Italia (Bari e Mola di Bari, insieme sotto lo
+      0,15% del totale), nessuna nelle Isole. La difesa europea finanziata in Italia è, nei fatti, un fenomeno centrato su
+      Roma (sede legale dei grandi player: Leonardo, Elettronica, Telespazio, MBDA Italia, Ministero della Difesa), con
+      una seconda area industriale distribuita tra Milano, Bolzano, Genova, Parma e Toscana. Un possibile angolo
+      giornalistico: <em>l'assenza quasi totale del Mezzogiorno dalla filiera della difesa europea finanziata da
+      Bruxelles</em>.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:0.95rem;margin:0 0 10px;">Grandi player vs PMI: chi si prende i soldi</h3>
+    <div class="bar-row"><div class="bar-label">Grandi imprese/enti</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--series-6)"></div></div><div class="bar-value">96,4%</div></div>
+    <div class="bar-row"><div class="bar-label">PMI (SME)</div><div class="bar-track"><div class="bar-fill" style="width:3.7%;background:var(--series-2)"></div></div><div class="bar-value">3,6%</div></div>
+    <div class="note">
+      Le PMI sono 9 organizzazioni su 66 (14% del numero di beneficiari) ma incassano solo il 3,6% dei fondi. La retorica UE
+      sull'EDF come volano per le PMI difensive europee si scontra, nel caso italiano, con una realtà dominata dai grandi
+      prime contractor. Spunto giornalistico: confrontare questo rapporto con quello di altri paesi EDF (Francia, Germania)
+      per capire se è un pattern italiano o europeo.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:0.95rem;margin:0 0 10px;">Leonardo, il perno: coordina 3 progetti-bandiera</h3>
+    <table>
+      <thead><tr><th>Acronimo</th><th>Progetto</th><th>Ambito</th><th class="num">Budget EU progetto</th></tr></thead>
+      <tbody>
+        <tr><td>AURIGA</td><td>Armoured Infantry Ground Assault</td><td>Veicoli corazzati di nuova generazione</td><td class="num">€25.000.000</td></tr>
+        <tr><td>E-CUAS</td><td>European Counter Unmanned Aerial Systems</td><td>Contrasto ai droni</td><td class="num">€43.000.000</td></tr>
+        <tr><td>EMISSARY</td><td>Military Integrated Space Situational Awareness</td><td>Sorveglianza spaziale militare</td><td class="num">€100.000.000</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      Da sola l'azienda controllata dal Ministero dell'Economia coordina progetti per un budget UE complessivo di
+      <strong>€168 milioni</strong> (il valore dell'intero progetto, non solo la quota Leonardo) su tre ambiti strategici:
+      terra, aria (droni) e spazio. È l'unico soggetto italiano a guidare (da coordinatore) più di un progetto EDF — un
+      indicatore diretto del ruolo di "campione nazionale" della difesa italiana nell'architettura industriale europea.
+    </div>
+  </div>
+
+  <div class="caveat">
+    <strong>Nota metodologica sul doppio conteggio:</strong> "Iveco Defence Vehicles" (IN-0803) e "IDV Defence Vehicles Italia"
+    (IN-1431) condividono lo stesso PIC (898895121) e le stesse 5 partecipazioni EDF per €6.025.452 — sono la stessa entità
+    reale, duplicata nel database da un problema di matching in fase di import. Nei totali sopra è stata contata una sola
+    volta (altrimenti il totale complessivo sarebbe di €310,3M anziché €304,2M, e Bolzano risulterebbe erroneamente al 3,9%
+    anziché al 2,0%). Da correggere lato dati con un merge delle due entità.
+  </div>
+
+  <h2>Elenco completo per tipo</h2>
+  <div class="card">
+    <strong>Company (53)</strong>
+    <div class="type-list">
+      Airbus Italia · Aisent · ASE · CETENA · Civitanavi Systems · Cy4Gate · D-Orbit · DP (Development and Production of Electronic Systems) · Deep Blue · Drass Galeazzi · e-GEOS · ESTE · Elettronica · Expert.ai · Fincantieri · Fincantieri NexTech · Flysight · Free Space · GEM Elettronica · GG Partners · Gyala S.r.l. · IDS Ingegneria Dei Sistemi · IDV Defence Vehicles Italia · Isotta Fraschini Motori · Issel Nord · Italwatt · Iveco Defence Vehicles · KNDS Ammo Italy · Larimart · Leonardo S.p.A. · MBDA Italia · MES (Meccanica per l'Elettronica e Servomeccanismi) · Officina Stellare · On Air Consulting Solutions · REA · Rheinmetall Italia · Saipem · Sentech · SIEL · SIRA · Sitael · Stam · Tech · Technology for Propulsion and Innovation · Telecom Italia (×2 — voce duplicata, vedi nota) · Telespazio · Telespazio France · Thales Italia · TXT e-Tech · WASS Submarine Systems · WSense
+    </div>
+    <br>
+    <strong>Institution (18)</strong>
+    <div class="type-list">
+      ENEA · Alma Mater Studiorum – Università di Bologna · CIRA · CNR · CNIT · Fondazione LINKS · Fondazione SAFE · Istituto Affari Internazionali · Istituto Superiore di Sanità · Politecnico di Milano · Politecnico di Torino · Università Campus Bio-Medico di Roma · Università di Genova · Università di Modena e Reggio Emilia · Università di Napoli Federico II · Università di Pavia · Università di Roma Tor Vergata · Università di Trento
+    </div>
+    <br>
+    <strong>Investor (4)</strong>
+    <div class="type-list">Banca Monte dei Paschi di Siena · Intesa Sanpaolo · Poste Italiane · SACE</div>
+    <br>
+    <strong>Fund (3)</strong>
+    <div class="type-list">CDP Venture Capital · Star Capital SGR · United Ventures</div>
+    <br>
+    <strong>Government agency (1)</strong>
+    <div class="type-list">Ministero della Difesa</div>
+  </div>
+
+  <h2>Note sulla qualità dei dati</h2>
+  <div class="caveat">
+    <strong>MBDA España S.L.</strong> è marcata "Italia" a causa di un QID Wikidata errato (probabile falso positivo di enrichment automatico, pattern già documentato in STATUS.md); la fonte EDF la classifica correttamente come Spagna. Esclusa dal computo del venture capital, ma inclusa nel conteggio grezzo di 79.
+  </div>
+  <div class="caveat">
+    <strong>Telecom Italia</strong> compare come due entità distinte (IN-0365 e IN-0366, "Telecom Italia" / "Telecom Italia S.p.a.") non ancora riconciliate — probabile duplicato da import multipli.
+  </div>
+  <div class="caveat">
+    <strong>Fincantieri</strong> esiste sia come <em>company</em> (IN-0682) sia come <em>investor</em> (IV-0702, investimento in WSense) — modellazione corretta per il doppio ruolo, ma utile saperlo quando si contano le "entità italiane".
+  </div>
+
+  <p class="note">Metodo: paese risolto con fallback <code>sources.infonodes.country → sources.wikidata.country → sources.edf.country → sede da Crunchbase</code>, poi filtrato su "Italy/Italia". Script di analisi in <code>reports/scripts/analyze_italy.py</code> (branch <code>data-analysis</code>), nessuna scrittura su <code>data/database.json</code>.</p>
+</div>
+
+<script>
+(function () {
+  var tbody = document.getElementById('edf-table-body');
+  var rows = tbody ? Array.prototype.slice.call(tbody.querySelectorAll('tr')) : [];
+  var countEl = document.getElementById('edf-search-count');
+  var searchInput = document.getElementById('edf-search');
+
+  var state = { query: '', type: null };
+
+  function applyFilters() {
+    var q = state.query.trim().toLowerCase();
+    var visible = 0;
+    rows.forEach(function (tr) {
+      var matchesType = !state.type || tr.getAttribute('data-type') === state.type;
+      var haystack = (tr.getAttribute('data-org') || '') + ' ' + tr.textContent.toLowerCase();
+      var matchesQuery = q === '' || haystack.indexOf(q) !== -1;
+      var match = matchesType && matchesQuery;
+      tr.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    var parts = [];
+    if (state.type) parts.push('tipo: ' + state.type);
+    if (q) parts.push('testo: "' + state.query + '"');
+    countEl.textContent = parts.length
+      ? visible + ' di ' + rows.length + ' organizzazioni (' + parts.join(', ') + ') — clicca di nuovo l\'etichetta o svuota il campo per azzerare'
+      : '';
+  }
+
+  window.filterEdfTable = function (query) {
+    state.query = query || '';
+    applyFilters();
+  };
+
+  window.filterEdfByType = function (type, el) {
+    var badges = tbody.querySelectorAll('.type-badge');
+    if (state.type === type) {
+      state.type = null;
+      badges.forEach(function (b) { b.style.outline = 'none'; });
+    } else {
+      state.type = type;
+      badges.forEach(function (b) {
+        b.style.outline = (b.getAttribute('data-type-filter') === type) ? '2px solid var(--text-primary)' : 'none';
+      });
+    }
+    applyFilters();
+  };
+})();
+
+(function () {
+  var tooltip = document.getElementById('investor-tooltip');
+  var names = Array.prototype.slice.call(document.querySelectorAll('.investor-name'));
+  var activeEl = null;
+
+  function closeTooltip() {
+    tooltip.style.display = 'none';
+    if (activeEl) activeEl.classList.remove('active');
+    activeEl = null;
+  }
+
+  names.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (activeEl === el) {
+        closeTooltip();
+        return;
+      }
+      if (activeEl) activeEl.classList.remove('active');
+      activeEl = el;
+      el.classList.add('active');
+
+      var investments = (el.getAttribute('data-investments') || '').split('·').map(function (s) { return s.trim(); }).filter(Boolean);
+      var list = investments.map(function (n) { return '<li>' + n + '</li>'; }).join('');
+      tooltip.innerHTML = '<strong>' + el.textContent + '</strong> investe su:<ul style="margin:6px 0 0; padding-left:18px;">' + list + '</ul>';
+
+      var rect = el.getBoundingClientRect();
+      var pageTop = rect.bottom + window.scrollY + 6;
+      var pageLeft = rect.left + window.scrollX;
+      tooltip.style.top = pageTop + 'px';
+      tooltip.style.left = pageLeft + 'px';
+      tooltip.style.display = 'block';
+
+      // Keep the tooltip inside the viewport horizontally.
+      var tRect = tooltip.getBoundingClientRect();
+      if (tRect.right > window.innerWidth - 12) {
+        tooltip.style.left = (window.innerWidth - tRect.width - 12 + window.scrollX) + 'px';
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (tooltip.style.display === 'block' && !tooltip.contains(e.target)) {
+      closeTooltip();
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeTooltip();
+  });
+})();
+</script>
+</body>
+</html>
