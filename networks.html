@@ -7,7 +7,7 @@
   <title>Networks — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
@@ -19,8 +19,8 @@
     /* ── Page shell ── */
     #page {
       display: flex;
-      height: calc(100vh - var(--nav-h) - var(--tab-h));
-      margin-top: calc(var(--nav-h) + var(--tab-h));
+      height: calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
+      margin-top: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h));
     }
 
     /* ── Sidebar ── */
@@ -302,7 +302,7 @@
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--text-primary)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
   <div class="lang-switcher">
@@ -315,11 +315,19 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="index.html" class="tnav-btn">Map</a>
-  <a href="networks.html" class="tnav-btn active">Networks</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti">Investimenti</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn">Publications</a>
   <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete della sezione corrente) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn" id="subtab-mappa" href="./">Mappa</a>
+    <a class="snav-btn active" id="subtab-rete" href="networks.html">Rete</a>
+  </div>
 </div>
 
 <div id="page">
@@ -341,8 +349,8 @@
       Large graph — layout may take a few seconds.
     </div>
 
-    <div class="net-section-label" data-i18n="net.relationships">Relationships</div>
-    <div class="net-filter-group">
+    <div class="net-section-label" data-i18n="net.relationships" style="display:none">Relationships</div>
+    <div class="net-filter-group" style="display:none">
       <label class="net-filter-row">
         <input type="checkbox" id="chk-edf" checked> EDF projects
         <i class="info-tip">i<span class="tip-box" data-i18n="net.edf_tip">Flaggando "EDF projects" il sistema mostrerà tutti i soggetti che hanno ricevuto finanziamenti attraverso il programma EDF (European Defence Fund), le relazioni fra loro e le informazioni di ogni singolo progetto.</span></i>
@@ -358,17 +366,17 @@
 
     <div class="net-section-label" data-i18n="net.actors">Actors</div>
     <div class="net-legend">
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Company <span class="net-legend-count" id="lc-company"></span></div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institution <span class="net-legend-count" id="lc-institution"></span></div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund <span class="net-legend-count" id="lc-investor"></span></div>
-      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov agency <span class="net-legend-count" id="lc-gov"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Companies <span class="net-legend-count" id="lc-company"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institutions <span class="net-legend-count" id="lc-institution"></span></div>
+      <div class="net-legend-item" id="legend-investor"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund <span class="net-legend-count" id="lc-investor"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov Agencies <span class="net-legend-count" id="lc-gov"></span></div>
     </div>
 
     <div class="net-section-label" data-i18n="net.connections">Connections</div>
     <div class="net-legend">
       <div class="net-legend-item"><span class="net-legend-diamond"></span>EU funded projects <span class="net-legend-count" id="lc-project"></span></div>
       <div class="net-legend-item"><span class="net-legend-line-solid"></span>EU funded connections <span class="net-legend-count" id="lc-edf"></span></div>
-      <div class="net-legend-item"><span class="net-legend-line-dashed"></span>Private investments <span class="net-legend-count" id="lc-inv"></span></div>
+      <div class="net-legend-item" id="legend-privinv"><span class="net-legend-line-dashed"></span>Private investments <span class="net-legend-count" id="lc-inv"></span></div>
     </div>
 
     <div id="net-note" data-i18n-html="net.note">
@@ -451,9 +459,12 @@ function fmtEur(val) {
   if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
   return `€${n.toFixed(0)}`;
 }
+// Nomi-Paese equivalenti da uniformare (le fonti usano varianti diverse).
+const COUNTRY_ALIASES = { 'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic' };
 function getCountry(e) {
   const s = e.sources || {};
-  return (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+  const c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+  return COUNTRY_ALIASES[c] || c;
 }
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -463,6 +474,8 @@ let edfRels       = [];
 let investmentRels= [];
 let countryIndex  = {};
 let countryCounts = [];
+let edfCountryIndex  = {};   // solo Paesi con partecipazioni EDF (sezione Finanziamenti EU)
+let edfCountryCounts = [];
 
 async function loadData() {
   DB = await fetch('data/database.json').then(r => r.json());
@@ -487,6 +500,24 @@ async function loadData() {
   countryIndex = ci;
 
   countryCounts = Object.entries(ci)
+    .map(([country, ids]) => ({ country, count: ids.size }))
+    .sort((a, b) => a.country.localeCompare(b.country));
+
+  // Indice Paesi solo-EDF: entità che partecipano a progetti EDF.
+  // Serve al selettore della sezione Finanziamenti EU, che non deve elencare
+  // Paesi presenti solo per gli investimenti (es. Australia).
+  const edfSourceIds = new Set(edfRels.map(r => r.source));
+  const eci = {};
+  for (const e of DB.entities) {
+    if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
+    if (!edfSourceIds.has(e.id)) continue;
+    const c = getCountry(e);
+    if (!c) continue;
+    if (!eci[c]) eci[c] = new Set();
+    eci[c].add(e.id);
+  }
+  edfCountryIndex = eci;
+  edfCountryCounts = Object.entries(eci)
     .map(([country, ids]) => ({ country, count: ids.size }))
     .sort((a, b) => a.country.localeCompare(b.country));
 }
@@ -988,14 +1019,37 @@ function closeDetailSilent() {
 // ── URL routing ───────────────────────────────────────────────────────────────
 function readParams() {
   const p = new URLSearchParams(window.location.search);
+  let edf = p.get('edf') !== '0';
+  let inv = p.get('inv') !== '0';
+  // Fallback: se la query è stata persa (proxy che elimina i parametri su .html),
+  // usa la sezione memorizzata dalla pagina precedente.
+  if (!p.has('edf') && !p.has('inv')) {
+    let s = null; try { s = sessionStorage.getItem('mitl-section'); } catch (e) {}
+    if (s === 'edf')          { edf = true;  inv = false; }
+    else if (s === 'investimenti') { edf = false; inv = true; }
+  }
   return {
     country:      p.get('country') || null,
-    edf:          p.get('edf') !== '0',
-    inv:          p.get('inv') !== '0',
+    edf,
+    inv,
     selected:     p.get('selected') || null,
     selectedName: p.get('selectedName') || null,
   };
 }
+
+// Memorizza il soggetto prima di aprire la sua scheda in Search, così il
+// profilo si apre anche se il proxy elimina i parametri dall'URL su .html.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
 
 function pushURL(country, edf, inv, selected, selectedName) {
   const url = new URL(window.location.href);
@@ -1347,33 +1401,59 @@ async function init() {
   const chkEdf  = document.getElementById('chk-edf');
   const chkInv  = document.getElementById('chk-inv');
 
+  const params = readParams();
+
+  // ── Section routing (EDF / Investimenti) + sub-tab Mappa ──
+  const _section = (params.inv && !params.edf) ? 'investimenti' : 'edf';
+  try { sessionStorage.setItem('mitl-section', _section); } catch (e) {}
+  document.getElementById('nav-' + _section)?.classList.add('active');
+  const _lang   = new URLSearchParams(location.search).get('lang');
+  const _langQS = _lang ? '&lang=' + _lang : '';
+  const _subMappa = document.getElementById('subtab-mappa');
+  if (_subMappa) _subMappa.href = './?mode=' + (_section === 'edf' ? 'edf' : 'investment') + _langQS;
+
+  // Nella sezione EDF il selettore elenca solo i Paesi con partecipazioni EDF.
+  const activeCounts = _section === 'edf' ? edfCountryCounts : countryCounts;
+  const activeIndex  = _section === 'edf' ? edfCountryIndex  : countryIndex;
+
   const allOpt = document.createElement('option');
   allOpt.value = '__all__';
   allOpt.textContent = `All entities`;
   select.appendChild(allOpt);
 
-  for (const { country, count } of countryCounts) {
+  for (const { country } of activeCounts) {
     const opt = document.createElement('option');
     opt.value = country;
     opt.textContent = country;
     select.appendChild(opt);
   }
 
-  const params = readParams();
   const localeCountry = browserDefaultCountry();
-  const defaultCountry = (localeCountry && countryIndex[localeCountry])
+  const defaultCountry = (localeCountry && activeIndex[localeCountry])
     ? localeCountry
-    : (countryCounts[0]?.country || '__all__');
+    : (activeCounts[0]?.country || '__all__');
   const resolvedFromSelected = (!params.country && params.selected)
     ? resolveEntityCountry(params.selected)
     : null;
-  const country = (params.country && (countryIndex[params.country] || params.country === '__all__'))
+  const country = (params.country && (activeIndex[params.country] || params.country === '__all__'))
     ? params.country
     : (resolvedFromSelected || defaultCountry);
 
   select.value   = country;
   chkEdf.checked = params.edf;
   chkInv.checked = params.inv;
+
+  // Sezione EDF: rete di soli fondi europei → nascondi le voci di legenda
+  // legate agli investimenti privati e usa la descrizione dedicata.
+  if (_section === 'edf') {
+    document.getElementById('legend-investor')?.style.setProperty('display', 'none');
+    document.getElementById('legend-privinv')?.style.setProperty('display', 'none');
+    const _note = document.getElementById('net-note');
+    if (_note) {
+      _note.setAttribute('data-i18n-html', 'net.note_edf');   // così resta EDF anche al cambio lingua
+      _note.innerHTML = t('net.note_edf');
+    }
+  }
 
   replaceURL(select.value, chkEdf.checked, chkInv.checked, params.selected, params.selectedName);
 

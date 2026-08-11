@@ -7,7 +7,7 @@
   <title>Map — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
@@ -92,6 +92,35 @@
     .map-mode-btn:not(.is-active):hover { color: var(--text-primary); }
     [data-theme="light"] .map-mode-btn.is-active { color: #fff; }
     .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
+
+    /* ── Selettori Finanziamenti EU (8 programmi) ── */
+    .fin-selectors { display: flex; flex-direction: column; gap: 7px; }
+    .fin-sep { height: 1px; background: var(--border); margin: 4px 0; opacity: .6; }
+    .fin-row { display: flex; align-items: center; gap: 8px; font-size: var(--fs-base); }
+    .fin-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .fin-check input { cursor: pointer; accent-color: var(--accent); }
+    .fin-name { font-weight: var(--fw-bold); letter-spacing: .3px; }
+    .fin-row.is-wip .fin-check,
+    .fin-row.is-wip .fin-check input { cursor: not-allowed; }
+    .fin-row.is-wip .fin-name { color: var(--text-faint); }
+    .fin-wip { font-size: var(--fs-xs); color: var(--text-faint); font-style: italic; text-transform: uppercase; letter-spacing: .4px; white-space: nowrap; }
+    .fin-info { position: relative; display: inline-flex; }
+    .fin-info-btn {
+      width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); font-family: var(--font);
+      font-size: 11px; font-style: italic; line-height: 1; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; padding: 0;
+    }
+    .fin-info-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .fin-info-box {
+      display: none; position: absolute; top: 22px; left: 0; z-index: 60; width: 220px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 8px 10px; font-size: var(--fs-xs); font-weight: 400; font-style: normal;
+      letter-spacing: 0; text-transform: none; color: var(--text-secondary);
+      line-height: 1.45; box-shadow: 0 4px 14px rgba(0,0,0,.45);
+    }
+    .fin-info.open .fin-info-box { display: block; }
+
     /* EDF panel funding list */
     .edf-fund-item { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 3px 0; border-bottom: 1px solid rgba(65,67,69,0.2); font-size: calc(var(--fs-body) * .82); }
     .edf-fund-item:last-child { border-bottom: none; }
@@ -121,11 +150,11 @@
     }
   </style>
 </head>
-<body class="subnav-hidden legend-hidden">
+<body class="legend-hidden">
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
+  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--text-primary)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
   <div class="lang-switcher">
@@ -138,11 +167,19 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="./" class="tnav-btn active">Map</a>
-  <a href="networks.html" class="tnav-btn">Networks</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti">Investimenti</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn">Publications</a>
   <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete della sezione corrente) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn active" id="subtab-mappa" href="./">Mappa</a>
+    <a class="snav-btn" id="subtab-rete" href="networks.html">Rete</a>
+  </div>
 </div>
 
 <!-- ── Content ── -->
@@ -167,7 +204,7 @@
     <!-- Map main -->
     <div id="map-main">
       <div id="map-toolbar">
-        <div class="map-mode-switch">
+        <div class="map-mode-switch" style="display:none">
           <button class="map-mode-btn is-active" id="mode-btn-investment">Investments</button>
           <button class="map-mode-btn" id="mode-btn-edf">EDF Funding</button>
         </div>
@@ -458,6 +495,9 @@ let relationships = [];
 // ── Routing ───────────────────────────────────────────────────────────────────
 function pushMapState({ country = null, countryname = null, entity = null, entityname = null, arc = null } = {}) {
   const p = new URLSearchParams();
+  if (mapState.mode === 'edf') p.set('mode', 'edf');
+  const _lang = new URLSearchParams(location.search).get('lang');
+  if (_lang)             p.set('lang', _lang);
   if (country)           p.set('country', String(country));
   if (countryname)       p.set('countryname', countryname);
   if (entity)            p.set('entity', entity);
@@ -496,6 +536,70 @@ function restoreMapState({ country, entity, type, arc } = {}) {
   }
 }
 
+// ── EU funding selectors (Finanziamenti EU panel) ──────────────────────────────
+// Al momento solo EDF è attivo; gli altri programmi sono "work in progress".
+const FIN_PROGRAMS = [
+  { id: 'EDF',     active: true  },
+  { id: 'HORIZON', active: false },
+  { id: 'PESCO',   active: false },
+  { id: 'EDIP',    active: false },
+  { id: 'EUDIS',   active: false },
+  { id: 'EIF',     active: false },
+  // DIANA e NIF sono programmi NATO, non UE: separati da una linea.
+  { id: 'DIANA',   active: false, divider: true },
+  { id: 'NIF',     active: false },
+];
+// Testi dei box informativi: chiavi i18n 'fin.info.<PROGRAMMA>' in web/i18n.js.
+function finSelectorsHTML() {
+  return FIN_PROGRAMS.map(p => `
+    ${p.divider ? '<div class="fin-sep"></div>' : ''}
+    <div class="fin-row${p.active ? '' : ' is-wip'}">
+      <label class="fin-check">
+        <input type="checkbox" ${p.active ? 'checked onchange="toggleEdfLayer(this.checked)"' : 'disabled'}>
+        <span class="fin-name">${p.id}</span>
+      </label>
+      <span class="fin-info">
+        <button type="button" class="fin-info-btn" onclick="toggleFinInfo(event, this)" aria-label="Info ${p.id}">i</button>
+        <span class="fin-info-box">${t('fin.info.' + p.id)}</span>
+      </span>
+      ${p.active ? '' : `<span class="fin-wip">${t('map.wip')}</span>`}
+    </div>`).join('');
+}
+
+function toggleFinInfo(ev, btn) {
+  ev.stopPropagation();
+  const wrap = btn.closest('.fin-info');
+  const wasOpen = wrap.classList.contains('open');
+  document.querySelectorAll('.fin-info.open').forEach(w => w.classList.remove('open'));
+  if (!wasOpen) wrap.classList.add('open');
+}
+
+function toggleEdfLayer(show) {
+  if (show) { switchMapMode('edf'); return; }   // ridisegna correttamente il layer EDF
+  mapState.g?.selectAll('.map-node').style('display', 'none');
+  mapState.g?.selectAll('.edf-fund-label').style('display', 'none');
+}
+
+// Chiude i box informativi quando si clicca fuori
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.fin-info'))
+    document.querySelectorAll('.fin-info.open').forEach(w => w.classList.remove('open'));
+});
+
+// Memorizza il soggetto prima di aprire la sua scheda in Search, così il
+// profilo si apre anche se il proxy elimina i parametri dall'URL su .html.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
+
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
   const header  = document.getElementById('map-panel-header');
@@ -507,6 +611,9 @@ function setDefaultPanelContent() {
     document.getElementById('map-panel-body').innerHTML = `
       <div class="sl-panel-section">
         <p class="map-intro-text">${t('map.edf_mode_desc')}</p>
+      </div>
+      <div class="sl-panel-section fin-selectors">
+        ${finSelectorsHTML()}
       </div>`;
     return;
   }
@@ -1532,6 +1639,20 @@ async function init() {
     const res = await fetch('data/database.json');
     const db  = await res.json();
     await buildMapView(db);
+
+    // ── Section routing (EDF / Investimenti) + sub-tabs Mappa/Rete ──
+    const _p = new URLSearchParams(location.search);
+    const section = (_p.get('mode') === 'edf') ? 'edf' : 'investimenti';
+    try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
+    document.getElementById('nav-' + section)?.classList.add('active');
+    const _lang    = _p.get('lang');
+    const _langQS  = _lang ? '&lang=' + _lang : '';
+    const netParams = section === 'edf' ? 'edf=1&inv=0' : 'edf=0&inv=1';
+    const subRete  = document.getElementById('subtab-rete');
+    const subMappa = document.getElementById('subtab-mappa');
+    if (subRete)  subRete.href  = 'networks.html?' + netParams + _langQS;
+    if (subMappa) subMappa.href = './?mode=' + (section === 'edf' ? 'edf' : 'investment') + _langQS;
+    if (section === 'edf') switchMapMode('edf');
 
     // Restore state from URL on direct load / refresh
     const initParams  = new URLSearchParams(location.search);

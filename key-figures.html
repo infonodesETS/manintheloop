@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Figures — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <style>
+    html { font-size: 120%; }
+    :root { --nav-h: 64px; }
+    body { overflow: auto; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+
+    #kf-content {
+      padding: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h) + 40px) 40px 80px;
+      max-width: 1100px;
+    }
+    .kf-prompt { font-family: var(--font-mono); font-size: var(--fs-xs); color: rgba(0,255,65,0.5); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+    [data-theme="light"] .kf-prompt { color: rgba(0,102,34,0.6); }
+    .kf-heading { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--text-primary); line-height: 1.05; margin-bottom: 10px; }
+    .kf-sub { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.25); padding-left: 16px; margin-bottom: 36px; max-width: 720px; }
+
+    .kf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; }
+    .kf-card { border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px 20px; background: rgba(255,255,255,0.015); }
+    [data-theme="light"] .kf-card { background: rgba(0,0,0,0.015); }
+    .kf-card-title { font-family: var(--font); font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--accent); line-height: 1.15; margin-bottom: 16px; }
+
+    .kf-row { margin-bottom: 13px; }
+    .kf-row:last-child { margin-bottom: 2px; }
+    .kf-row-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+    .kf-rank { color: var(--text-faint); font-family: var(--font-mono); font-size: var(--fs-xs); margin-right: 7px; }
+    .kf-name { color: var(--text-primary); font-size: var(--fs-base); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    a.kf-name:hover { color: var(--accent); text-decoration: underline; }
+    .kf-country { color: var(--text-faint); font-size: var(--fs-xs); }
+    .kf-val { color: var(--accent); font-family: var(--font-mono); font-size: var(--fs-sm); flex-shrink: 0; white-space: nowrap; }
+    .kf-bar-track { height: 8px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+    [data-theme="light"] .kf-bar-track { background: rgba(0,0,0,0.08); }
+    .kf-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
+
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--text-primary)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="./?mode=edf" class="tnav-btn active" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn">Investimenti</a>
+  <a href="search.html" class="tnav-btn">Search</a>
+  <a href="publications.html" class="tnav-btn">Publications</a>
+  <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete / Key Figures) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn" id="subtab-mappa" href="./?mode=edf">Mappa</a>
+    <a class="snav-btn" id="subtab-rete" href="networks.html?edf=1&inv=0">Rete</a>
+    <a class="snav-btn active" id="subtab-keyfig" href="key-figures.html">Key Figures</a>
+  </div>
+</div>
+
+<div id="kf-content">
+  <div class="kf-prompt">$ key-figures --top5 --source edf</div>
+  <div class="kf-heading" data-i18n="kf.heading">I numeri chiave</div>
+  <div class="kf-sub" data-i18n="kf.heading_sub">I finanziamenti europei allo sviluppo di armamenti, in sintesi.</div>
+  <div class="kf-grid" id="kf-grid"></div>
+</div>
+
+<script>
+// Questa pagina è la sezione "Finanziamenti EU": memorizza la sezione per i
+// sotto-tab (Rete/Mappa) anche se il proxy elimina i parametri dall'URL.
+try { sessionStorage.setItem('mitl-section', 'edf'); } catch (e) {}
+
+// Memorizza il soggetto prima di aprirne la scheda in Search (stesso fallback
+// usato in mappa/rete contro l'eliminazione dei parametri su .html).
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
+
+const _esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const COUNTRY_ALIASES = { 'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic' };
+const getCountry = e => {
+  const s = e.sources || {};
+  const c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+  return COUNTRY_ALIASES[c] || c;
+};
+const fundOf = e => (e.sources && e.sources.edf && e.sources.edf.total_eu_contribution) || 0;
+const projOf = e => (e.sources && e.sources.edf && e.sources.edf.project_count) || 0;
+const isUniversity = e => (e.sources && e.sources.edf && e.sources.edf.activity_type) === 'HSE';
+const isCompany    = e => e.type === 'company';
+
+function fmtEur(n) {
+  if (!n) return '€0';
+  if (n >= 1e6) return '€' + (n / 1e6).toFixed(1).replace('.0', '') + 'M';
+  if (n >= 1e3) return '€' + Math.round(n / 1e3) + 'K';
+  return '€' + Math.round(n);
+}
+
+let RANKINGS = null;   // calcolato una volta dai dati
+
+function computeRankings(DB) {
+  const retired = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  const entities = DB.entities.filter(e => !retired.has(e.id));
+  const rels     = DB.relationships.filter(r => !retired.has(r.source) && !retired.has(r.target));
+  const edfSrc   = new Set(rels.filter(r => r.type === 'edf_participation').map(r => r.source));
+  const E        = entities.filter(e => edfSrc.has(e.id));
+
+  const topBy = (arr, val) => arr.slice().sort((a, b) => val(b) - val(a)).slice(0, 5);
+
+  // Totali per Paese (nessuna entità cliccabile: aggregato)
+  const ct = {};
+  E.forEach(e => { const c = getCountry(e); if (c) ct[c] = (ct[c] || 0) + fundOf(e); });
+  const countriesByFund = Object.entries(ct)
+    .map(([country, v]) => ({ name: country, value: v, isCountry: true }))
+    .sort((a, b) => b.value - a.value).slice(0, 5);
+
+  const row = (e, val) => ({ id: e.id, name: e.name, country: getCountry(e), value: val(e) });
+
+  return {
+    countriesByFund,
+    companiesByFund:     topBy(E.filter(isCompany), fundOf).map(e => row(e, fundOf)),
+    companiesByProj:     topBy(E.filter(isCompany), projOf).map(e => row(e, projOf)),
+    universitiesByFund:  topBy(E.filter(isUniversity), fundOf).map(e => row(e, fundOf)),
+    universitiesByProj:  topBy(E.filter(isUniversity), projOf).map(e => row(e, projOf)),
+  };
+}
+
+function barChart(rows, format) {
+  const max = Math.max(...rows.map(r => r.value), 1);
+  return rows.map((r, i) => {
+    const pct = Math.max(2, Math.round((r.value / max) * 100));
+    const label = r.isCountry
+      ? `<span class="kf-name">${_esc(r.name)}</span>`
+      : `<a class="kf-name" href="search.html?organization=${encodeURIComponent(r.id)}&organizationName=${encodeURIComponent(r.name)}" title="${_esc(r.name)}">${_esc(r.name)}</a>`;
+    const country = r.country ? ` <span class="kf-country">· ${_esc(r.country)}</span>` : '';
+    return `<div class="kf-row">
+      <div class="kf-row-head">
+        <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span class="kf-rank">${i + 1}</span>${label}${r.isCountry ? '' : country}</span>
+        <span class="kf-val">${format(r.value)}</span>
+      </div>
+      <div class="kf-bar-track"><div class="kf-bar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function render() {
+  if (!RANKINGS) return;
+  const eur  = v => fmtEur(v);
+  const proj = v => `${v} ${t('kf.unit_projects')}`;
+  const cards = [
+    { title: t('kf.t_countries_fund'),     rows: RANKINGS.countriesByFund,    fmt: eur  },
+    { title: t('kf.t_companies_fund'),      rows: RANKINGS.companiesByFund,    fmt: eur  },
+    { title: t('kf.t_companies_proj'),      rows: RANKINGS.companiesByProj,    fmt: proj },
+    { title: t('kf.t_universities_fund'),   rows: RANKINGS.universitiesByFund, fmt: eur  },
+    { title: t('kf.t_universities_proj'),   rows: RANKINGS.universitiesByProj, fmt: proj },
+  ];
+  document.getElementById('kf-grid').innerHTML = cards.map(c => `
+    <div class="kf-card">
+      <div class="kf-card-title">${_esc(c.title)}</div>
+      ${barChart(c.rows, c.fmt)}
+    </div>`).join('');
+}
+
+fetch('data/database.json')
+  .then(r => r.json())
+  .then(DB => { RANKINGS = computeRankings(DB); render(); })
+  .catch(err => {
+    document.getElementById('kf-grid').innerHTML =
+      `<div style="color:var(--error)">Errore nel caricamento dei dati: ${_esc(String(err))}</div>`;
+  });
+
+document.addEventListener('mitl-lang-change', render);
+</script>
+<script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
+</body>
+</html>
