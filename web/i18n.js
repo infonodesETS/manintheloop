@@ -38,7 +38,6 @@ const TRANSLATIONS = {
     'map.reset_zoom':        'Reset zoom',
     'map.about_this_map':    'About this map',
     'map.investments_title': 'Investments',
-    'nav.eu_funding':        'Finanziamenti EU',
     'map.edf_title':         'Finanziamenti EU',
     'map.wip':               'work in progress',
     'map.edf_mode_desc':     'Questa mappa mostra i finanziamenti europei per lo sviluppo di armamenti erogati ai singoli Stati dell\'Unione Europea e, in dettaglio, a quali delle loro aziende, università o altri soggetti pubblici e privati.<br><br>Il diametro dei cerchi è proporzionato al totale dei finanziamenti ricevuti dallo Stato.<br><br>Cliccando sul cerchio corrispondente a un paese si aprirà l\'elenco di tutti i singoli soggetti che hanno beneficiato di finanziamenti europei con il dettaglio della cifra incassata. È possibile cliccare sul nome del soggetto che ti interessa e aprire la sua scheda di dettaglio, contenente tutte le informazioni che siamo riusciti a raccogliere.<br><br>Grazie ai selettori, puoi scegliere di visualizzare tutte le tipologie di finanziamento pubblico europeo (EDF, Horizon, PESCO etc...) o solo quella o quelle che ti interessano.',
@@ -51,6 +50,16 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Acceleratore di innovazione per la difesa del Nord Atlantico) è un\'organizzazione creata dalla NATO per individuare e accelerare l\'innovazione, allo scopo di fornire capacità di difesa e sicurezza all\'Alleanza.',
     'fin.info.NIF':     'Il NIF (NATO Innovation Fund) è un fondo di venture capital autonomo sostenuto da 24 alleati della NATO, che investe oltre 1 miliardo di euro in tecnologie deep tech.',
     'map.loading':           'Loading map data…',
+
+    // KEY FIGURES
+    'kf.heading':             'I numeri chiave',
+    'kf.heading_sub':         'I finanziamenti europei allo sviluppo di armamenti, in sintesi.',
+    'kf.unit_projects':       'progetti',
+    'kf.t_countries_fund':    'Top 5 Paesi per finanziamenti ricevuti',
+    'kf.t_companies_fund':    'Top 5 aziende per finanziamenti ricevuti',
+    'kf.t_companies_proj':    'Top 5 aziende per numero di progetti',
+    'kf.t_universities_fund': 'Top 5 università e centri di ricerca per finanziamenti ricevuti',
+    'kf.t_universities_proj': 'Top 5 università e centri di ricerca per numero di progetti',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -145,7 +154,6 @@ const TRANSLATIONS = {
     'map.reset_zoom':     'Reset zoom',
     'map.about_this_map':    'About this map',
     'map.investments_title': 'Investments',
-    'nav.eu_funding':        'EU Funding',
     'map.edf_title':         'EU Funding',
     'map.wip':               'work in progress',
     'map.edf_mode_desc':     'This map shows the European funding for weapons development granted to individual EU States and, in detail, to which of their companies, universities or other public and private entities.<br><br>The diameter of each circle is proportional to the total funding received by the State.<br><br>Clicking on the circle for a country opens the list of all the individual entities that have received European funding, with the amount each one received. You can click on the name of any entity to open its detail page, containing all the information we have been able to collect.<br><br>Using the selectors, you can choose to view all types of European public funding (EDF, Horizon, PESCO, etc.) or only the one(s) you are interested in.',
@@ -158,6 +166,16 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA is the Defence Innovation Accelerator for the North Atlantic, an organisation established by NATO to find and accelerate innovation to provide defence and security effects for the Alliance.',
     'fin.info.NIF':     'A standalone venture capital fund backed by 24 NATO allies, deploying €1 billion+ in deep tech.',
     'map.loading':           'Loading map data…',
+
+    // KEY FIGURES
+    'kf.heading':             'Key figures',
+    'kf.heading_sub':         'European funding for weapons development, at a glance.',
+    'kf.unit_projects':       'projects',
+    'kf.t_countries_fund':    'Top 5 countries by funding received',
+    'kf.t_companies_fund':    'Top 5 companies by funding received',
+    'kf.t_companies_proj':    'Top 5 companies by number of projects',
+    'kf.t_universities_fund': 'Top 5 universities and research centres by funding received',
+    'kf.t_universities_proj': 'Top 5 universities and research centres by number of projects',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -252,7 +270,6 @@ const TRANSLATIONS = {
     'map.reset_zoom':     'Réinitialiser zoom',
     'map.about_this_map':    'À propos de la carte',
     'map.investments_title': 'Investments',
-    'nav.eu_funding':        'Financements UE',
     'map.edf_title':         'Financements UE',
     'map.wip':               'work in progress',
     'map.edf_mode_desc':     'Cette carte montre les financements européens pour le développement d\'armements accordés à chaque État de l\'Union européenne et, en détail, à quelles de leurs entreprises, universités ou autres acteurs publics et privés.<br><br>Le diamètre des cercles est proportionnel au total des financements reçus par l\'État.<br><br>En cliquant sur le cercle correspondant à un pays, la liste de tous les acteurs ayant bénéficié de financements européens s\'affiche, avec le détail du montant perçu. Vous pouvez cliquer sur le nom de l\'acteur qui vous intéresse pour ouvrir sa fiche détaillée, contenant toutes les informations que nous avons pu collecter.<br><br>Grâce aux sélecteurs, vous pouvez choisir d\'afficher tous les types de financement public européen (EDF, Horizon, PESCO, etc.) ou seulement celui ou ceux qui vous intéressent.',
@@ -265,6 +282,16 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Accélérateur d\'innovation de défense pour l\'Atlantique Nord) est une organisation créée par l\'OTAN pour repérer et accélérer l\'innovation afin de fournir des capacités de défense et de sécurité à l\'Alliance.',
     'fin.info.NIF':     'Le NIF (NATO Innovation Fund) est un fonds de capital-risque autonome soutenu par 24 alliés de l\'OTAN, qui investit plus d\'un milliard d\'euros dans les deep tech.',
     'map.loading':           'Chargement des données…',
+
+    // KEY FIGURES
+    'kf.heading':             'Les chiffres clés',
+    'kf.heading_sub':         'Les financements européens au développement d\'armements, en résumé.',
+    'kf.unit_projects':       'projets',
+    'kf.t_countries_fund':    'Top 5 des pays par financements reçus',
+    'kf.t_companies_fund':    'Top 5 des entreprises par financements reçus',
+    'kf.t_companies_proj':    'Top 5 des entreprises par nombre de projets',
+    'kf.t_universities_fund': 'Top 5 des universités et centres de recherche par financements reçus',
+    'kf.t_universities_proj': 'Top 5 des universités et centres de recherche par nombre de projets',
 
     // NETWORKS — sidebar
     'net.title':          'Réseau de défense',
@@ -359,7 +386,6 @@ const TRANSLATIONS = {
     'map.reset_zoom':     'Restablecer zoom',
     'map.about_this_map':    'Acerca del mapa',
     'map.investments_title': 'Investments',
-    'nav.eu_funding':        'Financiación UE',
     'map.edf_title':         'Financiación UE',
     'map.wip':               'work in progress',
     'map.edf_mode_desc':     'Este mapa muestra la financiación europea para el desarrollo de armamento concedida a cada Estado de la Unión Europea y, en detalle, a qué empresas, universidades u otros actores públicos y privados suyos.<br><br>El diámetro de los círculos es proporcional al total de la financiación recibida por el Estado.<br><br>Al hacer clic en el círculo correspondiente a un país se abrirá la lista de todos los actores que han recibido financiación europea, con el detalle del importe recibido. Puedes hacer clic en el nombre del actor que te interese para abrir su ficha de detalle, con toda la información que hemos podido recopilar.<br><br>Gracias a los selectores, puedes elegir ver todos los tipos de financiación pública europea (EDF, Horizon, PESCO, etc.) o solo el que o los que te interesen.',
@@ -372,6 +398,16 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Acelerador de Innovación en Defensa para el Atlántico Norte) es una organización creada por la OTAN para detectar y acelerar la innovación con el fin de proporcionar capacidades de defensa y seguridad a la Alianza.',
     'fin.info.NIF':     'El NIF (NATO Innovation Fund) es un fondo de capital riesgo autónomo respaldado por 24 aliados de la OTAN, que invierte más de 1.000 millones de euros en tecnologías deep tech.',
     'map.loading':           'Cargando datos del mapa…',
+
+    // KEY FIGURES
+    'kf.heading':             'Las cifras clave',
+    'kf.heading_sub':         'La financiación europea al desarrollo de armamento, en síntesis.',
+    'kf.unit_projects':       'proyectos',
+    'kf.t_countries_fund':    'Top 5 países por financiación recibida',
+    'kf.t_companies_fund':    'Top 5 empresas por financiación recibida',
+    'kf.t_companies_proj':    'Top 5 empresas por número de proyectos',
+    'kf.t_universities_fund': 'Top 5 universidades y centros de investigación por financiación recibida',
+    'kf.t_universities_proj': 'Top 5 universidades y centros de investigación por número de proyectos',
 
     // NETWORKS — sidebar
     'net.title':          'Red de defensa',
@@ -482,9 +518,9 @@ function _updateURL(lang) {
   history.replaceState(history.state, '', url);
 }
 
-// Keep lang param on all tabnav links so navigation preserves the language
+// Keep lang param on all tabnav and subnav links so navigation preserves the language
 function _patchNavLinks() {
-  document.querySelectorAll('a.tnav-btn').forEach(a => {
+  document.querySelectorAll('a.tnav-btn, a.snav-btn').forEach(a => {
     const href = a.getAttribute('href');
     if (!href || href.startsWith('#')) return;
     const url = new URL(href, location.href);

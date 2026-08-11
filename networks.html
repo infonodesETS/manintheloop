@@ -315,18 +315,19 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf">EU Funding</a>
   <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti">Investimenti</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn">Publications</a>
   <a href="about.html" class="tnav-btn">About</a>
 </div>
 
-<!-- ── Subnav (Mappa / Rete della sezione corrente) ── -->
+<!-- ── Subnav (Mappa / Rete / Key Figures della sezione corrente) ── -->
 <div id="subnav">
   <div class="snav-group">
     <a class="snav-btn" id="subtab-mappa" href="./">Mappa</a>
     <a class="snav-btn active" id="subtab-rete" href="networks.html">Rete</a>
+    <a class="snav-btn" id="subtab-keyfig" href="key-figures.html">Key Figures</a>
   </div>
 </div>
 
@@ -1403,7 +1404,7 @@ async function init() {
 
   const params = readParams();
 
-  // ── Section routing (EDF / Investimenti) + sub-tab Mappa ──
+  // ── Section routing (EDF / Investimenti) + sub-tab Mappa/Key Figures ──
   const _section = (params.inv && !params.edf) ? 'investimenti' : 'edf';
   try { sessionStorage.setItem('mitl-section', _section); } catch (e) {}
   document.getElementById('nav-' + _section)?.classList.add('active');
@@ -1411,6 +1412,16 @@ async function init() {
   const _langQS = _lang ? '&lang=' + _lang : '';
   const _subMappa = document.getElementById('subtab-mappa');
   if (_subMappa) _subMappa.href = './?mode=' + (_section === 'edf' ? 'edf' : 'investment') + _langQS;
+  const _subRete = document.getElementById('subtab-rete');
+  if (_subRete) _subRete.href = 'networks.html?' +
+    (_section === 'edf' ? 'edf=1&inv=0' : 'edf=0&inv=1') + _langQS;
+  // Key Figures espone solo classifiche EDF: appare nella sezione
+  // Finanziamenti EU, non in Investimenti.
+  const _subKeyfig = document.getElementById('subtab-keyfig');
+  if (_subKeyfig) {
+    if (_section === 'edf') _subKeyfig.href = 'key-figures.html' + (_lang ? '?lang=' + _lang : '');
+    else                    _subKeyfig.style.display = 'none';
+  }
 
   // Nella sezione EDF il selettore elenca solo i Paesi con partecipazioni EDF.
   const activeCounts = _section === 'edf' ? edfCountryCounts : countryCounts;

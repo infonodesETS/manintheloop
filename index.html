@@ -167,18 +167,19 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf">EU Funding</a>
   <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti">Investimenti</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn">Publications</a>
   <a href="about.html" class="tnav-btn">About</a>
 </div>
 
-<!-- ── Subnav (Mappa / Rete della sezione corrente) ── -->
+<!-- ── Subnav (Mappa / Rete / Key Figures della sezione corrente) ── -->
 <div id="subnav">
   <div class="snav-group">
     <a class="snav-btn active" id="subtab-mappa" href="./">Mappa</a>
     <a class="snav-btn" id="subtab-rete" href="networks.html">Rete</a>
+    <a class="snav-btn" id="subtab-keyfig" href="key-figures.html">Key Figures</a>
   </div>
 </div>
 
@@ -1640,7 +1641,7 @@ async function init() {
     const db  = await res.json();
     await buildMapView(db);
 
-    // ── Section routing (EDF / Investimenti) + sub-tabs Mappa/Rete ──
+    // ── Section routing (EDF / Investimenti) + sub-tabs Mappa/Rete/Key Figures ──
     const _p = new URLSearchParams(location.search);
     const section = (_p.get('mode') === 'edf') ? 'edf' : 'investimenti';
     try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
@@ -1652,6 +1653,13 @@ async function init() {
     const subMappa = document.getElementById('subtab-mappa');
     if (subRete)  subRete.href  = 'networks.html?' + netParams + _langQS;
     if (subMappa) subMappa.href = './?mode=' + (section === 'edf' ? 'edf' : 'investment') + _langQS;
+    // Key Figures espone solo classifiche EDF: appare nella sezione
+    // Finanziamenti EU, non in Investimenti.
+    const subKeyfig = document.getElementById('subtab-keyfig');
+    if (subKeyfig) {
+      if (section === 'edf') subKeyfig.href = 'key-figures.html' + (_lang ? '?lang=' + _lang : '');
+      else                   subKeyfig.style.display = 'none';
+    }
     if (section === 'edf') switchMapMode('edf');
 
     // Restore state from URL on direct load / refresh
