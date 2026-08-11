@@ -11,7 +11,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| — | Breadcrumb navigazione in Networks | Storico dei nodi visitati nel pannello laterale, cliccabili per tornare indietro | 🔴 |
+| — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
 ---
 
@@ -36,7 +36,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 |---|---|---|---|
 | 9 | **Dossier pilota** | Una storia breve con mini-rete curata (dati → racconto). Il vero salto editoriale della piattaforma. | 🔴 |
 | 10 | **Pagina "Perché"** | 4–5 frasi forti in homepage o About che spiegano perché mappare i finanziamenti alle armi autonome. Già parzialmente in About > Chi siamo. | 🟡 |
-| 11 | **Sezione Publications** | Attualmente vuota. Aggiungere ricerche, articoli, inchieste del team o di chi ha usato la piattaforma. | 🟡 |
+| 11 | **Popolare Publications** | La pagina ora legge da `data/publications.json`. Aggiungere le altre ricerche, articoli e inchieste del team o di chi ha usato la piattaforma. | 🟡 |
 
 ---
 
@@ -46,6 +46,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 |---|---|---|---|
 | 12 | **Aggiornamento database** | Prossimo refresh Crunchbase + nuovi EDF calls. | 🔴 |
 | 13 | **Aziende mancanti** | Lista "Assenti dal database" da valutare con il Senior Data Expert. | 🟡 |
+| 16 | **Correzioni qualità dati** | Emerse dall'analisi Italia: MBDA España ha country Wikidata errato (IN-0863), Idv Defence Vehicles Italia è duplicato di Iveco Defence Vehicles (IN-1431 / IN-0803, stesso PIC), Telecom Italia duplicata, Fincantieri presente sia come azienda sia come investitore. | 🔴 |
 | 14 | **Incrocio con OpenSanctions** | Segnalare se un'entità è sanzionata o "di interesse". Effort medio, manutenzione periodica leggera. | 🟢 |
 
 ---
@@ -62,6 +63,9 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 | Funzionalità | Data |
 |---|---|
+| Report Italia + webapp report per Paese (`reports/countries/`) | 2026-08-11 |
+| Publications data-driven da `data/publications.json` | 2026-08-11 |
+| Hook SessionStart: git fetch+pull automatico all'apertura sessione | 2026-08-11 |
 | Overlay onboarding prima visita (4 lingue) | 2026-06-30 |
 | About: ristrutturazione in 4 sotto-sezioni (Chi siamo / Metodologia / Glossario / Contribuisci) | 2026-06-30 |
 | About: sezione Limiti (metodologici e dei dati) | 2026-06-30 |
