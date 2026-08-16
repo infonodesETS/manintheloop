@@ -84,6 +84,24 @@ Gestione disco di Windows, così resta tutto coerente.
 
 ---
 
+## Numero di versione
+
+Sotto il logo, in ogni pagina, compare la versione: oggi **`Prototype v.2026-b`**.
+
+Lo schema è `Prototype v.ANNO-lettera`. A ogni nuova versione si passa alla
+lettera successiva dell'alfabeto; l'anno cambia quando cambia l'anno solare e
+si riparte da `a`. La versione online prima di questa era `v.1-20260715`, con
+il vecchio schema a data.
+
+Serve a distinguere a colpo d'occhio quale versione si sta guardando, quindi
+**va cambiata prima di pubblicare**, non dopo.
+
+La stringa è ripetuta in sei file: `index.html`, `networks.html`,
+`key-figures.html`, `search.html`, `publications.html`, `about.html`. Chiedi a
+Claude di aggiornarla e le cambia tutte in una volta.
+
+---
+
 ## Server locale per vedere il sito
 
 ```bash
