@@ -17,6 +17,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
 | — | **Testo del box di benvenuto (onboarding)** | Da riscrivere: parla ancora di "Map / Search / Networks", che non esistono più come sezioni. Va adattato alla nuova struttura, in tutte e 4 le lingue (chiavi `onboard.*` in `web/i18n.js`, overlay in `index.html`). **Da fare per ultimo**, quando la ristrutturazione è stabile — è un blocco prima del merge su `main`. | 🔴 |
+| — | **Check manuale aziende defence tech** | Il selettore "Perimetro" in Numeri chiave (Investimenti globali) classifica 165 aziende su 378 come defence tech, ma la classificazione è **provvisoria**: si appoggia in gran parte alle industries Crunchbase, che sono generiche. Helsing risulta solo "Information Technology" e rientra unicamente perché partecipa a progetti EDF — un'azienda simile senza fondi europei sfuggirebbe. Serve una revisione a mano dell'elenco, correggendo i casi singoli con le liste `include` / `exclude` in `data/defence_criteria.json` (`exclude` vince su tutto). Da decidere anche se allargare il perimetro alle etichette scartate di proposito — `Robotics`, `Sensor`, `Autonomous Vehicles`, `Cyber Security` — elencate con le motivazioni nello stesso file. | 🔴 |
 | — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
 ---
