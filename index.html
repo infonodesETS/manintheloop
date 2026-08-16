@@ -236,7 +236,8 @@
 <!-- ── Onboarding overlay (first visit only) ── -->
 <div id="onboard-overlay" style="display:none">
   <div id="onboard-box">
-    <div id="onboard-logo">Man in the Loop</div>
+    <div id="onboard-logo">Man in the loop<span class="onboard-logo-tail">: AI at war</span></div>
+    <div id="onboard-version">Prototype v.2026-b</div>
     <p id="onboard-subtitle" data-i18n="onboard.subtitle"></p>
     <div id="onboard-blocks">
       <div class="onboard-block">
@@ -282,6 +283,16 @@
   font-weight: var(--fw-bold);
   color: var(--accent);
   letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+/* Stesso marchio della barra: l'overlay la copre, quindi qui deve
+   ripetere per intero il nome e la versione. */
+#onboard-logo .onboard-logo-tail { color: var(--text-primary); }
+#onboard-version {
+  font-family: var(--font);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  letter-spacing: 0;
   margin-bottom: 10px;
 }
 #onboard-subtitle {
