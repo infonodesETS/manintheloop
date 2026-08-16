@@ -68,6 +68,16 @@ const TRANSLATIONS = {
     'kf.t_companies_proj':    'Top 5 aziende per numero di progetti',
     'kf.t_universities_fund': 'Top 5 università e centri di ricerca per finanziamenti ricevuti',
     'kf.t_universities_proj': 'Top 5 università e centri di ricerca per numero di progetti',
+    // KEY FIGURES — sezione Investimenti globali
+    'kf.heading_sub_inv':      'Chi mette i capitali nelle aziende della difesa e della sicurezza, in sintesi.',
+    'kf.unit_holdings':        'partecipazioni',
+    'kf.unit_investors':       'investitori',
+    'kf.t_top_investors':      'Top 5 investitori per numero di partecipazioni',
+    'kf.t_public_investors':   'Top 5 investitori pubblici per numero di partecipazioni',
+    'kf.t_most_backed':        'Top 5 aziende per numero di investitori',
+    'kf.t_investor_countries': 'Top 5 Paesi di origine dei capitali',
+    'kf.t_dual_funded':        'Doppio finanziamento: le prime 5 fra le {n} aziende che ricevono sia fondi EDF sia investimenti privati',
+    'kf.caveat_inv':           'Le relazioni di investimento nel database registrano il legame fra investitore e azienda, non l\'importo versato. Tutte le classifiche di questa pagina contano quindi partecipazioni, non capitali: dicono chi è più presente, non chi ha speso di più. Il conteggio riflette inoltre solo ciò che è documentato nel database, non l\'intero portafoglio di un investitore.',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -192,6 +202,16 @@ const TRANSLATIONS = {
     'kf.t_companies_proj':    'Top 5 companies by number of projects',
     'kf.t_universities_fund': 'Top 5 universities and research centres by funding received',
     'kf.t_universities_proj': 'Top 5 universities and research centres by number of projects',
+    // KEY FIGURES — Global Investments section
+    'kf.heading_sub_inv':      'Who puts capital into defence and security companies, at a glance.',
+    'kf.unit_holdings':        'holdings',
+    'kf.unit_investors':       'investors',
+    'kf.t_top_investors':      'Top 5 investors by number of holdings',
+    'kf.t_public_investors':   'Top 5 public investors by number of holdings',
+    'kf.t_most_backed':        'Top 5 companies by number of investors',
+    'kf.t_investor_countries': 'Top 5 countries the capital comes from',
+    'kf.t_dual_funded':        'Double funding: the top 5 of the {n} companies receiving both EDF money and private investment',
+    'kf.caveat_inv':           'Investment relationships in the database record the link between an investor and a company, not the amount invested. Every ranking on this page therefore counts holdings, not capital: it shows who is most present, not who spent the most. The count also reflects only what is documented in the database, not an investor\'s full portfolio.',
 
     // NETWORKS — sidebar
     'net.title':          'Defence Network',
@@ -316,6 +336,16 @@ const TRANSLATIONS = {
     'kf.t_companies_proj':    'Top 5 des entreprises par nombre de projets',
     'kf.t_universities_fund': 'Top 5 des universités et centres de recherche par financements reçus',
     'kf.t_universities_proj': 'Top 5 des universités et centres de recherche par nombre de projets',
+    // KEY FIGURES — section Investissements mondiaux
+    'kf.heading_sub_inv':      'Qui apporte les capitaux aux entreprises de la défense et de la sécurité, en résumé.',
+    'kf.unit_holdings':        'participations',
+    'kf.unit_investors':       'investisseurs',
+    'kf.t_top_investors':      'Top 5 des investisseurs par nombre de participations',
+    'kf.t_public_investors':   'Top 5 des investisseurs publics par nombre de participations',
+    'kf.t_most_backed':        'Top 5 des entreprises par nombre d\'investisseurs',
+    'kf.t_investor_countries': 'Top 5 des pays d\'origine des capitaux',
+    'kf.t_dual_funded':        'Double financement : les 5 premières des {n} entreprises cumulant fonds EDF et investissements privés',
+    'kf.caveat_inv':           'Les relations d\'investissement de la base enregistrent le lien entre un investisseur et une entreprise, pas le montant investi. Tous les classements de cette page comptent donc des participations, pas des capitaux : ils montrent qui est le plus présent, pas qui a le plus dépensé. Ce décompte ne reflète en outre que ce qui est documenté dans la base, et non l\'intégralité du portefeuille d\'un investisseur.',
 
     // NETWORKS — sidebar
     'net.title':          'Réseau de défense',
@@ -440,6 +470,16 @@ const TRANSLATIONS = {
     'kf.t_companies_proj':    'Top 5 empresas por número de proyectos',
     'kf.t_universities_fund': 'Top 5 universidades y centros de investigación por financiación recibida',
     'kf.t_universities_proj': 'Top 5 universidades y centros de investigación por número de proyectos',
+    // KEY FIGURES — sección Inversiones globales
+    'kf.heading_sub_inv':      'Quién aporta capital a las empresas de defensa y seguridad, en síntesis.',
+    'kf.unit_holdings':        'participaciones',
+    'kf.unit_investors':       'inversores',
+    'kf.t_top_investors':      'Top 5 inversores por número de participaciones',
+    'kf.t_public_investors':   'Top 5 inversores públicos por número de participaciones',
+    'kf.t_most_backed':        'Top 5 empresas por número de inversores',
+    'kf.t_investor_countries': 'Top 5 países de origen de los capitales',
+    'kf.t_dual_funded':        'Doble financiación: las 5 primeras de las {n} empresas que reciben fondos EDF e inversión privada',
+    'kf.caveat_inv':           'Las relaciones de inversión de la base registran el vínculo entre un inversor y una empresa, no el importe invertido. Todas las clasificaciones de esta página cuentan por tanto participaciones, no capitales: muestran quién está más presente, no quién ha gastado más. El recuento refleja además solo lo documentado en la base, no la cartera completa de un inversor.',
 
     // NETWORKS — sidebar
     'net.title':          'Red de defensa',

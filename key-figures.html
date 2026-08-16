@@ -41,6 +41,8 @@
     .kf-bar-track { height: 8px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
     [data-theme="light"] .kf-bar-track { background: rgba(0,0,0,0.08); }
     .kf-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
+    .kf-note { color: var(--text-faint); font-size: var(--fs-xs); }
+    .kf-caveat { margin-top: 30px; max-width: 760px; font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-body); border-left: 2px solid var(--border); padding-left: 14px; }
 
     .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
     .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
@@ -65,8 +67,8 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="./?mode=edf" class="tnav-btn active" data-i18n="nav.eu_funding">Finanziamenti EU</a>
-  <a href="./?mode=investment" class="tnav-btn" data-i18n="nav.investments">Investimenti globali</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti" data-i18n="nav.investments">Investimenti globali</a>
   <a href="search.html" class="tnav-btn">Search</a>
   <a href="publications.html" class="tnav-btn" data-i18n="nav.publications">Pubblicazioni</a>
   <a href="about.html" class="tnav-btn">About</a>
@@ -82,16 +84,49 @@
 </div>
 
 <div id="kf-content">
-  <div class="kf-prompt">$ key-figures --top5 --source edf</div>
+  <div class="kf-prompt" id="kf-prompt">$ key-figures --top5 --source edf</div>
   <div class="kf-heading" data-i18n="kf.heading">I numeri chiave</div>
-  <div class="kf-sub" data-i18n="kf.heading_sub">I finanziamenti europei allo sviluppo di armamenti, in sintesi.</div>
+  <div class="kf-sub" id="kf-sub" data-i18n="kf.heading_sub">I finanziamenti europei allo sviluppo di armamenti, in sintesi.</div>
   <div class="kf-grid" id="kf-grid"></div>
+  <div class="kf-caveat" id="kf-caveat" hidden></div>
 </div>
 
 <script>
-// Questa pagina è la sezione "Finanziamenti EU": memorizza la sezione per i
-// sotto-tab (Rete/Mappa) anche se il proxy elimina i parametri dall'URL.
-try { sessionStorage.setItem('mitl-section', 'edf'); } catch (e) {}
+// Questa pagina serve entrambe le sezioni: 'edf' (Finanziamenti EU) e 'inv'
+// (Investimenti globali). La sceglie ?mode=; senza parametro si ricade sulla
+// sezione memorizzata, perché il proxy può eliminare la query dagli URL .html.
+const KF_SECTION = (() => {
+  const m = new URLSearchParams(location.search).get('mode');
+  if (m === 'investment') return 'inv';
+  if (m === 'edf')        return 'edf';
+  let s = null; try { s = sessionStorage.getItem('mitl-section'); } catch (e) {}
+  return s === 'investimenti' ? 'inv' : 'edf';
+})();
+try {
+  sessionStorage.setItem('mitl-section', KF_SECTION === 'inv' ? 'investimenti' : 'edf');
+} catch (e) {}
+
+// Navigazione coerente con la sezione (tab attiva, sotto-tab, riga del prompt).
+(function () {
+  const lang   = new URLSearchParams(location.search).get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const isInv  = KF_SECTION === 'inv';
+  document.getElementById(isInv ? 'nav-investimenti' : 'nav-edf')?.classList.add('active');
+  document.getElementById('subtab-mappa').href =
+    './?mode=' + (isInv ? 'investment' : 'edf') + langQS;
+  document.getElementById('subtab-rete').href =
+    'networks.html?' + (isInv ? 'edf=0&inv=1' : 'edf=1&inv=0') + langQS;
+  document.getElementById('subtab-keyfig').href =
+    'key-figures.html?mode=' + (isInv ? 'investment' : 'edf') + langQS;
+  document.getElementById('kf-prompt').textContent =
+    '$ key-figures --top5 --source ' + (isInv ? 'investments' : 'edf');
+  if (isInv) {
+    document.getElementById('kf-sub').setAttribute('data-i18n', 'kf.heading_sub_inv');
+    const cav = document.getElementById('kf-caveat');
+    cav.setAttribute('data-i18n', 'kf.caveat_inv');
+    cav.hidden = false;
+  }
+})();
 
 // Memorizza il soggetto prima di aprirne la scheda in Search (stesso fallback
 // usato in mappa/rete contro l'eliminazione dei parametri su .html).
@@ -108,10 +143,23 @@ document.addEventListener('click', (e) => {
 });
 
 const _esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const COUNTRY_ALIASES = { 'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic' };
+// Le fonti scrivono lo stesso Paese in modi diversi: senza questa mappa gli
+// Stati Uniti risultano spezzati fra 'USA' e 'United States' e nessuna delle
+// due voci arriva in cima alla classifica.
+const COUNTRY_ALIASES = {
+  'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic',
+  'USA': 'United States', 'United States of America': 'United States',
+  'UK': 'United Kingdom',
+};
 const getCountry = e => {
   const s = e.sources || {};
-  const c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+  let c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
+  // Molti investitori esistono solo su Crunchbase: lì il Paese è l'ultimo
+  // pezzo della sede ("Menlo Park, California, United States").
+  if (!c) {
+    const hq = (s.crunchbase || {}).headquarters;
+    if (hq) c = hq.split(',').pop().trim();
+  }
   return COUNTRY_ALIASES[c] || c;
 };
 const fundOf = e => (e.sources && e.sources.edf && e.sources.edf.total_eu_contribution) || 0;
@@ -157,6 +205,73 @@ function computeRankings(DB) {
   };
 }
 
+// ── Classifiche della sezione "Investimenti globali" ──────────────────────────
+// Nota metodologica: le relazioni di investimento nel database NON portano un
+// importo, solo il legame investitore → azienda. Tutte le classifiche qui sotto
+// contano quindi partecipazioni, non euro. Gli importi presenti su Crunchbase
+// (total_funding_usd) sono volutamente ignorati: misurano il capitale raccolto
+// dall'azienda in generale, non quanto è arrivato dalla difesa, e in cima
+// mettono i big tech dell'ETF (Netflix, Oracle) che non c'entrano col tema.
+const IS_PUBLIC_INVESTOR = t => t === 'public_fund' || t === 'government_agency' || t === 'bank';
+
+function computeInvestmentRankings(DB) {
+  const retired = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  const byId = new Map(DB.entities.filter(e => !retired.has(e.id)).map(e => [e.id, e]));
+  const live = r => !retired.has(r.source) && !retired.has(r.target);
+  const invRels = DB.relationships.filter(r => r.type === 'investment' && live(r));
+  const edfSrc  = new Set(
+    DB.relationships.filter(r => r.type === 'edf_participation' && live(r)).map(r => r.source)
+  );
+
+  const byInvestor = new Map();   // investitore → n. partecipazioni
+  const byCompany  = new Map();   // azienda     → n. investitori
+  for (const r of invRels) {
+    byInvestor.set(r.source, (byInvestor.get(r.source) || 0) + 1);
+    byCompany.set(r.target,  (byCompany.get(r.target)  || 0) + 1);
+  }
+
+  const rank = (counts, keep) => [...counts.entries()]
+    .filter(([id]) => byId.has(id) && (!keep || keep(byId.get(id))))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, value]) => {
+      const e = byId.get(id);
+      return { id, name: e.name, country: getCountry(e), value };
+    });
+
+  // Paesi di origine dei capitali: quanti investitori distinti hanno sede lì.
+  const ic = {};
+  for (const id of byInvestor.keys()) {
+    const c = byId.has(id) ? getCountry(byId.get(id)) : '';
+    if (c) ic[c] = (ic[c] || 0) + 1;
+  }
+  const investorCountries = Object.entries(ic)
+    .map(([name, value]) => ({ name, value, isCountry: true }))
+    .sort((a, b) => b.value - a.value).slice(0, 5);
+
+  // Doppio finanziamento: aziende che prendono soldi pubblici EDF *e* capitali
+  // privati. La barra conta gli investitori, la nota riporta i fondi EDF.
+  const dualFunded = [...byCompany.entries()]
+    .filter(([id]) => edfSrc.has(id) && byId.has(id))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, value]) => {
+      const e = byId.get(id);
+      return { id, name: e.name, country: getCountry(e), value, note: fmtEur(fundOf(e)) + ' EDF' };
+    });
+
+  return {
+    topInvestors:     rank(byInvestor),
+    publicInvestors:  rank(byInvestor, e => IS_PUBLIC_INVESTOR(e.type)),
+    mostBacked:       rank(byCompany),
+    investorCountries,
+    dualFunded,
+    dualFundedTotal:  [...byCompany.keys()].filter(id => edfSrc.has(id)).length,
+  };
+}
+
 function barChart(rows, format) {
   const max = Math.max(...rows.map(r => r.value), 1);
   return rows.map((r, i) => {
@@ -165,9 +280,10 @@ function barChart(rows, format) {
       ? `<span class="kf-name">${_esc(r.name)}</span>`
       : `<a class="kf-name" href="search.html?organization=${encodeURIComponent(r.id)}&organizationName=${encodeURIComponent(r.name)}" title="${_esc(r.name)}">${_esc(r.name)}</a>`;
     const country = r.country ? ` <span class="kf-country">· ${_esc(r.country)}</span>` : '';
+    const note    = r.note ? ` <span class="kf-note">· ${_esc(r.note)}</span>` : '';
     return `<div class="kf-row">
       <div class="kf-row-head">
-        <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span class="kf-rank">${i + 1}</span>${label}${r.isCountry ? '' : country}</span>
+        <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span class="kf-rank">${i + 1}</span>${label}${r.isCountry ? '' : country}${note}</span>
         <span class="kf-val">${format(r.value)}</span>
       </div>
       <div class="kf-bar-track"><div class="kf-bar-fill" style="width:${pct}%"></div></div>
@@ -175,18 +291,33 @@ function barChart(rows, format) {
   }).join('');
 }
 
-function render() {
-  if (!RANKINGS) return;
-  const eur  = v => fmtEur(v);
-  const proj = v => `${v} ${t('kf.unit_projects')}`;
-  const cards = [
-    { title: t('kf.t_countries_fund'),     rows: RANKINGS.countriesByFund,    fmt: eur  },
+function cardsForSection() {
+  const eur       = v => fmtEur(v);
+  const proj      = v => `${v} ${t('kf.unit_projects')}`;
+  const holdings  = v => `${v} ${t('kf.unit_holdings')}`;
+  const investors = v => `${v} ${t('kf.unit_investors')}`;
+
+  if (KF_SECTION === 'inv') return [
+    { title: t('kf.t_top_investors'),      rows: RANKINGS.topInvestors,      fmt: holdings  },
+    { title: t('kf.t_public_investors'),   rows: RANKINGS.publicInvestors,   fmt: holdings  },
+    { title: t('kf.t_most_backed'),        rows: RANKINGS.mostBacked,        fmt: investors },
+    { title: t('kf.t_investor_countries'), rows: RANKINGS.investorCountries, fmt: investors },
+    { title: t('kf.t_dual_funded', { n: RANKINGS.dualFundedTotal }),
+      rows: RANKINGS.dualFunded, fmt: investors },
+  ];
+
+  return [
+    { title: t('kf.t_countries_fund'),      rows: RANKINGS.countriesByFund,    fmt: eur  },
     { title: t('kf.t_companies_fund'),      rows: RANKINGS.companiesByFund,    fmt: eur  },
     { title: t('kf.t_companies_proj'),      rows: RANKINGS.companiesByProj,    fmt: proj },
     { title: t('kf.t_universities_fund'),   rows: RANKINGS.universitiesByFund, fmt: eur  },
     { title: t('kf.t_universities_proj'),   rows: RANKINGS.universitiesByProj, fmt: proj },
   ];
-  document.getElementById('kf-grid').innerHTML = cards.map(c => `
+}
+
+function render() {
+  if (!RANKINGS) return;
+  document.getElementById('kf-grid').innerHTML = cardsForSection().map(c => `
     <div class="kf-card">
       <div class="kf-card-title">${_esc(c.title)}</div>
       ${barChart(c.rows, c.fmt)}
@@ -195,7 +326,10 @@ function render() {
 
 fetch('data/database.json')
   .then(r => r.json())
-  .then(DB => { RANKINGS = computeRankings(DB); render(); })
+  .then(DB => {
+    RANKINGS = KF_SECTION === 'inv' ? computeInvestmentRankings(DB) : computeRankings(DB);
+    render();
+  })
   .catch(err => {
     document.getElementById('kf-grid').innerHTML =
       `<div style="color:var(--error)">Errore nel caricamento dei dati: ${_esc(String(err))}</div>`;

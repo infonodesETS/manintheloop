@@ -1653,13 +1653,9 @@ async function init() {
     const subMappa = document.getElementById('subtab-mappa');
     if (subRete)  subRete.href  = 'networks.html?' + netParams + _langQS;
     if (subMappa) subMappa.href = './?mode=' + (section === 'edf' ? 'edf' : 'investment') + _langQS;
-    // Key Figures espone solo classifiche EDF: appare nella sezione
-    // Finanziamenti EU, non in Investimenti.
     const subKeyfig = document.getElementById('subtab-keyfig');
-    if (subKeyfig) {
-      if (section === 'edf') subKeyfig.href = 'key-figures.html' + (_lang ? '?lang=' + _lang : '');
-      else                   subKeyfig.style.display = 'none';
-    }
+    if (subKeyfig) subKeyfig.href = 'key-figures.html?mode=' +
+      (section === 'edf' ? 'edf' : 'investment') + _langQS;
     if (section === 'edf') switchMapMode('edf');
 
     // Restore state from URL on direct load / refresh

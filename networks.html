@@ -1415,13 +1415,9 @@ async function init() {
   const _subRete = document.getElementById('subtab-rete');
   if (_subRete) _subRete.href = 'networks.html?' +
     (_section === 'edf' ? 'edf=1&inv=0' : 'edf=0&inv=1') + _langQS;
-  // Key Figures espone solo classifiche EDF: appare nella sezione
-  // Finanziamenti EU, non in Investimenti.
   const _subKeyfig = document.getElementById('subtab-keyfig');
-  if (_subKeyfig) {
-    if (_section === 'edf') _subKeyfig.href = 'key-figures.html' + (_lang ? '?lang=' + _lang : '');
-    else                    _subKeyfig.style.display = 'none';
-  }
+  if (_subKeyfig) _subKeyfig.href = 'key-figures.html?mode=' +
+    (_section === 'edf' ? 'edf' : 'investment') + _langQS;
 
   // Nella sezione EDF il selettore elenca solo i Paesi con partecipazioni EDF.
   const activeCounts = _section === 'edf' ? edfCountryCounts : countryCounts;
