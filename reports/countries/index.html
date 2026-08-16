@@ -120,6 +120,7 @@
 <div id="investor-tooltip" class="investor-tooltip" role="tooltip"></div>
 
 <script src="../../web/theme.js"></script>
+<script src="../../web/countries.js"></script>
 <script>
 (function () {
   var TYPE_LABEL = {
@@ -135,20 +136,14 @@
     bank: 'var(--c-bank)', edf_project: 'var(--grey-light)'
   };
   var FALLBACK_SERIES = ['var(--accent)', 'var(--c-inst)', 'var(--c-fund)', 'var(--c-govt)', 'var(--c-bank)', 'var(--grey-light)'];
-  var COUNTRY_ALIASES = {
-    'usa': 'United States',
-    "people's republic of china": 'China',
-    'russian federation': 'Russia',
-    'the netherlands': 'Netherlands',
-    'czech republic': 'Czechia'
-  };
+  // Le grafie dei Paesi sono uniformate in web/countries.js, unica fonte per
+  // tutto il sito. Qui resta però l'ordine di precedenza delle fonti proprio
+  // di questa pagina (EDF prima di Wikidata), che è diverso dal resto.
 
   var state = { entities: [], relationships: [], byId: {}, byCountry: {} };
 
   function normalizeCountry(raw) {
-    if (!raw) return null;
-    var key = raw.trim().toLowerCase();
-    return COUNTRY_ALIASES[key] || raw.trim();
+    return MITL.normalizeCountry(raw);
   }
 
   function getCountry(e) {

@@ -353,6 +353,7 @@ document.addEventListener('mitl-lang-change', function(e) {
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="web/theme.js"></script>
 <script src="web/i18n.js"></script>
+<script src="web/countries.js"></script>
 <script>
 'use strict';
 
@@ -380,7 +381,8 @@ function companyBadges(c) {
   return tags.map(sectorBadge).join('');
 }
 
-const getCountry = e => e.sources?.infonodes?.country || e.sources?.wikidata?.country || e.sources?.edf?.country;
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il sito).
+const getCountry = e => MITL.entityCountry(e);
 
 function fmtFunding(n) {
   if (!n) return null;

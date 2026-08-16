@@ -407,6 +407,7 @@
 </div>
 
 <script src="web/cytoscape.min.js"></script>
+<script src="web/countries.js"></script>
 <script>
 'use strict';
 
@@ -460,12 +461,9 @@ function fmtEur(val) {
   if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
   return `€${n.toFixed(0)}`;
 }
-// Nomi-Paese equivalenti da uniformare (le fonti usano varianti diverse).
-const COUNTRY_ALIASES = { 'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic' };
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il sito).
 function getCountry(e) {
-  const s = e.sources || {};
-  const c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
-  return COUNTRY_ALIASES[c] || c;
+  return MITL.entityCountry(e) || '';
 }
 
 // ── Data ─────────────────────────────────────────────────────────────────────

@@ -83,6 +83,8 @@
   </div>
 </div>
 
+<script src="web/countries.js"></script>
+
 <div id="kf-content">
   <div class="kf-prompt" id="kf-prompt">$ key-figures --top5 --source edf</div>
   <div class="kf-heading" data-i18n="kf.heading">I numeri chiave</div>
@@ -143,25 +145,10 @@ document.addEventListener('click', (e) => {
 });
 
 const _esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-// Le fonti scrivono lo stesso Paese in modi diversi: senza questa mappa gli
-// Stati Uniti risultano spezzati fra 'USA' e 'United States' e nessuna delle
-// due voci arriva in cima alla classifica.
-const COUNTRY_ALIASES = {
-  'Czechia': 'Czech Republic', 'Czech Rep.': 'Czech Republic',
-  'USA': 'United States', 'United States of America': 'United States',
-  'UK': 'United Kingdom',
-};
-const getCountry = e => {
-  const s = e.sources || {};
-  let c = (s.infonodes || {}).country || (s.wikidata || {}).country || (s.edf || {}).country || '';
-  // Molti investitori esistono solo su Crunchbase: lì il Paese è l'ultimo
-  // pezzo della sede ("Menlo Park, California, United States").
-  if (!c) {
-    const hq = (s.crunchbase || {}).headquarters;
-    if (hq) c = hq.split(',').pop().trim();
-  }
-  return COUNTRY_ALIASES[c] || c;
-};
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il
+// sito). Qui serve anche la sede Crunchbase: molti investitori esistono solo
+// lì e non hanno il campo country.
+const getCountry = e => MITL.entityCountry(e, { useHeadquarters: true }) || '';
 const fundOf = e => (e.sources && e.sources.edf && e.sources.edf.total_eu_contribution) || 0;
 const projOf = e => (e.sources && e.sources.edf && e.sources.edf.project_count) || 0;
 const isUniversity = e => (e.sources && e.sources.edf && e.sources.edf.activity_type) === 'HSE';
