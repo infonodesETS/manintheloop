@@ -77,6 +77,11 @@ const TRANSLATIONS = {
     'kf.t_most_backed':        'Top 5 aziende per numero di investitori',
     'kf.t_investor_countries': 'Top 5 Paesi di origine dei capitali',
     'kf.t_dual_funded':        'Doppio finanziamento: le prime 5 fra le {n} aziende che ricevono sia fondi EDF sia investimenti privati',
+    'kf.scope_label':          'Perimetro',
+    'kf.scope_defence':        'Solo defence tech',
+    'kf.scope_all':            'Tutte le entità',
+    'kf.scope_count':          '{n} aziende defence tech su {tot} partecipate',
+    'kf.caveat_scope':         'Il perimetro "defence tech" è provvisorio. Un\'azienda vi rientra se partecipa a progetti EDF, se è classificata come difesa nel database o nell\'ETF Aerospace & Defence, oppure se Crunchbase le assegna un settore militare, aerospaziale, satellitare o di sicurezza nazionale. Le etichette Crunchbase sono generiche, quindi qualche azienda sfugge: Helsing risulta solo "Information Technology" e rientra unicamente perché partecipa a progetti EDF. I criteri sono in data/defence_criteria.json.',
     'kf.caveat_inv':           'Le relazioni di investimento nel database registrano il legame fra investitore e azienda, non l\'importo versato. Tutte le classifiche di questa pagina contano quindi partecipazioni, non capitali: dicono chi è più presente, non chi ha speso di più. Il conteggio riflette inoltre solo ciò che è documentato nel database, non l\'intero portafoglio di un investitore.',
 
     // NETWORKS — sidebar
@@ -211,6 +216,11 @@ const TRANSLATIONS = {
     'kf.t_most_backed':        'Top 5 companies by number of investors',
     'kf.t_investor_countries': 'Top 5 countries the capital comes from',
     'kf.t_dual_funded':        'Double funding: the top 5 of the {n} companies receiving both EDF money and private investment',
+    'kf.scope_label':          'Scope',
+    'kf.scope_defence':        'Defence tech only',
+    'kf.scope_all':            'All entities',
+    'kf.scope_count':          '{n} defence tech companies out of {tot} funded',
+    'kf.caveat_scope':         'The "defence tech" scope is provisional. A company falls inside it if it takes part in EDF projects, if it is classified as defence in the database or in the Aerospace & Defence ETF, or if Crunchbase assigns it a military, aerospace, satellite or national security sector. Crunchbase labels are generic, so some companies slip through: Helsing is listed only as "Information Technology" and is included solely because it takes part in EDF projects. The criteria live in data/defence_criteria.json.',
     'kf.caveat_inv':           'Investment relationships in the database record the link between an investor and a company, not the amount invested. Every ranking on this page therefore counts holdings, not capital: it shows who is most present, not who spent the most. The count also reflects only what is documented in the database, not an investor\'s full portfolio.',
 
     // NETWORKS — sidebar
@@ -345,6 +355,11 @@ const TRANSLATIONS = {
     'kf.t_most_backed':        'Top 5 des entreprises par nombre d\'investisseurs',
     'kf.t_investor_countries': 'Top 5 des pays d\'origine des capitaux',
     'kf.t_dual_funded':        'Double financement : les 5 premières des {n} entreprises cumulant fonds EDF et investissements privés',
+    'kf.scope_label':          'Périmètre',
+    'kf.scope_defence':        'Defence tech uniquement',
+    'kf.scope_all':            'Toutes les entités',
+    'kf.scope_count':          '{n} entreprises defence tech sur {tot} financées',
+    'kf.caveat_scope':         'Le périmètre « defence tech » est provisoire. Une entreprise y entre si elle participe à des projets EDF, si elle est classée dans la défense dans la base ou dans l\'ETF Aerospace & Defence, ou si Crunchbase lui attribue un secteur militaire, aérospatial, satellitaire ou de sécurité nationale. Les étiquettes Crunchbase sont génériques, donc certaines entreprises échappent au filtre : Helsing n\'est référencée que comme « Information Technology » et n\'est retenue que parce qu\'elle participe à des projets EDF. Les critères se trouvent dans data/defence_criteria.json.',
     'kf.caveat_inv':           'Les relations d\'investissement de la base enregistrent le lien entre un investisseur et une entreprise, pas le montant investi. Tous les classements de cette page comptent donc des participations, pas des capitaux : ils montrent qui est le plus présent, pas qui a le plus dépensé. Ce décompte ne reflète en outre que ce qui est documenté dans la base, et non l\'intégralité du portefeuille d\'un investisseur.',
 
     // NETWORKS — sidebar
@@ -479,6 +494,11 @@ const TRANSLATIONS = {
     'kf.t_most_backed':        'Top 5 empresas por número de inversores',
     'kf.t_investor_countries': 'Top 5 países de origen de los capitales',
     'kf.t_dual_funded':        'Doble financiación: las 5 primeras de las {n} empresas que reciben fondos EDF e inversión privada',
+    'kf.scope_label':          'Perímetro',
+    'kf.scope_defence':        'Solo defence tech',
+    'kf.scope_all':            'Todas las entidades',
+    'kf.scope_count':          '{n} empresas defence tech de {tot} participadas',
+    'kf.caveat_scope':         'El perímetro «defence tech» es provisional. Una empresa entra en él si participa en proyectos EDF, si está clasificada como defensa en la base o en el ETF Aerospace & Defence, o si Crunchbase le asigna un sector militar, aeroespacial, satelital o de seguridad nacional. Las etiquetas de Crunchbase son genéricas, así que alguna empresa se escapa: Helsing figura solo como «Information Technology» y entra únicamente porque participa en proyectos EDF. Los criterios están en data/defence_criteria.json.',
     'kf.caveat_inv':           'Las relaciones de inversión de la base registran el vínculo entre un inversor y una empresa, no el importe invertido. Todas las clasificaciones de esta página cuentan por tanto participaciones, no capitales: muestran quién está más presente, no quién ha gastado más. El recuento refleja además solo lo documentado en la base, no la cartera completa de un inversor.',
 
     // NETWORKS — sidebar

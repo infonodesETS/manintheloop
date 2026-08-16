@@ -42,6 +42,21 @@
     [data-theme="light"] .kf-bar-track { background: rgba(0,0,0,0.08); }
     .kf-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
     .kf-note { color: var(--text-faint); font-size: var(--fs-xs); }
+
+    /* Selettore perimetro (solo sezione Investimenti globali) */
+    .kf-scope { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+    .kf-scope-label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
+    .kf-scope-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .kf-scope-btn {
+      background: transparent; border: none; cursor: pointer; padding: 5px 12px;
+      font-family: var(--font); font-size: var(--fs-sm); font-weight: var(--fw-bold);
+      letter-spacing: .3px; color: var(--text-muted); transition: background .15s, color .15s;
+    }
+    .kf-scope-btn + .kf-scope-btn { border-left: 1px solid var(--border); }
+    .kf-scope-btn:hover:not(.is-active) { color: var(--text-primary); }
+    .kf-scope-btn.is-active { background: var(--accent); color: #05130a; }
+    [data-theme="light"] .kf-scope-btn.is-active { color: #fff; }
+    .kf-scope-count { font-size: var(--fs-xs); color: var(--text-faint); }
     .kf-caveat { margin-top: 30px; max-width: 760px; font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-body); border-left: 2px solid var(--border); padding-left: 14px; }
 
     .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
@@ -89,8 +104,17 @@
   <div class="kf-prompt" id="kf-prompt">$ key-figures --top5 --source edf</div>
   <div class="kf-heading" data-i18n="kf.heading">I numeri chiave</div>
   <div class="kf-sub" id="kf-sub" data-i18n="kf.heading_sub">I finanziamenti europei allo sviluppo di armamenti, in sintesi.</div>
+  <div class="kf-scope" id="kf-scope" hidden>
+    <span class="kf-scope-label" data-i18n="kf.scope_label">Perimetro</span>
+    <span class="kf-scope-switch">
+      <button type="button" class="kf-scope-btn is-active" id="kf-scope-defence" data-i18n="kf.scope_defence">Solo defence tech</button>
+      <button type="button" class="kf-scope-btn" id="kf-scope-all" data-i18n="kf.scope_all">Tutte le entità</button>
+    </span>
+    <span class="kf-scope-count" id="kf-scope-count"></span>
+  </div>
   <div class="kf-grid" id="kf-grid"></div>
   <div class="kf-caveat" id="kf-caveat" hidden></div>
+  <div class="kf-caveat" id="kf-caveat-scope" hidden></div>
 </div>
 
 <script>
@@ -127,8 +151,16 @@ try {
     const cav = document.getElementById('kf-caveat');
     cav.setAttribute('data-i18n', 'kf.caveat_inv');
     cav.hidden = false;
+    const cavScope = document.getElementById('kf-caveat-scope');
+    cavScope.setAttribute('data-i18n', 'kf.caveat_scope');
+    cavScope.hidden = false;
+    document.getElementById('kf-scope').hidden = false;
   }
 })();
+
+// Perimetro delle classifiche di Investimenti globali: 'defence' (predefinito)
+// o 'all'. Sta nell'URL così la vista si può condividere e ricaricare.
+let KF_SCOPE = new URLSearchParams(location.search).get('scope') === 'all' ? 'all' : 'defence';
 
 // Memorizza il soggetto prima di aprirne la scheda in Search (stesso fallback
 // usato in mappa/rete contro l'eliminazione dei parametri su .html).
@@ -201,16 +233,48 @@ function computeRankings(DB) {
 // mettono i big tech dell'ETF (Netflix, Oracle) che non c'entrano col tema.
 const IS_PUBLIC_INVESTOR = t => t === 'public_fund' || t === 'government_agency' || t === 'bank';
 
+// ── Perimetro "defence tech" ──────────────────────────────────────────────────
+// I criteri modificabili stanno in data/defence_criteria.json (industries
+// Crunchbase + liste include/exclude); qui restano solo i segnali strutturali.
+// La classificazione è provvisoria: vedi il campo _help del file.
+let DEFENCE_CRITERIA = { industries: [], include: [], exclude: [] };
+
+function isDefenceTech(entity, edfSrc) {
+  const ids = o => (o || []).map(x => (typeof x === 'string' ? x : x && x.id)).filter(Boolean);
+  if (ids(DEFENCE_CRITERIA.exclude).includes(entity.id)) return false;   // exclude vince su tutto
+  if (ids(DEFENCE_CRITERIA.include).includes(entity.id)) return true;
+
+  if (edfSrc.has(entity.id)) return true;                                // partecipa a progetti EDF
+  if (entity.sector === 'Defence') return true;
+
+  const s = entity.sources || {};
+  const ishares = s.ishares || [];
+  // GICS 201010 = Aerospace & Defense
+  if ((Array.isArray(ishares) ? ishares : [ishares]).some(x => x && x.gics_code === '201010')) return true;
+
+  let industries = (s.crunchbase || {}).industries || [];
+  if (typeof industries === 'string') industries = industries.split(',');
+  const wanted = DEFENCE_CRITERIA.industries || [];
+  return industries.some(i => wanted.includes(String(i).trim()));
+}
+
 function computeInvestmentRankings(DB) {
   const retired = new Set(
     DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
   );
   const byId = new Map(DB.entities.filter(e => !retired.has(e.id)).map(e => [e.id, e]));
   const live = r => !retired.has(r.source) && !retired.has(r.target);
-  const invRels = DB.relationships.filter(r => r.type === 'investment' && live(r));
+  const allInvRels = DB.relationships.filter(r => r.type === 'investment' && live(r));
   const edfSrc  = new Set(
     DB.relationships.filter(r => r.type === 'edf_participation' && live(r)).map(r => r.source)
   );
+
+  // Il perimetro filtra le relazioni sull'azienda partecipata: da lì derivano
+  // tutte le classifiche, investitori e Paesi compresi. Un fondo che investe
+  // solo in minerario sparisce quindi dalla vista "solo defence tech".
+  const targets     = new Set(allInvRels.map(r => r.target));
+  const defenceIds  = new Set([...targets].filter(id => byId.has(id) && isDefenceTech(byId.get(id), edfSrc)));
+  const invRels     = KF_SCOPE === 'all' ? allInvRels : allInvRels.filter(r => defenceIds.has(r.target));
 
   const byInvestor = new Map();   // investitore → n. partecipazioni
   const byCompany  = new Map();   // azienda     → n. investitori
@@ -256,6 +320,10 @@ function computeInvestmentRankings(DB) {
     investorCountries,
     dualFunded,
     dualFundedTotal:  [...byCompany.keys()].filter(id => edfSrc.has(id)).length,
+    // Per la riga sotto il selettore: quante aziende partecipate sono defence
+    // tech sul totale.
+    scopeDefenceCount: defenceIds.size,
+    scopeTotalCount:   targets.size,
   };
 }
 
@@ -309,11 +377,36 @@ function render() {
       <div class="kf-card-title">${_esc(c.title)}</div>
       ${barChart(c.rows, c.fmt)}
     </div>`).join('');
+
+  if (KF_SECTION !== 'inv') return;
+  document.getElementById('kf-scope-defence').classList.toggle('is-active', KF_SCOPE === 'defence');
+  document.getElementById('kf-scope-all').classList.toggle('is-active', KF_SCOPE === 'all');
+  document.getElementById('kf-scope-count').textContent =
+    t('kf.scope_count', { n: RANKINGS.scopeDefenceCount, tot: RANKINGS.scopeTotalCount });
 }
 
-fetch('data/database.json')
-  .then(r => r.json())
-  .then(DB => {
+let DB_CACHE = null;
+
+function setScope(scope) {
+  if (scope === KF_SCOPE) return;
+  KF_SCOPE = scope;
+  // Nell'URL così la vista resta condivisibile e sopravvive a un ricaricamento.
+  const url = new URL(location.href);
+  url.searchParams.set('scope', scope);
+  history.replaceState(history.state, '', url);
+  if (DB_CACHE) { RANKINGS = computeInvestmentRankings(DB_CACHE); render(); }
+}
+document.getElementById('kf-scope-defence').addEventListener('click', () => setScope('defence'));
+document.getElementById('kf-scope-all').addEventListener('click', () => setScope('all'));
+
+Promise.all([
+  fetch('data/database.json').then(r => r.json()),
+  // I criteri sono un di più: se il file manca restano i soli segnali strutturali.
+  fetch('data/defence_criteria.json').then(r => r.json()).catch(() => null),
+])
+  .then(([DB, criteria]) => {
+    if (criteria) DEFENCE_CRITERIA = criteria;
+    DB_CACHE = DB;
     RANKINGS = KF_SECTION === 'inv' ? computeInvestmentRankings(DB) : computeRankings(DB);
     render();
   })
