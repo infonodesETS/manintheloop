@@ -1391,6 +1391,31 @@ function browserDefaultCountry() {
   return region ? (LOCALE_TO_COUNTRY[region] || null) : null;
 }
 
+// ── Section routing (EDF / Investimenti) + sub-tab Mappa/Rete/Numeri chiave ───
+// Dipende solo dall'URL, non dai dati: va eseguito subito, non dentro init().
+// Se aspetta il caricamento del database la barra resta con i link di default
+// per tutto il caricamento, e chi clicca in quella finestra finisce nella
+// sezione sbagliata.
+function setupSectionNav() {
+  const p       = readParams();
+  const section = (p.inv && !p.edf) ? 'investimenti' : 'edf';
+  const isEdf   = section === 'edf';
+  try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
+
+  document.getElementById('nav-' + section)?.classList.add('active');
+
+  const lang   = new URLSearchParams(location.search).get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const mode   = isEdf ? 'edf' : 'investment';
+  const set = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
+  set('subtab-mappa',  './?mode=' + mode + langQS);
+  set('subtab-rete',   'networks.html?' + (isEdf ? 'edf=1&inv=0' : 'edf=0&inv=1') + langQS);
+  set('subtab-keyfig', 'key-figures.html?mode=' + mode + langQS);
+
+  return section;
+}
+const NET_SECTION = setupSectionNav();
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   await loadData();
@@ -1402,22 +1427,8 @@ async function init() {
 
   const params = readParams();
 
-  // ── Section routing (EDF / Investimenti) + sub-tab Mappa/Key Figures ──
-  const _section = (params.inv && !params.edf) ? 'investimenti' : 'edf';
-  try { sessionStorage.setItem('mitl-section', _section); } catch (e) {}
-  document.getElementById('nav-' + _section)?.classList.add('active');
-  const _lang   = new URLSearchParams(location.search).get('lang');
-  const _langQS = _lang ? '&lang=' + _lang : '';
-  const _subMappa = document.getElementById('subtab-mappa');
-  if (_subMappa) _subMappa.href = './?mode=' + (_section === 'edf' ? 'edf' : 'investment') + _langQS;
-  const _subRete = document.getElementById('subtab-rete');
-  if (_subRete) _subRete.href = 'networks.html?' +
-    (_section === 'edf' ? 'edf=1&inv=0' : 'edf=0&inv=1') + _langQS;
-  const _subKeyfig = document.getElementById('subtab-keyfig');
-  if (_subKeyfig) _subKeyfig.href = 'key-figures.html?mode=' +
-    (_section === 'edf' ? 'edf' : 'investment') + _langQS;
-
   // Nella sezione EDF il selettore elenca solo i Paesi con partecipazioni EDF.
+  const _section     = NET_SECTION;
   const activeCounts = _section === 'edf' ? edfCountryCounts : countryCounts;
   const activeIndex  = _section === 'edf' ? edfCountryIndex  : countryIndex;
 

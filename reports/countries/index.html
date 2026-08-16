@@ -136,9 +136,8 @@
     bank: 'var(--c-bank)', edf_project: 'var(--grey-light)'
   };
   var FALLBACK_SERIES = ['var(--accent)', 'var(--c-inst)', 'var(--c-fund)', 'var(--c-govt)', 'var(--c-bank)', 'var(--grey-light)'];
-  // Le grafie dei Paesi sono uniformate in web/countries.js, unica fonte per
-  // tutto il sito. Qui resta però l'ordine di precedenza delle fonti proprio
-  // di questa pagina (EDF prima di Wikidata), che è diverso dal resto.
+  // Grafie e ordine di precedenza delle fonti sono in web/countries.js, unica
+  // fonte per tutto il sito.
 
   var state = { entities: [], relationships: [], byId: {}, byCountry: {} };
 
@@ -147,19 +146,7 @@
   }
 
   function getCountry(e) {
-    var s = e.sources || {};
-    var inf = s.infonodes || {};
-    if (inf.country) return normalizeCountry(inf.country);
-    var edf = s.edf || {};
-    if (edf.country) return normalizeCountry(edf.country);
-    var wd = s.wikidata || {};
-    if (wd.country) return normalizeCountry(wd.country);
-    var cb = s.crunchbase || {};
-    if (cb.headquarters) {
-      var parts = cb.headquarters.split(',').map(function (p) { return p.trim(); });
-      if (parts.length) return normalizeCountry(parts[parts.length - 1]);
-    }
-    return null;
+    return MITL.entityCountry(e, { useHeadquarters: true });
   }
 
   function fmtInt(n) { return Math.round(n).toLocaleString('it-IT'); }

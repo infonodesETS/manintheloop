@@ -51,7 +51,18 @@
     return trimmed;
   }
 
-  // Ricava il Paese di un'entità dalle sue fonti, in ordine di affidabilità.
+  // Ricava il Paese di un'entità dalle sue fonti, in ordine di affidabilità:
+  //
+  //   1. infonodes  — verifiche fatte a mano dalla redazione, hanno la meglio
+  //   2. edf        — dichiarato dal beneficiario nel record del progetto
+  //   3. wikidata   — ultima risorsa
+  //
+  // EDF precede Wikidata perché descrive la singola entità giuridica che ha
+  // incassato i fondi, mentre Wikidata associa spesso il nome alla capogruppo:
+  // su 43 entità le due fonti divergono e il pattern è sempre questo. Airbus
+  // Defence and Space risultava in Spagna anche per le controllate tedesca,
+  // francese e finlandese; Beyond Gravity Austria in Svizzera (sede RUAG);
+  // MBDA España in Italia. In tutti questi casi il dato EDF è quello giusto.
   // Con { useHeadquarters: true } ricade sull'ultimo pezzo della sede
   // Crunchbase ("Menlo Park, California, United States"): serve per gli
   // investitori, che spesso esistono solo su Crunchbase e non hanno il campo
@@ -60,8 +71,8 @@
     if (!entity) return null;
     var s = entity.sources || {};
     var raw = (s.infonodes || {}).country ||
-              (s.wikidata  || {}).country ||
-              (s.edf       || {}).country || null;
+              (s.edf       || {}).country ||
+              (s.wikidata  || {}).country || null;
 
     if (!raw && options && options.useHeadquarters) {
       var hq = (s.crunchbase || {}).headquarters;

@@ -1636,6 +1636,31 @@ function buildMapView(db) {
     });
 }
 
+// ── Section routing (EDF / Investimenti) + sub-tab Mappa/Rete/Numeri chiave ───
+// Dipende solo dall'URL, non dai dati: va eseguito subito, non dentro init().
+// Se aspetta il fetch di database.json (diversi MB) la barra resta con i link
+// di default per tutto il caricamento, e chi clicca in quella finestra finisce
+// nella sezione sbagliata.
+function setupSectionNav() {
+  const p       = new URLSearchParams(location.search);
+  const section = p.get('mode') === 'edf' ? 'edf' : 'investimenti';
+  const isEdf   = section === 'edf';
+  try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
+
+  document.getElementById('nav-' + section)?.classList.add('active');
+
+  const lang   = p.get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const mode   = isEdf ? 'edf' : 'investment';
+  const set = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
+  set('subtab-mappa',  './?mode=' + mode + langQS);
+  set('subtab-rete',   'networks.html?' + (isEdf ? 'edf=1&inv=0' : 'edf=0&inv=1') + langQS);
+  set('subtab-keyfig', 'key-figures.html?mode=' + mode + langQS);
+
+  return section;
+}
+const MAP_SECTION = setupSectionNav();
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   try {
@@ -1643,22 +1668,7 @@ async function init() {
     const db  = await res.json();
     await buildMapView(db);
 
-    // ── Section routing (EDF / Investimenti) + sub-tabs Mappa/Rete/Key Figures ──
-    const _p = new URLSearchParams(location.search);
-    const section = (_p.get('mode') === 'edf') ? 'edf' : 'investimenti';
-    try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
-    document.getElementById('nav-' + section)?.classList.add('active');
-    const _lang    = _p.get('lang');
-    const _langQS  = _lang ? '&lang=' + _lang : '';
-    const netParams = section === 'edf' ? 'edf=1&inv=0' : 'edf=0&inv=1';
-    const subRete  = document.getElementById('subtab-rete');
-    const subMappa = document.getElementById('subtab-mappa');
-    if (subRete)  subRete.href  = 'networks.html?' + netParams + _langQS;
-    if (subMappa) subMappa.href = './?mode=' + (section === 'edf' ? 'edf' : 'investment') + _langQS;
-    const subKeyfig = document.getElementById('subtab-keyfig');
-    if (subKeyfig) subKeyfig.href = 'key-figures.html?mode=' +
-      (section === 'edf' ? 'edf' : 'investment') + _langQS;
-    if (section === 'edf') switchMapMode('edf');
+    if (MAP_SECTION === 'edf') switchMapMode('edf');
 
     // Restore state from URL on direct load / refresh
     const initParams  = new URLSearchParams(location.search);
