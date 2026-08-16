@@ -9,8 +9,14 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 ## In lavorazione
 
+> ⚠️ **Il lavoro in corso è sul branch `eu-funding`, non su `main`.** Ristrutturazione
+> della navigazione in due sezioni (Finanziamenti EU / Investimenti globali), ognuna
+> con i sotto-tab Mappa / Rete / Numeri chiave. `main` è ancora la versione online e
+> non va toccato finché il branch non è pronto.
+
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
+| — | **Testo del box di benvenuto (onboarding)** | Da riscrivere: parla ancora di "Map / Search / Networks", che non esistono più come sezioni. Va adattato alla nuova struttura, in tutte e 4 le lingue (chiavi `onboard.*` in `web/i18n.js`, overlay in `index.html`). **Da fare per ultimo**, quando la ristrutturazione è stabile — è un blocco prima del merge su `main`. | 🔴 |
 | — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
 ---
