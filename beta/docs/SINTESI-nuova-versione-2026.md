@@ -114,8 +114,35 @@ selettori ma disattivati ("work in progress"). Vanno raccolti e caricati i dati
 **Refresh generale del database.** Prossimo aggiornamento Crunchbase + nuove
 call EDF.
 
-**Aziende mancanti.** Esiste una lista di soggetti "assenti dal database" da
-valutare con il Senior Data Expert.
+**Aziende mancanti.** Primo elenco — esaustivo per i cinque testi di riferimento
+analizzati — di soggetti **citati nei documenti ma non presenti nel database**,
+da **aggiungere e/o verificare** nel database esistente (alcuni potrebbero già
+esserci sotto una grafia diversa, o come controllata / casa madre). Da valutare
+con il Senior Data Expert.
+
+*Produttori / startup della difesa e tech:* STM (Turchia), DoDAAM (Corea del
+Sud), ZALA / Kalashnikov (Russia), TAF Industries (Ucraina), AVIC – Aviation
+Industry Corporation of China, Labrys Technologies, Portal Biotech, Cambridge
+Aerospace, Frankenburg Technologies, Tytan Technologies, Stark Defence, Harmattan
+AI, Kraken Technology Group, Isar Aerospace, Unseenlabs, Air Space Intelligence,
+PsiQuantum, Impulse Space, SpaceX. *(Citati solo di sfuggita: Oculus, Alibaba,
+Virgin Group, Uber.)*
+
+*Investitori / fondi / agenzie pubbliche:* **The Vanguard Group** (⚠️ nel
+database c'è solo “Vanguard Ventures”, che è un soggetto diverso), Capital Group
+/ Capital World Investors, **Fidelity Investments** (FMR; in database c'è
+“Fidelity International”, un'altra società), Altimeter, Thrive Capital, Lakestar,
+D3, Darkstar, Green Flag Ventures, ScaleWolf, Hyperion, Twin Track Ventures,
+Definvest (FR), SPRIND (DE), SmartCap (EE), Apollo Project (il fondo di Sam
+Altman; in database “Apollo” è verosimilmente Apollo Global Management).
+
+*Enti di ricerca / consorzi:* Eurofighter (consorzio; presenti i membri, non il
+consorzio), INRIA, FFI (Istituto norvegese per la ricerca sulla difesa).
+
+> Nota metodologica: il confronto è basato sui **nomi**; le assenze più rilevanti
+> (Vanguard Group, SpaceX, PsiQuantum, le startup difesa europee) sono state
+> verificate a mano. Le voci restano comunque da ricontrollare prima del
+> caricamento.
 
 **Dati dalla SEC (portale statunitense).** Due filoni da raccogliere dal portale
 della U.S. Securities and Exchange Commission:
