@@ -7,7 +7,7 @@
   <title>Map — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
@@ -36,6 +36,10 @@
     .arc-legend-out { background: #4d9fff; }
     .arc-legend-in  { background: #ff5555; }
     .arc-legend-bi  { background: #b06aff; }
+    .map-arc-legend.arc-filter { display: inline-flex; gap: 4px; cursor: default; }
+    .arc-filter-btn { font: inherit; text-transform: uppercase; letter-spacing: .4px; color: var(--text-faint); background: transparent; border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; cursor: pointer; line-height: 1.5; }
+    .arc-filter-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .arc-filter-btn.active { color: var(--text-primary); border-color: var(--accent); }
     .map-node.node-dim { opacity: 0.08; }
     .map-node.node-focus { fill: var(--text-primary); stroke: none; stroke-width: 0; }
     .map-country.country-dim { opacity: 0.25; }
@@ -154,7 +158,7 @@
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--text-primary)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
+  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--accent)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
   <div class="lang-switcher">
@@ -252,6 +256,10 @@
         <div class="onboard-block-title" data-i18n="onboard.3_title"></div>
         <div class="onboard-block-desc" data-i18n="onboard.3_desc"></div>
       </div>
+      <div class="onboard-block">
+        <div class="onboard-block-title" data-i18n="onboard.4_title"></div>
+        <div class="onboard-block-desc" data-i18n="onboard.4_desc"></div>
+      </div>
     </div>
     <button id="onboard-cta" data-i18n="onboard.cta" onclick="closeOnboard()"></button>
     <div id="onboard-langs">
@@ -280,14 +288,14 @@
 }
 #onboard-logo {
   font-size: calc(var(--fs-lg) * 1.4);
-  font-weight: var(--fw-bold);
+  font-weight: 600;
   color: var(--accent);
   letter-spacing: .5px;
   margin-bottom: 2px;
 }
 /* Stesso marchio della barra: l'overlay la copre, quindi qui deve
    ripetere per intero il nome e la versione. */
-#onboard-logo .onboard-logo-tail { color: var(--text-primary); }
+#onboard-logo .onboard-logo-tail { color: var(--accent); }
 #onboard-version {
   font-family: var(--font);
   font-size: var(--fs-sm);
@@ -496,6 +504,7 @@ const mapState = {
   svg: null, g: null,
   projection: null, zoom: null,
   selectedIso: null, activeFilter: null,
+  arcFilter: 'both',
   showArcs: false, defaultTransform: null,
   edfOnly: false, edfISOs: new Set(),
   selectedArc: null,
@@ -656,7 +665,7 @@ function setDefaultPanelContent() {
       <p class="map-intro-text">${t('map.arc_colors')}<br>
         <span style="color:#4d9fff">■</span> ${t('map.arc_blue')}<br>
         <span style="color:#ff5555">■</span> ${t('map.arc_red')}<br>
-        <span style="color:#b06aff">■</span> ${t('map.arc_purple')}
+        <span style="color:#4d9fff">■</span><span style="color:#ff5555">■</span> ${t('map.arc_purple')}
       </p>
       <p class="map-intro-text">${t('map.arc_click')}</p>
     </div>
@@ -693,9 +702,13 @@ function closeMapPanel(skipHistory = false) {
   });
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+  // Un-hide any arcs hidden by the in/out selector, reset it to "both"
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').style('display', null);
+  mapState.arcFilter = 'both';
   // Restore arc legend
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
+    arcLegend.classList.remove('arc-filter');
     arcLegend.textContent = 'arc: faint→investor · bright→company';
     arcLegend.title = 'Arc direction: faint = investor country · bright = company country';
   }
@@ -712,6 +725,27 @@ function clearMapFilter() {
   mapState.activeFilter = null;
   applyMapFilter();
   closeMapPanel();
+}
+
+// ── in / out / both arc selector ──────────────────────────────────────────────
+// Shows only incoming (red), only outgoing (blue), or both sets of arcs for the
+// currently selected country. Meaningful only while a country is selected.
+function applyArcInOut(iso = mapState.selectedIso) {
+  const f = mapState.arcFilter;
+  document.querySelectorAll('.arc-filter-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.filter === f));
+  if (!iso) return;
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').each(function(d) {
+    if (d.src !== iso && d.tgt !== iso) return;   // only this country's arcs
+    const isOut = d.src === iso;
+    const show  = f === 'both' || (f === 'out' && isOut) || (f === 'in' && !isOut);
+    d3.select(this).style('display', show ? null : 'none');
+  });
+}
+
+function setArcFilter(mode) {
+  mapState.arcFilter = mode;
+  applyArcInOut();
 }
 
 // ── fitMapToISOs / computeTransform ──────────────────────────────────────────
@@ -778,25 +812,31 @@ function showMapCountry(iso, skipHistory = false) {
   if (arcEl) arcEl.style.display = '';
   mapState.g?.selectAll('.map-arc').classed('arc-dim', d => d.src !== iso && d.tgt !== iso);
 
-  // Color arcs by direction relative to selected country
-  const outTargets = new Set(mapState.arcData.filter(a => a.src === iso).map(a => a.tgt));
-  const inSources  = new Set(mapState.arcData.filter(a => a.tgt === iso).map(a => a.src));
+  // Color arcs by direction relative to selected country: out = blue (this
+  // country invests abroad), in = red (this country receives). No purple —
+  // a bidirectional pair keeps its two separate arcs (blue + red).
   mapState.g?.selectAll('.map-arc').each(function(d) {
-    const el = d3.select(this);
     if (d.src === iso || d.tgt === iso) {
-      const isBi  = (d.src === iso && inSources.has(d.tgt)) || (d.tgt === iso && outTargets.has(d.src));
-      const isOut = d.src === iso;
-      el.attr('stroke', isBi ? '#b06aff' : isOut ? '#4d9fff' : '#ff5555')
+      d3.select(this)
+        .attr('stroke', d.src === iso ? '#4d9fff' : '#ff5555')
         .attr('stroke-opacity', 0.9);
     }
   });
 
-  // Update arc legend to show directional color key
+  // Turn the arc legend into an in / out / both selector
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
-    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
-    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
+    arcLegend.classList.add('arc-filter');
+    arcLegend.title = '';
+    arcLegend.innerHTML =
+        `<button type="button" class="arc-filter-btn" data-filter="in"><span class="arc-legend-swatch arc-legend-in"></span>in</button>`
+      + `<button type="button" class="arc-filter-btn" data-filter="out"><span class="arc-legend-swatch arc-legend-out"></span>out</button>`
+      + `<button type="button" class="arc-filter-btn" data-filter="both">both</button>`;
+    arcLegend.querySelectorAll('.arc-filter-btn').forEach(b => {
+      b.onclick = e => { e.stopPropagation(); setArcFilter(b.dataset.filter); };
+    });
   }
+  applyArcInOut(iso);
 
   const sectorCount = {};
   cd.companies.forEach(c => {
@@ -932,23 +972,20 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
   if (!skipHistory) pushMapState({ arc: `${srcIso}-${tgtIso}` });
 
-  // Show arc layer, dim all arcs except the active pair
+  // Show arc layer, un-hide any arcs hidden by the in/out selector,
+  // then dim all arcs except the active pair
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = '';
-  const hasAB = mapState.arcData.some(a => a.src === srcIso && a.tgt === tgtIso);
-  const hasBA = mapState.arcData.some(a => a.src === tgtIso && a.tgt === srcIso);
-  const isBi  = hasAB && hasBA;
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').style('display', null);
 
   mapState.g?.selectAll('.map-arc').each(function(d) {
     const active = (d.src === srcIso && d.tgt === tgtIso) || (d.src === tgtIso && d.tgt === srcIso);
     d3.select(this).classed('arc-dim', !active).classed('arc-selected', active);
     if (active) {
-      const currentStroke = d3.select(this).attr('stroke') || '';
-      if (currentStroke.startsWith('url(')) {
-        // No directional color from country view — derive from arc data
-        d3.select(this).attr('stroke', isBi ? '#b06aff' : '#4d9fff');
-      }
-      d3.select(this).attr('stroke-opacity', 1.0);
+      // Each direction keeps its own colour: srcIso→tgtIso blue, the reverse red
+      d3.select(this)
+        .attr('stroke', d.src === srcIso ? '#4d9fff' : '#ff5555')
+        .attr('stroke-opacity', 1.0);
     }
   });
 
@@ -985,8 +1022,9 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
-    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
-    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
+    arcLegend.classList.remove('arc-filter');
+    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>${esc(srcName)}→${esc(tgtName)} &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>${esc(tgtName)}→${esc(srcName)}`;
+    arcLegend.title = 'Blu = ' + srcName + ' → ' + tgtName + ' · Rosso = ' + tgtName + ' → ' + srcName;
   }
 
   document.getElementById('map-panel-header').style.display = '';
@@ -1315,13 +1353,12 @@ function applyMapFilter() {
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = (mapState.showArcs || f || mapState.selectedIso) ? '' : 'none';
 
-  // helper: arc visibility based on selected country + in/out button state
+  // helper: arc visibility based on selected country + in/out selector state
   const arcDimForCountry = (d, sel) => {
-    const showIn  = document.getElementById('map-flow-in-list')?.style.display !== 'none' ?? true;
-    const showOut = document.getElementById('map-flow-out-list')?.style.display !== 'none' ?? true;
-    if (d.tgt === sel) return !showIn;
-    if (d.src === sel) return !showOut;
-    return true;
+    const fl = mapState.arcFilter;
+    if (fl === 'both') return false;
+    const isOut = d.src === sel;
+    return fl === 'out' ? !isOut : isOut;
   };
 
   if (!f && !edf) {
@@ -1385,8 +1422,14 @@ function drawArcs(layer) {
     const s = mapState.centroids[arc.src];
     const t = mapState.centroids[arc.tgt];
     if (!s || !t) return;
-    const mx  = (s[0] + t[0]) / 2;
-    const my  = (s[1] + t[1]) / 2 - Math.hypot(t[0]-s[0], t[1]-s[1]) * 0.3;
+    // Bow each directed arc perpendicular to the src→tgt segment. Because the
+    // perpendicular flips sign when src/tgt swap, a bidirectional pair (A→B and
+    // B→A) curves to opposite sides and both stay visible in "both" mode.
+    const dx = t[0]-s[0], dy = t[1]-s[1];
+    const len = Math.hypot(dx, dy) || 1;
+    const bow = len * 0.16;
+    const mx  = (s[0] + t[0]) / 2 + (-dy / len) * bow;
+    const my  = (s[1] + t[1]) / 2 + ( dx / len) * bow;
     const sw  = strokeScale(arc.weight);
     const op  = opacityScale(arc.weight);
     const gid = `map-arc-grad-${i}`;
