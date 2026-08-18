@@ -173,7 +173,7 @@
   --sl-row-val-fs:     var(--fs-body);  /* row value          ~19.2px */
   --sl-desc-fs:        var(--fs-body);  /* description text   ~19.2px */
 }
-html { font-size: 120%; }
+html { font-size: 112.5%; }
 *, *::before, *::after { box-sizing: border-box; }
 body {
   background: var(--bg);
