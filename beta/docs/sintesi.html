@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Man in the loop — Sintesi nuova versione 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c0b; --surface:#121613; --surface-2:#171b18;
+    --text:#e7eae7; --muted:#9aa39c; --faint:#727a73;
+    --accent:#00ff41; --accent-dim:rgba(0,255,65,.14); --accent-line:rgba(0,255,65,.28);
+    --border:rgba(255,255,255,.11); --border-soft:rgba(255,255,255,.06);
+    --blue:#4d9fff; --red:#ff5555; --warn:#ffcc66;
+    --display:'Archivo','Arial',sans-serif;
+    --body:'Barlow','Inter',sans-serif;
+    --cond:'Barlow Condensed',sans-serif;
+    --mono:'Courier Prime',monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--body); font-size:18px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:0 22px 90px;}
+
+  /* top bar */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    max-width:840px; margin:0 auto; padding:16px 22px;
+  }
+  .back{
+    font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px;
+    font-size:.82rem; color:var(--muted); text-decoration:none;
+    border:1px solid var(--border); border-radius:4px; padding:5px 11px;
+    transition:color .15s,border-color .15s;
+  }
+  .back:hover{color:var(--accent); border-color:var(--accent-line);}
+  .vertag{font-family:var(--mono); font-size:.78rem; color:var(--faint);}
+
+  /* hero */
+  header.hero{padding:26px 0 8px; border-bottom:1px solid var(--border-soft);}
+  .brand{font-family:var(--display); font-weight:600; color:var(--accent);
+    font-size:2.35rem; line-height:1.02; letter-spacing:.3px; margin:0;}
+  .kicker{font-family:var(--cond); text-transform:uppercase; letter-spacing:1.5px;
+    font-size:.8rem; color:var(--muted); margin:14px 0 4px;}
+  .subtitle{font-size:1.15rem; color:var(--text); margin:0 0 6px; font-weight:500;}
+
+  /* lead callout */
+  .lead{
+    background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--accent); border-radius:6px;
+    padding:16px 20px; margin:26px 0; color:var(--muted); font-size:1rem;
+  }
+  .lead strong{color:var(--text);}
+
+  /* one-liner highlight */
+  .oneliner{
+    font-size:1.32rem; line-height:1.5; font-weight:500; color:var(--text);
+    margin:34px 0; padding-left:18px; border-left:3px solid var(--accent-line);
+  }
+  .oneliner b{color:var(--accent);}
+
+  /* table of contents */
+  nav.toc{
+    display:flex; flex-wrap:wrap; gap:8px; margin:30px 0 10px;
+    padding-bottom:24px; border-bottom:1px solid var(--border-soft);
+  }
+  nav.toc a{
+    font-family:var(--cond); text-transform:uppercase; letter-spacing:.5px;
+    font-size:.8rem; color:var(--muted); text-decoration:none;
+    border:1px solid var(--border); border-radius:20px; padding:4px 12px;
+    transition:color .15s,border-color .15s,background .15s;
+  }
+  nav.toc a:hover{color:var(--accent); border-color:var(--accent-line); background:var(--accent-dim);}
+
+  /* sections */
+  section{padding:38px 0 8px; border-top:1px solid var(--border-soft);}
+  section:first-of-type{border-top:none;}
+  h2{font-family:var(--display); font-weight:600; font-size:1.5rem; line-height:1.2;
+    color:var(--text); margin:0 0 8px; display:flex; align-items:baseline; gap:12px;}
+  h2 .num{
+    font-family:var(--mono); font-size:1rem; color:var(--accent);
+    border:1px solid var(--accent-line); border-radius:5px; padding:1px 9px;
+    flex:none; transform:translateY(-2px);
+  }
+  h3{font-family:var(--cond); text-transform:uppercase; letter-spacing:.8px;
+    font-size:1rem; color:var(--accent); margin:26px 0 8px;}
+  p{margin:0 0 14px;}
+  strong{color:#fff; font-weight:600;}
+  em{color:var(--muted); font-style:italic;}
+  code{font-family:var(--mono); font-size:.86em; background:var(--surface-2);
+    border:1px solid var(--border-soft); border-radius:3px; padding:1px 5px; color:var(--accent);}
+  ul{margin:0 0 16px; padding-left:0; list-style:none;}
+  li{position:relative; padding-left:22px; margin-bottom:9px;}
+  li::before{content:''; position:absolute; left:4px; top:11px; width:6px; height:6px;
+    background:var(--accent); border-radius:50%;}
+
+  /* tables */
+  .tbl{overflow-x:auto; margin:18px 0 22px;}
+  table{width:100%; border-collapse:collapse; font-size:.96rem; min-width:440px;}
+  th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--border-soft);
+    vertical-align:top;}
+  thead th{font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px;
+    font-size:.8rem; color:var(--muted); border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:var(--surface);}
+
+  /* status chips */
+  .chip{font-family:var(--cond); text-transform:uppercase; letter-spacing:.5px;
+    font-size:.74rem; padding:2px 9px; border-radius:20px; white-space:nowrap;
+    border:1px solid var(--border);}
+  .chip.ok{color:var(--accent); border-color:var(--accent-line); background:var(--accent-dim);}
+  .chip.todo{color:var(--warn); border-color:rgba(255,204,102,.3); background:rgba(255,204,102,.08);}
+
+  /* note callout */
+  .note{background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--warn); border-radius:6px; padding:12px 18px;
+    margin:18px 0; color:var(--muted); font-size:.96rem;}
+  .note strong{color:var(--warn);}
+
+  /* data chapter emphasis */
+  section.data{background:linear-gradient(180deg,var(--accent-dim),transparent 120px);
+    border-radius:8px; padding-left:20px; padding-right:20px; margin-left:-20px; margin-right:-20px;}
+  section.data > h2 .num{background:var(--accent-dim);}
+
+  .subblock{margin:22px 0; padding:2px 0;}
+  .subblock .lbl{font-weight:600; color:#fff;}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:50%;
+    vertical-align:middle; margin:0 3px;}
+
+  /* footer */
+  footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--border);
+    color:var(--faint); font-size:.9rem;}
+  footer a{color:var(--muted);}
+
+  @media (max-width:600px){
+    body{font-size:16.5px;}
+    .brand{font-size:1.9rem;}
+    .oneliner{font-size:1.15rem;}
+    h2{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← Man in the loop</a>
+  <span class="vertag">Prototype v.2026-b</span>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Documento per il team</p>
+    <h1 class="brand">Sintesi della nuova versione</h1>
+    <p class="subtitle" style="margin-top:10px;">Man in the loop — cosa cambia nel 2026, e quali dati servono</p>
+  </header>
+
+  <div class="lead">
+    Descrive le <strong>modifiche strutturali</strong> della nuova versione della
+    piattaforma (ramo <code>eu-funding</code>) rispetto a quella attualmente online
+    (ramo <code>main</code>), e — nell'ultimo capitolo — <strong>quali dati vanno
+    aggiunti e quali arricchiti</strong>. Stato: pubblicata in versione affiancata,
+    senza toccare la piattaforma originale.
+  </div>
+
+  <p class="oneliner">
+    La piattaforma non è più organizzata <b>per tipo di grafica</b> (Mappa, Rete…)
+    ma <b>per tema</b>: due grandi sezioni — <b>EU Funding</b> e <b>Global
+    Investments</b> — ciascuna esplorabile in tre modi.
+  </p>
+
+  <nav class="toc">
+    <a href="#s1">1 · Navigazione per tema</a>
+    <a href="#s2">2 · Numeri chiave</a>
+    <a href="#s3">3 · Mappa</a>
+    <a href="#s4">4 · Onboarding &amp; restyling</a>
+    <a href="#s5">5 · Sotto il cofano</a>
+    <a href="#s6">6 · Dati</a>
+    <a href="#s7">7 · Prossimi passi</a>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="num">1</span> La modifica principale: navigazione per tema, non per strumento</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>Versione precedente (online)</th><th>Nuova versione</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Menu principale</strong></td><td>Map · Networks · Search · Publications · About</td><td><strong>EU Funding · Global Investments</strong> · Search · Publications · About</td></tr>
+          <tr><td><strong>Logica</strong></td><td>si sceglieva <em>lo strumento</em> (una mappa o un grafo)</td><td>si sceglie <em>la domanda</em> (denaro pubblico UE, oppure investimenti globali)</td></tr>
+          <tr><td><strong>Come si esplora</strong></td><td>mappa e rete erano voci separate</td><td>dentro ogni sezione tre viste: <strong>Mappa · Rete · Numeri chiave</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Le due sezioni rispondono a due domande diverse:</p>
+    <ul>
+      <li><strong>EU Funding</strong> — segue il flusso del <strong>denaro pubblico europeo</strong> nel settore della difesa: chi lo riceve, con chi collabora, per quali scopi. Oggi mostra lo <strong>European Defence Fund (EDF)</strong>.</li>
+      <li><strong>Global Investments</strong> — mostra gli <strong>investimenti (privati e pubblici)</strong> nelle aziende del settore e le collaborazioni tra i soggetti.</li>
+    </ul>
+  </section>
+
+  <section id="s2">
+    <h2><span class="num">2</span> Nuova sezione “Numeri chiave”</h2>
+    <p>Una vista completamente nuova (<code>key-figures.html</code>), assente nella versione precedente. Presenta i <strong>dati aggregati</strong> — classifiche e cifre significative — invece della sola visualizzazione geografica o a rete.</p>
+    <p>Include un <strong>selettore di perimetro</strong> in Global Investments per passare fra <em>“solo defence tech”</em> e <em>“tutte le entità”</em> (vedi capitolo dati).</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="num">3</span> Mappa: nuove modalità di lettura</h2>
+    <ul>
+      <li><strong>Modalità EDF Funding</strong>: la mappa mostra i finanziamenti EDF paese per paese (cerchi dimensionati sul finanziamento, zoom sull'Europa).</li>
+      <li><strong>Selettore archi <span style="color:var(--blue)">in</span> / <span style="color:var(--red)">out</span> / both</strong> (Global Investments): la vecchia legenda a tre colori è diventata un <strong>filtro</strong>. Si sceglie di vedere solo gli investimenti in <strong style="color:var(--blue)">uscita (blu)</strong>, solo quelli in <strong style="color:var(--red)">entrata (rosso)</strong> o entrambi. Le coppie di Paesi con flussi bidirezionali non sono più un singolo arco viola ma <strong>due archi affiancati</strong><span class="swatch" style="background:var(--blue)"></span><span class="swatch" style="background:var(--red)"></span>.</li>
+      <li><strong>Pannello informativo</strong> sui programmi di finanziamento (vedi cap. 6).</li>
+    </ul>
+  </section>
+
+  <section id="s4">
+    <h2><span class="num">4</span> Onboarding e restyling</h2>
+    <ul>
+      <li><strong>Box di benvenuto riscritto</strong> per la nuova struttura: quattro blocchi (le due sezioni, i tre modi di leggere i dati, Search/Pubblicazioni, About), in tutte e quattro le lingue (IT/EN/FR/ES).</li>
+      <li><strong>Titolo della piattaforma</strong> ora interamente in verde, in font <em>Archivo</em> (peso 600): più sottile e leggibile.</li>
+      <li><strong>Dimensione di base dei testi</strong> leggermente ridotta, per una lettura più pulita e uniforme su tutte le pagine.</li>
+    </ul>
+  </section>
+
+  <section id="s5">
+    <h2><span class="num">5</span> Sotto il cofano <span style="font-family:var(--cond);text-transform:uppercase;font-size:.7rem;letter-spacing:1px;color:var(--faint);font-weight:500;">per chi mette mano al codice</span></h2>
+    <ul>
+      <li><code>web/countries.js</code> — normalizzazione centralizzata dei nomi dei Paesi (prima la logica era sparsa: es. “Czechia” vs “Czech Republic”).</li>
+      <li><code>data/defence_criteria.json</code> — file di configurazione, modificabile a mano, che definisce quali aziende contano come <em>defence tech</em>.</li>
+      <li><strong>Traduzioni</strong> di menu e sotto-menu completate nelle quattro lingue.</li>
+      <li>La risoluzione del Paese ora usa prima il dato EDF e poi Wikidata.</li>
+    </ul>
+  </section>
+
+  <section id="s6" class="data">
+    <h2><span class="num">6</span> 📊 Dati — cosa aggiungere e cosa arricchire</h2>
+    <p>Il capitolo su cui serve il lavoro del team. La struttura della piattaforma è pronta ad accogliere molti più dati di quelli oggi caricati.</p>
+
+    <h3>6a · Dati da aggiungere</h3>
+    <p class="subblock"><span class="lbl">Gli altri programmi di finanziamento.</span> Oggi in EU Funding è attivo <strong>solo l'EDF</strong>. Il pannello prevede già altri <strong>sette</strong> programmi, presenti come selettori ma disattivati. Vanno raccolti e caricati i dati (beneficiari e importi) di:</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Programma</th><th>Ambito</th><th>Stato</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EDF</strong> — European Defence Fund</td><td>UE</td><td><span class="chip ok">✅ caricato</span></td></tr>
+          <tr><td><strong>PESCO</strong> — Permanent Structured Cooperation</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>HORIZON</strong> — Horizon Europe</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EDIP</strong> — European Defence Industry Programme</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EUDIS</strong> — EU Defence Innovation Scheme</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EIF</strong> — European Investment Fund</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>DIANA</strong> — Defence Innovation Accelerator</td><td>NATO</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>NIF</strong> — NATO Innovation Fund</td><td>NATO</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>Nota:</strong> DIANA e NIF sono programmi <strong style="color:var(--warn)">NATO</strong>, non UE — nel pannello sono già separati da una linea. Da decidere se e come rappresentarli nella sezione “EU Funding” o in un contenitore dedicato.</div>
+
+    <p class="subblock"><span class="lbl">Refresh generale del database.</span> Prossimo aggiornamento Crunchbase + nuove call EDF.</p>
+    <p class="subblock"><span class="lbl">Aziende mancanti.</span> Esiste una lista di soggetti “assenti dal database” da valutare con il Senior Data Expert.</p>
+    <p class="subblock"><span class="lbl">Dati dalla SEC (portale statunitense).</span> Due filoni da raccogliere dal portale della U.S. Securities and Exchange Commission:</p>
+    <ul>
+      <li>dettagli sui <strong>Fondi e i loro investimenti</strong>;</li>
+      <li>dettagli su <strong>Fondi e aziende</strong> relativi alle <strong>persone</strong> che vi detengono quote rilevanti o ricoprono posizioni apicali.</li>
+    </ul>
+
+    <h3>6b · Dati da arricchire</h3>
+    <p class="subblock"><span class="lbl">1. Definizione delle aziende “defence tech”.</span> La voce più delicata. Oggi la classificazione è <strong>provvisoria</strong>: circa <strong>165 aziende su 378</strong> sono marcate come defence tech, ma il criterio si appoggia in gran parte alle <em>industries</em> di Crunchbase, che sono generiche. Conseguenze:</p>
+    <ul>
+      <li>alcune aziende chiaramente del settore hanno etichette come “Information Technology” e rientrano <strong>solo</strong> grazie ai segnali strutturali (di norma la partecipazione a un progetto EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto;</li>
+      <li>altre potrebbero rientrare a torto.</li>
+    </ul>
+    <p>Serve una <strong>revisione a mano</strong> dell'elenco, correggendo i casi singoli nelle liste <code>include</code> / <code>exclude</code> di <code>data/defence_criteria.json</code> (dove <code>exclude</code> vince su tutto). Va anche deciso se <strong>allargare il perimetro</strong> ad alcune etichette oggi escluse di proposito — <em>Robotics, Sensor, Autonomous Vehicles, Cyber Security</em>.</p>
+
+    <p class="subblock"><span class="lbl">2. Tipologia dei finanziatori.</span> Oggi i soggetti che investono sono trattati in modo indistinto. Serve <strong>classificarli</strong>, in particolare distinguere:</p>
+    <ul>
+      <li><strong>Fondi di Investimento</strong> (fondi istituzionali, private equity, fondi statali…)</li>
+      <li><strong>Venture Capital</strong></li>
+    </ul>
+    <p>e, più in generale, separare investitori <strong>privati</strong> da <strong>pubblici</strong> (agenzie governative, banche di sviluppo, fondi sovrani). Questa distinzione renderebbe molto più leggibili sia le Reti sia i Numeri chiave.</p>
+
+    <p class="subblock"><span class="lbl">3. Natura delle entità — identificare con maggior precisione.</span> Oltre alla tipologia dei finanziatori, servono due classificazioni più fini:</p>
+    <ul>
+      <li>per le <strong>aziende</strong>: distinguere <strong>società quotate</strong> da <strong>start up</strong>;</li>
+      <li>per gli <strong>investitori pubblici</strong>: precisare il <strong>tipo di istituzione</strong> (ministero, banca centrale, autorità, agenzia, banca di sviluppo…).</li>
+    </ul>
+
+    <p class="subblock"><span class="lbl">4. Correzioni di qualità.</span> Casi già individuati, da sistemare:</p>
+    <ul>
+      <li><strong>MBDA España</strong> ha il campo <em>country</em> (Wikidata) errato (<code>IN-0863</code>);</li>
+      <li><strong>Iveco Defence Vehicles</strong> duplicata come “Idv Defence Vehicles Italia” (<code>IN-1431</code> / <code>IN-0803</code>, stesso PIC);</li>
+      <li><strong>Telecom Italia</strong> duplicata;</li>
+      <li><strong>Fincantieri</strong> presente sia come azienda sia come investitore.</li>
+    </ul>
+
+    <p class="subblock"><span class="lbl">5. Incrocio con OpenSanctions.</span> Segnalare se un'entità è sanzionata o “di interesse”. Effort medio, manutenzione periodica leggera.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="num">7</span> Stato e prossimi passi</h2>
+    <ul>
+      <li><code>main</code> = versione <strong>online</strong> attuale, invariata.</li>
+      <li><code>eu-funding</code> = <strong>nuova versione</strong>, completa a livello di struttura.</li>
+      <li><strong>Blocco prima del merge finale</strong>: il testo di onboarding è già riscritto; il merge su <code>main</code> va fatto solo quando la ristrutturazione è considerata stabile dal team.</li>
+      <li><strong>Deploy affiancato</strong>: la nuova versione è pubblicata <strong>accanto</strong> a quella originale, senza sostituirla, per raccogliere il feedback del team.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Roadmap operativa completa e sempre aggiornata: <code>ROADMAP.md</code> nel repository.<br>
+    <a href="../">↩ Torna alla piattaforma Man in the loop</a>
+  </footer>
+
+</div>
+</body>
+</html>
