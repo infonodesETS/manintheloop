@@ -1262,7 +1262,9 @@ function switchMapMode(mode) {
       const r    = show ? rScaleEdf(edfData.totalFunding) : 0;
       d3.select(this).datum({ ...d, baseR: r })
         .attr('r', r)
-        .style('fill', show ? 'rgba(100,200,100,0.85)' : null)
+        // stesso verde di Global Investments: usa il CSS .map-node { fill: var(--accent) },
+        // così è identico nelle due sezioni e coerente in dark/light.
+        .style('fill', null)
         .style('display', show ? null : 'none');
     });
 
