@@ -13,7 +13,7 @@
   --border:               rgb(105,105,105);
   --dim:                  rgba(255,255,255,0.53);
   --font:                 'Barlow Condensed', 'Inter', sans-serif;
-  --font-display:         'Archivo', 'Arial', sans-serif;
+  --font-display:         'Archivo Black', 'Arial Black', Impact, sans-serif;
   --nav-h:                44px;
   --tab-h:                46px;
   --legend-h:             42px;
@@ -201,9 +201,9 @@ body {
    Parentela grafica con "Oracolo del Dissenso". Solo il brand e i titoli
    hero; l'interfaccia densa resta in Barlow Condensed. Rimuovere questo
    blocco (+ --font-display) per tornare indietro. */
-#topnav .brand > span:first-child { font-family: var(--font-display); font-weight: 600; letter-spacing: 0; }
-#onboard-logo { font-family: var(--font-display); font-weight: 600; letter-spacing: 0; }
-.ki-body h1 { font-family: var(--font-display); font-weight: 600; letter-spacing: 0; }
+#topnav .brand > span:first-child { font-family: var(--font-display); letter-spacing: 0; }
+#onboard-logo { font-family: var(--font-display); letter-spacing: 0; }
+.ki-body h1 { font-family: var(--font-display); letter-spacing: 0; }
 .brand-wip-link { color: var(--warn); text-decoration: underline; text-underline-offset: 2px; }
 .brand-wip-link:hover { color: #ffc266; }
 #topnav .meta  { font-size: var(--fs-sm); color: var(--text-faint); font-family: monospace; margin-left: auto; }

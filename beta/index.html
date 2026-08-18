@@ -7,7 +7,7 @@
   <title>Map — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
@@ -284,11 +284,12 @@
   border-radius: 6px;
   padding: 36px 40px 32px;
   max-width: 580px; width: calc(100% - 48px);
+  max-height: calc(100vh - 32px); overflow-y: auto;
   font-family: var(--font);
 }
 #onboard-logo {
   font-size: calc(var(--fs-lg) * 1.4);
-  font-weight: 600;
+  font-weight: var(--fw-bold);
   color: var(--accent);
   letter-spacing: .5px;
   margin-bottom: 2px;
@@ -342,6 +343,19 @@
 #onboard-langs button.active { color: var(--accent); border-color: var(--accent); }
 [data-theme="light"] #onboard-box { background: #fff; }
 [data-theme="light"] #onboard-overlay { background: rgba(255,255,255,.6); }
+/* Mobile: compatta il box così tutto (incluso il pulsante) resta raggiungibile */
+@media (max-width: 640px) {
+  #onboard-overlay { align-items: flex-start; }
+  #onboard-box {
+    padding: 22px 20px 20px;
+    width: calc(100% - 24px);
+    max-height: calc(100vh - 24px);
+    margin: 12px 0;
+  }
+  #onboard-subtitle { margin-bottom: 18px; }
+  #onboard-blocks { gap: 12px; margin-bottom: 20px; }
+  .onboard-block { padding: 10px 12px; }
+}
 </style>
 
 <script>
