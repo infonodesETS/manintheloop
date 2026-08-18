@@ -65,10 +65,10 @@ passare fra *"solo defence tech"* e *"tutte le entità"* (vedi capitolo dati).
 - **Box di benvenuto riscritto** per la nuova struttura: quattro blocchi (le due
   sezioni, i tre modi di leggere i dati, Search/Pubblicazioni, About), in tutte
   e quattro le lingue (IT/EN/FR/ES).
-- **Titolo della piattaforma** ora interamente in verde.
-- **Font dei titoli** alleggerito (famiglia *Archivo* al posto di *Archivo
-  Black*), per coerenza grafica con il progetto **Oracolo del Dissenso** della
-  stessa organizzazione.
+- **Titolo della piattaforma** ora interamente in verde, in font *Archivo*
+  (peso 600): più sottile e leggibile.
+- **Dimensione di base dei testi** leggermente ridotta, per una lettura più
+  pulita e uniforme su tutte le pagine.
 
 ---
 
