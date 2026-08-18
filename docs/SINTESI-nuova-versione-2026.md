@@ -117,6 +117,13 @@ call EDF.
 **Aziende mancanti.** Esiste una lista di soggetti "assenti dal database" da
 valutare con il Senior Data Expert.
 
+**Dati dalla SEC (portale statunitense).** Due filoni da raccogliere dal portale
+della U.S. Securities and Exchange Commission:
+
+- dettagli sui **Fondi e i loro investimenti**;
+- dettagli su **Fondi e aziende** relativi alle **persone** che vi detengono
+  quote rilevanti o ricoprono posizioni apicali.
+
 ### 6b. Dati da ARRICCHIRE
 
 **1. Definizione delle aziende "defence tech".** È la voce più delicata. Oggi la
@@ -146,7 +153,14 @@ e, più in generale, separare investitori **privati** da **pubblici** (agenzie
 governative, banche di sviluppo, fondi sovrani). Questa distinzione renderebbe
 molto più leggibili sia le Reti sia i Numeri chiave.
 
-**3. Correzioni di qualità.** Casi già individuati, da sistemare:
+**3. Natura delle entità — identificare con maggior precisione.** Oltre alla
+tipologia dei finanziatori, servono due classificazioni più fini:
+
+- per le **aziende**: distinguere **società quotate** da **start up**;
+- per gli **investitori pubblici**: precisare il **tipo di istituzione**
+  (ministero, banca centrale, autorità, agenzia, banca di sviluppo…).
+
+**4. Correzioni di qualità.** Casi già individuati, da sistemare:
 
 - **MBDA España** ha il campo *country* (Wikidata) errato (IN-0863);
 - **Iveco Defence Vehicles** è duplicata come "Idv Defence Vehicles Italia"
@@ -154,7 +168,7 @@ molto più leggibili sia le Reti sia i Numeri chiave.
 - **Telecom Italia** duplicata;
 - **Fincantieri** presente sia come azienda sia come investitore.
 
-**4. Incrocio con OpenSanctions** — segnalare se un'entità è sanzionata o "di
+**5. Incrocio con OpenSanctions** — segnalare se un'entità è sanzionata o "di
 interesse". Effort medio, manutenzione periodica leggera.
 
 ---
