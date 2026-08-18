@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <style>
+    html { font-size: 120%; }
+    :root { --nav-h: 64px; }
+    body { overflow: auto; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+    #page-content {
+      padding: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h) + 48px) 40px 80px;
+      max-width: 760px;
+    }
+    .tbd-prompt { font-family: var(--font); font-size: var(--fs-xs); color: rgba(0,255,65,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    [data-theme="light"] .tbd-prompt { color: rgba(0,102,34,0.55); }
+    .tbd-title { font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin-bottom: 16px; }
+    .tbd-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.2); padding-left: 16px; margin-bottom: 32px; }
+    .tbd-badge {
+      display: inline-block; font-family: var(--font); font-size: var(--fs-xs);
+      border: 1px solid var(--border); border-radius: 50px; padding: 3px 14px;
+      color: var(--text-faint);
+    }
+    /* ── Glossary ── */
+    .gloss-list { margin: 0; display: flex; flex-direction: column; gap: 18px; }
+    .gloss-item dt { font-family: var(--font); font-size: var(--fs-body); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 4px; }
+    .gloss-item dd { margin: 0; font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); }
+    /* ── Language switcher ── */
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--accent)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="./?mode=edf" class="tnav-btn" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" data-i18n="nav.investments">Investimenti globali</a>
+  <a href="search.html" class="tnav-btn">Search</a>
+  <a href="publications.html" class="tnav-btn" data-i18n="nav.publications">Pubblicazioni</a>
+  <a href="about.html" class="tnav-btn active">About</a>
+</div>
+
+<!-- ── Subnav (About sections) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <button class="snav-btn active" data-section="sec-about"      data-i18n="about.nav_about"      onclick="showAboutSection('sec-about')">Chi siamo</button>
+    <button class="snav-btn"        data-section="sec-data"       data-i18n="about.nav_data"       onclick="showAboutSection('sec-data')">Metodologia e dati</button>
+    <button class="snav-btn"        data-section="sec-glossary"   data-i18n="about.nav_glossary"   onclick="showAboutSection('sec-glossary')">Glossario</button>
+    <button class="snav-btn"        data-section="sec-contribute" data-i18n="about.nav_contribute" onclick="showAboutSection('sec-contribute')">Contribuisci</button>
+  </div>
+</div>
+
+<div id="page-content">
+
+  <!-- ════ Sezione 1 — Chi siamo ════ -->
+  <section id="sec-about" class="about-section">
+    <div class="tbd-prompt">$ man-in-the-loop --about</div>
+    <div class="tbd-title" data-i18n="about.title">About</div>
+    <div class="tbd-desc" data-i18n-html="about.intro">
+      La piattaforma Man in the Loop è sviluppata da info.nodes, organizzazione no-profit italiana fondata nel 2019, grazie al supporto economico di <a href="https://privacyinternational.org/" target="_blank" rel="noopener" style="font-weight:bold;color:inherit;">Privacy International</a>, nell'ambito del programma globale "Militarisation of Tech".
+    </div>
+    <div id="why-block" style="margin-bottom: 20px;"></div>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ team --current-prototype</div>
+    <p data-i18n="about.team_lead" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">L'attuale prototipo è stato sviluppato da:</p>
+    <ul data-i18n-html="about.team_list" style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);">
+      <li>Davide Del Monte — Coordinatore e Lead Researcher</li>
+      <li>Laura Carrer — Researcher</li>
+      <li>Andrea Daniele Signorelli — Researcher</li>
+    </ul>
+    <p data-i18n="about.collab" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">in collaborazione con DATAPITCH:</p>
+    <ul data-i18n-html="about.datapitch_list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);">
+      <li>Andrea Nelson Mauro — Developer e Data expert</li>
+      <li>Emma Besseghini — Junior Researcher</li>
+    </ul>
+  </section>
+
+  <!-- ════ Sezione 2 — Metodologia e dati ════ -->
+  <section id="sec-data" class="about-section" style="display:none">
+    <div class="tbd-prompt" data-i18n="about.last_update_label" style="margin-bottom: 12px;">Ultimo aggiornamento dati</div>
+    <p id="last-update-date" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;">16/06/2026</p>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --methodology</div>
+    <p data-i18n="about.data_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">I dati di Man in the Loop</p>
+    <p data-i18n="about.data_p1" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Il progetto di ricerca sperimentale open data ha lo scopo di mappare le aziende e gli investitori nel settore delle armi autonome, lungo tutta la catena di approvvigionamento globale.</p>
+    <p data-i18n="about.data_p2" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 8px;">Per lo sviluppo di questo prototipo abbiamo costruito un database inserendo le seguenti società quotate alla borsa di Wall Street e identificate per settore utilizzando i codici GICS:</p>
+    <ul data-i18n-html="about.data_sectors" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 12px;">
+      <li>Settore Minerario: Materials, con focus su Metals &amp; Mining (Codice GICS 151040).</li>
+      <li>Settore Tech: Information Technology (Codice GICS 45), Communication Services (Codice GICS 50).</li>
+      <li>Settore della difesa: Aerospace &amp; Defence (Codice GICS 201010).</li>
+    </ul>
+    <p data-i18n="about.data_p3" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo inoltre aggiunto 18 start-up europee ritenute rilevanti nel settore. Creato il database, abbiamo ricavato i dati relativi ai Lead Investors e ai Top Investors dalla piattaforma a pagamento Crunchbase.</p>
+    <p data-i18n="about.data_nota" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;">NOTA: tutte le informazioni presenti nelle sezioni della piattaforma sono la fotografia alla data in cui abbiamo scaricato le informazioni da Crunchbase (aprile 2026).</p>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ data --edf-focus</div>
+    <p data-i18n="about.eu_funding_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">I finanziamenti pubblici alla difesa</p>
+    <p data-i18n="about.eu_funding_p1" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 14px;">Abbiamo raccolto e inserito nel database tutte le entità (società, università, centri di ricerca, istituzioni pubbliche) che hanno partecipato a progetti EDF (European Defence Fund) e che quindi hanno ricevuto, direttamente o indirettamente, dei fondi dall'Unione Europea per fare ricerca, sviluppare, produrre e commercializzare dei sistemi d'arma autonomi.</p>
+    <p data-i18n-html="about.eu_funding_p2" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 14px;"></p>
+    <p data-i18n="about.eu_funding_p3" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;"></p>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ limiti</div>
+    <p data-i18n="about.limits_method_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Limiti metodologici</p>
+    <ul data-i18n-html="about.limits_method" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <li>...</li>
+    </ul>
+    <p data-i18n="about.limits_data_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Limiti dei dati</p>
+    <ul data-i18n-html="about.limits_data" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px;">
+      <li>...</li>
+    </ul>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ links</div>
+    <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
+      <li><a href="https://github.com/infonodesETS/manintheloop" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">github.com/infonodesETS/manintheloop</a> — source code &amp; documentation</li>
+    </ul>
+
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ data/</div>
+    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--font); font-size: var(--fs-sm); color: var(--text-secondary);">
+      <li><a href="data/database.json" style="color: var(--accent); text-decoration: none;">data/database.json</a> — main entity database: companies, investors, EDF projects, relationships (schema v3.0)</li>
+      <li><a href="data/edf_orgs.json" style="color: var(--accent); text-decoration: none;">data/edf_orgs.json</a> — EDF participant index: 794 orgs keyed by PIC, with database crosswalk</li>
+      <li><a href="data/glossary.json" style="color: var(--accent); text-decoration: none;">data/glossary.json</a> — source flag descriptions (CB / EDF / iShares / WD / INF)</li>
+      <li><a href="data/glossary_terms.json" style="color: var(--accent); text-decoration: none;">data/glossary_terms.json</a> — About-page glossary terms (it / en / fr / es)</li>
+      <li><a href="data/about_why.json" style="color: var(--accent); text-decoration: none;">data/about_why.json</a> — About-page intro narrative (it / en / fr / es)</li>
+      <li><a href="data/qid_candidates.json" style="color: var(--accent); text-decoration: none;">data/qid_candidates.json</a> — Wikidata QID review file: 1003 entries (accepted / rejected / skipped)</li>
+    </ul>
+  </section>
+
+  <!-- ════ Sezione 3 — Glossario ════ -->
+  <section id="sec-glossary" class="about-section" style="display:none">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ glossary</div>
+    <p data-i18n="about.glossary_intro" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 24px;">I termini chiave usati nella piattaforma, spiegati in modo semplice.</p>
+    <dl id="gloss-list" class="gloss-list"></dl>
+  </section>
+
+  <!-- ════ Sezione 4 — Contribuisci ════ -->
+  <section id="sec-contribute" class="about-section" style="display:none">
+    <div class="tbd-prompt" style="margin-bottom: 12px;">$ contribute</div>
+    <p data-i18n="about.contribute_label" style="font-family: var(--font); font-size: var(--fs-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px;">Contribuisci</p>
+    <p data-i18n="about.contribute_intro" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">Abbiamo fatto il possibile per verificare l'accuratezza dei dati inseriti nella piattaforma, ma è un lavoro molto complicato e il nostro team ha risorse limitate. Per questo ti chiediamo di darci una mano nei seguenti modi, se ti va:</p>
+    <ul data-i18n-html="about.contribute_list" style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); padding-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 10px;">
+      <li>Segnalaci gli <strong>errori nei dati o i bug</strong> che riscontri utilizzando la piattaforma, scrivendoci a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
+      <li>Segnalaci una o più <strong>società</strong> che ti interessano e che al momento non sono presenti nel database. Scrivi a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a> indicandoci il nome della società e possibilmente il suo codice identificativo e l'url del suo sito internet ufficiale.</li>
+      <li>Segnalaci una tua <strong>pubblicazione</strong>, se hai utilizzato Man in the loop per una tua ricerca o inchiesta. Se ti fa piacere la aggiungeremo nella sezione "Pubblicazioni". Invia la tua pubblicazione a <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></li>
+      <li>Se ti piace il lavoro che stiamo facendo e vuoi vederlo sopravvivere ed espandersi in futuro, fai una donazione a info.nodes utilizzando il tasto "dona" nel footer del sito <a href="https://www.infonodes.org" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">www.infonodes.org</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+// ── Glossary: terms are loaded from data/glossary_terms.json (easy to edit there). ──
+const GLOSS_LANGS = ['it', 'en', 'fr', 'es'];
+let GLOSSARY_TERMS = [];
+
+function _glossLang() {
+  const p = new URLSearchParams(location.search).get('lang');
+  if (GLOSS_LANGS.includes(p)) return p;
+  const ls = localStorage.getItem('mitl-lang');
+  return GLOSS_LANGS.includes(ls) ? ls : 'it';
+}
+function renderGlossary(lang) {
+  // Each entry holds the 4 languages; pick the active one (fallback to IT), sort alphabetically.
+  const data = GLOSSARY_TERMS
+    .map(entry => entry[lang] || entry.it)
+    .filter(Boolean)
+    .sort((a, b) => a.t.localeCompare(b.t, lang, { sensitivity: 'base' }));
+  const el = document.getElementById('gloss-list');
+  if (el) el.innerHTML = data.map(x => `<div class="gloss-item"><dt>${x.t}</dt><dd>${x.d}</dd></div>`).join('');
+}
+fetch('data/glossary_terms.json')
+  .then(r => r.json())
+  .then(d => { GLOSSARY_TERMS = (d && d.terms) || []; renderGlossary(_glossLang()); })
+  .catch(() => {});
+
+// ── "Perché / Why" — opening narrative, loaded from data/about_why.json (easy to edit there). ──
+let WHY_PARAS = [];
+function renderWhy(lang) {
+  const el = document.getElementById('why-block');
+  if (!el) return;
+  el.innerHTML = WHY_PARAS.map(p => `<p style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 12px;">${p[lang] || p.it}</p>`).join('');
+}
+fetch('data/about_why.json')
+  .then(r => r.json())
+  .then(d => { WHY_PARAS = (d && d.paragraphs) || []; renderWhy(_glossLang()); })
+  .catch(() => {});
+
+// ── Last data-update date — loaded from data/last_update.json (edit the date there). ──
+fetch('data/last_update.json')
+  .then(r => r.json())
+  .then(d => { const el = document.getElementById('last-update-date'); if (el && d && d.date) el.textContent = d.date; })
+  .catch(() => {});
+
+// ── About sub-section switching (sub-tabs). Deep-linkable via #hash. ──
+function showAboutSection(id) {
+  document.querySelectorAll('.about-section').forEach(s => { s.style.display = (s.id === id) ? 'block' : 'none'; });
+  document.querySelectorAll('#subnav .snav-btn').forEach(b => b.classList.toggle('active', b.dataset.section === id));
+  const slug = id.replace('sec-', '');
+  if (history.replaceState) history.replaceState(history.state, '', location.pathname + location.search + '#' + slug);
+  window.scrollTo(0, 0);
+}
+
+const _VALID_SECTIONS = ['about', 'data', 'glossary', 'contribute'];
+document.addEventListener('DOMContentLoaded', () => {
+  const slug = (location.hash || '').replace('#', '');
+  showAboutSection(_VALID_SECTIONS.includes(slug) ? 'sec-' + slug : 'sec-about');
+});
+window.addEventListener('hashchange', () => {
+  const slug = (location.hash || '').replace('#', '');
+  if (_VALID_SECTIONS.includes(slug)) showAboutSection('sec-' + slug);
+});
+document.addEventListener('mitl-lang-change', e => { const l = (e.detail && e.detail.lang) || _glossLang(); renderGlossary(l); renderWhy(l); });
+</script>
+<script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
+</body>
+</html>

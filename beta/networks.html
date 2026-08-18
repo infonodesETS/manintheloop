@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var p=new URLSearchParams(location.search),t=p.get('theme')||localStorage.getItem('mitl-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networks — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <style>
+    html { font-size: 120%; }
+    :root { --nav-h: 64px; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+    body { overflow: hidden; padding-top: 0; }
+
+    /* ── Page shell ── */
+    #page {
+      display: flex;
+      height: calc(100vh - var(--nav-h) - var(--tab-h) - var(--subtab-h));
+      margin-top: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h));
+    }
+
+    /* ── Sidebar ── */
+    #sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+      overflow-y: auto;
+      padding: 16px 14px 24px;
+    }
+
+    .net-section-label {
+      font-family: var(--font);
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+
+    #net-title {
+      font-family: var(--font);
+      font-size: var(--fs-xs);
+      color: rgba(100,160,255,.8);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    #country-select {
+      width: 100%;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      background: var(--surface, #1a1a1a);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      outline: none;
+    }
+    #country-select:focus { border-color: rgba(100,160,255,.5); }
+
+    /* ── Rel-type filter ── */
+    .net-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .net-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+    }
+    .net-filter-row input[type=checkbox] {
+      accent-color: var(--accent);
+      cursor: pointer;
+      width: 13px; height: 13px;
+    }
+    .net-filter-row:hover { color: var(--text-primary); }
+
+    #net-stats {
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .net-stat-val { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .net-stat-inv { color: rgba(255,165,80,.9); font-weight: var(--fw-bold); }
+
+    .net-legend { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .net-legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font); font-size: var(--fs-body); color: var(--text-secondary);
+      justify-content: space-between;
+    }
+    .net-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .net-legend-diamond {
+      width: 10px; height: 10px; flex-shrink: 0;
+      background: rgba(100,160,255,.85);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .net-legend-line-solid {
+      width: 18px; height: 2px;
+      background: rgba(100,160,255,.4); flex-shrink: 0;
+    }
+    .net-legend-count {
+      margin-left: auto;
+      color: var(--text-faint);
+      font-size: calc(var(--fs-body) * .85);
+      font-family: var(--font-mono, monospace);
+    }
+
+    .net-legend-line-dashed {
+      width: 18px; height: 0; flex-shrink: 0;
+      border-top: 2px dashed rgba(255,165,80,.5);
+    }
+
+    #net-note {
+      font-family: var(--font);
+      font-size: calc(var(--fs-body) * .82);
+      color: var(--text-faint);
+      line-height: 1.5;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+    /* ── Info tooltip ── */
+    .net-filter-row { position: relative; }
+    .info-tip {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1px solid var(--text-faint);
+      font-size: 9px; color: var(--text-faint);
+      cursor: default; flex-shrink: 0; margin-left: 2px;
+      font-style: normal; line-height: 1;
+    }
+    .info-tip:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
+    .info-tip .tip-box {
+      display: none;
+      position: absolute;
+      left: 0; top: calc(100% + 6px);
+      width: 220px;
+      background: var(--surface, #1a1a1a);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      font-size: calc(var(--fs-body) * .85);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      z-index: 100;
+      pointer-events: none;
+      font-style: normal;
+    }
+    .info-tip:hover .tip-box { display: block; }
+
+    .all-edf-warn {
+      font-family: var(--font);
+      font-size: calc(var(--fs-body) * .82);
+      color: rgba(255,200,0,.8);
+      margin-bottom: 8px;
+    }
+
+    /* ── Graph area ── */
+    #graph-area { flex: 1; position: relative; background: var(--bg); overflow: hidden; }
+    #net-export-btn { position: absolute; top: 12px; left: 12px; z-index: 30; background: var(--surface); }
+    #cy { width: 100%; height: 100%; }
+
+    /* ── Loading overlay ── */
+    #net-loading {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+      font-family: var(--font); font-size: var(--fs-body); color: var(--text-faint);
+      z-index: 10; pointer-events: none;
+    }
+    #net-loading.hidden { display: none; }
+
+    /* ── Detail panel (project + entity, unified) ── */
+    #detail-panel {
+      position: absolute; top: 16px; right: 16px;
+      width: 270px;
+      background: var(--surface, #1a1a1a);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 4px; padding: 14px;
+      font-size: var(--fs-body); z-index: 20; display: none;
+    }
+    #detail-panel.visible { display: block; }
+    #detail-close {
+      position: absolute; top: 8px; right: 10px;
+      background: none; border: none;
+      color: var(--text-faint); font-size: 14px; cursor: pointer; line-height: 1;
+    }
+    #detail-close:hover { color: var(--text-primary); }
+.detail-title {
+      font-weight: var(--fw-bold);
+      margin-bottom: 10px; padding-right: 20px; word-break: break-word;
+    }
+    .detail-row { display: flex; gap: 8px; margin-bottom: 5px; font-family: var(--font); }
+    .detail-lbl { color: var(--text-faint); white-space: nowrap; min-width: 80px; }
+    .detail-val { color: var(--text-secondary); word-break: break-word; }
+    .detail-accent { color: rgba(100,160,255,.9); font-weight: var(--fw-bold); }
+    .detail-link { color: rgba(100,160,255,.8); text-decoration: none; }
+    .detail-link:hover { color: rgba(100,160,255,1); text-decoration: underline; }
+
+    /* ── Hover tooltip ── */
+    #cy-tooltip {
+      position: absolute; pointer-events: none;
+      background: var(--surface, #1a1a1a);
+      border: 1px solid var(--border); border-radius: 3px;
+      padding: 4px 8px;
+      font-family: var(--font); font-size: calc(var(--fs-body) * .85);
+      color: var(--text-primary); white-space: nowrap; z-index: 30; display: none;
+    }
+
+    /* ── Entity search (sidebar) ── */
+    .net-search-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    #net-search {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      background: var(--surface, #1a1a1a);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 28px 6px 8px;
+      outline: none;
+    }
+    #net-search:focus { border-color: rgba(100,160,255,.5); }
+    #net-search-clear {
+      position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: var(--dim); font-size: 14px; line-height: 1; padding: 2px 4px;
+      display: none;
+    }
+    #net-search-clear:hover { color: var(--text-primary); }
+
+    /* Overlay dropdown — position: fixed, not clipped by sidebar */
+    #net-search-ac {
+      position: fixed;
+      width: 400px;
+      max-height: 440px;
+      overflow-y: auto;
+      background: var(--surface-ac, #222);
+      border: 1px solid rgba(100,160,255,.3);
+      border-radius: 4px;
+      z-index: 300;
+      display: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,.7);
+    }
+    #net-search-ac.open { display: block; }
+    .net-ac-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(65,67,69,.2);
+      font-family: var(--font);
+      font-size: var(--fs-body);
+    }
+    .net-ac-item:last-child { border-bottom: none; }
+    .net-ac-item:hover, .net-ac-item.ac-active { background: rgba(100,160,255,.08); }
+    .net-ac-name {
+      flex: 1; color: var(--text-primary); min-width: 0;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .net-ac-type {
+      font-size: calc(var(--fs-body) * .78); font-family: var(--font);
+      padding: 1px 5px; border-radius: 3px; flex-shrink: 0;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    }
+    .net-ac-country { font-size: calc(var(--fs-body) * .82); color: var(--text-faint); flex-shrink: 0; }
+    .net-ac-empty {
+      padding: 14px 12px; color: var(--text-faint);
+      font-family: var(--font); font-size: var(--fs-body); text-align: center;
+    }
+    /* ── Language switcher ── */
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--accent)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti" data-i18n="nav.investments">Investimenti globali</a>
+  <a href="search.html" class="tnav-btn">Search</a>
+  <a href="publications.html" class="tnav-btn" data-i18n="nav.publications">Pubblicazioni</a>
+  <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete / Key Figures della sezione corrente) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn" id="subtab-mappa" href="./" data-i18n="nav.map">Mappa</a>
+    <a class="snav-btn active" id="subtab-rete" href="networks.html" data-i18n="nav.network">Rete</a>
+    <a class="snav-btn" id="subtab-keyfig" href="key-figures.html" data-i18n="nav.key_figures">Numeri chiave</a>
+  </div>
+</div>
+
+<div id="page">
+
+  <!-- ── Sidebar ── -->
+  <div id="sidebar">
+    <div id="net-title" data-i18n="net.title">Defence Network</div>
+
+    <div class="net-section-label" data-i18n="net.find_entity">Find entity</div>
+    <div class="net-search-wrap" id="net-search-wrap">
+      <input id="net-search" type="text" placeholder="Search organisations…" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:net.search_placeholder">
+      <button id="net-search-clear" title="Clear">×</button>
+    </div>
+    <div id="net-search-ac" role="listbox"></div>
+
+    <div class="net-section-label" data-i18n="net.country">Country</div>
+    <select id="country-select"></select>
+    <div id="all-edf-warn" class="all-edf-warn" style="display:none">
+      Large graph — layout may take a few seconds.
+    </div>
+
+    <div class="net-section-label" data-i18n="net.relationships" style="display:none">Relationships</div>
+    <div class="net-filter-group" style="display:none">
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-edf" checked> EDF projects
+        <i class="info-tip">i<span class="tip-box" data-i18n="net.edf_tip">Flaggando "EDF projects" il sistema mostrerà tutti i soggetti che hanno ricevuto finanziamenti attraverso il programma EDF (European Defence Fund), le relazioni fra loro e le informazioni di ogni singolo progetto.</span></i>
+      </label>
+      <label class="net-filter-row">
+        <input type="checkbox" id="chk-inv" checked> Investments
+        <i class="info-tip">i<span class="tip-box" data-i18n="net.inv_tip">Flaggando "Investments" il sistema mostrerà tutti i soggetti economici (società quotate, start-up, fondi, etc...) che abbiamo inserito nel database e le relazioni fra loro in termini di investimento.</span></i>
+      </label>
+    </div>
+
+    <div class="net-section-label" id="view-label" data-i18n="net.in_view">In this view</div>
+    <div id="net-stats" data-i18n="net.select_country">Select a country to see stats.</div>
+
+    <div class="net-section-label" data-i18n="net.actors">Actors</div>
+    <div class="net-legend">
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#aaffdd"></span>Companies <span class="net-legend-count" id="lc-company"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff99bb"></span>Institutions <span class="net-legend-count" id="lc-institution"></span></div>
+      <div class="net-legend-item" id="legend-investor"><span class="net-legend-dot" style="background:#ffaa55"></span>Investor / Fund <span class="net-legend-count" id="lc-investor"></span></div>
+      <div class="net-legend-item"><span class="net-legend-dot" style="background:#ff5555"></span>Gov Agencies <span class="net-legend-count" id="lc-gov"></span></div>
+    </div>
+
+    <div class="net-section-label" data-i18n="net.connections">Connections</div>
+    <div class="net-legend">
+      <div class="net-legend-item"><span class="net-legend-diamond"></span>EU funded projects <span class="net-legend-count" id="lc-project"></span></div>
+      <div class="net-legend-item"><span class="net-legend-line-solid"></span>EU funded connections <span class="net-legend-count" id="lc-edf"></span></div>
+      <div class="net-legend-item" id="legend-privinv"><span class="net-legend-line-dashed"></span>Private investments <span class="net-legend-count" id="lc-inv"></span></div>
+    </div>
+
+    <div id="net-note" data-i18n-html="net.note">
+      In questa sezione è possibile esplorare le relazioni economiche tra i soggetti presenti nel database.<br><br>
+      È possibile visualizzare i soli progetti finanziati attraverso EDF (European Defence Funds).<br><br>
+      Dimensione del rombo = bilancio UE. I cerchi sono uniformi.<br>
+      Clicca sul nodo → dettagli + collegamenti transnazionali.<br>
+      Clicca sullo sfondo → ripristina.
+    </div>
+  </div>
+
+  <!-- ── Graph area ── -->
+  <div id="graph-area">
+    <div id="cy"></div>
+    <button id="net-export-btn" class="tnav-btn" data-i18n="common.print" title="Salva il grafo corrente come immagine PNG">Stampa</button>
+    <div id="net-loading">Loading data…</div>
+
+    <div id="detail-panel">
+      <button id="detail-close" title="Close">×</button>
+      <div class="detail-title" id="detail-title"></div>
+      <div id="detail-rows"></div>
+    </div>
+
+    <div id="cy-tooltip"></div>
+  </div>
+
+</div>
+
+<script src="web/cytoscape.min.js"></script>
+<script src="web/countries.js"></script>
+<script>
+'use strict';
+
+const NODE_COLORS = {
+  company:            '#aaffdd',
+  institution:        '#ff99bb',
+  fund:               '#ffaa55',
+  investor:           '#ffaa55',
+  public_fund:        '#ffaa55',
+  government_agency:  '#ff5555',
+  bank:               '#cc3333',
+  edf_project:        '#64a0ff',
+  default:            '#888888',
+};
+
+// Label colours: same hue family as the node fills, but slightly deeper so the
+// text stays readable on BOTH the dark and the light canvas background.
+const LABEL_COLORS = {
+  company:            '#15997a',
+  institution:        '#d63384',
+  fund:               '#d9730d',
+  investor:           '#d9730d',
+  public_fund:        '#d9730d',
+  government_agency:  '#e03131',
+  bank:               '#c92a2a',
+  edf_project:        '#2f7fe0',
+  default:            '#6c757d',
+};
+
+const TYPE_LABELS = {
+  company: 'Company', institution: 'Institution', fund: 'Fund',
+  investor: 'Investor', public_fund: 'Public fund', government_agency: 'Gov. agency',
+  bank: 'Bank', edf_project: 'EDF Project',
+};
+
+function nodeColor(type) { return NODE_COLORS[type] || NODE_COLORS.default; }
+function labelColor(type) { return LABEL_COLORS[type] || LABEL_COLORS.default; }
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function truncate(str, max) {
+  if (!str) return '';
+  return str.length > max ? str.slice(0, max - 1) + '…' : str;
+}
+function fmtEur(val) {
+  if (!val) return null;
+  const n = parseFloat(val);
+  if (isNaN(n) || n === 0) return null;
+  if (n >= 1e6) return `€${(n/1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `€${(n/1e3).toFixed(0)}K`;
+  return `€${n.toFixed(0)}`;
+}
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il sito).
+function getCountry(e) {
+  return MITL.entityCountry(e) || '';
+}
+
+// ── Data ─────────────────────────────────────────────────────────────────────
+let DB            = null;
+let entityMap     = {};
+let edfRels       = [];
+let investmentRels= [];
+let countryIndex  = {};
+let countryCounts = [];
+let edfCountryIndex  = {};   // solo Paesi con partecipazioni EDF (sezione Finanziamenti EU)
+let edfCountryCounts = [];
+
+async function loadData() {
+  DB = await fetch('data/database.json').then(r => r.json());
+  const retiredIds = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  DB.entities      = DB.entities.filter(e => !retiredIds.has(e.id));
+  DB.relationships = DB.relationships.filter(r => !retiredIds.has(r.source) && !retiredIds.has(r.target));
+  for (const e of DB.entities) entityMap[e.id] = e;
+
+  edfRels        = DB.relationships.filter(r => r.type === 'edf_participation');
+  investmentRels = DB.relationships.filter(r => r.type === 'investment');
+
+  const ci = {};
+  for (const e of DB.entities) {
+    if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
+    const c = getCountry(e);
+    if (!c) continue;
+    if (!ci[c]) ci[c] = new Set();
+    ci[c].add(e.id);
+  }
+  countryIndex = ci;
+
+  countryCounts = Object.entries(ci)
+    .map(([country, ids]) => ({ country, count: ids.size }))
+    .sort((a, b) => a.country.localeCompare(b.country));
+
+  // Indice Paesi solo-EDF: entità che partecipano a progetti EDF.
+  // Serve al selettore della sezione Finanziamenti EU, che non deve elencare
+  // Paesi presenti solo per gli investimenti (es. Australia).
+  const edfSourceIds = new Set(edfRels.map(r => r.source));
+  const eci = {};
+  for (const e of DB.entities) {
+    if (e.id.startsWith('IV-') || e.id.startsWith('EDF-')) continue;
+    if (!edfSourceIds.has(e.id)) continue;
+    const c = getCountry(e);
+    if (!c) continue;
+    if (!eci[c]) eci[c] = new Set();
+    eci[c].add(e.id);
+  }
+  edfCountryIndex = eci;
+  edfCountryCounts = Object.entries(eci)
+    .map(([country, ids]) => ({ country, count: ids.size }))
+    .sort((a, b) => a.country.localeCompare(b.country));
+}
+
+// ── Build elements ────────────────────────────────────────────────────────────
+const CIRCLE_SIZE = 14;
+const DIAM_MIN = 10, DIAM_MAX = 36;
+
+function buildElements(country, showEdf, showInv) {
+  const isAll = country === '__all__';
+
+  let entityIds;
+  if (isAll) {
+    entityIds = new Set();
+    for (const e of DB.entities) {
+      if (!e.id.startsWith('IV-') && !e.id.startsWith('EDF-')) entityIds.add(e.id);
+    }
+  } else {
+    entityIds = new Set(countryIndex[country] || []);
+  }
+
+  const nodes     = new Map();
+  const edgesList = [];
+  const deg = {};
+  const bump = id => { deg[id] = (deg[id] || 0) + 1; };
+
+  const edfEdgesRaw = [];
+  if (showEdf) {
+    for (const r of edfRels) {
+      if (!entityIds.has(r.source)) continue;
+      edfEdgesRaw.push(r);
+      bump(r.source);
+      bump(r.target);
+    }
+  }
+
+  const invEdgesRaw      = [];
+  const outboundEdgesRaw = [];
+  if (showInv) {
+    for (const r of investmentRels) {
+      if (entityIds.has(r.target)) {
+        // Inbound: foreign investor → local company
+        invEdgesRaw.push(r);
+        bump(r.source);
+        bump(r.target);
+      } else if (!isAll) {
+        // Outbound: local investor → foreign company
+        const iv = entityMap[r.source];
+        if (!iv) continue;
+        if (getCountry(iv) !== country) continue;
+        outboundEdgesRaw.push(r);
+        bump(r.source);
+        bump(r.target);
+      }
+    }
+  }
+
+  if (!showEdf && !showInv) return {
+    elements: [], nodeCount: 0, entityCount: 0,
+    projectCount: 0, investorCount: 0, edfEdgeCount: 0, invEdgeCount: 0,
+  };
+
+  // Only render entities that are actually connected to an active relationship type
+  const connectedIds = new Set();
+  if (showEdf) for (const r of edfEdgesRaw) connectedIds.add(r.source);
+  if (showInv) for (const r of invEdgesRaw) connectedIds.add(r.target);
+  const renderEntityIds = (showEdf || showInv) && connectedIds.size > 0 ? connectedIds : entityIds;
+
+  for (const eid of renderEntityIds) {
+    const e = entityMap[eid];
+    if (!e) continue;
+    nodes.set(eid, {
+      data: { id: eid, label: truncate(e.name, 16), fullName: e.name,
+              type: e.type || 'company', kind: 'entity', size: CIRCLE_SIZE }
+    });
+  }
+
+  // Compute eu_contribution range for diamond scaling
+  const budgets = edfEdgesRaw.map(r => parseFloat(entityMap[r.target]?.sources?.edf_project?.eu_contribution) || 0);
+  const budgetMin = Math.min(...budgets);
+  const budgetMax = Math.max(...budgets);
+  const diamondSize = b => {
+    if (!b || budgetMax === budgetMin) return DIAM_MIN;
+    return DIAM_MIN + (b - budgetMin) / (budgetMax - budgetMin) * (DIAM_MAX - DIAM_MIN);
+  };
+
+  for (const r of edfEdgesRaw) {
+    const pid = r.target;
+    if (!nodes.has(pid)) {
+      const p  = entityMap[pid];
+      const ps = p?.sources?.edf_project || {};
+      const budget = parseFloat(ps.eu_contribution) || 0;
+      nodes.set(pid, {
+        data: {
+          id: pid, label: truncate(ps.acronym || p?.name || pid, 12),
+          fullName: p?.name || pid, acronym: ps.acronym || '',
+          callId: ps.call_id || '', callTitle: ps.call_title || '',
+          status: ps.status || '', startDate: ps.start_date || '',
+          endDate: ps.end_date || '', euContrib: ps.eu_contribution || '',
+          url: ps.url || '', type: 'edf_project', kind: 'project',
+          size: diamondSize(budget)
+        }
+      });
+    }
+    edgesList.push({ data: { id: `ee${r.source}${pid}`, source: r.source, target: pid, etype: 'edf' } });
+  }
+
+  for (const r of invEdgesRaw) {
+    const ivId = r.source;
+    if (!nodes.has(ivId)) {
+      const iv = entityMap[ivId];
+      nodes.set(ivId, {
+        data: { id: ivId, label: truncate(iv?.name || ivId, 16),
+                fullName: iv?.name || ivId, type: iv?.type || 'investor',
+                kind: ivId.startsWith('IV-') ? 'investor' : 'entity',
+                size: CIRCLE_SIZE }
+      });
+    }
+    edgesList.push({ data: { id: `ei${ivId}${r.target}`, source: ivId, target: r.target, etype: 'investment' } });
+  }
+
+  for (const r of outboundEdgesRaw) {
+    const ivId  = r.source;
+    const tgtId = r.target;
+    if (!nodes.has(ivId)) {
+      const iv = entityMap[ivId];
+      const d  = deg[ivId] || 1;
+      nodes.set(ivId, {
+        data: { id: ivId, label: truncate(iv?.name || ivId, 16),
+                fullName: iv?.name || ivId, type: iv?.type || 'investor',
+                kind: ivId.startsWith('IV-') ? 'investor' : 'entity',
+                size: Math.min(28, Math.max(8, d * 4)) }
+      });
+    }
+    if (!nodes.has(tgtId)) {
+      const tgt = entityMap[tgtId];
+      const d   = deg[tgtId] || 1;
+      nodes.set(tgtId, {
+        data: { id: tgtId, label: truncate(tgt?.name || tgtId, 16),
+                fullName: tgt?.name || tgtId, type: tgt?.type || 'company',
+                kind: tgtId.startsWith('IV-') ? 'investor' : 'entity',
+                size: Math.min(36, Math.max(10, d * 5)) }
+      });
+    }
+    edgesList.push({ data: { id: `eo${ivId}${tgtId}`, source: ivId, target: tgtId, etype: 'investment' } });
+  }
+
+  const projectIds  = new Set(edfEdgesRaw.map(r => r.target));
+  const investorIds = new Set([...invEdgesRaw.map(r => r.source), ...outboundEdgesRaw.map(r => r.source)]);
+
+  const typeCounts = { company: 0, institution: 0, investor: 0, gov: 0 };
+  for (const [id, n] of nodes) {
+    const t = n.data.type;
+    if (t === 'company')                                       typeCounts.company++;
+    else if (t === 'institution')                              typeCounts.institution++;
+    else if (t === 'investor' || t === 'fund' || t === 'public_fund' || t === 'bank') typeCounts.investor++;
+    else if (t === 'government_agency')                        typeCounts.gov++;
+  }
+
+  return {
+    elements: [...nodes.values(), ...edgesList],
+    nodeCount:     nodes.size,
+    entityCount:   renderEntityIds.size,
+    projectCount:  projectIds.size,
+    investorCount: investorIds.size,
+    edfEdgeCount:  edfEdgesRaw.length,
+    invEdgeCount:  invEdgesRaw.length + outboundEdgesRaw.length,
+    typeCounts,
+  };
+}
+
+// ── Cytoscape ─────────────────────────────────────────────────────────────────
+let cy = null;
+let extraElements = null;
+let savedPositions = null;
+let cachedStats    = null;
+
+const CY_STYLE = [
+  {
+    selector: 'node[kind = "entity"]',
+    style: {
+      'shape': 'ellipse',
+      'background-color': ele => nodeColor(ele.data('type')),
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': ele => labelColor(ele.data('type')), 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
+      'border-width': 0,
+    }
+  },
+  {
+    selector: 'node[kind = "investor"]',
+    style: {
+      'shape': 'ellipse',
+      'background-color': '#ffaa55',
+      'background-opacity': 0.8,
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(255,165,80,0.85)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '60px',
+      'border-width': 1, 'border-color': 'rgba(255,165,80,0.3)',
+    }
+  },
+  {
+    selector: 'node[kind = "project"]',
+    style: {
+      'shape': 'diamond',
+      'background-color': '#64a0ff', 'background-opacity': 0.7,
+      'width': 'data(size)', 'height': 'data(size)',
+      'label': 'data(label)',
+      'color': 'rgba(100,160,255,0.9)', 'font-size': '7px',
+      'font-family': '"JetBrains Mono", monospace',
+      'text-valign': 'bottom', 'text-halign': 'center',
+      'text-margin-y': '2px', 'text-wrap': 'wrap', 'text-max-width': '56px',
+      'border-width': 0,
+    }
+  },
+  {
+    selector: 'node:selected',
+    style: { 'border-width': 2, 'border-color': '#fff', 'border-opacity': 0.6 }
+  },
+  {
+    selector: 'edge[etype = "edf"]',
+    style: {
+      'width': 0.8, 'line-color': 'rgba(100,160,255,0.2)',
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
+    }
+  },
+  {
+    selector: 'edge[etype = "investment"]',
+    style: {
+      'width': 0.8, 'line-color': 'rgba(255,165,80,0.25)',
+      'line-style': 'dashed', 'line-dash-pattern': [4, 3],
+      'curve-style': 'haystack', 'target-arrow-shape': 'none',
+    }
+  },
+  // Extra nodes (cross-country neighbors): smaller font + opaque label background
+  {
+    selector: 'node[?extra]',
+    style: {
+      'font-size': '6px',
+      'text-background-color': '#0d0d0d',
+      'text-background-opacity': 0.85,
+      'text-background-padding': '2px',
+      'text-background-shape': 'roundrectangle',
+    }
+  },
+  // Focus/dim: elements with class 'dimmed' fade out; focused elements stay full
+  {
+    selector: '.dimmed',
+    style: { 'opacity': 0.07 }
+  },
+  {
+    selector: '.focused',
+    style: { 'opacity': 1, 'border-width': 2, 'border-color': '#fff', 'border-opacity': 0.5 }
+  },
+];
+
+function buildLayout(nodeCount) {
+  if (nodeCount <= 1) return { name: 'grid' };
+  return {
+    name: 'cose',
+    animate: false,
+    randomize: false,
+    idealEdgeLength:  nodeCount > 300 ? 90  : nodeCount > 150 ? 120 : 150,
+    nodeRepulsion:    () => nodeCount > 300 ? 5000 : nodeCount > 150 ? 9000 : 14000,
+    nodeOverlap:      20,
+    gravity:          nodeCount > 300 ? 0.06 : 0.03,
+    numIter:          nodeCount > 500 ? 600  : nodeCount > 200 ? 1000 : 1400,
+    componentSpacing: 80,
+    coolingFactor:    0.95,
+    edgeElasticity:   () => 70,
+  };
+}
+
+function updateStats({ entityCount, projectCount, investorCount, edfEdgeCount, invEdgeCount, typeCounts }) {
+  const rows = [];
+  if (entityCount)   rows.push(`<span class="net-stat-val">${entityCount}</span> entities`);
+  if (projectCount)  rows.push(`<span class="net-stat-val">${projectCount}</span> EDF projects`);
+  if (investorCount) rows.push(`<span class="net-stat-inv">${investorCount}</span> investors`);
+  if (edfEdgeCount)  rows.push(`<span class="net-stat-val">${edfEdgeCount}</span> participations`);
+  if (invEdgeCount)  rows.push(`<span class="net-stat-inv">${invEdgeCount}</span> investments`);
+  document.getElementById('net-stats').innerHTML = rows.join('<br>') || '—';
+
+  const fmt = n => n ? String(n) : '';
+  document.getElementById('lc-company').textContent     = fmt(typeCounts?.company);
+  document.getElementById('lc-institution').textContent = fmt(typeCounts?.institution);
+  document.getElementById('lc-investor').textContent    = fmt(typeCounts?.investor);
+  document.getElementById('lc-gov').textContent         = fmt(typeCounts?.gov);
+  document.getElementById('lc-project').textContent     = fmt(projectCount);
+  document.getElementById('lc-edf').textContent         = fmt(edfEdgeCount);
+  document.getElementById('lc-inv').textContent         = fmt(invEdgeCount);
+}
+
+// ── Extra neighbors (cross-country) ──────────────────────────────────────────
+function removeExtraElements() {
+  if (extraElements && !extraElements.empty()) cy.remove(extraElements);
+  extraElements = null;
+}
+
+function addExtraNeighbors(nodeId) {
+  removeExtraElements();
+  if (!cy) return;
+
+  const existingIds = new Set(cy.nodes().map(n => n.id()));
+  const toAdd = [];
+  const addedIds = new Set();
+
+  const allRels = [...edfRels, ...investmentRels].filter(
+    r => r.source === nodeId || r.target === nodeId
+  );
+
+  for (const r of allRels) {
+    const otherId = r.source === nodeId ? r.target : r.source;
+    if (existingIds.has(otherId) || addedIds.has(otherId)) continue;
+    const other = entityMap[otherId];
+    if (!other) continue;
+
+    let nodeData;
+    if (other.id.startsWith('EDF-')) {
+      const ps = other.sources?.edf_project || {};
+      nodeData = {
+        id: otherId, fullName: other.name || otherId,
+        label: truncate(ps.acronym || other.name || otherId, 12),
+        acronym: ps.acronym || '', callId: ps.call_id || '',
+        callTitle: ps.call_title || '', status: ps.status || '',
+        startDate: ps.start_date || '', endDate: ps.end_date || '',
+        euContrib: ps.eu_contribution || '', url: ps.url || '',
+        type: 'edf_project', kind: 'project', size: DIAM_MIN, extra: true,
+      };
+    } else {
+      nodeData = {
+        id: otherId, label: truncate(other.name, 16), fullName: other.name,
+        type: other.type || 'company',
+        kind: other.id.startsWith('IV-') ? 'investor' : 'entity',
+        size: CIRCLE_SIZE, extra: true,
+      };
+    }
+
+    toAdd.push({ data: nodeData });
+    addedIds.add(otherId);
+    toAdd.push({ data: {
+      id: `extra_${r.source}_${r.target}`,
+      source: r.source, target: r.target,
+      etype: r.type === 'edf_participation' ? 'edf' : 'investment',
+      extra: true,
+    }});
+  }
+
+  if (toAdd.length === 0) return;
+
+  extraElements = cy.add(toAdd);
+}
+
+// ── Focus stats ───────────────────────────────────────────────────────────────
+function updateFocusStats(nodeId) {
+  if (!cy) return;
+  const node = cy.$('#' + CSS.escape(nodeId));
+  if (node.empty()) return;
+
+  const neighborNodes = node.neighborhood().nodes();
+  const neighborEdges = node.neighborhood().edges();
+
+  const typeCounts = { company: 0, institution: 0, investor: 0, gov: 0 };
+  neighborNodes.forEach(n => {
+    const t = n.data('type');
+    if      (t === 'company')       typeCounts.company++;
+    else if (t === 'institution')   typeCounts.institution++;
+    else if (t === 'investor' || t === 'fund' || t === 'public_fund') typeCounts.investor++;
+    else if (t === 'government_agency') typeCounts.gov++;
+  });
+
+  document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.selected_node') : 'Selected node';
+  updateStats({
+    entityCount:   neighborNodes.filter(n => n.data('kind') === 'entity').length,
+    projectCount:  neighborNodes.filter(n => n.data('kind') === 'project').length,
+    investorCount: neighborNodes.filter(n => n.data('kind') === 'investor').length,
+    edfEdgeCount:  neighborEdges.filter(e => e.data('etype') === 'edf').length,
+    invEdgeCount:  neighborEdges.filter(e => e.data('etype') === 'investment').length,
+    typeCounts,
+  });
+}
+
+// ── Focus / dim ───────────────────────────────────────────────────────────────
+function restorePositions() {
+  if (!savedPositions || !cy) return;
+  for (const [id, pos] of Object.entries(savedPositions)) {
+    const n = cy.$('#' + CSS.escape(id));
+    if (!n.empty()) n.position(pos);
+  }
+  savedPositions = null;
+}
+
+function applyFocus(nodeId) {
+  if (!cy) return;
+  restorePositions();
+  addExtraNeighbors(nodeId);
+  const node = cy.$('#' + CSS.escape(nodeId));
+  if (node.empty()) return;
+
+  // Reposition all neighbors (existing + cross-country extra) in a uniform circle
+  const neighbors = node.neighborhood().nodes();
+  const center = node.position();
+  const count = neighbors.length;
+  if (count > 0) {
+    savedPositions = {};
+    neighbors.forEach(n => {
+      if (!n.data('extra')) savedPositions[n.id()] = { ...n.position() };
+    });
+    const radius = Math.max(160, Math.min(count * 28, 440));
+    neighbors.forEach((n, i) => {
+      const angle = (2 * Math.PI * i) / count;
+      n.position({ x: center.x + radius * Math.cos(angle), y: center.y + radius * Math.sin(angle) });
+    });
+  }
+
+  const hood = node.closedNeighborhood();
+  cy.elements().addClass('dimmed').removeClass('focused');
+  hood.removeClass('dimmed').addClass('focused');
+  cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350, easing: 'ease-in-out-cubic' });
+  updateFocusStats(nodeId);
+}
+
+function clearFocus() {
+  if (!cy) return;
+  const hasDimmed = cy.elements('.dimmed').length > 0;
+  restorePositions();
+  cy.elements().removeClass('dimmed').removeClass('focused');
+  removeExtraElements();
+  if (cachedStats) {
+    document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.in_view') : 'In this view';
+    updateStats(cachedStats);
+  }
+  if (hasDimmed) cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350, easing: 'ease-in-out-cubic' });
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────────
+function showProjDetail(d) {
+  const titleEl = document.getElementById('detail-title');
+  titleEl.style.color = 'rgba(100,160,255,.9)';
+  titleEl.textContent = (d.acronym ? `${d.acronym} — ` : '') + d.fullName;
+
+  const rows = [];
+  if (d.callId)    rows.push(['Call',        `<code>${esc(d.callId)}</code>${d.callTitle ? ` — ${esc(d.callTitle)}` : ''}`]);
+  if (d.status)    rows.push(['Status',      esc(d.status)]);
+  if (d.startDate) rows.push(['Period',      `${esc(d.startDate)}${d.endDate ? ' → ' + esc(d.endDate) : ''}`]);
+  if (d.euContrib) rows.push(['EU contrib.', `<span class="detail-accent">${esc(fmtEur(parseFloat(d.euContrib)) || d.euContrib)}</span>`]);
+  if (d.id)        rows.push(['Project detail', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(d.id)}&organizationName=${encodeURIComponent(d.acronym || d.fullName)}${themeParam()}">Open full profile →</a>`]);
+  if (d.url)       rows.push(['EU website',    `<a class="detail-link" href="${esc(d.url)}" target="_blank">See on EU website ↗</a>`]);
+
+  document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
+    `<div class="detail-row"><span class="detail-lbl">${l}</span><span class="detail-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('detail-panel').classList.add('visible');
+}
+
+function showEntityDetail(id, notInGraph) {
+  const e = entityMap[id];
+  if (!e) return;
+
+  const color   = nodeColor(e.type || 'company');
+  const country = getCountry(e);
+  const desc    = e.sources?.wikidata?.description || '';
+  const website = e.sources?.infonodes?.website || e.sources?.crunchbase?.website || '';
+  const edfCount = edfRels.filter(r => r.source === id).length;
+  const invCount = investmentRels.filter(r => r.target === id).length;
+  const portCount= investmentRels.filter(r => r.source === id).length;
+
+  const titleEl = document.getElementById('detail-title');
+  titleEl.style.color = color;
+  titleEl.textContent = e.name;
+
+  const rows = [];
+  if (notInGraph) rows.push(['', '<span style="color:rgba(255,200,0,.75)">No connections in current country scope.</span>']);
+  if (e.type)     rows.push(['Type',     TYPE_LABELS[e.type] || e.type]);
+  if (country)    rows.push(['Country',  country]);
+  if (desc)       rows.push(['About',    truncate(desc, 110)]);
+  if (edfCount)   rows.push(['EDF proj', `<span class="detail-accent">${edfCount}</span>`]);
+  if (invCount)   rows.push(['Investors',`<span class="detail-accent">${invCount}</span>`]);
+  if (portCount)  rows.push(['Portfolio',`<span class="detail-accent">${portCount}</span>`]);
+  if (website)    rows.push(['Website',  `<a class="detail-link" href="${esc(website)}" target="_blank">${esc(truncate(website.replace(/^https?:\/\//, ''), 28))}</a>`]);
+  rows.push(['Profile', `<a class="detail-link" href="search.html?organization=${encodeURIComponent(id)}&organizationName=${encodeURIComponent(e.name)}${themeParam()}">Open full profile →</a>`]);
+
+  document.getElementById('detail-rows').innerHTML = rows.map(([l, v]) =>
+    `<div class="detail-row"><span class="detail-lbl">${esc(l)}</span><span class="detail-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('detail-panel').classList.add('visible');
+}
+
+function closeDetailSilent() {
+  document.getElementById('detail-panel').classList.remove('visible');
+  clearFocus();
+}
+
+// ── URL routing ───────────────────────────────────────────────────────────────
+function readParams() {
+  const p = new URLSearchParams(window.location.search);
+  let edf = p.get('edf') !== '0';
+  let inv = p.get('inv') !== '0';
+  // Fallback: se la query è stata persa (proxy che elimina i parametri su .html),
+  // usa la sezione memorizzata dalla pagina precedente.
+  if (!p.has('edf') && !p.has('inv')) {
+    let s = null; try { s = sessionStorage.getItem('mitl-section'); } catch (e) {}
+    if (s === 'edf')          { edf = true;  inv = false; }
+    else if (s === 'investimenti') { edf = false; inv = true; }
+  }
+  return {
+    country:      p.get('country') || null,
+    edf,
+    inv,
+    selected:     p.get('selected') || null,
+    selectedName: p.get('selectedName') || null,
+  };
+}
+
+// Memorizza il soggetto prima di aprire la sua scheda in Search, così il
+// profilo si apre anche se il proxy elimina i parametri dall'URL su .html.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
+
+function pushURL(country, edf, inv, selected, selectedName) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  if (selected) {
+    url.searchParams.set('selected', selected);
+    if (selectedName) url.searchParams.set('selectedName', selectedName);
+    else              url.searchParams.delete('selectedName');
+  } else {
+    url.searchParams.delete('selected');
+    url.searchParams.delete('selectedName');
+  }
+  history.pushState({ country, edf, inv, selected, selectedName }, '', url);
+}
+
+function replaceURL(country, edf, inv, selected, selectedName) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('country', country);
+  url.searchParams.set('edf',     edf  ? '1' : '0');
+  url.searchParams.set('inv',     inv  ? '1' : '0');
+  if (selected) {
+    url.searchParams.set('selected', selected);
+    if (selectedName) url.searchParams.set('selectedName', selectedName);
+    else              url.searchParams.delete('selectedName');
+  } else {
+    url.searchParams.delete('selected');
+    url.searchParams.delete('selectedName');
+  }
+  history.replaceState({ country, edf, inv, selected, selectedName }, '', url);
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function renderNetwork(country, restoreSelected) {
+  const loadingEl = document.getElementById('net-loading');
+  const isAll     = country === '__all__';
+  const showEdf   = document.getElementById('chk-edf').checked;
+  const showInv   = document.getElementById('chk-inv').checked;
+
+  document.getElementById('all-edf-warn').style.display = isAll ? '' : 'none';
+  loadingEl.classList.remove('hidden');
+  loadingEl.textContent = 'Building graph…';
+  closeDetailSilent();
+
+  setTimeout(() => {
+    const result = buildElements(country, showEdf, showInv);
+    cachedStats = result;
+    document.getElementById('view-label').textContent = typeof t === 'function' ? t('net.in_view') : 'In this view';
+    updateStats(result);
+
+    if (cy) { cy.destroy(); cy = null; }
+
+    if (result.nodeCount === 0) {
+      loadingEl.textContent = 'No data for this selection.';
+      return;
+    }
+
+    loadingEl.textContent = `Laying out ${result.nodeCount} nodes…`;
+
+    setTimeout(() => {
+      cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements:  result.elements,
+        style:     CY_STYLE,
+        layout:    buildLayout(result.nodeCount),
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+        minZoom: 0.05,
+        maxZoom: 5,
+      });
+
+      cy.fit(undefined, 32);
+      loadingEl.classList.add('hidden');
+
+      // Restore selected node from URL (after layout)
+      if (restoreSelected) {
+        const node = cy.$('#' + CSS.escape(restoreSelected));
+        if (!node.empty()) {
+          applyFocus(restoreSelected);
+          if (node.data('kind') === 'project') showProjDetail(node.data());
+          else showEntityDetail(restoreSelected);
+        } else if (entityMap[restoreSelected]) {
+          // Entity exists in DB but has no edges in this country scope — show panel without graph focus
+          showEntityDetail(restoreSelected, true);
+        }
+      }
+
+      // ── Event handlers ──────────────────────────────────────────────────────
+
+      const select = document.getElementById('country-select');
+      const chkEdf = document.getElementById('chk-edf');
+      const chkInv = document.getElementById('chk-inv');
+
+      cy.on('tap', 'node[kind = "entity"], node[kind = "investor"]', evt => {
+        const d = evt.target.data();
+        applyFocus(d.id);
+        showEntityDetail(d.id);
+        pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.fullName);
+      });
+
+      cy.on('tap', 'node[kind = "project"]', evt => {
+        const d = evt.target.data();
+        if (!chkEdf.checked) {
+          // EDF filter was off — enable it, re-render with this project focused
+          chkEdf.checked = true;
+          showProjDetail(d);
+          pushURL(select.value, true, chkInv.checked, d.id, d.acronym || d.fullName);
+          renderNetwork(select.value, d.id);
+          return;
+        }
+        applyFocus(d.id);
+        showProjDetail(d);
+        pushURL(select.value, chkEdf.checked, chkInv.checked, d.id, d.acronym || d.fullName);
+      });
+
+      cy.on('tap', evt => {
+        if (evt.target === cy) {
+          closeDetailSilent();
+          pushURL(select.value, chkEdf.checked, chkInv.checked, null, null);
+        }
+      });
+
+      // Tooltip
+      const tooltip = document.getElementById('cy-tooltip');
+      cy.on('mouseover', 'node', evt => {
+        tooltip.textContent = evt.target.data('fullName') || evt.target.data('label');
+        tooltip.style.display = 'block';
+      });
+      cy.on('mousemove', 'node', evt => {
+        const rp = evt.renderedPosition;
+        tooltip.style.left = (rp.x + 10) + 'px';
+        tooltip.style.top  = (rp.y + 4)  + 'px';
+      });
+      cy.on('mouseout', 'node', () => { tooltip.style.display = 'none'; });
+
+    }, 20);
+  }, 20);
+}
+
+// ── Entity search ─────────────────────────────────────────────────────────────
+const TYPE_AC_COLORS = {
+  company:           'rgba(170,255,221,.9)',
+  institution:       'rgba(255,153,187,.9)',
+  fund:              'rgba(255,170,85,.9)',
+  investor:          'rgba(255,170,85,.9)',
+  public_fund:       'rgba(255,170,85,.9)',
+  government_agency: 'rgba(255,85,85,.9)',
+  bank:              'rgba(204,51,51,.9)',
+  edf_project:       'rgba(100,160,255,.9)',
+};
+function typeBadgeColor(type) { return TYPE_AC_COLORS[type] || 'rgba(136,136,136,.9)'; }
+
+let searchIndex = [];
+let acActiveIdx = -1;
+
+function buildSearchIndex() {
+  searchIndex = Object.values(entityMap).map(e => ({
+    id: e.id,
+    name: e.name,
+    nameLower: (e.name || '').toLowerCase(),
+    type: e.type || 'company',
+    country: getCountry(e),
+  }));
+}
+
+function resolveEntityCountry(id) {
+  const e = entityMap[id];
+  if (!e) return null;
+  // For IV-* investors: prefer a portfolio company's country — guarantees visible connections
+  if (id.startsWith('IV-')) {
+    for (const r of investmentRels) {
+      if (r.source !== id) continue;
+      const te = entityMap[r.target];
+      if (!te) continue;
+      const tc = getCountry(te);
+      if (tc && countryIndex[tc]) return tc;
+    }
+  }
+  const c = getCountry(e);
+  if (c && countryIndex[c]) return c;
+  if (id.startsWith('EDF-')) {
+    // Prefer coordinator's country, fall back to first participant with a known country
+    const projRels = edfRels.filter(r => r.target === id);
+    for (const r of [...projRels].sort((a, b) => (a.role === 'coordinator' ? -1 : 1))) {
+      const se = entityMap[r.source];
+      if (!se) continue;
+      const sc = getCountry(se);
+      if (sc && countryIndex[sc]) return sc;
+    }
+  }
+  return null;
+}
+
+function openAc()  { document.getElementById('net-search-ac').classList.add('open'); }
+function closeAc() { document.getElementById('net-search-ac').classList.remove('open'); acActiveIdx = -1; }
+
+function positionAc() {
+  const rect = document.getElementById('net-search').getBoundingClientRect();
+  const ac   = document.getElementById('net-search-ac');
+  ac.style.top  = (rect.bottom + 4) + 'px';
+  ac.style.left = rect.left + 'px';
+}
+
+function renderAc(query) {
+  const ac = document.getElementById('net-search-ac');
+  const q  = query.toLowerCase().trim();
+  acActiveIdx = -1;
+
+  if (!q) { closeAc(); return; }
+
+  const results = searchIndex
+    .filter(e => e.nameLower.includes(q))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, 30);
+
+  if (results.length === 0) {
+    ac.innerHTML = '<div class="net-ac-empty">No results</div>';
+    openAc(); positionAc(); return;
+  }
+
+  ac.innerHTML = results.map((e, i) => {
+    const c = typeBadgeColor(e.type);
+    const label = TYPE_LABELS[e.type] || e.type;
+    return `<div class="net-ac-item" data-id="${esc(e.id)}" data-idx="${i}">
+      <span class="net-ac-name" title="${esc(e.name)}">${esc(e.name)}</span>
+      <span class="net-ac-type" style="color:${c}">${esc(label)}</span>
+      ${e.country ? `<span class="net-ac-country">${esc(e.country)}</span>` : ''}
+    </div>`;
+  }).join('');
+
+  openAc(); positionAc();
+}
+
+function selectEntity(id) {
+  const e = entityMap[id];
+  if (!e) return;
+
+  document.getElementById('net-search').value = '';
+  document.getElementById('net-search-clear').style.display = 'none';
+  closeAc();
+
+  const country = resolveEntityCountry(id);
+  const select  = document.getElementById('country-select');
+  const chkEdf  = document.getElementById('chk-edf');
+  const chkInv  = document.getElementById('chk-inv');
+
+  if (!country) {
+    // Entity has no resolvable country and no connections — show panel over current graph, no re-render
+    showEntityDetail(id, true);
+    pushURL(select.value, chkEdf.checked, chkInv.checked, id, e.name);
+    return;
+  }
+
+  select.value = country;
+  pushURL(country, chkEdf.checked, chkInv.checked, id, e.name);
+  renderNetwork(country, id);
+}
+
+function initSearch() {
+  buildSearchIndex();
+  const input    = document.getElementById('net-search');
+  const clearBtn = document.getElementById('net-search-clear');
+  const ac       = document.getElementById('net-search-ac');
+
+  input.addEventListener('input', () => {
+    clearBtn.style.display = input.value ? 'block' : 'none';
+    renderAc(input.value);
+  });
+
+  input.addEventListener('focus', () => {
+    if (input.value) { renderAc(input.value); }
+  });
+
+  input.addEventListener('keydown', ev => {
+    const items = ac.querySelectorAll('.net-ac-item[data-id]');
+    if (ev.key === 'ArrowDown') {
+      ev.preventDefault();
+      acActiveIdx = Math.min(acActiveIdx + 1, items.length - 1);
+      items.forEach((el, i) => el.classList.toggle('ac-active', i === acActiveIdx));
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      acActiveIdx = Math.max(acActiveIdx - 1, 0);
+      items.forEach((el, i) => el.classList.toggle('ac-active', i === acActiveIdx));
+    } else if (ev.key === 'Enter') {
+      ev.preventDefault();
+      if (acActiveIdx >= 0 && items[acActiveIdx]) selectEntity(items[acActiveIdx].dataset.id);
+      else if (items.length === 1) selectEntity(items[0].dataset.id);
+    } else if (ev.key === 'Escape') {
+      closeAc(); input.blur();
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    closeAc(); input.focus();
+  });
+
+  ac.addEventListener('mousedown', ev => {
+    const item = ev.target.closest('.net-ac-item[data-id]');
+    if (item) { ev.preventDefault(); selectEntity(item.dataset.id); }
+  });
+
+  document.addEventListener('click', ev => {
+    if (!ev.target.closest('#net-search-wrap') && !ev.target.closest('#net-search-ac')) closeAc();
+  });
+
+  window.addEventListener('resize', () => {
+    if (ac.classList.contains('open')) positionAc();
+  });
+}
+
+// ── Browser-locale → default country ─────────────────────────────────────────
+const LOCALE_TO_COUNTRY = {
+  AD:'Andorra', AE:'United Arab Emirates', AL:'Albania', AM:'Armenia',
+  AT:'Austria', AU:'Australia', AZ:'Azerbaijan', BA:'Bosnia and Herzegovina',
+  BE:'Belgium', BG:'Bulgaria', BH:'Bahrain', BR:'Brazil', BY:'Belarus',
+  CA:'Canada', CH:'Switzerland', CL:'Chile', CN:'China', CO:'Colombia',
+  CY:'Cyprus', CZ:'Czech Republic', DE:'Germany', DK:'Denmark',
+  DZ:'Algeria', EE:'Estonia', EG:'Egypt', ES:'Spain', FI:'Finland',
+  FR:'France', GB:'United Kingdom', GE:'Georgia', GR:'Greece',
+  HR:'Croatia', HU:'Hungary', ID:'Indonesia', IE:'Ireland', IL:'Israel',
+  IN:'India', IQ:'Iraq', IS:'Iceland', IT:'Italy', JO:'Jordan',
+  JP:'Japan', KR:'South Korea', KW:'Kuwait', KZ:'Kazakhstan',
+  LB:'Lebanon', LI:'Liechtenstein', LT:'Lithuania', LU:'Luxembourg',
+  LV:'Latvia', MA:'Morocco', MD:'Moldova', ME:'Montenegro', MK:'North Macedonia',
+  MT:'Malta', MX:'Mexico', MY:'Malaysia', NL:'Netherlands', NO:'Norway',
+  NZ:'New Zealand', PH:'Philippines', PL:'Poland', PT:'Portugal',
+  QA:'Qatar', RO:'Romania', RS:'Serbia', RU:'Russia', SA:'Saudi Arabia',
+  SE:'Sweden', SG:'Singapore', SI:'Slovenia', SK:'Slovakia',
+  TH:'Thailand', TR:'Turkey', TW:'Taiwan', UA:'Ukraine',
+  US:'United States', UZ:'Uzbekistan', ZA:'South Africa',
+};
+
+function browserDefaultCountry() {
+  const tag = navigator.language || navigator.languages?.[0] || '';
+  const region = tag.split('-')[1]?.toUpperCase();
+  return region ? (LOCALE_TO_COUNTRY[region] || null) : null;
+}
+
+// ── Section routing (EDF / Investimenti) + sub-tab Mappa/Rete/Numeri chiave ───
+// Dipende solo dall'URL, non dai dati: va eseguito subito, non dentro init().
+// Se aspetta il caricamento del database la barra resta con i link di default
+// per tutto il caricamento, e chi clicca in quella finestra finisce nella
+// sezione sbagliata.
+function setupSectionNav() {
+  const p       = readParams();
+  const section = (p.inv && !p.edf) ? 'investimenti' : 'edf';
+  const isEdf   = section === 'edf';
+  try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
+
+  document.getElementById('nav-' + section)?.classList.add('active');
+
+  const lang   = new URLSearchParams(location.search).get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const mode   = isEdf ? 'edf' : 'investment';
+  const set = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
+  set('subtab-mappa',  './?mode=' + mode + langQS);
+  set('subtab-rete',   'networks.html?' + (isEdf ? 'edf=1&inv=0' : 'edf=0&inv=1') + langQS);
+  set('subtab-keyfig', 'key-figures.html?mode=' + mode + langQS);
+
+  return section;
+}
+const NET_SECTION = setupSectionNav();
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  await loadData();
+  initSearch();
+
+  const select  = document.getElementById('country-select');
+  const chkEdf  = document.getElementById('chk-edf');
+  const chkInv  = document.getElementById('chk-inv');
+
+  const params = readParams();
+
+  // Nella sezione EDF il selettore elenca solo i Paesi con partecipazioni EDF.
+  const _section     = NET_SECTION;
+  const activeCounts = _section === 'edf' ? edfCountryCounts : countryCounts;
+  const activeIndex  = _section === 'edf' ? edfCountryIndex  : countryIndex;
+
+  const allOpt = document.createElement('option');
+  allOpt.value = '__all__';
+  allOpt.textContent = `All entities`;
+  select.appendChild(allOpt);
+
+  for (const { country } of activeCounts) {
+    const opt = document.createElement('option');
+    opt.value = country;
+    opt.textContent = country;
+    select.appendChild(opt);
+  }
+
+  const localeCountry = browserDefaultCountry();
+  const defaultCountry = (localeCountry && activeIndex[localeCountry])
+    ? localeCountry
+    : (activeCounts[0]?.country || '__all__');
+  const resolvedFromSelected = (!params.country && params.selected)
+    ? resolveEntityCountry(params.selected)
+    : null;
+  const country = (params.country && (activeIndex[params.country] || params.country === '__all__'))
+    ? params.country
+    : (resolvedFromSelected || defaultCountry);
+
+  select.value   = country;
+  chkEdf.checked = params.edf;
+  chkInv.checked = params.inv;
+
+  // Sezione EDF: rete di soli fondi europei → nascondi le voci di legenda
+  // legate agli investimenti privati e usa la descrizione dedicata.
+  if (_section === 'edf') {
+    document.getElementById('legend-investor')?.style.setProperty('display', 'none');
+    document.getElementById('legend-privinv')?.style.setProperty('display', 'none');
+    const _note = document.getElementById('net-note');
+    if (_note) {
+      _note.setAttribute('data-i18n-html', 'net.note_edf');   // così resta EDF anche al cambio lingua
+      _note.innerHTML = t('net.note_edf');
+    }
+  }
+
+  replaceURL(select.value, chkEdf.checked, chkInv.checked, params.selected, params.selectedName);
+
+  const rerender = () => {
+    pushURL(select.value, chkEdf.checked, chkInv.checked, null);
+    renderNetwork(select.value);
+  };
+  select.addEventListener('change', rerender);
+  chkEdf.addEventListener('change', rerender);
+  chkInv.addEventListener('change', rerender);
+
+  document.getElementById('detail-close').addEventListener('click', () => {
+    closeDetailSilent();
+    pushURL(select.value, chkEdf.checked, chkInv.checked, null, null);
+  });
+
+  window.addEventListener('popstate', () => {
+    const p = readParams();
+    const c = (p.country && (countryIndex[p.country] || p.country === '__all__'))
+      ? p.country
+      : defaultCountry;
+    select.value   = c;
+    chkEdf.checked = p.edf;
+    chkInv.checked = p.inv;
+    renderNetwork(select.value, p.selected);
+  });
+
+  renderNetwork(select.value, params.selected);
+}
+
+init().catch(err => {
+  document.getElementById('net-loading').textContent = 'Error: ' + err.message;
+  console.error(err);
+});
+
+document.addEventListener('mitl-lang-change', () => {
+  const viewLabel = document.getElementById('view-label');
+  const netStats  = document.getElementById('net-stats');
+  if (viewLabel && viewLabel.getAttribute('data-i18n')) {
+    viewLabel.textContent = t(viewLabel.getAttribute('data-i18n'));
+  }
+  if (netStats && netStats.getAttribute('data-i18n')) {
+    netStats.textContent = t(netStats.getAttribute('data-i18n'));
+  }
+});
+</script>
+
+<!-- ── PNG export of the current network view ── -->
+<script>
+(function(){
+  function downloadBlob(blob, name){
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  function stamp(){
+    const d = new Date(), p = n => String(n).padStart(2,'0');
+    return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}`;
+  }
+  function exportNetPng(){
+    if (typeof cy === 'undefined' || !cy) { alert('Nessun grafo da esportare.'); return; }
+    try {
+      const bg = getComputedStyle(document.body).backgroundColor || '#000';
+      const blob = cy.png({ output: 'blob', bg: bg, scale: 2, full: false });
+      downloadBlob(blob, `manintheloop-network-${stamp()}.png`);
+    } catch (e) { console.error(e); alert('Export non riuscito.'); }
+  }
+  const btn = document.getElementById('net-export-btn');
+  if (btn) btn.addEventListener('click', exportNetPng);
+})();
+</script>
+
+<script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
+</body>
+</html>

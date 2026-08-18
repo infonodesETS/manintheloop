@@ -1,0 +1,13 @@
+{
+  "_help": "Elenco delle pubblicazioni mostrate nella pagina Publications. Per aggiungere una voce, copia un blocco { } dentro 'items' e compilalo. Campi: 'type' ('article' per un articolo/inchiesta, 'report' per il report PDF), 'title', 'subtitle' (opzionale), 'outlet' (testata/editore), 'date' (formato AAAA-MM-GG, serve per ordinare), 'url' (link esterno per gli articoli, oppure percorso al PDF nel repo per i report, es. 'pubblicazioni/report.pdf'). L'ordine dell'array NON conta: la lista si ordina da sola dalla più recente. I titoli restano nella lingua originale della pubblicazione.",
+  "items": [
+    {
+      "type": "article",
+      "title": "Armi autonome: la corsa all'oro dopo il vertice Nato di Ankara",
+      "subtitle": "Fondi pubblici e capitali privati stanno alimentando la crescita della defence tech statunitense",
+      "outlet": "IrpiMedia",
+      "date": "2026-07-27",
+      "url": "https://irpimedia.irpi.eu/armi-autonome-corsa-alloro-dopo-vertice-nato-ankara/"
+    }
+  ]
+}
