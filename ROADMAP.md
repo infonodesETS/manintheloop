@@ -60,9 +60,16 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 ## Fase 2 — Chatbot
 
+✅ **Fatto** (2026-08-21). MARLA interroga il database su `https://marlamag.vercel.app/dati/`,
+accesso con codice, ad uso interno. Il codice sta nel repo MARLA: strumenti in
+`api/fonti/manintheloop.js`, controllo citazioni in `api/lib/citazioni.js`, regole
+comuni in `docs/CONTRATTO-FONTI.md`. Qui restano solo le due cose che ci riguardano.
+
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| 15 | **Assistente conversazionale** | Domande in linguaggio naturale sul database ("quali aziende italiane hanno ricevuto fondi EDF?"). Riusa infrastruttura MARLA. Introduce costi API ricorrenti — trattare come progetto separato. | 🟢 |
+| 17 | **DOPO IL MERGE: cambiare `MITL_INDEX_URL`** | Oggi il chatbot legge l'indice dal branch: `https://raw.githubusercontent.com/infonodesETS/manintheloop/eu-funding/data/mitl-index.json`. Appena `eu-funding` è su `main`, la variabile su Vercel (progetto marlamag, Settings → Environment Variables) va cambiata in `https://infonodesets.github.io/manintheloop/data/mitl-index.json`, poi Redeploy. **Se ce ne dimentichiamo il chatbot continua a funzionare leggendo un branch fermo, quindi risponde con dati vecchi senza dare alcun segnale.** | 🔴 |
+| 18 | **Rigenerare `data/mitl-index.json` a ogni modifica dei dati** | L'indice del chatbot è generato da `scripts/build_chat_index.py` e va ricostruito e committato ogni volta che cambia `data/database.json`, altrimenti MARLA risponde sul database vecchio. Oggi è manuale. MARLA ha già una GitHub Action che rigenera la sua `kb.json` a ogni push; qui non c'è nessuna Action. Da automatizzare allo stesso modo. | 🟡 |
+| 15 | **Estendere MARLA all'archivio** | Il chatbot oggi vede solo Man in the Loop. Il passo successivo è il modulo per l'archivio info.nodes (report, inchieste), così può incrociare le due fonti in una sola risposta. La ricerca dell'archivio è per parole chiave e andrà rifatta su base semantica, altrimenti sarà la metà inaffidabile. | 🟡 |
 
 ---
 
