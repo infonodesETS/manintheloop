@@ -1,5 +1,9 @@
 *.pyc
 __pycache__/
+# Configurazione del server di anteprima: dipende dalla singola postazione
+# (porta, percorso, comando python). Senza questa riga il controllo di inizio
+# sessione la segnala per sempre come "lavoro a metà".
+.claude/launch.json
 .playwright-mcp/
 issues.md
 status-graph.md
