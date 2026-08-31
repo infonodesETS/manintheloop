@@ -16,7 +16,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| — | **BUG — etichette Rete illeggibili in tema light** | In **tema chiaro**, nella vista **Rete** di Finanziamenti EU: cliccando un **progetto EDF** la rete mostra i nomi degli enti coperti da un'**etichetta rettangolare nera** che li rende illeggibili (testo nascosto dietro il box). Probabile sfondo/colore etichetta hardcoded per il tema scuro in `networks.html`. Segnalato dall'utente il 2026-08-18. Vedi anche il bug affine dei nodi rosa "bianco-su-bianco". | 🔴 |
+| — | **BUG — etichette Rete illeggibili in tema light** | In **tema chiaro**, nella vista **Rete** di Finanziamenti EU: cliccando un **progetto EDF** la rete mostra i nomi degli enti coperti da un'**etichetta rettangolare nera** che li rende illeggibili (testo nascosto dietro il box). Probabile sfondo/colore etichetta hardcoded per il tema scuro in `networks.html`. Segnalato dall'utente il 2026-08-31. Vedi anche il bug affine dei nodi rosa "bianco-su-bianco". | 🔴 |
 | — | **Check manuale aziende defence tech** | Il selettore "Perimetro" in Numeri chiave (Investimenti globali) classifica 165 aziende su 378 come defence tech, ma la classificazione è **provvisoria**: si appoggia in gran parte alle industries Crunchbase, che sono generiche. Alcune aziende chiaramente del settore hanno etichette come "Information Technology" e rientrano solo grazie ai segnali strutturali (di norma la partecipazione a progetti EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto. Serve una revisione a mano dell'elenco, correggendo i casi singoli con le liste `include` / `exclude` in `data/defence_criteria.json` (`exclude` vince su tutto). Da decidere anche se allargare il perimetro alle etichette scartate di proposito — `Robotics`, `Sensor`, `Autonomous Vehicles`, `Cyber Security` — elencate con le motivazioni nello stesso file. | 🔴 |
 | — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
@@ -77,7 +77,7 @@ comuni in `docs/CONTRATTO-FONTI.md`. Qui restano solo le due cose che ci riguard
 
 | Funzionalità | Data |
 |---|---|
-| Onboarding riscritto per la nuova struttura EU Funding / Global Investments — 4 blocchi, 4 lingue (`onboard.*` in `web/i18n.js`, overlay in `index.html`) | 2026-08-18 |
+| Onboarding riscritto per la nuova struttura EU Funding / Global Investments — 4 blocchi, 4 lingue (`onboard.*` in `web/i18n.js`, overlay in `index.html`) | 2026-08-31 |
 | Report Italia + webapp report per Paese (`reports/countries/`) | 2026-08-11 |
 | Publications data-driven da `data/publications.json` | 2026-08-11 |
 | Hook SessionStart: git fetch+pull automatico all'apertura sessione | 2026-08-11 |
