@@ -9,14 +9,30 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 ## In lavorazione
 
-> ⚠️ **Il lavoro in corso è sul branch `eu-funding`, non su `main`.** Ristrutturazione
-> della navigazione in due sezioni (Finanziamenti EU / Investimenti globali), ognuna
-> con i sotto-tab Mappa / Rete / Numeri chiave. `main` è ancora la versione online e
-> non va toccato finché il branch non è pronto.
+> ✅ **Merge fatto (settembre 2026):** la ristrutturazione EU Funding / Global
+> Investments è stata mergiata in `main`, che è ora la **versione online stabile**.
+> Il nuovo sviluppo prosegue sul branch **`v.2026-c`** — si lavora lì, non su `main`.
+
+### 🚧 v.2026-c — Espansione del database con dati SEC  *(branch `v.2026-c`)*
+
+Nuove fonti (portale **SEC / EDGAR**) e nuovi tipi di dati. **Spec completa e schema:
+[`docs/dev-v2026c-sec.md`](docs/dev-v2026c-sec.md).**
+
+| Release | Cosa | Scadenza | Priorità |
+|---|---|---|---|
+| **Release 1** | Quote di partecipazione **> 5%** detenute da **Fondi / Società / Persone** nelle **aziende quotate già nel DB**. Nuova relazione `ownership`. | **entro 15 nov 2026** | 🔴 |
+| **Release 2** | **Persone con ruoli apicali** (founder, presidenti, direttori, CEO, board…) in aziende, fondi, università e tutti i soggetti mappati. Nuovo tipo entità `person` + relazione `role`. | **dal 15 nov 2026** | 🔴 |
+
+> Decisione da prendere insieme prima dell'import di massa: schema delle persone
+> (id, deduplica via CIK), vocabolario dei ruoli, storicità delle quote. Dettagli
+> nel documento di spec.
+
+---
+
+## Altre voci in lavorazione
 
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| — | **BUG — etichette Rete illeggibili in tema light** | In **tema chiaro**, nella vista **Rete** di Finanziamenti EU: cliccando un **progetto EDF** la rete mostra i nomi degli enti coperti da un'**etichetta rettangolare nera** che li rende illeggibili (testo nascosto dietro il box). Probabile sfondo/colore etichetta hardcoded per il tema scuro in `networks.html`. Segnalato dall'utente il 2026-08-31. Vedi anche il bug affine dei nodi rosa "bianco-su-bianco". | 🔴 |
 | — | **Check manuale aziende defence tech** | Il selettore "Perimetro" in Numeri chiave (Investimenti globali) classifica 165 aziende su 378 come defence tech, ma la classificazione è **provvisoria**: si appoggia in gran parte alle industries Crunchbase, che sono generiche. Alcune aziende chiaramente del settore hanno etichette come "Information Technology" e rientrano solo grazie ai segnali strutturali (di norma la partecipazione a progetti EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto. Serve una revisione a mano dell'elenco, correggendo i casi singoli con le liste `include` / `exclude` in `data/defence_criteria.json` (`exclude` vince su tutto). Da decidere anche se allargare il perimetro alle etichette scartate di proposito — `Robotics`, `Sensor`, `Autonomous Vehicles`, `Cyber Security` — elencate con le motivazioni nello stesso file. | 🔴 |
 | — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
@@ -77,6 +93,8 @@ comuni in `docs/CONTRATTO-FONTI.md`. Qui restano solo le due cose che ci riguard
 
 | Funzionalità | Data |
 |---|---|
+| Merge di `eu-funding` in `main`: la nuova versione EU Funding / Global Investments è ora quella online | 2026-09 |
+| Fix etichette Rete illeggibili in tema light (nomi in box neri / nodi rosa bianco-su-bianco) — colori theme-aware da variabili CSS (commit `bd9233b`) | 2026-08-21 |
 | Onboarding riscritto per la nuova struttura EU Funding / Global Investments — 4 blocchi, 4 lingue (`onboard.*` in `web/i18n.js`, overlay in `index.html`) | 2026-08-31 |
 | Report Italia + webapp report per Paese (`reports/countries/`) | 2026-08-11 |
 | Publications data-driven da `data/publications.json` | 2026-08-11 |
