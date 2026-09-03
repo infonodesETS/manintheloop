@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-09-03 (branch sync — see Session 2026-09-03 below; DB count last verified 2026-06-18: 2311 entities, 2990 rels)
+> Last updated: 2026-09-03 (branch sync + map↔country-report links merged to main + branch cleanup — see Session 2026-09-03 below; DB count last verified 2026-06-18: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -352,7 +352,17 @@ refactoringDB/
 - [x] `eu-funding`: existed only as `origin/eu-funding`, no local branch — created local tracking branch (`git branch --track eu-funding origin/eu-funding`, at `0eabaf8`)
 - [x] Local-only branches with no remote counterpart, left untouched: `ai-assistant`, `data-analysis`, `datacleaning`, `designfix`, `map`, `search`
 
-**Note — STATUS.md staleness:** this file's "Completed work" log stops at 2026-06-18, but `main` has moved on since (recent commits include `deploy(beta): about team single list`, EDF colour unification, English/bilingual overview page, etc. — titled "deploy(beta): ..." rather than the `docs(refactoringDB):`/`feat(...)`/`fix(...)` convention used throughout this log, suggesting a workflow shift not yet reflected here). Also note the "Remote policy (2026-05-11)" section below states only `main` is pushed to `origin` and `origin/graph` was deleted — this is now out of date: `origin/graph` and `origin/eu-funding` both currently exist. Next session should reconcile this file's branch-policy section and backfill the missing 2026-06-18 → 2026-09-03 history from `git log`.
+**Note — STATUS.md staleness:** this file's "Completed work" log stops at 2026-06-18, but `main` has moved on since (recent commits include `deploy(beta): about team single list`, EDF colour unification, English/bilingual overview page, etc. — titled "deploy(beta): ..." rather than the `docs(refactoringDB):`/`feat(...)`/`fix(...)` convention used throughout this log, suggesting a workflow shift not yet reflected here). Next session should backfill the missing 2026-06-18 → 2026-09-03 history from `git log` (out of scope for today).
+
+### Session 2026-09-03 — Map ↔ country report links, eu-funding merged to main
+
+- [x] **`web/countries.js`**: `WD_TO_ISO`/`ISO_TO_NAME` moved here from `index.html` as `MITL.WD_TO_ISO`/`MITL.ISO_TO_NAME` — single source of truth, now shared with `reports/countries/index.html`
+- [x] **`index.html`**: "Go to country report →" button added to `showMapCountry()` only (Global Investments mode; deliberately absent from `showEdfCountry()`/EU Funding mode) — links to `reports/countries/index.html?country=<name>`. New i18n key `map.go_to_country_report` (4 languages)
+- [x] **`reports/countries/index.html`**: translated entirely to English (`lang="en"`, en-US number formatting) — matches `search.html`'s convention of keeping data-driven pages in one fixed language rather than a 4x-template approach. "Go to map →" button under the country title (`?country=<name>` → `index.html?country=<ISO>&countryname=<name>`), hidden when the country has no ISO mapping (3 DB countries affected: Hong Kong, Jersey, Qatar). All organization names (EDF beneficiaries table, EDF coordinators table, "Organizations with the most investors", "Full list by type") now link to their `search.html` profile via new `entityLink()` helper, styled to match the existing `.investor-name` look (`color: var(--text-secondary)`, not `inherit` — avoids the mismatched brightness a first pass had across different containers)
+- [x] Verified live with Playwright (local server): full round-trip map→report→map on Israel, `showEdfCountry` confirmed button-free, Qatar confirmed button hidden, 167 `entityLink`s generated on Italy, Baidu Class A link resolves to the exact target URL requested
+- [x] Committed on `eu-funding` (`07fd41e`), merged into `main` (36 commits, no conflicts), `validate.py` PASSED, pushed to `origin/main` (`f73364d..7f4652b`)
+- [x] **Branch cleanup** (post-merge, all content verified as ancestor of `main` before deletion): removed local+remote `eu-funding`, local `data-analysis`, local+remote `graph`, local `datacleaning`/`designfix`/`map`/`search` — all fully merged, nothing lost. **`ai-assistant` deleted with 4 unmerged commits** (Ask AI widget prototype in `search.html` — `757e5ec`, `5665506`, `ec2210c`, `94a8bb4`) at explicit user request; not recoverable via a normal branch, would need `git reflog` on this machine before it expires
+- [x] **Reminder still open** (from ROADMAP.md, now more urgent since `eu-funding` is live on `main`): update `MITL_INDEX_URL` on Vercel (marlamag project) from the `eu-funding` branch URL to the `main` one + Redeploy — otherwise MARLA silently keeps answering from stale data
 
 ### DB construction
 - [x] iShares ETF import: 434 companies from 3 CSVs (deduplicated by `name_key`)
