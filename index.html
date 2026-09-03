@@ -7,11 +7,11 @@
   <title>Map — Man in the Loop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="web/base.css">
   <link rel="stylesheet" href="web/components.css">
   <style>
-    html { font-size: 120%; }
+    html { font-size: 112.5%; }
     :root { --nav-h: 64px; }
     a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
 
@@ -36,6 +36,10 @@
     .arc-legend-out { background: #4d9fff; }
     .arc-legend-in  { background: #ff5555; }
     .arc-legend-bi  { background: #b06aff; }
+    .map-arc-legend.arc-filter { display: inline-flex; gap: 4px; cursor: default; }
+    .arc-filter-btn { font: inherit; text-transform: uppercase; letter-spacing: .4px; color: var(--text-faint); background: transparent; border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; cursor: pointer; line-height: 1.5; }
+    .arc-filter-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .arc-filter-btn.active { color: var(--text-primary); border-color: var(--accent); }
     .map-node.node-dim { opacity: 0.08; }
     .map-node.node-focus { fill: var(--text-primary); stroke: none; stroke-width: 0; }
     .map-country.country-dim { opacity: 0.25; }
@@ -74,6 +78,7 @@
     #map-flow-in-list .map-item-id, #map-flow-out-list .map-item-id { display: none; }
     .map-item-more { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 4px; }
     .map-intro-text { font-size: var(--sl-desc-fs); color: var(--text-secondary); line-height: var(--lh-body); margin: 0 0 10px; }
+    .map-cta-btn { display: inline-flex; margin-bottom: 14px; }
     .map-sector-row { font-size: var(--fs-base); color: var(--text-secondary); padding: 8px 0 10px; border-bottom: 1px solid rgba(65,67,69,0.3); margin-bottom: 4px; line-height: var(--lh-body); }
     .map-sector-lbl { color: var(--text-muted); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .4px; }
     .map-section-hd { display: flex; align-items: center; gap: 8px; }
@@ -92,12 +97,41 @@
     .map-mode-btn:not(.is-active):hover { color: var(--text-primary); }
     [data-theme="light"] .map-mode-btn.is-active { color: #fff; }
     .map-toggle-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer; user-select: none; }
+
+    /* ── Selettori Finanziamenti EU (8 programmi) ── */
+    .fin-selectors { display: flex; flex-direction: column; gap: 7px; }
+    .fin-sep { height: 1px; background: var(--border); margin: 4px 0; opacity: .6; }
+    .fin-row { display: flex; align-items: center; gap: 8px; font-size: var(--fs-base); }
+    .fin-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .fin-check input { cursor: pointer; accent-color: var(--accent); }
+    .fin-name { font-weight: var(--fw-bold); letter-spacing: .3px; }
+    .fin-row.is-wip .fin-check,
+    .fin-row.is-wip .fin-check input { cursor: not-allowed; }
+    .fin-row.is-wip .fin-name { color: var(--text-faint); }
+    .fin-wip { font-size: var(--fs-xs); color: var(--text-faint); font-style: italic; text-transform: uppercase; letter-spacing: .4px; white-space: nowrap; }
+    .fin-info { position: relative; display: inline-flex; }
+    .fin-info-btn {
+      width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); font-family: var(--font);
+      font-size: 11px; font-style: italic; line-height: 1; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; padding: 0;
+    }
+    .fin-info-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .fin-info-box {
+      display: none; position: absolute; top: 22px; left: 0; z-index: 60; width: 220px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 8px 10px; font-size: var(--fs-xs); font-weight: 400; font-style: normal;
+      letter-spacing: 0; text-transform: none; color: var(--text-secondary);
+      line-height: 1.45; box-shadow: 0 4px 14px rgba(0,0,0,.45);
+    }
+    .fin-info.open .fin-info-box { display: block; }
+
     /* EDF panel funding list */
     .edf-fund-item { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 3px 0; border-bottom: 1px solid rgba(65,67,69,0.2); font-size: calc(var(--fs-body) * .82); }
     .edf-fund-item:last-child { border-bottom: none; }
     .edf-fund-name { color: var(--text-secondary); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-decoration: none; cursor: pointer; }
     .edf-fund-name:hover { color: var(--accent); text-decoration: underline; }
-    .edf-fund-amt  { color: rgba(100,200,100,0.9); font-family: var(--font-mono, monospace); font-size: calc(var(--fs-body) * .78); flex-shrink: 0; }
+    .edf-fund-amt  { color: var(--accent); font-family: var(--font-mono, monospace); font-size: calc(var(--fs-body) * .78); flex-shrink: 0; }
     .edf-fund-total { display: flex; justify-content: space-between; padding: 8px 0 0; font-size: calc(var(--fs-body) * .85); font-weight: var(--fw-bold); color: var(--text-primary); border-top: 1px solid var(--border); margin-top: 4px; }
     .map-toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 2px; }
     .edfmap-back-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--dim); font-size: var(--fs-sm); padding: 1px 8px; cursor: pointer; }
@@ -121,11 +155,11 @@
     }
   </style>
 </head>
-<body class="subnav-hidden legend-hidden">
+<body class="legend-hidden">
 
 <!-- ── Topnav ── -->
 <div id="topnav">
-  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop</span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.1-20260715</span></a>
+  <a href="./" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--accent)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
   <span style="margin-left:auto;"></span>
   <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
   <div class="lang-switcher">
@@ -138,11 +172,20 @@
 
 <!-- ── Tabnav ── -->
 <div id="tabnav">
-  <a href="./" class="tnav-btn active">Map</a>
-  <a href="networks.html" class="tnav-btn">Networks</a>
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti" data-i18n="nav.investments">Investimenti globali</a>
   <a href="search.html" class="tnav-btn">Search</a>
-  <a href="publications.html" class="tnav-btn">Publications</a>
+  <a href="publications.html" class="tnav-btn" data-i18n="nav.publications">Pubblicazioni</a>
   <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete / Key Figures della sezione corrente) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn active" id="subtab-mappa" href="./" data-i18n="nav.map">Mappa</a>
+    <a class="snav-btn" id="subtab-rete" href="networks.html" data-i18n="nav.network">Rete</a>
+    <a class="snav-btn" id="subtab-keyfig" href="key-figures.html" data-i18n="nav.key_figures">Numeri chiave</a>
+  </div>
 </div>
 
 <!-- ── Content ── -->
@@ -167,7 +210,7 @@
     <!-- Map main -->
     <div id="map-main">
       <div id="map-toolbar">
-        <div class="map-mode-switch">
+        <div class="map-mode-switch" style="display:none">
           <button class="map-mode-btn is-active" id="mode-btn-investment">Investments</button>
           <button class="map-mode-btn" id="mode-btn-edf">EDF Funding</button>
         </div>
@@ -198,7 +241,8 @@
 <!-- ── Onboarding overlay (first visit only) ── -->
 <div id="onboard-overlay" style="display:none">
   <div id="onboard-box">
-    <div id="onboard-logo">Man in the Loop</div>
+    <div id="onboard-logo">Man in the loop<span class="onboard-logo-tail">: AI at war</span></div>
+    <div id="onboard-version">Prototype v.2026-b</div>
     <p id="onboard-subtitle" data-i18n="onboard.subtitle"></p>
     <div id="onboard-blocks">
       <div class="onboard-block">
@@ -212,6 +256,10 @@
       <div class="onboard-block">
         <div class="onboard-block-title" data-i18n="onboard.3_title"></div>
         <div class="onboard-block-desc" data-i18n="onboard.3_desc"></div>
+      </div>
+      <div class="onboard-block">
+        <div class="onboard-block-title" data-i18n="onboard.4_title"></div>
+        <div class="onboard-block-desc" data-i18n="onboard.4_desc"></div>
       </div>
     </div>
     <button id="onboard-cta" data-i18n="onboard.cta" onclick="closeOnboard()"></button>
@@ -237,13 +285,24 @@
   border-radius: 6px;
   padding: 36px 40px 32px;
   max-width: 580px; width: calc(100% - 48px);
+  max-height: calc(100vh - 32px); overflow-y: auto;
   font-family: var(--font);
 }
 #onboard-logo {
   font-size: calc(var(--fs-lg) * 1.4);
-  font-weight: var(--fw-bold);
+  font-weight: 600;
   color: var(--accent);
   letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+/* Stesso marchio della barra: l'overlay la copre, quindi qui deve
+   ripetere per intero il nome e la versione. */
+#onboard-logo .onboard-logo-tail { color: var(--accent); }
+#onboard-version {
+  font-family: var(--font);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  letter-spacing: 0;
   margin-bottom: 10px;
 }
 #onboard-subtitle {
@@ -285,6 +344,19 @@
 #onboard-langs button.active { color: var(--accent); border-color: var(--accent); }
 [data-theme="light"] #onboard-box { background: #fff; }
 [data-theme="light"] #onboard-overlay { background: rgba(255,255,255,.6); }
+/* Mobile: compatta il box così tutto (incluso il pulsante) resta raggiungibile */
+@media (max-width: 640px) {
+  #onboard-overlay { align-items: flex-start; }
+  #onboard-box {
+    padding: 22px 20px 20px;
+    width: calc(100% - 24px);
+    max-height: calc(100vh - 24px);
+    margin: 12px 0;
+  }
+  #onboard-subtitle { margin-bottom: 18px; }
+  #onboard-blocks { gap: 12px; margin-bottom: 20px; }
+  .onboard-block { padding: 10px 12px; }
+}
 </style>
 
 <script>
@@ -315,6 +387,7 @@ document.addEventListener('mitl-lang-change', function(e) {
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="web/theme.js"></script>
 <script src="web/i18n.js"></script>
+<script src="web/countries.js"></script>
 <script>
 'use strict';
 
@@ -342,7 +415,8 @@ function companyBadges(c) {
   return tags.map(sectorBadge).join('');
 }
 
-const getCountry = e => e.sources?.infonodes?.country || e.sources?.wikidata?.country || e.sources?.edf?.country;
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il sito).
+const getCountry = e => MITL.entityCountry(e);
 
 function fmtFunding(n) {
   if (!n) return null;
@@ -351,86 +425,11 @@ function fmtFunding(n) {
   return `$${n.toLocaleString()}`;
 }
 
-// ── Country lookup tables (from refactoring/js/tabs/map.js) ───────────────────
-const WD_TO_ISO = {
-  'United States': 840, 'USA': 840,
-  'Germany': 276, 'Germania': 276,
-  'United Kingdom': 826, 'UK': 826,
-  'France': 250, 'Francia': 250,
-  'Israel': 376,
-  'Sweden': 752,
-  'Norway': 578, 'Norvegia': 578,
-  'Finland': 246,
-  'Denmark': 208,
-  'Netherlands': 528,
-  'Belgium': 56, 'Belgio': 56,
-  'Switzerland': 756,
-  'Austria': 40,
-  'Italy': 380,
-  'Spain': 724,
-  'Poland': 616, 'Polonia': 616,
-  'Czech Republic': 203, 'Czech Rep.': 203, 'Czechia': 203,
-  'Romania': 642,
-  'Estonia': 233,
-  'Latvia': 428,
-  'Lithuania': 440,
-  'Ukraine': 804,
-  'Russia': 643,
-  'Turkey': 792,
-  'India': 356,
-  'China': 156, 'Cina': 156, "People's Republic of China": 156,
-  'Taiwan': 158,
-  'Japan': 392, 'Giappone': 392,
-  'South Korea': 410,
-  'Australia': 36,
-  'Canada': 124,
-  'Brazil': 76,
-  'South Africa': 710,
-  'Singapore': 702,
-  'United Arab Emirates': 784, 'EAU (Dubai)': 784,
-  'Saudi Arabia': 682,
-  'Portugal': 620,
-  'Greece': 300,
-  'Hungary': 348,
-  'Slovakia': 703,
-  'Luxembourg': 442,
-  'Ireland': 372,
-  'Cyprus': 196,
-  'Malta': 470,
-  'Croatia': 191,
-  'Slovenia': 705,
-  'Serbia': 688,
-  'Bulgaria': 100,
-  'North Macedonia': 807,
-  'Albania': 8,
-  'Moldova': 498,
-  'Belarus': 112,
-  'Kazakhstan': 398,
-  'Mexico': 484,
-  'Argentina': 32,
-  'Chile': 152, 'Cile': 152,
-  'Colombia': 170,
-  'Peru': 604,
-  'New Zealand': 554,
-  'Indonesia': 360,
-  'Malaysia': 458,
-  'Thailand': 764,
-  'Vietnam': 704,
-  'Philippines': 608,
-  'Pakistan': 586,
-  'Bangladesh': 50,
-  'Egypt': 818,
-  'Nigeria': 566,
-  'Kenya': 404,
-  'Morocco': 504,
-  'Tunisia': 788,
-  'Ethiopia': 231,
-};
-
-const ISO_TO_NAME = {};
-for (const [name, iso] of Object.entries(WD_TO_ISO)) {
-  if (!(iso in ISO_TO_NAME)) ISO_TO_NAME[iso] = name;
-}
+// ── Country lookup tables ───────────────────────────────────────────────────
+// Single source of truth: web/countries.js (also used by
+// reports/countries/index.html to link back to this map).
+const WD_TO_ISO   = MITL.WD_TO_ISO;
+const ISO_TO_NAME = MITL.ISO_TO_NAME;
 
 // ── EU member states (ISO 3166-1 numeric) ─────────────────────────────────────
 const EU_ISO = new Set([40,56,100,191,196,203,208,233,246,250,276,300,348,372,380,428,440,442,470,528,616,620,642,703,705,724,752]);
@@ -445,6 +444,7 @@ const mapState = {
   svg: null, g: null,
   projection: null, zoom: null,
   selectedIso: null, activeFilter: null,
+  arcFilter: 'both',
   showArcs: false, defaultTransform: null,
   edfOnly: false, edfISOs: new Set(),
   selectedArc: null,
@@ -458,6 +458,9 @@ let relationships = [];
 // ── Routing ───────────────────────────────────────────────────────────────────
 function pushMapState({ country = null, countryname = null, entity = null, entityname = null, arc = null } = {}) {
   const p = new URLSearchParams();
+  if (mapState.mode === 'edf') p.set('mode', 'edf');
+  const _lang = new URLSearchParams(location.search).get('lang');
+  if (_lang)             p.set('lang', _lang);
   if (country)           p.set('country', String(country));
   if (countryname)       p.set('countryname', countryname);
   if (entity)            p.set('entity', entity);
@@ -496,6 +499,70 @@ function restoreMapState({ country, entity, type, arc } = {}) {
   }
 }
 
+// ── EU funding selectors (Finanziamenti EU panel) ──────────────────────────────
+// Al momento solo EDF è attivo; gli altri programmi sono "work in progress".
+const FIN_PROGRAMS = [
+  { id: 'EDF',     active: true  },
+  { id: 'HORIZON', active: false },
+  { id: 'PESCO',   active: false },
+  { id: 'EDIP',    active: false },
+  { id: 'EUDIS',   active: false },
+  { id: 'EIF',     active: false },
+  // DIANA e NIF sono programmi NATO, non UE: separati da una linea.
+  { id: 'DIANA',   active: false, divider: true },
+  { id: 'NIF',     active: false },
+];
+// Testi dei box informativi: chiavi i18n 'fin.info.<PROGRAMMA>' in web/i18n.js.
+function finSelectorsHTML() {
+  return FIN_PROGRAMS.map(p => `
+    ${p.divider ? '<div class="fin-sep"></div>' : ''}
+    <div class="fin-row${p.active ? '' : ' is-wip'}">
+      <label class="fin-check">
+        <input type="checkbox" ${p.active ? 'checked onchange="toggleEdfLayer(this.checked)"' : 'disabled'}>
+        <span class="fin-name">${p.id}</span>
+      </label>
+      <span class="fin-info">
+        <button type="button" class="fin-info-btn" onclick="toggleFinInfo(event, this)" aria-label="Info ${p.id}">i</button>
+        <span class="fin-info-box">${t('fin.info.' + p.id)}</span>
+      </span>
+      ${p.active ? '' : `<span class="fin-wip">${t('map.wip')}</span>`}
+    </div>`).join('');
+}
+
+function toggleFinInfo(ev, btn) {
+  ev.stopPropagation();
+  const wrap = btn.closest('.fin-info');
+  const wasOpen = wrap.classList.contains('open');
+  document.querySelectorAll('.fin-info.open').forEach(w => w.classList.remove('open'));
+  if (!wasOpen) wrap.classList.add('open');
+}
+
+function toggleEdfLayer(show) {
+  if (show) { switchMapMode('edf'); return; }   // ridisegna correttamente il layer EDF
+  mapState.g?.selectAll('.map-node').style('display', 'none');
+  mapState.g?.selectAll('.edf-fund-label').style('display', 'none');
+}
+
+// Chiude i box informativi quando si clicca fuori
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.fin-info'))
+    document.querySelectorAll('.fin-info.open').forEach(w => w.classList.remove('open'));
+});
+
+// Memorizza il soggetto prima di aprire la sua scheda in Search, così il
+// profilo si apre anche se il proxy elimina i parametri dall'URL su .html.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
+
 // ── Panel content ─────────────────────────────────────────────────────────────
 function setDefaultPanelContent() {
   const header  = document.getElementById('map-panel-header');
@@ -507,6 +574,9 @@ function setDefaultPanelContent() {
     document.getElementById('map-panel-body').innerHTML = `
       <div class="sl-panel-section">
         <p class="map-intro-text">${t('map.edf_mode_desc')}</p>
+      </div>
+      <div class="sl-panel-section fin-selectors">
+        ${finSelectorsHTML()}
       </div>`;
     return;
   }
@@ -535,7 +605,7 @@ function setDefaultPanelContent() {
       <p class="map-intro-text">${t('map.arc_colors')}<br>
         <span style="color:#4d9fff">■</span> ${t('map.arc_blue')}<br>
         <span style="color:#ff5555">■</span> ${t('map.arc_red')}<br>
-        <span style="color:#b06aff">■</span> ${t('map.arc_purple')}
+        <span style="color:#4d9fff">■</span><span style="color:#ff5555">■</span> ${t('map.arc_purple')}
       </p>
       <p class="map-intro-text">${t('map.arc_click')}</p>
     </div>
@@ -572,9 +642,13 @@ function closeMapPanel(skipHistory = false) {
   });
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = mapState.showArcs ? '' : 'none';
+  // Un-hide any arcs hidden by the in/out selector, reset it to "both"
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').style('display', null);
+  mapState.arcFilter = 'both';
   // Restore arc legend
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
+    arcLegend.classList.remove('arc-filter');
     arcLegend.textContent = 'arc: faint→investor · bright→company';
     arcLegend.title = 'Arc direction: faint = investor country · bright = company country';
   }
@@ -591,6 +665,27 @@ function clearMapFilter() {
   mapState.activeFilter = null;
   applyMapFilter();
   closeMapPanel();
+}
+
+// ── in / out / both arc selector ──────────────────────────────────────────────
+// Shows only incoming (red), only outgoing (blue), or both sets of arcs for the
+// currently selected country. Meaningful only while a country is selected.
+function applyArcInOut(iso = mapState.selectedIso) {
+  const f = mapState.arcFilter;
+  document.querySelectorAll('.arc-filter-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.filter === f));
+  if (!iso) return;
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').each(function(d) {
+    if (d.src !== iso && d.tgt !== iso) return;   // only this country's arcs
+    const isOut = d.src === iso;
+    const show  = f === 'both' || (f === 'out' && isOut) || (f === 'in' && !isOut);
+    d3.select(this).style('display', show ? null : 'none');
+  });
+}
+
+function setArcFilter(mode) {
+  mapState.arcFilter = mode;
+  applyArcInOut();
 }
 
 // ── fitMapToISOs / computeTransform ──────────────────────────────────────────
@@ -657,25 +752,31 @@ function showMapCountry(iso, skipHistory = false) {
   if (arcEl) arcEl.style.display = '';
   mapState.g?.selectAll('.map-arc').classed('arc-dim', d => d.src !== iso && d.tgt !== iso);
 
-  // Color arcs by direction relative to selected country
-  const outTargets = new Set(mapState.arcData.filter(a => a.src === iso).map(a => a.tgt));
-  const inSources  = new Set(mapState.arcData.filter(a => a.tgt === iso).map(a => a.src));
+  // Color arcs by direction relative to selected country: out = blue (this
+  // country invests abroad), in = red (this country receives). No purple —
+  // a bidirectional pair keeps its two separate arcs (blue + red).
   mapState.g?.selectAll('.map-arc').each(function(d) {
-    const el = d3.select(this);
     if (d.src === iso || d.tgt === iso) {
-      const isBi  = (d.src === iso && inSources.has(d.tgt)) || (d.tgt === iso && outTargets.has(d.src));
-      const isOut = d.src === iso;
-      el.attr('stroke', isBi ? '#b06aff' : isOut ? '#4d9fff' : '#ff5555')
+      d3.select(this)
+        .attr('stroke', d.src === iso ? '#4d9fff' : '#ff5555')
         .attr('stroke-opacity', 0.9);
     }
   });
 
-  // Update arc legend to show directional color key
+  // Turn the arc legend into an in / out / both selector
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
-    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
-    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
+    arcLegend.classList.add('arc-filter');
+    arcLegend.title = '';
+    arcLegend.innerHTML =
+        `<button type="button" class="arc-filter-btn" data-filter="in"><span class="arc-legend-swatch arc-legend-in"></span>in</button>`
+      + `<button type="button" class="arc-filter-btn" data-filter="out"><span class="arc-legend-swatch arc-legend-out"></span>out</button>`
+      + `<button type="button" class="arc-filter-btn" data-filter="both">both</button>`;
+    arcLegend.querySelectorAll('.arc-filter-btn').forEach(b => {
+      b.onclick = e => { e.stopPropagation(); setArcFilter(b.dataset.filter); };
+    });
   }
+  applyArcInOut(iso);
 
   const sectorCount = {};
   cd.companies.forEach(c => {
@@ -744,6 +845,7 @@ function showMapCountry(iso, skipHistory = false) {
   titleEl.textContent = cd.name; titleEl.title = cd.name;
 
   document.getElementById('map-panel-body').innerHTML = `
+    <a class="tnav-btn map-cta-btn" href="reports/countries/index.html?country=${encodeURIComponent(cd.name)}${themeParam()}">${t('map.go_to_country_report')}</a>
     <p class="map-intro-text" style="margin-bottom:10px">${introText}</p>
     <div class="map-sector-row"><span class="map-sector-lbl">Sectors:</span> ${sectorSummary}</div>
     ${flowInArr.length ? `<div class="sl-panel-section">
@@ -811,23 +913,20 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
   if (!skipHistory) pushMapState({ arc: `${srcIso}-${tgtIso}` });
 
-  // Show arc layer, dim all arcs except the active pair
+  // Show arc layer, un-hide any arcs hidden by the in/out selector,
+  // then dim all arcs except the active pair
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = '';
-  const hasAB = mapState.arcData.some(a => a.src === srcIso && a.tgt === tgtIso);
-  const hasBA = mapState.arcData.some(a => a.src === tgtIso && a.tgt === srcIso);
-  const isBi  = hasAB && hasBA;
+  mapState.g?.selectAll('.map-arc, .map-arc-hit').style('display', null);
 
   mapState.g?.selectAll('.map-arc').each(function(d) {
     const active = (d.src === srcIso && d.tgt === tgtIso) || (d.src === tgtIso && d.tgt === srcIso);
     d3.select(this).classed('arc-dim', !active).classed('arc-selected', active);
     if (active) {
-      const currentStroke = d3.select(this).attr('stroke') || '';
-      if (currentStroke.startsWith('url(')) {
-        // No directional color from country view — derive from arc data
-        d3.select(this).attr('stroke', isBi ? '#b06aff' : '#4d9fff');
-      }
-      d3.select(this).attr('stroke-opacity', 1.0);
+      // Each direction keeps its own colour: srcIso→tgtIso blue, the reverse red
+      d3.select(this)
+        .attr('stroke', d.src === srcIso ? '#4d9fff' : '#ff5555')
+        .attr('stroke-opacity', 1.0);
     }
   });
 
@@ -864,8 +963,9 @@ function showArcDetail(srcIso, tgtIso, skipHistory = false) {
 
   const arcLegend = document.querySelector('.map-arc-legend');
   if (arcLegend) {
-    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>out &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>in &nbsp;<span class="arc-legend-swatch arc-legend-bi"></span>both`;
-    arcLegend.title = 'Blue = investing abroad · Red = receiving investment · Purple = both directions';
+    arcLegend.classList.remove('arc-filter');
+    arcLegend.innerHTML = `<span class="arc-legend-swatch arc-legend-out"></span>${esc(srcName)}→${esc(tgtName)} &nbsp;<span class="arc-legend-swatch arc-legend-in"></span>${esc(tgtName)}→${esc(srcName)}`;
+    arcLegend.title = 'Blu = ' + srcName + ' → ' + tgtName + ' · Rosso = ' + tgtName + ' → ' + srcName;
   }
 
   document.getElementById('map-panel-header').style.display = '';
@@ -1089,7 +1189,9 @@ function switchMapMode(mode) {
       const r    = show ? rScaleEdf(edfData.totalFunding) : 0;
       d3.select(this).datum({ ...d, baseR: r })
         .attr('r', r)
-        .style('fill', show ? 'rgba(100,200,100,0.85)' : null)
+        // stesso verde di Global Investments: usa il CSS .map-node { fill: var(--accent) },
+        // così è identico nelle due sezioni e coerente in dark/light.
+        .style('fill', null)
         .style('display', show ? null : 'none');
     });
 
@@ -1194,13 +1296,12 @@ function applyMapFilter() {
   const arcEl = document.getElementById('map-arc-layer');
   if (arcEl) arcEl.style.display = (mapState.showArcs || f || mapState.selectedIso) ? '' : 'none';
 
-  // helper: arc visibility based on selected country + in/out button state
+  // helper: arc visibility based on selected country + in/out selector state
   const arcDimForCountry = (d, sel) => {
-    const showIn  = document.getElementById('map-flow-in-list')?.style.display !== 'none' ?? true;
-    const showOut = document.getElementById('map-flow-out-list')?.style.display !== 'none' ?? true;
-    if (d.tgt === sel) return !showIn;
-    if (d.src === sel) return !showOut;
-    return true;
+    const fl = mapState.arcFilter;
+    if (fl === 'both') return false;
+    const isOut = d.src === sel;
+    return fl === 'out' ? !isOut : isOut;
   };
 
   if (!f && !edf) {
@@ -1264,8 +1365,14 @@ function drawArcs(layer) {
     const s = mapState.centroids[arc.src];
     const t = mapState.centroids[arc.tgt];
     if (!s || !t) return;
-    const mx  = (s[0] + t[0]) / 2;
-    const my  = (s[1] + t[1]) / 2 - Math.hypot(t[0]-s[0], t[1]-s[1]) * 0.3;
+    // Bow each directed arc perpendicular to the src→tgt segment. Because the
+    // perpendicular flips sign when src/tgt swap, a bidirectional pair (A→B and
+    // B→A) curves to opposite sides and both stay visible in "both" mode.
+    const dx = t[0]-s[0], dy = t[1]-s[1];
+    const len = Math.hypot(dx, dy) || 1;
+    const bow = len * 0.16;
+    const mx  = (s[0] + t[0]) / 2 + (-dy / len) * bow;
+    const my  = (s[1] + t[1]) / 2 + ( dx / len) * bow;
     const sw  = strokeScale(arc.weight);
     const op  = opacityScale(arc.weight);
     const gid = `map-arc-grad-${i}`;
@@ -1526,12 +1633,39 @@ function buildMapView(db) {
     });
 }
 
+// ── Section routing (EDF / Investimenti) + sub-tab Mappa/Rete/Numeri chiave ───
+// Dipende solo dall'URL, non dai dati: va eseguito subito, non dentro init().
+// Se aspetta il fetch di database.json (diversi MB) la barra resta con i link
+// di default per tutto il caricamento, e chi clicca in quella finestra finisce
+// nella sezione sbagliata.
+function setupSectionNav() {
+  const p       = new URLSearchParams(location.search);
+  const section = p.get('mode') === 'edf' ? 'edf' : 'investimenti';
+  const isEdf   = section === 'edf';
+  try { sessionStorage.setItem('mitl-section', section); } catch (e) {}
+
+  document.getElementById('nav-' + section)?.classList.add('active');
+
+  const lang   = p.get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const mode   = isEdf ? 'edf' : 'investment';
+  const set = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
+  set('subtab-mappa',  './?mode=' + mode + langQS);
+  set('subtab-rete',   'networks.html?' + (isEdf ? 'edf=1&inv=0' : 'edf=0&inv=1') + langQS);
+  set('subtab-keyfig', 'key-figures.html?mode=' + mode + langQS);
+
+  return section;
+}
+const MAP_SECTION = setupSectionNav();
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   try {
     const res = await fetch('data/database.json');
     const db  = await res.json();
     await buildMapView(db);
+
+    if (MAP_SECTION === 'edf') switchMapMode('edf');
 
     // Restore state from URL on direct load / refresh
     const initParams  = new URLSearchParams(location.search);

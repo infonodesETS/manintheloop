@@ -97,12 +97,8 @@ export function resolveCompare(registry) {
   return null;
 }
 
-// Returns the matching registry item for the current URL params, or null.
-// Tries: 1) exact id match on dbEntity.id or PIC  2) exact name match
-export function resolve(registry, entityMap) {
-  const params = new URLSearchParams(window.location.search);
-  const id     = params.get(PARAM_ID);
-  const name   = params.get(PARAM_NAME);
+// Match a registry item by id (dbEntity.id or PIC) then by exact name.
+function matchItem(registry, id, name) {
   if (!id && !name) return null;
 
   if (id) {
@@ -119,6 +115,28 @@ export function resolve(registry, entityMap) {
   }
 
   return null;
+}
+
+// Returns the matching registry item for the current URL params, or null.
+// Tries: 1) exact id match on dbEntity.id or PIC  2) exact name match
+export function resolve(registry, entityMap) {
+  const params = new URLSearchParams(window.location.search);
+  return matchItem(registry, params.get(PARAM_ID), params.get(PARAM_NAME));
+}
+
+// Fallback quando la query è stata persa (proxy che elimina i parametri su
+// pagine .html): usa l'entità memorizzata al clic dalla pagina precedente.
+// Consuma-una-volta: legge e cancella subito, così un successivo "Search"
+// non riapre un profilo vecchio.
+export function resolveStored(registry) {
+  let id = null, name = null;
+  try {
+    id   = sessionStorage.getItem('mitl-entity-pending');
+    name = sessionStorage.getItem('mitl-entity-pendingName');
+    sessionStorage.removeItem('mitl-entity-pending');
+    sessionStorage.removeItem('mitl-entity-pendingName');
+  } catch (e) {}
+  return matchItem(registry, id, name);
 }
 
 // Listen for browser back/forward and invoke callback(item|null)

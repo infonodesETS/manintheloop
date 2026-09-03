@@ -12,6 +12,12 @@ function applyTheme(value) {
     document.documentElement.removeAttribute('data-theme');
   }
   syncThemeBtn();
+  // Quasi tutto il sito cambia tema da solo, perché i colori arrivano dalle
+  // variabili CSS. Non chi disegna via JavaScript (Cytoscape nella Rete): quei
+  // colori sono letti una volta sola, quindi va avvisato per rileggerli.
+  document.dispatchEvent(new CustomEvent('mitl-theme-change', {
+    detail: { theme: _currentTheme() }
+  }));
 }
 
 function syncThemeBtn() {

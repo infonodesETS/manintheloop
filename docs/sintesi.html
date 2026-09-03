@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Man in the loop — Sintesi / Overview 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c0b; --surface:#121613; --surface-2:#171b18;
+    --text:#e7eae7; --muted:#9aa39c; --faint:#727a73;
+    --accent:#00ff41; --accent-dim:rgba(0,255,65,.14); --accent-line:rgba(0,255,65,.28);
+    --border:rgba(255,255,255,.11); --border-soft:rgba(255,255,255,.06);
+    --blue:#4d9fff; --red:#ff5555; --warn:#ffcc66;
+    --display:'Archivo','Arial',sans-serif;
+    --body:'Barlow','Inter',sans-serif;
+    --cond:'Barlow Condensed',sans-serif;
+    --mono:'Courier Prime',monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--body); font-size:18px; line-height:1.62; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px; margin:0 auto; padding:0 22px 90px;}
+
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px;
+    max-width:840px; margin:0 auto; padding:16px 22px; flex-wrap:wrap;}
+  .back{font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px;
+    font-size:.82rem; color:var(--muted); text-decoration:none;
+    border:1px solid var(--border); border-radius:4px; padding:5px 11px;
+    transition:color .15s,border-color .15s;}
+  .back:hover{color:var(--accent); border-color:var(--accent-line);}
+  .toolbar{display:flex; align-items:center; gap:12px;}
+  .langtoggle{display:inline-flex; gap:4px;}
+  .langbtn{font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px;
+    font-size:.8rem; color:var(--muted); background:transparent;
+    border:1px solid var(--border); border-radius:4px; padding:4px 11px; cursor:pointer;
+    transition:color .15s,border-color .15s;}
+  .langbtn:hover{color:var(--text); border-color:var(--faint);}
+  .langbtn.active{color:var(--accent); border-color:var(--accent-line);}
+  .vertag{font-family:var(--mono); font-size:.78rem; color:var(--faint);}
+
+  html[data-lang="it"] .l-en{display:none !important;}
+  html[data-lang="en"] .l-it{display:none !important;}
+
+  header.hero{padding:26px 0 8px; border-bottom:1px solid var(--border-soft);}
+  .brand{font-family:var(--display); font-weight:600; color:var(--accent);
+    font-size:2.35rem; line-height:1.02; letter-spacing:.3px; margin:0;}
+  .kicker{font-family:var(--cond); text-transform:uppercase; letter-spacing:1.5px;
+    font-size:.8rem; color:var(--muted); margin:14px 0 4px;}
+  .subtitle{font-size:1.15rem; color:var(--text); margin:10px 0 6px; font-weight:500;}
+
+  .lead{background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--accent); border-radius:6px;
+    padding:16px 20px; margin:26px 0; color:var(--muted); font-size:1rem;}
+  .lead strong{color:var(--text);}
+
+  .oneliner{font-size:1.32rem; line-height:1.5; font-weight:500; color:var(--text);
+    margin:34px 0; padding-left:18px; border-left:3px solid var(--accent-line);}
+  .oneliner b{color:var(--accent);}
+
+  nav.toc{display:flex; flex-wrap:wrap; gap:8px; margin:30px 0 10px;
+    padding-bottom:24px; border-bottom:1px solid var(--border-soft);}
+  nav.toc a{font-family:var(--cond); text-transform:uppercase; letter-spacing:.5px;
+    font-size:.8rem; color:var(--muted); text-decoration:none;
+    border:1px solid var(--border); border-radius:20px; padding:4px 12px;
+    transition:color .15s,border-color .15s,background .15s;}
+  nav.toc a:hover{color:var(--accent); border-color:var(--accent-line); background:var(--accent-dim);}
+
+  section{padding:38px 0 8px; border-top:1px solid var(--border-soft);}
+  section:first-of-type{border-top:none;}
+  h2{font-family:var(--display); font-weight:600; font-size:1.5rem; line-height:1.2;
+    color:var(--text); margin:0 0 8px; display:flex; align-items:baseline; gap:12px;}
+  h2 .num{font-family:var(--mono); font-size:1rem; color:var(--accent);
+    border:1px solid var(--accent-line); border-radius:5px; padding:1px 9px;
+    flex:none; transform:translateY(-2px);}
+  h3{font-family:var(--cond); text-transform:uppercase; letter-spacing:.8px;
+    font-size:1rem; color:var(--accent); margin:26px 0 8px;}
+  p{margin:0 0 14px;}
+  strong{color:#fff; font-weight:600;}
+  em{color:var(--muted); font-style:italic;}
+  code{font-family:var(--mono); font-size:.86em; background:var(--surface-2);
+    border:1px solid var(--border-soft); border-radius:3px; padding:1px 5px; color:var(--accent);}
+  ul{margin:0 0 16px; padding-left:0; list-style:none;}
+  li{position:relative; padding-left:22px; margin-bottom:9px;}
+  li::before{content:''; position:absolute; left:4px; top:11px; width:6px; height:6px;
+    background:var(--accent); border-radius:50%;}
+
+  .tbl{overflow-x:auto; margin:18px 0 22px;}
+  table{width:100%; border-collapse:collapse; font-size:.96rem; min-width:440px;}
+  th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--border-soft); vertical-align:top;}
+  thead th{font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px;
+    font-size:.8rem; color:var(--muted); border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:var(--surface);}
+
+  .chip{font-family:var(--cond); text-transform:uppercase; letter-spacing:.5px;
+    font-size:.74rem; padding:2px 9px; border-radius:20px; white-space:nowrap; border:1px solid var(--border);}
+  .chip.ok{color:var(--accent); border-color:var(--accent-line); background:var(--accent-dim);}
+  .chip.todo{color:var(--warn); border-color:rgba(255,204,102,.3); background:rgba(255,204,102,.08);}
+
+  .note{background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--warn); border-radius:6px; padding:12px 18px;
+    margin:18px 0; color:var(--muted); font-size:.96rem;}
+  .note strong{color:var(--warn);}
+
+  section.data{background:linear-gradient(180deg,var(--accent-dim),transparent 120px);
+    border-radius:8px; padding-left:20px; padding-right:20px; margin-left:-20px; margin-right:-20px;}
+  section.data > h2 .num{background:var(--accent-dim);}
+
+  .subblock{margin:22px 0; padding:2px 0;}
+  .subblock .lbl{font-weight:600; color:#fff;}
+  .grouplbl{font-family:var(--cond); text-transform:uppercase; letter-spacing:.6px; font-size:.82rem; color:var(--accent);}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:50%; vertical-align:middle; margin:0 3px;}
+
+  .task{margin:14px 0; padding-left:0;}
+  .task .step{font-family:var(--mono); color:var(--accent); font-size:.9rem; margin-right:8px;}
+  .done{font-family:var(--cond); text-transform:uppercase; letter-spacing:.5px; font-size:.8rem; color:var(--muted); margin-top:4px;}
+  .done b{color:var(--accent);}
+
+  footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--border); color:var(--faint); font-size:.9rem;}
+  footer a{color:var(--muted);}
+
+  @media (max-width:600px){
+    body{font-size:16.5px;}
+    .brand{font-size:1.9rem;}
+    .oneliner{font-size:1.15rem;}
+    h2{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../"><span class="l-it">← Man in the loop</span><span class="l-en">← Man in the loop</span></a>
+  <div class="toolbar">
+    <div class="langtoggle" role="group" aria-label="Language">
+      <button type="button" class="langbtn" data-l="it" onclick="setLang('it')">IT</button>
+      <button type="button" class="langbtn" data-l="en" onclick="setLang('en')">EN</button>
+    </div>
+    <span class="vertag">Prototype v.2026-b</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker"><span class="l-it">Documento per team &amp; intern</span><span class="l-en">Team &amp; intern briefing</span></p>
+    <h1 class="brand"><span class="l-it">Sintesi del progetto</span><span class="l-en">Project overview</span></h1>
+    <p class="subtitle"><span class="l-it">Man in the loop — cosa cambia nel 2026, quali dati servono, e come iniziare</span><span class="l-en">Man in the loop — what changes in 2026, what data we need, and how to get started</span></p>
+  </header>
+
+  <div class="lead">
+    <span class="l-it">Descrive le <strong>modifiche strutturali</strong> della nuova versione della piattaforma (ramo <code>eu-funding</code>) rispetto a quella online (ramo <code>main</code>), i <strong>dati da aggiungere e arricchire</strong>, e — in fondo — una <strong>scaletta di onboarding per l'intern</strong>. Stato: pubblicata in versione affiancata, senza toccare la piattaforma originale.</span>
+    <span class="l-en">This document describes the <strong>structural changes</strong> of the new version of the platform (branch <code>eu-funding</code>) compared with the one currently online (branch <code>main</code>), the <strong>data we need to add and enrich</strong>, and — at the end — a <strong>step-by-step onboarding list for the incoming intern</strong>. Status: published as a side-by-side version, without touching the original platform.</span>
+  </div>
+
+  <p class="oneliner">
+    <span class="l-it">La piattaforma non è più organizzata <b>per tipo di grafica</b> (Mappa, Rete…) ma <b>per tema</b>: due grandi sezioni — <b>EU Funding</b> e <b>Global Investments</b> — ciascuna esplorabile in tre modi.</span>
+    <span class="l-en">The platform is no longer organised <b>by type of graphic</b> (Map, Network…) but <b>by theme</b>: two major sections — <b>EU Funding</b> and <b>Global Investments</b> — each explorable in three ways.</span>
+  </p>
+
+  <nav class="toc">
+    <a href="#s1">1 · <span class="l-it">Navigazione per tema</span><span class="l-en">Navigation by theme</span></a>
+    <a href="#s2">2 · <span class="l-it">Numeri chiave</span><span class="l-en">Key Figures</span></a>
+    <a href="#s3">3 · <span class="l-it">Mappa</span><span class="l-en">Map</span></a>
+    <a href="#s4">4 · <span class="l-it">Onboarding &amp; restyling</span><span class="l-en">Onboarding &amp; restyling</span></a>
+    <a href="#s5">5 · <span class="l-it">Sotto il cofano</span><span class="l-en">Under the hood</span></a>
+    <a href="#s6">6 · <span class="l-it">Dati</span><span class="l-en">Data</span></a>
+    <a href="#s7">7 · <span class="l-it">Prossimi passi</span><span class="l-en">Next steps</span></a>
+    <a href="#intern">8 · <span class="l-it">Onboarding intern</span><span class="l-en">Intern onboarding</span></a>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="num">1</span> <span class="l-it">La modifica principale: navigazione per tema, non per strumento</span><span class="l-en">The main change: navigation by theme, not by tool</span></h2>
+    <div class="tbl l-it">
+      <table>
+        <thead><tr><th></th><th>Versione precedente (online)</th><th>Nuova versione</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Menu principale</strong></td><td>Map · Networks · Search · Publications · About</td><td><strong>EU Funding · Global Investments</strong> · Search · Publications · About</td></tr>
+          <tr><td><strong>Logica</strong></td><td>si sceglieva <em>lo strumento</em> (una mappa o un grafo)</td><td>si sceglie <em>la domanda</em> (denaro pubblico UE, oppure investimenti globali)</td></tr>
+          <tr><td><strong>Come si esplora</strong></td><td>mappa e rete erano voci separate</td><td>dentro ogni sezione tre viste: <strong>Mappa · Rete · Numeri chiave</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl l-en">
+      <table>
+        <thead><tr><th></th><th>Previous version (online)</th><th>New version</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Main menu</strong></td><td>Map · Networks · Search · Publications · About</td><td><strong>EU Funding · Global Investments</strong> · Search · Publications · About</td></tr>
+          <tr><td><strong>Logic</strong></td><td>you chose <em>the tool</em> (a map or a graph)</td><td>you choose <em>the question</em> (EU public money, or global investments)</td></tr>
+          <tr><td><strong>How you explore</strong></td><td>map and network were separate items</td><td>inside each section, three views: <strong>Map · Network · Key Figures</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="l-it">Le due sezioni rispondono a due domande diverse:</p>
+    <p class="l-en">The two sections answer two different questions:</p>
+    <ul class="l-it">
+      <li><strong>EU Funding</strong> — segue il flusso del <strong>denaro pubblico europeo</strong> nel settore della difesa: chi lo riceve, con chi collabora, per quali scopi. Oggi mostra lo <strong>European Defence Fund (EDF)</strong>.</li>
+      <li><strong>Global Investments</strong> — mostra gli <strong>investimenti (privati e pubblici)</strong> nelle aziende del settore e le collaborazioni tra i soggetti.</li>
+    </ul>
+    <ul class="l-en">
+      <li><strong>EU Funding</strong> — follows the flow of <strong>European public money</strong> into the defence sector: who receives it, with whom they collaborate, for what purposes. Today it shows the <strong>European Defence Fund (EDF)</strong>.</li>
+      <li><strong>Global Investments</strong> — shows the <strong>(private and public) investments</strong> in companies in the sector and the collaborations between actors.</li>
+    </ul>
+  </section>
+
+  <section id="s2">
+    <h2><span class="num">2</span> <span class="l-it">Nuova sezione “Numeri chiave”</span><span class="l-en">New “Key Figures” section</span></h2>
+    <p class="l-it">Una vista completamente nuova (<code>key-figures.html</code>), assente nella versione precedente. Presenta i <strong>dati aggregati</strong> — classifiche e cifre significative — invece della sola visualizzazione geografica o a rete.</p>
+    <p class="l-en">A completely new view (<code>key-figures.html</code>), absent in the previous version. It presents the <strong>aggregated data</strong> — rankings and significant figures — instead of only the geographic or network visualisation.</p>
+    <p class="l-it">Include un <strong>selettore di perimetro</strong> in Global Investments per passare fra <em>“solo defence tech”</em> e <em>“tutte le entità”</em> (vedi capitolo dati).</p>
+    <p class="l-en">It includes a <strong>scope selector</strong> in Global Investments to switch between <em>“defence tech only”</em> and <em>“all entities”</em> (see the data chapter).</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="num">3</span> <span class="l-it">Mappa: nuove modalità di lettura</span><span class="l-en">Map: new ways of reading it</span></h2>
+    <ul class="l-it">
+      <li><strong>Modalità EDF Funding</strong>: la mappa mostra i finanziamenti EDF paese per paese (cerchi dimensionati sul finanziamento, zoom sull'Europa).</li>
+      <li><strong>Selettore archi <span style="color:var(--blue)">in</span> / <span style="color:var(--red)">out</span> / both</strong> (Global Investments): la vecchia legenda a tre colori è diventata un <strong>filtro</strong>. Si sceglie di vedere solo gli investimenti in <strong style="color:var(--blue)">uscita (blu)</strong>, solo quelli in <strong style="color:var(--red)">entrata (rosso)</strong> o entrambi. Le coppie di Paesi con flussi bidirezionali non sono più un singolo arco viola ma <strong>due archi affiancati</strong><span class="swatch" style="background:var(--blue)"></span><span class="swatch" style="background:var(--red)"></span>.</li>
+      <li><strong>Pannello informativo</strong> sui programmi di finanziamento (vedi cap. 6).</li>
+    </ul>
+    <ul class="l-en">
+      <li><strong>EDF Funding mode</strong>: the map shows EDF funding country by country (circles sized by funding, zoom on Europe).</li>
+      <li><strong>Arc selector <span style="color:var(--blue)">in</span> / <span style="color:var(--red)">out</span> / both</strong> (Global Investments): the old three-colour legend has become a <strong>filter</strong>. You choose to see only <strong style="color:var(--blue)">outgoing (blue)</strong> investments, only <strong style="color:var(--red)">incoming (red)</strong> ones, or both. Country pairs with two-way flows are no longer a single purple arc but <strong>two side-by-side arcs</strong><span class="swatch" style="background:var(--blue)"></span><span class="swatch" style="background:var(--red)"></span>.</li>
+      <li><strong>Info panel</strong> on the funding programmes (see ch. 6).</li>
+    </ul>
+  </section>
+
+  <section id="s4">
+    <h2><span class="num">4</span> <span class="l-it">Onboarding e restyling</span><span class="l-en">Onboarding and restyling</span></h2>
+    <ul class="l-it">
+      <li><strong>Box di benvenuto riscritto</strong> per la nuova struttura: quattro blocchi (le due sezioni, i tre modi di leggere i dati, Search/Pubblicazioni, About), in tutte e quattro le lingue (IT/EN/FR/ES).</li>
+      <li><strong>Titolo della piattaforma</strong> ora interamente in verde, in font <em>Archivo</em> (peso 600): più sottile e leggibile.</li>
+      <li><strong>Dimensione di base dei testi</strong> leggermente ridotta, per una lettura più pulita e uniforme.</li>
+    </ul>
+    <ul class="l-en">
+      <li><strong>Welcome box rewritten</strong> for the new structure: four blocks (the two sections, the three ways to read the data, Search/Publications, About), in all four languages (IT/EN/FR/ES).</li>
+      <li><strong>Platform title</strong> now fully green, in <em>Archivo</em> font (weight 600): thinner and more readable.</li>
+      <li><strong>Base text size</strong> slightly reduced, for a cleaner, uniform reading across all pages.</li>
+    </ul>
+  </section>
+
+  <section id="s5">
+    <h2><span class="num">5</span> <span class="l-it">Sotto il cofano</span><span class="l-en">Under the hood</span> <span style="font-family:var(--cond);text-transform:uppercase;font-size:.7rem;letter-spacing:1px;color:var(--faint);font-weight:500;"><span class="l-it">per chi mette mano al codice</span><span class="l-en">for whoever touches the code</span></span></h2>
+    <ul class="l-it">
+      <li><code>web/countries.js</code> — normalizzazione centralizzata dei nomi dei Paesi (prima sparsa: es. “Czechia” vs “Czech Republic”).</li>
+      <li><code>data/defence_criteria.json</code> — file di configurazione, modificabile a mano, che definisce quali aziende contano come <em>defence tech</em>.</li>
+      <li><strong>Traduzioni</strong> di menu e sotto-menu completate nelle quattro lingue.</li>
+      <li>La risoluzione del Paese ora usa prima il dato EDF e poi Wikidata.</li>
+    </ul>
+    <ul class="l-en">
+      <li><code>web/countries.js</code> — centralised normalisation of country names (previously scattered: e.g. “Czechia” vs “Czech Republic”).</li>
+      <li><code>data/defence_criteria.json</code> — a hand-editable config file that defines which companies count as <em>defence tech</em>.</li>
+      <li><strong>Menu and sub-menu translations</strong> completed in the four languages.</li>
+      <li>Country resolution now uses the EDF data first, then Wikidata.</li>
+    </ul>
+  </section>
+
+  <section id="s6" class="data">
+    <h2><span class="num">6</span> 📊 <span class="l-it">Dati — cosa aggiungere e cosa arricchire</span><span class="l-en">Data — what to add and what to enrich</span></h2>
+    <p class="l-it">Il capitolo su cui serve il lavoro del team. La struttura della piattaforma è pronta ad accogliere molti più dati di quelli oggi caricati.</p>
+    <p class="l-en">The chapter where the team's work is needed. The platform's structure is ready to take in far more data than is currently loaded.</p>
+
+    <h3><span class="l-it">6a · Dati da aggiungere</span><span class="l-en">6a · Data to add</span></h3>
+    <p class="subblock l-it"><span class="lbl">Gli altri programmi di finanziamento.</span> Oggi in EU Funding è attivo <strong>solo l'EDF</strong>. Il pannello prevede già altri <strong>sette</strong> programmi, presenti come selettori ma disattivati. Vanno raccolti e caricati i dati (beneficiari e importi) di:</p>
+    <p class="subblock l-en"><span class="lbl">The other funding programmes.</span> Today only <strong>EDF</strong> is active in EU Funding. The panel already provides <strong>seven</strong> more programmes, present as selectors but disabled. Their data (beneficiaries and amounts) must be collected and loaded:</p>
+    <div class="tbl l-it">
+      <table>
+        <thead><tr><th>Programma</th><th>Ambito</th><th>Stato</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EDF</strong> — European Defence Fund</td><td>UE</td><td><span class="chip ok">✅ caricato</span></td></tr>
+          <tr><td><strong>PESCO</strong> — Permanent Structured Cooperation</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>HORIZON</strong> — Horizon Europe</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EDIP</strong> — European Defence Industry Programme</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EUDIS</strong> — EU Defence Innovation Scheme</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>EIF</strong> — European Investment Fund</td><td>UE</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>DIANA</strong> — Defence Innovation Accelerator</td><td>NATO</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+          <tr><td><strong>NIF</strong> — NATO Innovation Fund</td><td>NATO</td><td><span class="chip todo">⏳ da aggiungere</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl l-en">
+      <table>
+        <thead><tr><th>Programme</th><th>Scope</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EDF</strong> — European Defence Fund</td><td>EU</td><td><span class="chip ok">✅ loaded</span></td></tr>
+          <tr><td><strong>PESCO</strong> — Permanent Structured Cooperation</td><td>EU</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>HORIZON</strong> — Horizon Europe</td><td>EU</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>EDIP</strong> — European Defence Industry Programme</td><td>EU</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>EUDIS</strong> — EU Defence Innovation Scheme</td><td>EU</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>EIF</strong> — European Investment Fund</td><td>EU</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>DIANA</strong> — Defence Innovation Accelerator</td><td>NATO</td><td><span class="chip todo">⏳ to add</span></td></tr>
+          <tr><td><strong>NIF</strong> — NATO Innovation Fund</td><td>NATO</td><td><span class="chip todo">⏳ to add</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note l-it"><strong>Nota:</strong> DIANA e NIF sono programmi <strong style="color:var(--warn)">NATO</strong>, non UE — nel pannello sono già separati da una linea. Da decidere se e come rappresentarli nella sezione “EU Funding” o in un contenitore dedicato.</div>
+    <div class="note l-en"><strong>Note:</strong> DIANA and NIF are <strong style="color:var(--warn)">NATO</strong> programmes, not EU — in the panel they are already separated by a line. To be decided whether and how to represent them in the “EU Funding” section or in a dedicated container.</div>
+
+    <p class="subblock l-it"><span class="lbl">Refresh generale del database.</span> Prossimo aggiornamento Crunchbase + nuove call EDF.</p>
+    <p class="subblock l-en"><span class="lbl">General database refresh.</span> Next Crunchbase update + new EDF calls.</p>
+
+    <p class="subblock l-it"><span class="lbl">Aziende mancanti.</span> Primo elenco — <strong>esaustivo per i cinque testi di riferimento analizzati</strong> — di soggetti citati nei documenti ma <strong>non presenti nel database</strong>, da <strong>aggiungere e/o verificare</strong> (alcuni potrebbero già esserci sotto una grafia diversa, o come controllata / casa madre). Da valutare con il Senior Data Expert.</p>
+    <p class="subblock l-en"><span class="lbl">Missing companies.</span> A first list — <strong>exhaustive for the five reference texts analysed</strong> — of entities mentioned in the documents but <strong>not present in the database</strong>, to be <strong>added and/or verified</strong> (some may already be there under a different spelling, or as a subsidiary / parent company). To be assessed with the Senior Data Expert.</p>
+    <p class="l-it"><span class="grouplbl">Produttori / startup della difesa e tech</span><br>
+    STM <em>(Turchia)</em>, DoDAAM <em>(Corea del Sud)</em>, ZALA / Kalashnikov <em>(Russia)</em>, TAF Industries <em>(Ucraina)</em>, AVIC – Aviation Industry Corporation of China, Labrys Technologies, Portal Biotech, Cambridge Aerospace, Frankenburg Technologies, Tytan Technologies, Stark Defence, Harmattan AI, Kraken Technology Group, Isar Aerospace, Unseenlabs, Air Space Intelligence, PsiQuantum, Impulse Space, SpaceX. <em>(Citati solo di sfuggita: Oculus, Alibaba, Virgin Group, Uber.)</em></p>
+    <p class="l-en"><span class="grouplbl">Producers / defence &amp; tech startups</span><br>
+    STM <em>(Turkey)</em>, DoDAAM <em>(South Korea)</em>, ZALA / Kalashnikov <em>(Russia)</em>, TAF Industries <em>(Ukraine)</em>, AVIC – Aviation Industry Corporation of China, Labrys Technologies, Portal Biotech, Cambridge Aerospace, Frankenburg Technologies, Tytan Technologies, Stark Defence, Harmattan AI, Kraken Technology Group, Isar Aerospace, Unseenlabs, Air Space Intelligence, PsiQuantum, Impulse Space, SpaceX. <em>(Mentioned only in passing: Oculus, Alibaba, Virgin Group, Uber.)</em></p>
+    <p class="l-it"><span class="grouplbl">Investitori / fondi / agenzie pubbliche</span><br>
+    <strong>The Vanguard Group</strong> <em>(⚠️ nel database c'è solo “Vanguard Ventures”, un soggetto diverso)</em>, Capital Group / Capital World Investors, <strong>Fidelity Investments</strong> <em>(FMR; in database c'è “Fidelity International”, un'altra società)</em>, Altimeter, Thrive Capital, Lakestar, D3, Darkstar, Green Flag Ventures, ScaleWolf, Hyperion, Twin Track Ventures, Definvest <em>(FR)</em>, SPRIND <em>(DE)</em>, SmartCap <em>(EE)</em>, Apollo Project <em>(il fondo di Sam Altman; “Apollo” in database è verosimilmente Apollo Global Management)</em>.</p>
+    <p class="l-en"><span class="grouplbl">Investors / funds / public agencies</span><br>
+    <strong>The Vanguard Group</strong> <em>(⚠️ the database only has “Vanguard Ventures”, a different entity)</em>, Capital Group / Capital World Investors, <strong>Fidelity Investments</strong> <em>(FMR; the database has “Fidelity International”, a different company)</em>, Altimeter, Thrive Capital, Lakestar, D3, Darkstar, Green Flag Ventures, ScaleWolf, Hyperion, Twin Track Ventures, Definvest <em>(FR)</em>, SPRIND <em>(DE)</em>, SmartCap <em>(EE)</em>, Apollo Project <em>(Sam Altman's fund; “Apollo” in the database is most likely Apollo Global Management)</em>.</p>
+    <p class="l-it"><span class="grouplbl">Enti di ricerca / consorzi</span><br>
+    Eurofighter <em>(consorzio; presenti i membri, non il consorzio)</em>, INRIA, FFI <em>(Istituto norvegese per la ricerca sulla difesa)</em>.</p>
+    <p class="l-en"><span class="grouplbl">Research bodies / consortia</span><br>
+    Eurofighter <em>(consortium; the members are present, not the consortium itself)</em>, INRIA, FFI <em>(Norwegian Defence Research Establishment)</em>.</p>
+    <div class="note l-it"><strong>Nota metodologica:</strong> il confronto è basato sui <strong style="color:var(--warn)">nomi</strong>; le assenze più rilevanti (Vanguard Group, SpaceX, PsiQuantum, le startup difesa europee) sono state verificate a mano. Le voci restano da ricontrollare prima del caricamento.</div>
+    <div class="note l-en"><strong>Methodological note:</strong> the comparison is <strong style="color:var(--warn)">name-based</strong>; the most relevant absences (Vanguard Group, SpaceX, PsiQuantum, the European defence startups) were checked by hand. The entries still need to be double-checked before loading.</div>
+
+    <p class="subblock l-it"><span class="lbl">Dati dalla SEC (portale statunitense).</span> Due filoni da raccogliere dal portale della U.S. Securities and Exchange Commission:</p>
+    <p class="subblock l-en"><span class="lbl">SEC data (US portal).</span> Two streams to collect from the U.S. Securities and Exchange Commission portal:</p>
+    <ul class="l-it">
+      <li>dettagli sui <strong>Fondi e i loro investimenti</strong>;</li>
+      <li>dettagli su <strong>Fondi e aziende</strong> relativi alle <strong>persone</strong> che vi detengono quote rilevanti o ricoprono posizioni apicali.</li>
+    </ul>
+    <ul class="l-en">
+      <li>details on <strong>Funds and their investments</strong>;</li>
+      <li>details on <strong>Funds and companies</strong> relating to the <strong>people</strong> who hold significant stakes or top positions.</li>
+    </ul>
+
+    <h3><span class="l-it">6b · Dati da arricchire</span><span class="l-en">6b · Data to enrich</span></h3>
+    <p class="subblock l-it"><span class="lbl">1. Definizione delle aziende “defence tech”.</span> La voce più delicata. Oggi la classificazione è <strong>provvisoria</strong>: circa <strong>165 aziende su 378</strong> sono marcate come defence tech, ma il criterio si appoggia in gran parte alle <em>industries</em> di Crunchbase, che sono generiche. Conseguenze:</p>
+    <p class="subblock l-en"><span class="lbl">1. Defining “defence tech” companies.</span> The most delicate item. Today the classification is <strong>provisional</strong>: about <strong>165 companies out of 378</strong> are flagged as defence tech, but the criterion relies largely on Crunchbase <em>industries</em>, which are generic. Consequences:</p>
+    <ul class="l-it">
+      <li>alcune aziende chiaramente del settore hanno etichette come “Information Technology” e rientrano <strong>solo</strong> grazie ai segnali strutturali (di norma la partecipazione a un progetto EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto;</li>
+      <li>altre potrebbero rientrare a torto.</li>
+    </ul>
+    <ul class="l-en">
+      <li>some clearly defence-sector companies carry labels like “Information Technology” and are included <strong>only</strong> thanks to structural signals (typically participation in an EDF project): a similar company without European funds would slip through entirely;</li>
+      <li>others may be included wrongly.</li>
+    </ul>
+    <p class="l-it">Serve una <strong>revisione a mano</strong> dell'elenco, correggendo i casi singoli nelle liste <code>include</code> / <code>exclude</code> di <code>data/defence_criteria.json</code> (dove <code>exclude</code> vince su tutto). Va anche deciso se <strong>allargare il perimetro</strong> ad alcune etichette oggi escluse — <em>Robotics, Sensor, Autonomous Vehicles, Cyber Security</em>.</p>
+    <p class="l-en">A <strong>manual review</strong> of the list is needed, correcting individual cases in the <code>include</code> / <code>exclude</code> lists of <code>data/defence_criteria.json</code> (where <code>exclude</code> wins over everything). It must also be decided whether to <strong>widen the scope</strong> to some labels deliberately left out — <em>Robotics, Sensor, Autonomous Vehicles, Cyber Security</em>.</p>
+
+    <p class="subblock l-it"><span class="lbl">2. Tipologia dei finanziatori.</span> Oggi i soggetti che investono sono trattati in modo indistinto. Serve <strong>classificarli</strong>, in particolare distinguere:</p>
+    <p class="subblock l-en"><span class="lbl">2. Type of funders.</span> Today the investing entities are treated undifferentiated. They need to be <strong>classified</strong>, in particular distinguishing:</p>
+    <ul class="l-it">
+      <li><strong>Fondi di Investimento</strong> (fondi istituzionali, private equity, fondi statali…)</li>
+      <li><strong>Venture Capital</strong></li>
+    </ul>
+    <ul class="l-en">
+      <li><strong>Investment Funds</strong> (institutional funds, private equity, state funds…)</li>
+      <li><strong>Venture Capital</strong></li>
+    </ul>
+    <p class="l-it">e, più in generale, separare investitori <strong>privati</strong> da <strong>pubblici</strong> (agenzie governative, banche di sviluppo, fondi sovrani). Questa distinzione renderebbe molto più leggibili sia le Reti sia i Numeri chiave.</p>
+    <p class="l-en">and, more generally, separating <strong>private</strong> from <strong>public</strong> investors (government agencies, development banks, sovereign funds). This distinction would make both the Networks and the Key Figures much more readable.</p>
+
+    <p class="subblock l-it"><span class="lbl">3. Natura delle entità — identificare con maggior precisione.</span> Oltre alla tipologia dei finanziatori, servono due classificazioni più fini:</p>
+    <p class="subblock l-en"><span class="lbl">3. Nature of the entities — identify with greater precision.</span> Beyond the funder type, two finer classifications are needed:</p>
+    <ul class="l-it">
+      <li>per le <strong>aziende</strong>: distinguere <strong>società quotate</strong> da <strong>start up</strong>;</li>
+      <li>per gli <strong>investitori pubblici</strong>: precisare il <strong>tipo di istituzione</strong> (ministero, banca centrale, autorità, agenzia, banca di sviluppo…).</li>
+    </ul>
+    <ul class="l-en">
+      <li>for <strong>companies</strong>: distinguish <strong>listed companies</strong> from <strong>startups</strong>;</li>
+      <li>for <strong>public investors</strong>: specify the <strong>type of institution</strong> (ministry, central bank, authority, agency, development bank…).</li>
+    </ul>
+
+    <p class="subblock l-it"><span class="lbl">4. Correzioni di qualità.</span> Casi già individuati, da sistemare:</p>
+    <p class="subblock l-en"><span class="lbl">4. Data-quality corrections.</span> Cases already identified, to be fixed:</p>
+    <ul class="l-it">
+      <li><strong>MBDA España</strong> ha il campo <em>country</em> (Wikidata) errato (<code>IN-0863</code>);</li>
+      <li><strong>Iveco Defence Vehicles</strong> duplicata come “Idv Defence Vehicles Italia” (<code>IN-1431</code> / <code>IN-0803</code>, stesso PIC);</li>
+      <li><strong>Telecom Italia</strong> duplicata;</li>
+      <li><strong>Fincantieri</strong> presente sia come azienda sia come investitore.</li>
+    </ul>
+    <ul class="l-en">
+      <li><strong>MBDA España</strong> has the wrong country field (Wikidata) (<code>IN-0863</code>);</li>
+      <li><strong>Iveco Defence Vehicles</strong> is duplicated as “Idv Defence Vehicles Italia” (<code>IN-1431</code> / <code>IN-0803</code>, same PIC);</li>
+      <li><strong>Telecom Italia</strong> duplicated;</li>
+      <li><strong>Fincantieri</strong> present both as a company and as an investor.</li>
+    </ul>
+
+    <p class="subblock l-it"><span class="lbl">5. Incrocio con OpenSanctions.</span> Segnalare se un'entità è sanzionata o “di interesse”. Effort medio, manutenzione periodica leggera.</p>
+    <p class="subblock l-en"><span class="lbl">5. Cross-check with OpenSanctions.</span> Flag whether an entity is sanctioned or “of interest”. Medium effort, light periodic maintenance.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="num">7</span> <span class="l-it">Stato e prossimi passi</span><span class="l-en">Status and next steps</span></h2>
+    <ul class="l-it">
+      <li><code>main</code> = versione <strong>online</strong> attuale, invariata.</li>
+      <li><code>eu-funding</code> = la <strong>nuova versione</strong>, completa a livello di struttura.</li>
+      <li><strong>Blocco prima del merge finale</strong>: il testo di onboarding è già riscritto; il merge su <code>main</code> va fatto solo quando la ristrutturazione è considerata stabile dal team.</li>
+      <li><strong>Deploy affiancato</strong>: la nuova versione è pubblicata <strong>accanto</strong> a quella originale, senza sostituirla, per raccogliere il feedback del team.</li>
+    </ul>
+    <ul class="l-en">
+      <li><code>main</code> = current <strong>online</strong> version, unchanged.</li>
+      <li><code>eu-funding</code> = the <strong>new version</strong>, structurally complete.</li>
+      <li><strong>Blocker before the final merge</strong>: the onboarding text is already rewritten; the merge into <code>main</code> should only happen once the restructuring is considered stable by the team.</li>
+      <li><strong>Side-by-side deploy</strong>: the new version is published <strong>alongside</strong> the original, without replacing it, to gather the team's feedback.</li>
+    </ul>
+  </section>
+
+  <section id="intern" class="data">
+    <h2><span class="num">8</span> 🧑‍💻 <span class="l-it">Onboarding intern — etichettatura &amp; arricchimento dati</span><span class="l-en">Intern onboarding — data labelling &amp; enrichment</span></h2>
+    <p class="l-it">Una to-do list progressiva per l'intern. Parte dall'orientamento, poi affronta i compiti sui dati del capitolo qui sopra, un passo alla volta. <strong>Tutto il lavoro di etichettatura va in un Foglio Google</strong> — mai modificando direttamente il database o i file del sito; le modifiche vengono poi applicate dal team.</p>
+    <p class="l-en">A progressive to-do list for the incoming intern. It starts with orientation, then tackles the data tasks from the chapter above, one step at a time. <strong>All labelling work is done in a Google Sheet</strong> — never editing the database or the site files directly; the changes are then applied by the team.</p>
+
+    <h3><span class="l-it">Fase 0 · Orientamento — prima settimana, prima di toccare i dati</span><span class="l-en">Phase 0 · Orientation — first week, before touching any data</span></h3>
+    <div class="task l-it"><span class="step">0.1</span> Leggere questa sintesi e la sezione <strong>About</strong> della piattaforma (Chi siamo / Metodologia / Glossario).</div>
+    <div class="task l-en"><span class="step">0.1</span> Read this overview and the platform's <strong>About</strong> section (Who we are / Methodology / Glossary).</div>
+    <div class="task l-it"><span class="step">0.2</span> Esplorare la piattaforma liberamente: aprire le due sezioni, provare Mappa, Rete e Numeri chiave, e aprire una decina di schede diverse in <strong>Search</strong>.</div>
+    <div class="task l-en"><span class="step">0.2</span> Explore the platform freely: open both sections, try Map, Network and Key Figures, and open around ten different entity profiles in <strong>Search</strong>.</div>
+    <div class="task l-it"><span class="step">0.3</span> Capire il <strong>modello dati</strong>: cos'è un'<em>entità</em> e i suoi tipi (azienda, investitore, fondo, università/istituzione, agenzia pubblica, progetto EDF). <em>Esercizio:</em> scegliere 5 entità e scrivere una riga su cosa contiene ciascuna scheda.
+      <div class="done"><b>Fatto quando:</b> sa spiegare a parole la differenza tra un'azienda, un investitore e un progetto EDF.</div>
+    </div>
+    <div class="task l-en"><span class="step">0.3</span> Understand the <strong>data model</strong>: what an <em>entity</em> is and its types (company, investor, fund, university/institution, public agency, EDF project). <em>Exercise:</em> pick 5 entities and write one line on what each profile contains.
+      <div class="done"><b>Done when:</b> they can explain, in their own words, the difference between a company, an investor and an EDF project.</div>
+    </div>
+
+    <h3><span class="l-it">Fase 1 · Etichettatura “defence tech” — il compito principale</span><span class="l-en">Phase 1 · “Defence tech” labelling — the main task</span></h3>
+    <div class="task l-it"><span class="step">1.1</span> Capire il <strong>perimetro</strong>: come funziona il selettore “solo defence tech / tutte le entità” nei Numeri chiave, e leggere il file di criteri (le liste <code>include</code> / <code>exclude</code>).</div>
+    <div class="task l-en"><span class="step">1.1</span> Understand the <strong>scope</strong>: how the “defence tech only / all entities” selector works in Key Figures, and read the criteria file (the <code>include</code> / <code>exclude</code> lists).</div>
+    <div class="task l-it"><span class="step">1.2</span> <strong>Revisione a lotti:</strong> prendere le aziende classificate come defence tech e verificarle <strong>20 alla volta</strong>. Per ciascuna: guardare cosa fa davvero (sito, Crunchbase) e segnare nel Foglio Google → <em>è davvero difesa? sì / no / dubbio</em> + una riga di motivazione + fonte.
+      <div class="done"><b>Fatto quando:</b> ogni lotto ha un giudizio motivato per ogni azienda. I “no” diventano candidati per la lista <code>exclude</code>; i “dubbio” si rivedono insieme.</div>
+    </div>
+    <div class="task l-en"><span class="step">1.2</span> <strong>Batch review:</strong> take the companies flagged as defence tech and verify them <strong>20 at a time</strong>. For each: check what it actually does (website, Crunchbase) and record in the Google Sheet → <em>is it really defence? yes / no / unsure</em> + one line of reasoning + a source.
+      <div class="done"><b>Done when:</b> each batch has a reasoned verdict for every company. The “no”s become candidates for the <code>exclude</code> list; the “unsure”s are reviewed together.</div>
+    </div>
+
+    <h3><span class="l-it">Fase 2 · Classificazione dei soggetti</span><span class="l-en">Phase 2 · Classifying the actors</span></h3>
+    <div class="task l-it"><span class="step">2.1</span> <strong>Tipo di finanziatore:</strong> per un lotto di investitori, classificarli in <strong>Fondo di Investimento / Venture Capital / pubblico</strong> (e, se pubblico, che tipo: ministero, banca centrale, banca di sviluppo, fondo sovrano…). Fonte: sito ufficiale + Crunchbase.</div>
+    <div class="task l-en"><span class="step">2.1</span> <strong>Funder type:</strong> for a batch of investors, classify them as <strong>Investment Fund / Venture Capital / public</strong> (and, if public, which type: ministry, central bank, development bank, sovereign fund…). Source: official website + Crunchbase.</div>
+    <div class="task l-it"><span class="step">2.2</span> <strong>Natura dell'azienda:</strong> per un lotto di aziende, segnare <strong>quotata</strong> in borsa o <strong>start-up</strong>.
+      <div class="done"><b>Fatto quando:</b> ogni riga del foglio ha la sua etichetta + fonte.</div>
+    </div>
+    <div class="task l-en"><span class="step">2.2</span> <strong>Company nature:</strong> for a batch of companies, mark <strong>listed</strong> on a stock exchange or <strong>startup</strong>.
+      <div class="done"><b>Done when:</b> every row in the sheet has its label + source.</div>
+    </div>
+
+    <h3><span class="l-it">Fase 3 · Correzioni di qualità — insegna precisione</span><span class="l-en">Phase 3 · Data-quality corrections — teaches precision</span></h3>
+    <div class="task l-it"><span class="step">3.1</span> Verificare i <strong>casi noti</strong> e proporre la correzione (in una colonna “note”):
+      <ul style="margin-top:8px;">
+        <li>MBDA España → controllare il campo Paese (è sbagliato);</li>
+        <li>“Idv Defence Vehicles Italia” vs “Iveco Defence Vehicles” → sono duplicati?</li>
+        <li>Telecom Italia duplicata; Fincantieri presente due volte (azienda + investitore).</li>
+      </ul>
+      <div class="done"><b>Fatto quando:</b> per ogni caso ha scritto “confermato / non è un problema” con la prova.</div>
+    </div>
+    <div class="task l-en"><span class="step">3.1</span> Verify the <strong>known cases</strong> and propose the fix (in a “notes” column):
+      <ul style="margin-top:8px;">
+        <li>MBDA España → check the country field (it's wrong);</li>
+        <li>“Idv Defence Vehicles Italia” vs “Iveco Defence Vehicles” → are they duplicates?</li>
+        <li>Telecom Italia duplicated; Fincantieri present twice (company + investor).</li>
+      </ul>
+      <div class="done"><b>Done when:</b> for each case they have written “confirmed / not an issue” with the evidence.</div>
+    </div>
+
+    <h3><span class="l-it">Fase 4 · Aziende mancanti — ricerca guidata</span><span class="l-en">Phase 4 · Missing companies — guided research</span></h3>
+    <div class="task l-it"><span class="step">4.1</span> Prendere l'<strong>elenco delle aziende mancanti</strong> (capitolo dati, 6a) e, per ciascuna: prima <strong>cercarla in Search</strong> (può esserci con un altro nome), poi — se davvero assente — raccogliere in una riga: nome, Paese, settore, sito, quotata/start-up, difesa sì/no.
+      <div class="done"><b>Fatto quando:</b> il foglio è pronto per l'import — una riga per azienda.</div>
+    </div>
+    <div class="task l-en"><span class="step">4.1</span> Take the <strong>missing-companies list</strong> (data chapter, 6a) and, for each: first <strong>search it in Search</strong> (it may be there under a different name), then — if genuinely absent — gather in one row: name, country, sector, website, listed/startup, defence yes/no.
+      <div class="done"><b>Done when:</b> the sheet is ready to be imported — one row per company.</div>
+    </div>
+
+    <div class="note l-it"><strong>Regole d'oro da dargli il primo giorno:</strong>
+      <ul style="margin:10px 0 0;">
+        <li><strong style="color:var(--warn)">Non modificare</strong> direttamente il database o i file del sito — tutto va nel Foglio Google.</li>
+        <li><strong style="color:var(--warn)">Citare sempre la fonte</strong> (un link) per ogni etichetta.</li>
+        <li><strong style="color:var(--warn)">Nel dubbio, chiedi</strong> — e segna “dubbio” invece di indovinare.</li>
+        <li>Lavorare a <strong style="color:var(--warn)">lotti piccoli</strong> (20 righe) e tenere un breve diario giornaliero.</li>
+      </ul>
+    </div>
+    <div class="note l-en"><strong>Golden rules to give them on day one:</strong>
+      <ul style="margin:10px 0 0;">
+        <li><strong style="color:var(--warn)">Do not edit</strong> the database or the site files directly — all work goes into the Google Sheet.</li>
+        <li><strong style="color:var(--warn)">Always cite the source</strong> (a link) for every label.</li>
+        <li><strong style="color:var(--warn)">When in doubt, ask</strong> — and mark “unsure” instead of guessing.</li>
+        <li>Work in <strong style="color:var(--warn)">small batches</strong> (20 rows) and keep a short daily log.</li>
+      </ul>
+    </div>
+    <p class="l-it"><strong>Da dove iniziare:</strong> dopo l'orientamento, partire dalla <strong>Fase 1</strong> (etichettatura defence tech) — il compito più utile e formativo.</p>
+    <p class="l-en"><strong>Suggested start:</strong> after orientation, begin with <strong>Phase 1</strong> (defence tech labelling) — the most useful and most instructive task.</p>
+  </section>
+
+  <footer>
+    <span class="l-it">Roadmap operativa completa e sempre aggiornata: <code>ROADMAP.md</code> nel repository.<br>
+    <a href="../">↩ Torna alla piattaforma Man in the loop</a></span>
+    <span class="l-en">Full, always-updated operational roadmap: <code>ROADMAP.md</code> in the repository.<br>
+    <a href="../">↩ Back to the Man in the loop platform</a></span>
+  </footer>
+
+</div>
+
+<script>
+  function setLang(l){
+    if(l!=='it'&&l!=='en') l='it';
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l);
+    try{ localStorage.setItem('mitl-doc-lang', l); }catch(e){}
+    document.querySelectorAll('.langbtn').forEach(function(b){ b.classList.toggle('active', b.dataset.l===l); });
+  }
+  (function(){
+    var p=new URLSearchParams(location.search).get('lang');
+    var s=null; try{ s=localStorage.getItem('mitl-doc-lang'); }catch(e){}
+    setLang(p || s || 'it');
+  })();
+</script>
+</body>
+</html>

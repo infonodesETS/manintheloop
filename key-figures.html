@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem('mitl-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Figures — Man in the Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web/base.css">
+  <link rel="stylesheet" href="web/components.css">
+  <style>
+    html { font-size: 112.5%; }
+    :root { --nav-h: 64px; }
+    body { overflow: auto; }
+    a.tnav-btn { text-decoration: none; display: inline-flex; align-items: center; }
+
+    #kf-content {
+      padding: calc(var(--nav-h) + var(--tab-h) + var(--subtab-h) + 40px) 40px 80px;
+      max-width: 1100px;
+    }
+    .kf-prompt { font-family: var(--font-mono); font-size: var(--fs-xs); color: rgba(0,255,65,0.5); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+    [data-theme="light"] .kf-prompt { color: rgba(0,102,34,0.6); }
+    .kf-heading { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--text-primary); line-height: 1.05; margin-bottom: 10px; }
+    .kf-sub { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); border-left: 2px solid rgba(0,255,65,0.25); padding-left: 16px; margin-bottom: 36px; max-width: 720px; }
+
+    .kf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; }
+    .kf-card { border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px 20px; background: rgba(255,255,255,0.015); }
+    [data-theme="light"] .kf-card { background: rgba(0,0,0,0.015); }
+    .kf-card-title { font-family: var(--font); font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--accent); line-height: 1.15; margin-bottom: 16px; }
+
+    .kf-row { margin-bottom: 13px; }
+    .kf-row:last-child { margin-bottom: 2px; }
+    .kf-row-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+    .kf-rank { color: var(--text-faint); font-family: var(--font-mono); font-size: var(--fs-xs); margin-right: 7px; }
+    .kf-name { color: var(--text-primary); font-size: var(--fs-base); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    a.kf-name:hover { color: var(--accent); text-decoration: underline; }
+    .kf-country { color: var(--text-faint); font-size: var(--fs-xs); }
+    .kf-val { color: var(--accent); font-family: var(--font-mono); font-size: var(--fs-sm); flex-shrink: 0; white-space: nowrap; }
+    .kf-bar-track { height: 8px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+    [data-theme="light"] .kf-bar-track { background: rgba(0,0,0,0.08); }
+    .kf-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
+    .kf-note { color: var(--text-faint); font-size: var(--fs-xs); }
+
+    /* Selettore perimetro (solo sezione Investimenti globali) */
+    .kf-scope { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+    .kf-scope-label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
+    .kf-scope-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .kf-scope-btn {
+      background: transparent; border: none; cursor: pointer; padding: 5px 12px;
+      font-family: var(--font); font-size: var(--fs-sm); font-weight: var(--fw-bold);
+      letter-spacing: .3px; color: var(--text-muted); transition: background .15s, color .15s;
+    }
+    .kf-scope-btn + .kf-scope-btn { border-left: 1px solid var(--border); }
+    .kf-scope-btn:hover:not(.is-active) { color: var(--text-primary); }
+    .kf-scope-btn.is-active { background: var(--accent); color: #05130a; }
+    [data-theme="light"] .kf-scope-btn.is-active { color: #fff; }
+    .kf-scope-count { font-size: var(--fs-xs); color: var(--text-faint); }
+    .kf-caveat { margin-top: 30px; max-width: 760px; font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-body); border-left: 2px solid var(--border); padding-left: 14px; }
+
+    .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+    .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
+    .lang-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<div id="topnav">
+  <a href="index.html" class="brand" style="display:flex;flex-direction:column;gap:2px;"><span style="color:var(--accent);font-size:calc(var(--fs-lg) * 1.5);line-height:0.9">Man in the loop<span style="color:var(--accent)">: AI at war</span></span><span style="color:var(--text-primary);font-size:calc(var(--fs-lg) * 0.5);font-weight:normal;letter-spacing:0;line-height:1.0">Prototype v.2026-b</span></a>
+  <span style="margin-left:auto;"></span>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">◑ LIGHT</button>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English">EN</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')" title="Italiano">IT</button>
+    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español">ES</button>
+  </div>
+</div>
+
+<!-- ── Tabnav ── -->
+<div id="tabnav">
+  <a href="./?mode=edf" class="tnav-btn" id="nav-edf" data-i18n="nav.eu_funding">Finanziamenti EU</a>
+  <a href="./?mode=investment" class="tnav-btn" id="nav-investimenti" data-i18n="nav.investments">Investimenti globali</a>
+  <a href="search.html" class="tnav-btn">Search</a>
+  <a href="publications.html" class="tnav-btn" data-i18n="nav.publications">Pubblicazioni</a>
+  <a href="about.html" class="tnav-btn">About</a>
+</div>
+
+<!-- ── Subnav (Mappa / Rete / Key Figures) ── -->
+<div id="subnav">
+  <div class="snav-group">
+    <a class="snav-btn" id="subtab-mappa" href="./?mode=edf" data-i18n="nav.map">Mappa</a>
+    <a class="snav-btn" id="subtab-rete" href="networks.html?edf=1&inv=0" data-i18n="nav.network">Rete</a>
+    <a class="snav-btn active" id="subtab-keyfig" href="key-figures.html" data-i18n="nav.key_figures">Numeri chiave</a>
+  </div>
+</div>
+
+<script src="web/countries.js"></script>
+
+<div id="kf-content">
+  <div class="kf-prompt" id="kf-prompt">$ key-figures --top5 --source edf</div>
+  <div class="kf-heading" data-i18n="kf.heading">I numeri chiave</div>
+  <div class="kf-sub" id="kf-sub" data-i18n="kf.heading_sub">I finanziamenti europei allo sviluppo di armamenti, in sintesi.</div>
+  <div class="kf-scope" id="kf-scope" hidden>
+    <span class="kf-scope-label" data-i18n="kf.scope_label">Perimetro</span>
+    <span class="kf-scope-switch">
+      <button type="button" class="kf-scope-btn is-active" id="kf-scope-defence" data-i18n="kf.scope_defence">Solo defence tech</button>
+      <button type="button" class="kf-scope-btn" id="kf-scope-all" data-i18n="kf.scope_all">Tutte le entità</button>
+    </span>
+    <span class="kf-scope-count" id="kf-scope-count"></span>
+  </div>
+  <div class="kf-grid" id="kf-grid"></div>
+  <div class="kf-caveat" id="kf-caveat" hidden></div>
+  <div class="kf-caveat" id="kf-caveat-scope" hidden></div>
+</div>
+
+<script>
+// Questa pagina serve entrambe le sezioni: 'edf' (Finanziamenti EU) e 'inv'
+// (Investimenti globali). La sceglie ?mode=; senza parametro si ricade sulla
+// sezione memorizzata, perché il proxy può eliminare la query dagli URL .html.
+const KF_SECTION = (() => {
+  const m = new URLSearchParams(location.search).get('mode');
+  if (m === 'investment') return 'inv';
+  if (m === 'edf')        return 'edf';
+  let s = null; try { s = sessionStorage.getItem('mitl-section'); } catch (e) {}
+  return s === 'investimenti' ? 'inv' : 'edf';
+})();
+try {
+  sessionStorage.setItem('mitl-section', KF_SECTION === 'inv' ? 'investimenti' : 'edf');
+} catch (e) {}
+
+// Navigazione coerente con la sezione (tab attiva, sotto-tab, riga del prompt).
+(function () {
+  const lang   = new URLSearchParams(location.search).get('lang');
+  const langQS = lang ? '&lang=' + lang : '';
+  const isInv  = KF_SECTION === 'inv';
+  document.getElementById(isInv ? 'nav-investimenti' : 'nav-edf')?.classList.add('active');
+  document.getElementById('subtab-mappa').href =
+    './?mode=' + (isInv ? 'investment' : 'edf') + langQS;
+  document.getElementById('subtab-rete').href =
+    'networks.html?' + (isInv ? 'edf=0&inv=1' : 'edf=1&inv=0') + langQS;
+  document.getElementById('subtab-keyfig').href =
+    'key-figures.html?mode=' + (isInv ? 'investment' : 'edf') + langQS;
+  document.getElementById('kf-prompt').textContent =
+    '$ key-figures --top5 --source ' + (isInv ? 'investments' : 'edf');
+  if (isInv) {
+    document.getElementById('kf-sub').setAttribute('data-i18n', 'kf.heading_sub_inv');
+    const cav = document.getElementById('kf-caveat');
+    cav.setAttribute('data-i18n', 'kf.caveat_inv');
+    cav.hidden = false;
+    const cavScope = document.getElementById('kf-caveat-scope');
+    cavScope.setAttribute('data-i18n', 'kf.caveat_scope');
+    cavScope.hidden = false;
+    document.getElementById('kf-scope').hidden = false;
+  }
+})();
+
+// Perimetro delle classifiche di Investimenti globali: 'defence' (predefinito)
+// o 'all'. Sta nell'URL così la vista si può condividere e ricaricare.
+let KF_SCOPE = new URLSearchParams(location.search).get('scope') === 'all' ? 'all' : 'defence';
+
+// Memorizza il soggetto prima di aprirne la scheda in Search (stesso fallback
+// usato in mappa/rete contro l'eliminazione dei parametri su .html).
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="search.html?organization="]');
+  if (!a) return;
+  try {
+    const u = new URL(a.getAttribute('href'), location.href);
+    const id = u.searchParams.get('organization');
+    const name = u.searchParams.get('organizationName');
+    if (id)   sessionStorage.setItem('mitl-entity-pending', id);
+    if (name) sessionStorage.setItem('mitl-entity-pendingName', name);
+  } catch (err) {}
+});
+
+const _esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// Grafie dei Paesi uniformate in web/countries.js (fonte unica per tutto il
+// sito). Qui serve anche la sede Crunchbase: molti investitori esistono solo
+// lì e non hanno il campo country.
+const getCountry = e => MITL.entityCountry(e, { useHeadquarters: true }) || '';
+const fundOf = e => (e.sources && e.sources.edf && e.sources.edf.total_eu_contribution) || 0;
+const projOf = e => (e.sources && e.sources.edf && e.sources.edf.project_count) || 0;
+const isUniversity = e => (e.sources && e.sources.edf && e.sources.edf.activity_type) === 'HSE';
+const isCompany    = e => e.type === 'company';
+
+function fmtEur(n) {
+  if (!n) return '€0';
+  if (n >= 1e6) return '€' + (n / 1e6).toFixed(1).replace('.0', '') + 'M';
+  if (n >= 1e3) return '€' + Math.round(n / 1e3) + 'K';
+  return '€' + Math.round(n);
+}
+
+let RANKINGS = null;   // calcolato una volta dai dati
+
+function computeRankings(DB) {
+  const retired = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  const entities = DB.entities.filter(e => !retired.has(e.id));
+  const rels     = DB.relationships.filter(r => !retired.has(r.source) && !retired.has(r.target));
+  const edfSrc   = new Set(rels.filter(r => r.type === 'edf_participation').map(r => r.source));
+  const E        = entities.filter(e => edfSrc.has(e.id));
+
+  const topBy = (arr, val) => arr.slice().sort((a, b) => val(b) - val(a)).slice(0, 5);
+
+  // Totali per Paese (nessuna entità cliccabile: aggregato)
+  const ct = {};
+  E.forEach(e => { const c = getCountry(e); if (c) ct[c] = (ct[c] || 0) + fundOf(e); });
+  const countriesByFund = Object.entries(ct)
+    .map(([country, v]) => ({ name: country, value: v, isCountry: true }))
+    .sort((a, b) => b.value - a.value).slice(0, 5);
+
+  const row = (e, val) => ({ id: e.id, name: e.name, country: getCountry(e), value: val(e) });
+
+  return {
+    countriesByFund,
+    companiesByFund:     topBy(E.filter(isCompany), fundOf).map(e => row(e, fundOf)),
+    companiesByProj:     topBy(E.filter(isCompany), projOf).map(e => row(e, projOf)),
+    universitiesByFund:  topBy(E.filter(isUniversity), fundOf).map(e => row(e, fundOf)),
+    universitiesByProj:  topBy(E.filter(isUniversity), projOf).map(e => row(e, projOf)),
+  };
+}
+
+// ── Classifiche della sezione "Investimenti globali" ──────────────────────────
+// Nota metodologica: le relazioni di investimento nel database NON portano un
+// importo, solo il legame investitore → azienda. Tutte le classifiche qui sotto
+// contano quindi partecipazioni, non euro. Gli importi presenti su Crunchbase
+// (total_funding_usd) sono volutamente ignorati: misurano il capitale raccolto
+// dall'azienda in generale, non quanto è arrivato dalla difesa, e in cima
+// mettono i big tech dell'ETF (Netflix, Oracle) che non c'entrano col tema.
+const IS_PUBLIC_INVESTOR = t => t === 'public_fund' || t === 'government_agency' || t === 'bank';
+
+// ── Perimetro "defence tech" ──────────────────────────────────────────────────
+// I criteri modificabili stanno in data/defence_criteria.json (industries
+// Crunchbase + liste include/exclude); qui restano solo i segnali strutturali.
+// La classificazione è provvisoria: vedi il campo _help del file.
+let DEFENCE_CRITERIA = { industries: [], include: [], exclude: [] };
+
+function isDefenceTech(entity, edfSrc) {
+  const ids = o => (o || []).map(x => (typeof x === 'string' ? x : x && x.id)).filter(Boolean);
+  if (ids(DEFENCE_CRITERIA.exclude).includes(entity.id)) return false;   // exclude vince su tutto
+  if (ids(DEFENCE_CRITERIA.include).includes(entity.id)) return true;
+
+  if (edfSrc.has(entity.id)) return true;                                // partecipa a progetti EDF
+  if (entity.sector === 'Defence') return true;
+
+  const s = entity.sources || {};
+  const ishares = s.ishares || [];
+  // GICS 201010 = Aerospace & Defense
+  if ((Array.isArray(ishares) ? ishares : [ishares]).some(x => x && x.gics_code === '201010')) return true;
+
+  let industries = (s.crunchbase || {}).industries || [];
+  if (typeof industries === 'string') industries = industries.split(',');
+  const wanted = DEFENCE_CRITERIA.industries || [];
+  return industries.some(i => wanted.includes(String(i).trim()));
+}
+
+function computeInvestmentRankings(DB) {
+  const retired = new Set(
+    DB.entities.filter(e => (e.history || []).some(h => h.action === 'entity_retired')).map(e => e.id)
+  );
+  const byId = new Map(DB.entities.filter(e => !retired.has(e.id)).map(e => [e.id, e]));
+  const live = r => !retired.has(r.source) && !retired.has(r.target);
+  const allInvRels = DB.relationships.filter(r => r.type === 'investment' && live(r));
+  const edfSrc  = new Set(
+    DB.relationships.filter(r => r.type === 'edf_participation' && live(r)).map(r => r.source)
+  );
+
+  // Il perimetro filtra le relazioni sull'azienda partecipata: da lì derivano
+  // tutte le classifiche, investitori e Paesi compresi. Un fondo che investe
+  // solo in minerario sparisce quindi dalla vista "solo defence tech".
+  const targets     = new Set(allInvRels.map(r => r.target));
+  const defenceIds  = new Set([...targets].filter(id => byId.has(id) && isDefenceTech(byId.get(id), edfSrc)));
+  const invRels     = KF_SCOPE === 'all' ? allInvRels : allInvRels.filter(r => defenceIds.has(r.target));
+
+  const byInvestor = new Map();   // investitore → n. partecipazioni
+  const byCompany  = new Map();   // azienda     → n. investitori
+  for (const r of invRels) {
+    byInvestor.set(r.source, (byInvestor.get(r.source) || 0) + 1);
+    byCompany.set(r.target,  (byCompany.get(r.target)  || 0) + 1);
+  }
+
+  const rank = (counts, keep) => [...counts.entries()]
+    .filter(([id]) => byId.has(id) && (!keep || keep(byId.get(id))))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, value]) => {
+      const e = byId.get(id);
+      return { id, name: e.name, country: getCountry(e), value };
+    });
+
+  // Paesi di origine dei capitali: quanti investitori distinti hanno sede lì.
+  const ic = {};
+  for (const id of byInvestor.keys()) {
+    const c = byId.has(id) ? getCountry(byId.get(id)) : '';
+    if (c) ic[c] = (ic[c] || 0) + 1;
+  }
+  const investorCountries = Object.entries(ic)
+    .map(([name, value]) => ({ name, value, isCountry: true }))
+    .sort((a, b) => b.value - a.value).slice(0, 5);
+
+  // Doppio finanziamento: aziende che prendono soldi pubblici EDF *e* capitali
+  // privati. La barra conta gli investitori, la nota riporta i fondi EDF.
+  const dualFunded = [...byCompany.entries()]
+    .filter(([id]) => edfSrc.has(id) && byId.has(id))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, value]) => {
+      const e = byId.get(id);
+      return { id, name: e.name, country: getCountry(e), value, note: fmtEur(fundOf(e)) + ' EDF' };
+    });
+
+  return {
+    topInvestors:     rank(byInvestor),
+    publicInvestors:  rank(byInvestor, e => IS_PUBLIC_INVESTOR(e.type)),
+    mostBacked:       rank(byCompany),
+    investorCountries,
+    dualFunded,
+    dualFundedTotal:  [...byCompany.keys()].filter(id => edfSrc.has(id)).length,
+    // Per la riga sotto il selettore: quante aziende partecipate sono defence
+    // tech sul totale.
+    scopeDefenceCount: defenceIds.size,
+    scopeTotalCount:   targets.size,
+  };
+}
+
+function barChart(rows, format) {
+  const max = Math.max(...rows.map(r => r.value), 1);
+  return rows.map((r, i) => {
+    const pct = Math.max(2, Math.round((r.value / max) * 100));
+    const label = r.isCountry
+      ? `<span class="kf-name">${_esc(r.name)}</span>`
+      : `<a class="kf-name" href="search.html?organization=${encodeURIComponent(r.id)}&organizationName=${encodeURIComponent(r.name)}" title="${_esc(r.name)}">${_esc(r.name)}</a>`;
+    const country = r.country ? ` <span class="kf-country">· ${_esc(r.country)}</span>` : '';
+    const note    = r.note ? ` <span class="kf-note">· ${_esc(r.note)}</span>` : '';
+    return `<div class="kf-row">
+      <div class="kf-row-head">
+        <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span class="kf-rank">${i + 1}</span>${label}${r.isCountry ? '' : country}${note}</span>
+        <span class="kf-val">${format(r.value)}</span>
+      </div>
+      <div class="kf-bar-track"><div class="kf-bar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function cardsForSection() {
+  const eur       = v => fmtEur(v);
+  const proj      = v => `${v} ${t('kf.unit_projects')}`;
+  const holdings  = v => `${v} ${t('kf.unit_holdings')}`;
+  const investors = v => `${v} ${t('kf.unit_investors')}`;
+
+  if (KF_SECTION === 'inv') return [
+    { title: t('kf.t_top_investors'),      rows: RANKINGS.topInvestors,      fmt: holdings  },
+    { title: t('kf.t_public_investors'),   rows: RANKINGS.publicInvestors,   fmt: holdings  },
+    { title: t('kf.t_most_backed'),        rows: RANKINGS.mostBacked,        fmt: investors },
+    { title: t('kf.t_investor_countries'), rows: RANKINGS.investorCountries, fmt: investors },
+    { title: t('kf.t_dual_funded', { n: RANKINGS.dualFundedTotal }),
+      rows: RANKINGS.dualFunded, fmt: investors },
+  ];
+
+  return [
+    { title: t('kf.t_countries_fund'),      rows: RANKINGS.countriesByFund,    fmt: eur  },
+    { title: t('kf.t_companies_fund'),      rows: RANKINGS.companiesByFund,    fmt: eur  },
+    { title: t('kf.t_companies_proj'),      rows: RANKINGS.companiesByProj,    fmt: proj },
+    { title: t('kf.t_universities_fund'),   rows: RANKINGS.universitiesByFund, fmt: eur  },
+    { title: t('kf.t_universities_proj'),   rows: RANKINGS.universitiesByProj, fmt: proj },
+  ];
+}
+
+function render() {
+  if (!RANKINGS) return;
+  document.getElementById('kf-grid').innerHTML = cardsForSection().map(c => `
+    <div class="kf-card">
+      <div class="kf-card-title">${_esc(c.title)}</div>
+      ${barChart(c.rows, c.fmt)}
+    </div>`).join('');
+
+  if (KF_SECTION !== 'inv') return;
+  document.getElementById('kf-scope-defence').classList.toggle('is-active', KF_SCOPE === 'defence');
+  document.getElementById('kf-scope-all').classList.toggle('is-active', KF_SCOPE === 'all');
+  document.getElementById('kf-scope-count').textContent =
+    t('kf.scope_count', { n: RANKINGS.scopeDefenceCount, tot: RANKINGS.scopeTotalCount });
+}
+
+let DB_CACHE = null;
+
+function setScope(scope) {
+  if (scope === KF_SCOPE) return;
+  KF_SCOPE = scope;
+  // Nell'URL così la vista resta condivisibile e sopravvive a un ricaricamento.
+  const url = new URL(location.href);
+  url.searchParams.set('scope', scope);
+  history.replaceState(history.state, '', url);
+  if (DB_CACHE) { RANKINGS = computeInvestmentRankings(DB_CACHE); render(); }
+}
+document.getElementById('kf-scope-defence').addEventListener('click', () => setScope('defence'));
+document.getElementById('kf-scope-all').addEventListener('click', () => setScope('all'));
+
+Promise.all([
+  fetch('data/database.json').then(r => r.json()),
+  // I criteri sono un di più: se il file manca restano i soli segnali strutturali.
+  fetch('data/defence_criteria.json').then(r => r.json()).catch(() => null),
+])
+  .then(([DB, criteria]) => {
+    if (criteria) DEFENCE_CRITERIA = criteria;
+    DB_CACHE = DB;
+    RANKINGS = KF_SECTION === 'inv' ? computeInvestmentRankings(DB) : computeRankings(DB);
+    render();
+  })
+  .catch(err => {
+    document.getElementById('kf-grid').innerHTML =
+      `<div style="color:var(--error)">Errore nel caricamento dei dati: ${_esc(String(err))}</div>`;
+  });
+
+document.addEventListener('mitl-lang-change', render);
+</script>
+<script src="web/theme.js"></script>
+<script src="web/i18n.js"></script>
+</body>
+</html>

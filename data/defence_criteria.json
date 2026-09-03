@@ -1,0 +1,22 @@
+{
+  "_help": "Definisce quali aziende del database contano come 'defence tech'. Serve al selettore della pagina Numeri chiave, sezione Investimenti globali, che permette di scegliere fra 'Solo defence tech' e 'Tutte le entità'. Un'azienda è considerata defence tech se soddisfa ALMENO UNA di queste condizioni: (1) partecipa a un progetto EDF; (2) ha il campo sector uguale a 'Defence'; (3) compare nell'ETF iShares Aerospace & Defence (codice GICS 201010); (4) ha almeno una delle industries Crunchbase elencate qui sotto in 'industries'; (5) è elencata a mano in 'include'. Le prime tre condizioni sono strutturali e stanno nel codice. Le due che puoi modificare da qui sono le ultime. ATTENZIONE: 'exclude' vince su tutto — se un'azienda è in 'exclude' non è mai considerata defence tech, nemmeno se partecipa a progetti EDF. La classificazione è provvisoria e va rivista: Crunchbase descrive le aziende con etichette di settore generiche, quindi alcune aziende del settore sfuggono al filtro e vengono prese solo grazie ai segnali strutturali (tipicamente la partecipazione a progetti EDF), mentre altre potrebbero essere prese a torto. Per correggere un caso singolo usa 'include' o 'exclude': l'id lo trovi nella barra dell'indirizzo aprendo la scheda dell'azienda in Search. Il campo 'name' serve solo a te per rileggere la lista, il sistema usa 'id'.",
+
+  "industries": [
+    "Aerospace",
+    "Military",
+    "National Security",
+    "Homeland Security",
+    "Law Enforcement",
+    "Drones",
+    "Drone Management",
+    "Remote Sensing",
+    "Satellite Communication",
+    "Space Travel"
+  ],
+
+  "_help_industries_scartate": "Etichette valutate e lasciate fuori di proposito, con la ragione. 'Artificial Intelligence (AI)': troppo generica, prenderebbe Anthropic e Salesforce. 'Robotics', 'Sensor', 'Autonomous Vehicles': dual-use, riguardano soprattutto automotive e industria. 'Cyber Security', 'Security', 'Network Security': la sicurezza informatica civile è un altro perimetro. Se decidete di includerle, spostatele nella lista 'industries' qui sopra.",
+
+  "include": [],
+
+  "exclude": []
+}

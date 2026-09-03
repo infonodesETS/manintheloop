@@ -1651,7 +1651,12 @@ async function init() {
       `${totalOrgs.toLocaleString()} orgs · ${totalCo.toLocaleString()} companies · ${totalInv.toLocaleString()} investors`;
 
     // ── Routing — restore state from URL on load and on back/forward
-    const initialItem    = Router.resolve(REGISTRY, ENTITY_MAP);
+    let initialItem      = Router.resolve(REGISTRY, ENTITY_MAP);
+    if (!initialItem) {
+      // Query persa dal proxy su .html → prova il valore memorizzato al clic
+      initialItem = Router.resolveStored(REGISTRY);
+      if (initialItem) Router.replace(initialItem);   // ripristina l'URL condivisibile
+    }
     const initialCmpItem = Router.resolveCompare(REGISTRY);
 
     if (initialItem) {
