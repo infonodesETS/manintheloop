@@ -50,6 +50,7 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Acceleratore di innovazione per la difesa del Nord Atlantico) è un\'organizzazione creata dalla NATO per individuare e accelerare l\'innovazione, allo scopo di fornire capacità di difesa e sicurezza all\'Alleanza.',
     'fin.info.NIF':     'Il NIF (NATO Innovation Fund) è un fondo di venture capital autonomo sostenuto da 24 alleati della NATO, che investe oltre 1 miliardo di euro in tecnologie deep tech.',
     'map.loading':           'Loading map data…',
+    'map.go_to_country_report': 'Vai alla scheda Paese →',
 
     // NAV — menu e sottomenu ('Search' e 'About' restano in inglese ovunque)
     'nav.eu_funding':   'Finanziamenti EU',
@@ -192,6 +193,7 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA is the Defence Innovation Accelerator for the North Atlantic, an organisation established by NATO to find and accelerate innovation to provide defence and security effects for the Alliance.',
     'fin.info.NIF':     'A standalone venture capital fund backed by 24 NATO allies, deploying €1 billion+ in deep tech.',
     'map.loading':           'Loading map data…',
+    'map.go_to_country_report': 'Go to country report →',
 
     // NAV — menu and sub-menu ('Search' and 'About' stay in English everywhere)
     'nav.eu_funding':   'EU Funding',
@@ -334,6 +336,7 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Accélérateur d\'innovation de défense pour l\'Atlantique Nord) est une organisation créée par l\'OTAN pour repérer et accélérer l\'innovation afin de fournir des capacités de défense et de sécurité à l\'Alliance.',
     'fin.info.NIF':     'Le NIF (NATO Innovation Fund) est un fonds de capital-risque autonome soutenu par 24 alliés de l\'OTAN, qui investit plus d\'un milliard d\'euros dans les deep tech.',
     'map.loading':           'Chargement des données…',
+    'map.go_to_country_report': 'Voir la fiche pays →',
 
     // NAV — menu et sous-menu (« Search » et « About » restent en anglais partout)
     'nav.eu_funding':   'Financements UE',
@@ -476,6 +479,7 @@ const TRANSLATIONS = {
     'fin.info.DIANA':   'DIANA (Acelerador de Innovación en Defensa para el Atlántico Norte) es una organización creada por la OTAN para detectar y acelerar la innovación con el fin de proporcionar capacidades de defensa y seguridad a la Alianza.',
     'fin.info.NIF':     'El NIF (NATO Innovation Fund) es un fondo de capital riesgo autónomo respaldado por 24 aliados de la OTAN, que invierte más de 1.000 millones de euros en tecnologías deep tech.',
     'map.loading':           'Cargando datos del mapa…',
+    'map.go_to_country_report': 'Ver la ficha del país →',
 
     // NAV — menú y submenú («Search» y «About» permanecen en inglés en todas las lenguas)
     'nav.eu_funding':   'Financiación UE',

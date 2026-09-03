@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <script>(function(){var p=new URLSearchParams(location.search),t=p.get('theme')||localStorage.getItem('mitl-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
@@ -25,6 +25,7 @@
   [data-theme="light"] .ca-prompt { color: rgba(0,102,34,0.55); }
   .ca-title { font-size: var(--fs-stat); font-weight: var(--fw-bold); color: var(--text-primary); line-height: var(--lh-tight); margin: 0 0 4px; }
   .ca-country { font-size: var(--fs-lg); color: var(--accent); font-weight: var(--fw-semi); margin: 0 0 14px; text-transform: uppercase; letter-spacing: .4px; }
+  .ca-map-link { display: inline-flex; margin-bottom: 14px; }
   .ca-desc { font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 24px; max-width: 640px; }
   .ca-desc code { font-family: monospace; font-size: var(--fs-sm); color: var(--text-tertiary); }
 
@@ -81,6 +82,9 @@
   [data-theme="light"] .badge-type--edf_project { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); }
 
   /* ── Investor name (click → tooltip with portfolio) ── */
+  .entity-link { color: var(--text-secondary); cursor: pointer; text-decoration: none; }
+  .entity-link:hover { text-decoration: underline; text-decoration-color: var(--text-faint); }
+
   .investor-name { cursor: pointer; text-decoration: none; }
   .investor-name:hover { text-decoration: underline; text-decoration-color: var(--text-faint); }
   .investor-name.active { text-decoration: underline; color: var(--accent); }
@@ -101,20 +105,21 @@
 <div id="app">
 
   <div class="ca-prompt">MAN IN THE LOOP — country analysis</div>
-  <div class="ca-title">Organizzazioni in Man in The Loop<span class="cs-cursor"></span></div>
+  <div class="ca-title">Organizations in Man in The Loop<span class="cs-cursor"></span></div>
   <div class="ca-country" id="country-title">—</div>
-  <p class="ca-desc">Analisi di sola lettura, calcolata interamente lato client su <code>data/database.json</code> — nessuna scrittura sul database. Cambia paese dal menu qui sotto.</p>
+  <a class="tnav-btn ca-map-link" id="map-link" href="#" style="display:none">Go to map →</a>
+  <p class="ca-desc">Read-only analysis, computed entirely client-side from <code>data/database.json</code> — no writes to the database. Change country from the menu below.</p>
 
   <div class="ca-picker">
-    <label for="country-select">Paese</label>
+    <label for="country-select">Country</label>
     <select id="country-select"></select>
   </div>
 
   <div id="app-content">
-    <div class="loading">Caricamento dati…</div>
+    <div class="loading">Loading data…</div>
   </div>
 
-  <p class="note">Metodo: paese risolto con fallback <code>sources.infonodes.country → sources.edf.country → sources.wikidata.country → sede da Crunchbase</code> (l'EDF ha priorità su Wikidata perché descrive l'entità legale partecipante, non l'azienda madre), con normalizzazione di alcuni alias noti (USA/United States, Czechia/Czech Republic, ecc.). Script di riferimento (analisi equivalente in Python, usata per validare i calcoli): <code>reports/scripts/analyze_italy.py</code>.</p>
+  <p class="note">Method: country resolved with fallback <code>sources.infonodes.country → sources.edf.country → sources.wikidata.country → Crunchbase headquarters</code> (EDF takes priority over Wikidata because it describes the participating legal entity, not the parent company), with normalisation of a few known aliases (USA/United States, Czechia/Czech Republic, etc.). Reference script (equivalent analysis in Python, used to validate the calculations): <code>reports/scripts/analyze_italy.py</code>.</p>
 </div>
 
 <div id="investor-tooltip" class="investor-tooltip" role="tooltip"></div>
@@ -124,9 +129,9 @@
 <script>
 (function () {
   var TYPE_LABEL = {
-    company: 'Azienda', institution: 'Istituzione', investor: 'Investitore',
-    fund: 'Fondo', public_fund: 'Fondo pubblico', government_agency: 'Ente pubblico',
-    bank: 'Banca', edf_project: 'Progetto EDF'
+    company: 'Company', institution: 'Institution', investor: 'Investor',
+    fund: 'Fund', public_fund: 'Public fund', government_agency: 'Government agency',
+    bank: 'Bank', edf_project: 'EDF project'
   };
   // Colors sourced from the site's own entity palette (web/base.css --c-* tokens),
   // reused per type so this page never invents a parallel color system.
@@ -149,8 +154,8 @@
     return MITL.entityCountry(e, { useHeadquarters: true });
   }
 
-  function fmtInt(n) { return Math.round(n).toLocaleString('it-IT'); }
-  function fmtPct(n) { return n.toFixed(1).replace('.', ',') + '%'; }
+  function fmtInt(n) { return Math.round(n).toLocaleString('en-US'); }
+  function fmtPct(n) { return n.toFixed(1) + '%'; }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   function emptyState(msg) {
@@ -159,6 +164,16 @@
 
   function card(title, bodyHtml) {
     return '<div class="cs-card"><div class="cs-card-hdr">' + esc(title) + '</div><div class="cs-card-body">' + bodyHtml + '</div></div>';
+  }
+
+  function themeParam() {
+    var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('mitl-theme');
+    return t === 'light' ? '&theme=light' : '';
+  }
+
+  function entityLink(id, name) {
+    return '<a class="entity-link" href="../../search.html?organization=' + encodeURIComponent(id) +
+      '&organizationName=' + encodeURIComponent(name) + themeParam() + '&lang=en">' + esc(name) + '</a>';
   }
 
   // ---------- Data loading ----------
@@ -188,8 +203,8 @@
     })
     .catch(function (err) {
       document.getElementById('app-content').innerHTML =
-        '<div class="empty-state">Errore nel caricamento di data/database.json: ' + esc(err.message) +
-        '. Servi la pagina con un server locale (es. <code>python3 -m http.server</code> dalla root del progetto) invece di aprirla direttamente da file.</div>';
+        '<div class="empty-state">Error loading data/database.json: ' + esc(err.message) +
+        '. Serve the page with a local server (e.g. <code>python3 -m http.server</code> from the project root) instead of opening it directly from disk.</div>';
     });
 
   function buildCountryPicker() {
@@ -201,7 +216,7 @@
     countries.forEach(function (c) {
       var opt = document.createElement('option');
       opt.value = c;
-      opt.textContent = c + ' (' + state.byCountry[c].length + ' organizzazioni)';
+      opt.textContent = c + ' (' + state.byCountry[c].length + ' organizations)';
       select.appendChild(opt);
     });
     select.addEventListener('change', function () {
@@ -216,12 +231,22 @@
   // ---------- Rendering ----------
   function render(country) {
     document.getElementById('country-title').textContent = country;
+
+    var mapLink = document.getElementById('map-link');
+    var iso = MITL.WD_TO_ISO && MITL.WD_TO_ISO[country];
+    if (iso) {
+      mapLink.href = '../../index.html?country=' + iso + '&countryname=' + encodeURIComponent(country) + themeParam();
+      mapLink.style.display = '';
+    } else {
+      mapLink.style.display = 'none';
+    }
+
     var countryEntities = state.byCountry[country] || [];
     var countryIds = new Set(countryEntities.map(function (e) { return e.id; }));
 
     if (countryEntities.length === 0) {
       document.getElementById('app-content').innerHTML =
-        emptyState('Dati non disponibili per questa sezione e questo paese: nessuna organizzazione trovata per "' + country + '".');
+        emptyState('No data available for this section and country: no organization found for "' + country + '".');
       return;
     }
 
@@ -250,10 +275,10 @@
     var qidCount = countryEntities.filter(function (e) { return e.wikidata_id; }).length;
 
     return '<div class="overview-grid">' +
-        statTile(fmtInt(countryEntities.length), 'organizzazioni in ' + esc(country) + ' / ' + fmtInt(state.entities.length) + ' totali') +
-        statTile(fmtInt(edfProjects.size), 'progetti EDF con partecipazione locale') +
-        statTile(fmtInt(invIn.length), 'relazioni di investimento ricevute') +
-        statTile(fmtPct(countryEntities.length ? qidCount / countryEntities.length * 100 : 0), 'entità con QID Wikidata') +
+        statTile(fmtInt(countryEntities.length), 'organizations in ' + esc(country) + ' / ' + fmtInt(state.entities.length) + ' total') +
+        statTile(fmtInt(edfProjects.size), 'EDF projects with local participation') +
+        statTile(fmtInt(invIn.length), 'investment relationships received') +
+        statTile(fmtPct(countryEntities.length ? qidCount / countryEntities.length * 100 : 0), 'entities with Wikidata QID') +
       '</div>';
   }
   function statTile(value, label) {
@@ -261,7 +286,7 @@
   }
 
   function barRows(pairs, maxOverride) {
-    if (!pairs.length) return emptyState('Dati non disponibili per questa sezione e questo paese.');
+    if (!pairs.length) return emptyState('No data available for this section and country.');
     var max = maxOverride || Math.max.apply(null, pairs.map(function (p) { return p.value; }));
     return pairs.map(function (p, i) {
       var pct = max ? (p.value / max * 100) : 0;
@@ -278,7 +303,7 @@
     countryEntities.forEach(function (e) { counts[e.type] = (counts[e.type] || 0) + 1; });
     var pairs = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })
       .map(function (t) { return { label: TYPE_LABEL[t] || t, value: counts[t], color: TYPE_COLOR[t] || FALLBACK_SERIES[0] }; });
-    return card('Composizione per tipo di entità', barRows(pairs));
+    return card('Entity type breakdown', barRows(pairs));
   }
 
   function renderSourceCoverage(countryEntities) {
@@ -292,7 +317,7 @@
     });
     var pairs = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })
       .map(function (k) { return { label: k, value: counts[k] }; });
-    return card('Copertura per fonte dati', barRows(pairs));
+    return card('Source coverage', barRows(pairs));
   }
 
   // ---------- EDF funding ----------
@@ -322,7 +347,7 @@
       return r.type === 'edf_participation' && countryIds.has(r.source);
     });
     if (!rels.length) {
-      return card('Chi incassa i fondi EDF in ' + country, emptyState('Dati non disponibili per questa sezione e questo paese: nessuna partecipazione EDF registrata.'));
+      return card('Who receives EDF funding in ' + country, emptyState('No data available for this section and country: no EDF participation recorded.'));
     }
 
     var perOrg = {}, perOrgCount = {}, perOrgCity = {}, perOrgType = {};
@@ -334,7 +359,7 @@
       perOrgCount[cid] = (perOrgCount[cid] || 0) + 1;
       total += amt;
       var e = state.byId[cid];
-      perOrgCity[cid] = (e.sources.edf && e.sources.edf.city) || 'N/D';
+      perOrgCity[cid] = (e.sources.edf && e.sources.edf.city) || 'N/A';
       perOrgType[cid] = e.type;
     });
 
@@ -343,25 +368,25 @@
     var top5Share = top.reduce(function (s, id) { return s + perOrg[id]; }, 0) / total * 100;
 
     var body = '<div class="overview-grid" style="margin-bottom:16px">' +
-      statTile('€' + fmtInt(total / 1e6) + 'M', 'contributo EU totale ricevuto') +
-      statTile(fmtInt(ranked.length), 'organizzazioni beneficiarie') +
-      statTile(fmtPct(perOrg[ranked[0]] / total * 100), 'quota del primo beneficiario') +
-      statTile(fmtPct(top5Share), 'quota dei primi 5 beneficiari') +
+      statTile('€' + fmtInt(total / 1e6) + 'M', 'total EU contribution received') +
+      statTile(fmtInt(ranked.length), 'beneficiary organizations') +
+      statTile(fmtPct(perOrg[ranked[0]] / total * 100), 'share of top beneficiary') +
+      statTile(fmtPct(top5Share), 'share of top 5 beneficiaries') +
       '</div>';
 
     body += '<div class="ca-table-scroll"><table><thead><tr>' +
-      '<th title="Posizione in classifica per contributo EU decrescente">#</th>' +
-      '<th title="Nome dell\'organizzazione beneficiaria">Organizzazione</th>' +
-      '<th title="Tipo di entità nel database">Tipo</th>' +
-      '<th title="Città della sede, da fonte EDF">Città</th>' +
-      '<th class="num" title="Contributo UE totale ricevuto, sommato su tutti i progetti EDF">Contributo EU (€)</th>' +
-      '<th class="num" title="Quota sul totale ricevuto dal paese">Quota</th>' +
-      '<th class="num" title="Numero di progetti EDF distinti a cui partecipa">Progetti</th>' +
+      '<th title="Rank by descending EU contribution">#</th>' +
+      '<th title="Name of the beneficiary organization">Organization</th>' +
+      '<th title="Entity type in the database">Type</th>' +
+      '<th title="Headquarters city, from EDF source">City</th>' +
+      '<th class="num" title="Total EU contribution received, summed across all EDF projects">EU Contribution (€)</th>' +
+      '<th class="num" title="Share of the total received by the country">Share</th>' +
+      '<th class="num" title="Number of distinct EDF projects participated in">Projects</th>' +
       '</tr></thead><tbody>';
     ranked.forEach(function (id, i) {
       var pct = perOrg[id] / total * 100;
       var t = perOrgType[id];
-      body += '<tr><td>' + (i + 1) + '</td><td>' + esc(state.byId[id].name) + '</td>' +
+      body += '<tr><td>' + (i + 1) + '</td><td>' + entityLink(id, state.byId[id].name) + '</td>' +
         '<td><span class="badge-type badge-type--' + esc(t) + '">' + esc(TYPE_LABEL[t] || t) + '</span></td>' +
         '<td>' + esc(perOrgCity[id]) + '</td>' +
         '<td class="num">' + fmtInt(perOrg[id]) + '</td>' +
@@ -378,7 +403,7 @@
     });
     var cityPairs = Object.keys(byCity).sort(function (a, b) { return byCity[b] - byCity[a]; })
       .slice(0, 8).map(function (c) { return { label: c, value: byCity[c], display: fmtPct(byCity[c] / total * 100) }; });
-    body += '<h4>Concentrazione geografica</h4>' + barRows(cityPairs);
+    body += '<h4>Geographic concentration</h4>' + barRows(cityPairs);
 
     // SME vs large
     var smeAmt = 0, largeAmt = 0, smeKnown = false;
@@ -390,10 +415,10 @@
     });
     if (smeKnown) {
       var smePairs = [
-        { label: 'Grandi imprese/enti', value: largeAmt, display: fmtPct(largeAmt / total * 100), color: 'var(--grey-light)' },
-        { label: 'PMI (SME)', value: smeAmt, display: fmtPct(smeAmt / total * 100), color: 'var(--accent)' }
+        { label: 'Large companies/entities', value: largeAmt, display: fmtPct(largeAmt / total * 100), color: 'var(--grey-light)' },
+        { label: 'SMEs', value: smeAmt, display: fmtPct(smeAmt / total * 100), color: 'var(--accent)' }
       ];
-      body += '<h4>Grandi player vs PMI</h4>' + barRows(smePairs, Math.max(largeAmt, smeAmt));
+      body += '<h4>Large players vs SMEs</h4>' + barRows(smePairs, Math.max(largeAmt, smeAmt));
     }
 
     // Coordinators
@@ -405,31 +430,31 @@
         (byCoord[cid] = byCoord[cid] || []).push(r.target);
       });
       var coordIds = Object.keys(byCoord).sort(function (a, b) { return byCoord[b].length - byCoord[a].length; }).slice(0, 5);
-      body += '<h4>Progetti EDF coordinati da organizzazioni di ' + esc(country) + '</h4>';
-      body += '<table><thead><tr><th>Organizzazione</th><th>Acronimo</th><th>Progetto</th><th class="num">Budget EU progetto</th></tr></thead><tbody>';
+      body += '<h4>EDF projects coordinated by organizations in ' + esc(country) + '</h4>';
+      body += '<table><thead><tr><th>Organization</th><th>Acronym</th><th>Project</th><th class="num">Project EU budget</th></tr></thead><tbody>';
       coordIds.forEach(function (cid) {
         byCoord[cid].forEach(function (pid) {
           var proj = state.byId[pid];
           var ep = (proj.sources && proj.sources.edf_project) || {};
-          body += '<tr><td>' + esc(state.byId[cid].name) + '</td><td>' + esc(ep.acronym || '') + '</td>' +
-            '<td>' + esc(proj.name) + '</td><td class="num">' + (ep.eu_contribution ? '€' + fmtInt(ep.eu_contribution) : 'N/D') + '</td></tr>';
+          body += '<tr><td>' + entityLink(cid, state.byId[cid].name) + '</td><td>' + esc(ep.acronym || '') + '</td>' +
+            '<td>' + esc(proj.name) + '</td><td class="num">' + (ep.eu_contribution ? '€' + fmtInt(ep.eu_contribution) : 'N/A') + '</td></tr>';
         });
       });
       body += '</tbody></table>';
     }
 
     if (dedupe.groups.length) {
-      body += '<div class="caveat">Rilevate ' + dedupe.groups.length + ' possibili entità duplicate (stesso PIC EDF) per questo paese — vedi sezione "Note sulla qualità dei dati" più sotto. I totali qui sopra le trattano come una sola organizzazione.</div>';
+      body += '<div class="caveat">Found ' + dedupe.groups.length + ' possible duplicate entities (same EDF PIC) for this country — see "Data quality notes" section below. The totals above treat them as a single organization.</div>';
     }
 
-    return card('Chi incassa i fondi EDF in ' + country, body);
+    return card('Who receives EDF funding in ' + country, body);
   }
 
   // ---------- Investors ----------
   function renderInvestorsSection(country, countryIds) {
     var rels = state.relationships.filter(function (r) { return r.type === 'investment' && countryIds.has(r.target); });
     if (!rels.length) {
-      return card('Investitori più attivi su organizzazioni di ' + country, emptyState('Dati non disponibili per questa sezione e questo paese: nessuna relazione di investimento registrata.'));
+      return card('Most active investors in organizations in ' + country, emptyState('No data available for this section and country: no investment relationship recorded.'));
     }
     var byInvestor = {};
     rels.forEach(function (r) {
@@ -443,20 +468,22 @@
       return { label: name, labelHtml: labelHtml, value: targets.length };
     });
     var body = barRows(pairs) +
-      '<div class="note">Clicca il nome di un investitore per vedere in cosa ha investito in ' + esc(country) + '.</div>';
-    return card('Investitori più attivi su organizzazioni di ' + country, body);
+      '<div class="note">Click an investor\'s name to see what it has invested in ' + esc(country) + '.</div>';
+    return card('Most active investors in organizations in ' + country, body);
   }
 
   function renderTopInvestedSection(country, countryIds) {
     var rels = state.relationships.filter(function (r) { return r.type === 'investment' && countryIds.has(r.target); });
     if (!rels.length) {
-      return card('Organizzazioni con più investitori', emptyState('Dati non disponibili per questa sezione e questo paese.'));
+      return card('Organizations with the most investors', emptyState('No data available for this section and country.'));
     }
     var byTarget = {};
     rels.forEach(function (r) { byTarget[r.target] = (byTarget[r.target] || 0) + 1; });
     var ranked = Object.keys(byTarget).sort(function (a, b) { return byTarget[b] - byTarget[a]; }).slice(0, 10);
-    var pairs = ranked.map(function (id) { return { label: state.byId[id].name, value: byTarget[id] }; });
-    return card('Organizzazioni con più investitori', barRows(pairs));
+    var pairs = ranked.map(function (id) {
+      return { label: state.byId[id].name, labelHtml: entityLink(id, state.byId[id].name), value: byTarget[id] };
+    });
+    return card('Organizations with the most investors', barRows(pairs));
   }
 
   // ---------- Data quality ----------
@@ -465,8 +492,8 @@
 
     dedupe.groups.forEach(function (g) {
       var dupNames = g.dups.map(function (d) { return d.name + ' (' + d.id + ')'; }).join(', ');
-      caveats.push('<strong>' + esc(g.canon.name) + '</strong> (' + g.canon.id + ') e ' + esc(dupNames) +
-        ' condividono lo stesso PIC EDF — probabile stessa entità reale duplicata nel database.');
+      caveats.push('<strong>' + esc(g.canon.name) + '</strong> (' + g.canon.id + ') and ' + esc(dupNames) +
+        ' share the same EDF PIC — likely the same real-world entity duplicated in the database.');
     });
 
     var byName = {};
@@ -477,8 +504,8 @@
     Object.keys(byName).forEach(function (key) {
       var group = byName[key];
       if (group.length > 1) {
-        caveats.push('<strong>' + esc(group[0].name) + '</strong> compare come ' + group.length + ' entità distinte (' +
-          group.map(function (e) { return e.id; }).join(', ') + ') con lo stesso nome — possibile duplicato non riconciliato.');
+        caveats.push('<strong>' + esc(group[0].name) + '</strong> appears as ' + group.length + ' distinct entities (' +
+          group.map(function (e) { return e.id; }).join(', ') + ') with the same name — possibly an unreconciled duplicate.');
       }
     });
 
@@ -487,27 +514,27 @@
       var wd = (s.wikidata || {}).country;
       var edf = (s.edf || {}).country;
       if (wd && edf && normalizeCountry(wd) !== normalizeCountry(edf)) {
-        caveats.push('<strong>' + esc(e.name) + '</strong> (' + e.id + '): Wikidata indica "' + esc(wd) + '" ma EDF indica "' + esc(edf) +
-          '" — possibile falso positivo di enrichment o sede legale multipla.');
+        caveats.push('<strong>' + esc(e.name) + '</strong> (' + e.id + '): Wikidata says "' + esc(wd) + '" but EDF says "' + esc(edf) +
+          '" — possibly an enrichment false positive or multiple legal seats.');
       }
     });
 
     var body = !caveats.length
-      ? emptyState('Nessuna anomalia rilevata automaticamente per ' + country + '.')
+      ? emptyState('No anomalies automatically detected for ' + country + '.')
       : caveats.map(function (c) { return '<div class="caveat">' + c + '</div>'; }).join('');
-    return card('Note sulla qualità dei dati', body);
+    return card('Data quality notes', body);
   }
 
   // ---------- Full list ----------
   function renderFullList(countryEntities) {
     var byType = {};
-    countryEntities.forEach(function (e) { (byType[e.type] = byType[e.type] || []).push(e.name); });
+    countryEntities.forEach(function (e) { (byType[e.type] = byType[e.type] || []).push(e); });
     var body = Object.keys(byType).sort(function (a, b) { return byType[b].length - byType[a].length; }).map(function (t) {
-      var names = byType[t].slice().sort(function (a, b) { return a.localeCompare(b); });
-      return '<strong style="color:var(--text-primary)">' + esc(TYPE_LABEL[t] || t) + ' (' + names.length + ')</strong>' +
-        '<div class="type-list" style="margin:6px 0 18px;">' + names.map(esc).join(' · ') + '</div>';
+      var entries = byType[t].slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+      return '<strong style="color:var(--text-primary)">' + esc(TYPE_LABEL[t] || t) + ' (' + entries.length + ')</strong>' +
+        '<div class="type-list" style="margin:6px 0 18px;">' + entries.map(function (e) { return entityLink(e.id, e.name); }).join(' · ') + '</div>';
     }).join('');
-    return card('Elenco completo per tipo', body);
+    return card('Full list by type', body);
   }
 
   // ---------- Interaction wiring ----------
@@ -531,7 +558,7 @@
         elx.classList.add('active');
         var investments = (elx.getAttribute('data-investments') || '').split('·').map(function (s) { return s.trim(); }).filter(Boolean);
         var list = investments.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('');
-        tooltip.innerHTML = '<strong>' + esc(elx.textContent) + '</strong> investe su:<ul>' + list + '</ul>';
+        tooltip.innerHTML = '<strong>' + esc(elx.textContent) + '</strong> invests in:<ul>' + list + '</ul>';
         var rect = elx.getBoundingClientRect();
         tooltip.style.top = (rect.bottom + window.scrollY + 6) + 'px';
         tooltip.style.left = (rect.left + window.scrollX) + 'px';

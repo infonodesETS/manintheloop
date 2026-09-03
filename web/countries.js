@@ -81,8 +81,98 @@
     return normalizeCountry(raw);
   }
 
+  // ── Country name → ISO 3166-1 numeric code ──────────────────────────────────
+  //
+  // Used by index.html (map arcs, country nodes) and reports/countries/index.html
+  // (link to the map for a given country). Keys must be canonical forms as
+  // returned by normalizeCountry() above, plus a few common raw aliases seen
+  // directly in source data (e.g. 'USA', 'Germania').
+  var WD_TO_ISO = {
+    'United States': 840, 'USA': 840,
+    'Germany': 276, 'Germania': 276,
+    'United Kingdom': 826, 'UK': 826,
+    'France': 250, 'Francia': 250,
+    'Israel': 376,
+    'Sweden': 752,
+    'Norway': 578, 'Norvegia': 578,
+    'Finland': 246,
+    'Denmark': 208,
+    'Netherlands': 528,
+    'Belgium': 56, 'Belgio': 56,
+    'Switzerland': 756,
+    'Austria': 40,
+    'Italy': 380,
+    'Spain': 724,
+    'Poland': 616, 'Polonia': 616,
+    'Czech Republic': 203, 'Czech Rep.': 203, 'Czechia': 203,
+    'Romania': 642,
+    'Estonia': 233,
+    'Latvia': 428,
+    'Lithuania': 440,
+    'Ukraine': 804,
+    'Russia': 643,
+    'Turkey': 792,
+    'India': 356,
+    'China': 156, 'Cina': 156, "People's Republic of China": 156,
+    'Taiwan': 158,
+    'Japan': 392, 'Giappone': 392,
+    'South Korea': 410,
+    'Australia': 36,
+    'Canada': 124,
+    'Brazil': 76,
+    'South Africa': 710,
+    'Singapore': 702,
+    'United Arab Emirates': 784, 'EAU (Dubai)': 784,
+    'Saudi Arabia': 682,
+    'Portugal': 620,
+    'Greece': 300,
+    'Hungary': 348,
+    'Slovakia': 703,
+    'Luxembourg': 442,
+    'Ireland': 372,
+    'Cyprus': 196,
+    'Malta': 470,
+    'Croatia': 191,
+    'Slovenia': 705,
+    'Serbia': 688,
+    'Bulgaria': 100,
+    'North Macedonia': 807,
+    'Albania': 8,
+    'Moldova': 498,
+    'Belarus': 112,
+    'Kazakhstan': 398,
+    'Mexico': 484,
+    'Argentina': 32,
+    'Chile': 152, 'Cile': 152,
+    'Colombia': 170,
+    'Peru': 604,
+    'New Zealand': 554,
+    'Indonesia': 360,
+    'Malaysia': 458,
+    'Thailand': 764,
+    'Vietnam': 704,
+    'Philippines': 608,
+    'Pakistan': 586,
+    'Bangladesh': 50,
+    'Egypt': 818,
+    'Nigeria': 566,
+    'Kenya': 404,
+    'Morocco': 504,
+    'Tunisia': 788,
+    'Ethiopia': 231,
+  };
+
+  var ISO_TO_NAME = {};
+  for (var _name in WD_TO_ISO) {
+    if (!Object.prototype.hasOwnProperty.call(WD_TO_ISO, _name)) continue;
+    var _iso = WD_TO_ISO[_name];
+    if (!(_iso in ISO_TO_NAME)) ISO_TO_NAME[_iso] = _name;
+  }
+
   global.MITL = global.MITL || {};
   global.MITL.normalizeCountry = normalizeCountry;
   global.MITL.entityCountry    = entityCountry;
   global.MITL.COUNTRY_ALIASES  = ALIASES;
+  global.MITL.WD_TO_ISO        = WD_TO_ISO;
+  global.MITL.ISO_TO_NAME      = ISO_TO_NAME;
 })(this);
