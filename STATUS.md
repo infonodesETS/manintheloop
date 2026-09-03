@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-06-18 (MINTL import + investor pipeline + QID + Wikidata enrichment + IV countries + CB HQ country patch; DB: 2311 entities, 2990 rels)
+> Last updated: 2026-09-03 (branch sync — see Session 2026-09-03 below; DB count last verified 2026-06-18: 2311 entities, 2990 rels)
 
 ## Session protocol
 
@@ -343,6 +343,16 @@ refactoringDB/
 ---
 
 ## Completed work
+
+### Session 2026-09-03 — Branch sync
+
+- [x] `git fetch --all --prune` — refreshed all remote-tracking refs (`origin/main`, `origin/graph`, `origin/eu-funding`)
+- [x] `main`: already up to date with `origin/main` (`7d5f83a` "deploy(beta): bilingual overview page")
+- [x] `graph` (local): confirmed strictly ahead of `origin/graph` (contains all remote commits + more) — no pull needed
+- [x] `eu-funding`: existed only as `origin/eu-funding`, no local branch — created local tracking branch (`git branch --track eu-funding origin/eu-funding`, at `0eabaf8`)
+- [x] Local-only branches with no remote counterpart, left untouched: `ai-assistant`, `data-analysis`, `datacleaning`, `designfix`, `map`, `search`
+
+**Note — STATUS.md staleness:** this file's "Completed work" log stops at 2026-06-18, but `main` has moved on since (recent commits include `deploy(beta): about team single list`, EDF colour unification, English/bilingual overview page, etc. — titled "deploy(beta): ..." rather than the `docs(refactoringDB):`/`feat(...)`/`fix(...)` convention used throughout this log, suggesting a workflow shift not yet reflected here). Also note the "Remote policy (2026-05-11)" section below states only `main` is pushed to `origin` and `origin/graph` was deleted — this is now out of date: `origin/graph` and `origin/eu-funding` both currently exist. Next session should reconcile this file's branch-policy section and backfill the missing 2026-06-18 → 2026-09-03 history from `git log`.
 
 ### DB construction
 - [x] iShares ETF import: 434 companies from 3 CSVs (deduplicated by `name_key`)
