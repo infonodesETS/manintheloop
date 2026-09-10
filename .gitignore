@@ -16,3 +16,6 @@ reports/*.pdf
 reports/pdf/*.pdf
 reports/_*.html
 SEC/
+# Documenti interni non destinati alla pubblicazione: il repo e le GitHub Pages
+# sono pubblici, quindi qualunque file committato qui sarebbe leggibile da chiunque.
+docs/privato/
