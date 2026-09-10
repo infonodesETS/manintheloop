@@ -78,6 +78,36 @@ def sito(e):
     return str((s.get('crunchbase') or {}).get('profile_url') or '').strip()
 
 
+# Buona parte delle aziende è entrata nel database importando in blocco quattro
+# ETF iShares. Il codice GICS dice da quale, e quindi che mestiere fa l'azienda:
+# è il contesto che spiega perché una società minerariа o una telco si trovino in
+# un database sulle armi autonome. Le etichette le ricaviamo dal codice e non dal
+# campo `stock_sector`, che nei dati è incoerente — contiene "Industriali" in
+# italiano e "Communication" troncato.
+GICS = {
+    '45':     'Information Technology',
+    '50':     'Communication Services',
+    '151040': 'Materials - Metals & Mining',
+    '201010': 'Industrials - Aerospace & Defense',
+}
+
+
+def gics(e):
+    """Settore GICS e borsa di quotazione, se l'azienda viene da un ETF.
+    Un valore qui significa anche che la società è QUOTATA: è arrivata da un
+    indice di borsa. Vale come risposta parziale al compito 2.3."""
+    v = (e.get('sources') or {}).get('ishares') or []
+    for x in (v if isinstance(v, list) else [v]):
+        codice = str(x.get('gics_code') or '')
+        etichetta = GICS.get(codice) or ('GICS ' + codice if codice else '')
+        borsa = x.get('exchange') or ''
+        ticker = x.get('stock_ticker') or ''
+        if ticker and borsa:
+            borsa = '%s (%s)' % (borsa, ticker)
+        return etichetta, borsa
+    return '', ''
+
+
 def industrie(e):
     cb = (e.get('sources') or {}).get('crunchbase') or {}
     v = cb.get('industries') or []
@@ -157,9 +187,10 @@ def main():
             gruppo = '2 - EDF participant'
         else:
             gruppo = '3 - no relationships (from ETF)'
+        settore, borsa = gics(e)
         righe.append([
             e['id'], e.get('name', ''), paese(e), sito(e),
-            gruppo, flag, perche,
+            gruppo, flag, perche, settore, borsa,
             '', '', '',                       # <- colonne da compilare
         ])
     # Priorità: prima le classifiche, e dentro ogni gruppo prima le già marcate
@@ -170,6 +201,7 @@ def main():
     scrivi('aziende-defence-tech.csv',
            ['id', 'name', 'country', 'website',
             'group (priority)', 'current flag', 'why current flag',
+            'sector (GICS)', 'listed on',
             'DEFENCE TECH? yes/no/unsure', 'SOURCE (link)', 'NOTES'],
            righe)
 
