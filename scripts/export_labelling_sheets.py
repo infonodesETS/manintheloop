@@ -126,22 +126,24 @@ def main():
     inclusi  = {x.get('id') for x in (criteri.get('include') or []) if isinstance(x, dict)}
 
     def segnale(e):
-        """Perché il sistema considera (o no) questa azienda defence tech."""
+        """Perché il sistema considera (o no) questa azienda defence tech.
+        Le etichette sono in inglese: le legge l'intern, e il documento dei suoi
+        compiti le cita con queste parole esatte."""
         if e['id'] in esclusi:
-            return 'no', 'escluso a mano'
+            return 'no', 'excluded manually'
         if e['id'] in inclusi:
-            return 'yes', 'incluso a mano'
+            return 'yes', 'included manually'
         if e['id'] in edf_partec:
-            return 'yes', 'partecipa a progetti EDF'
+            return 'yes', 'participates in EDF projects'
         if e.get('sector') == 'Defence':
-            return 'yes', 'settore interno = Defence'
+            return 'yes', 'internal sector = Defence'
         ish = (e.get('sources') or {}).get('ishares') or []
         if any(x.get('gics_code') == '201010' for x in (ish if isinstance(ish, list) else [ish])):
             return 'yes', 'ETF Aerospace & Defence'
         trovate = sorted(set(industrie(e)) & industrie_difesa)
         if trovate:
-            return 'yes', 'industria Crunchbase: ' + ', '.join(trovate)
-        return 'no', 'nessun segnale'
+            return 'yes', 'Crunchbase industry: ' + ', '.join(trovate)
+        return 'no', 'no signal'
 
     # ── Aziende ───────────────────────────────────────────────────────────────
     aziende = [e for e in ent if e.get('type') == 'company']
@@ -150,11 +152,11 @@ def main():
         flag, perche = segnale(e)
         nelle_classifiche = e['id'] in partecipate
         if nelle_classifiche:
-            gruppo = '1 - nelle classifiche (partecipata)'
+            gruppo = '1 - in the rankings (funded company)'
         elif e['id'] in edf_partec:
-            gruppo = '2 - partecipa a progetti EDF'
+            gruppo = '2 - EDF participant'
         else:
-            gruppo = '3 - nessuna relazione (da ETF)'
+            gruppo = '3 - no relationships (from ETF)'
         righe.append([
             e['id'], e.get('name', ''), paese(e), sito(e),
             gruppo, flag, perche,
