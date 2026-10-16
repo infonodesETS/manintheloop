@@ -13,6 +13,27 @@
 
 ---
 
+## ⚠️ PRIORITÀ — da cercare (EU Funding map)
+
+La mappa EU Funding (`index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
+
+| Strumento | Stato nella mappa |
+|---|---|
+| EDF | attivo |
+| HORIZON | work in progress → **da cercare** |
+| PESCO | work in progress → **da cercare** |
+| EDIP | work in progress → **da cercare** |
+| EUDIS | work in progress → **da cercare** |
+| EIF | work in progress → **da cercare** |
+| DIANA | work in progress → **da cercare** |
+| NIF | work in progress → **da cercare** |
+
+Testo di presentazione della mappa (così com'è oggi, da tenere allineato quando i selettori si attivano):
+
+> This map shows the European funding for weapons development granted to individual EU States and, in detail, to which of their companies, universities or other public and private entities. The diameter of each circle is proportional to the total funding received by the State. Clicking on the circle for a country opens the list of all the individual entities that have received European funding, with the amount each one received. You can click on the name of any entity to open its detail page, containing all the information we have been able to collect. Using the selectors, you can choose to view all types of European public funding (EDF, Horizon, PESCO, etc.) or only the one(s) you are interested in.
+
+---
+
 ## Scripts reference
 
 > Run `python3 scripts/validate.py` after any script that modifies `database.json`.
@@ -317,6 +338,19 @@ refactoringDB/
 
 > **Serving the web UI (new-frontend branch):** `python3 -m http.server 8001` from `refactoringDB/`, then open `http://localhost:8001/`.
 > **Serving search UI only:** `python3 -m http.server 8000` from `Manintheloop/` root, then open `http://localhost:8000/refactoringDB/`.
+
+---
+
+## Esperimenti (cartelle locali)
+
+Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Servono per provare cose senza toccare `data/database.json`.
+
+| Cartella | Contenuto |
+|---|---|
+| `tmp/` | Esperimenti generici e screenshot Playwright (`tmp/playwright/`) |
+| `IRPI-test/` | Indagine IRPI sugli appalti EU (xlsx e output) |
+| `SEC/` | Workspace del branch di sicurezza |
+| `Jon_Tassonomia/` | Classificazione dei tipi di investitore di Jon: CSV di partenza, `investors_taxonomy.json` (entità clonate dal DB + blocco `investor-type`) e `readme_jon.md` con i dettagli |
 
 ---
 
