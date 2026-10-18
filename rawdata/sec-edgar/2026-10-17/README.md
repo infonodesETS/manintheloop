@@ -80,25 +80,25 @@ Regole date al modello che contano per la lettura:
 <a id="file"></a>
 ## I file
 
-Tutti i CSV sono in UTF-8 con intestazione. `ticker` collega ogni tabella ad `aziende.csv`, `persona_id` collega le tabelle delle persone a `persone.csv`.
+Tutti i CSV sono in UTF-8 con intestazione. Le stesse tabelle sono in un Google Sheet, una scheda per tabella con lo stesso nome del CSV: la colonna «Foglio» apre la scheda. `ticker` collega ogni tabella ad `aziende.csv`, `persona_id` collega le tabelle delle persone a `persone.csv`.
 
-| File | Una riga per | Note |
-|---|---|---|
-| `json/<TICKER>.json` | azienda | il dato completo, schema 3.0 |
-| `aziende.json` | - | i 161 JSON in una lista |
-| `aziende.csv` | azienda | documento di origine, data delle quote, conteggi, da dove vengono i dirigenti |
-| `consiglieri.csv` | consigliere | cariche, anno di ingresso, indipendenza |
-| `comitati.csv` | membro di comitato | `presidente` vero per chi lo presiede; riunioni nell'anno |
-| `dirigenti.csv` | dirigente | età, cariche, documento di origine (DEF 14A o 10-K) |
-| `detentori-oltre-5.csv` | azionista e classe di azioni | `tipo` person o entity; dichiarazione SEC da cui viene la quota |
-| `quote-dirigenti-consiglieri.csv` | persona e classe di azioni | azioni di dirigenti e consiglieri |
-| `totale-di-gruppo.csv` | azienda e classe di azioni | totale di tutti i dirigenti e consiglieri insieme |
-| `warnings.csv` | avvertenza | note del modello sui casi dubbi, vedi sotto |
-| `persone.csv` | persona | ID, nome, altre grafie trovate, aziende |
-| `persone-ruoli.csv` | persona, azienda e ruolo | consigliere, dirigente, detentore oltre il 5%, membro o presidente di comitato |
-| `persone-verifica.csv` | gruppo di nomi | verifica esterna dei collegamenti fra aziende, vedi sotto |
-| `perimetro.csv` | titolo degli ETF | i 515 titoli di partenza con l'esito (`sec_esito`) |
-| `senza-proxy.csv` | azienda | le 32 registrate senza DEF 14A e il rapporto annuale che depositano |
+| File | Una riga per | Note | CSV | Foglio |
+|---|---|---|---|---|
+| `json/<TICKER>.json` | azienda | il dato completo, schema 3.0 | - | - |
+| `aziende.json` | - | i 161 JSON in una lista | - | - |
+| `aziende.csv` | azienda | documento di origine, data delle quote, conteggi, da dove vengono i dirigenti | [aziende.csv](aziende.csv) | [aziende](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1789286351) |
+| `consiglieri.csv` | consigliere | cariche, anno di ingresso, indipendenza | [consiglieri.csv](consiglieri.csv) | [consiglieri](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1214619418) |
+| `comitati.csv` | membro di comitato | `presidente` vero per chi lo presiede; riunioni nell'anno | [comitati.csv](comitati.csv) | [comitati](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1352864428) |
+| `dirigenti.csv` | dirigente | età, cariche, documento di origine (DEF 14A o 10-K) | [dirigenti.csv](dirigenti.csv) | [dirigenti](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=2136696329) |
+| `detentori-oltre-5.csv` | azionista e classe di azioni | `tipo` person o entity; dichiarazione SEC da cui viene la quota | [detentori-oltre-5.csv](detentori-oltre-5.csv) | [detentori-oltre-5](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1158378661) |
+| `quote-dirigenti-consiglieri.csv` | persona e classe di azioni | azioni di dirigenti e consiglieri | [quote-dirigenti-consiglieri.csv](quote-dirigenti-consiglieri.csv) | [quote-dirigenti-consiglieri](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1466996604) |
+| `totale-di-gruppo.csv` | azienda e classe di azioni | totale di tutti i dirigenti e consiglieri insieme | [totale-di-gruppo.csv](totale-di-gruppo.csv) | [totale-di-gruppo](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=772364741) |
+| `warnings.csv` | avvertenza | note del modello sui casi dubbi, vedi sotto | [warnings.csv](warnings.csv) | [warnings](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1635574605) |
+| `persone.csv` | persona | ID, nome, altre grafie trovate, aziende | [persone.csv](persone.csv) | [persone](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1328477224) |
+| `persone-ruoli.csv` | persona, azienda e ruolo | consigliere, dirigente, detentore oltre il 5%, membro o presidente di comitato | [persone-ruoli.csv](persone-ruoli.csv) | [persone-ruoli](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=817831954) |
+| `persone-verifica.csv` | gruppo di nomi | verifica esterna dei collegamenti fra aziende, vedi sotto | [persone-verifica.csv](persone-verifica.csv) | [persone-verifica](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=187609781) |
+| `perimetro.csv` | titolo degli ETF | i 515 titoli di partenza con l'esito (`sec_esito`) | [perimetro.csv](perimetro.csv) | [perimetro](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=599937531) |
+| `senza-proxy.csv` | azienda | le 32 registrate senza DEF 14A e il rapporto annuale che depositano | [senza-proxy.csv](senza-proxy.csv) | [senza-proxy](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1413347377) |
 
 Nelle tabelle delle quote un'azienda con più classi di azioni (per esempio Alphabet: A, B, C) ha una riga per classe.
 
