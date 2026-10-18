@@ -1,0 +1,444 @@
+{
+  "company": "AeroVironment, Inc.",
+  "ticker": "AVAV",
+  "cik": "0001368622",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-08-14",
+    "accession": "0001104659-26-096689",
+    "meeting": null,
+    "ownership_as_of": "2026-08-07",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1368622/000110465926096689/tm264166-4_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Wahid Nawabi",
+      "roles": [
+        "Chairman of the Board",
+        "Member of Executive Committee"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Edward R. Muller",
+      "roles": [
+        "Chair of Audit Committee",
+        "Member of Compensation Committee",
+        "Member of Executive Committee",
+        "Lead Independent Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Stephen F. Page",
+      "roles": [
+        "Member of Audit Committee",
+        "Resigning at the 2026 annual meeting (retirement)"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Charles Thomas Burbage",
+      "roles": [
+        "Member of Compensation Committee",
+        "Resigning at the 2026 annual meeting (retirement)"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Cindy K. Lewis",
+      "roles": [
+        "Chair of Compensation Committee",
+        "Member of Audit Committee"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Philip S. Davidson",
+      "roles": [
+        "Chair of Nominating and Corporate Governance Committee",
+        "Member of Audit Committee",
+        "Member of Cybersecurity Committee"
+      ],
+      "director_since": "2023-06",
+      "independent": true
+    },
+    {
+      "name": "Mary Beth Long",
+      "roles": [
+        "Member of Nominating and Corporate Governance Committee",
+        "Member of Cybersecurity Committee"
+      ],
+      "director_since": "2023-08",
+      "independent": true
+    },
+    {
+      "name": "Joseph L. Votel",
+      "roles": [
+        "Chair of Cybersecurity Committee",
+        "Member of Compensation Committee"
+      ],
+      "director_since": "2023-11",
+      "independent": true
+    },
+    {
+      "name": "William J. Lynn, III",
+      "roles": [],
+      "director_since": "2026-06",
+      "independent": null
+    },
+    {
+      "name": "Michael D. Ruppert",
+      "roles": [],
+      "director_since": "2026",
+      "independent": null
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Edward R. Muller",
+        "Stephen F. Page",
+        "Cindy K. Lewis",
+        "Philip S. Davidson"
+      ],
+      "chair": "Edward R. Muller",
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Cindy K. Lewis",
+        "Edward R. Muller",
+        "Charles Thomas Burbage",
+        "Joseph L. Votel"
+      ],
+      "chair": "Cindy K. Lewis",
+      "meetings": 9,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Philip S. Davidson",
+        "Mary Beth Long"
+      ],
+      "chair": "Philip S. Davidson",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [
+        "Joseph L. Votel",
+        "Philip S. Davidson",
+        "Mary Beth Long"
+      ],
+      "chair": "Joseph L. Votel",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Edward R. Muller",
+        "Wahid Nawabi"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Wahid Nawabi",
+      "age": 57,
+      "positions": [
+        "Chair, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Sean Woodward",
+      "age": 44,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Melissa Brown",
+      "age": 49,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Robert Smith",
+      "age": 53,
+      "positions": [
+        "Executive Vice President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Trace Stevenson",
+      "age": 49,
+      "positions": [
+        "President, Autonomous Systems"
+      ]
+    },
+    {
+      "name": "Mary Clum",
+      "age": 49,
+      "positions": [
+        "President, Space, Cyber & Directed Energy"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-07",
+    "note": "Percentuali calcolate su 50.822.615 azioni di common stock in circolazione al 7 agosto 2026. * = meno dell'1%. — = zero. Nessuna indicazione di classi multiple: la tabella riporta solo il common stock.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Entities Affiliated with Arlington Capital Partners",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12035890,
+            "pct": 23.68
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "4747 Bethesda Ave, 5th Floor, Bethesda, MD 20814"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3367938,
+            "pct": 6.63
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-07-27 (dati al 30 giugno 2026)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Wahid Nawabi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 162200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin McDonnell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29236,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melissa Brown",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26085,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Trace Stevenson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9823,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Clum",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16571,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley Truesdell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4549,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward R. Muller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52649,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen F. Page",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51635,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles Thomas Burbage",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51764,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cindy K. Lewis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7724,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philip S. Davidson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4358,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Beth Long",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4220,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph L. Votel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4189,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William J. Lynn, III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 892,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael D. Ruppert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 401762,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Stephen F. Page e Charles Thomas Burbage sono inclusi nel consiglio attuale perché restano in carica fino all'assemblea 2026, dove si dimettono per pensionamento; il documento non indica una data di uscita effettiva precedente.",
+    "La finestra committees è troncata: le composizioni di Nominating and Corporate Governance Committee, Cybersecurity Committee ed Executive Committee sono ricostruite dalle biografie dei direttori e possono essere incomplete; le riunioni di questi tre organi non sono riportate.",
+    "Executive Committee: Wahid Nawabi (non indipendente) ne è membro; l'Executive Committee non è un comitato permanente, quindi l'eccezione al controllo indipendenti è prevista dal documento stesso. Presidente del comitato non indicato.",
+    "Indipendenza di William J. Lynn, III e Michael D. Ruppert non dichiarata nel documento: valore impostato a null.",
+    "Muller, Lewis, Davidson, Long, Votel e Burbage sono indipendenti in base alla loro appartenenza a comitati permanenti; Page è indicato come membro dell'Audit Committee.",
+    "La tabella della proprietà non riporta Sean Woodward né Robert Smith, pur essendo dirigenti in carica al 14 agosto 2026; i dati non sono stati inventati.",
+    "La riga di gruppo dichiara 16 persone, ma le righe nominative dei direttori e dei NEO sono 15: i due numeri non coincidono.",
+    "Kevin McDonnell (cessato come executive officer il 1° maggio 2026) e Bradley Truesdell (cessato il 13 aprile 2026) compaiono nella tabella ma non sono dirigenti in carica: esclusi da executive_officers.",
+    "Ambiguità di holder_type: le quote di McDonnell sono detenute tramite McDonnell Moore Living Trust, quelle di Page tramite Stephen F. Page Living Trust, quelle di Muller tramite Edward R. Muller and Patricia E. Bauer 1991 Family Trust e Edward R. Muller IRA; i detentori sono trattati come persone fisiche.",
+    "Mary Clum: la biografia la indica come Executive Vice President and President, la tabella dei dirigenti come President; è stata usata la carica della tabella.",
+    "Nomi: rimossi i titoli Admiral, General, Hon., Dr. e (Ret.); Robert Smith è indicato come Dr. Smith nella biografia.",
+    "Fonte e indirizzo per Arlington Capital Partners: il documento non riporta un riferimento di deposito; fonte impostata a null."
+  ]
+}

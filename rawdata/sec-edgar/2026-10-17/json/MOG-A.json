@@ -1,0 +1,527 @@
+{
+  "company": "Moog Inc.",
+  "ticker": "MOG-A",
+  "cik": "0000067887",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-12-19",
+    "accession": "0000067887-25-000136",
+    "meeting": null,
+    "ownership_as_of": "2025-12-12",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/67887/000006788725000136/mog-20251218.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-11-26",
+      "accession": "0001628280-25-054103",
+      "url": "https://www.sec.gov/Archives/edgar/data/67887/000162828025054103/mog-20250927.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Brenda L. Reichelderfer",
+      "roles": [
+        "Director - Class A"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Donald R. Fishback",
+      "roles": [
+        "Director - Class B"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Kraig H. Kayser",
+      "roles": [
+        "Director - Class B"
+      ],
+      "director_since": "1998",
+      "independent": true
+    },
+    {
+      "name": "Janet M. Coletti",
+      "roles": [
+        "Director - Class A"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Mahesh Narang",
+      "roles": [
+        "Director - Class A"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "William G. Gisel, Jr.",
+      "roles": [
+        "Director - Class B"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Peter J. Gundermann",
+      "roles": [
+        "Director - Class B"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Pat Roche",
+      "roles": [
+        "President, CEO",
+        "Director - Class B"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "John R. Scannell",
+      "roles": [
+        "Non-Executive Chairman of the Board",
+        "Director - Class B"
+      ],
+      "director_since": "2012",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [],
+      "chair": null,
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Compensation Committee",
+      "members": [
+        "William G. Gisel, Jr.",
+        "Mahesh Narang",
+        "Janet M. Coletti",
+        "Brenda L. Reichelderfer"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Peter J. Gundermann"
+      ],
+      "chair": "Peter J. Gundermann",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Pat Roche",
+      "age": 62,
+      "positions": [
+        "President, Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Jennifer Walter",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Joseph Alfieri",
+      "age": 43,
+      "positions": [
+        "Vice President and President, Space and Defense"
+      ]
+    },
+    {
+      "name": "Mark Graczyk",
+      "age": 42,
+      "positions": [
+        "Vice President and President, Military Aircraft"
+      ]
+    },
+    {
+      "name": "Stuart Mclachlan",
+      "age": 54,
+      "positions": [
+        "Vice President and President, Industrial"
+      ]
+    },
+    {
+      "name": "Michael Schaff",
+      "age": 54,
+      "positions": [
+        "Vice President and President, Commercial Aircraft"
+      ]
+    },
+    {
+      "name": "Paul Wilkinson",
+      "age": 45,
+      "positions": [
+        "Executive Vice President and Chief Human Resources Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-12",
+    "note": "Percentuali di classe calcolate su 28.853.564 azioni Classe A e 4.621.751 azioni Classe B in circolazione al 12 dicembre 2025. Le Classe B sono convertibili in Classe A su base 1:1. '*' indica meno dell'1% della classe; '—' indica zero. Il testo non riporta una percentuale di voto (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4497515,
+            "pct": 15.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/13G e posizioni aggregate Bloomberg da 13F (nota 2)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3098569,
+            "pct": 10.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/13G e posizioni aggregate Bloomberg da 13F (nota 2)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Earnest Partners LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2149591,
+            "pct": 7.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/13G e posizioni aggregate Bloomberg da 13F (nota 2)",
+        "address": "1180 Peachtree Street, Suite 2300, Atlanta, GA 30309"
+      },
+      {
+        "name": "State Street Corp",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1438653,
+            "pct": 5.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/13G e posizioni aggregate Bloomberg da 13F (nota 2)",
+        "address": "1 Congress Street, Boston, MA 02114"
+      },
+      {
+        "name": "Moog Inc. Retirement Savings Plan (RSP)",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 1778369,
+            "pct": 38.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Moog Inc., Seneca Street at Jamison Road, East Aurora, NY 14052"
+      },
+      {
+        "name": "Moog Inc. Stock Employee Compensation Trust, as amended (SECT)",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 425148,
+            "pct": 1.5
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 522913,
+            "pct": 11.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Moog Inc., Seneca Street at Jamison Road, East Aurora, NY 14052"
+      },
+      {
+        "name": "Moog Inc. Supplemental Retirement Plan Trust, as amended (Trust)",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 826170,
+            "pct": 17.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Moog Inc., Seneca Street at Jamison Road, East Aurora, NY 14052"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Janet M. Coletti",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 6749,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Donald R. Fishback",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 18492,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 30817,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William G. Gisel, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1675,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 12802,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Gundermann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3909,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 11545,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kraig H. Kayser",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 22506,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 11496,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mahesh Narang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 3396,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brenda L. Reichelderfer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 650,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 4585,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Pat Roche",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 18661,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 56712,
+            "pct": 1.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John R. Scannell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 36540,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 140705,
+            "pct": 3.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer Walter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4604,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 35370,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Schaff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 8473,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph Alfieri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 5842,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Graczyk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 8091,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 109267,
+          "pct": null
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 381122,
+          "pct": 8.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers è vuoto. I NEO Jennifer Walter, Michael Schaff, Joseph Alfieri e Mark Graczyk compaiono solo nella tabella di proprietà, senza età né cariche, e non sono stati ricostruiti.",
+    "Sezione committees assente: l'appartenenza ai comitati è ricavata dalla prosa della sezione board. Il documento non elenca i membri dell'Audit Committee né il presidente dell'Executive Compensation Committee, quindi per questi campi sono lasciati vuoti o null.",
+    "Nominating and Governance Committee: il testo indica solo il presidente (Peter J. Gundermann, dopo l'assemblea 2025). Gli altri membri non sono dichiarati; Brenda L. Reichelderfer ha lasciato il comitato dopo l'assemblea 2025.",
+    "Executive Compensation Committee: la composizione è quella successiva all'assemblea 2025 (Gisel, Narang, Coletti, Reichelderfer). Peter J. Gundermann è uscito dal comitato dopo l'assemblea 2025 e Mahesh Narang risulta anche fra i membri 2025 indicati nelle interlocks.",
+    "Executive Committee: nominato nel documento come comitato permanente, ma il testo non indica membri, presidente né numero di riunioni.",
+    "Mr. Lipke (Mark Lipke nel testo come 'Mr. Lipke') si è ritirato dal consiglio immediatamente prima dell'Annual Meeting 2025, tenutosi il 4 febbraio 2025. Non è incluso in board_of_directors.",
+    "Meeting: la data dell'assemblea corrente non compare nella finestra fornita, quindi il campo meeting è null.",
+    "Nessun direttore o dirigente risulta oltre il 5% di una classe. Pat Roche (1,2% Class B) e John R. Scannell (3,0% Class B) non vanno nel blocco dei >5%.",
+    "Riga di gruppo: dichiara 15 persone, ma nel blocco named_executive_officers_and_directors ne compaiono 13. La differenza di 2 è riconducibile ad altri dirigenti non nominati singolarmente.",
+    "Classi omesse: per alcuni detentori la colonna Class A riporta '—' per le azioni e '*' per la percentuale. Non avendo azioni in quella classe, la classe è stata omessa dal blocco.",
+    "Holder_type: RSP, SECT e Trust sono piani e trust aziendali Moog, classificati come entity. Il trustee del Trust è John P. McGrath e del SECT è Robert T. Brady, ma le azioni sono intestate ai piani.",
+    "Azioni escluse dalle tabelle per dichiarazione del documento: 24.796 Class A tenute in trust dal coniuge di Donald R. Fishback (Denise Fishback) e 26.346 Class A detenute dal coniuge di John R. Scannell (Eileen Scannell).",
+    "Fonte e indirizzi dei >5%: il documento rimanda in generale ai Schedule 13D/13G e alle posizioni Bloomberg da 13F (nota 2), senza una data di deposito per ciascun detentore. Il campo source riporta questo riferimento generico.",
+    "executive_officers presi dal Form 10-K del 2025-11-26: il DEF 14A non li elenca.",
+    "10-K: La finestra fornita non contiene l'Item 10 della Parte III: l'elenco proviene solo dalla sezione della Parte I.",
+    "10-K: La data di riferimento dell'elenco e delle età non compare nella finestra: as_of è null.",
+    "10-K: Il nome 'Stuart Mclachlan' è riportato così nel documento; la grafia usuale potrebbe essere 'McLachlan'. Mantenuta la forma del documento, da verificare.",
+    "10-K: I nomi di Joseph Alfieri, Mark Graczyk, Michael Schaff e Paul Wilkinson sono presi dalla finestra senza verifica con altre fonti del documento."
+  ]
+}

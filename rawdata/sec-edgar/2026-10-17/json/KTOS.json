@@ -1,0 +1,391 @@
+{
+  "company": "Kratos Defense & Security Solutions, Inc.",
+  "ticker": "KTOS",
+  "cik": "0001069258",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-02",
+    "accession": "0001069258-26-000040",
+    "meeting": "2026-05-12",
+    "ownership_as_of": "2026-03-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000040/ktos-20260402.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Scott Anderson",
+      "roles": [
+        "Director",
+        "Audit Committee Chair",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "1997-03",
+      "independent": true
+    },
+    {
+      "name": "Bradley Boyd",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-11",
+      "independent": true
+    },
+    {
+      "name": "Eric DeMarco",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2004-04",
+      "independent": false
+    },
+    {
+      "name": "Bobbi Doorenbos",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-03",
+      "independent": true
+    },
+    {
+      "name": "William Hoglund",
+      "roles": [
+        "Director",
+        "Chairman of the Board"
+      ],
+      "director_since": "2001-02",
+      "independent": true
+    },
+    {
+      "name": "Scot Jarvis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1997-02",
+      "independent": true
+    },
+    {
+      "name": "David King",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-03",
+      "independent": true
+    },
+    {
+      "name": "Deanna Lund",
+      "roles": [
+        "Director",
+        "Executive Vice President and Chief Financial Officer"
+      ],
+      "director_since": "2021-05",
+      "independent": false
+    },
+    {
+      "name": "Amy Zegart",
+      "roles": [
+        "Director",
+        "Nominating and Corporate Governance Committee Chair"
+      ],
+      "director_since": "2014-09",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Scott Anderson",
+        "Bradley Boyd",
+        "Scot Jarvis",
+        "David King"
+      ],
+      "chair": "Scott Anderson",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Bobbi Doorenbos",
+        "William Hoglund",
+        "Scot Jarvis"
+      ],
+      "chair": "Scot Jarvis",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Scott Anderson",
+        "William Hoglund",
+        "Scot Jarvis",
+        "Amy Zegart"
+      ],
+      "chair": "Amy Zegart",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Eric DeMarco",
+      "age": 62,
+      "positions": [
+        "Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Deanna Lund",
+      "age": 58,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Maria Cervantes",
+      "age": 51,
+      "positions": [
+        "Vice President and Corporate Controller",
+        "Principal Accounting Officer"
+      ]
+    },
+    {
+      "name": "Marie Mendoza",
+      "age": 53,
+      "positions": [
+        "Senior Vice President and General Counsel"
+      ]
+    },
+    {
+      "name": "Jonah Adelman",
+      "age": 75,
+      "positions": [
+        "President, Microwave Electronics"
+      ]
+    },
+    {
+      "name": "Phillip Carrai",
+      "age": 64,
+      "positions": [
+        "President, Space, Training & Cyber Solutions"
+      ]
+    },
+    {
+      "name": "David Carter",
+      "age": 68,
+      "positions": [
+        "President, Defense & Rocket Support Services"
+      ]
+    },
+    {
+      "name": "Steven Fendley",
+      "age": 57,
+      "positions": [
+        "President, Unmanned Systems"
+      ]
+    },
+    {
+      "name": "Thomas Mills",
+      "age": 66,
+      "positions": [
+        "President, C5ISR Systems"
+      ]
+    },
+    {
+      "name": "Stacey Rock",
+      "age": 58,
+      "positions": [
+        "President, Kratos Turbine Technologies"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-20",
+    "note": "Dati al 20 marzo 2026, salvo diversa indicazione nelle note. * = meno dell'1% (percentuale null). Percentuali calcolate su 187.333.628 azioni di Common Stock in circolazione. Le azioni includono quelle esercitabili o convertibili entro 60 giorni. Il documento non indica percentuali sui voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21491945,
+            "pct": 11.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on October 17, 2025 (holdings as of September 30, 2025)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Eric DeMarco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1123927,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deanna Lund",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 304715,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Phillip Carrai",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 280969,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Fendley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 364977,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stacey Rock",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25704,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott Anderson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 62167,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley Boyd",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19480,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bobbi Doorenbos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William Hoglund",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 283000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scot Jarvis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 85417,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David King",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy Zegart",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2826938,
+          "pct": 1.5
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A. Le appartenenze ai comitati sono ricavate dalla tabella dei nominee nella finestra board (colonna Committees/Audit Committee Financial Expert).",
+    "Il documento estratto non riporta il numero di riunioni dei singoli comitati: meetings e meetings_year sono null per tutti e tre i comitati.",
+    "Il consiglio attuale comprende nove direttori, tutti candidati alla rielezione. Non risultano direttori in uscita o già dimessi nel documento.",
+    "David King è stato nominato dal consiglio il 19 marzo 2026 con effetto dal 23 marzo 2026. Non detiene azioni (riga '—' nella tabella di proprietà).",
+    "La riga di gruppo dichiara 'persons: 17', mentre le righe nominative sono 12. La differenza è dovuta a cinque dirigenti non elencati nella tabella (Maria Cervantes, Marie Mendoza, Jonah Adelman, David Carter, Thomas Mills). Il conteggio è coerente con 10 dirigenti più 9 direttori, meno 2 soggetti in comune (DeMarco e Lund).",
+    "Il ruolo di Principal Accounting Officer di Maria Cervantes deriva dalla sua biografia nella sezione executives, non dalla riga del roster, che riporta solo 'Vice President and Corporate Controller'.",
+    "Nella tabella dei dirigenti e direttori, Scott Anderson, Scot Jarvis e Amy Zegart risultano nel comitato di nomina e governance con ruoli di Chair o membro come riportato nella tabella dei nominee; Zegart risulta Chair di quel comitato.",
+    "Il blocco degli azionisti oltre il 5% contiene solo BlackRock, Inc. Non sono presenti righe di aggregazione o subtotale nella tabella. La sezione ownership_5pct non è separata in questo documento.",
+    "Dati di BlackRock: la quota di 21.491.945 azioni corrisponde al potere di disposizione esclusivo riportato nella nota 14; il potere di voto esclusivo è di 21.030.537 azioni. Il documento non fornisce una percentuale sui voti."
+  ]
+}

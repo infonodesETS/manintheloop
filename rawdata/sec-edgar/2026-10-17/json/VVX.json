@@ -1,0 +1,458 @@
+{
+  "company": "V2X, Inc.",
+  "ticker": "VVX",
+  "cik": "0001601548",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-19",
+    "accession": "0001104659-26-031740",
+    "meeting": "2026 Annual Meeting of Shareholders",
+    "ownership_as_of": "2026-03-05",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1601548/000110465926031740/tmb-20260507xdef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-23",
+      "accession": "0001601548-26-000015",
+      "url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Mary L. Howell",
+      "roles": [
+        "Non-Executive Chairman of the Board",
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Jeremy C. Wensinger",
+      "roles": [
+        "President and CEO",
+        "Director"
+      ],
+      "director_since": "2024-06",
+      "independent": false
+    },
+    {
+      "name": "Melvin F. Parker",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Ross S. Niebergall",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "David E. Farnsworth",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Phillip C. Widman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Nicole B. Theophilus",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Gerard A. Fasano",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Eric M. Pillmore",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Stephen L. Waechter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Phillip C. Widman",
+        "Gerard A. Fasano",
+        "David E. Farnsworth",
+        "Melvin F. Parker",
+        "Eric M. Pillmore"
+      ],
+      "chair": "Phillip C. Widman",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Eric M. Pillmore",
+        "Nicole B. Theophilus",
+        "Phillip C. Widman",
+        "Stephen L. Waechter"
+      ],
+      "chair": "Eric M. Pillmore",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Melvin F. Parker",
+        "David E. Farnsworth",
+        "Ross S. Niebergall",
+        "Stephen L. Waechter"
+      ],
+      "chair": "Melvin F. Parker",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jeremy C. Wensinger",
+      "age": 62,
+      "positions": [
+        "President and Chief Executive Officer (CEO)",
+        "Director"
+      ]
+    },
+    {
+      "name": "Shawn M. Mural",
+      "age": 55,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer (CFO)"
+      ]
+    },
+    {
+      "name": "L. Roger Mason, Jr.",
+      "age": 60,
+      "positions": [
+        "Senior Vice President and Chief Growth Officer"
+      ]
+    },
+    {
+      "name": "Richard Caputo",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, Aerospace Systems"
+      ]
+    },
+    {
+      "name": "Jeremy J. Nance",
+      "age": 48,
+      "positions": [
+        "Senior Vice President and General Counsel"
+      ]
+    },
+    {
+      "name": "Mel Yeshoalul",
+      "age": 51,
+      "positions": [
+        "Senior Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Michael J. Smith",
+      "age": 45,
+      "positions": [
+        "Corporate Vice President of Treasury, Investor Relations and Corporate Development"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-05",
+    "note": "Beneficial ownership di Common Stock al 5 marzo 2026, inclusi i diritti acquisibili entro 60 giorni (data indicata nel documento: 4 maggio 2026). Percentuali basate su 31.198.562 azioni in circolazione al 5 marzo 2026. '*' = meno dell'1%; '—' = zero. Le RSU non soggette a vesting entro 60 giorni non sono incluse nel totale. Le percentuali dei >5% derivano dai Schedule 13D/13G più recenti. Nessuna colonna di percentuale sui voti dichiarata.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vertex Aerospace Holdco LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5017286,
+            "pct": 16.08
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed December 15, 2025",
+        "address": "c/o American Industrial Partners, 450 Lexington Avenue, 40th Floor, New York, New York 10017"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4726864,
+            "pct": 15.15
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed May 12, 2025",
+        "address": "245 Summer Street, Boston, MA 02210"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1740104,
+            "pct": 5.57
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed October 17, 2025",
+        "address": "50 Hudson Yards New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mary L. Howell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40373,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David E. Farnsworth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerard A. Fasano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ross S. Niebergall",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melvin F. Parker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21946,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric M. Pillmore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44563,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nicole B. Theophilus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen L. Waechter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44948,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Phillip C. Widman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42948,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeremy C. Wensinger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29066,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shawn M. Mural",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20335,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "L. Roger Mason, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4469,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeremy J. Nance",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17770,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard L. Caputo, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7257,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth W. Shreves",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11498,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 310215,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel DEF 14A: executive_officers lasciato vuoto. Il CEO Jeremy C. Wensinger è indicato come dirigente nelle tabelle, ma il roster dei dirigenti non è nel documento.",
+    "Stephen L. Waechter: non ricandidato all'assemblea 2026, ma ancora in carica alla data del documento; incluso nel consiglio attuale con questa segnalazione. La data di inizio mandato non è riportata nel testo estratto (director_since null).",
+    "Stephen L. Waechter: l'indipendenza non è dichiarata esplicitamente nel testo; impostata a true perché membro del Compensation Committee, la cui composizione è dichiarata indipendente. Verificare.",
+    "Consiglio: il documento indica che dopo l'assemblea 2026 il consiglio sarà composto da nove membri; il consiglio attuale elencato ha dieci membri, incluso Waechter in uscita.",
+    "Nome del Compensation Committee: nella sezione comitati è 'Compensation Committee', mentre nella tabella del consiglio è 'Compensation & Human Capital Committee'. Usato il nome della sezione comitati.",
+    "Nome del Nominating and Governance Committee: nella sezione comitati è 'Nominating and Governance Committee'; in alcune biografie compare 'Nominating and Corporate Governance Committee'. Usato il nome della sezione comitati.",
+    "Riunioni dei comitati: i numeri (8, 6, 5) sono riferiti ciascuno al singolo comitato nell'esercizio 2025.",
+    "Vertex Holdco: la sezione consiglio indica 5.841.866 azioni (18,7%) detenute dai Vertex Holdco Parties ai fini dello Shareholders Agreement, mentre la tabella riporta 5.017.286 azioni (16,08%) per Vertex Aerospace Holdco LLC. La differenza non è spiegata nel testo estratto; la tabella è stata usata come dato di riga.",
+    "Vertex Holdco: la riga include 4.550.001 azioni detenute direttamente, 375.420 di Lightship Capital LLC e 91.865 su cui Vertex Holdco ha un proxy irrevocabile. Indirizzo riportato come indicato per gli AIP Fund Entities.",
+    "Riga di gruppo: dichiara 17 persone, ma le righe nominative di direttori e NEO sono 15. Gli altri 2 non sono identificati nel documento estratto. Tutte le righe sono state mantenute.",
+    "Kenneth W. Shreves: ex SVP, il cui rapporto di lavoro è terminato il 1° agosto 2025; incluso nel blocco NEO come da tabella. Le sue quote sono riferite alla data di uscita.",
+    "Jeremy C. Wensinger: le 29.066 azioni totali comprendono 10.516 azioni acquisibili entro 60 giorni.",
+    "Nessun detentore di oltre il 5% fra direttori o dirigenti: nessuna riga aggiunta da questa categoria.",
+    "Nessuna riga di aggregazione o subtotale presente nelle tabelle dei >5%.",
+    "executive_officers presi dal Form 10-K del 2026-02-23: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per le età degli executive officer; as_of è stato lasciato null.",
+    "10-K: Per Richard Caputo la tabella riporta 'Senior Vice President, Aerospace Systems', mentre la biografia parla di 'Senior Vice President, Aerospace Solutions'. È stato usato il titolo della tabella; la discrepanza va verificata.",
+    "10-K: Nella biografia di Mel Yeshoalul il nome compare una volta come 'Melon'. Il nome usato è quello della tabella, 'Mel Yeshoalul'.",
+    "10-K: Il nome 'Vinny' è stato omesso perché è un soprannome tra virgolette nel documento; il nome estratto è 'Richard Caputo'.",
+    "10-K: Il titolo 'Dr.' di L. Roger Mason, Jr. è stato omesso in base alle regole di estrazione."
+  ]
+}

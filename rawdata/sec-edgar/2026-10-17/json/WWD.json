@@ -1,0 +1,417 @@
+{
+  "company": "Woodward, Inc.",
+  "ticker": "WWD",
+  "cik": "0000108312",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-12-12",
+    "accession": "0001193125-25-317453",
+    "meeting": null,
+    "ownership_as_of": "2025-11-12",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/108312/000119312525317453/wwd-20251212.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Charles Blankenship, Jr.",
+      "roles": [
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2022",
+      "independent": false
+    },
+    {
+      "name": "Rajeev Bhalla",
+      "roles": [
+        "Director",
+        "Audit Committee Chair",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "John Cohn",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2002",
+      "independent": true
+    },
+    {
+      "name": "David Hess",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Daniel Korte",
+      "roles": [
+        "Director",
+        "Human Capital & Compensation Committee Chair"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Eileen Paterson",
+      "roles": [
+        "Director",
+        "Nominating and Governance Committee Chair"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Mary Petryszyn",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Gregg Sengstack",
+      "roles": [
+        "Lead Director",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Tana Utley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Rajeev Bhalla",
+        "John Cohn",
+        "Mary Petryszyn",
+        "Gregg Sengstack"
+      ],
+      "chair": "Rajeev Bhalla",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Capital & Compensation Committee",
+      "members": [
+        "Daniel Korte",
+        "David Hess",
+        "Eileen Paterson",
+        "Tana Utley"
+      ],
+      "chair": "Daniel Korte",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Eileen Paterson",
+        "David Hess",
+        "Daniel Korte",
+        "Tana Utley"
+      ],
+      "chair": "Eileen Paterson",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Charles Blankenship, Jr.",
+        "Gregg Sengstack",
+        "Rajeev Bhalla",
+        "Daniel Korte",
+        "Eileen Paterson"
+      ],
+      "chair": "Charles Blankenship, Jr.",
+      "meetings": 0,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Charles Blankenship, Jr.",
+      "age": 59,
+      "positions": [
+        "Chairman of the Board and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "William Lacey",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Thomas Cromwell",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Karrie Bem",
+      "age": 47,
+      "positions": [
+        "Executive Vice President, General Counsel, Corporate Secretary, and Chief Compliance Officer"
+      ]
+    },
+    {
+      "name": "Randall Hobbs",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and President, Industrial"
+      ]
+    },
+    {
+      "name": "Shawn McLevige",
+      "age": 48,
+      "positions": [
+        "Executive Vice President and President, Aerospace"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-11-12",
+    "note": "Percentuali calcolate sulle azioni in circolazione, incluse le azioni acquisibili tramite opzioni esercitabili entro 60 giorni dal 12 novembre 2025 e le RSU che maturano entro 60 giorni. * = meno dell'1%. Le quote dei detentori oltre il 5% derivano dalle Schedule 13G/A indicate.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6095861,
+            "pct": 10.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5758261,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "Eagle Capital Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4710419,
+            "pct": 7.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-14",
+        "address": "65 East 55th Street, 26th Floor, New York, NY 10022"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Rajeev Bhalla",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9590,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Cohn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54381,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Hess",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25111,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Korte",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34221,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eileen Paterson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23553,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Petryszyn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3611,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregg Sengstack",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 69705,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tana Utley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2574,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles Blankenship, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87389,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William Lacey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5746,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Cromwell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 62097,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Randall Hobbs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Terence Voskuil",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25379,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 424714,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della riunione annuale non indicata nel testo fornito: meeting impostato a null.",
+    "Charles Blankenship, Jr. è indicato come non indipendente (il consiglio lo esclude dall'indipendenza), ma risulta membro e presidente dell'Executive Committee. Incongruenza con il sanity check 1: mantenuto come da documento, da verificare.",
+    "Executive Committee: 0 riunioni nell'esercizio 2025 secondo il documento; il valore 0 è quello dichiarato, non un dato mancante.",
+    "Tabella dei comitati: il documento non presenta una matrice appiattita leggibile; l'appartenenza è stata ricavata dagli elenchi MEMBERS nella sezione Board e Committees, che coincidono con la tabella di riepilogo.",
+    "David Hess ha più di 70 anni alla data dell'assemblea; il consiglio ha deciso una deroga alla politica di pensionamento. Resta nominee per il rinnovo.",
+    "Terence Voskuil compare nella tabella NEO e direttori ma il documento lo indica come non più dirigente alla data della tabella; non è nel roster degli executive officers e risulta escluso dal totale di gruppo.",
+    "Riga di gruppo: il documento dichiara 14 persone, mentre le righe nominate nel blocco dei direttori e NEO sono 13 (incluso Voskuil) e il totale di gruppo esclude Voskuil: incoerenza nel conteggio da verificare.",
+    "Le percentuali dei detentori oltre il 5% si riferiscono alle Schedule 13G/A depositate nel 2024 (BlackRock 2024-01-24, Vanguard 2024-02-13, Eagle 2024-11-14), non a una data coeva al 12 novembre 2025.",
+    "Le percentuali delle tabelle di management sono indicate con * (meno dell'1%) e quindi impostate a null; la riga di gruppo non dichiara percentuale numerica.",
+    "Il consiglio si riunisce 7 volte nell'esercizio 2025: dato del consiglio, non di un comitato, quindi non riportato in meetings."
+  ]
+}

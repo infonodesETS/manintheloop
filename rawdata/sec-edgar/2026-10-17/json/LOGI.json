@@ -1,0 +1,406 @@
+{
+  "company": "Logitech International S.A.",
+  "ticker": "LOGI",
+  "cik": "0001032975",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-07-23",
+    "accession": "0001032975-26-000037",
+    "meeting": "2026 Annual General Meeting, September 8, 2026",
+    "ownership_as_of": "2026-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000037/logi-20260723.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-05-21",
+      "accession": "0001032975-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000021/logi-20260331.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Donald Allan, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Edouard Bugnion",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Johanna Faber",
+      "roles": [
+        "Director",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2024",
+      "independent": false
+    },
+    {
+      "name": "Guy Gecht",
+      "roles": [
+        "Director",
+        "Chairperson of the Board"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Christopher Jones",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Marjorie Lao",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Owen Mahoney",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Neela Montgomery",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Kwok Wang Ng",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Deborah Thomas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Sascha Zahnd",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Marjorie Lao",
+        "Owen Mahoney",
+        "Deborah Thomas",
+        "Sascha Zahnd"
+      ],
+      "chair": "Deborah Thomas",
+      "meetings": 9,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Donald Allan, Jr.",
+        "Neela Montgomery",
+        "Kwok Wang Ng",
+        "Deborah Thomas"
+      ],
+      "chair": "Donald Allan, Jr.",
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Donald Allan, Jr.",
+        "Christopher Jones",
+        "Kwok Wang Ng",
+        "Deborah Thomas",
+        "Sascha Zahnd"
+      ],
+      "chair": "Kwok Wang Ng",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Technology and Innovation Committee",
+      "members": [
+        "Edouard Bugnion",
+        "Christopher Jones",
+        "Marjorie Lao",
+        "Owen Mahoney"
+      ],
+      "chair": "Christopher Jones",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Johanna Faber",
+      "age": 57,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Matteo Anversa",
+      "age": 55,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Samantha Harnett",
+      "age": 50,
+      "positions": [
+        "U.S. Chief Legal Officer",
+        "Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-06-30",
+    "note": "Percentages based on 143,566,251 shares outstanding on June 30, 2026 (160,784,460 issued less 17,218,209 treasury shares). * = less than 1%. Shares acquirable within 60 days include PSUs expected to vest within 60 days after June 30, 2026. The document does not show a voting percentage (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 9777832,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on April 23, 2025",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "UBS Asset Management (Americas), Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 10968407,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Holdings reported by UBS Group AG to SIX pursuant to article 120 of the Swiss Financial Market Infrastructure Act on May 8, 2024",
+        "address": "Bahnhofstrasse 45, PO Box CH-8021, Zurich, Switzerland"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Donald Allan, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 1896,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edouard Bugnion",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 47178,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Guy Gecht",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 17663,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher Jones",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 6985,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marjorie Lao",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 16555,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Owen Mahoney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 2274,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neela Montgomery",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 10443,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kwok Wang Ng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 10707,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah Thomas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 10663,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sascha Zahnd",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 9510,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Johanna Faber",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 14815,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matteo Anversa",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 7602,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Samantha Harnett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 55317,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Shares",
+          "shares": 211608,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, come da istruzioni. Johanna Faber (CEO) compare fra i direttori; Matteo Anversa e Samantha Harnett compaiono solo nella tabella di proprietà come NEO.",
+    "Sezione committees assente come finestra dedicata: l'appartenenza ai comitati è stata letta dalla tabella 'Committee Memberships' e dalle biografie nella finestra board, che coincidono.",
+    "Wendy Becker non si è ricandidata al Consiglio all'Assemblea 2025 ed è quindi uscita dal Consiglio prima della data del documento: non inclusa in board_of_directors; data di uscita: Annual General Meeting 2025.",
+    "Il documento non indica il nome della classe di azioni: per i tre blocchi è stato usato 'Shares'.",
+    "Riga Donald Allan, Jr. della tabella di proprietà: i valori riportati sono 1.896, 1.896 e '*' senza la colonna delle azioni possedute distinta; è stato riportato il totale beneficiario 1.896 con pct null (*).",
+    "Riga di gruppo: il numero di persone (13) è stato ricavato contando le righe di direttori e NEO, coerente con la nota (13) del documento che però è un richiamo di nota e non un conteggio esplicito.",
+    "UBS Asset Management (Americas), Inc. è il nome in tabella, mentre la nota (6) riferisce i dati a UBS Group AG; l'indirizzo riportato è quello di UBS Group AG. I dati dei grandi azionisti derivano da depositi del 2025 (BlackRock) e del 2024 (UBS) e potrebbero non essere aggiornati al 30 giugno 2026.",
+    "Nessuna riga di aggregazione o subtotale è presente nella tabella dei grandi azionisti; nessun direttore o dirigente detiene oltre il 5%.",
+    "executive_officers presi dal Form 10-K del 2026-05-21: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per l'elenco dei dirigenti né per le età, quindi as_of è null.",
+    "10-K: L'Item 10 rimanda all'elenco della Parte I, Item 1, quindi i dati provengono da quella sezione.",
+    "10-K: Il soprannome 'Hanneke' è stato omesso dal nome di Johanna Faber, come da regole.",
+    "10-K: La carica di Samantha Harnett è scritta nella tabella come 'U.S. Chief Legal Officer and Corporate Secretary', mentre la biografia riporta 'Chief Legal Officer' senza la qualifica 'U.S.'. È stata mantenuta la dicitura della tabella, con 'Corporate Secretary' separato in una carica distinta.",
+    "10-K: Il documento non indica una nazionalità nei dati estratti; non è richiesta dallo schema."
+  ]
+}

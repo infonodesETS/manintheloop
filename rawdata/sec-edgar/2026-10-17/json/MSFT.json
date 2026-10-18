@@ -1,0 +1,497 @@
+{
+  "company": "Microsoft Corporation",
+  "ticker": "MSFT",
+  "cik": "0000789019",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-10-21",
+    "accession": "0001193125-25-245150",
+    "meeting": "2025 Annual Meeting",
+    "ownership_as_of": "2025-09-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525245150/d908201ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-07-30",
+      "accession": "0000950170-25-100235",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "as_of": "2025-07-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Reid G. Hoffman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Hugh F. Johnston",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Teri L. List",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Catherine MacGregor",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Mark A. L. Mason",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Satya Nadella",
+      "roles": [
+        "Chairman and Chief Executive Officer"
+      ],
+      "director_since": "2014",
+      "independent": false
+    },
+    {
+      "name": "Sandra E. Peterson",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Penny S. Pritzker",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "John David Rainey",
+      "roles": [
+        "Director nominee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Carlos A. Rodriguez",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Charles W. Scharf",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "John W. Stanton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Emma N. Walmsley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Hugh F. Johnston",
+        "Teri L. List",
+        "Carlos A. Rodriguez",
+        "John W. Stanton"
+      ],
+      "chair": "Hugh F. Johnston",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Catherine MacGregor",
+        "Sandra E. Peterson",
+        "Carlos A. Rodriguez",
+        "Charles W. Scharf",
+        "Emma N. Walmsley"
+      ],
+      "chair": "Carlos A. Rodriguez",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Environmental, Social, and Public Policy Committee",
+      "members": [
+        "Reid G. Hoffman",
+        "Catherine MacGregor",
+        "Penny S. Pritzker",
+        "John W. Stanton",
+        "Emma N. Walmsley"
+      ],
+      "chair": "Penny S. Pritzker",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Teri L. List",
+        "Mark A. L. Mason",
+        "Sandra E. Peterson",
+        "Charles W. Scharf"
+      ],
+      "chair": "Sandra E. Peterson",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Satya Nadella",
+      "age": 57,
+      "positions": [
+        "Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Judson B. Althoff",
+      "age": 52,
+      "positions": [
+        "Executive Vice President and Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Amy L. Coleman",
+      "age": 53,
+      "positions": [
+        "Executive Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Kathleen T. Hogan",
+      "age": 59,
+      "positions": [
+        "Executive Vice President, Office of Strategy and Transformation"
+      ]
+    },
+    {
+      "name": "Amy E. Hood",
+      "age": 53,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Takeshi Numoto",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Marketing Officer"
+      ]
+    },
+    {
+      "name": "Bradford L. Smith",
+      "age": 66,
+      "positions": [
+        "Vice Chair and President"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-09-30",
+    "note": "Dati al 30/09/2025. * = meno dell'1%. Le azioni beneficiarie rappresentano potere di voto e di investimento esclusivo (nota 1). Per i detentori oltre il 5% la percentuale è 'Percent of Class to be Voted During the Meeting'.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 664882153,
+            "pct": 8.95
+          }
+        ],
+        "pct_of_votes": 8.95,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 540020228,
+            "pct": 7.3
+          }
+        ],
+        "pct_of_votes": 7.3,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Reid G. Hoffman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15905,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hugh F. Johnston",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8032,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Teri L. List",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Catherine MacGregor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark A. L. Mason",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sandra E. Peterson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30682,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Penny S. Pritzker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25552,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John David Rainey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6498,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carlos A. Rodriguez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4381,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles W. Scharf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45142,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John W. Stanton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82252,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Emma N. Walmsley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9913,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Satya Nadella",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 900572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy E. Hood",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 465746,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Judson B. Althoff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82187,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Takeshi Numoto",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32582,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradford L. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 402131,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2279620,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento (probabilmente nel 10-K): executive_officers lasciato vuoto.",
+    "Carlos A. Rodriguez non è ricandidato all'assemblea 2025 ma risulta ancora in carica alla data del documento: incluso in board_of_directors. Biografia e data di prima nomina assenti nella finestra board: director_since null.",
+    "John David Rainey è un nuovo candidato (New Nominee) e non è ancora in carica: incluso in board_of_directors con director_since null; la sua nomina ai comitati dipende dall'elezione.",
+    "Satya Nadella è Chairman e CEO ed è indicato come non indipendente: independent false, sulla base del fatto che non compare nell'elenco dei direttori indipendenti.",
+    "Riunioni dei comitati non riportate nei testi forniti: meetings e meetings_year impostati a null per tutti i comitati.",
+    "Il comitato Audit è riportato nella matrice come 'Audit' e nelle biografie come 'Audit': nome normalizzato in 'Audit Committee' come da titolo 'Audit Committee Matters' del documento.",
+    "La tabella dei comitati e le biografie sono coerenti per tutti i direttori con biografia completa.",
+    "La riga di gruppo dichiara 'Directors and Executive Officers as a Group (18 people)', ma nella tabella named_executive_officers_and_directors sono presenti 17 righe (12 direttori inclusi Rodriguez e Rainey, più 5 NEO): numeri non coerenti, entrambi riportati.",
+    "La colonna 'Additional Underlying Shares or Stock Units' presente nella tabella di proprietà non ha un campo nello schema e non è riportata; le note sulle quote nei trust familiari e sulle azioni differite non sono state trasferite.",
+    "Il gruppo esclude le 6.498 azioni detenute da John David Rainey (nota 13): valore riportato così come dichiarato.",
+    "Per i detentori oltre il 5% il valore pct e pct_of_votes coincidono con 'Percent of Class to be Voted During the Meeting' del documento.",
+    "executive_officers presi dal Form 10-K del 2025-07-30: il DEF 14A non li elenca.",
+    "10-K: La finestra dell'Item 10 contiene solo un rimando alla Parte I, Item 1: l'elenco è stato estratto dalla sezione della Parte I.",
+    "10-K: Le cariche sono quelle attuali alla data indicata; le cariche precedenti presenti nelle biografie non sono state incluse."
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "company": "Ciena Corporation",
+  "ticker": "CIEN",
+  "cik": "0000936395",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-02-12",
+    "accession": "0001193125-26-047977",
+    "meeting": null,
+    "ownership_as_of": "2026-01-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/936395/000119312526047977/cien-20260212.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-12",
+      "accession": "0001628280-25-056698",
+      "url": "https://www.sec.gov/Archives/edgar/data/936395/000162828025056698/cien-20251101.htm",
+      "as_of": "2025-12-12"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Gary B. Smith",
+      "roles": [
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2000-10",
+      "independent": false
+    },
+    {
+      "name": "Joanne B. Olsen",
+      "roles": [
+        "Chair of Compensation Committee"
+      ],
+      "director_since": "2018-10",
+      "independent": true
+    },
+    {
+      "name": "Mary G. Puma",
+      "roles": [],
+      "director_since": "2023-08",
+      "independent": true
+    },
+    {
+      "name": "Hassan M. Ahmed",
+      "roles": [],
+      "director_since": "2020-06",
+      "independent": true
+    },
+    {
+      "name": "T. Michael Nevens",
+      "roles": [],
+      "director_since": "2014-02",
+      "independent": true
+    },
+    {
+      "name": "Bruce L. Claflin",
+      "roles": [],
+      "director_since": "2006-08",
+      "independent": true
+    },
+    {
+      "name": "Patrick T. Gallagher",
+      "roles": [
+        "Chair of Governance and Nominations Committee"
+      ],
+      "director_since": "2009-05",
+      "independent": true
+    },
+    {
+      "name": "Lawton W. Fitt",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2000-11",
+      "independent": true
+    },
+    {
+      "name": "Devinder Kumar",
+      "roles": [
+        "Chair of Audit Committee"
+      ],
+      "director_since": "2019-08",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Devinder Kumar",
+        "Bruce L. Claflin",
+        "T. Michael Nevens",
+        "Mary G. Puma"
+      ],
+      "chair": "Devinder Kumar",
+      "meetings": null,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Joanne B. Olsen",
+        "Hassan M. Ahmed",
+        "Bruce L. Claflin",
+        "Patrick T. Gallagher"
+      ],
+      "chair": "Joanne B. Olsen",
+      "meetings": null,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominations Committee",
+      "members": [
+        "Patrick T. Gallagher",
+        "Hassan M. Ahmed",
+        "Lawton W. Fitt",
+        "Joanne B. Olsen"
+      ],
+      "chair": "Patrick T. Gallagher",
+      "meetings": null,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Gary B. Smith",
+      "age": 65,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Joe Cumello",
+      "age": 54,
+      "positions": [
+        "Senior Vice President and General Manager of Blue Planet"
+      ]
+    },
+    {
+      "name": "Dino DiPerna",
+      "age": 64,
+      "positions": [
+        "Senior Vice President, Global Research & Development"
+      ]
+    },
+    {
+      "name": "Brodie Gage",
+      "age": 50,
+      "positions": [
+        "Senior Vice President, Global Products & Supply Chain"
+      ]
+    },
+    {
+      "name": "Marc D. Graff",
+      "age": 57,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Sheela Kosaraju",
+      "age": 53,
+      "positions": [
+        "Senior Vice President and General Counsel, and acting Chief People Officer"
+      ]
+    },
+    {
+      "name": "Jason M. Phipps",
+      "age": 53,
+      "positions": [
+        "Senior Vice President, Global Customer Engagement"
+      ]
+    },
+    {
+      "name": "David M. Rothenstein",
+      "age": 57,
+      "positions": [
+        "Senior Vice President, Chief Strategy Officer and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-27",
+    "note": "Percentuali calcolate su 141.463.456 azioni in circolazione al 2026-01-27. * = meno dell'1%; — = zero. Le azioni indicate sono il Beneficial Ownership Total (possedute più diritti di acquisto entro 60 giorni). Le percentuali non riflettono il potere di voto effettivo.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21664064,
+            "pct": 15.31
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-11-12",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15026070,
+            "pct": 10.62
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14537914,
+            "pct": 10.28
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-12-04",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "JPMorgan Chase & Co.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10851732,
+            "pct": 7.67
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-01-21",
+        "address": "270 Park Avenue, New York, NY 10017"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Gary B. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 127173,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marc D. Graff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 580,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James E. Moylan, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54332,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dino DiPerna",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10169,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason M. Phipps",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41531,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David M. Rothenstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 160857,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hassan M. Ahmed",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23420,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce L. Claflin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lawton W. Fitt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 129171,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick T. Gallagher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50184,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Devinder Kumar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28952,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "T. Michael Nevens",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9422,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanne B. Olsen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10109,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary G. Puma",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10872,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 816500,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, non ricostruito dalle biografie.",
+    "Il nome della società nell'intestazione è spezzato come 'Ciena Corp oration'; normalizzato in 'Ciena Corporation'.",
+    "Le riunioni del 2025 sono indicate come 'Board: 11' e tre valori non etichettati (8, 8, 5) senza nome del comitato: meetings lasciato null per tutti i comitati, non attribuito per deduzione.",
+    "Membri dei comitati: il presidente di ciascun comitato è incluso anche nella lista members, perché il documento lo elenca sotto 'Chair' separatamente dai 'Members'.",
+    "Indipendenza ricavata dalle qualifiche dei comitati (standard NYSE) e dalla composizione del consiglio: Gary B. Smith è CEO e risulta non indipendente. Il documento non ha un campo esplicito di indipendenza per ciascun direttore.",
+    "Fitt è stato presidente dell'Audit Committee fino al 1° gennaio 2025 (poi Kumar): la composizione attuale è quella indicata nella sezione comitati.",
+    "James E. Moylan, Jr. si è ritirato il 28 agosto 2025: resta nella tabella della proprietà come NEO ma non è né direttore né dirigente in carica.",
+    "Riga di gruppo: 'All executive officers and directors (17 persons)'; le righe nominative sono 14 (9 direttori e 5 NEO/dirigenti). Tre dirigenti non sono elencati individualmente nella tabella.",
+    "Riga di gruppo: 477.998 azioni possedute più 338.502 diritti di acquisto = 816.500 totale, coerente. La percentuale è '*' (meno dell'1%) quindi pct è null.",
+    "La colonna 'shares' riporta il Beneficial Ownership Total (possedute più diritti di acquisto entro 60 giorni), perché è il valore su cui è calcolata la percentuale.",
+    "Nessun detentore di azioni ordinarie nelle sole righe dei direttori e NEO supera il 5%; il blocco greater_than_5pct_stockholders contiene solo i quattro grandi azionisti istituzionali.",
+    "pct_of_votes non dichiarato nel documento: null per tutte le righe. Il documento è esplicito che le percentuali non riflettono il potere di voto.",
+    "executive_officers presi dal Form 10-K del 2025-12-12: il DEF 14A non li elenca.",
+    "10-K: La data 'as_of' non è indicata esplicitamente: il documento riferisce l'elenco agli executive officer in carica 'alla data di deposito' della relazione, quindi è stata usata la data di deposito (2025-12-12)."
+  ]
+}

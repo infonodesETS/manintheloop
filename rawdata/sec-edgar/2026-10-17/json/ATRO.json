@@ -1,0 +1,570 @@
+{
+  "company": "Astronics Corporation",
+  "ticker": "ATRO",
+  "cik": "0000008063",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-17",
+    "accession": "0001140361-26-015301",
+    "meeting": "2026 Annual Meeting of Shareholders, 2026-05-28",
+    "ownership_as_of": "2026-04-08",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/8063/000114036126015301/ny20063632x1_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-26",
+      "accession": "0000008063-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/8063/000000806326000021/atro-20251231.htm",
+      "as_of": "2025-12-31"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Robert T. Brady",
+      "roles": [
+        "Lead Independent Director",
+        "Audit (Chair)",
+        "Sustainability"
+      ],
+      "director_since": "1990",
+      "independent": true
+    },
+    {
+      "name": "Jeffry D. Frisby",
+      "roles": [
+        "Director",
+        "Sustainability (Chair)",
+        "Audit"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Peter J. Gundermann",
+      "roles": [
+        "Chairman of the Board",
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2001",
+      "independent": false
+    },
+    {
+      "name": "Warren C. Johnson",
+      "roles": [
+        "Director",
+        "Nominating/Governance",
+        "Sustainability"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Robert S. Keane",
+      "roles": [
+        "Director",
+        "Compensation",
+        "Nominating/Governance"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Neil Kim",
+      "roles": [
+        "Director",
+        "Compensation (Chair)",
+        "Audit"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Mark Moran",
+      "roles": [
+        "Director",
+        "Nominating/Governance (Chair)",
+        "Compensation"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Linda G. O'Brien",
+      "roles": [
+        "Director",
+        "Compensation",
+        "Nominating/Governance"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Fay West",
+      "roles": [
+        "Director",
+        "Audit",
+        "Sustainability"
+      ],
+      "director_since": "2025",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Robert T. Brady",
+        "Jeffry D. Frisby",
+        "Fay West",
+        "Neil Kim"
+      ],
+      "chair": "Robert T. Brady",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Neil Kim",
+        "Robert S. Keane",
+        "Mark Moran",
+        "Linda G. O'Brien"
+      ],
+      "chair": "Neil Kim",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating/Governance Committee",
+      "members": [
+        "Mark Moran",
+        "Robert S. Keane",
+        "Warren C. Johnson",
+        "Linda G. O'Brien"
+      ],
+      "chair": "Mark Moran",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Sustainability Committee",
+      "members": [
+        "Jeffry D. Frisby",
+        "Robert T. Brady",
+        "Warren C. Johnson",
+        "Fay West"
+      ],
+      "chair": "Jeffry D. Frisby",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Peter J. Gundermann",
+      "age": 63,
+      "positions": [
+        "President, Chief Executive Officer and Director of Astronics Corporation"
+      ]
+    },
+    {
+      "name": "Nancy L. Hedges",
+      "age": 52,
+      "positions": [
+        "Vice President, Treasurer and Chief Financial Officer of Astronics Corporation"
+      ]
+    },
+    {
+      "name": "Mark A. Peabody",
+      "age": 66,
+      "positions": [
+        "President, Aerospace Segment and Executive Vice President of Astronics Corporation"
+      ]
+    },
+    {
+      "name": "James F. Mulato",
+      "age": 65,
+      "positions": [
+        "President of Astronics Test Systems, Inc. and Executive Vice President of Astronics Corporation"
+      ]
+    },
+    {
+      "name": "Julie M. Davis",
+      "age": 47,
+      "positions": [
+        "General Counsel and Secretary of Astronics Corporation"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-08",
+    "note": "Percentuali riferite a ciascuna classe (Common Stock e Class B Stock). L'asterisco indica meno dell'1% della classe; '—' indica zero nel documento. Il documento non dichiara una percentuale di voto. Le note 1-16 della tabella sono riportate nei warning e nei valori sotto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Peter J. Gundermann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 651618,
+            "pct": 2.0
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 754025,
+            "pct": 19.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "Robert S. Keane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13934,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 415085,
+            "pct": 10.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2749452,
+            "pct": 8.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amendment No. 18 to Schedule 13G filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Bares Capital Management, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1538107,
+            "pct": 5.95
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2023-02-14",
+        "address": "12600 Hill Country Blvd., Suite R-230, Austin, TX 78738"
+      },
+      {
+        "name": "Capital International Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1849886,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-13",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1832179,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-09",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "American Century Investment Management, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1764235,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-13",
+        "address": "4500 Main Street, 9th Floor, Kansas City, MO 64111"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Robert T. Brady",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 97063,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 177566,
+            "pct": 4.7
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David C. Burney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 234332,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 3670,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie M. Davis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8966,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 861,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffry D. Frisby",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55056,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 1200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Gundermann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 651618,
+            "pct": 2.0
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 754025,
+            "pct": 19.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nancy L. Hedges",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32049,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 1287,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Warren C. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 57756,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 1200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert S. Keane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13934,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 415085,
+            "pct": 10.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neil Kim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52056,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 1200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Moran",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44056,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James F. Mulato",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 180840,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 4630,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Linda G. O'Brien",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark A. Peabody",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 174076,
+            "pct": null
+          },
+          {
+            "class": "Class B Stock",
+            "shares": 185220,
+            "pct": 4.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fay West",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7588,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1631962,
+          "pct": 5.1
+        },
+        {
+          "class": "Class B Stock",
+          "shares": 1545944,
+          "pct": 40.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota e non è stata ricostruita dalle biografie. Il CEO Peter J. Gundermann compare solo fra i direttori.",
+    "Il documento non include una tabella separata dei comitati: l'appartenenza è stata letta dalla sezione 'Committee Responsibilities' della finestra board. Il numero di riunioni è per singolo comitato, esercizio 2025.",
+    "Nessun direttore in uscita: i nove nominee sono tutti in carica alla data del documento.",
+    "Peter J. Gundermann (Common Stock 2,0%; Class B Stock 19,8%) e Robert S. Keane (Class B Stock 10,9%) sono inseriti anche in greater_than_5pct_stockholders perché detengono più del 5% di una classe, pur essendo elencati fra i direttori.",
+    "Robert S. Keane: 208.199 azioni di Class B sono detenute da Boston & Saranac LLC, controllata da un trust i cui beneficiari sono Keane e il coniuge, e 206.886 da EAK & KRK Trust FBO Elizabeth A. Keane (quota di Keane inferiore al 25%). holder_type è 'person' in quanto nome di persona fisica; la natura dei veicoli è un dubbio di classificazione.",
+    "Robert T. Brady: 120.000 azioni di Class B Stock sono impegnate a garanzia di una linea di credito presso M&T Bank; non risultano importi prelevati alla data del documento.",
+    "Fay West: la percentuale di Common Stock è '—' nel documento mentre le azioni sono 7.588. Secondo la regola è stata riportata come 0; il dato andrebbe verificato.",
+    "Riga di gruppo: 'All Directors & Executive Officers As a Group (14 Persons)' con 14 righe nel blocco named_executive_officers_and_directors, quindi coerente.",
+    "Le note della tabella indicano che Mark A. Peabody e James F. Mulato sono Named Executive Officers; il documento non dichiara esplicitamente la carica di executive officer di questi due nel testo estratto.",
+    "Nessun riferimento a percentuali di voto (pct_of_votes) nel documento: il campo è null.",
+    "executive_officers presi dal Form 10-K del 2026-02-26: il DEF 14A non li elenca.",
+    "10-K: La sezione Item 10 rimanda al Proxy Statement 2026 e non contiene l'elenco; i dati provengono interamente dalla sezione della Parte I.",
+    "10-K: L'elenco è riferito al 31 dicembre 2025, ma la nota indica che Julie M. Davis è stata nominata executive officer il 19 febbraio 2026, dopo quella data. La sua inclusione è coerente con il documento, ma la data di riferimento non è uniforme.",
+    "10-K: La colonna 'Year First Elected Officer' (anno di prima nomina) è presente nel documento ma non rientra nello schema e non è stata estratta."
+  ]
+}

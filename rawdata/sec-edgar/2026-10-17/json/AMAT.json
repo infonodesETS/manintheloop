@@ -1,0 +1,425 @@
+{
+  "company": "Applied Materials, Inc.",
+  "ticker": "AMAT",
+  "cik": "0000006951",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-28",
+    "accession": "0001193125-26-027307",
+    "meeting": "2026 Annual Meeting of Shareholders",
+    "ownership_as_of": "2025-12-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/6951/000119312526027307/d71992ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-12",
+      "accession": "0001628280-25-056742",
+      "url": "https://www.sec.gov/Archives/edgar/data/6951/000162828025056742/amat-20251026.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "James R. Anderson",
+      "roles": [
+        "Chief Executive Officer, Coherent Corp."
+      ],
+      "director_since": "2025-07",
+      "independent": true
+    },
+    {
+      "name": "Rani Borkar",
+      "roles": [
+        "President, Azure Hardware Systems and Infrastructure, Microsoft Corporation"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Judy Bruner",
+      "roles": [
+        "Executive Vice President, Administration and Chief Financial Officer, SanDisk Corporation (retired)"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Xun Chen",
+      "roles": [
+        "Executive Chairman, ParityBit Technologies, Inc."
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Aart J. de Geus",
+      "roles": [
+        "Executive Chair of the Board of Directors, Synopsys, Inc."
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Gary E. Dickerson",
+      "roles": [
+        "President and Chief Executive Officer, Applied Materials, Inc.",
+        "Executive Director"
+      ],
+      "director_since": "2013",
+      "independent": false
+    },
+    {
+      "name": "Thomas J. Iannotti",
+      "roles": [
+        "Chairman of the Board",
+        "Senior Vice President and General Manager, Enterprise Services, Hewlett-Packard Company (retired)"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Alexander A. Karsner",
+      "roles": [
+        "Senior Strategist, X (parent company: Alphabet Inc.)"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "Kevin P. March",
+      "roles": [
+        "Senior Vice President, Chief Financial Officer of Texas Instruments, Incorporated (retired)"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Scott A. McGregor",
+      "roles": [
+        "President and Chief Executive Officer, Broadcom Corporation (retired)"
+      ],
+      "director_since": "2018",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Judy Bruner",
+        "Kevin P. March",
+        "Scott A. McGregor"
+      ],
+      "chair": "Judy Bruner",
+      "meetings": 26,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Resources and Compensation Committee",
+      "members": [
+        "Thomas J. Iannotti",
+        "Rani Borkar",
+        "Xun Chen",
+        "Alexander A. Karsner"
+      ],
+      "chair": "Thomas J. Iannotti",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Kevin P. March",
+        "Judy Bruner",
+        "Alexander A. Karsner"
+      ],
+      "chair": "Kevin P. March",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Strategy and Investment Committee",
+      "members": [
+        "James R. Anderson",
+        "Rani Borkar",
+        "Xun Chen",
+        "Aart J. de Geus",
+        "Scott A. McGregor"
+      ],
+      "chair": "Scott A. McGregor",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Gary E. Dickerson",
+      "age": 68,
+      "positions": [
+        "President, Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Brice Hill",
+      "age": 59,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer and Global Information Services"
+      ]
+    },
+    {
+      "name": "Prabu Raja",
+      "age": 63,
+      "positions": [
+        "President, Semiconductor Products Group"
+      ]
+    },
+    {
+      "name": "Timothy M. Deane",
+      "age": 60,
+      "positions": [
+        "Senior Vice President, Applied Global Services"
+      ]
+    },
+    {
+      "name": "Teri Little",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Omkaram Nalamasu",
+      "age": 67,
+      "positions": [
+        "Senior Vice President, Chief Technology Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-31",
+    "note": "Percentuali calcolate su 792.705.219 azioni ordinarie in circolazione al 31/12/2025 (per le righe di direttori e dirigenti, più le RSU maturabili entro 60 giorni). '*' = meno dell'1%, quindi pct null. Il dato di pct_of_votes non è dichiarato nel documento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76811130,
+            "pct": 9.69
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-02",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 74116511,
+            "pct": 9.35
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James R. Anderson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 806,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rani Borkar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9199,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Judy Bruner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34141,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Xun Chen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aart J. de Geus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 111042,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas J. Iannotti",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50568,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alexander A. Karsner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16108,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin P. March",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5939,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott A. McGregor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23836,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary E. Dickerson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1398872,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brice Hill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58062,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Prabu G. Raja",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 406740,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Timothy M. Deane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 80037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Omkaram Nalamasu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 122402,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2405861,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto come da regola.",
+    "Strategy and Investment Committee: il documento non indica il numero di riunioni, quindi meetings è null.",
+    "Chairman Emeritus James C. Morgan non è incluso nel consiglio attuale: ha lasciato il ruolo di direttore e presidente (diventato Chairman Emeritus nel 2009, senza data di uscita dal consiglio nel testo).",
+    "Gary E. Dickerson è indicato come 'Executive Director' e quindi non indipendente; compare anche fra i NEO e il suo ruolo consiliare è incluso in board_of_directors.",
+    "Le quote di Brice Hill, Timothy M. Deane e Omkaram Nalamasu sono registrate senza ulteriori note nel testo; i valori includono RSU maturabili entro 60 giorni dove dichiarato e quote in trust familiari o living trust (Borkar, Bruner, March, Raja): il documento non ne separa le componenti nella tabella.",
+    "La riga di gruppo dichiara 'persons: 15', mentre in named_executive_officers_and_directors compaiono 14 persone: la differenza è verosimilmente un dirigente non nominato nel documento; i due numeri sono entrambi riportati.",
+    "I dati sui 13G di BlackRock e Vanguard nelle note si riferiscono al 31/12/2023 (depositi 2024), mentre la tabella è al 31/12/2025: i valori di azioni e percentuali sono quelli della tabella principale.",
+    "executive_officers presi dal Form 10-K del 2025-12-12: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per l'elenco dei dirigenti né per le età; as_of è stato lasciato a null.",
+    "10-K: La finestra dell'Item 10 non contiene un elenco di dirigenti: rimanda alla Parte I, Item 1, sezione 'Information about our Executive Officers', che è stata usata come fonte.",
+    "10-K: Le cariche sono riportate come scritte nella tabella; la descrizione di Brice Hill (supervisione di Global Information Services) è una responsabilità aggiuntiva e non un titolo distinto, quindi è stata mantenuta nella stessa riga."
+  ]
+}

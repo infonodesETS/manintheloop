@@ -1,0 +1,362 @@
+{
+  "company": "Monolithic Power Systems, Inc.",
+  "ticker": "MPWR",
+  "cik": "0001280452",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-30",
+    "accession": "0001437749-26-014084",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": null,
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1280452/000143774926014084/mpwr20260403_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-27",
+      "accession": "0001437749-26-006113",
+      "url": "https://www.sec.gov/Archives/edgar/data/1280452/000143774926006113/mpwr20251231_10k.htm",
+      "as_of": "2026-02-27"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Michael Hsing",
+      "roles": [
+        "Chairman of the Board",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "1997-08",
+      "independent": false
+    },
+    {
+      "name": "Herbert Chang",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "1999-09",
+      "independent": true
+    },
+    {
+      "name": "Eugen Elmiger",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012-10",
+      "independent": true
+    },
+    {
+      "name": "Victor K. Lee",
+      "roles": [
+        "Director",
+        "Nominee"
+      ],
+      "director_since": "2006-09",
+      "independent": true
+    },
+    {
+      "name": "Carintia Martinez",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-05",
+      "independent": true
+    },
+    {
+      "name": "Eileen Wynne",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "Jeff Zhou",
+      "roles": [
+        "Director",
+        "Nominee"
+      ],
+      "director_since": "2010-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Herbert Chang",
+        "Victor K. Lee",
+        "Eileen Wynne",
+        "Jeff Zhou"
+      ],
+      "chair": "Eileen Wynne",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Herbert Chang",
+        "Eugen Elmiger",
+        "Jeff Zhou"
+      ],
+      "chair": "Eugen Elmiger",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Eugen Elmiger",
+        "Carintia Martinez"
+      ],
+      "chair": "Carintia Martinez",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael Hsing",
+      "age": 66,
+      "positions": [
+        "President, Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Bernie Blegen",
+      "age": 68,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Deming Xiao",
+      "age": 63,
+      "positions": [
+        "Executive Vice President, Global Operations"
+      ]
+    },
+    {
+      "name": "Maurice Sciammas",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Worldwide Sales and Marketing"
+      ]
+    },
+    {
+      "name": "Saria Tseng",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, Strategic Corporate Development, General Counsel and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": null,
+    "note": "Dati riferiti alla Record Date, la cui data non compare nell'estratto. Percentuali calcolate su 49.129.267 azioni di Common Stock in circolazione. * = meno dell'1%. Le RSU sbloccabili entro 60 giorni sono considerate in circolazione solo per il calcolo della percentuale del relativo detentore.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5939946,
+            "pct": 12.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-07-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4899383,
+            "pct": 10.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-08",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3977008,
+            "pct": 8.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Michael Hsing",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1034099,
+            "pct": 2.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bernie Blegen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87015,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deming Xiao",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 260723,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maurice Sciammas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 274414,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Saria Tseng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 157983,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Herbert Chang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 426,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eugen Elmiger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17213,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Victor K. Lee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27567,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carintia Martinez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 878,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eileen Wynne",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1153,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeff Zhou",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5611,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": null,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1786772,
+          "pct": 3.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto; il CEO Michael Hsing compare solo fra i direttori.",
+    "Committees non in una finestra dedicata: appartenenze e riunioni lette dalla prosa della sezione board.",
+    "Data della Record Date non indicata nell'estratto: ownership_as_of impostato a null.",
+    "Vanguard Group: la tabella riporta 5.939.946 azioni dalla Schedule 13G/A del 2025-07-29; la 13G/A del 2026-03-27 dichiara 0,0% al 2026-03-13 dopo una riorganizzazione interna. Dato incluso come da tabella, ma da verificare.",
+    "Riga di gruppo: il documento non indica il numero di persone del gruppo; persons impostato a null.",
+    "Lee e Zhou sono candidati alla rielezione in Classe I all'assemblea 2026 (mandato in scadenza nel 2026); sono consiglieri in carica e inclusi in board_of_directors.",
+    "Michael Hsing: la sua quota include azioni detenute tramite trust (Michael Hsing 2004 Trust, ZH Family Trust); classificato come person.",
+    "Il numero di riunioni dei comitati è indicato per l'esercizio 2025; il Consiglio ha tenuto quattro riunioni nel 2025 (dato del solo Consiglio, non sommato ai comitati).",
+    "executive_officers presi dal Form 10-K del 2026-02-27: il DEF 14A non li elenca.",
+    "10-K: Bernie Blegen, nota (1): cessa di essere Executive Vice President e Chief Financial Officer subito dopo la presentazione di questo 10-K. È incluso perché la carica è attuale alla data dell'elenco.",
+    "10-K: Rob Dean, Corporate Controller, assumerà l'incarico di Interim Chief Financial Officer al momento della cessazione di Blegen. Non è elencato come executive officer nel documento e quindi non è incluso.",
+    "10-K: La tabella indica per Michael Hsing la carica 'President, Chief Executive Officer and Director', mentre la biografia lo descrive come 'President, Chief Executive Officer, Chairman of the Board of Directors'. Ho riportato la forma della tabella; la carica di Chairman compare solo nella biografia.",
+    "10-K: L'Item 10 rimanda alla sezione 'Information About Executive Officers' della Parte I e non elenca nuovi dirigenti; i dati provengono quindi dalla Parte I."
+  ]
+}

@@ -1,0 +1,523 @@
+{
+  "company": "Keysight Technologies, Inc.",
+  "ticker": "KEYS",
+  "cik": "0001601046",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-26",
+    "accession": "0001140361-26-002381",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-01-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1601046/000114036126002381/ny20058135x3_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-17",
+      "accession": "0001601046-25-000127",
+      "url": "https://www.sec.gov/Archives/edgar/data/1601046/000160104625000127/keys-20251031.htm",
+      "as_of": "2025-12-01"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Ronald S. Nersesian",
+      "roles": [
+        "Director",
+        "Non-Executive Chair of the Board"
+      ],
+      "director_since": "2013-12",
+      "independent": false
+    },
+    {
+      "name": "Satish C. Dhanasekaran",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2022-05",
+      "independent": false
+    },
+    {
+      "name": "Charles J. Dockendorff",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014-10",
+      "independent": true
+    },
+    {
+      "name": "Richard P. Hamada",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014-10",
+      "independent": true
+    },
+    {
+      "name": "Michelle J. Holthaus",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-05",
+      "independent": true
+    },
+    {
+      "name": "Keith F. Jensen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Paul A. Lacouture",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Jean M. Nye",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2014-10",
+      "independent": true
+    },
+    {
+      "name": "Joanne B. Olsen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-05",
+      "independent": true
+    },
+    {
+      "name": "Kevin A. Stephens",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-03",
+      "independent": true
+    },
+    {
+      "name": "James G. Cullen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Finance Committee",
+      "members": [
+        "Kevin A. Stephens",
+        "Charles J. Dockendorff",
+        "Keith F. Jensen"
+      ],
+      "chair": "Kevin A. Stephens",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation and Human Capital Committee",
+      "members": [
+        "Joanne B. Olsen",
+        "James G. Cullen",
+        "Richard P. Hamada",
+        "Michelle J. Holthaus",
+        "Jean M. Nye"
+      ],
+      "chair": "Joanne B. Olsen",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Jean M. Nye",
+        "James G. Cullen",
+        "Charles J. Dockendorff",
+        "Richard P. Hamada",
+        "Michelle J. Holthaus",
+        "Keith F. Jensen",
+        "Joanne B. Olsen",
+        "Kevin A. Stephens"
+      ],
+      "chair": "Jean M. Nye",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Jean M. Nye"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Satish Dhanasekaran",
+      "age": 53,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Neil Dougherty",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Ingrid Estrada",
+      "age": 61,
+      "positions": [
+        "Senior Vice President and Chief Supply Chain and Operations Officer"
+      ]
+    },
+    {
+      "name": "Jo Ann Juskie",
+      "age": 64,
+      "positions": [
+        "Senior Vice President, Chief People Officer"
+      ]
+    },
+    {
+      "name": "Jason A. Kary",
+      "age": 57,
+      "positions": [
+        "Senior Vice President and President of the Electronic Industrial Solution Group"
+      ]
+    },
+    {
+      "name": "Jeffrey Li",
+      "age": 56,
+      "positions": [
+        "Senior Vice President, General Counsel, and Secretary"
+      ]
+    },
+    {
+      "name": "Kailash Narayanan",
+      "age": 52,
+      "positions": [
+        "Senior Vice President and President of the Communications Solutions Group"
+      ]
+    },
+    {
+      "name": "John Page",
+      "age": 61,
+      "positions": [
+        "Senior Vice President and President of Global Services"
+      ]
+    },
+    {
+      "name": "Lisa Poole",
+      "age": 60,
+      "positions": [
+        "Vice President, Corporate Controller and Principal Accounting Officer"
+      ]
+    },
+    {
+      "name": "Sung J. Yoon",
+      "age": 59,
+      "positions": [
+        "Senior Vice President, Global Sales"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-20",
+    "note": "Tabella dei detentori oltre il 5% al 20 gennaio 2026, su 171.517.760 azioni ordinarie in circolazione. Tabella direttori e dirigenti: 'Total Shares Beneficially Owned' include azioni ordinarie, azioni soggette a premi azionari esercitabili o maturabili entro il 21 marzo 2026 e azioni differite (Deferred Stock); il simbolo * indica meno dell'1%; le celle di percentuale vuote sono riportate come null.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20643995,
+            "pct": 12
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16114827,
+            "pct": 9.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-14",
+        "address": "100 E. Pratt Street, Baltimore, MD 21202"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15668381,
+            "pct": 9.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-05",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James G. Cullen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21424,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Satish C. Dhanasekaran",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46092,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles J. Dockendorff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54343,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neil P. Dougherty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 93508,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ingrid A. Estrada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89308,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Soon Chai Gooi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 214518,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard P. Hamada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42160,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle J. Holthaus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7613,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Keith F. Jensen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 407,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul A. Lacouture",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12810,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kailash Narayanan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21917,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronald S. Nersesian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 191770,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean M. Nye",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37882,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanne B. Olsen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12222,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Page",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12418,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Rango",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23319,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin A. Stephens",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9550,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 692573,
+          "pct": 0.4
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto.",
+    "Sezione committees assente: l'appartenenza ai comitati è stata ricavata dalle biografie e dalla sezione board. Nel documento non compaiono riunioni per comitato: meetings e meetings_year sono null per tutti i comitati.",
+    "Il documento nomina 'Nominating Committee' nel testo e 'Nominating and Corporate Governance' nelle biografie: usato il nome completo delle biografie.",
+    "Nelle biografie di Jean M. Nye la voce comitati è 'Compensation and Human Capital, Executive Nominating and Corporate Governance (Chair)': è stato riportato un Executive Committee con la sola Nye, senza presidente indicato; il nome è troncato nel testo e va verificato.",
+    "Paul A. Lacouture non ha biografia nel testo estratto: director_since è null, la sua indipendenza è dedotta dal conteggio (otto indipendenti su dieci dopo l'assemblea 2026) e non è dichiarata esplicitamente. Non è ricandidato: resta in carica fino all'assemblea 2026, quindi è incluso con questo avviso.",
+    "Ronald S. Nersesian: l'indipendenza non è dichiarata esplicitamente. È stato valorizzato come non indipendente sulla base del conteggio (nove indipendenti su undici, con Satish C. Dhanasekaran unico altro non indipendente noto) e della sua carica di Non-Executive Chair e di ex CEO fino al 2022.",
+    "Keith F. Jensen: indipendenza non dichiarata esplicitamente; valorizzata come true perché membro di comitati di sola componente indipendente e non indicato come non indipendente.",
+    "Robert Rango si è ritirato dal consiglio il 15 maggio 2025: escluso da board_of_directors, compare solo nella tabella direttori e dirigenti.",
+    "Soon Chai Gooi è uscito dalla carica di Senior Vice President nel maggio 2025 e si è ritirato il 31 ottobre 2025: non è nel consiglio; compare solo nella tabella direttori e dirigenti con dati al 31 ottobre 2025.",
+    "Riga di gruppo: 'All directors and executive officers as a group (20 persons)' ma la tabella elenca solo 17 persone individuali. Non risultano dati su tre persone: possibili altri dirigenti NEO non riportati nel testo estratto. Riportati entrambi i numeri.",
+    "Tabella dei detentori oltre il 5%: le note a piè di pagina (1), (2), (3) sono associate alle righe in ordine diverso dalla tabella. Ho assegnato le fonti e i riferimenti per contenuto (Vanguard alla nota con 19.895.128 azioni sole dispositive, T. Rowe Price alla nota con 16.113.452, BlackRock alla nota con 15.668.381). I numeri di azioni e percentuali sono quelli della tabella.",
+    "Le percentuali di Ingrid A. Estrada, Soon Chai Gooi, Michelle J. Holthaus, Kailash Narayanan, John Page, Robert Rango e Kevin A. Stephens sono vuote nel testo: riportate come null, non come *.",
+    "Nella tabella direttori e dirigenti il campo shares contiene il Total Shares Beneficially Owned, comprensivo di azioni soggette a premi e azioni differite; le sole azioni ordinarie sono nella colonna 'Number of Shares of Common Stock' e non sono riportate separatamente nello schema.",
+    "Nessun detentore di un singolo direttore o dirigente supera il 5% delle azioni ordinarie: non sono state aggiunte righe al blocco dei detentori oltre il 5%.",
+    "Il testo menziona un AI Governance Committee e comitati esecutivi di management (Senior Executive Committee, Cyber Executive Committee): sono organi di management e non comitati del consiglio, quindi esclusi da committees.",
+    "executive_officers presi dal Form 10-K del 2025-12-17: il DEF 14A non li elenca.",
+    "10-K: L'elenco dei dirigenti è nella Parte I (Item 1, 'Executive Officers of the Registrant'); l'Item 10 rimanda a quella sezione e quindi non è stato usato come fonte autonoma.",
+    "10-K: Nomi riportati senza soprannomi tra parentesi: 'Jo Ann (Jodi) Juskie' è stata registrata come 'Jo Ann Juskie'; 'Sung (Steve) J. Yoon' come 'Sung J. Yoon'.",
+    "10-K: Le cariche sono quelle attuali indicate nel documento; le cariche passate (es. Chief of Staff di Ingrid Estrada, Chief Financial Officer di Nanosys per John Page) non sono state incluse.",
+    "10-K: Incoerenza nel documento: l'Item 10 dice che la Insider Trading Policy è stata depositata presso la SEC il 17 dicembre 2024 come Exhibit 19.1 di questo Form 10-K, mentre il rapporto è datato 17 dicembre 2025. Non incide sull'elenco dei dirigenti."
+  ]
+}

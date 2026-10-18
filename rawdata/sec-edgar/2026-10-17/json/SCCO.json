@@ -1,0 +1,420 @@
+{
+  "company": "Southern Copper Corporation",
+  "ticker": "SCCO",
+  "cik": "0001001838",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-17",
+    "accession": "0001104659-26-044982",
+    "meeting": "2026 Annual Meeting of Shareholders, virtuale, 2026-05-29 ore 9:00 (ora di Città del Messico)",
+    "ownership_as_of": "2026-04-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926044982/scco-20260529xdef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-27",
+      "accession": "0001104659-26-021492",
+      "url": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926021492/scco-20251231x10k.htm",
+      "as_of": "2026-02-27"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Germán Larrea Mota-Velasco",
+      "roles": [
+        "Director",
+        "Chairman of the Board"
+      ],
+      "director_since": "1999",
+      "independent": false
+    },
+    {
+      "name": "Vicente Ariztegui Andreve",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Javier Arrigunaga Gomez del Campo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Enrique Castillo Sánchez Mejorada",
+      "roles": [
+        "Director",
+        "Special Independent Director"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Leonardo Contreras Lerdo de Tejada",
+      "roles": [
+        "Director",
+        "Interim Chief Executive Officer"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Luis Miguel Palomino Bonilla",
+      "roles": [
+        "Director",
+        "Special Independent Director"
+      ],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Carlos Ruiz Sacristán",
+      "roles": [
+        "Director",
+        "Special Independent Director"
+      ],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Jose Pedro Valenzuela Rionda",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Vicente Ariztegui Andreve",
+        "Enrique Castillo Sánchez Mejorada",
+        "Luis Miguel Palomino Bonilla"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Germán Larrea Mota-Velasco",
+        "Enrique Castillo Sánchez Mejorada",
+        "Leonardo Contreras Lerdo de Tejada"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Corporate Governance and Disclosure Committee",
+      "members": [
+        "Germán Larrea Mota-Velasco",
+        "Oscar González Rocha",
+        "Leonardo Contreras Lerdo de Tejada"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Special Nominating Committee",
+      "members": [
+        "Luis Miguel Palomino Bonilla",
+        "Carlos Ruiz Sacristán",
+        "Leonardo Contreras Lerdo de Tejada"
+      ],
+      "chair": null,
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Sustainability Committee",
+      "members": [
+        "Vicente Ariztegui Andreve",
+        "Luis Miguel Palomino Bonilla",
+        "Enrique Castillo Sánchez Mejorada"
+      ],
+      "chair": "Vicente Ariztegui Andreve",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Germán Larrea Mota-Velasco",
+        "Vicente Ariztegui Andreve",
+        "Leonardo Contreras Lerdo de Tejada",
+        "Carlos Ruiz Sacristán"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "German Larrea Mota-Velasco",
+      "age": 72,
+      "positions": [
+        "Chairman of the Board and Director"
+      ]
+    },
+    {
+      "name": "Oscar Gonzalez Rocha",
+      "age": 87,
+      "positions": [
+        "President, Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Raul Jacob Ruisanchez",
+      "age": 67,
+      "positions": [
+        "Vice President, Finance, Treasurer and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Julian Jorge Lazalde Psihas",
+      "age": 57,
+      "positions": [
+        "Secretary"
+      ]
+    },
+    {
+      "name": "Andres Carlos Ferrero Ghislieri",
+      "age": 57,
+      "positions": [
+        "General Counsel"
+      ]
+    },
+    {
+      "name": "Lina Vingerhoets Vilca",
+      "age": 64,
+      "positions": [
+        "Comptroller"
+      ]
+    },
+    {
+      "name": "Juan Fernando Nuñez Chávez",
+      "age": 68,
+      "positions": [
+        "Vice President, Exploration"
+      ]
+    },
+    {
+      "name": "Patricio Ovejas Simon",
+      "age": 38,
+      "positions": [
+        "Executive Vice President"
+      ]
+    },
+    {
+      "name": "Raul Vaca Castro",
+      "age": 66,
+      "positions": [
+        "General Auditor"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-02",
+    "note": "Dati dei detentori oltre il 5% al 31 dicembre 2025; dati di direttori e dirigenti al 2 aprile 2026. (b) = meno dello 0,5%, quindi pct null. '—' = zero azioni.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Americas Mining Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 728272152,
+            "pct": 88.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A (Amendment No. 16) filed 2011-10-31 da Grupo Mexico e AMC, come aggiornato da successivi report delle holding",
+        "address": "7310 North 16th St, Suite 135 Phoenix, AZ 85020"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Germán Larrea Mota-Velasco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 404126,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Oscar González Rocha",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 147224,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vicente Ariztegui Andreve",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10270,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Javier Arrigunaga Gomez del Campo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4748,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Enrique Castillo Sánchez Mejorada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leonardo Contreras Lerdo de Tejada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edgard Corrales",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Juan Fernando Nuñez Chavez",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Raúl Jacob Ruisanchez",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jorge Lazalde",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patricio Ovejas Simon",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luis Miguel Palomino Bonilla",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1707,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carlos Ruiz Sacristán",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28247,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jose Pedro Valenzuela Rionda",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4748,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lina Vingerhoets",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 602270,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota. Nella tabella di proprietà compaiono anche Edgard Corrales, Juan Fernando Nuñez Chavez, Raúl Jacob Ruisanchez, Jorge Lazalde, Patricio Ovejas Simon e Lina Vingerhoets, ma senza un roster con età e cariche, quindi non sono stati inclusi tra i dirigenti.",
+    "Oscar González Rocha è deceduto il 7 aprile 2026, prima della data del documento: è escluso da board_of_directors (non è tra gli otto candidati). Resta nella tabella di proprietà (al 2 aprile 2026) e nella composizione 2025 del Corporate Governance and Disclosure Committee.",
+    "Corrispondenza comitati/indipendenza: Germán Larrea Mota-Velasco e Leonardo Contreras Lerdo de Tejada figurano come membri di comitati ma sono non indipendenti; Leonardo Contreras Lerdo de Tejada è anche Board Designee del Special Nominating Committee. Il documento dichiara la società controllata (controlled company) e i comitati non sono composti solo da indipendenti: il dato è riportato così com'è.",
+    "Composizione del Compensation Committee, dell'Audit Committee e dell'Executive Committee ricavata dalle biografie dei direttori e dalle intestazioni; il documento non fornisce un elenco dedicato per questi comitati, né il presidente né il numero di riunioni.",
+    "Presidente (chair) non indicato dal documento per Audit Committee, Compensation Committee, Corporate Governance and Disclosure Committee, Special Nominating Committee ed Executive Committee. Solo il Sustainability Committee ha un presidente dichiarato (Vicente Ariztegui Andreve).",
+    "Riunioni: Corporate Governance and Disclosure Committee 1 nel 2025, Special Nominating Committee 2 nel 2025, Sustainability Committee 4 nel 2025. Audit Committee, Compensation Committee ed Executive Committee: numero di riunioni non indicato, lasciato null.",
+    "Nel blocco dei >5% è incluso solo Americas Mining Corporation (88,9%). Grupo Mexico è indicato come azionista di maggioranza indiretto e condivide con AMC il potere di disporre e votare le azioni: non è stato aggiunto separatamente per evitare il doppio conteggio. Le azioni di Grupo Mexico detenute da direttori (per esempio 1.508.070.283 azioni di Grupo Mexico attribuite a Germán Larrea, 19,03%) sono titoli di un'altra società e sono esclusi dai blocchi SCC.",
+    "La riga di gruppo dichiara 17 persone, ma le righe nominative in named_executive_officers_and_directors sono 15. I due numeri non coincidono: entrambi sono mantenuti. Le azioni elencate nelle righe (somma 602.270) coincidono con il totale del gruppo.",
+    "Per Edgard Corrales, Juan Fernando Nuñez Chavez, Raúl Jacob Ruisanchez, Jorge Lazalde, Patricio Ovejas Simon e Lina Vingerhoets la tabella riporta '—' (zero azioni): classes è vuota perché non hanno azioni da elencare. Edgard Corrales è stato sostituito da Juan Fernando Nuñez Chavez il 10 aprile 2025.",
+    "Il nome Juan Fernando Nuñez Chavez è scritto con la grafia della nota in calce (la tabella riporta 'Nunez'). Il nome Javier Arrigunaga Gomez del Campo segue la forma della sezione board, e Luis Miguel Palomino Bonilla è stato normalizzato dal 'Miguel Palomino' della sezione comitati.",
+    "Le percentuali di proprietà dei direttori sono indicate come '(b) Less than 0.5%' e quindi sono null. La tabella di gruppo non riporta percentuale: pct null.",
+    "Nessun direttore supera il 5% delle azioni ordinarie SCC: il blocco dei >5% contiene solo Americas Mining Corporation.",
+    "executive_officers presi dal Form 10-K del 2026-02-27: il DEF 14A non li elenca.",
+    "10-K: Il documento riporta l'elenco degli executive officer direttamente nella sezione Item 10 (età al 27 febbraio 2026), quindi non è stato necessario ricorrere al rimando al proxy.",
+    "10-K: Per Juan Fernando Nuñez Chávez la tabella indica «Vice President, Exploration», mentre la biografia indica «Vice President, Explorations»; è stata riportata la forma della tabella.",
+    "10-K: Per Raul Jacob Ruisanchez la biografia lo chiama «Mr. Jacob»; il nome completo nell'elenco è «Raul Jacob Ruisanchez», usato come riportato in tabella."
+  ]
+}

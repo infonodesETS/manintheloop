@@ -1,0 +1,453 @@
+{
+  "company": "Take-Two Interactive Software, Inc.",
+  "ticker": "TTWO",
+  "cik": "0000946581",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-07-27",
+    "accession": "0001628280-26-049813",
+    "meeting": null,
+    "ownership_as_of": "2026-07-15",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/946581/000162828026049813/ttwo-20260727.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "LaVerne Srinivasan",
+      "roles": [
+        "Lead Independent Director",
+        "Executive Committee Chair"
+      ],
+      "director_since": "2017-03",
+      "independent": true
+    },
+    {
+      "name": "Michael Dornemann",
+      "roles": [
+        "Director",
+        "Executive Committee Member",
+        "Compensation Committee Member"
+      ],
+      "director_since": "2007-03",
+      "independent": true
+    },
+    {
+      "name": "William B. Gordon",
+      "roles": [
+        "Director",
+        "Technology Risk Committee Member"
+      ],
+      "director_since": "2022-05",
+      "independent": true
+    },
+    {
+      "name": "Roland Hernandez",
+      "roles": [
+        "Director",
+        "Corporate Governance Committee Chair",
+        "Compensation Committee Member"
+      ],
+      "director_since": "2019-09",
+      "independent": true
+    },
+    {
+      "name": "J Moses",
+      "roles": [
+        "Director",
+        "Technology Risk Committee Chair",
+        "Corporate Governance Committee Member"
+      ],
+      "director_since": "2007-03",
+      "independent": true
+    },
+    {
+      "name": "Michael Sheresky",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2007-03",
+      "independent": true
+    },
+    {
+      "name": "Ellen Siminoff",
+      "roles": [
+        "Director",
+        "Audit Committee Member",
+        "Corporate Governance Committee Member"
+      ],
+      "director_since": "2022-05",
+      "independent": true
+    },
+    {
+      "name": "Susan Tolson",
+      "roles": [
+        "Director",
+        "Audit Committee Chair",
+        "Technology Risk Committee Member"
+      ],
+      "director_since": "2014-03",
+      "independent": true
+    },
+    {
+      "name": "Paul Viera",
+      "roles": [
+        "Director",
+        "Audit Committee Member"
+      ],
+      "director_since": "2018-05",
+      "independent": true
+    },
+    {
+      "name": "Strauss Zelnick",
+      "roles": [
+        "Chairman of the Board",
+        "Chief Executive Officer",
+        "Executive Committee Member"
+      ],
+      "director_since": "2007-03",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Michael Sheresky",
+        "Michael Dornemann",
+        "Roland Hernandez"
+      ],
+      "chair": "Michael Sheresky",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Corporate Governance Committee",
+      "members": [
+        "Roland Hernandez",
+        "J Moses",
+        "Ellen Siminoff"
+      ],
+      "chair": "Roland Hernandez",
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Susan Tolson",
+        "Ellen Siminoff",
+        "Paul Viera"
+      ],
+      "chair": "Susan Tolson",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Technology Risk Committee",
+      "members": [
+        "J Moses",
+        "William B. Gordon",
+        "Susan Tolson"
+      ],
+      "chair": "J Moses",
+      "meetings": 2,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "LaVerne Srinivasan",
+        "Michael Dornemann",
+        "Strauss Zelnick"
+      ],
+      "chair": "LaVerne Srinivasan",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Strauss Zelnick",
+      "age": 69,
+      "positions": [
+        "Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Karl Slatoff",
+      "age": 56,
+      "positions": [
+        "President"
+      ]
+    },
+    {
+      "name": "Lainie Goldstein",
+      "age": 58,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Daniel Emerson",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Legal Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-07-15",
+    "note": "Percentuali calcolate sulle azioni di Common Stock in circolazione; * = meno dell'1%. Le quote di Zelnick e Slatoff includono 1.126.165 RSU detenute da ZMC, non individualmente. Il documento non indica una percentuale di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13131908,
+            "pct": 7.02
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-30",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12726923,
+            "pct": 6.81
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-26",
+        "address": "55 East 52nd Street, New York, New York 10055"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12026195,
+            "pct": 6.43
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-05-12",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "Public Investment Fund",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11414680,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-12-31 da The Public Investment Fund, Saudi Electronic Games Holding Company e The Saudi Fourth Investment Company",
+        "address": "The Public Investment Fund Tower, King Abdullah Financial District (KAFD), Al Aqiq District, Riyadh, Kingdom of Saudi Arabia"
+      },
+      {
+        "name": "JPMorgan Chase & Co.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9303967,
+            "pct": 4.98
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-07-30",
+        "address": "383 Madison Avenue, New York, NY 10179"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Strauss Zelnick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1382568,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karl Slatoff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1126165,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lainie Goldstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 283374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Emerson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 113988,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "J Moses",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21868,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Sheresky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 65495,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Dornemann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "LaVerne Srinivasan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8719,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan Tolson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32122,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Viera",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 92347,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roland Hernandez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10727,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William B. Gordon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 57187,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellen Siminoff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12237,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2101061,
+          "pct": 1.12
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Strauss Zelnick è indicato come non indipendente dal documento ma è membro dell'Executive Committee, che nel documento è descritto come composto anche da Srinivasan e Dornemann (indipendenti): il dato è riportato così com'è, senza modifiche, e il conflitto con il sanity check #1 è segnalato qui.",
+    "Il nome del direttore è 'William \"Bing\" Gordon' nel testo; è stata usata la forma 'William B. Gordon' data nella tabella di proprietà e il soprannome è stato rimosso.",
+    "JPMorgan Chase & Co. compare nella tabella dei detentori oltre il 5% con il 4,98%, cioè sotto soglia; è stato incluso perché il documento lo riporta fra i detentori rilevanti, ma la percentuale dichiarata è inferiore al 5%.",
+    "Le 1.126.165 RSU detenute da ZMC sono incluse sia nella quota di Zelnick sia in quella di Slatoff; sono contate una sola volta nella riga di gruppo, come indica il documento.",
+    "Il documento non indica la data dell'assemblea annuale corrente; il campo meeting è null.",
+    "Nessun direttore ha lasciato il consiglio prima della data del documento secondo il testo fornito; Dornemann e Sheresky sono usciti da alcuni comitati ma restano nel consiglio.",
+    "La riga di gruppo dichiara 13 persone e la tabella nominativa ne riporta 13: il dato è coerente.",
+    "Le riunioni dei comitati sono indicate per l'esercizio fiscale 2026 (chiuso il 2026-03-31) e sono riportate separatamente per ciascun comitato."
+  ]
+}

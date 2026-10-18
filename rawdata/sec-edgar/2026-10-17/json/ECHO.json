@@ -1,0 +1,534 @@
+{
+  "company": "EchoStar Corporation",
+  "ticker": "SATS",
+  "cik": "0001415404",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-18",
+    "accession": "0001104659-26-108960",
+    "meeting": null,
+    "ownership_as_of": null,
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926108960/sats-20261030xdef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-02",
+      "accession": "0001104659-26-021817",
+      "url": "https://www.sec.gov/Archives/edgar/data/1415404/000110465926021817/tmb-20251231x10k.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Charles W. Ergen",
+      "roles": [
+        "Chairman, President and Chief Executive Officer"
+      ],
+      "director_since": "2007",
+      "independent": false
+    },
+    {
+      "name": "Cantey M. Ergen",
+      "roles": [
+        "Director",
+        "Senior Advisor"
+      ],
+      "director_since": "2023-12",
+      "independent": false
+    },
+    {
+      "name": "George R. Brokaw",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-12",
+      "independent": true
+    },
+    {
+      "name": "James DeFranco",
+      "roles": [
+        "Director",
+        "Executive Vice President"
+      ],
+      "director_since": "2023-12",
+      "independent": false
+    },
+    {
+      "name": "R. Stanton Dodge",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Katherine E. Flynn",
+      "roles": [
+        "Director",
+        "Senior Vice President",
+        "Chief People Officer"
+      ],
+      "director_since": "2026",
+      "independent": false
+    },
+    {
+      "name": "Tom A. Ortolf",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-12",
+      "independent": true
+    },
+    {
+      "name": "William P. Wall",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Kathleen Q. Abernathy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Lisa W. Hershman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Stephen J. Bye",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "William D. Wade",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Executive Compensation Committee",
+      "members": [
+        "Kathleen Q. Abernathy",
+        "George R. Brokaw",
+        "R. Stanton Dodge",
+        "Lisa W. Hershman"
+      ],
+      "chair": "Kathleen Q. Abernathy",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "George R. Brokaw",
+        "Lisa W. Hershman",
+        "Tom A. Ortolf",
+        "William D. Wade"
+      ],
+      "chair": "George R. Brokaw",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Kathleen Q. Abernathy",
+        "R. Stanton Dodge",
+        "Tom A. Ortolf",
+        "William D. Wade"
+      ],
+      "chair": "R. Stanton Dodge",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Charles W. Ergen",
+      "age": 73,
+      "positions": [
+        "Chairman, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Hamid Akhavan",
+      "age": 64,
+      "positions": [
+        "Chief Executive Officer, EchoStar Capital"
+      ]
+    },
+    {
+      "name": "Paul Gaske",
+      "age": 72,
+      "positions": [
+        "Chief Operating Officer, Hughes"
+      ]
+    },
+    {
+      "name": "Dean A. Manson",
+      "age": 59,
+      "positions": [
+        "Chief Legal Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Paul W. Orban",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "John W. Swieringa",
+      "age": 48,
+      "positions": [
+        "President, Technology and Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": null,
+    "note": "La data della Record Date non è indicata nel testo fornito. * = meno dell'1%. Il pct_of_votes misura il potere di voto complessivo, calcolato con le Class B (10 voti per azione) non convertite. Ogni classe ha il proprio pct; per la Class A il calcolo presuppone la conversione delle sole Class B del singolo detentore.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Charles W. Ergen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 148681347,
+            "pct": 50.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 131348468,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": 90.3,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "Cantey M. Ergen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 147197377,
+            "pct": 50.6
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 131348468,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": 90.3,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 10669170,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-08-07",
+        "address": "One Congress Street, Suite 1, Boston, Massachusetts 02114"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 10564121,
+            "pct": 6.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-07-28",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "Vanguard Capital Management LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 9852274,
+            "pct": 6.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-29",
+        "address": "100 Vanguard Blvd, Malvern, Pennsylvania 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Charles W. Ergen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 148681347,
+            "pct": 50.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 131348468,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": 90.3
+      },
+      {
+        "name": "Cantey M. Ergen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 147197377,
+            "pct": 50.6
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 131348468,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": 90.3
+      },
+      {
+        "name": "James DeFranco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4752363,
+            "pct": 3.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hamid Akhavan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 807935,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tom A. Ortolf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 62920,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "R. Stanton Dodge",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 56792,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John W. Swieringa",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 55380,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul W. Orban",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 53108,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa W. Hershman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 37572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William D. Wade",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 30767,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George R. Brokaw",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 28016,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Gaske",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 25971,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen J. Bye",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 15653,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dean A. Manson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 11282,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen Q. Abernathy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7020,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Rupczynski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 154636321,
+          "pct": 54.6
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 131348468,
+          "pct": 100.0
+        }
+      ],
+      "pct_of_votes": 90.7
+    }
+  },
+  "warnings": [
+    "Ticker 'SATS' ricavato dal prefisso dell'URL del documento; il testo fornito non lo riporta esplicitamente.",
+    "La data dell'assemblea (meeting) non è indicata nel testo fornito.",
+    "La data della Record Date non è indicata nel testo fornito: ownership_as_of è null.",
+    "Sezione executives ASSENTE nel documento: executive_officers lasciato vuoto come da regola. Dalla tabella di proprietà risultano come dirigenti o ex dirigenti Hamid Akhavan, John W. Swieringa, Paul W. Orban, Paul Gaske e Dean A. Manson, ma senza età e cariche ufficiali.",
+    "Hamid Akhavan ha lasciato il Consiglio e la Società con effetto dal 6 luglio 2026: escluso da board_of_directors. Resta nel blocco named_executive_officers_and_directors come ex CEO.",
+    "Non ricandidati all'assemblea (restano in carica fino alla scadenza del mandato, quindi inclusi in board_of_directors): Stephen J. Bye, William D. Wade, Kathleen Q. Abernathy e Lisa W. Hershman. Wade non va confuso con William P. Wall, nominato nuovo direttore.",
+    "Data di prima nomina a direttore non indicata nel testo per Stephen J. Bye, William D. Wade, Kathleen Q. Abernathy e Lisa W. Hershman: director_since è null.",
+    "Indipendenza di Stephen J. Bye non dichiarata esplicitamente nel testo: impostata a true per analogia con la dichiarazione generale di indipendenza del Consiglio; da verificare.",
+    "Katherine E. Flynn e William P. Wall sono indicati come nominati a settembre 2026 per entrare nel Consiglio: vanno inclusi come consiglio attuale per la presenza nella tabella dei nominee, ma l'elezione non è ancora avvenuta alla data del documento.",
+    "Il Consiglio è indicato come composto da otto direttori dall'assemblea; nel testo compaiono dodici nomi di direttori tra nominee e non ricandidati.",
+    "Katherine E. Flynn è figlia di Charles W. Ergen e Cantey M. Ergen; indicata come non indipendente. Cantey M. Ergen è coniuge di Charles W. Ergen e Senior Advisor: non indipendente.",
+    "Charles W. Ergen e Cantey M. Ergen compaiono sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors, in quanto direttori con oltre il 5% della Class A.",
+    "Le righe di aggregazione 'All Directors and Executive Officers as a Group' non sono state inserite nel blocco dei >5%: sono nel blocco di gruppo.",
+    "Riga di gruppo dichiara 'persons: 13', ma il blocco named_executive_officers_and_directors contiene 16 persone; la differenza è coerente con gli uscenti (Akhavan, Gaske, Manson, Bye, Wade, Abernathy, Hershman) e con Rupczynski, ma il numero non torna. Entrambi i valori sono riportati.",
+    "Robert Rupczynski ha un trattino ('-') per le azioni: interpretato come 0 azioni; pct null.",
+    "Il Compensation Committee nel testo è indicato come 'Executive Compensation Committee' (abbreviato in 'Compensation Committee'): usato il nome completo. Riunioni 2025: 6 riunioni più 2 consensi unanimi scritti; meetings riporta solo le 6 riunioni.",
+    "Pay ratio e pay versus performance non rilevanti per l'output di questo schema; non estratti.",
+    "Potere di voto di Charles W. Ergen: pct_of_votes 90.3 come dichiarato in tabella; la nota 5 riporta un potere di voto effettivo di circa 89.3% per effetto dell'Amended Support Agreement; il dato riportato è quello della tabella principale.",
+    "executive_officers presi dal Form 10-K del 2026-03-02: il DEF 14A non li elenca.",
+    "10-K: La finestra della Parte I contiene l'elenco completo degli executive officer; l'Item 10 rimanda al proxy e alla sezione «Information About Our Executive Officers», quindi l'elenco è stato estratto dalla Parte I.",
+    "10-K: Il documento non indica una data di riferimento per le età. La data «February 26, 2026» si riferisce alla nomina di Paul W. Orban a Executive Vice President and Chief Financial Officer, non all'elenco nel suo insieme; quindi as_of è null.",
+    "10-K: Charles W. Ergen è indicato come Chairman, President and Chief Executive Officer dal novembre 2025; la carica di Chairman è stata mantenuta come scritto nella tabella."
+  ]
+}

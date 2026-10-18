@@ -1,0 +1,342 @@
+{
+  "company": "News Corporation",
+  "ticker": "NWS",
+  "cik": "0001564708",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-23",
+    "accession": "0001104659-26-109969",
+    "meeting": null,
+    "ownership_as_of": "2026-08-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1564708/000110465926109969/tm2624691-1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Lachlan K. Murdoch",
+      "roles": [
+        "Chair"
+      ],
+      "director_since": "2013-06",
+      "independent": false
+    },
+    {
+      "name": "Robert J. Thomson",
+      "roles": [
+        "Chief Executive"
+      ],
+      "director_since": "2013-06",
+      "independent": false
+    },
+    {
+      "name": "José María Aznar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013-06",
+      "independent": true
+    },
+    {
+      "name": "Natalie Bancroft",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013-06",
+      "independent": true
+    },
+    {
+      "name": "Ana Paula Pessoa",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013-06",
+      "independent": true
+    },
+    {
+      "name": "Masroor Siddiqui",
+      "roles": [
+        "Lead Director"
+      ],
+      "director_since": "2013-06",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Masroor Siddiqui",
+        "José María Aznar",
+        "Ana Paula Pessoa"
+      ],
+      "chair": "Masroor Siddiqui",
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Masroor Siddiqui",
+        "Natalie Bancroft"
+      ],
+      "chair": "Masroor Siddiqui",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "José María Aznar",
+        "Natalie Bancroft",
+        "Ana Paula Pessoa"
+      ],
+      "chair": "José María Aznar",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Robert J. Thomson",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Lavanya Chandrashekar",
+      "age": 54,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "David B. Pitofsky",
+      "age": 61,
+      "positions": [
+        "General Counsel"
+      ]
+    },
+    {
+      "name": "Julian Delany",
+      "age": 54,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Ruth Allen",
+      "age": 48,
+      "positions": [
+        "Chief Human Resources Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-28",
+    "note": "Dati al 28 agosto 2026 salvo diversa indicazione. * = meno dell'1% della classe; — = zero. Percentuali calcolate su 360.797.624 azioni Class A e 180.031.532 azioni Class B in circolazione alla stessa data, più le opzioni esercitabili entro 60 giorni per il singolo detentore o gruppo. Il documento non riporta la percentuale sui voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Independent Franchise Partners",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 32074535,
+            "pct": 8.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 9423928,
+            "pct": 5.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A depositato il 13 agosto 2026 (Class A, dati al 30 giugno 2026); Schedule 13G/A depositato il 13 agosto 2025 (Class B, dati al 30 giugno 2025)",
+        "address": "Level 1, 10 Portman Square, London W1H 6AZ, United Kingdom"
+      },
+      {
+        "name": "LGC Holdco, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 14250,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 62584577,
+            "pct": 34.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 4 e Schedule 13D depositati il 12 settembre 2025 (dati al 10 settembre 2025)",
+        "address": "c/o Maupin, Cox & Legoy, 4785 Caughlin Parkway, Reno, Nevada 89519"
+      },
+      {
+        "name": "SOF Ltd",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 9781882,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G depositato il 14 febbraio 2023 (dati al 31 dicembre 2022)",
+        "address": "P.O. Box 309, Ugland House, George Town, E9 KY1-1104, Cayman Islands"
+      },
+      {
+        "name": "Lachlan K. Murdoch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 14364,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 62586041,
+            "pct": 34.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o News Corporation, 1211 Avenue of the Americas, New York, New York 10036"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Lachlan K. Murdoch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 14364,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 62586041,
+            "pct": 34.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert J. Thomson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 2000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ruth Allen",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "José María Aznar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1087,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Natalie Bancroft",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 2125,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lavanya Chandrashekar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julian Delany",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ana Paula Pessoa",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David B. Pitofsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 83291,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Masroor Siddiqui",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 98742,
+          "pct": null
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 62590166,
+          "pct": 34.8
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Board: il documento dichiara sei candidati alla rielezione e nel testo ci sono sei profili; tutti sono inclusi. Nessun direttore risulta in uscita o già dimesso nella finestra fornita.",
+    "Comitati: l'appartenenza è letta dalla sezione committees in forma di elenco; il numero di riunioni è riferito all'esercizio fiscale 2026 per ciascun comitato, senza somme tra organi diversi.",
+    "Meeting: la data dell'assemblea non compare nelle finestre fornite, quindi il campo meeting è null.",
+    "Lachlan K. Murdoch compare sia tra i direttori/NEO sia in greater_than_5pct_stockholders, perché detiene circa il 34,8% della Class B tramite LGC Holdco; il campo source del blocco >5% è null perché il documento non indica un deposito proprio per la sua riga (le informazioni provengono dalle note e e g di LGC Holdco).",
+    "Lavanya Chandrashekar: la riga mostra trattini per le azioni di entrambe le classi ma un asterisco nella colonna percentuale della Class A; è stata riportata una voce Class A con 0 azioni e pct null. Verificare nel documento originale.",
+    "LGC Holdco, LLC: 30.404.378 azioni Class B risultano impegnate in pegno a garanzia di prestiti alla data del 28 agosto 2026; il dato non ha un campo dedicato e non è incluso nei valori.",
+    "SOF Ltd: la partecipazione in Class B è riferita al 31 dicembre 2022 (Schedule 13G del 14 febbraio 2023), quindi il dato è potenzialmente datato rispetto alla data del documento; la riga Class A con trattino è stata omessa.",
+    "Independent Franchise Partners: il dato Class A è al 30 giugno 2026 (Schedule 13G/A del 13 agosto 2026), mentre quello Class B è al 30 giugno 2025 (Schedule 13G/A del 13 agosto 2025); le due date differiscono.",
+    "Blocchi di aggregazione: nella tabella non sono presenti righe di subtotale, patti di voto o trust da escludere dal blocco dei >5%.",
+    "Gruppo: il numero di persone dichiarato (10) coincide con le 10 righe della tabella named_executive_officers_and_directors."
+  ]
+}

@@ -1,0 +1,429 @@
+{
+  "company": "USA Rare Earth, Inc.",
+  "ticker": "USAR",
+  "cik": "0001970622",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-23",
+    "accession": "0001213900-26-047155",
+    "meeting": null,
+    "ownership_as_of": "2026-04-08",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026047155/ea0287130-01.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Michael Blitzer",
+      "roles": [
+        "Chairman of the Board"
+      ],
+      "director_since": "2023-03",
+      "independent": true
+    },
+    {
+      "name": "Thomas Caulfield",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-03",
+      "independent": true
+    },
+    {
+      "name": "Barbara Humpton",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Otto C. Schwethelm",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "Michael Senft",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "Carolyn Trabuco",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "Mordechai Gutnick",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Paul Kern",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Otto C. Schwethelm",
+        "Michael Senft",
+        "Carolyn Trabuco"
+      ],
+      "chair": "Otto C. Schwethelm",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Carolyn Trabuco",
+        "Thomas Caulfield",
+        "Paul Kern",
+        "Otto C. Schwethelm"
+      ],
+      "chair": "Carolyn Trabuco",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Michael Senft",
+        "Michael Blitzer",
+        "Thomas Caulfield",
+        "Mordechai Gutnick",
+        "Paul Kern"
+      ],
+      "chair": "Michael Senft",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Barbara Humpton",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "William Robert Steele Jr.",
+      "age": 60,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Valerie Ford Jacob",
+      "age": 73,
+      "positions": [
+        "Chief Legal Officer",
+        "Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-08",
+    "note": "Percentuali calcolate su 217.985.608 azioni Common e 1.224.351 azioni Series A (2.379.796 azioni Common su base as-converted) alla data di riferimento dell'8 aprile 2026. Il voto totale è calcolato con Common e Series A come un'unica classe; '*' = meno dell'1%, '—' = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Alyeska Master Fund, L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12933246,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": 5.9,
+        "source": null,
+        "address": "c/o Maples Corporate Services Limited, P.O. Box 309, Ugland House, South Church Street George Town, Grand Cayman, KY1-1104, Cayman Islands"
+      },
+      {
+        "name": "Inflection Point Fund I, LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1229463,
+            "pct": null
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 343137,
+            "pct": 28.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "1680 Michigan Ave, Suite 700 #1016, Miami Beach, FL 33139"
+      },
+      {
+        "name": "Bowon M&P Co., Ltd.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2139816,
+            "pct": 1.0
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 367000,
+            "pct": 30.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "Nabul-Li 133, Samho-Eup, Youngam-Gun, Jeonnam, South Korea"
+      },
+      {
+        "name": "Alto Opportunity Master Fund, SPC – Segregated Master Portfolio B",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 400920,
+            "pct": null
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 103196,
+            "pct": 8.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Ayrton Capital, 55 Post Road West, 2nd Floor, Westport, Connecticut 06880"
+      },
+      {
+        "name": "Michael Blitzer 2012 Revocable Living Trust",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1646404,
+            "pct": null
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 411018,
+            "pct": 33.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "100 W Airport Road, Stillwater, Oklahoma 74075, c/o USARE"
+      },
+      {
+        "name": "Michael Blitzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4801887,
+            "pct": 2.2
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 411018,
+            "pct": 33.6
+          }
+        ],
+        "pct_of_votes": 2.2,
+        "source": null,
+        "address": "100 W Airport Road, Stillwater, Oklahoma 74075, c/o USARE"
+      },
+      {
+        "name": "Mordechai Gutnick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14641127,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": 6.7,
+        "source": null,
+        "address": "100 W Airport Road, Stillwater, Oklahoma 74075, c/o USARE"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Michael Blitzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4801887,
+            "pct": 2.2
+          },
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 411018,
+            "pct": 33.6
+          }
+        ],
+        "pct_of_votes": 2.2
+      },
+      {
+        "name": "Barbara Humpton",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Thomas Caulfield",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55048,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mordechai Gutnick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14641127,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": 6.7
+      },
+      {
+        "name": "Paul Kern",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 209518,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Kronenfeld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 130113,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Otto C. Schwethelm",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30483,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Michael Senft",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30483,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Carolyn Trabuco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31783,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "William Robert Steele Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 75827,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 0
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 20006269,
+          "pct": 9.1
+        },
+        {
+          "class": "Series A Preferred Stock",
+          "shares": 411018,
+          "pct": 33.6
+        }
+      ],
+      "pct_of_votes": 8.9
+    }
+  },
+  "warnings": [
+    "Il ticker USAR deriva dall'intestazione AZIENDA fornita in input, non dal testo del documento.",
+    "La sezione committees è assente: l'appartenenza ai comitati è stata letta dalla tabella 'Board Committees and Meetings' nella finestra board.",
+    "Barbara Humpton: data di prima nomina a direttore non indicata nel documento (director_since null). Non è classificata come indipendente perché è CEO e non compare nella determinazione di indipendenza del consiglio.",
+    "Mordechai Gutnick e Paul Kern non si ripresentano all'assemblea annuale (non ricandidati), ma restano in carica alla data del documento: sono inclusi fra i direttori attuali. Data di prima nomina non indicata (null).",
+    "Michael Blitzer: il documento indica che è Chairman del consiglio dal marzo 2023, quando la società si chiamava Inflection Point Acquisition Corp. II (SPAC); director_since è stato riportato come 2023-03 su questa base.",
+    "Otto C. Schwethelm, Michael Senft e Carolyn Trabuco: director_since ricavato dalla dicitura 'since the Merger' (fusione chiusa a marzo 2025); la data è dedotta, non dichiarata con precisione.",
+    "David Kronenfeld compare come direttore/NEO nella tabella della proprietà azionaria, ma non compare né fra i direttori né fra i dirigenti: incluso solo nel blocco named_executive_officers_and_directors.",
+    "Valerie Ford Jacob (CLO) non compare nella tabella della proprietà azionaria. La riga di gruppo dichiara 11 persone, mentre le righe nominative sono 10: il dato è incoerente (possibile riferimento a Jacob come undicesimo soggetto, non confermato dal documento).",
+    "Michael Blitzer compare sia nel blocco dei direttori/NEO sia in greater_than_5pct_stockholders (oltre il 5% della classe Series A Preferred). Le sue azioni risultano anche nella riga del trust, con rischio di doppio conteggio nella lettura complessiva.",
+    "Michael Blitzer 2012 Revocable Living Trust: trust revocabile intestato a una persona fisica; il tipo di detentore è ambiguo. Scelto 'entity' per il termine 'Trust' nel nome; indirizzo tratto dalla nota (1) che indica la sede di default della società per i soggetti non diversamente indicati.",
+    "Sponsor (3.125.000 azioni Common) citato nella nota (2) di Blitzer: non compare come detentore separato; le azioni sono incluse solo nella riga di Blitzer.",
+    "Mordechai Gutnick: nella nota (4) le 14.610.644 azioni sono detenute di record da The Critical Minerals Trust, di cui è trustee e unico beneficiario effettivo; sono attribuite a Gutnick come persona fisica. Compare sia nel blocco dei direttori sia in greater_than_5pct_stockholders (6,7% della classe Common).",
+    "Bowon M&P Co., Ltd.: la società ha comunicato che il beneficiario effettivo è Mr. Kwangshik Ma; il dato è riportato come nota, la riga resta intestata a Bowon (entity).",
+    "Alto Opportunity Master Fund, SPC – Segregated Master Portfolio B e Inflection Point Fund I, LP: classificati 'entity' per la forma di fondo/partnership.",
+    "Michael Blitzer è incluso nel blocco dei >5% anche per la quota di Series A Preferred (33,6%), pur avendo solo il 2,2% della classe Common.",
+    "David Kronenfeld: la colonna Total Voting % riporta '—' e il valore è stato impostato a 0 come da regola.",
+    "Riga di gruppo: nessuna riga di aggregazione o subtotale è stata trovata fra i detentori oltre il 5%; nessun detentore è stato escluso.",
+    "Meeting: il documento non riporta una data o un tipo di assemblea nei testi forniti; campo impostato a null.",
+    "Comitati: il numero di riunioni del consiglio (12 nel 2025) non è incluso fra i comitati, perché non è un comitato; per ciascun comitato il numero di riunioni è quello dichiarato separatamente."
+  ]
+}

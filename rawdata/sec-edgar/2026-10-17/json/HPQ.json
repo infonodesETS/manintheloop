@@ -1,0 +1,512 @@
+{
+  "company": "HP Inc.",
+  "ticker": "HPQ",
+  "cik": "0000047217",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-02-25",
+    "accession": "0000047217-26-000015",
+    "meeting": null,
+    "ownership_as_of": "2025-12-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000004721726000015/hpq-20260225.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-10",
+      "accession": "0000047217-25-000071",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000004721725000071/hpq-20251031.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Chip Bergh",
+      "roles": [
+        "Independent Chair of the Board"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Bruce Broussard",
+      "roles": [
+        "Director",
+        "Interim Chief Executive Officer"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Stacy Brown-Philpot",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Stephanie A. Burns",
+      "roles": [
+        "Director",
+        "HR and Compensation Committee Chair"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Mary Anne Citrino",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Richard L. Clemmer",
+      "roles": [
+        "Director",
+        "Finance, Investment and Technology Committee Chair"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Fama Francisco",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "David Meline",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Judith Miscik",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Gianluca Pettiti",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Kim K.W. Rucker",
+      "roles": [
+        "Director",
+        "Nominating, Governance and Social Responsibility Committee Chair"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Songyee Yoon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "David Meline",
+        "Stacy Brown-Philpot",
+        "Mary Anne Citrino",
+        "Richard L. Clemmer",
+        "Judith Miscik",
+        "Kim K.W. Rucker",
+        "Songyee Yoon"
+      ],
+      "chair": "David Meline",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance, Investment and Technology Committee",
+      "members": [
+        "Richard L. Clemmer",
+        "Stephanie A. Burns",
+        "Mary Anne Citrino",
+        "David Meline",
+        "Gianluca Pettiti",
+        "Songyee Yoon"
+      ],
+      "chair": "Richard L. Clemmer",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "HR and Compensation Committee",
+      "members": [
+        "Stephanie A. Burns",
+        "Chip Bergh",
+        "Fama Francisco",
+        "Gianluca Pettiti"
+      ],
+      "chair": "Stephanie A. Burns",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating, Governance and Social Responsibility Committee",
+      "members": [
+        "Kim K.W. Rucker",
+        "Chip Bergh",
+        "Stacy Brown-Philpot",
+        "Fama Francisco",
+        "Judith Miscik"
+      ],
+      "chair": "Kim K.W. Rucker",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Manpreet S. Grewal",
+      "age": 46,
+      "positions": [
+        "Chief Accounting Officer and Global Controller"
+      ]
+    },
+    {
+      "name": "Julie Jacobs",
+      "age": 59,
+      "positions": [
+        "Chief Legal Officer and General Counsel"
+      ]
+    },
+    {
+      "name": "Enrique Lores",
+      "age": 60,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "David McQuarrie",
+      "age": 50,
+      "positions": [
+        "Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Anneliese Olson",
+      "age": 54,
+      "positions": [
+        "President, Imaging, Printing & Solutions"
+      ]
+    },
+    {
+      "name": "Karen L. Parkhill",
+      "age": 60,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Ketan Patel",
+      "age": 51,
+      "positions": [
+        "President, Personal Systems"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-31",
+    "note": "Percentuali calcolate sulle azioni in circolazione al 31 dicembre 2025 (o alla data indicata). * indica meno dell'1%. La titolarità include azioni acquisibili entro il 1° marzo 2026 tramite opzioni o RSU regolate in azioni. Il documento non dichiara una misura di pct_of_votes.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 130020271,
+            "pct": 14.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-12",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87477843,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-23",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51804957,
+            "pct": 5.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-10-16",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Chip Bergh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 182238,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce Broussard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54825,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stacy Brown-Philpot",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 119572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephanie A. Burns",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 125351,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Anne Citrino",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 254009,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard L. Clemmer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82494,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fama Francisco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13880,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Meline",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10690,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Judith Miscik",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37918,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gianluca Pettiti",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9708,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kim K.W. Rucker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37119,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Songyee Yoon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 426,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Cho",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 318543,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie Jacobs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 348238,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Enrique J. Lores",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1773577,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David McQuarrie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 266612,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen Parkhill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 102134,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1679955,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers lasciato vuoto; non ricostruito da cariche citate nelle biografie.",
+    "Yasmin Alvarez e Robert R. Bennett (Aida Alvarez e Robert R. Bennett nel documento) hanno lasciato il consiglio il 14 aprile 2025: esclusi da board_of_directors e non inclusi nei comitati.",
+    "Enrique Lores (Enrique J. Lores) non compare fra i nominee: ex President e CEO, non più in consiglio alla data del documento; la data esatta di uscita non è nella finestra fornita.",
+    "Bruce Broussard non è indipendente perché Interim CEO dal febbraio 2026; è incluso fra i direttori in carica ma non risulta membro di alcun comitato attuale. Il documento indica che nell'esercizio 2025 ha fatto parte dell'HR and Compensation Committee durante il suo mandato di direttore non esecutivo.",
+    "Discrepanza: il documento dice che cinque dei tredici direttori in carica sono candidati alla rielezione, ma l'elenco dei nominee ne riporta dodici.",
+    "Il soprannome 'Jami' di Judith Miscik è stato rimosso dal nome.",
+    "Le riunioni dei comitati sono riportate per singolo comitato; le cinque riunioni del consiglio non sono attribuite a nessun comitato.",
+    "Il riquadro di gruppo dichiara 18 persone, ma le righe nominative elencate sono 17: il dato è coerente con il numero dichiarato solo se una persona non compare nel dettaglio.",
+    "Le partecipazioni dei tre grandi azionisti sono tratte da 13G/13G-A con date di riferimento precedenti (30 settembre 2024 o 31 marzo 2025) e potrebbero non riflettere le posizioni attuali.",
+    "La data dell'assemblea 2026 non è indicata nella finestra fornita: meeting è null.",
+    "Enrique J. Lores detiene 888.908 azioni tramite un'accomandita da lui controllata: il dato è incluso nella sua riga come indicato dal documento.",
+    "executive_officers presi dal Form 10-K del 2025-12-10: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data esplicita per l'elenco dei dirigenti: la Parte I dice solo \"as of the date hereof\" e \"current executive officers\". Il campo as_of è quindi null.",
+    "10-K: L'Item 10 della Parte III rimanda interamente alla Parte I per nomi, età e cariche, quindi l'elenco proviene solo dalla Parte I; non ci sono altre fonti da confrontare.",
+    "10-K: Il nome del dirigente Ketan Patel e la sua carica risultano dalla Parte I; la carica è riportata come scritta nel documento (\"President, Personal Systems\")."
+  ]
+}

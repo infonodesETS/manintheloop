@@ -1,0 +1,416 @@
+{
+  "company": "Curtiss-Wright Corporation",
+  "ticker": "CW",
+  "cik": "0000026324",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-26",
+    "accession": "0000930413-26-000878",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-02-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/26324/000093041326000878/c115536_def14a-ixbrl.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "accession": "0001628280-26-007587",
+      "url": "https://www.sec.gov/Archives/edgar/data/26324/000162828026007587/cw-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Lynn M. Bamford",
+      "roles": [
+        "Chair of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Dean M. Flatt",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Bruce D. Hoechner",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Glenda J. Minor",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Anthony J. Moraco",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "William F. Moran",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Robert J. Rivet",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Peter C. Wallace",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Larry D. Wyche",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Dean M. Flatt",
+        "Glenda J. Minor",
+        "Robert J. Rivet",
+        "Larry D. Wyche"
+      ],
+      "chair": "Robert J. Rivet",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Compensation Committee",
+      "members": [
+        "Dean M. Flatt",
+        "Anthony J. Moraco",
+        "William F. Moran",
+        "Robert J. Rivet"
+      ],
+      "chair": "Dean M. Flatt",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Committee on Directors and Governance",
+      "members": [
+        "Bruce D. Hoechner",
+        "Glenda J. Minor",
+        "Peter C. Wallace",
+        "Larry D. Wyche"
+      ],
+      "chair": "Peter C. Wallace",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Bruce D. Hoechner",
+        "Anthony J. Moraco",
+        "William F. Moran",
+        "Peter C. Wallace"
+      ],
+      "chair": "Bruce D. Hoechner",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lynn M. Bamford",
+      "age": 62,
+      "positions": [
+        "Chair and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "K. Christopher Farkas",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Robert F. Freda",
+      "age": 58,
+      "positions": [
+        "Senior Vice President and Treasurer"
+      ]
+    },
+    {
+      "name": "George P. McDonald",
+      "age": 61,
+      "positions": [
+        "Executive Vice President, General Counsel, and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Gary A. Ogilby",
+      "age": 44,
+      "positions": [
+        "Senior Vice President and Corporate Controller"
+      ]
+    },
+    {
+      "name": "Kevin M. Rayment",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "John C. Watts",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Growth Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-20",
+    "note": "Percentuali calcolate su 36.912.284 azioni in circolazione al 20/02/2026. * = meno dell'1%. Le azioni includono quote di restricted stock soggette a forfeiture, come indicato nelle note; le azioni differite dei direttori non sono incluse.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4148326,
+            "pct": 11.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F-HR filed 2026-02-12 (dati al 31/12/2025)",
+        "address": "50 Hudson Yards, New York, New York, 10001"
+      },
+      {
+        "name": "The Vanguard Group Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3485658,
+            "pct": 9.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F-HR filed 2026-01-29 (dati al 31/12/2025)",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Lynn M. Bamford",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 65738,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "K. Christopher Farkas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15157,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dean M. Flatt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12647,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce D. Hoechner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4523,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George P. McDonald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5169,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Glenda J. Minor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anthony J. Moraco",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5446,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William F. Moran",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 214,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin M. Rayment",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35676,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert J. Rivet",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13605,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter C. Wallace",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5988,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John C. Watts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5114,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Larry D. Wyche",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1514,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 189994,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Dean M. Flatt è incluso nel consiglio attuale perché è ancora in carica alla data del documento, ma si ritira: il suo mandato scade prima dell'assemblea annuale e non è tra i nominee. La data di inizio mandato non è indicata nel documento, quindi director_since è null.",
+    "Dean M. Flatt: l'indipendenza è dedotta dal dato «Independent Directors: 8 of 9» e dal fatto che Bamford è l'unico non indipendente; il documento non lo nomina esplicitamente tra i direttori indipendenti.",
+    "Jeffrey J. Lyash è un nominee ma non è attualmente direttore e non è incluso nel consiglio attuale. Non compare nemmeno nella tabella di proprietà azionaria, pur essendo nominee.",
+    "Matrice dei comitati: la tabella è appiattita nel testo. L'appartenenza di Dean M. Flatt al Executive Compensation Committee (come presidente) e all'Audit Committee è stata ricavata dalla combinazione tra la tabella, i marcatori (1) di presidenza e la composizione di quattro membri dichiarata per ciascun comitato; le celle non sono perfettamente allineate nel testo estratto.",
+    "Il documento non indica le riunioni di ciascun comitato per il 2026; i valori meetings sono quelli del 2025. Le riunioni totali dei comitati (17) non sono state usate per i singoli comitati.",
+    "Sezione executives assente nel DEF 14A: executive_officers è vuoto. Le cariche dei dirigenti non sono state ricostruite dalle biografie dei direttori.",
+    "Sezione committees assente come finestra dedicata: l'appartenenza ai comitati è stata letta dalla sezione board (prosa e tabella Board Committees).",
+    "Riga di gruppo: il documento dichiara «15 persons», mentre le righe nominative elencate sono 13 (9 direttori attuali più Farkas, McDonald, Rayment e Watts). La discrepanza di 2 persone non è spiegata nel documento; le righe nominative sono state mantenute tutte.",
+    "Percentuali: per gli azionisti principali il valore è riportato come numero (11.2 e 9.4); per le righe con «*» (meno dell'1%) pct è null, come da regole.",
+    "Source e address di BlackRock e Vanguard derivano dai riferimenti Form 13F-HR presenti nelle note della tabella; il documento non cita Schedule 13G per questi soggetti.",
+    "Holder_type: BlackRock, Inc. e The Vanguard Group Inc. sono entity per suffisso/indirizzo societario; tutte le persone fisiche sono person, inclusi i NEO non direttori.",
+    "executive_officers presi dal Form 10-K del 2026-02-12: il DEF 14A non li elenca.",
+    "10-K: La finestra non indica una data di riferimento per l'elenco né per le età; il documento riporta solo 'since January 2026' nelle cariche, quindi `as_of` è null.",
+    "10-K: La colonna 'Executive Officer Since' non è prevista dallo schema e non è stata estratta; i dati di anno di nomina sono omessi.",
+    "10-K: La finestra di testo termina subito dopo l'elenco e non contiene l'Item 10; l'elenco è stato estratto solo da questa finestra e potrebbe non essere completo se la sezione continua oltre la riga 257."
+  ]
+}

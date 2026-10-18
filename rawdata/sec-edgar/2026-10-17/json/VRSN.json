@@ -1,0 +1,374 @@
+{
+  "company": "VeriSign, Inc.",
+  "ticker": "VRSN",
+  "cik": "0001014473",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-10",
+    "accession": "0001014473-26-000013",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-04-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000013/vrsn-20260409.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-05",
+      "accession": "0001014473-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/1014473/000101447326000006/vrsn-20251231.htm",
+      "as_of": "2026-02-05"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "D. James Bidzos",
+      "roles": [
+        "Chairman of the Board",
+        "Executive Chairman",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "1995-04",
+      "independent": false
+    },
+    {
+      "name": "Courtney D. Armstrong",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2021-06",
+      "independent": true
+    },
+    {
+      "name": "Yehuda Ari Buchalter",
+      "roles": [
+        "Director",
+        "Cybersecurity Committee Chair"
+      ],
+      "director_since": "2019-07",
+      "independent": true
+    },
+    {
+      "name": "Kathleen A. Cote",
+      "roles": [
+        "Director",
+        "Lead Independent Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2008-02",
+      "independent": true
+    },
+    {
+      "name": "Matthew J. Desch",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    },
+    {
+      "name": "Jamie S. Gorelick",
+      "roles": [
+        "Director",
+        "Corporate Governance and Nominating Committee Chair"
+      ],
+      "director_since": "2015-01",
+      "independent": true
+    },
+    {
+      "name": "Debra W. McCann",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kathleen A. Cote",
+        "Courtney D. Armstrong",
+        "Debra W. McCann"
+      ],
+      "chair": "Kathleen A. Cote",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Courtney D. Armstrong",
+        "Jamie S. Gorelick",
+        "Debra W. McCann"
+      ],
+      "chair": "Courtney D. Armstrong",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Jamie S. Gorelick",
+        "Yehuda Ari Buchalter",
+        "Kathleen A. Cote",
+        "Matthew J. Desch"
+      ],
+      "chair": "Jamie S. Gorelick",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [
+        "Yehuda Ari Buchalter",
+        "D. James Bidzos",
+        "Matthew J. Desch"
+      ],
+      "chair": "Yehuda Ari Buchalter",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "D. James Bidzos",
+      "age": 70,
+      "positions": [
+        "Executive Chairman",
+        "President",
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "John D. Calys",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Danny R. McPherson",
+      "age": 51,
+      "positions": [
+        "Executive Vice President, Technology and Chief Security Officer"
+      ]
+    },
+    {
+      "name": "Thomas C. Indelicarto",
+      "age": 62,
+      "positions": [
+        "Executive Vice President, General Counsel and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-01",
+    "note": "Percentuali calcolate su 91.115.706 azioni ordinarie in circolazione al 1° aprile 2026, ai sensi della Rule 13d-3(d)(1)(i); includono le RSU che maturano entro 60 giorni dal 1° aprile 2026 per il detentore delle stesse. * = meno dell'1%; — = zero. Il documento non indica una percentuale di voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Warren E. Buffett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8989880,
+            "pct": 9.87
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-11-14",
+        "address": "3555 Farnam Street, Omaha, NE 68131"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7246599,
+            "pct": 7.95
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Ninety One UK Ltd.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5234855,
+            "pct": 5.75
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-02-13 (con Ninety One Plc)",
+        "address": "55 Gresham Street, London, UK EC2V 7EL"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "D. James Bidzos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 389602,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Courtney D. Armstrong",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6086,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yehuda Ari Buchalter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4614,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen A. Cote",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28225,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew J. Desch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 728,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jamie S. Gorelick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22254,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Debra W. McCann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1880,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John D. Calys",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19479,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George E. Kilguss III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Danny R. McPherson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17350,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas C. Indelicarto",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19177,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 509395,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "executive_officers: la sezione executives è assente nel documento (probabilmente nel 10-K); lista lasciata vuota. D. James Bidzos, come CEO, sarebbe un executive officer, ma il roster non è disponibile.",
+    "committees: Bidzos è membro del Cybersecurity Committee ma non è indipendente (il documento lo dichiara esplicitamente). Il controllo di coerenza 'comitati ⊆ indipendenti' non è soddisfatto: il membro è mantenuto perché riportato dal documento.",
+    "board_of_directors: il consiglio attuale conta sette direttori, tutti candidati alla rielezione; nessuno risulta in uscita all'assemblea.",
+    "board_of_directors: Roger H. Moore ha lasciato il consiglio alla data dell'Annual Meeting 2025 (non incluso). Thomas F. Frist III si è dimesso il 10 giugno 2025 (non incluso). Timothy Tomlinson si è dimesso il 21 novembre 2025 (non incluso).",
+    "board_of_directors: Matthew J. Desch è stato nominato nel consiglio a ottobre 2025 e non è stato eletto dagli azionisti in assemblea precedente (indicato come raccomandato da società di ricerca).",
+    "security_ownership: Warren E. Buffett è il nome della riga, ma la riga rimanda a un Schedule 13G/A e riporta l'indirizzo di Berkshire Hathaway. Classificato come 'person' per il nome proprio; caso ambiguo, il detentore potrebbe essere considerato 'entity'. Le quote in nota (National Indemnity, GEICO, BNSF Master Retirement Trust, Scott Fetzer Collective Investment Trust, Precision Castparts Master Fund) sono componenti della stessa riga e non sono state elencate separatamente.",
+    "security_ownership: la dichiarazione Ninety One UK Ltd. è basata su un Schedule 13G del 13 febbraio 2024 con dati al 31 dicembre 2023, quindi datata. Il valore indicato (5.234.855 azioni) è la quota con potere di disposizione condiviso di Ninety One UK Ltd.; Ninety One Plc dichiara 5.638.416 azioni nello stesso deposito.",
+    "security_ownership: nessuna riga di aggregazione, subtotale o patto di voto da escludere nella tabella dei detentori oltre il 5%.",
+    "security_ownership: George E. Kilguss III è riportato con '— —', interpretato come zero azioni e percentuale 0.",
+    "security_ownership: la riga di gruppo dichiara 11 persone; le righe named_executive_officers_and_directors sono 11, quindi i conteggi sono coerenti.",
+    "meeting: la data precisa dell'assemblea non compare nei passaggi forniti; è riportato solo il nome dell'assemblea annuale 2026.",
+    "executive_officers presi dal Form 10-K del 2026-02-05: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 rimanda alla sezione \"Information About Our Executive Officers\" nella Parte I: l'elenco è stato estratto da quella finestra, perché la finestra dell'Item 10 contiene solo rimandi.",
+    "10-K: Nella biografia di John D. Calys il nome compare con un refuso (\"Caly s\"); nel nome è stata usata la forma corretta della tabella, \"John D. Calys\"."
+  ]
+}

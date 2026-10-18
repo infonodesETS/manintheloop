@@ -1,0 +1,491 @@
+{
+  "company": "Qualcomm Incorporated",
+  "ticker": "QCOM",
+  "cik": "0000804328",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-22",
+    "accession": "0001104659-26-005781",
+    "meeting": null,
+    "ownership_as_of": "2025-12-15",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/804328/000110465926005781/tm2528704-1_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-11-05",
+      "accession": "0000804328-25-000085",
+      "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000085/qcom-20250928.htm",
+      "as_of": "2025-11-01"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Sylvia Acevedo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Cristiano R. Amon",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Mark Fields",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey W. Henderson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Jeremy Kolter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Ann M. Livermore",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Mark D. McLaughlin",
+      "roles": [
+        "Chair of the Board",
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Jamie S. Miller",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Marie Myers",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Irene B. Rosenfeld",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Jean-Pascal Tricoire",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Kornelis Smit",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Christopher D. Young",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Jeffrey W. Henderson",
+        "Mark Fields",
+        "Jamie S. Miller",
+        "Marie Myers"
+      ],
+      "chair": "Jeffrey W. Henderson",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "HR and Compensation Committee",
+      "members": [
+        "Irene B. Rosenfeld",
+        "Kornelis Smit",
+        "Jean-Pascal Tricoire",
+        "Christopher D. Young"
+      ],
+      "chair": "Irene B. Rosenfeld",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Ann M. Livermore",
+        "Sylvia Acevedo",
+        "Jeremy Kolter"
+      ],
+      "chair": "Ann M. Livermore",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Cristiano R. Amon",
+      "age": 55,
+      "positions": [
+        "President e Chief Executive Officer",
+        "Membro del Consiglio di Amministrazione"
+      ]
+    },
+    {
+      "name": "Heather Ace",
+      "age": 55,
+      "positions": [
+        "Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Baaziz Achour",
+      "age": 64,
+      "positions": [
+        "Chief Technology Officer, QTI"
+      ]
+    },
+    {
+      "name": "Ann Chaplin",
+      "age": 52,
+      "positions": [
+        "General Counsel",
+        "Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Akash Palkhiwala",
+      "age": 50,
+      "positions": [
+        "Chief Financial Officer",
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Alexander H. Rogers",
+      "age": 68,
+      "positions": [
+        "President, QTL and Global Affairs"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-15",
+    "note": "Percentuali calcolate su 1.062.916.212 azioni in circolazione al 15 dicembre 2025, adattate secondo le regole SEC. * = meno dell'1%. — = nessuna azione dichiarata. La tabella misura la titolarità di common stock; pct_of_votes non è dichiarato.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Group Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 111912584,
+            "pct": 10.53
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed June 10, 2024",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 92564761,
+            "pct": 8.71
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 25, 2024",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Cristiano R. Amon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 217483,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Akash Palkhiwala",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 54803,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alexander H. Rogers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 41988,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Baaziz Achour",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 88620,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ann Chaplin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 31124,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James H. Thompson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 333114,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sylvia Acevedo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 1959,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Fields",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 3069,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey W. Henderson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 8309,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeremy Kolter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ann M. Livermore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 34774,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark D. McLaughlin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 27530,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jamie S. Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 6018,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marie Myers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Irene B. Rosenfeld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 10065,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kornelis Smit",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean-Pascal Tricoire",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 1899,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher D. Young",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "common stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "common stock",
+          "shares": 573776,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuoto; i dirigenti vanno cercati nel 10-K.",
+    "Kornelis (Neil) Smit e Christopher D. Young non compaiono fra gli 11 nominee della finestra board, ma sono nei comitati e nella tabella della proprietà come direttori in carica; sono inclusi con director_since null perché il documento non ne riporta la data d'ingresso. Indipendenza ricavata dalla dichiarazione che tutti i membri dell'HR and Compensation Committee sono indipendenti.",
+    "Il documento indica 11 nominee per l'elezione, ma il blocco dei direttori in carica ne conta 13 con Smit e Young: verificare se Smit e Young siano in uscita o in carica anche dopo l'assemblea.",
+    "Jeremy (Zico) Kolter è riportato come Jeremy Kolter, togliendo il soprannome fra parentesi.",
+    "Cristiano R. Amon è amministratore e CEO; non è marcato come indipendente nel documento e quindi independent è false.",
+    "Dati di Vanguard Group Inc. riferiti al 31 maggio 2024 (Schedule 13G/A del 10 giugno 2024), non alla data della tabella del 15 dicembre 2025: dato potenzialmente non aggiornato.",
+    "Dati di BlackRock, Inc. riferiti al 31 dicembre 2023 (Schedule 13G/A del 25 gennaio 2024), non alla data della tabella del 15 dicembre 2025: dato potenzialmente non aggiornato.",
+    "Nella biografia di Marie Myers il documento usa 'Mr. Myers' per riferirsi a lei, refuso del testo sorgente; il nome è stato mantenuto come 'Marie Myers'.",
+    "Le azioni di Cristiano R. Amon (217.483), Akash Palkhiwala e Alexander H. Rogers sono riportate con percentuale non dichiarata (*): pct null come da regola.",
+    "executive_officers presi dal Form 10-K del 2025-11-05: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 della Parte III rimanda alla sezione \"Information about our Executive Officers\" della Parte I, quindi l'elenco è stato estratto da quella sezione.",
+    "10-K: Le età sono riferite al 1° novembre 2025, come indicato nel documento.",
+    "10-K: Il titolo 'Dr.' di Baaziz Achour è stato omesso secondo le regole di estrazione.",
+    "10-K: La carica di membro del Consiglio di Amministrazione di Cristiano R. Amon è stata inclusa tra le cariche attuali perché il documento la indica come in corso dal giugno 2021."
+  ]
+}

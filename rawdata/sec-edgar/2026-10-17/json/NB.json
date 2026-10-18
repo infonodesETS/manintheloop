@@ -1,0 +1,309 @@
+{
+  "company": "NioCorp Developments Ltd.",
+  "ticker": "NB",
+  "cik": "0001512228",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-02-25",
+    "accession": "0001539497-26-000784",
+    "meeting": null,
+    "ownership_as_of": "2026-02-09",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1512228/000153949726000784/n2574_x310-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark A. Smith",
+      "roles": [
+        "Executive Chairman",
+        "Director",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2013-09",
+      "independent": false
+    },
+    {
+      "name": "Anthony W. Fulton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Nilsa Guerrero-Mahon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Peter Oliver",
+      "roles": [
+        "Director",
+        "Lead Director"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Dean C. Kehler",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-03",
+      "independent": true
+    },
+    {
+      "name": "Michael G. Maselli",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-03",
+      "independent": true
+    },
+    {
+      "name": "David C. Beling",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Nilsa Guerrero-Mahon",
+        "Anthony W. Fulton",
+        "Dean C. Kehler",
+        "Michael G. Maselli"
+      ],
+      "chair": "Nilsa Guerrero-Mahon",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Dean C. Kehler",
+        "David C. Beling",
+        "Nilsa Guerrero-Mahon"
+      ],
+      "chair": "Dean C. Kehler",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Safety and Sustainability Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Mark A. Smith",
+      "age": 66,
+      "positions": [
+        "Chief Executive Officer",
+        "President",
+        "Executive Chairman",
+        "Director"
+      ]
+    },
+    {
+      "name": "Neal Shah",
+      "age": 51,
+      "positions": [
+        "Chief Financial Officer",
+        "Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Scott Honan",
+      "age": 55,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Jim Sims",
+      "age": 64,
+      "positions": [
+        "Chief Communications Officer"
+      ]
+    },
+    {
+      "name": "Ernest Cleave",
+      "age": 56,
+      "positions": [
+        "Senior Vice President of Business Development"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-09",
+    "note": "Percentuali calcolate su 125.321.172 Common Shares in circolazione al 9 febbraio 2026. Include azioni acquistabili entro 60 giorni tramite opzioni, warrant o scambio di azioni di classe B di Elk Creek Resources Corp (ECRC). * indica meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Entities affiliated with Citadel Advisors LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 7951251,
+            "pct": 6.34
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed on November 14, 2025",
+        "address": "830 Brickell Plaza, Miami, Florida 33131"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark A. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 3316452,
+            "pct": 2.63
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neal Shah",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 550032,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott Honan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 530762,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anthony W. Fulton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 251209,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David C. Beling",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 229013,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nilsa Guerrero-Mahon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 259768,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dean C. Kehler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 3708811,
+            "pct": 2.88
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael G. Maselli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 655235,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Oliver",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 160400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Shares",
+          "shares": 10228610,
+          "pct": 8.16
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La finestra committees è troncata: la sezione Nominating Committee non riporta i membri e la sezione Safety and Sustainability Committee contiene solo il titolo. Membri, presidenti e riunioni di questi due comitati sono null o vuoti perché il dato non è nel testo fornito.",
+    "L'assemblea (meeting) non è indicata nel testo fornito: il campo è null.",
+    "David C. Beling compare come Director nella tabella di proprietà e come membro del Compensation Committee, ma non è fra i nominee della sezione board. È incluso come consigliere in carica; va verificato lo stato e la data di nomina (director_since null).",
+    "Michael J. Morris ha fatto parte del Compensation Committee durante l'esercizio chiuso al 30 giugno 2025, ma non compare fra i direttori né nella tabella di proprietà. Data di uscita non indicata nel testo: non incluso in board_of_directors.",
+    "Peter Oliver è indicato come Lead Director, ma il testo non dichiara la sua indipendenza (la determinazione riguarda i membri di Audit, Compensation e Nominating Committee). È impostato a independent: false in assenza di una dichiarazione esplicita.",
+    "Anthony W. Fulton ha servito nel consiglio dal 2013 al 2016 e poi è tornato; il testo non indica la data della nomina attuale, quindi director_since riporta solo il primo anno di servizio.",
+    "Guerrero-Mahon: il testo non dà la data di prima nomina; director_since è null.",
+    "La riga di gruppo dichiara 11 persone, ma la tabella dei NEO e direttori ne elenca 9. Le due persone mancanti non sono identificate nel testo fornito (potrebbero essere Jim Sims ed Ernest Cleave, dirigenti non presenti in tabella). Non è stato aggiunto nessuno: il dato è riportato così com'è.",
+    "Mark A. Smith compare nella tabella con il titolo 'PE, Esq.': il nome è riportato senza i suffissi professionali. Nessun dirigente o direttore detiene più del 5% a titolo individuale; Citadel è l'unico detentore oltre il 5%, ed è un'entità.",
+    "Le azioni di classe B di Elk Creek Resources Corp (ECRC) non sono incluse nelle classi di NioCorp: entrano solo come azioni potenzialmente acquisibili nel calcolo individuale, già contate nei totali.",
+    "La finestra ownership_5pct non è presente: la tabella dei detentori oltre il 5% è quella del blocco unico principale."
+  ]
+}

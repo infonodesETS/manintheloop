@@ -1,0 +1,364 @@
+{
+  "company": "ON Semiconductor Corporation",
+  "ticker": "ON",
+  "cik": "0001097864",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-02",
+    "accession": "0001097864-26-000010",
+    "meeting": "Annual Meeting of Stockholders, 2026-05-14",
+    "ownership_as_of": "2026-03-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1097864/000109786426000010/on-20260401.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-09",
+      "accession": "0001097864-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm",
+      "as_of": "2026-02-09"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Alan Campbell",
+      "roles": [
+        "Chair of the Board (retiring at the annual meeting)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Susan K. Carter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Thomas L. Deitrich",
+      "roles": [
+        "Director",
+        "Chair of the Board (to succeed Mr. Campbell at the annual meeting, subject to reelection)"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Hassane El-Khoury",
+      "roles": [
+        "President, Chief Executive Officer and Director"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Bruce E. Kiddoo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Paul A. Mascarenas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Gregory L. Waters",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Christine Y. Yan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Susan K. Carter",
+        "Alan Campbell",
+        "Bruce E. Kiddoo",
+        "Gregory L. Waters"
+      ],
+      "chair": "Susan K. Carter",
+      "meetings": 10,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Alan Campbell",
+        "Hassane El-Khoury",
+        "Paul A. Mascarenas"
+      ],
+      "chair": "Alan Campbell",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Sustainability Committee",
+      "members": [
+        "Paul A. Mascarenas",
+        "Alan Campbell",
+        "Susan K. Carter",
+        "Thomas L. Deitrich"
+      ],
+      "chair": "Paul A. Mascarenas",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Capital and Compensation Committee",
+      "members": [
+        "Christine Y. Yan",
+        "Thomas L. Deitrich",
+        "Paul A. Mascarenas",
+        "Gregory L. Waters"
+      ],
+      "chair": "Christine Y. Yan",
+      "meetings": 6,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Hassane El-Khoury",
+      "age": 46,
+      "positions": [
+        "President",
+        "Chief Executive Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Thad Trent",
+      "age": 58,
+      "positions": [
+        "Executive Vice President",
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Simon Keeton",
+      "age": 53,
+      "positions": [
+        "Group President, PSG"
+      ]
+    },
+    {
+      "name": "Sudhir Gopalswamy",
+      "age": 56,
+      "positions": [
+        "Group President, ISG and AMG"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-17",
+    "note": "Percentuali calcolate su 393.327.318 azioni di Common Stock in circolazione alla record date (17 marzo 2026). La beneficial ownership include poteri di voto o di investimento e i diritti di acquisto entro 60 giorni (ad es. vesting di RSU). * = meno dell'1% del potere di voto totale. Per i direttori non dipendenti diversi da Mascarenas e Yan, il dato include 5.054 azioni di restricted stock in vesting il giorno prima dell'assemblea; Mascarenas e Yan hanno differito la consegna del grant 2025.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61538856,
+            "pct": 15.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 12) filed November 5, 2025, as of September 30, 2025",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42956619,
+            "pct": 10.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A, Amendment No. 3 filed September 10, 2024, as of August 31, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Hassane El-Khoury",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 710054,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thad Trent",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 221220,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sudhir Gopalswamy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 63422,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Simon Keeton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 110313,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alan Campbell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 84689,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan K. Carter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23652,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas L. Deitrich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24074,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce E. Kiddoo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17230,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul A. Mascarenas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 47183,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory L. Waters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 39538,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christine Y. Yan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38532,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1379907,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Alan Campbell è in carica fino all'assemblea del 14 maggio 2026 e non è ricandidato: incluso in board_of_directors con warning di uscita. La data di inizio del mandato non compare nel testo, quindi director_since è null.",
+    "Il consiglio passa da otto a sette membri all'assemblea; i sette nominee sono Carter, Deitrich, El-Khoury, Kiddoo, Mascarenas, Waters e Yan.",
+    "Hassane El-Khoury (CEO) è dichiarato non indipendente: è l'unico direttore con independent false.",
+    "Hassane El-Khoury è membro dell'Executive Committee, che contiene un non indipendente: il sanity check #1 non torna. Il dato è mantenuto come riportato dal documento.",
+    "La sezione executives è assente nel documento: executive_officers è vuoto. Non sono stati ricostruiti dirigenti dalle biografie o dalla tabella di ownership (Thad Trent, Sudhir Gopalswamy, Simon Keeton compaiono solo come NEO nella tabella di ownership).",
+    "Membership dei comitati ricavata dalle descrizioni dei singoli comitati (prosa). La tabella dei comitati post-assemblea è appiattita e ambigua per alcune colonne (Kiddoo, Mascarenas, Yan): non è stata usata per modificare la composizione attuale. Dichiarato nel testo: Deitrich entrerà nell'Audit Committee dopo l'assemblea e succederà a Campbell come Chair del Board e come Chair dell'Executive Committee, subordinatamente alla rielezione.",
+    "Riunioni per comitato riportate separatamente (Audit 10, GS 5, HCC 6, Executive 3, anno 2025); il totale di 24 riunioni dichiarato dal documento non è stato usato. Il consiglio ha tenuto sette riunioni nel 2025, che non appartengono ad alcun comitato.",
+    "Simon Keeton ha lasciato tutte le cariche di dirigente il 9 marzo 2026 e lascerà la società il 30 giugno 2026; non è direttore. È incluso nel blocco NEO della tabella di ownership.",
+    "La riga di gruppo dichiara 10 persone, mentre il blocco NEO e direttori contiene 11 righe individuali (incluso Keeton, non più dirigente). Le righe sono state mantenute tutte, come da sanity check #3.",
+    "Nella tabella di ownership non sono presenti righe di aggregazione o subtotale da escludere dal blocco dei >5%. Nessun direttore o dirigente individuale supera il 5% delle azioni ordinarie.",
+    "Il dato pct_of_votes non è riportato per i principali azionisti: il documento riporta solo la percentuale di classe (Percent of Class).",
+    "executive_officers presi dal Form 10-K del 2026-02-09: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 della Parte III rinvia alla sezione \"Information about Our Executive Officers\" della Parte I, quindi i dati sono stati estratti da quella sezione.",
+    "10-K: Nel documento il nome di Thad Trent compare con un punto isolato dopo il cognome; il punto è stato omesso."
+  ]
+}

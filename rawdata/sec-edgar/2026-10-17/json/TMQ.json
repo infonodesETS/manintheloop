@@ -1,0 +1,307 @@
+{
+  "company": "Trilogy Metals Inc.",
+  "ticker": "TMQ",
+  "cik": "0001543418",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-27",
+    "accession": "0001104659-26-035492",
+    "meeting": null,
+    "ownership_as_of": "2026-03-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926035492/tm266290d2_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Tony Giardini",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2012-01",
+      "independent": false
+    },
+    {
+      "name": "James Gowans",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-05",
+      "independent": true
+    },
+    {
+      "name": "William Hayden",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015-06",
+      "independent": true
+    },
+    {
+      "name": "William Iggiagruk Hensley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017-12",
+      "independent": true
+    },
+    {
+      "name": "Gregory Lang",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012-01",
+      "independent": true
+    },
+    {
+      "name": "Janice Stairs",
+      "roles": [
+        "Chair of the Board",
+        "Director"
+      ],
+      "director_since": "2011-04",
+      "independent": true
+    },
+    {
+      "name": "Diana Walters",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-05",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Gregory Lang",
+        "Janice Stairs",
+        "Diana Walters"
+      ],
+      "chair": "Diana Walters",
+      "meetings": 6,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "James Gowans",
+        "William Hayden",
+        "William Iggiagruk Hensley"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": null
+    },
+    {
+      "name": "EHST Committee",
+      "members": [
+        "James Gowans",
+        "William Hayden",
+        "Gregory Lang"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": null
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "William Iggiagruk Hensley",
+        "Janice Stairs",
+        "Diana Walters"
+      ],
+      "chair": null,
+      "meetings": 6,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Tony Giardini",
+      "age": 66,
+      "positions": [
+        "Director",
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Elaine Sanders",
+      "age": 56,
+      "positions": [
+        "Vice President, Chief Financial Officer and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-01",
+    "note": "Percentuali calcolate su 172.545.639 Common Shares in circolazione al 1 marzo 2026, più le opzioni esercitabili entro 60 giorni. Le quantità includono opzioni, RSU e DSU. Riga di gruppo: 8 persone.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Electrum Strategic Opportunities Fund L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 31604741,
+            "pct": 18.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 4 as of December 26, 2025",
+        "address": "600 Fifth Avenue, 24th Floor, New York, NY, USA 10020"
+      },
+      {
+        "name": "South32 Limited",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 18595311,
+            "pct": 10.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G as of April 25, 2023",
+        "address": "125 St Georges Terrace, Perth, Western Australia 6000"
+      },
+      {
+        "name": "Tony Giardini",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 12397717,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "Suite 901, 510 Burrard Street, Vancouver, British Columbia, Canada, V6C 3A8"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James Gowans",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1302888,
+            "pct": 0.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elaine Sanders",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 4984605,
+            "pct": 3.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tony Giardini",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 12397717,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William Hayden",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 916073,
+            "pct": 0.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William Iggiagruk Hensley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 861000,
+            "pct": 0.5
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory Lang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1089032,
+            "pct": 0.7
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janice Stairs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1467226,
+            "pct": 0.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Diana Walters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 981381,
+            "pct": 0.6
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 8,
+      "classes": [
+        {
+          "class": "Common Shares",
+          "shares": 23999945,
+          "pct": 14.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione committees assente: l'appartenenza ai comitati è ricavata dalla prosa delle finestre board e ownership/executives (note di appartenenza, tabella Audit Committee nel Report).",
+    "Il nome completo dell'EHST Committee non compare nell'estratto (il documento lo definisce solo come 'EHST Committee'): usato il nome così come scritto.",
+    "La presidenza dei comitati Compensation Committee, EHST Committee e Corporate Governance and Nominating Committee non è indicata nel documento: chair impostato a null. La presidenza dell'Audit Committee è Diana Walters, come da Report of the Audit Committee.",
+    "Numero di riunioni dei comitati non dichiarato direttamente: ricavato dai denominatori delle presenze individuali (Audit 6, Compensation 4, EHST 4, Corporate Governance and Nominating 6). Il periodo di riferimento non è dichiarato con precisione per i comitati; meetings_year impostato a null.",
+    "Nome di William Hensley normalizzato alla forma completa del documento: 'William Iggiagruk Hensley'.",
+    "Tony Giardini è detentore oltre il 5% di Common Shares (7,6%) pur essendo elencato solo fra i direttori e dirigenti: incluso anche in greater_than_5pct_stockholders come persona fisica. Indirizzo tratto dall'indirizzo d'affari della tabella; source non dichiarata.",
+    "Quadratura: per Tony Giardini la somma delle componenti (8.875.393 + 3.320.000 + 202.321) dà 12.397.714, mentre la tabella riporta 12.397.717 (differenza di 3 azioni).",
+    "Quadratura: la riga di gruppo riporta 23.999.945 azioni, mentre la somma delle righe individuali (con 12.397.717 per Giardini) dà 23.999.922 (differenza di 23 azioni).",
+    "Dato di South32 Limited basato su Schedule 13G del 25 aprile 2023: potenzialmente non aggiornato alla data di riferimento del 1 marzo 2026.",
+    "Dato di Electrum Strategic Opportunities Fund L.P. basato su Form 4 del 26 dicembre 2025, non su una data di riferimento del 1 marzo 2026.",
+    "Incongruenza minore: Elaine Sanders ha 1.860.000 opzioni nella tabella titoli dei direttori e dirigenti, mentre la nota della tabella ownership indica 1.578.332 opzioni esercitabili entro 60 giorni. Riportato il dato della tabella ownership.",
+    "Nessun direttore uscente o dimesso prima della data del documento è segnalato nel testo estratto; il consiglio attuale è di sette membri, tutti nominati per l'elezione."
+  ]
+}

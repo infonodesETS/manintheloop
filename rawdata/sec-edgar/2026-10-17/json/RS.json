@@ -1,0 +1,376 @@
+{
+  "company": "Reliance, Inc.",
+  "ticker": "RS",
+  "cik": "0000861884",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-02",
+    "accession": "0001104659-26-039140",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/861884/000110465926039140/tm2531976-2_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Lisa L. Baldwin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-10",
+      "independent": true
+    },
+    {
+      "name": "Karen W. Colonias",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-10",
+      "independent": true
+    },
+    {
+      "name": "Frank J. Dellaquila",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-10",
+      "independent": true
+    },
+    {
+      "name": "James K. Kamsickas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-10",
+      "independent": true
+    },
+    {
+      "name": "Karla R. Lewis",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Robert A. McEvoy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015-10",
+      "independent": true
+    },
+    {
+      "name": "David W. Seeger",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-07",
+      "independent": true
+    },
+    {
+      "name": "Douglas W. Stotlar",
+      "roles": [
+        "Director",
+        "non-executive Chair of the Board"
+      ],
+      "director_since": "2016-10",
+      "independent": true
+    },
+    {
+      "name": "John G. Sznewajs",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lisa L. Baldwin",
+        "Karen W. Colonias",
+        "Frank J. Dellaquila",
+        "James K. Kamsickas",
+        "John G. Sznewajs"
+      ],
+      "chair": "Frank J. Dellaquila",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Karen W. Colonias",
+        "James K. Kamsickas",
+        "Robert A. McEvoy",
+        "David W. Seeger"
+      ],
+      "chair": "Karen W. Colonias",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Lisa L. Baldwin",
+        "Robert A. McEvoy",
+        "David W. Seeger",
+        "Douglas W. Stotlar"
+      ],
+      "chair": "David W. Seeger",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Karla R. Lewis",
+      "age": 60,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Stephen P. Koch",
+      "age": 59,
+      "positions": [
+        "Executive Vice President, Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Arthur Ajemyan",
+      "age": 50,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "William A. Smith II",
+      "age": 58,
+      "positions": [
+        "Senior Vice President, General Counsel and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-27",
+    "note": "Percentuali sulle azioni in circolazione. * = meno dell'1%; — = nessuna azione. Indirizzo di default dei detentori: 735 N. 19th Avenue, Phoenix, AZ 85009, salvo diversa indicazione. Il documento non riporta una quota di voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6975859,
+            "pct": 13.65
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed February 13, 2024",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6284722,
+            "pct": 12.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed January 24, 2024",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2717304,
+            "pct": 5.32
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed February 9, 2026",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Arthur Ajemyan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19398,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa L. Baldwin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4659,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen W. Colonias",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9314,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank J. Dellaquila",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2455,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James K. Kamsickas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 567,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen P. Koch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10219,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karla R. Lewis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 104215,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. McEvoy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24024,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David W. Seeger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2455,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William A. Smith II",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17854,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Douglas W. Stotlar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9314,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John G. Sznewajs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 204474,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Il consiglio attuale comprende nove direttori; nel documento non risultano direttori in uscita né direttori già dimessi nel periodo.",
+    "Karla R. Lewis è sia Presidente e CEO sia direttrice: compare sia in board_of_directors (independent: false) sia in executive_officers, come previsto per i dirigenti che sono anche direttori.",
+    "La tabella dei dirigenti del documento elenca quattro executive officer (Lewis, Koch, Ajemyan, Smith). I corporate officers della sezione 'Other Corporate Officers' (Miyamoto, DiBoyan, Durham, Emmerman, Hynes, Lupton, Yamaguchi, Yeghyayan) non sono descritti come executive officer e sono esclusi.",
+    "La tabella della proprietà non indica la classe di azioni: il valore 'Common Stock' deriva dal testo ('our common stock') ed è da verificare.",
+    "I dati di Vanguard e BlackRock derivano da Schedule 13G/A del 2024, quindi potrebbero non riflettere le posizioni più recenti; State Street deriva da una 13G del 9 febbraio 2026.",
+    "Douglas W. Stotlar: tutte le sue 9.314 azioni sono detenute tramite Kivi Talo Holdings LLC, di cui è unico membro; l'entità non è elencata separatamente.",
+    "Karen W. Colonias: le 9.314 azioni comprendono 567 azioni di sua proprietà e 8.747 detenute come trustee del Colonias Family Trust.",
+    "Robert A. McEvoy: le 24.024 azioni comprendono 1.210 azioni detenute dai figli adulti su conti da lui controllati; il documento dichiara che ne disconosce la titolarità, ma sono incluse nel totale.",
+    "Le note a piè di tabella indicano azioni RSU non vestite escluse dal conteggio per Ajemyan (3.536), Koch (8.209), Lewis (14.777) e Smith (4.310).",
+    "La riga di gruppo dichiara 12 persone e la tabella riporta 12 individui, quindi i conteggi coincidono; la percentuale di gruppo è indicata con * e quindi è null.",
+    "Nel blocco dei detentori oltre il 5% non sono presenti righe di aggregazione o di subtotale."
+  ]
+}

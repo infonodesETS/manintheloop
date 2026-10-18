@@ -1,0 +1,293 @@
+{
+  "company": "Karman Holdings Inc.",
+  "ticker": "KRMN",
+  "cik": "0002040127",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-08",
+    "accession": "0001140361-26-013839",
+    "meeting": null,
+    "ownership_as_of": "2026-03-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2040127/000114036126013839/edge20063633x771_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Mary Petryszyn",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-05",
+      "independent": true
+    },
+    {
+      "name": "Stephen Twitty",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Tony Koblinski",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": false
+    },
+    {
+      "name": "Matthew Alty",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "David Stinnett",
+      "roles": [
+        "Chairman"
+      ],
+      "director_since": "2020-08",
+      "independent": true
+    },
+    {
+      "name": "John Hamilton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Brian Raduenz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Brian Raduenz",
+        "John Hamilton",
+        "Stephen Twitty",
+        "Mary Petryszyn"
+      ],
+      "chair": "Brian Raduenz",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "David Stinnett",
+        "John Hamilton",
+        "Brian Raduenz",
+        "Mary Petryszyn"
+      ],
+      "chair": "David Stinnett",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "David Stinnett",
+        "Matthew Alty",
+        "John Hamilton"
+      ],
+      "chair": "David Stinnett",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jon Rambeau",
+      "age": 53,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Michael Willis",
+      "age": 41,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jonathan Beaudoin",
+      "age": 40,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-13",
+    "note": "Percentuali calcolate su 132.526.299 azioni di common stock in circolazione al 13 marzo 2026. '*' indica meno dell'1%; '—' indica nessuna azione. Le azioni ottenibili entro 60 giorni da esercizio di opzioni o warrant sono incluse solo per il calcolo della percentuale del singolo detentore.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9342230,
+            "pct": 7.05
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-01-30",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania, 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jon Rambeau",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tony Koblinski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2315826,
+            "pct": 1.75
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Willis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 859709,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jonathan Beaudoin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 666861,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Stinnett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3501433,
+            "pct": 2.64
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew Alty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Hamilton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54796,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian Raduenz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 254105,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen Twitty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Petryszyn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 7652730,
+          "pct": 5.77
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata letta dalla prosa e dalla tabella della sezione board.",
+    "Compensation Committee: il documento riporta due riunioni formali nel 2025, più diverse sessioni di lavoro informali non conteggiate; meetings è stato valorizzato a 2.",
+    "Tony Koblinski è stato CEO fino al 23 marzo 2026 e resta nel consiglio come direttore non indipendente (il documento dichiara indipendenti tutti i direttori tranne lui). Non compare nel roster dei dirigenti, perché il nuovo CEO è Jon Rambeau dal 23 marzo 2026.",
+    "Le azioni di Tony Koblinski (2.315.826) sono detenute tramite Tandem Trust; quelle di Michael Willis (859.709) tramite Sundowner Trust; quelle di Brian Raduenz (254.105) tramite RadzWest Capital LLC, con azioni impegnate come garanzia di un prestito a margine. Le righe sono riportate come persone fisiche in base al nome; è il criterio adottato, non un dato dichiarato.",
+    "Mike Willis è indicato come Michael Willis nel roster e nella biografia: si usa la forma completa.",
+    "Il documento non dà un numero di azioni per Vanguard con una classe distinta: è riportato il totale come Common Stock. Vanguard dichiara inoltre voto condiviso su 580.575 azioni, dato non riportato nel blocco per mancanza di campo.",
+    "Stephen Twitty, Mary Petryszyn, Matthew Alty, John Hamilton e Brian Raduenz hanno data di ingresso nel consiglio riportata come febbraio o maggio 2025; si usa il mese quando dato esplicitamente nel testo."
+  ]
+}

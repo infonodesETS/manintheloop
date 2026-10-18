@@ -1,0 +1,367 @@
+{
+  "company": "Apple Inc.",
+  "ticker": "AAPL",
+  "cik": "0000320193",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-08",
+    "accession": "0001308179-26-000008",
+    "meeting": null,
+    "ownership_as_of": "2026-01-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000130817926000008/aapl014016-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Art Levinson",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2000",
+      "independent": true
+    },
+    {
+      "name": "Tim Cook",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2011",
+      "independent": false
+    },
+    {
+      "name": "Wanda Austin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Alex Gorsky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Andrea Jung",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "Monica Lozano",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Ron Sugar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Sue Wagner",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Wanda Austin",
+        "Ron Sugar",
+        "Monica Lozano",
+        "Sue Wagner"
+      ],
+      "chair": "Ron Sugar",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating Committee",
+      "members": [
+        "Alex Gorsky",
+        "Andrea Jung",
+        "Sue Wagner"
+      ],
+      "chair": "Sue Wagner",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "People and Compensation Committee",
+      "members": [
+        "Art Levinson",
+        "Alex Gorsky",
+        "Andrea Jung"
+      ],
+      "chair": "Andrea Jung",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Tim Cook",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Kate Adams",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Sabih Khan",
+      "age": 59,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Deirdre O'Brien",
+      "age": 59,
+      "positions": [
+        "Senior Vice President, Retail + People"
+      ]
+    },
+    {
+      "name": "Kevan Parekh",
+      "age": 54,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-02",
+    "note": "Table Date 2 gennaio 2026, salvo diversa indicazione. Azioni in circolazione alla Table Date: 14.697.926.000. Include azioni detenute e RSU che maturano entro 60 giorni. * = meno dell'1%. Il documento non dichiara una percentuale di voto (pct_of_votes non disponibile).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1415826462,
+            "pct": 9.63
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-07-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1043713019,
+            "pct": 7.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-12",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Kate Adams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 175408,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wanda Austin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2843,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tim Cook",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3280295,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Gorsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6794,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrea Jung",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 77664,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sabih Khan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1074404,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Art Levinson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4126689,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Monica Lozano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9862,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luca Maestri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 91304,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deirdre O'Brien",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 136687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevan Parekh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8765,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ron Sugar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 110566,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sue Wagner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 69788,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 9079765,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata letta in prosa dalla finestra board. Il numero di riunioni non è indicato nel testo fornito: meetings impostato a null per tutti i comitati.",
+    "Il testo fornito non dichiara esplicitamente l'indipendenza di Art Levinson (Chair of the Board). Il valore true è dedotto dal fatto che Tim Cook è l'unico direttore con ruolo di management; va verificato sul documento completo, dato che Levinson è membro del People and Compensation Committee.",
+    "Tim Cook è incluso in executive_officers in base alla regola sul CEO, pur essendo citato nella finestra board e non nel roster executives; età 65 tratta dalla sezione board.",
+    "La finestra executives risulta troncata alla fine (termina con la parola 'Executive'): potrebbero mancare altri dirigenti dell'elenco.",
+    "Luca Maestri compare nella tabella di proprietà come NEO ma non è più un dirigente attuale (transitato dal ruolo di CFO nel gennaio 2025): va in named_executive_officers_and_directors ma non in executive_officers.",
+    "Il dato di The Vanguard Group si riferisce al 30 giugno 2025 (Schedule 13G/A del 29 luglio 2025), diverso dalla Table Date del 2 gennaio 2026.",
+    "Il dato di BlackRock, Inc. si riferisce al 31 dicembre 2023 (Schedule 13G/A del 12 febbraio 2024): dato datato rispetto alla Table Date.",
+    "Incoerenza nel gruppo: la riga di gruppo dichiara 'persons: 12', mentre la tabella dei NEO e direttori contiene 13 nomi. La differenza è dovuta all'esclusione di Luca Maestri dal gruppo (nota 17); le due righe sono state mantenute entrambe.",
+    "Il dato 'pct' di Vanguard (9,63) e BlackRock (7,10) è la percentuale delle azioni ordinarie in circolazione dichiarata in tabella; il documento non indica percentuali di voto."
+  ]
+}

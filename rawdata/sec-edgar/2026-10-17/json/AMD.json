@@ -1,0 +1,417 @@
+{
+  "company": "Advanced Micro Devices, Inc.",
+  "ticker": "AMD",
+  "cik": "0000002488",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-27",
+    "accession": "0001193125-26-129057",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-03-19",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000119312526129057/d85856ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Nora M. Denzel",
+      "roles": [
+        "Lead Independent Director",
+        "Chair of Nominating and Corporate Governance Committee",
+        "Member of Innovation and Technology Committee"
+      ],
+      "director_since": "2014-03",
+      "independent": true
+    },
+    {
+      "name": "Michael P. Gregoire",
+      "roles": [
+        "Chair of Compensation and Leadership Resources Committee",
+        "Member of Innovation and Technology Committee"
+      ],
+      "director_since": "2019-11",
+      "independent": true
+    },
+    {
+      "name": "Joseph A. Householder",
+      "roles": [
+        "Chair of Audit and Finance Committee",
+        "Member of Nominating and Corporate Governance Committee",
+        "Audit committee financial expert"
+      ],
+      "director_since": "2014-09",
+      "independent": true
+    },
+    {
+      "name": "John W. Marren",
+      "roles": [
+        "Member of Audit and Finance Committee"
+      ],
+      "director_since": "2017-02",
+      "independent": true
+    },
+    {
+      "name": "KC McClure",
+      "roles": [
+        "Member of Audit and Finance Committee"
+      ],
+      "director_since": "2026-01",
+      "independent": true
+    },
+    {
+      "name": "Jon A. Olson",
+      "roles": [
+        "Member of Audit and Finance Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Lisa T. Su",
+      "roles": [
+        "Chair of the Board",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2014-10",
+      "independent": false
+    },
+    {
+      "name": "Abhi Y. Talwalkar",
+      "roles": [
+        "Chair of Innovation and Technology Committee",
+        "Member of Compensation and Leadership Resources Committee"
+      ],
+      "director_since": "2017-06",
+      "independent": true
+    },
+    {
+      "name": "Elizabeth W. Vanderslice",
+      "roles": [
+        "Member of Compensation and Leadership Resources Committee",
+        "Member of Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2022-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Finance Committee",
+      "members": [
+        "Joseph A. Householder",
+        "John W. Marren",
+        "KC McClure",
+        "Jon A. Olson"
+      ],
+      "chair": "Joseph A. Householder",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Leadership Resources Committee",
+      "members": [
+        "Michael P. Gregoire",
+        "Abhi Y. Talwalkar",
+        "Elizabeth W. Vanderslice"
+      ],
+      "chair": "Michael P. Gregoire",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Innovation and Technology Committee",
+      "members": [
+        "Abhi Y. Talwalkar",
+        "Nora M. Denzel",
+        "Michael P. Gregoire"
+      ],
+      "chair": "Abhi Y. Talwalkar",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Nora M. Denzel",
+        "Elizabeth W. Vanderslice",
+        "Joseph A. Householder"
+      ],
+      "chair": "Nora M. Denzel",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lisa T. Su",
+      "age": 56,
+      "positions": [
+        "President and Chief Executive Officer",
+        "Chair of the Board"
+      ]
+    },
+    {
+      "name": "Jean Hu",
+      "age": 62,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer and Treasurer"
+      ]
+    },
+    {
+      "name": "Darren Grasby",
+      "age": 56,
+      "positions": [
+        "Executive Vice President, Chief Sales Officer and President EMEA"
+      ]
+    },
+    {
+      "name": "Philip Guido",
+      "age": 64,
+      "positions": [
+        "Executive Vice President, Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Ava M. Hahn",
+      "age": 53,
+      "positions": [
+        "Senior Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Jack Huynh",
+      "age": 47,
+      "positions": [
+        "Senior Vice President and General Manager of the Computing and Graphics Business Group"
+      ]
+    },
+    {
+      "name": "Forrest E. Norrod",
+      "age": 60,
+      "positions": [
+        "Executive Vice President and General Manager, Data Center Solutions Business Unit"
+      ]
+    },
+    {
+      "name": "Mark D. Papermaster",
+      "age": 64,
+      "positions": [
+        "Executive Vice President and Chief Technology Officer, Technology and Engineering"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-19",
+    "note": "Percentuali calcolate su 1.630.338.779 azioni ordinarie in circolazione al 19 marzo 2026. '*' = meno dell'1%, espresso come null. Le quote dei direttori e dei dirigenti includono opzioni e RSU esercitabili o in maturazione entro il 18 maggio 2026, e le Deferred RSU Shares. Il gruppo comprende 16 persone.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 142442745,
+            "pct": 8.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 12 filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 124945206,
+            "pct": 7.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 8 filed 2024-02-01",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Lisa T. Su",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4305973,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nora M. Denzel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 155406,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael P. Gregoire",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18427,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph A. Householder",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 219305,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John W. Marren",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 59489,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "KC McClure",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jon A. Olson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22790,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Abhi Y. Talwalkar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55684,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth W. Vanderslice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 79155,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean Hu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 148364,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Darren Grasby",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 184596,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Forrest E. Norrod",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 424965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark D. Papermaster",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1834807,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 8107566,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata letta dalla tabella 'Meetings and Committees of the Board of Directors' nella sezione board.",
+    "Durcan: ha servito nel consiglio durante parte dell'esercizio 2025, con mandato terminato all'assemblea annuale 2025. Non incluso in board_of_directors né nei comitati. Il nome completo non compare nelle finestre fornite.",
+    "Durcan: ha lasciato anche i comitati Compensation and Leadership Resources e Innovation and Technology alla fine del mandato (assemblea 2025).",
+    "Michael P. Gregoire ha lasciato il Nominating and Corporate Governance Committee a maggio 2025; non è incluso fra i membri di quel comitato.",
+    "Jon A. Olson è incluso fra i direttori in carica alla data del documento, con uscita prevista a maggio 2026 (pensionamento, come indicato per il comitato Audit and Finance). Non compare fra i nominee e la data di inizio del mandato (director_since) non è riportata nelle finestre fornite.",
+    "Lisa T. Su è nel roster dei dirigenti per rinvio alla sezione board, come indicato nel documento. Il titolo 'Dr.' è stato rimosso dal nome.",
+    "Il consiglio ha tenuto 7 riunioni nel 2025. Non è un comitato e non è incluso in committees.",
+    "Riga di gruppo: dichiara 16 persone, ma le tabelle individuali ne elencano 13. Non compaiono singolarmente Philip Guido, Ava M. Hahn e Jack Huynh, che sono dirigenti non direttori.",
+    "Nome 'Forrest Norrod' nella tabella ownership esteso a 'Forrest E. Norrod' secondo la sezione executives; 'Mark Papermaster' esteso a 'Mark D. Papermaster' secondo la sezione executives.",
+    "Nessun direttore o dirigente detiene oltre il 5% di Common Stock: nel blocco dei >5% compaiono solo The Vanguard Group e BlackRock, Inc.",
+    "Il documento ha una sola classe di azioni dichiarata (Common Stock) nella tabella ownership."
+  ]
+}

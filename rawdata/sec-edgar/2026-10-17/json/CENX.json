@@ -1,0 +1,396 @@
+{
+  "company": "Century Aluminum Company",
+  "ticker": "CENX",
+  "cik": "0000949157",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001552781-26-000269",
+    "meeting": "Annual meeting of stockholders, 2026-06-15",
+    "ownership_as_of": "2026-04-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/949157/000155278126000269/e26009_cenx-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Jarl Berntzen",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair",
+        "Audit Committee Vice Chair"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Jennifer Bush",
+      "roles": [
+        "Director",
+        "Health, Safety and Sustainability Committee Chair"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Jesse Gary",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2021-07",
+      "independent": false
+    },
+    {
+      "name": "Errol Glasser",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Wilhelm van Jaarsveld",
+      "roles": [
+        "Director",
+        "Glencore-designated nominee"
+      ],
+      "director_since": "2017-12",
+      "independent": false
+    },
+    {
+      "name": "Andrew Michelmore",
+      "roles": [
+        "Director",
+        "Independent Chairman of the Board"
+      ],
+      "director_since": "2018-09",
+      "independent": true
+    },
+    {
+      "name": "Tamla A. Olivier",
+      "roles": [
+        "Director",
+        "Governance and Nominating Committee Chair"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Errol Glasser",
+        "Jarl Berntzen",
+        "Jennifer Bush",
+        "Andrew Michelmore",
+        "Tamla A. Olivier"
+      ],
+      "chair": "Errol Glasser",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Jarl Berntzen",
+        "Jennifer Bush",
+        "Errol Glasser",
+        "Andrew Michelmore",
+        "Tamla A. Olivier"
+      ],
+      "chair": "Jarl Berntzen",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Tamla A. Olivier",
+        "Andrew Michelmore",
+        "Jarl Berntzen",
+        "Jennifer Bush",
+        "Errol Glasser"
+      ],
+      "chair": "Tamla A. Olivier",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Health, Safety and Sustainability Committee",
+      "members": [
+        "Jennifer Bush",
+        "Jarl Berntzen",
+        "Jesse Gary",
+        "Errol Glasser",
+        "Andrew Michelmore",
+        "Tamla A. Olivier"
+      ],
+      "chair": "Jennifer Bush",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jesse Gary",
+      "age": 46,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Peter Trpkovski",
+      "age": 44,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Gunnar Gudlaugsson",
+      "age": 65,
+      "positions": [
+        "Executive Vice President, Global Operations"
+      ]
+    },
+    {
+      "name": "John DeZee",
+      "age": 62,
+      "positions": [
+        "Executive Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Robert Hoffman",
+      "age": 57,
+      "positions": [
+        "Senior Vice President, Chief Information Officer and Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Matthew Aboud",
+      "age": 50,
+      "positions": [
+        "Senior Vice President, Strategy & Business Development"
+      ]
+    },
+    {
+      "name": "Kenneth Calloway",
+      "age": 50,
+      "positions": [
+        "Senior Vice President, Human Resources"
+      ]
+    },
+    {
+      "name": "Ágúst Hafberg",
+      "age": 60,
+      "positions": [
+        "Senior Vice President and Chief Commercial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-17",
+    "note": "Percentuali calcolate su 98.974.047 azioni in circolazione al 17 aprile 2026. Il numero di azioni include le opzioni esercitabili entro 60 giorni e le share unit che maturano entro 60 giorni. '*' indica meno dell'1%. '—' nella tabella è riportato come 0. Indirizzo di tutti i soggetti: c/o Century Aluminum Company, 1 South Wacker Drive, Suite 1000, Chicago, Illinois 60606. Direttori e dirigenti non detengono individualmente né come gruppo più dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Glencore AG",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29690702,
+            "pct": 30.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A and Form 4 filed 2026-03-04",
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8518703,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Andrew Michelmore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89089,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jarl Berntzen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 208951,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer Bush",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46872,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jesse Gary",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 142580,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Errol Glasser",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 118697,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wilhelm van Jaarsveld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tamla A. Olivier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29673,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerald Bialek",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gunnar Gudlaugsson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48823,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John DeZee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48875,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Trpkovski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20295,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Hoffman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28792,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 833683,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata letta dalla prosa della finestra board (sezione 'Board Committees and Meeting Attendance').",
+    "Sanity check 1 non superato: Jesse Gary (independent: false) risulta membro dell'Health, Safety and Sustainability Committee. Il dato è stato mantenuto come riportato dal documento. La tabella di matrice a pagina 12 non riporta una colonna compilata per Gary sul comitato HSS, quindi l'appartenenza è incerta.",
+    "Jarl Berntzen è indicato come 'Audit (Vice Chair)' solo nel blocco dei nominee; la sezione prosa del comitato Audit non menziona la carica di vice presidente. Il ruolo è stato riportato nei roles del direttore.",
+    "Gerald Bialek (ex Executive Vice President and CFO) non è incluso in executive_officers perché ha lasciato la carica il 2025-03-21. Compare solo nella tabella NEO con riga '—' e azioni riferite a quella data.",
+    "Gerald Bialek e Wilhelm van Jaarsveld hanno '—' nella tabella delle azioni: sono stati riportati con shares 0.",
+    "Riga di gruppo: il documento dichiara 15 persone, ma nella tabella NEO e direttori sono elencate 12 righe. Le 3 persone mancanti sono verosimilmente i dirigenti Matthew Aboud, Kenneth Calloway e Ágúst Hafberg, che non compaiono singolarmente nella tabella di proprietà.",
+    "Jarl Berntzen: 208.951 azioni includono 107.786 RSUs con regolamento differito fino alla cessazione dal consiglio (nota b). Glasser: 118.697 azioni includono 115.202 RSUs con regolamento differito (nota f). Bush e Olivier includono 7.778 RSUs non ancora maturate, che maturano il 2026-06-15.",
+    "Wilhelm van Jaarsveld: la nota (g) esclude dalla sua posizione 7.505.947 azioni di Glencore AG e 36.005.947 azioni di Glencore, di cui è Asset and Investment Manager. Non sono conteggiate nella sua riga.",
+    "Discrepanza tra la nota (g) e la tabella >5%: la nota indica 7.505.947 (Glencore AG) e 36.005.947 (Glencore), per un totale di 43.511.894, mentre la tabella >5% dichiara 29.690,702 per Glencore AG. Nella tabella >5% è riportato il dato della tabella, con la nota (b) che specifica 17.505.947 (Glencore International AG) e 12.184.755 (Glencore AG).",
+    "Le date di riferimento della tabella >5% differiscono: Glencore è basata su una Schedule 13D/A e una Form 4 del 2026-03-04, mentre BlackRock su una Schedule 13G/A del 2025-04-17. La tabella della proprietà del management è al 2026-04-17.",
+    "Michelmore è riportato come Independent Chairman of the Board (la prosa parla di 'independent Chairman'; nella tabella comitati è indicato come 'Board Chair')."
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "company": "The Walt Disney Company",
+  "ticker": "DIS",
+  "cik": "0001744489",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-22",
+    "accession": "0001744489-26-000013",
+    "meeting": "2026 Annual Meeting of Shareholders",
+    "ownership_as_of": "2026-01-15",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000013/dis-20260122.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-11-13",
+      "accession": "0001744489-25-000155",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Mary T. Barra",
+      "roles": [
+        "Chair and Chief Executive Officer, General Motors Company"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Amy L. Chang",
+      "roles": [
+        "Former Executive Vice President, Cisco Systems, Inc."
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "D. Jeremy Darroch",
+      "roles": [
+        "Former Executive Chairman and Group Chief Executive Officer, Sky"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Carolyn N. Everson",
+      "roles": [
+        "Former President, Instacart"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Michael B.G. Froman",
+      "roles": [
+        "President, Council on Foreign Relations"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "James P. Gorman",
+      "roles": [
+        "Chairman of the Board (independent)",
+        "Chairman Emeritus, Morgan Stanley"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Iger",
+      "roles": [
+        "Chief Executive Officer, The Walt Disney Company"
+      ],
+      "director_since": "2022",
+      "independent": false
+    },
+    {
+      "name": "Maria Elena Lagomasino",
+      "roles": [
+        "Chief Executive Officer and Managing Partner, WE Family Offices"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Calvin R. McDonald",
+      "roles": [
+        "Chief Executive Officer, lululemon athletica inc."
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Derica W. Rice",
+      "roles": [
+        "Former Executive Vice President, CVS Health Corporation"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey E. Williams",
+      "roles": [
+        "Former Chief Operating Officer, Apple Inc."
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Derica W. Rice",
+        "D. Jeremy Darroch",
+        "Calvin R. McDonald"
+      ],
+      "chair": "Derica W. Rice",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Michael B.G. Froman",
+        "Amy L. Chang",
+        "Maria Elena Lagomasino"
+      ],
+      "chair": "Michael B.G. Froman",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Mary T. Barra",
+        "Carolyn N. Everson",
+        "Maria Elena Lagomasino"
+      ],
+      "chair": "Mary T. Barra",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "James P. Gorman",
+        "Robert A. Iger"
+      ],
+      "chair": "James P. Gorman",
+      "meetings": 0,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Succession Planning Committee",
+      "members": [
+        "James P. Gorman",
+        "Mary T. Barra",
+        "D. Jeremy Darroch",
+        "Calvin R. McDonald"
+      ],
+      "chair": "James P. Gorman",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Robert A. Iger",
+      "age": 74,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Hugh F. Johnston",
+      "age": 64,
+      "positions": [
+        "Senior Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Horacio E. Gutierrez",
+      "age": 60,
+      "positions": [
+        "Senior Executive Vice President, Chief Legal and Global Affairs Officer"
+      ]
+    },
+    {
+      "name": "Sonia L. Coleman",
+      "age": 53,
+      "positions": [
+        "Senior Executive Vice President and Chief People Officer"
+      ]
+    },
+    {
+      "name": "Kristina K. Schake",
+      "age": 55,
+      "positions": [
+        "Senior Executive Vice President and Chief Communications Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-15",
+    "note": "Percentuale dei grandi azionisti calcolata su 1.771.884.175 azioni in circolazione al 15 gennaio 2026. Per la tabella di management, salvo diversa indicazione, i dati sono al 15 gennaio 2026. * = meno dell'1%. Le colonne Stock Units e Shares Acquirable Within 60 Days non sono incluse in shares.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 151434588,
+            "pct": 8.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (data di deposito non indicata nel documento)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Blackrock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 122883021,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (data di deposito non indicata nel documento)",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mary T. Barra",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy L. Chang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3520,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sonia L. Coleman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2796,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "D. Jeremy Darroch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3454,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carolyn N. Everson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1650,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael B.G. Froman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17599,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James P. Gorman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Horacio E. Gutierrez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58317,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Iger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 253862,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hugh F. Johnston",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20562,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maria Elena Lagomasino",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2815,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Calvin R. McDonald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17150,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Derica W. Rice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristina K. Schake",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24053,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey E. Williams",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 444008,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente nel DEF 14A: executive_officers è vuota e non è stata ricostruita dalle biografie. Robert A. Iger compare come CEO fra i direttori.",
+    "La sezione committees è assente come finestra dedicata: i comitati sono stati letti dalla prosa della sezione Committees e dalla sezione board.",
+    "Succession Planning Committee non è uno dei quattro comitati permanenti: incluso perché il documento lo nomina con membri, presidente e numero di riunioni.",
+    "Jeffrey E. Williams è indicato come nominee, non ancora in carica alla data del documento: incluso in board_of_directors su indicazione del documento, senza director_since. È atteso come membro del Compensation Committee dopo l'assemblea, ma non è incluso fra i membri attuali.",
+    "Robert A. Iger: l'intestazione riporta 'DIRECTOR SINCE 2022; 2000-2021'. È stato valorizzato director_since 2022, data della rielezione attuale; il primo mandato 2000-2021 è stato ceduto.",
+    "Maria Elena Lagomasino ha 76 anni, superiore al limite della politica sul mandato; il consiglio propone comunque la sua rielezione. Resta in carica e non è uscente.",
+    "Calvin R. McDonald lascia la carica di CEO di lululemon athletica inc. e il relativo consiglio con effetto dal 31 gennaio 2026. Resta direttore di Disney e rimane in board_of_directors.",
+    "Gli importi di Stock Units (es. Barra 25.495, Coleman 50.378 di Shares Acquirable, gruppo 126.234 Stock Units e 2.482.524 Shares Acquirable) non sono inclusi in shares, perché il formato prevede solo le azioni possedute. Il dato non è perso ma non è nel campo shares.",
+    "Per Vanguard Group e Blackrock, Inc. il documento non indica la data del deposito Schedule 13G/A: source riporta solo il tipo di deposito.",
+    "pct_of_votes non è dichiarato per nessun detentore: il documento riporta solo la percentuale di classe.",
+    "executive_officers presi dal Form 10-K del 2025-11-13: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per l'elenco o per le età; as_of è stato lasciato null.",
+    "10-K: L'Item 10 rinvia al Proxy Statement e alla Parte I per i dirigenti; i dati sono stati estratti dalla sezione della Parte I.",
+    "10-K: Le cariche riportate sono quelle attuali indicate nella tabella. Per Gutierrez (effettiva dal 4 novembre 2025) e Coleman (effettiva dal 27 settembre 2025) la carica è successiva alla chiusura dell'esercizio; la nota riporta anche le denominazioni precedenti.",
+    "10-K: Iger è anche amministratore (director) della società; è incluso come executive officer perché l'elenco lo riporta in questa qualifica."
+  ]
+}

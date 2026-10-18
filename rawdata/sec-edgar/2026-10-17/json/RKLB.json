@@ -1,0 +1,338 @@
+{
+  "company": "Rocket Lab Corporation",
+  "ticker": "RKLB",
+  "cik": "0001819994",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-06",
+    "accession": "0001628280-26-023922",
+    "meeting": "Annual Meeting of Stockholders, 20 maggio 2026 (virtuale)",
+    "ownership_as_of": "2026-03-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1819994/000162828026023922/rklb-20260406.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Edward H. Frank",
+      "roles": [
+        "Director (Class II, candidato alla rielezione)",
+        "Chair of the Compensation Committee",
+        "Member of the Audit Committee"
+      ],
+      "director_since": "2022-09",
+      "independent": true
+    },
+    {
+      "name": "Nina M. Armagno",
+      "roles": [
+        "Director (Class III)",
+        "Member of the Nominating and Corporate Governance Committee",
+        "Member of the Government Security Committee"
+      ],
+      "director_since": "2023-11",
+      "independent": true
+    },
+    {
+      "name": "Peter Beck",
+      "roles": [
+        "Founder",
+        "Chairman of the Board",
+        "Chief Executive Officer",
+        "Series A Preferred Stock Director (Class III)"
+      ],
+      "director_since": "2021-08",
+      "independent": false
+    },
+    {
+      "name": "Jon Olson",
+      "roles": [
+        "Director (Class I)",
+        "Chair of the Audit Committee",
+        "Member of the Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2021-08",
+      "independent": true
+    },
+    {
+      "name": "Kenneth Possenriede",
+      "roles": [
+        "Director (Class III)",
+        "Member of the Audit Committee",
+        "Member of the Compensation Committee"
+      ],
+      "director_since": "2024-08",
+      "independent": true
+    },
+    {
+      "name": "Merline Saintil",
+      "roles": [
+        "Director (Class I)",
+        "Lead Independent Director",
+        "Chair of the Nominating and Corporate Governance Committee",
+        "Member of the Compensation Committee"
+      ],
+      "director_since": "2021-06",
+      "independent": true
+    },
+    {
+      "name": "Alex Slusky",
+      "roles": [
+        "Director (Class I)"
+      ],
+      "director_since": "2021-08",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Jon Olson",
+        "Edward H. Frank",
+        "Kenneth Possenriede"
+      ],
+      "chair": "Jon Olson",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Edward H. Frank",
+        "Kenneth Possenriede",
+        "Merline Saintil"
+      ],
+      "chair": "Edward H. Frank",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Merline Saintil",
+        "Nina M. Armagno",
+        "Jon Olson"
+      ],
+      "chair": "Merline Saintil",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Government Security Committee",
+      "members": [
+        "Nina M. Armagno"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [],
+  "security_ownership": {
+    "as_of": "2026-03-30",
+    "note": "Quote di beneficial ownership di Common Stock al 30 marzo 2026, calcolate su 575.767.300 azioni di Common Stock in circolazione. La colonna dichiarata è '% of Voting Power'. '*' indica meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Peter Beck",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 45951250,
+            "pct": null
+          },
+          {
+            "class": "Common Stock",
+            "shares": 491930,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 7.5,
+        "source": null,
+        "address": "3881 McGowen Street, Long Beach, CA 90808"
+      },
+      {
+        "name": "Entities Affiliated with Khosla Ventures",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34888272,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 6.1,
+        "source": "Amendment No. 10 to Schedule 13D filed February 17, 2026",
+        "address": "c/o Khosla Ventures, 2128 Sand Hill Road, Menlo Park, CA 94025"
+      },
+      {
+        "name": "Entities Affiliated with BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30222153,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 5.2,
+        "source": "Schedule 13G filed October 17, 2025",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Peter Beck",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series A Preferred Stock",
+            "shares": 45951250,
+            "pct": null
+          },
+          {
+            "class": "Common Stock",
+            "shares": 491930,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": 7.5
+      },
+      {
+        "name": "Adam Spice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3818092,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arjun L. Kampani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 315264,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank Klein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 356987,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward H. Frank",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 138544,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jon Olson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 341670,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth Possenriede",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Merline Saintil",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 257943,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Slusky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 599564,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nina M. Armagno",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 77665,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": null,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 52394596,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": 8.4
+    }
+  },
+  "warnings": [
+    "Board: Matt Ocko, direttore di Classe II, si è dimesso con effetto dal 30 novembre 2025; non è incluso nel consiglio attuale. Il consiglio ha ridotto i seggi a sette.",
+    "Board: la data 2021-08 di Peter Beck si riferisce alla nomina a Presidente del consiglio; il documento non indica la data del primo mandato da direttore.",
+    "Board: il documento parla di tre comitati permanenti (Audit, Compensation, Nominating and Corporate Governance); il Government Security Committee è citato solo nelle biografie e nelle riunioni 2025.",
+    "Comitati: la composizione del Government Security Committee deriva solo dalla biografia di Nina M. Armagno; il documento non elenca altri membri né il presidente.",
+    "Comitati: la sezione committees è assente nel documento; l'appartenenza è stata letta dalla prosa della sezione board.",
+    "Executive officers: la sezione executives è assente nel documento; la lista è vuota. Adam Spice, Arjun L. Kampani e Frank Klein compaiono solo nella tabella di proprietà, senza ruolo indicato, e il CEO Peter Beck è citato solo come direttore.",
+    "Ownership: Peter Beck è inserito anche in greater_than_5pct_stockholders perché detiene il 7,5% del potere di voto; la quota di 45.951.250 azioni di Series A Preferred Stock è detenuta tramite Equatorial Trust, convertibile 1:1.",
+    "Ownership: la quota di Common Stock di Peter Beck (491.930) non è dichiarata nel documento ed è ricavata per sottrazione da 46.443.180 meno 45.951.250 azioni di Series A Preferred Stock.",
+    "Ownership: le tabelle riportano il totale delle azioni senza suddivisione per classe; i conteggi sono espressi come Common Stock, con la sola eccezione della quota di Beck in Series A Preferred Stock.",
+    "Ownership: la riga di gruppo non dichiara il numero di persone; persons è null. Il totale di 52.394.596 non è suddiviso per classe e potrebbe includere azioni di Series A Preferred Stock.",
+    "Ownership: la quota di Khosla è riportata secondo l'Amendment No. 10 allo Schedule 13D; il documento precisa che KVA V e KV V non detengono più azioni, mentre la titolarità è di VK Services, LLC.",
+    "executive_officers: elenco formale dei dirigenti non disponibile, né nel DEF 14A né nel Form 10-K del 2026-02-26. I dirigenti con compensi dichiarati sono in named_executive_officers_and_directors.",
+    "10-K: La finestra fornita (Item 10) contiene solo il codice di condotta e il rinvio al proxy statement 2026 per le informazioni sugli executive officer: non è presente alcun elenco di dirigenti.",
+    "10-K: La sezione della Parte I con l'elenco degli executive officer non è stata fornita; per estrarre i dati occorre la finestra corrispondente.",
+    "10-K: Nessun dato su nomi, età, cariche o data di riferimento è stato ricavato dalla finestra fornita."
+  ]
+}

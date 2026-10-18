@@ -1,0 +1,472 @@
+{
+  "company": "StandardAero, Inc.",
+  "ticker": "SARO",
+  "cik": "0002025410",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-30",
+    "accession": "0001193125-26-194138",
+    "meeting": null,
+    "ownership_as_of": "2026-04-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2025410/000119312526194138/d317955ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Russell Ford",
+      "roles": [
+        "Chief Executive Officer",
+        "Director",
+        "Chair, Executive Committee"
+      ],
+      "director_since": "2019-04",
+      "independent": false
+    },
+    {
+      "name": "Peter J. Clare",
+      "roles": [
+        "Director, Class I (term to 2028)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Andrea Fischer Newman",
+      "roles": [
+        "Director, Class I (term to 2028)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Douglas V. Brandely",
+      "roles": [
+        "Director, Class II (nominee, term to 2029)",
+        "Chair, Compensation Committee"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Wendy M. Masiello",
+      "roles": [
+        "Director, Class II (nominee, term to 2029)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Stefan Weingartner",
+      "roles": [
+        "Director, Class II (nominee, term to 2029)"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Derek J. Kerr",
+      "roles": [
+        "Director, Class III (term to 2027)",
+        "Chair, Audit Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Ian Fujiyama",
+      "roles": [
+        "Director, Class III (term to 2027)",
+        "Chair, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Paul McElhinney",
+      "roles": [
+        "Director, Class III (term to 2027)"
+      ],
+      "director_since": null,
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Derek J. Kerr",
+        "Peter J. Clare",
+        "Wendy M. Masiello"
+      ],
+      "chair": "Derek J. Kerr",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Douglas V. Brandely",
+        "Paul McElhinney",
+        "Stefan Weingartner"
+      ],
+      "chair": "Douglas V. Brandely",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Ian Fujiyama",
+        "Peter J. Clare",
+        "Andrea Fischer Newman"
+      ],
+      "chair": "Ian Fujiyama",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Russell Ford",
+        "Ian Fujiyama",
+        "Douglas V. Brandely"
+      ],
+      "chair": "Russell Ford",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Russell Ford",
+      "age": 64,
+      "positions": [
+        "Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Daniel Satterfield",
+      "age": 61,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kimberly Ernzen",
+      "age": 54,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Lewis Prebble",
+      "age": 55,
+      "positions": [
+        "President of Engine Services - Commercial"
+      ]
+    },
+    {
+      "name": "Marc Drobny",
+      "age": 55,
+      "positions": [
+        "President of Engine Services - Military, Helicopters & Energy"
+      ]
+    },
+    {
+      "name": "Giovanni Spitale",
+      "age": 53,
+      "positions": [
+        "President of Engine Services - Business Aviation"
+      ]
+    },
+    {
+      "name": "Gregory Krekeler",
+      "age": 64,
+      "positions": [
+        "President of Component Repair Services"
+      ]
+    },
+    {
+      "name": "Michael Kaplan",
+      "age": 57,
+      "positions": [
+        "Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Alexander Trapp",
+      "age": 52,
+      "positions": [
+        "Chief Strategy Officer"
+      ]
+    },
+    {
+      "name": "Malisa Chambliss",
+      "age": 55,
+      "positions": [
+        "Chief Human Resources Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-27",
+    "note": "Percentuali calcolate su 332.421.972 azioni di Common Stock in circolazione al 27 aprile 2026. * = meno dell'1%; — = zero. Per Kimberly Ashmun la data di riferimento è il 22 settembre 2025. Il documento non indica il numero di voti, quindi pct_of_votes è null.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Investment funds affiliated with The Carlyle Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 84587035,
+            "pct": 25.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o The Carlyle Group, 1001 Pennsylvania Avenue, NW, Suite 220 South, Washington, D.C. 20004"
+      },
+      {
+        "name": "GIC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19094140,
+            "pct": 5.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "168 Robinson Road, #37-01 Capital Tower, Singapore 068912"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35295101,
+            "pct": 10.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-06",
+        "address": "1307 Point Street, Baltimore, MD 21231"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19735278,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-27",
+        "address": "50 Hudson Yards New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Russell Ford",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2888111,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Satterfield",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 447318,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kimberly Ernzen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 332398,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kimberly Ashmun",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 207315,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anthony Brancato",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 361296,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lewis Prebble",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 366336,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul McElhinney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 287542,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Douglas V. Brandely",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ian Fujiyama",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stefan Weingartner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76497,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrea Fischer Newman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 73990,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Clare",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13302,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wendy M. Masiello",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35525,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Derek J. Kerr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7354,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 19,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 6974208,
+          "pct": 2.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della assemblea annuale non presente nelle sezioni fornite: meeting è null.",
+    "Ticker SARO ricavato dall'intestazione della richiesta, non dal testo del documento estratto.",
+    "Sanity check 1 non soddisfatto: Russell Ford (CEO) è membro dell'Executive Committee e non è indipendente. Mantenuto il valore fattuale.",
+    "Sanity check 1 non soddisfatto: Douglas V. Brandely, Ian Fujiyama e Stefan Weingartner sono partner od operating executive di The Carlyle Group, e Paul McElhinney è senior operating partner di AE Industrial Partners. Sono membri di comitati, ma il documento non dichiara la loro indipendenza individuale, mentre per il Compensation Committee afferma che la composizione rispetta i requisiti NYSE. Valore independent: false mantenuto per coerenza con l'affiliazione dichiarata: da verificare.",
+    "Ian Fujiyama compare anche nel comitato di investimento di TC Group VII S1, L.P., che controlla le decisioni di voto su Carlyle Partners VII (>5%).",
+    "Independenza di Peter J. Clare, Derek J. Kerr, Wendy M. Masiello e Andrea Fischer Newman: indipendenti per dichiarazione del Board (Audit Committee) o per la composizione dei comitati conforme ai requisiti NYSE. Clare è andato in pensione da Carlyle nel 2023.",
+    "director_since disponibile solo per Russell Ford (aprile 2019); per gli altri direttori il documento non riporta l'anno di ingresso in consiglio.",
+    "Douglas V. Brandely, Wendy M. Masiello e Stefan Weingartner sono nominee per la rielezione in classe II e restano in carica; il documento dice che nessuno dei tre è tenuto a dimettersi prima dell'assemblea. Masiello e Weingartner non sono più qualificati come 'Investor Designees' ai sensi dello Stockholders Agreement.",
+    "Discrepanza sulla quota Carlyle: la sezione board riporta circa il 31,4% delle azioni in circolazione a gennaio 2026, mentre la tabella ownership riporta il 25,4% al 27 aprile 2026. Il dato della tabella è stato usato così com'è.",
+    "Executive Committee: il documento dice che si è riunito una volta e ha anche agito per consenso scritto; meetings è stato impostato a 1, ma il consenso scritto non è una riunione.",
+    "Carlyle designees: il documento dice che Carlyle ha diritto a sei dei nove direttori. Non è un dato estratto nei campi dello schema.",
+    "Anthony Brancato è indicato come NEO e ha annunciato il pensionamento a marzo 2026, ma non compare nel roster dei dirigenti attuali. Kimberly Ashmun ha cessato di essere executive officer il 22 settembre 2025 ed è lasciata nel blocco dei NEO con i dati alla data di cessazione.",
+    "Giovanni Spitale è nominato President of Engine Services - Business Aviation a marzo 2026: nuovo ingresso nel roster dei dirigenti.",
+    "Conteggio: il blocco named_executive_officers_and_directors contiene 14 righe, mentre la riga di gruppo dichiara 19 persone. La differenza è dovuta ai dirigenti non NEO inclusi nel gruppo; i due numeri restano entrambi.",
+    "Le azioni del gruppo e quelle di Ford, Satterfield, Ernzen, Prebble e Brancato includono azioni vincolate non ancora maturate (unvested restricted shares), che sono incluse nel totale beneficiario.",
+    "Ford: le azioni includono 2.184.056 azioni vincolate detenute da La Dolce Vita Family Trust, di cui Ford è co-trustee. Ford resta holder_type person, ma il trust è un veicolo personale: da verificare.",
+    "La tabella ownership fa riferimento a un'offerta di azioni ('as adjusted to reflect the sale of common stock offered by us in this offering'). Il documento estratto non descrive l'offerta: i dati sono quelli pre-offerta riportati nella tabella."
+  ]
+}

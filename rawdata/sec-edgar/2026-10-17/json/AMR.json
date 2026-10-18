@@ -1,0 +1,383 @@
+{
+  "company": "Alpha Metallurgical Resources, Inc.",
+  "ticker": "AMR",
+  "cik": "0001704715",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-31",
+    "accession": "0001140361-26-012338",
+    "meeting": null,
+    "ownership_as_of": "2026-03-10",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1704715/000114036126012338/ny20065179x1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Joanna Baker de Neufville",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-01",
+      "independent": true
+    },
+    {
+      "name": "Kenneth S. Courtis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-02",
+      "independent": true
+    },
+    {
+      "name": "Charles Andrew Eidson",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2023-01",
+      "independent": false
+    },
+    {
+      "name": "Michael Gorzynski",
+      "roles": [
+        "Chair of the Board",
+        "Director"
+      ],
+      "director_since": "2023-01",
+      "independent": true
+    },
+    {
+      "name": "Shelly Lombard",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-02",
+      "independent": true
+    },
+    {
+      "name": "Daniel D. Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Joanna Baker de Neufville",
+        "Shelly Lombard",
+        "Daniel D. Smith"
+      ],
+      "chair": "Shelly Lombard",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Kenneth S. Courtis",
+        "Michael Gorzynski",
+        "Daniel D. Smith"
+      ],
+      "chair": "Daniel D. Smith",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Kenneth S. Courtis",
+        "Michael Gorzynski",
+        "Daniel D. Smith"
+      ],
+      "chair": "Michael Gorzynski",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Safety, Health and Environmental Committee",
+      "members": [
+        "Joanna Baker de Neufville",
+        "Charles Andrew Eidson",
+        "Daniel D. Smith"
+      ],
+      "chair": "Joanna Baker de Neufville",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Charles Andrew Eidson",
+      "age": 50,
+      "positions": [
+        "Chief Executive Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Daniel E. Horn",
+      "age": 64,
+      "positions": [
+        "Executive Vice President, Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Mark M. Manno",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "J. Todd Munsey",
+      "age": 44,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jason E. Whitehead",
+      "age": 48,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-10",
+    "note": "Percentuali calcolate su 12.778.859 azioni ordinarie in circolazione al 10 marzo 2026. * = meno dell'1%. Il numero di azioni include le RSU acquisibili entro 60 giorni dal 10 marzo 2026. Il documento non riporta una percentuale di voto (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Blackrock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1613492,
+            "pct": 12.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-23",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1213584,
+            "pct": 9.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-12",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 865934,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-08-11",
+        "address": "1 Lincoln Street, Boston, MA 02111"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 725244,
+            "pct": 5.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-09",
+        "address": "6300 Bee Cave Road, Building One, Austin, TX 78746"
+      },
+      {
+        "name": "Kenneth S. Courtis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 856537,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "Michael Gorzynski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1438526,
+            "pct": 11.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed 2024-03-19",
+        "address": null
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Charles Andrew Eidson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7632,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "J. Todd Munsey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason E. Whitehead",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6822,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel E. Horn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2749,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark M. Manno",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 460,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanna Baker de Neufville",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10113,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth S. Courtis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 856537,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Gorzynski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1438526,
+            "pct": 11.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shelly Lombard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1419,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel D. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7099,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2331357,
+          "pct": 18.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione committees assente nel documento: l'appartenenza ai comitati è stata letta dalla matrice 'Committee Membership' nella finestra board.",
+    "Charles Andrew Eidson (non indipendente, independent: false) risulta membro del Safety, Health and Environmental Committee; il sanity check 1 (comitati ⊆ indipendenti) non è soddisfatto. Il dato è mantenuto come riportato dal documento, che indica il comitato come composto a maggioranza da indipendenti.",
+    "Kenneth S. Courtis e Michael Gorzynski compaiono sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors.",
+    "Michael Gorzynski: la quota include azioni detenute tramite entità da lui controllate (Percy Rockdale LLC, MG Capital Management Ltd., Continental General Insurance Company, Continental Insurance Group, Ltd., Continental General Holdings LLC), secondo la Schedule 13D/A del 2024-03-19. Holder_type 'person' perché la riga è intestata a una persona fisica.",
+    "Per Kenneth S. Courtis e Michael Gorzynski il documento non fornisce né un riferimento di deposito né un indirizzo distinto: source e address sono null (il documento non indica una fonte per Courtis; per Gorzynski la fonte è la Schedule 13D/A citata in nota).",
+    "I numeri di azioni per i singoli detentori (Courtis, Gorzynski e gli altri direttori e dirigenti) sono stati presi dalla colonna 'Total', che include RSU acquisibili entro 60 giorni dal 10 marzo 2026; le RSU non sono azioni già in possesso.",
+    "Riga di gruppo: 10 persone dichiarate e 10 righe in named_executive_officers_and_directors, coerenti. Il totale di gruppo (2.331.357) include 11.892 RSU.",
+    "Data dell'assemblea annuale non esplicitamente indicata nel documento: 'meeting' è null. Il documento riporta solo che le tenure sono calcolate alla data dell'Annual Meeting del 6 maggio 2026.",
+    "Il documento riporta la percentuale sulle azioni ordinarie senza dichiarare una percentuale sui diritti di voto: pct_of_votes è null per tutti i detentori."
+  ]
+}

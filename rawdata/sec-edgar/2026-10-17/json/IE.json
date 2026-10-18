@@ -1,0 +1,436 @@
+{
+  "company": "Ivanhoe Electric Inc.",
+  "ticker": "IE",
+  "cik": "0001879016",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-21",
+    "accession": "0001140361-26-015947",
+    "meeting": null,
+    "ownership_as_of": "2026-03-19",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1879016/000114036126015947/ny20062456x1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Robert Friedland",
+      "roles": [
+        "Executive Chairman of the Board of Directors"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Taylor Melvin",
+      "roles": [
+        "President, Chief Executive Officer, and Director"
+      ],
+      "director_since": "2022",
+      "independent": false
+    },
+    {
+      "name": "Russell Ball",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-06",
+      "independent": true
+    },
+    {
+      "name": "Sofia Bianchi",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-07",
+      "independent": false
+    },
+    {
+      "name": "Hirofumi Katase",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-01",
+      "independent": false
+    },
+    {
+      "name": "Patrick Loftus-Hills",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-03",
+      "independent": true
+    },
+    {
+      "name": "Victoire de Margerie",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-06",
+      "independent": true
+    },
+    {
+      "name": "Priya Patil",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-06",
+      "independent": true
+    },
+    {
+      "name": "Ronald Vance",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-06",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Russell Ball",
+        "Priya Patil",
+        "Ronald Vance"
+      ],
+      "chair": "Russell Ball",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Health, Safety and Environmental Committee",
+      "members": [
+        "Ronald Vance",
+        "Patrick Loftus-Hills",
+        "Sofia Bianchi"
+      ],
+      "chair": "Ronald Vance",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Nominating Committee",
+      "members": [
+        "Priya Patil",
+        "Russell Ball",
+        "Patrick Loftus-Hills"
+      ],
+      "chair": "Priya Patil",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Robert Friedland",
+      "age": 75,
+      "positions": [
+        "Executive Chairman of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Taylor Melvin",
+      "age": 56,
+      "positions": [
+        "President, Chief Executive Officer, and Director"
+      ]
+    },
+    {
+      "name": "Jordan Neeser",
+      "age": 43,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Quentin Markin",
+      "age": 53,
+      "positions": [
+        "Executive Vice President, Business Development and Strategy Execution"
+      ]
+    },
+    {
+      "name": "Cassandra Joseph",
+      "age": 54,
+      "positions": [
+        "General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Graham Boyd",
+      "age": 40,
+      "positions": [
+        "Senior Vice President, Exploration"
+      ]
+    },
+    {
+      "name": "Glen Kuntz",
+      "age": 58,
+      "positions": [
+        "Senior Vice President, Mine Development"
+      ]
+    },
+    {
+      "name": "Stephani Terhorst",
+      "age": 47,
+      "positions": [
+        "Vice President, Human Resources"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-19",
+    "note": "Percentuali basate su 157.991.593 azioni ordinarie in circolazione al 19 marzo 2026. Include le azioni acquisibili entro il 19 maggio 2026 tramite opzioni o DSU. '*' indica meno dell'1%. La percentuale è riferita alla classe Common (la tabella non indica il dato di voto).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Robert Friedland",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13411270,
+            "pct": 8.49
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed January 28, 2026",
+        "address": null
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16468097,
+            "pct": 10.42
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed by FMR LLC and Abigail P. Johnson on November 5, 2025",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14671551,
+            "pct": 9.29
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 8, 2026",
+        "address": "1307 Point Street, Baltimore, MD 21231"
+      },
+      {
+        "name": "Saudi Arabian Mining Company (Maaden)",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11783254,
+            "pct": 7.46
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed October 31, 2023",
+        "address": "P.O. Box 68861, Riyadh 11537, Kingdom of Saudi Arabia"
+      },
+      {
+        "name": "Century Vision Holdings Ltd.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10254883,
+            "pct": 6.49
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed September 29, 2025 (con Chow Tai Fook Capital Ltd., Chow Tai Fook (Holding) Ltd., Chow Tai Fook Enterprises Ltd., Prestige Century Investments Ltd.)",
+        "address": "38/F, New World Tower, 18 Queen's Road Central, Hong Kong"
+      },
+      {
+        "name": "Blackrock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8222002,
+            "pct": 5.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed January 21, 2026",
+        "address": "50 Hudson Yards New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Robert Friedland",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13411270,
+            "pct": 8.49
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Taylor Melvin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1273293,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jordan Neeser",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 665707,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Quentin Markin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 767007,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cassandra Joseph",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 507092,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Russell Ball",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49487,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sofia Bianchi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 47926,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Victoire de Margerie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49487,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hirofumi Katase",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 93542,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick Loftus-Hills",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 43826,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Priya Patil",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51459,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronald Vance",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42411,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 17852456,
+          "pct": 11.3
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata letta dalla prosa della sezione board.",
+    "Sofia Bianchi è membro dell'Health, Safety and Environmental Committee ma non è indicata come indipendente nel documento (l'elenco degli indipendenti comprende solo Ball, de Margerie, Loftus-Hills, Patil e Vance). Il vincolo 'comitati ⊆ indipendenti' non è rispettato: il membro è mantenuto con independent: false, da verificare. Bianchi è nominata da Maaden ai sensi dell'Investor Rights Agreement.",
+    "La data dell'assemblea (meeting) non è indicata nel testo fornito: campo impostato a null.",
+    "Robert Friedland e Taylor Melvin compaiono sia nel consiglio sia fra gli executive officer; sono inclusi in entrambi i blocchi come da documento.",
+    "Robert Friedland detiene l'8,49% della classe Common Stock: è incluso anche in greater_than_5pct_stockholders, con holder_type person.",
+    "La riga di gruppo dichiara 'All Executive officers and directors as a group (15 people)', ma nel blocco named_executive_officers_and_directors ci sono 12 persone. Le 3 differenze corrispondono ai dirigenti Graham Boyd, Glen Kuntz e Stephani Terhorst, non elencati singolarmente nella tabella (la nota 13 indica 163.826 azioni detenute dagli altri executive officer e 686.123 opzioni). Le righe sono mantenute entrambe.",
+    "La nota 13 della tabella indica che la riga di gruppo comprende anche 163.826 azioni e 686.123 opzioni di altri executive officer non elencati singolarmente: il dato è riportato così com'è."
+  ]
+}

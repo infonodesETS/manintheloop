@@ -1,0 +1,489 @@
+{
+  "company": "First Solar, Inc.",
+  "ticker": "FSLR",
+  "cik": "0001274494",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-02",
+    "accession": "0001274494-26-000096",
+    "meeting": "2026 annual meeting of stockholders, 13 maggio 2026 (virtuale)",
+    "ownership_as_of": "2026-03-19",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1274494/000127449426000096/fslr-20260401.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-24",
+      "accession": "0001274494-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/1274494/000127449426000021/fslr-20251231.htm",
+      "as_of": "2026-02-24"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Michael J. Ahearn",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2000",
+      "independent": false
+    },
+    {
+      "name": "Anita Marangoly George",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Lisa A. Kro",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "William J. Post",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Venkata Renduchintala",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Paul H. Stebbins",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Michael T. Sweeney",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2003",
+      "independent": true
+    },
+    {
+      "name": "Mark R. Widmar",
+      "roles": [
+        "Chief Executive Officer and Director"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Norman L. Wright",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lisa A. Kro",
+        "Venkata Renduchintala",
+        "Paul H. Stebbins"
+      ],
+      "chair": "Lisa A. Kro",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "William J. Post",
+        "Paul H. Stebbins",
+        "Michael T. Sweeney",
+        "Norman L. Wright"
+      ],
+      "chair": "Michael T. Sweeney",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Lisa A. Kro",
+        "William J. Post",
+        "Paul H. Stebbins",
+        "Michael T. Sweeney",
+        "Norman L. Wright"
+      ],
+      "chair": "Paul H. Stebbins",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Technology Committee",
+      "members": [
+        "Michael J. Ahearn",
+        "Anita Marangoly George",
+        "William J. Post",
+        "Venkata Renduchintala"
+      ],
+      "chair": "Venkata Renduchintala",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Mark R. Widmar",
+      "age": 60,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Alexander R. Bradley",
+      "age": 44,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Georges Antoun",
+      "age": 63,
+      "positions": [
+        "Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Michael Koralewski",
+      "age": 54,
+      "positions": [
+        "Chief Supply Chain Officer"
+      ]
+    },
+    {
+      "name": "Kuntal Kumar Verma",
+      "age": 53,
+      "positions": [
+        "Chief Manufacturing Officer"
+      ]
+    },
+    {
+      "name": "Patrick Buehler",
+      "age": 48,
+      "positions": [
+        "Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Markus Gloeckler",
+      "age": 52,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Caroline Stockdale",
+      "age": 62,
+      "positions": [
+        "Chief People and Communications Officer"
+      ]
+    },
+    {
+      "name": "Jason Dymbort",
+      "age": 48,
+      "positions": [
+        "General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Samantha Sloan",
+      "age": 48,
+      "positions": [
+        "Executive Vice President - Corporate Affairs"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-19",
+    "note": "Percentuali calcolate su 107.450.760 azioni di Common Stock in circolazione al 19 marzo 2026. * = meno dell'1%; — = zero. Il documento non indica una percentuale sui diritti di voto (pct_of_votes non dichiarato). Nessun detentore ha diritti di acquisto entro 60 giorni.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13721919,
+            "pct": 12.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30 (dati al 2025-09-30)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11128120,
+            "pct": 10.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-08 (dati al 2024-09-30)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "SIG",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8466499,
+            "pct": 7.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-08-14 (dati al 2025-06-30)",
+        "address": "401 E. City Avenue, Suite 220, Bala Cynwyd, PA 19004 (Susquehanna); G1: 175 W. Jackson Blvd., Suite 1700, Chicago IL 60604; Capital Ventures: P.O. Box 897, Windward 1, Regatta Office Park, West Bay Road, Grand Cayman, KY1-1103 Cayman Islands"
+      },
+      {
+        "name": "FMR, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6501272,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05 (dati al 2025-12-31)",
+        "address": "245 Summer Street, Boston, MA 02210"
+      },
+      {
+        "name": "Citadel",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5681838,
+            "pct": 5.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-08-14 (dati al 2025-06-30)",
+        "address": "830 Brickell Plaza, Miami, Florida 33131"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Michael J. Ahearn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 113227,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Georges A. Antoun",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19126,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alexander R. Bradley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason Dymbort",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9850,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anita Marangoly George",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4748,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa A. Kro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4109,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Curtis A. Morgan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William J. Post",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26895,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Venkata Renduchintala",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1643,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul H. Stebbins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15460,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael T. Sweeney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13835,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kuntal Kumar Verma",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9436,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark R. Widmar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 102798,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Norman L. Wright",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4519,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 19,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 423164,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuota e non è stata ricostruita dalle biografie.",
+    "Curtis A. Morgan è candidato alla prima elezione nell'assemblea 2026 e non siede ancora nel consiglio alla data del documento: escluso da board_of_directors, pur essendo indicato come indipendente dal documento. Compare in named_executive_officers_and_directors con zero azioni.",
+    "Venkata \"Murthy\" Renduchintala: il soprannome tra virgolette è stato rimosso dal nome.",
+    "Michael Sweeney: nome completato in Michael T. Sweeney, come nelle biografie.",
+    "Sanity check 1 non soddisfatto: Michael J. Ahearn è membro del Technology Committee ma il documento non lo elenca tra gli indipendenti. Il dato sui comitati è riportato come scritto nel documento.",
+    "Riga di gruppo: il documento dichiara 19 persone, ma le righe nominative in named_executive_officers_and_directors sono 14. La differenza è plausibilmente costituita da dirigenti non nominati singolarmente nella tabella; il dato è riportato così com'è.",
+    "Il riferimento a FMR, LLC nella nota (4) del documento è scritto come \"FRM, LLC\": è stato usato il nome corretto FMR, LLC.",
+    "SIG: la nota (3) elenca più soggetti e indirizzi (Capital Ventures, Susquehanna, G1, SIG Brokerage). Nel campo address sono riportati tutti gli indirizzi dichiarati; il nome aggregato SIG è mantenuto come nel documento.",
+    "Citadel: la nota (5) include anche Kenneth Griffin come persona fisica nel gruppo; la riga è stata trattata come entità aggregata come nel documento.",
+    "La tabella dei detentori dichiara 'Common Stock' come unica classe: non sono presenti altre classi di azioni da riportare.",
+    "Il documento non dichiara la percentuale sui diritti di voto: pct_of_votes è null per tutti i detentori.",
+    "executive_officers presi dal Form 10-K del 2026-02-24: il DEF 14A non li elenca.",
+    "10-K: La sezione Item 10 contiene solo un rimando all'Item 1 («Business – Information about Our Executive Officers»); l'elenco è stato estratto dalla finestra delle righe 387-436.",
+    "10-K: Nella tabella la riga di Samantha Sloan è spezzata su due righe nel testo; età (48) e carica sono stati attribuiti correttamente."
+  ]
+}

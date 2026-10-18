@@ -1,0 +1,478 @@
+{
+  "company": "Lockheed Martin Corporation",
+  "ticker": "LMT",
+  "cik": "0000936468",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-26",
+    "accession": "0000936468-26-000004",
+    "meeting": "2026-05-12 (Annual Meeting virtuale)",
+    "ownership_as_of": "2026-03-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/936468/000093646826000004/lmt-20260326.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-29",
+      "accession": "0001628280-26-004195",
+      "url": "https://www.sec.gov/Archives/edgar/data/936468/000162828026004195/lmt-20251231.htm",
+      "as_of": "2026-01-29"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "James D. Taiclet",
+      "roles": [
+        "Chairman",
+        "President & CEO"
+      ],
+      "director_since": "2018",
+      "independent": false
+    },
+    {
+      "name": "John C. Aquilino",
+      "roles": [
+        "Retired United States Navy Admiral"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "David B. Burritt",
+      "roles": [
+        "President & CEO, United States Steel Corporation (U.S. Steel)"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "John M. Donovan",
+      "roles": [
+        "Retired CEO, AT&T Communications, LLC"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Joseph F. Dunford, Jr.",
+      "roles": [
+        "Director (non ricandidato all'assemblea 2026)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Thomas J. Falk",
+      "roles": [
+        "Independent Lead Director",
+        "Retired Chairman & CEO, Kimberly-Clark Corporation"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Vicki A. Hollub",
+      "roles": [
+        "President & CEO, Occidental Petroleum Corporation"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Debra L. Reed-Klages",
+      "roles": [
+        "Retired Chairman, President & CEO, Sempra Energy"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Heather A. Wilson",
+      "roles": [
+        "President, University of Texas at El Paso",
+        "Former Secretary of the United States Air Force"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Patricia E. Yarrington",
+      "roles": [
+        "Retired Chief Financial Officer, Chevron Corporation"
+      ],
+      "director_since": "2021",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Patricia E. Yarrington",
+        "David B. Burritt",
+        "Vicki A. Hollub"
+      ],
+      "chair": "Patricia E. Yarrington",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Classified Business and Security Committee",
+      "members": [
+        "Joseph F. Dunford, Jr.",
+        "John C. Aquilino",
+        "John M. Donovan",
+        "Heather A. Wilson",
+        "Patricia E. Yarrington"
+      ],
+      "chair": "Joseph F. Dunford, Jr.",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Management Development and Compensation Committee",
+      "members": [
+        "John M. Donovan",
+        "David B. Burritt",
+        "Vicki A. Hollub",
+        "Debra L. Reed-Klages"
+      ],
+      "chair": "John M. Donovan",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Thomas J. Falk",
+        "Joseph F. Dunford, Jr.",
+        "Debra L. Reed-Klages"
+      ],
+      "chair": "Thomas J. Falk",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Timothy S. Cahill",
+      "age": 60,
+      "positions": [
+        "President – Missiles and Fire Control"
+      ]
+    },
+    {
+      "name": "Stephanie C. Hill",
+      "age": 61,
+      "positions": [
+        "President – Rotary and Mission Systems"
+      ]
+    },
+    {
+      "name": "Robert M. Lightfoot, Jr.",
+      "age": 62,
+      "positions": [
+        "President – Space"
+      ]
+    },
+    {
+      "name": "Kevin J. O'Connor",
+      "age": 58,
+      "positions": [
+        "Senior Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "H. Edward Paul, III",
+      "age": 50,
+      "positions": [
+        "Vice President and Controller"
+      ]
+    },
+    {
+      "name": "Maria A. Ricciardone",
+      "age": 50,
+      "positions": [
+        "Vice President, Treasurer and Investor Relations"
+      ]
+    },
+    {
+      "name": "Evan T. Scott",
+      "age": 48,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Frank A. St. John",
+      "age": 59,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "James D. Taiclet",
+      "age": 65,
+      "positions": [
+        "Chairman, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Gregory M. Ulmer",
+      "age": 61,
+      "positions": [
+        "President – Aeronautics"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-02",
+    "note": "Dati al 2 marzo 2026. Nessun direttore, nominee o NEO possiede individualmente o come gruppo più dell'1% delle azioni ordinarie; nessuna azione è pignorata. Nella tabella dei direttori e dei NEO le Stock Units non sono azioni e non sono riportate come classe; il totale della colonna Total non è riportato. Per la percentuale individuale il documento usa '*' o nessun valore (meno dell'1%), quindi pct è null.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37056708,
+            "pct": 14.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-30",
+        "address": "State Street Financial Center, 1 Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22098899,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18292313,
+            "pct": 7.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-26",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "John C. Aquilino",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 413,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David B. Burritt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6586,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Timothy S. Cahill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14284,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Donovan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5156,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph F. Dunford, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2676,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas J. Falk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vicki A. Hollub",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3637,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jesus Malave",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 101,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin J. O'Connor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2757,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Debra L. Reed-Klages",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2934,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Evan T. Scott",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1474,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank A. St. John",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3833,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James D. Taiclet",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 78052,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Heather A. Wilson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 634,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patricia E. Yarrington",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1130,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 19,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 156078,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, come da regola; non ricostruito dalle biografie.",
+    "Joseph F. Dunford, Jr. non è fra i nove nominee ma resta in carica fino all'Annual Meeting del 12 maggio 2026: incluso in board_of_directors con warning di uscita. director_since non riportato nel documento (null). Indipendenza come da dichiarazione CBS e Governance Committee.",
+    "Dunford è presidente del CBS Committee fino all'assemblea; il Board nominerà un nuovo presidente. Nel Nominating and Corporate Governance Committee il Board nominerà un altro membro dopo l'assemblea.",
+    "Gen. Bruce A. Carlson è uscito dal Board e dai comitati al termine dell'Annual Meeting 2025: non incluso in board_of_directors né nei comitati, come da regola sui direttori già usciti.",
+    "La tabella dei direttori e dei NEO elenca 15 persone, mentre la riga di gruppo dichiara 19 individui (persons: 19): le 4 persone aggiuntive non sono nominate nella tabella. Entrambi i numeri sono riportati come da regola.",
+    "Stock Units (non azioni) e colonna Total non sono inseriti in classes: solo la colonna Common Stock è riportata come classe.",
+    "Dati dei detentori oltre il 5% riferiti al 31 dicembre 2023 (Schedule 13G/A del 2024): potrebbero non essere aggiornati alla data del documento.",
+    "Nella tabella dei detentori oltre il 5% non compaiono righe di aggregazione o subtotale; nessun direttore o dirigente risulta oltre il 5% individualmente.",
+    "executive_officers presi dal Form 10-K del 2026-01-29: il DEF 14A non li elenca."
+  ]
+}

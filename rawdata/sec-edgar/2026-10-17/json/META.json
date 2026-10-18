@@ -1,0 +1,538 @@
+{
+  "company": "Meta Platforms, Inc.",
+  "ticker": "META",
+  "cik": "0001326801",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-16",
+    "accession": "0001628280-26-025532",
+    "meeting": null,
+    "ownership_as_of": "2026-04-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026025532/meta-20260416.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark Zuckerberg",
+      "roles": [
+        "Founder",
+        "Chairman of the board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2004",
+      "independent": false
+    },
+    {
+      "name": "Robert M. Kimmitt",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Peggy Alford",
+      "roles": [
+        "Chair, Compensation, Nominating & Governance Committee",
+        "Member, Audit & Privacy Committee (dal maggio 2026)"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Marc L. Andreessen",
+      "roles": [
+        "Member, Risk & Strategy Committee"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "John Arnold",
+      "roles": [
+        "Member, Risk & Strategy Committee",
+        "Member, Audit & Privacy Committee (dal maggio 2026)"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Patrick Collison",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "John Elkann",
+      "roles": [
+        "Member, Compensation, Nominating & Governance Committee"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Andrew W. Houston",
+      "roles": [
+        "Member, Compensation, Nominating & Governance Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Nancy Killefer",
+      "roles": [
+        "Chair, Audit & Privacy Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Charles Songhurst",
+      "roles": [
+        "Chair, Risk & Strategy Committee"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Dana White",
+      "roles": [
+        "Member, Risk & Strategy Committee"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Tony Xu",
+      "roles": [
+        "Member, Compensation, Nominating & Governance Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Hock E. Tan",
+      "roles": [
+        "Member, Audit & Privacy Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Tracey T. Travis",
+      "roles": [
+        "Member, Audit & Privacy Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit & Privacy Committee",
+      "members": [
+        "Nancy Killefer",
+        "Peggy Alford",
+        "John Arnold",
+        "Hock E. Tan",
+        "Tracey T. Travis"
+      ],
+      "chair": "Nancy Killefer",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation, Nominating & Governance Committee",
+      "members": [
+        "Peggy Alford",
+        "John Elkann",
+        "Andrew W. Houston",
+        "Tony Xu"
+      ],
+      "chair": "Peggy Alford",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Risk & Strategy Committee",
+      "members": [
+        "Charles Songhurst",
+        "Marc L. Andreessen",
+        "John Arnold",
+        "Dana White"
+      ],
+      "chair": "Charles Songhurst",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Equity Subcommittee",
+      "members": [
+        "Peggy Alford",
+        "Susan Li",
+        "C.J. Mahoney"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Mark Zuckerberg",
+      "age": 41,
+      "positions": [
+        "Founder, Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Dina Powell McCormick",
+      "age": 52,
+      "positions": [
+        "President and Vice Chairman"
+      ]
+    },
+    {
+      "name": "Javier Olivan",
+      "age": 48,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Susan Li",
+      "age": 40,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Andrew Bosworth",
+      "age": 44,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Christopher K. Cox",
+      "age": 43,
+      "positions": [
+        "Chief Product Officer"
+      ]
+    },
+    {
+      "name": "C.J. Mahoney",
+      "age": 48,
+      "positions": [
+        "Chief Legal Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-01",
+    "note": "Percentuali calcolate su 2.196.045.588 azioni Classe A e 342.377.716 azioni Classe B in circolazione al 1° aprile 2026; le azioni includono RSU rilasciabili entro 60 giorni. * = meno dell'1%; — = zero. pct_of_votes misura il potere di voto complessivo di Classe A e B come un'unica classe; la Classe B ha dieci voti per azione, la Classe A uno.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Mark Zuckerberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 639347,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 341823978,
+            "pct": 99.8
+          }
+        ],
+        "pct_of_votes": 60.8,
+        "source": null,
+        "address": "c/o Meta Platforms, Inc., 1 Meta Way, Menlo Park, California 94025"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 157849942,
+            "pct": 7.2
+          }
+        ],
+        "pct_of_votes": 2.8,
+        "source": "Schedule 13G/A filed with the SEC on February 12, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 134555687,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": 2.4,
+        "source": "Schedule 13G/A filed with the SEC on April 7, 2025",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark Zuckerberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 639347,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 341823978,
+            "pct": 99.8
+          }
+        ],
+        "pct_of_votes": 60.8
+      },
+      {
+        "name": "Susan Li",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 31429,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher K. Cox",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 319428,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Javier Olivan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 136685,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Bosworth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 85558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peggy Alford",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3713,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marc L. Andreessen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 261784,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Arnold",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3162,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick Collison",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1063,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Elkann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1420,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew W. Houston",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 12761,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nancy Killefer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 12844,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert M. Kimmitt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2378,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles Songhurst",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1372,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hock E. Tan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3162,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tracey T. Travis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 12844,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dana White",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1394,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tony Xu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 8269,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 1555951,
+          "pct": null
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 341823978,
+          "pct": 99.8
+        }
+      ],
+      "pct_of_votes": 60.9
+    }
+  },
+  "warnings": [
+    "Data dell'assemblea annuale non indicata nel testo fornito: meeting = null.",
+    "Il ticker META non compare nel testo del documento: è preso dall'intestazione dell'input.",
+    "Hock E. Tan e Tracey T. Travis risultano membri attuali dell'Audit & Privacy Committee e compaiono tra i direttori nella tabella di proprietà, ma non hanno biografia nella finestra board: director_since = null; l'indipendenza deriva dalla determinazione del consiglio sui direttori non dirigenti.",
+    "Peggy Alford e John Arnold entrano nell'Audit & Privacy Committee dal maggio 2026; l'elenco dei membri include anche Tan e Travis, membri attuali alla data del documento.",
+    "Dina Powell McCormick: la biografia la indica come membro del consiglio nel 2025, ma ora ricopre la carica di President and Vice Chairman; non è nel consiglio attuale e la sua data di uscita dal consiglio non è indicata nel testo: esclusa da board_of_directors.",
+    "Mark Zuckerberg non figura nel roster degli executive officers fornito: incluso con età e carica dalla finestra board (Founder, Chairman and Chief Executive Officer).",
+    "Equity Subcommittee: il documento lo indica come sottocomitato del Compensation, Nominating & Governance Committee con membri Alford, Li e «Mr. Mahoney» (identificato come C.J. Mahoney, Chief Legal Officer). Susan Li e C.J. Mahoney non sono direttori: la lista viola il sanity check 1 e viene mantenuta per completezza. Riunioni non indicate.",
+    "Riunioni: l'Audit & Privacy Committee ha tenuto 5 riunioni nel 2025, ma è stato costituito a giugno 2025; i comitati predecessori (audit & risk oversight: 6 riunioni; privacy & product compliance: 3) non sono sommati né attribuiti all'Audit & Privacy Committee. Il Risk & Strategy Committee ha tenuto 2 riunioni nel 2025, costituito a giugno 2025.",
+    "Riga di gruppo: dichiara 20 persone, ma nella tabella ne compaiono 18 individui. Due persone non sono identificate nel testo fornito e non sono incluse; persons è mantenuto a 20 come dichiarato dal documento.",
+    "Vanguard Group: nella nota risulta nessuna azione di Classe A al 13 marzo 2026, dopo un riallineamento interno; i dati del 2024 (176.798.346 azioni di Classe A) sono superati. Escluso da greater_than_5pct_stockholders.",
+    "Zuckerberg compare sia nel blocco dei >5% (99,8% della Classe B, detenzione persona fisica) sia nel blocco NEO e direttori, come previsto per chi supera il 5% di una classe.",
+    "Andrew Bosworth, Susan Li, Christopher K. Cox, Javier Olivan e Dina Powell McCormick non sono direttori: non compaiono in board_of_directors, ad eccezione di quanto già indicato per Zuckerberg."
+  ]
+}

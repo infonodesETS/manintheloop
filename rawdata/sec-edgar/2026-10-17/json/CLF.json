@@ -1,0 +1,418 @@
+{
+  "company": "Cleveland-Cliffs Inc.",
+  "ticker": "CLF",
+  "cik": "0000764065",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-02",
+    "accession": "0000764065-26-000054",
+    "meeting": "Annual Meeting of Shareholders, 14 maggio 2026, virtuale (www.virtualshareholdermeeting.com/CLF2026)",
+    "ownership_as_of": "2026-03-16",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/764065/000076406526000054/clf-20260402.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-09",
+      "accession": "0000764065-26-000025",
+      "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406526000025/clf-20251231.htm",
+      "as_of": "2026-02-09"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Lourenco Goncalves",
+      "roles": [
+        "Chairman of the Board",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2014",
+      "independent": false
+    },
+    {
+      "name": "Ralph S. Michael, III",
+      "roles": [
+        "Lead Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "John T. Baldwin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Ron A. Bloom",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Edilson T. Camara",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Jane M. Cronin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-01",
+      "independent": true
+    },
+    {
+      "name": "Ben Oren",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Arlene M. Yocum",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Susan M. Green",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Gabriel Stoliar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "John T. Baldwin",
+        "Jane M. Cronin",
+        "Ben Oren",
+        "Arlene M. Yocum"
+      ],
+      "chair": "John T. Baldwin",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Organization Committee",
+      "members": [
+        "Edilson T. Camara",
+        "John T. Baldwin",
+        "Ralph S. Michael, III"
+      ],
+      "chair": "Edilson T. Camara",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Ralph S. Michael, III",
+        "Ron A. Bloom",
+        "Susan M. Green"
+      ],
+      "chair": "Ralph S. Michael, III",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Strategy and Sustainability Committee",
+      "members": [
+        "Lourenco Goncalves",
+        "Ron A. Bloom",
+        "Gabriel Stoliar",
+        "Arlene M. Yocum"
+      ],
+      "chair": "Lourenco Goncalves",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lourenco Goncalves",
+      "age": 67,
+      "positions": [
+        "Chairman, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Clifford Smith",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Keith Koci",
+      "age": 61,
+      "positions": [
+        "Executive Vice President & President, Cleveland-Cliffs Services"
+      ]
+    },
+    {
+      "name": "Celso Goncalves",
+      "age": 37,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Terry Fedor",
+      "age": 61,
+      "positions": [
+        "Executive Vice President, Engineering & Technology"
+      ]
+    },
+    {
+      "name": "James Graham",
+      "age": 60,
+      "positions": [
+        "Executive Vice President, Chief Legal and Administrative Officer & Secretary"
+      ]
+    },
+    {
+      "name": "Kimberly Floriani",
+      "age": 43,
+      "positions": [
+        "Senior Vice President, Controller & Chief Accounting Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-16",
+    "note": "Dati al 16 marzo 2026, salvo diversa indicazione. Percentuale 'less than one percent' (<1%) dove non riportata. Nessuna azione detenuta da direttori o dirigenti è data in pegno. Le azioni sono considerate beneficially owned secondo le regole SEC.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44103832,
+            "pct": 7.73
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 5) filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "John T. Baldwin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 133227,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ron A. Bloom",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 102937,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edilson T. Camara",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41983,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jane M. Cronin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54242,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan M. Green",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 116726,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ralph S. Michael, III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 218086,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ben Oren",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32734,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gabriel Stoliar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 286660,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arlene M. Yocum",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 121133,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lourenco Goncalves",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2378347,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Celso L. Goncalves Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 214309,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Clifford T. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 466758,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Keith A. Koci",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 367303,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James D. Graham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 339309,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 5411439,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers lasciato vuoto. Celso Goncalves (EVP, CFO) e Terry Fedor (EVP Engineering & Technology, pensionato il 31 marzo 2026) sono citati solo nel testo, non in un roster.",
+    "Susan M. Green e Gabriel Stoliar non sono candidati alla rielezione all'assemblea 2026 ma restano in carica alla data del documento: inclusi in board_of_directors con warning di uscita. La data di prima nomina e i ruoli non compaiono nel testo fornito: director_since null, roles generico.",
+    "Douglas C. Taylor non è incluso: le dimissioni condizionali sono state accettate dal consiglio con effetto immediato il 22 febbraio 2026. Era direttore durante il 2025 e percepiva compensi per quell'anno.",
+    "Strategy and Sustainability Committee: il presidente Lourenco Goncalves non è indipendente, in conflitto con il sanity check 1 (comitati ⊆ indipendenti). Il membro è mantenuto perché il documento lo indica come presidente del comitato.",
+    "Edilson T. Camara: data di nomina nel consiglio 12 novembre 2025, riportata come director_since '2025-11'.",
+    "Jane M. Cronin: il documento riporta 'Director since 2025' e, nella nota della tabella compensi, elezione il 3 gennaio 2025: director_since impostato a '2025-01'.",
+    "Ralph S. Michael, III: direttore dal 2020, lead director dal 2026; director_since '2020'.",
+    "Riga di gruppo: dichiara 16 persone, ma le righe named_executive_officers_and_directors sono 14 (9 direttori e 5 NEO). Mancano 2 persone nel dettaglio: campo persons mantenuto a 16 come dichiarato.",
+    "BlackRock, Inc.: l'unica riga oltre il 5%; pct_of_votes non riportata nella tabella. Fonte e indirizzo copiati dalla nota (Schedule 13G/A del 17 aprile 2025).",
+    "Le percentuali individuali sono <1% (non indicate in tabella): pct null per tutti i direttori e i dirigenti.",
+    "Le informazioni sulla partecipazione di Douglas C. Taylor non compaiono nella tabella di proprietà, coerentemente con la sua uscita dal consiglio.",
+    "executive_officers presi dal Form 10-K del 2026-02-09: il DEF 14A non li elenca."
+  ]
+}

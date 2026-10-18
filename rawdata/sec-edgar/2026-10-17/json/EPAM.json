@@ -1,0 +1,509 @@
+{
+  "company": "EPAM Systems, Inc.",
+  "ticker": "EPAM",
+  "cik": "0001352010",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-06",
+    "accession": "0001140361-26-013337",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-03-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1352010/000114036126013337/ny20062726x2_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Balazs Fejes",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Nominee Class II"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Eugene Roman",
+      "roles": [
+        "Member - Audit Committee and Cybersecurity Subcommittee",
+        "Member - Compensation Committee",
+        "Nominee Class II"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Jill Smart",
+      "roles": [
+        "Chair - Compensation Committee",
+        "Member - Nominating and Corporate Governance Committee",
+        "Nominee Class II"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Ronald Vargo",
+      "roles": [
+        "Chair - Nominating and Corporate Governance Committee",
+        "Member - Audit Committee",
+        "Nominee Class II"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "DeAnne Aguirre",
+      "roles": [
+        "Member - Audit Committee",
+        "Member - Compensation Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Arkadiy Dobkin",
+      "roles": [
+        "Executive Chair",
+        "Chair of the Board"
+      ],
+      "director_since": "2002",
+      "independent": false
+    },
+    {
+      "name": "Chandra McMahon",
+      "roles": [
+        "Member - Audit Committee and Cybersecurity Subcommittee",
+        "Member - Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Robert E. Segert",
+      "roles": [
+        "Member - Compensation Committee"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Richard Michael Mayoras",
+      "roles": [
+        "Lead Independent Director",
+        "Member - Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Karl Robb",
+      "roles": [],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Helen Shan",
+      "roles": [
+        "Chair - Audit Committee",
+        "Member - Compensation Committee"
+      ],
+      "director_since": "2018",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Helen Shan",
+        "DeAnne Aguirre",
+        "Chandra McMahon",
+        "Eugene Roman",
+        "Ronald Vargo"
+      ],
+      "chair": "Helen Shan",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Jill Smart",
+        "DeAnne Aguirre",
+        "Eugene Roman",
+        "Robert E. Segert",
+        "Helen Shan"
+      ],
+      "chair": "Jill Smart",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Ronald Vargo",
+        "Richard Michael Mayoras",
+        "Chandra McMahon",
+        "Jill Smart"
+      ],
+      "chair": "Ronald Vargo",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Cybersecurity Subcommittee of the Audit Committee",
+      "members": [
+        "Chandra McMahon",
+        "Eugene Roman"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Arkadiy Dobkin",
+      "age": 65,
+      "positions": [
+        "Executive Chair"
+      ]
+    },
+    {
+      "name": "Balazs Fejes",
+      "age": 51,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Viktar Dvorkin",
+      "age": 53,
+      "positions": [
+        "Senior Vice President, Global Head of Advanced Engineering, Cloud and Enterprise Platforms"
+      ]
+    },
+    {
+      "name": "Jason Peterson",
+      "age": 63,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer and Treasurer"
+      ]
+    },
+    {
+      "name": "Edward Rockwell",
+      "age": 58,
+      "positions": [
+        "Senior Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Elaina Shekhter",
+      "age": 56,
+      "positions": [
+        "Senior Vice President, Chief Strategy and Transformation Officer"
+      ]
+    },
+    {
+      "name": "Larry Solomon",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, Chief People Officer and Head of Operations"
+      ]
+    },
+    {
+      "name": "Gary Abrahams",
+      "age": 58,
+      "positions": [
+        "Vice President, Corporate Controller, Chief Accounting Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-13",
+    "note": "As of March 13, 2026, 52,444,312 shares of Common Stock outstanding. * denotes less than 1%. Beneficial ownership includes shares issuable under options exercisable within 60 days, RSUs and restricted stock, which are counted in the holder's percentage only. Share numbers rounded to eliminate fractional shares. Only one class of stock is reported.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6825589,
+            "pct": 11.83
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3975799,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-07-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Invesco Ltd.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3569498,
+            "pct": 6.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-05-09",
+        "address": "1331 Spring Street NW, Suite 2500, Atlanta, GA 30309"
+      },
+      {
+        "name": "Capital World Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6671458,
+            "pct": 12.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-03-06",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Arkadiy Dobkin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1522993,
+            "pct": 2.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Balazs Fejes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71722,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason Peterson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 69931,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elaina Shekhter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 56238,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Larry Solomon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 56798,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Viktar Dvorkin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 92138,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward Rockwell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23696,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary Abrahams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3244,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "DeAnne Aguirre",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3637,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard Michael Mayoras",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10693,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chandra McMahon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3758,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eugene Roman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2408,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karl Robb",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7739,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert E. Segert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18349,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Helen Shan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6299,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jill Smart",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9324,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronald Vargo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10926,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1969894,
+          "pct": 3.8
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Balazs Fejes e Arkadiy Dobkin compaiono sia fra i direttori sia fra i dirigenti: sono inclusi in entrambi i blocchi dove pertinenti.",
+    "Il documento dichiara che nove dei undici direttori sono indipendenti, escludendo Dobkin (Executive Chair) e Fejes (CEO); Karl Robb è quindi classificato indipendente in base a questa dichiarazione, benché la sua biografia non elenchi ruoli nei comitati.",
+    "Il Cybersecurity Subcommittee dell'Audit Committee è nominato nel documento ma non è un comitato permanente; non ha riunioni dichiarate separatamente, quindi meetings è null e non è sommato a quelle dell'Audit Committee.",
+    "Il numero di riunioni dell'Audit Committee (8), della Compensation Committee (7) e della Nominating and Corporate Governance Committee (6) si riferisce al 2025; il consiglio ne ha tenute 10 nel 2025, dato non attribuito a un singolo comitato.",
+    "La partecipazione di The Vanguard Group deriva da una Schedule 13G/A del 2024-02-13, quindi potrebbe non riflettere la situazione attuale alla data di record del 2026-03-13.",
+    "Arkadiy Dobkin detiene il 2,9% delle azioni ordinarie: sotto la soglia del 5%, quindi non è incluso nel blocco dei detentori oltre il 5%.",
+    "Il numero di persone del gruppo (17) è coerente con le 17 righe di named_executive_officers_and_directors."
+  ]
+}

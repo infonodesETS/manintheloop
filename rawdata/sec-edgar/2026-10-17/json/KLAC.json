@@ -1,0 +1,416 @@
+{
+  "company": "KLA Corporation",
+  "ticker": "KLAC",
+  "cik": "0000319201",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-22",
+    "accession": "0001193125-26-397898",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-09-09",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/319201/000119312526397898/d83268ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Robert Calderoni",
+      "roles": [
+        "Director",
+        "Member, Compensation and Talent Committee",
+        "Chair, Nominating and Governance Committee"
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Jason Conley",
+      "roles": [
+        "Director",
+        "Member, Audit Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Tracy Embree",
+      "roles": [
+        "Director",
+        "Member, Compensation and Talent Committee"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Jeneanne Hanley",
+      "roles": [
+        "Director",
+        "Member, Compensation and Talent Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Kevin Kennedy",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee",
+        "Member, Nominating and Governance Committee"
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Michael McMullen",
+      "roles": [
+        "Director",
+        "Chair, Compensation and Talent Committee",
+        "Member, Nominating and Governance Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Victor Peng",
+      "roles": [
+        "Director",
+        "Member, Compensation and Talent Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Jamie Samath",
+      "roles": [
+        "Director",
+        "Member, Audit Committee"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Susan Taylor",
+      "roles": [
+        "Director",
+        "Member, Audit Committee"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Richard Wallace",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2006",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Jason Conley",
+        "Kevin Kennedy",
+        "Jamie Samath",
+        "Susan Taylor"
+      ],
+      "chair": "Kevin Kennedy",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Talent Committee",
+      "members": [
+        "Robert Calderoni",
+        "Tracy Embree",
+        "Jeneanne Hanley",
+        "Michael McMullen",
+        "Victor Peng"
+      ],
+      "chair": "Michael McMullen",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Robert Calderoni",
+        "Kevin Kennedy",
+        "Michael McMullen"
+      ],
+      "chair": "Robert Calderoni",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Richard Wallace",
+      "age": 66,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Bren Higgins",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Ahmad Khan",
+      "age": 52,
+      "positions": [
+        "President, Semiconductor Products and Customers"
+      ]
+    },
+    {
+      "name": "Mary Beth Wilkinson",
+      "age": 54,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Brian Lorig",
+      "age": 52,
+      "positions": [
+        "Executive Vice President, KLA Global Services"
+      ]
+    },
+    {
+      "name": "Virendra Kirloskar",
+      "age": 62,
+      "positions": [
+        "Senior Vice President and Chief Accounting Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-09",
+    "note": "Quote calcolate su 1.305.006.492 azioni ordinarie in circolazione al 2026-09-09; gli importi tengono conto dello split 10-per-1 di giugno 2026. '*' indica meno dell'1%; '—' non presente. Le RSU con consegna entro 60 giorni sono incluse nel numero di azioni della singola persona.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 115048620,
+            "pct": 8.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-01-25 (dati al 2023-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 98224210,
+            "pct": 7.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-30 (dati al 2026-03-31)",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Richard Wallace",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 391973,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Calderoni",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 152305,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason Conley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2064,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tracy Embree",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeneanne Hanley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35507,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin Kennedy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 80357,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael McMullen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11787,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Victor Peng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58157,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jamie Samath",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3777,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan Taylor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3697,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bren Higgins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 179571,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ahmad Khan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 109800,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian Lorig",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5763,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Beth Wilkinson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 74,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1036933,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Jason Conley compare nell'elenco dei comitati e come membro dell'Audit Committee, ma non ha una biografia nella sezione dei nominee e non compare nella composizione dei comitati attesa dopo l'assemblea: non è indicato se resterà in consiglio. Incluso come direttore in carica alla data del documento, con director_since null perché il dato non è presente nella finestra.",
+    "Nessuna data di uscita è indicata per Jason Conley nel documento.",
+    "Il campo 'independent' è valorizzato sulla base della dichiarazione del consiglio sull'indipendenza dei membri di Audit, Compensation and Talent e Nominating and Governance Committee; tutti i direttori non esecutivi sono membri di almeno un comitato, quindi risultano indipendenti. Richard Wallace è CEO e quindi non indipendente.",
+    "Il ruolo di Chairman of the Board non è esplicitato nel documento in modo univoco; non è stato assegnato a nessun direttore.",
+    "Gli importi di azioni frazionarie (es. 391.973,342) sono stati arrotondati all'intero più vicino per lo schema; il documento riporta i decimali.",
+    "La riga di gruppo dichiara 15 persone, mentre nella tabella individuale compaiono 14 persone (10 direttori e 4 dirigenti). La differenza potrebbe corrispondere a un executive officer non elencato singolarmente (ad esempio Virendra Kirloskar), ma il documento non lo specifica.",
+    "Il Form 13G di BlackRock riportato dal documento è datato 2024-01-25 con dati al 2023-12-31, quindi precedente alla data di riferimento della tabella (2026-09-09); il dato è riportato come pubblicato nel documento.",
+    "Le percentuali >5% (8,8% e 7,5%) sono quelle dichiarate nel documento; 'pct_of_votes' non è dichiarato e resta null.",
+    "La tabella dei detentori oltre il 5% è ripetuta nel documento insieme alla tabella del management; nessuna riga di aggregazione o subtotale è presente nelle tabelle dei detentori >5%."
+  ]
+}

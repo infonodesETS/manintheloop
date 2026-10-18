@@ -1,0 +1,389 @@
+{
+  "company": "Byrna Technologies Inc.",
+  "ticker": "BYRN",
+  "cik": "0001354866",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-02",
+    "accession": "0001437749-26-029518",
+    "meeting": null,
+    "ownership_as_of": "2026-08-18",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1354866/000143774926029518/byrn20260828_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "TJ Kennedy",
+      "roles": [
+        "Chair of the Board",
+        "Independent Director",
+        "Member, Enterprise Risk Management Committee"
+      ],
+      "director_since": "2025-09",
+      "independent": true
+    },
+    {
+      "name": "Conn Davis",
+      "roles": [
+        "Chief Executive Officer",
+        "Director",
+        "Member, Enterprise Risk Management Committee"
+      ],
+      "director_since": "2026-03",
+      "independent": false
+    },
+    {
+      "name": "Leonard Elmore",
+      "roles": [
+        "Director",
+        "Chair, Nominating and Governance Committee",
+        "Member, Audit Committee",
+        "Member, Succession Planning Subcommittee"
+      ],
+      "director_since": "2021-12",
+      "independent": true
+    },
+    {
+      "name": "Herbert Hughes",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee",
+        "Member, Compensation Committee",
+        "Member, Nominating and Governance Committee",
+        "Chair, Succession Planning Subcommittee"
+      ],
+      "director_since": "2019-07",
+      "independent": true
+    },
+    {
+      "name": "Rose Lopez Keravuori",
+      "roles": [
+        "Director",
+        "Member, Enterprise Risk Management Committee"
+      ],
+      "director_since": "2026-08",
+      "independent": true
+    },
+    {
+      "name": "Matthew McBrady",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-08",
+      "independent": true
+    },
+    {
+      "name": "Chris Lavern Reed",
+      "roles": [
+        "Director",
+        "Chair, Compensation Committee",
+        "Member, Audit Committee",
+        "Member, Nominating and Governance Committee"
+      ],
+      "director_since": "2020-09",
+      "independent": true
+    },
+    {
+      "name": "Adam Roth",
+      "roles": [
+        "Director",
+        "Member, Enterprise Risk Management Committee"
+      ],
+      "director_since": "2025-09",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Herbert Hughes",
+        "Chris Lavern Reed",
+        "Leonard Elmore"
+      ],
+      "chair": "Herbert Hughes",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Chris Lavern Reed",
+        "Herbert Hughes"
+      ],
+      "chair": "Chris Lavern Reed",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Leonard Elmore",
+        "Herbert Hughes",
+        "Chris Lavern Reed"
+      ],
+      "chair": "Leonard Elmore",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Succession Planning Subcommittee",
+      "members": [
+        "Herbert Hughes",
+        "Leonard Elmore"
+      ],
+      "chair": "Herbert Hughes",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Enterprise Risk Management Committee",
+      "members": [
+        "Rose Lopez Keravuori",
+        "Conn Davis",
+        "Adam Roth",
+        "TJ Kennedy"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Product Safety Committee",
+      "members": [
+        "Emily Rooney",
+        "Chris Lavern Reed",
+        "Leonard Elmore"
+      ],
+      "chair": "Emily Rooney",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Conn Davis",
+      "age": null,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Laurilee Kearnes",
+      "age": 55,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-18",
+    "note": "Percentuale calcolata su 23.404.754 azioni di common stock in circolazione al 18 agosto 2026. Le opzioni esercitabili entro 60 giorni dal 18 agosto 2026 sono considerate in circolazione solo per il calcolo della percentuale del detentore e del gruppo. * = meno dell'1%. Indirizzo predefinito: c/o Byrna Technologies Inc., 100 Burtt Road, Suite 115, Andover, MA 01810, salvo diversa indicazione.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Pierre Lapeyre Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2891943,
+            "pct": 12.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed on February 1, 2022",
+        "address": "c/o Riverstone Holdings LLC, 712 Fifth Avenue, 36th Floor, New York, NY 10019"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1627566,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed by FMR LLC and Abigail P. Johnson on August 7, 2026",
+        "address": "245 Boylston Street, Boston, MA 02110"
+      },
+      {
+        "name": "Bryan Scott Ganz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2296635,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13D filed by Bryan S. Ganz and altri reporting persons on August 12, 2026",
+        "address": "300 Tradecenter Drive, Suite 7640, Woburn, MA 01801"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Bryan Scott Ganz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2296635,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luan Pham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21811,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laurilee Kearnes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Conn Davis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22108,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leonard Elmore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60811,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Herbert Hughes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 178342,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "TJ Kennedy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34189,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rose Lopez Keravuori",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 561,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew McBrady",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chris Lavern Reed",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 66585,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Adam Roth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4379,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 9,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 385862,
+          "pct": 1.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Bryan Ganz (Bryan Scott Ganz) è uscito dal consiglio con il ritiro di marzo 2026 ed è stato sostituito da Conn Davis: non incluso in board_of_directors. Compare però nella tabella dei NEO e nei >5%.",
+    "Emily Rooney si è dimessa dal consiglio il 10 agosto 2026 (non si ricandidava): non inclusa in board_of_directors; compare solo come membro/presidente del Product Safety Committee, sciolto nella stessa data.",
+    "Herbert Hughes ha lasciato la presidenza del consiglio il 2 marzo 2026, ma resta direttore: incluso con i ruoli di comitato attuali.",
+    "Conn Davis è CEO e non indipendente, ma è membro dell'Enterprise Risk Management Committee: viola il controllo 'comitati ⊆ indipendenti'. Mantenuto come indicato nel documento.",
+    "Le riunioni del Nominating and Governance Committee e del Search and Succession Subcommittee sono riportate come totale cumulativo (cinque): meetings impostato a null per entrambi.",
+    "Enterprise Risk Management Committee: costituito il 10 agosto 2026, senza presidente nominato e senza numero di riunioni dichiarato. Robert Holmes (VP Product Development) è membro consultivo non votante e non incluso fra i membri.",
+    "Product Safety Committee: i membri indicati sono quelli al momento dello scioglimento; Emily Rooney non risulta più nel consiglio attuale.",
+    "Il Succession Planning Subcommittee non ha un elenco membri esplicito nel documento; membri ricavati dalle biografie (Hughes presidente, Elmore membro attuale).",
+    "Age di Conn Davis non dichiarata nel documento: null.",
+    "Pierre Lapeyre Jr.: dato ricavato da uno Schedule 13G del 1° febbraio 2022, potenzialmente non aggiornato.",
+    "Bryan Scott Ganz compare sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors, come da tabella del documento.",
+    "Controllo persons/righe: la riga di gruppo dichiara 9 persone; il blocco NEO/direttori contiene 11 righe. La differenza è dovuta a Bryan Scott Ganz e Luan Pham, che non sono dirigenti o direttori attuali.",
+    "Matthew McBrady: il titolo 'Ph.D.' è stato rimosso dal nome come da regola di normalizzazione.",
+    "Holder_type: Pierre Lapeyre Jr. e Bryan Scott Ganz classificati come person; nessun trust o veicolo familiare ambiguo nella tabella dei >5%, ma Bryan Scott Ganz è indicato come reporting person insieme a NEIP, BSG e trust.",
+    "Nessuna riga di aggregazione o subtotale da escludere dal blocco dei >5%. La riga di gruppo è stata trovata e valorizzata.",
+    "La sezione committees è assente nel documento: l'appartenenza ai comitati è stata letta dalla prosa della sezione board."
+  ]
+}

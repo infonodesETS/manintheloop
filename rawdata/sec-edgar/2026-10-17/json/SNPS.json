@@ -1,0 +1,447 @@
+{
+  "company": "Synopsys, Inc.",
+  "ticker": "SNPS",
+  "cik": "0000883241",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-02-19",
+    "accession": "0000883241-26-000007",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-02-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000007/snps-20260219.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-22",
+      "accession": "0000883241-25-000028",
+      "url": "https://www.sec.gov/Archives/edgar/data/883241/000088324125000028/snps-20251031.htm",
+      "as_of": "2025-12-19"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Aart J. de Geus",
+      "roles": [
+        "Executive Chair of the Board of Directors"
+      ],
+      "director_since": "1986",
+      "independent": false
+    },
+    {
+      "name": "John G. Schwarz",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Sassine Ghazi",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Janice D. Chaffin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Bruce R. Chizen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2001",
+      "independent": true
+    },
+    {
+      "name": "Mercedes Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Robert G. Painter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Jeannine P. Sargent",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Peter A. Shimer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-02",
+      "independent": true
+    },
+    {
+      "name": "Ravi Vijayaraghavan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-07",
+      "independent": true
+    },
+    {
+      "name": "Ajei Gopal",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-07",
+      "independent": false
+    },
+    {
+      "name": "Luis Borgen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Mercedes Johnson",
+        "Luis Borgen",
+        "Jeannine P. Sargent"
+      ],
+      "chair": "Mercedes Johnson",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Organizational Development Committee",
+      "members": [
+        "Robert G. Painter",
+        "Janice D. Chaffin",
+        "Bruce R. Chizen",
+        "John G. Schwarz"
+      ],
+      "chair": "Robert G. Painter",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Janice D. Chaffin",
+        "Jeannine P. Sargent",
+        "Ravi Vijayaraghavan"
+      ],
+      "chair": "Janice D. Chaffin",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Sassine Ghazi",
+      "age": 55,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Aart J. de Geus",
+      "age": 71,
+      "positions": [
+        "Executive Chair of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Shelagh Glaser",
+      "age": 61,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Mike Ellow",
+      "age": 62,
+      "positions": [
+        "Chief Revenue Officer"
+      ]
+    },
+    {
+      "name": "Janet Lee",
+      "age": 62,
+      "positions": [
+        "General Counsel and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-17",
+    "note": "Percentuali calcolate su 191.561.935 azioni di Common Stock in circolazione alla Record Date, con le adeguamenti richiesti dalle norme SEC. Le azioni comprendono le opzioni esercitabili entro 60 giorni dalla Record Date. '*' indica meno dell'1%; '—' indica zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13551037,
+            "pct": 7.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on February 13, 2024, reporting beneficial ownership as of December 29, 2023",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11788658,
+            "pct": 6.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on January 26, 2024, reporting beneficial ownership as of December 31, 2023",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Luis Borgen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5230,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janice D. Chaffin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15169,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce R. Chizen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15709,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aart J. de Geus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 589814,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sassine Ghazi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 200811,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shelagh Glaser",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35532,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ajei Gopal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 167746,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mercedes Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2390,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janet Lee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14902,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rick Mahoney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23590,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert G. Painter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2291,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John F. Runkel, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31417,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeannine P. Sargent",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8987,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John G. Schwarz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12787,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter A. Shimer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ravi Vijayaraghavan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3214,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1074598,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A (il documento rimanda al 10-K): executive_officers è vuoto e non è stato ricostruito dalle biografie dei direttori.",
+    "Ajei Gopal e Luis Borgen sono inclusi in board_of_directors perché in carica alla data del documento, ma non sono candidati alla rielezione: usciranno al termine dell'Annual Meeting 2026.",
+    "Luis Borgen: la data di inizio del mandato (director_since) non è riportata nel documento, quindi è null.",
+    "Marc N. Casper e Roy Vallee non sono inclusi in board_of_directors: il loro mandato è scaduto alla fine del 2025 Annual Meeting of Stockholders, prima della data del documento. La data esatta di uscita non è indicata.",
+    "Peter A. Shimer è stato nominato nel consiglio a febbraio 2026; director_since è indicato come 2026-02 in base al mese riportato nel testo.",
+    "Composizione dei comitati: i membri sono quelli della tabella dell'esercizio fiscale 2025, che è la base delle riunioni indicate. Dopo l'assemblea la composizione cambia (Peter A. Shimer entra nell'Audit Committee e Luis Borgen esce); la tabella successiva all'assemblea non è stata riportata come comitati separati.",
+    "Le riunioni di comitato (8 Audit, 6 Compensation, 5 Governance) sono quelle dell'esercizio fiscale 2025, riportate separatamente per ciascun comitato. Il numero di riunioni del consiglio (7) non è un comitato e non è incluso.",
+    "I dati di ownership dei due grandi azionisti (Vanguard e BlackRock) risalgono alle Schedule 13G/A del 2024, con date di riferimento a fine 2023: sono dati non aggiornati alla Record Date.",
+    "La classe di azioni non è esplicitamente nominata nella tabella di ownership: è stata assegnata 'Common Stock' sulla base del testo ('beneficial ownership of our common stock').",
+    "Rick Mahoney e John F. Runkel, Jr. sono indicati come ex dirigenti (Former Chief Revenue Officer e Former General Counsel) ma compaiono nella tabella del management: sono inclusi in named_executive_officers_and_directors e non rientrano nel gruppo dei dirigenti e direttori in carica.",
+    "Il numero di righe in named_executive_officers_and_directors è 16, mentre la riga di gruppo dichiara 15 persons. La differenza può dipendere dall'inclusione di ex dirigenti (Mahoney e Runkel) e dalla presenza di Gopal e Borgen come direttori in uscita; il documento non chiarisce il conteggio.",
+    "Gli importi percentuali indicati con '*' (meno dell'1%) sono stati registrati come null; la riga di gruppo ha pct null per la stessa ragione.",
+    "Nessun detentore della tabella di ownership supera il 5% tra direttori e dirigenti: il blocco greater_than_5pct_stockholders contiene solo Vanguard e BlackRock.",
+    "executive_officers presi dal Form 10-K del 2025-12-22: il DEF 14A non li elenca."
+  ]
+}

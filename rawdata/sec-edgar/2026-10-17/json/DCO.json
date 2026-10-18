@@ -1,0 +1,395 @@
+{
+  "company": "Ducommun Incorporated",
+  "ticker": "DCO",
+  "cik": "0000030305",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-13",
+    "accession": "0001308179-26-000067",
+    "meeting": null,
+    "ownership_as_of": "2026-03-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/30305/000130817926000067/dco014947-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Stephen G. Oswald",
+      "roles": [
+        "Chairman, President and Chief Executive Officer"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "Samara A. Strycker",
+      "roles": [
+        "Executive Vice President and Chief Financial Officer, International Motors, LLC"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Daniel L. Boehle",
+      "roles": [
+        "Executive Vice President and Chief Financial Officer, TTM Technologies, Inc."
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "David B. Carter",
+      "roles": [
+        "Senior Vice President, Engineering, Pratt & Whitney Company, Inc. (Ret.)"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Shirley G. Drazba",
+      "roles": [
+        "Lead Independent Director",
+        "Corporate Vice President, Product Line Strategy & Innovation, IDEX Corporation (Ret.)"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Daniel G. Korte",
+      "roles": [
+        "Global Vice President, PPG Industries, Inc. (Ret.)"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Sheila G. Kramer",
+      "roles": [
+        "Chief Human Resources Officer, Donaldson Company, Inc. (Ret.)"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Richard A. Baldridge",
+      "roles": [
+        "Vice Chairman, Viasat, Inc. (Ret.)"
+      ],
+      "director_since": "2013",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Samara A. Strycker",
+        "Richard A. Baldridge",
+        "Daniel L. Boehle",
+        "Daniel G. Korte"
+      ],
+      "chair": "Samara A. Strycker",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Shirley G. Drazba",
+        "Sheila G. Kramer",
+        "Samara A. Strycker"
+      ],
+      "chair": "Shirley G. Drazba",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Sheila G. Kramer",
+        "Shirley G. Drazba",
+        "Daniel G. Korte"
+      ],
+      "chair": "Sheila G. Kramer",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Innovation Committee",
+      "members": [
+        "David B. Carter",
+        "Richard A. Baldridge",
+        "Daniel L. Boehle",
+        "Stephen G. Oswald"
+      ],
+      "chair": "David B. Carter",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Stephen G. Oswald",
+      "age": 62,
+      "positions": [
+        "Chairman, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Suman B. Mookerji",
+      "age": 47,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Laureen S. Gonzalez",
+      "age": 46,
+      "positions": [
+        "Vice President, Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Jerry L. Redondo",
+      "age": 66,
+      "positions": [
+        "Senior Vice President, Electronics and Structural Systems"
+      ]
+    },
+    {
+      "name": "Rajiv A. Tata",
+      "age": 53,
+      "positions": [
+        "Vice President, General Counsel & Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-02",
+    "note": "Percentuali calcolate su 14.986.947 azioni ordinarie in circolazione al 2 marzo 2026, più le azioni esercitabili/maturate entro 60 giorni. * = meno dell'1%. La tabella dei detentori oltre il 5% non indica una classe: la classe è dedotta dal testo come Common Stock. Non è dichiarata una percentuale di voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock Advisors LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1198505,
+            "pct": 8.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Paradigm Capital Management, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1421500,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-12",
+        "address": "Nine Elk Street, Albany, NY 12207"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 858779,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-09",
+        "address": "6300 Bee Cave Road, Bldg. One, Austin, TX 78746"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 740010,
+            "pct": 5.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Richard A. Baldridge",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30540,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel L. Boehle",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3111,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David B. Carter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shirley G. Drazba",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16940,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel G. Korte",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3111,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sheila G. Kramer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Samara A. Strycker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen G. Oswald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 502738,
+            "pct": 3.4
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Suman B. Mookerji",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44684,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laureen S. Gonzalez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jerry L. Redondo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71033,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rajiv A. Tata",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37131,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 748025,
+          "pct": 5.0
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Richard A. Baldridge compare nella sezione 'Retiring Directors' con mandato in scadenza nel 2026: è ancora in carica alla data del documento, quindi è incluso in board_of_directors. Il documento non dice esplicitamente se non sarà ricandidato.",
+    "Stephen G. Oswald (Chairman, President and CEO) è indicato come non indipendente, ma compare come membro dell'Innovation Committee. Il documento dichiara che tutti i comitati tranne l'Innovation Committee sono composti interamente da indipendenti: la violazione del sanity check #1 è mantenuta e segnalata, non corretta.",
+    "Il Compensation Committee: Samara A. Strycker è indicata come Chair dell'Audit Committee e come membro del Compensation Committee. Il documento non indica un Chair per il Compensation Committee oltre a Shirley G. Drazba.",
+    "I membri di ciascun comitato sono riportati con il Chair incluso nella lista dei membri, come da intestazione 'Members' del documento per l'Audit Committee, dove Samara A. Strycker è indicata come Chair e le altre figure come Members.",
+    "La sezione executives elenca solo i Named Executive Officers; il documento non dichiara altri executive officer. Il roster è quindi limitato ai NEO.",
+    "La tabella dei detentori oltre il 5% non ha una colonna di classe: la classe 'Common Stock' è dedotta dal testo (percentuali riferite al common stock).",
+    "Nessun detentore oltre il 5% è un direttore o un dirigente: la riga di Stephen G. Oswald (3,4%) e quella del gruppo (5,0%) non richiedono inclusione nel blocco dei >5% oltre il 5% individuale.",
+    "Il numero di azioni di Stephen G. Oswald (502.738) include 15.854 azioni detenute da un trust caritatevole su cui condivide potere di voto e investimento con la moglie; le percentuali di Oswald e del gruppo sono quelle dichiarate.",
+    "Non risulta un numero di riunioni del Board in forma di comitato cumulativo: le riunioni sono riportate per ciascun comitato (Audit 5, Compensation 4, Corporate Governance and Nominating 3, Innovation 2, tutte nel 2025)."
+  ]
+}

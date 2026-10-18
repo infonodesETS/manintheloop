@@ -1,0 +1,315 @@
+{
+  "company": "National Presto Industries, Inc.",
+  "ticker": "NPK",
+  "cik": "0000080172",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-14",
+    "accession": "0001437749-26-012242",
+    "meeting": null,
+    "ownership_as_of": "2026-03-24",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/80172/000143774926012242/npk20260403_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-13",
+      "accession": "0001437749-26-008214",
+      "url": "https://www.sec.gov/Archives/edgar/data/80172/000143774926008214/npk20251231_10k.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Maryjo Cohen",
+      "roles": [
+        "Chair of the Board",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "1988",
+      "independent": false
+    },
+    {
+      "name": "Randy F. Lieble",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "Joseph G. Stienessen",
+      "roles": [
+        "Director",
+        "Presiding Director"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Patrick J. Quinn",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2001",
+      "independent": true
+    },
+    {
+      "name": "Douglas J. Frederick",
+      "roles": [
+        "Chief Operating Officer",
+        "Vice President",
+        "Secretary",
+        "General Counsel"
+      ],
+      "director_since": "2023-05",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Patrick J. Quinn",
+        "Joseph G. Stienessen",
+        "Randy F. Lieble"
+      ],
+      "chair": null,
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Patrick J. Quinn",
+        "Joseph G. Stienessen",
+        "Randy F. Lieble"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating/Corporate Governance Committee",
+      "members": [
+        "Patrick J. Quinn",
+        "Joseph G. Stienessen",
+        "Randy F. Lieble"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Maryjo Cohen",
+      "age": 73,
+      "positions": [
+        "Chair of the Board, President, and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Douglas J. Frederick",
+      "age": 55,
+      "positions": [
+        "Chief Operating Officer, Vice President, Secretary and General Counsel"
+      ]
+    },
+    {
+      "name": "Jeffery A. Morgan",
+      "age": 68,
+      "positions": [
+        "Vice President, Engineering"
+      ]
+    },
+    {
+      "name": "David J. Peuse",
+      "age": 56,
+      "positions": [
+        "Chief Financial Officer and Treasurer"
+      ]
+    },
+    {
+      "name": "John R. MacKenzie",
+      "age": 55,
+      "positions": [
+        "Vice President of Sales"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-24",
+    "note": "Percentuali riferite al Common Stock alla record date del 24 marzo 2026 (7.163.537 azioni in circolazione con diritto di voto). * = meno dell'1%. Il documento non riporta una percentuale di voti distinta: ogni azione ha un voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Maryjo Cohen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1831693,
+            "pct": 25.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 831156,
+            "pct": 11.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on April 28, 2025",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "Albion River Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 362350,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D filed with the SEC on December 5, 2025",
+        "address": "2600 Tower Oaks Boulevard, Suite 280, Rockville, MD 20852"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Maryjo Cohen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1831693,
+            "pct": 25.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Douglas J. Frederick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10787,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Randy F. Lieble",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6799,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffery A. Morgan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2723,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John R. MacKenzie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2348,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph G. Stienessen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2086,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David J. Peuse",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1977,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick J. Quinn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1404,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 8,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1859817,
+          "pct": 26.0
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuota. Cohen e Frederick sono descritti come dirigenti nella sezione board, ma non sono stati inseriti in questa lista perché la sezione executives non è presente.",
+    "La sezione committees è assente: l'appartenenza ai comitati è ricavata dalla prosa della sezione board. Il documento non indica i presidenti (chair) dei comitati, quindi chair è null per tutti e tre.",
+    "Il documento riporta la data di riunione solo per l'esercizio 2025; meeting è null perché la data dell'assemblea non compare nelle finestre fornite.",
+    "Maryjo Cohen compare sia nel blocco dei detentori oltre il 5% sia in quello di direttori e NEO, perché è direttrice e detiene oltre il 5%.",
+    "Le 1.669.664 azioni del voting trust (undici entità legate alla famiglia Cohen) sono già incluse nelle 1.831.693 azioni attribuite a Maryjo Cohen: non sono un detentore separato e non sono state inserite come riga autonoma.",
+    "Il documento non riporta pct_of_votes: il campo è null. Esiste una sola classe di azioni (Common Stock) con un voto per azione.",
+    "Patrick J. Quinn, Joseph G. Stienessen e Randy F. Lieble sono dichiarati indipendenti; tutti e tre sono membri di tutti e tre i comitati, coerentemente con il sanity check sull'indipendenza.",
+    "Joseph G. Stienessen è indicato come Presiding Director nella sezione Corporate Governance; il ruolo è stato inserito fra le cariche nel consiglio.",
+    "Douglas J. Frederick è stato nominato al consiglio il 16 maggio 2023; director_since riporta il mese (2023-05). Il documento non indica uscite dal consiglio.",
+    "Le percentuali pari a * (meno dell'1%) per i direttori e i dirigenti sono registrate come pct null, non come 0.",
+    "Jeffery A. Morgan, John R. MacKenzie e David J. Peuse compaiono nella tabella della proprietà ma non sono nel consiglio: sono stati inseriti come named executive officers secondo la tabella.",
+    "executive_officers presi dal Form 10-K del 2026-03-13: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per l'elenco o per le età.",
+    "10-K: Jeffery A. Morgan dovrebbe ritirarsi dalla società il 30 aprile 2026, quindi potrebbe non essere più executive officer alla data di deposito.",
+    "10-K: La data di nomina di David J. Peuse a Chief Financial Officer è scritta come 'November, 20 2025'; la formulazione è irregolare e la data è stata interpretata come 20 novembre 2025, ma non è riportata come data ISO nel documento.",
+    "10-K: Douglas J. Frederick risulta nella biografia essere stato nominato Board Director il 16 maggio 2023, ma questa carica non compare nella colonna TITLE della tabella; è stata riportata solo la tabella."
+  ]
+}

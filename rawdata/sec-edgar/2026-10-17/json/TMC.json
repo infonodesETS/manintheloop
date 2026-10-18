@@ -1,0 +1,429 @@
+{
+  "company": "The Metals Company Inc.",
+  "ticker": "TMC",
+  "cik": "0001798562",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-17",
+    "accession": "0001104659-26-044955",
+    "meeting": null,
+    "ownership_as_of": "2026-04-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926044955/tm261539-1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Gerard Barron",
+      "roles": [
+        "Chief Executive Officer",
+        "Chairman of the Board of Directors"
+      ],
+      "director_since": "2021-09",
+      "independent": false
+    },
+    {
+      "name": "Andrew C. Greig",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2022-10",
+      "independent": true
+    },
+    {
+      "name": "Andrew Hall",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Michael Hess",
+      "roles": [
+        "Director",
+        "Strategic Advisor to the Company"
+      ],
+      "director_since": "2025-06",
+      "independent": false
+    },
+    {
+      "name": "Stephen Jurvetson",
+      "roles": [
+        "Vice Chairman of the Board of Directors",
+        "Special Advisor to the Chief Executive Officer"
+      ],
+      "director_since": "2024-04",
+      "independent": false
+    },
+    {
+      "name": "Andrei Karkar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Sheila Khama",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Christian Madsbjerg",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Brendan May",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-05",
+      "independent": true
+    },
+    {
+      "name": "Alex Spiro",
+      "roles": [
+        "Director",
+        "Strategic Advisor to the Company"
+      ],
+      "director_since": "2025-06",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Andrew Hall",
+        "Christian Madsbjerg",
+        "Sheila Khama"
+      ],
+      "chair": "Andrew Hall",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Andrei Karkar",
+        "Andrew C. Greig"
+      ],
+      "chair": "Andrei Karkar",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Christian Madsbjerg",
+        "Sheila Khama",
+        "Andrei Karkar"
+      ],
+      "chair": "Christian Madsbjerg",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Sustainability and Innovation Committee",
+      "members": [
+        "Brendan May",
+        "Christian Madsbjerg",
+        "Sheila Khama"
+      ],
+      "chair": "Brendan May",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Gerard Barron",
+      "age": 59,
+      "positions": [
+        "Chief Executive Officer",
+        "Chairman of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Craig Shesky",
+      "age": 42,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Erika Ilves",
+      "age": 48,
+      "positions": [
+        "Chief Strategy Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-02",
+    "note": "Percentuali basate su 433.188.187 common shares in circolazione al 2 aprile 2026. Esclusi special shares emesse e in circolazione e special shares emettibili su certe opzioni. Include azioni emettibili da opzioni e warrant esercitabili entro 60 giorni, considerate in circolazione solo per il calcolo della percentuale del detentore. * = meno dell'1%. Business address dei detentori non diversamente indicati: c/o TMC the metals company Inc., 1111 West Hastings Street, 15th Floor, Vancouver, British Columbia V6E 2J3.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Andrei Karkar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 65872753,
+            "pct": 15.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o TMC the metals company Inc., 1111 West Hastings Street, 15th Floor, Vancouver, British Columbia V6E 2J3"
+      },
+      {
+        "name": "Gerard Barron",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 30899032,
+            "pct": 7.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o TMC the metals company Inc., 1111 West Hastings Street, 15th Floor, Vancouver, British Columbia V6E 2J3"
+      },
+      {
+        "name": "ERAS Capital LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 64868211,
+            "pct": 14.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "323 Marina Boulevard, San Francisco, California 94123"
+      },
+      {
+        "name": "Allseas Group S.A",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 59196934,
+            "pct": 13.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "18 Route de Pra de Plan, Case Postale, 411 1618 Chatel-Saint-Denis, Switzerland"
+      },
+      {
+        "name": "William Brumder",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 31542340,
+            "pct": 7.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed November 28, 2025",
+        "address": "c/o Hogan Taylor LLP, 1225 N. Broadway Ave., Ste. 200, Oklahoma City, OK 73103"
+      },
+      {
+        "name": "Korea Zinc Company, Ltd.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 26491557,
+            "pct": 6.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed July 2, 2025",
+        "address": "33, Jong-ro, Jongno-gu, Seoul, Republic of Korea 03159"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Andrei Karkar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 65872753,
+            "pct": 15.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerard Barron",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 30899032,
+            "pct": 7.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Hess",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 14166666,
+            "pct": 3.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew C. Greig",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 5070030,
+            "pct": 1.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen Jurvetson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 2993333,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Erika Ilves",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 2208114,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Craig Shesky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1844842,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christian Madsbjerg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 953731,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sheila Khama",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 321004,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Hall",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 292759,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brendan May",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 241790,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Spiro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Shares",
+          "shares": 124864054,
+          "pct": 28.5
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente nel DEF 14A: l'appartenenza ai comitati è stata letta dalla prosa della sezione executives/board. Le riunioni sono riportate per ciascun comitato separatamente, come indicato nel documento per l'esercizio 2025.",
+    "La data dell'assemblea (meeting) non compare nelle finestre fornite: campo lasciato a null.",
+    "Nessun direttore risulta uscito dal consiglio: sono inclusi tutti e dieci i nominee.",
+    "Andrew C. Greig è indicato come Andrew Greig nella tabella di proprietà: è stata usata la forma completa presente nella biografia.",
+    "Gerard Barron è dirigente e direttore: compare sia in executive_officers sia in board_of_directors.",
+    "Andrei Karkar e Gerard Barron detengono oltre il 5% delle common shares: sono inclusi anche in greater_than_5pct_stockholders come da regola per direttori e dirigenti. Per Karkar le azioni comprendono quelle detenute tramite ERAS Capital LLC, che compare anche separatamente nel blocco dei >5%: i due valori non vanno sommati.",
+    "Gli importi di Allseas Group S.A (59.196.934) e Korea Zinc Company, Ltd. (26.491.557) includono warrant esercitabili (Class A e Class C per Allseas; common share purchase warrant per Korea Zinc). Le classi di warrant non sono state elencate come classi di azioni separate.",
+    "Il numero di azioni di Michael Hess (14.166.666) include 5.000.000 di opzioni esercitabili entro 60 giorni e 3.333.333 di azioni di SS3H Ventures LLC; la stessa SS3H è dettagliata nella nota (4).",
+    "Non sono presenti righe di aggregazione o subtotale nella tabella dei detentori oltre il 5%.",
+    "Il dato di pct_of_votes non è riportato nel documento: campo lasciato a null per tutti i detentori.",
+    "Alex Spiro non ha azioni elencate nella tabella (campo shares vuoto nel documento, trattato come 0) e percentuale indicata come * (meno dell'1%), quindi pct è null.",
+    "Il valore di Michael Hess e Stephen Jurvetson pct è indicato come * (meno dell'1%) per Jurvetson: pct null. Hess (3.2%) ha pct valorizzato."
+  ]
+}
