@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-09-03 (branch sync + map↔country-report links merged to main + branch cleanup — see Session 2026-09-03 below; DB count last verified 2026-06-18: 2311 entities, 2990 rels)
+> Last updated: 2026-10-19 (EDF refresh with merged raw data — see Session 2026-10-19 below; DB count verified 2026-10-19: 2582 entities, 3490 rels)
 
 ## Session protocol
 
@@ -363,7 +363,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-06-17) — after EDF refresh (2198 entities, 2798 rels) |
+| Last validate.py | PASSED (2026-10-19) — after EDF refresh (2582 entities, 3490 rels) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
@@ -377,6 +377,17 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 ---
 
 ## Completed work
+
+### Session 2026-10-19 — EDF refresh (merged raw data, no old data lost)
+
+- [x] `fetch_edf_bulk.py` run twice: the API now returns **40 fewer older projects** (calls 2022–2024, e.g. MARTE, ARCHYTAS, SCEPTER, JAMIE, AIDA) and **45 new 2025 projects** (fetch 1: 88 projects, fetch 2: 85; the two fetches disagree on 2 projects). Cause of the missing projects unknown — not verified on the EU portal.
+- [x] **Rule: old data is never lost.** `rawdata/edf_calls_2026-06-17.json` = untouched archive of the June file (212 calls, 82 projects). `rawdata/edf_calls.json` is now a **merge**: June file + only what is missing from the new fetches (3 new calls, 45 new projects → **127 projects**). Old projects are byte-identical; where the new fetch differs on an old project the old value is kept (real differences: 3 `end_date`, 2 `status` Ongoing→Ended — Propellant Prod, E.P.I.C. — not applied).
+- [x] **Do not run `fetch_edf_bulk.py` straight over `edf_calls.json` again**: it overwrites the file and would drop the 40 projects the API no longer returns. Fetch to a separate file and merge (the merge script was a throwaway in the scratchpad; to be added to `scripts/` if the next refresh needs it).
+- [x] **`build_edf_entities.py` fixed**: existing PIC→`db_id` mappings in `edf_orgs.json` are no longer recomputed (the old name matching would have changed 5 mappings and created duplicates); new PICs match on exact normalised name only, fuzzy hits are listed and not applied; `match_method`/`match_confidence` preserved; PICs no longer returned by the API are kept.
+- [x] Result: +226 `IN-NNNN` org entities, +45 `EDF-NNNN` project entities, +505 `edf_participation` rels; 817 existing PIC mappings unchanged (0 `db_id` changed). `validate.py` PASSED — **2582 entities, 3490 relationships**.
+- [ ] **To review**: 7 new entities that may be subsidiaries of existing ones (not matched): Sopra Steria Belgium (~IN-1078), E4 Defense Systems SL (~IN-1242, probably wrong), Central Space Agency (~IV-0572, probably wrong), Rolls-Royce Solutions GmbH (~IN-1328), Kongsberg Maritime Sweden AB (~IN-0828), Decent Cybersecurity Ireland (~IN-0614), Dassault Systèmes UAB (~IN-0105).
+- [ ] New org entities still need QID / Crunchbase / website enrichment (pipelines above).
+- [ ] Not checked: that the EU Funding map in `index.html` shows the new projects.
 
 ### Session 2026-09-03 — Branch sync
 
