@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-06-18",
+  "_updated": "2026-10-19",
   "entities": [
     {
       "id": "IN-0001",
@@ -59881,63 +59881,9 @@
           }
         ],
         "crunchbase": {
-          "extracted_at": "2026-04-13",
-          "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
-          "profile_url": "https://www.crunchbase.com/organization/orange-ac33",
-          "stage": "",
-          "description": "Orange is a developer of a variety of deep-learning models with a focus on computer vision and natural language processing for comics.",
-          "description_full": "Orange is a developer of a variety of deep-learning models with a focus on computer vision and natural language processing for comics.",
-          "website": "https://orange.inc",
-          "cb_rank": 4003,
-          "headquarters": "Akasaka, Tokyo, Japan",
-          "headquarters_regions": "Asia-Pacific (APAC)",
-          "operating_status": "Active",
-          "founded_date": "2021-04-01",
-          "company_type": "For Profit",
-          "investment_stage": null,
-          "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Artificial Intelligence (AI)",
-            "Data and Analytics",
-            "Information Technology",
-            "Science and Engineering",
-            "Software"
-          ],
-          "industries": [
-            "Artificial Intelligence (AI)",
-            "Information Technology",
-            "Machine Learning"
-          ],
-          "founders": [
-            "Shoko Ugaki"
-          ],
-          "num_funding_rounds": 3,
-          "funding_status": "Seed",
-          "last_funding_date": "2025-07-31",
-          "last_funding_amount_usd": 16576820,
-          "last_funding_type": "Debt Financing",
-          "total_equity_funding_usd": 20739000,
-          "total_funding_usd": 37315820,
-          "total_funding_native": {
-            "amount": 5670000000,
-            "currency": "JPY"
-          },
-          "top_investors": [
-            "Mitsubishi UFJ Capital",
-            "MUFG Bank",
-            "Mizuho Capital",
-            "SBI Investment",
-            "Mizuho Bank"
-          ],
-          "num_investors": 14,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
+          "extracted_at": "2026-10-19",
+          "source_file": "manual",
+          "profile_url": "https://www.crunchbase.com/organization/orange"
         },
         "infonodes": {
           "extracted_at": "2026-04-12",
@@ -60040,6 +59986,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q1431486)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1431486)"
+        },
+        {
+          "action": "field_corrected",
+          "field": "sources.crunchbase",
+          "old_value": "https://www.crunchbase.com/organization/orange-ac33",
+          "new_value": "https://www.crunchbase.com/organization/orange",
+          "note": "Orange SA (French telecom, Issy-les-Moulineaux) — CB /organization/orange-ac33 is Orange Inc. (Tokyo, AI models for comics). Completely different entity. Correct profile verified manually: https://www.crunchbase.com/organization/orange. Investors from the wrong block (5 JP banks/VCs) removed.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -60108,6 +60063,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q1431486). label=None",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "description": "Orange SA (French telecom, Issy-les-Moulineaux) — CB /organization/orange-ac33 is Orange Inc. (Tokyo, AI models for comics). Completely different entity. Correct profile verified manually: https://www.crunchbase.com/organization/orange. Investors from the wrong block (5 JP banks/VCs) removed.",
+          "cb_url_removed": "https://www.crunchbase.com/organization/orange-ac33",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "tags": []
@@ -277190,6 +277152,20 @@
           "old": null,
           "new": "Japan",
           "description": "Country curated: Mitsubishi UFJ Capital — Tokyo Japan"
+        },
+        {
+          "action": "relationship_removed",
+          "target": "IN-0279",
+          "note": "Investment in IN-0279 came from the wrong CB block (Orange Inc., Tokyo), not Orange SA.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -277198,6 +277174,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "tags": []
@@ -277345,6 +277328,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q2882956)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2882956)"
+        },
+        {
+          "action": "relationship_removed",
+          "target": "IN-0279",
+          "note": "Investment in IN-0279 came from the wrong CB block (Orange Inc., Tokyo), not Orange SA.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -277459,6 +277449,20 @@
           "old": null,
           "new": "sources.wikidata populated (Q6884777)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q6884777)"
+        },
+        {
+          "action": "relationship_removed",
+          "target": "IN-0279",
+          "note": "Investment in IN-0279 came from the wrong CB block (Orange Inc., Tokyo), not Orange SA.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -277485,6 +277489,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q6884777). label='Mizuho Capital'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "tags": []
@@ -277955,6 +277966,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q988284)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q988284)"
+        },
+        {
+          "action": "relationship_removed",
+          "target": "IN-0279",
+          "note": "Investment in IN-0279 came from the wrong CB block (Orange Inc., Tokyo), not Orange SA.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -284716,6 +284734,20 @@
           "old": null,
           "new": "sources.wikidata populated (Q11242595)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q11242595)"
+        },
+        {
+          "action": "relationship_removed",
+          "target": "IN-0279",
+          "note": "Investment in IN-0279 came from the wrong CB block (Orange Inc., Tokyo), not Orange SA.",
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "validation": [
@@ -284742,6 +284774,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q11242595). label='SBI Investment'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Only relationship was investment in IN-0279 Orange SA, generated from a wrong CB match (removed 2026-10-19). Archived with no valid relationships; no canonical entity. Remove this entry if a later cycle links it to other companies.",
+          "canonical": null,
+          "author": "patch_orange_cb.py",
+          "datestamp": "2026-10-19"
         }
       ],
       "tags": []
@@ -317483,41 +317522,6 @@
     {
       "source": "IV-0237",
       "target": "IN-0278",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0388",
-      "target": "IN-0279",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0396",
-      "target": "IN-0279",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0391",
-      "target": "IN-0279",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0487",
-      "target": "IN-0279",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0390",
-      "target": "IN-0279",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
       "created_at": "2026-04-22"
