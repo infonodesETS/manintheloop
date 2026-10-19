@@ -10,6 +10,8 @@ Release del 18 ottobre 2026, estrazione del 17 ottobre 2026. Questo file è auto
 - [Come sono stati estratti](#estrazione)
 - [I file](#file)
 - [Le persone e il loro ID](#persone)
+- [Fondi e società: le entità](#entita)
+- [Controlli manuali](#controlli)
 - [Come si legge](#lettura)
 - [Limiti noti](#limiti)
 - [Costi](#costi)
@@ -90,7 +92,7 @@ Tutti i CSV sono in UTF-8 con intestazione. Le stesse tabelle sono in un Google 
 | `consiglieri.csv` | consigliere | cariche, anno di ingresso, indipendenza | [consiglieri.csv](consiglieri.csv) | [consiglieri](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1214619418) |
 | `comitati.csv` | membro di comitato | `presidente` vero per chi lo presiede; riunioni nell'anno | [comitati.csv](comitati.csv) | [comitati](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1352864428) |
 | `dirigenti.csv` | dirigente | età, cariche, documento di origine (DEF 14A o 10-K) | [dirigenti.csv](dirigenti.csv) | [dirigenti](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=2136696329) |
-| `detentori-oltre-5.csv` | azionista e classe di azioni | `tipo` person o entity; dichiarazione SEC da cui viene la quota | [detentori-oltre-5.csv](detentori-oltre-5.csv) | [detentori-oltre-5](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1158378661) |
+| `detentori-oltre-5.csv` | azionista e classe di azioni | `tipo` person o entity, con `persona_id` o `entita_id`; dichiarazione SEC da cui viene la quota | [detentori-oltre-5.csv](detentori-oltre-5.csv) | [detentori-oltre-5](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1158378661) |
 | `quote-dirigenti-consiglieri.csv` | persona e classe di azioni | azioni di dirigenti e consiglieri | [quote-dirigenti-consiglieri.csv](quote-dirigenti-consiglieri.csv) | [quote-dirigenti-consiglieri](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1466996604) |
 | `totale-di-gruppo.csv` | azienda e classe di azioni | totale di tutti i dirigenti e consiglieri insieme | [totale-di-gruppo.csv](totale-di-gruppo.csv) | [totale-di-gruppo](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=772364741) |
 | `warnings.csv` | avvertenza | note del modello sui casi dubbi, vedi sotto | [warnings.csv](warnings.csv) | [warnings](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1635574605) |
@@ -99,6 +101,8 @@ Tutti i CSV sono in UTF-8 con intestazione. Le stesse tabelle sono in un Google 
 | `persone-verifica.csv` | gruppo di nomi | verifica esterna dei collegamenti fra aziende, vedi sotto | [persone-verifica.csv](persone-verifica.csv) | [persone-verifica](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=187609781) |
 | `perimetro.csv` | titolo degli ETF | i 515 titoli di partenza con l'esito (`sec_esito`) | [perimetro.csv](perimetro.csv) | [perimetro](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=599937531) |
 | `senza-proxy.csv` | azienda | le 32 registrate senza DEF 14A e il rapporto annuale che depositano | [senza-proxy.csv](senza-proxy.csv) | [senza-proxy](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1413347377) |
+| `entita.csv` | fondo, società o trust oltre il 5% | ID, nome, altre grafie, nome normalizzato, aziende | [entita.csv](entita.csv) | [entita](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=717843922) |
+| `controlli-manuali.csv` | caso da controllare a mano | cosa controllare, verifica automatica, documenti, colonne vuote per esito e nota | [controlli-manuali.csv](controlli-manuali.csv) | [controlli-manuali](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=575639502) |
 
 Nelle tabelle delle quote un'azienda con più classi di azioni (per esempio Alphabet: A, B, C) ha una riga per classe.
 
@@ -112,7 +116,32 @@ Nei documenti SEC una persona non ha un codice come il CIK delle aziende: c'è s
 3. **verifica esterna**: per ogni gruppo collegato dalla regola (123) e ogni coppia di nomi simili (66) un motore di ricerca, Exa, legge le pagine aziendali e i documenti SEC e dice se si tratta della stessa persona, con motivazione e fonti. Risultato in `persone-verifica.csv`, colonna `regola` per il tipo: 117 gruppi confermati e 6 di persone diverse (fra cui David Carter in KTOS e DCO, Robert Smith in GD e AVAV); 5 coppie simili confermate (Brad Smith, Jon Rambeau, Rob Mionis, Srini Tallapragada, Abhi Talwalkar), 61 di persone diverse;
 4. **ID**: uguale per i nomi collegati e per le coppie simili confermate, separato azienda per azienda dove la verifica dice «persone diverse».
 
-Limiti: due omonimi nella stessa azienda, o in aziende che la regola non ha avvicinato, restano sotto lo stesso ID. Due grafie che nemmeno il criterio dei nomi simili avvicina (un diminutivo con un'altra iniziale, come Bill e William, o un cognome cambiato) restano separate. Le verifiche non sono state ricontrollate a mano. **L'ID vale dentro questa release**: una nuova estrazione rinumera.
+Limiti: due omonimi nella stessa azienda, o in aziende che la regola non ha avvicinato, restano sotto lo stesso ID. Due grafie che nemmeno il criterio dei nomi simili avvicina (un diminutivo con un'altra iniziale, come Bill e William, o un cognome cambiato) restano separate. Le verifiche non sono state ricontrollate a mano: i casi da controllare sono nella sezione [Controlli manuali](#controlli).
+
+**L'ID è stabile fra un'estrazione e l'altra.** Un registro ricorda quale ID ha avuto ogni nome normalizzato in ogni azienda: a ogni nuova estrazione una persona già vista riprende il suo ID, una persona nuova prende il primo numero mai usato, e un numero non viene mai riassegnato. Quando due ID si rivelano la stessa persona resta il più basso, e l'altro viene registrato come sostituito, così chi l'ha già usato può riconciliarlo. Si può quindi conservare `persona_id` come riferimento alla fonte.
+
+<a id="entita"></a>
+## Fondi e società: le entità
+
+Gli azionisti oltre il 5% che non sono persone (fondi, società, trust) hanno un identificativo `entita_id` (`E0001`, `E0002`…), stabile come quello delle persone. Lo stesso soggetto compare spesso scritto in modi diversi: BlackRock in 8 grafie, The Vanguard Group in 6. Un nome normalizzato li riunisce: via accenti, punteggiatura, testo fra parentesi, «The» in testa, le formule «… affiliated with» in testa e «and affiliates» in coda, le forme giuridiche finali (Inc, LLC, LP, Ltd, Corp, Co, AG, NV, SpA…). Le 129 grafie della release diventano 110 entità, elencate in `entita.csv`.
+
+Società diverse dello stesso gruppo restano entità distinte: BlackRock Advisors LLC non è BlackRock, Inc., Vanguard Capital Management non è The Vanguard Group. Se considerarle un unico detentore è una scelta che va fatta caso per caso, e sono fra i controlli manuali.
+
+<a id="controlli"></a>
+## Controlli manuali
+
+`controlli-manuali.csv` elenca i casi in cui le regole automatiche hanno deciso qualcosa che vale la pena guardare a mano. Ogni riga ha un `controllo_id`, il caso, gli identificativi coinvolti, cosa controllare, l'esito della verifica automatica quando c'è, i proxy da cui vengono i dati, e due colonne vuote, `esito` e `nota`, per chi controlla.
+
+| Caso | Quanti | Cosa controllare |
+|---|---|---|
+| persona in più aziende | 121 | le righe con lo stesso `persona_id` in aziende diverse sono davvero la stessa persona? Se no, quali aziende vanno separate |
+| stesso nome, separati come persone diverse | 6 | Exa dice che sono persone diverse: è così? Se no, quali ID vanno uniti |
+| entità scritta in modi diversi | 7 | le grafie riunite sotto lo stesso `entita_id` sono tutte lo stesso soggetto? |
+| entità forse dello stesso gruppo | 9 | sono società dello stesso gruppo (i Vanguard, BlackRock e BlackRock Advisors, Capital International, World e Research…)? Vanno considerate un unico detentore? |
+
+Per le persone la colonna `verifica_automatica` riporta la risposta di Exa con la motivazione e le fonti: è il punto di partenza, e i proxy in `documenti` servono a confermare carica e azienda. Gli esiti si riportano nella scheda «controlli-manuali» del Google Sheet, che le rigenerazioni del foglio non sovrascrivono. Riportarli nel registro, così che un ID separato o unito a mano resti tale nelle estrazioni seguenti, oggi non è automatico: va fatto prima del giro successivo.
+
+Non sono nei controlli i casi che le regole non possono vedere: due persone omonime nella stessa azienda (avrebbero lo stesso ID) e i diminutivi che cambiano iniziale (Bill e William).
 
 <a id="lettura"></a>
 ## Come si legge
