@@ -259,6 +259,20 @@ def find_match(
     return None
 
 
+def find_exact(org_name: str, name_index: dict[str, str]) -> str | None:
+    """Tier 1 only: exact normalized name match."""
+    key = normalize_name(org_name)
+    return name_index.get(key) if key else None
+
+
+def load_crosswalk() -> dict[str, dict]:
+    """Existing PIC → record map from edf_orgs.json ({} if the file is missing)."""
+    if not os.path.exists(EDF_ORGS_PATH):
+        return {}
+    with open(EDF_ORGS_PATH, encoding="utf-8") as f:
+        return json.load(f).get("orgs", {})
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main(dry_run: bool = False):
@@ -307,29 +321,48 @@ def main(dry_run: bool = False):
 
     pic_to_db_id: dict[str, str] = {}  # pic → db entity id (for edf_orgs.json)
 
+    # Existing PIC → db_id mappings are permanent (UPDATE_PROTOCOL): never recomputed.
+    crosswalk = load_crosswalk()
+    fuzzy_candidates: list[tuple[str, str, str]] = []  # (org name, entity id, entity name)
+    kept = 0
+
     for pic, org in edf_orgs.items():
         org_name = org["organization_name"]
-        match_id = find_match(org_name, name_index, entities_by_id)
+        prev = crosswalk.get(pic, {})
+        if prev.get("db_id") in entities_by_id:
+            match_id = prev["db_id"]
+            kept += 1
+        else:
+            if prev.get("db_id"):
+                print(f"  WARN: PIC {pic} maps to missing entity {prev['db_id']} — re-matching")
+            # New PICs: exact name only. Fuzzy hits are listed for review, not applied.
+            match_id = find_exact(org_name, name_index)
+            if not match_id:
+                fuzzy = find_match(org_name, name_index, entities_by_id)
+                if fuzzy:
+                    fuzzy_candidates.append((org_name, fuzzy, entities_by_id[fuzzy].get("name", "")))
 
         if match_id:
             # Add sources.edf to existing entity
             entity = entities_by_id[match_id]
             if "sources" not in entity or entity["sources"] is None:
                 entity["sources"] = {}
-            entity["sources"]["edf"] = build_sources_edf_block(org)
-            entity["history"].append({
-                "date": TODAY,
-                "source": "edf",
-                "author": "build_edf_entities.py",
-                "field": "sources.edf",
-                "old": None,
-                "new": None,
-                "description": (
-                    f"EDF participant data added: PIC {pic}, "
-                    f"{org['project_count']} projects, "
-                    f"€{org['total_eu_contribution']:,.0f} EU contribution"
-                ),
-            })
+            block = build_sources_edf_block(org)
+            if entity["sources"].get("edf") != block:
+                entity["sources"]["edf"] = block
+                entity["history"].append({
+                    "date": TODAY,
+                    "source": "edf",
+                    "author": "build_edf_entities.py",
+                    "field": "sources.edf",
+                    "old": None,
+                    "new": None,
+                    "description": (
+                        f"EDF participant data added: PIC {pic}, "
+                        f"{org['project_count']} projects, "
+                        f"€{org['total_eu_contribution']:,.0f} EU contribution"
+                    ),
+                })
             pic_to_db_id[pic] = match_id
             matched += 1
         else:
@@ -416,11 +449,23 @@ def main(dry_run: bool = False):
             "match_method": "auto_name" if db_id else None,
             "match_confidence": "suggested" if db_id else None,
         }
+        prev = crosswalk.get(pic, {})
+        if db_id and prev.get("db_id") == db_id:
+            edf_orgs_output[pic]["match_method"] = prev.get("match_method")
+            edf_orgs_output[pic]["match_confidence"] = prev.get("match_confidence")
+    for pic, prev in crosswalk.items():  # PICs no longer returned by the API: keep as-is
+        edf_orgs_output.setdefault(pic, prev)
 
     # ── Summary ───────────────────────────────────────────────────────────────
-    print(f"\n  Matched to existing entities: {matched}")
+    print(f"\n  Kept from existing crosswalk: {kept}")
+    print(f"  Matched to existing entities: {matched}")
     print(f"  New entities created:         {created}")
     print(f"  Total entities after merge:   {len(entities)}")
+
+    if fuzzy_candidates:
+        print(f"\n  Fuzzy candidates NOT applied (created as new entities) — {len(fuzzy_candidates)}:")
+        for name, eid, ename in fuzzy_candidates:
+            print(f"    {name}  ~  {eid} {ename}")
 
     if dry_run:
         print("\n[DRY RUN] No files written.")
