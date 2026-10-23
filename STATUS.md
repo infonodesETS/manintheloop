@@ -13,6 +13,12 @@
 
 ---
 
+## ⚠️ PRIORITÀ 1 — analizzare il transcript della call
+
+Arriveranno aggiornamenti presi dal transcript di una call, relativi a tutto il lavoro in corso (DB, dati SEC su `v.2026-c`, demo `tmp/sec-test/`, EU Funding map). **Primo compito**: analizzare il transcript e valutare gli action points (fattibilità, impatto, ordine) prima di toccare altro. Stato: in attesa del transcript.
+
+---
+
 ## ⚠️ PRIORITÀ — da cercare (EU Funding map)
 
 La mappa EU Funding (`index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
