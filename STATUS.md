@@ -6,6 +6,7 @@
 ## Session protocol
 
 - **At session start**: run `git fetch && git pull` first, list any changes pulled (commits received, files changed), then read this file before taking any action.
+- **At session start, also check `inbox/`** (gitignored, local only): if it contains files, read them and propose where each one should be moved (the right folder or doc), so that `inbox/` always ends up empty. Never move or delete anything before the user approves the proposal.
 - **At session end** (or after significant progress): update this file, then commit.
 - **Commit rule**: every STATUS.md update must be committed with message `docs(refactoringDB): update STATUS.md`.
 - **Note:** `issues.md` is gitignored (local only) — temporary choice, may be revisited.
