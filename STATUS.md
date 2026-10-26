@@ -1,13 +1,12 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-10-19 (EDF refresh with merged raw data — see Session 2026-10-19 below; DB count verified 2026-10-19: 2582 entities, 3490 rels)
+> Last updated: 2026-10-26 (transcript della call arrivato in `inbox/`; EDF refresh del 2026-10-19 invariato — DB count verified 2026-10-24: 2582 entities, 3490 rels)
 
 ## Session protocol
 
 - **At session start**: run `git fetch && git pull` first, list any changes pulled (commits received, files changed), then read this file before taking any action.
 - **At session start, also check `inbox/`** (gitignored, local only): if it contains files, read them and propose where each one should be moved (the right folder or doc), so that `inbox/` always ends up empty. Never move or delete anything before the user approves the proposal.
-- **Making-of articles**: if the user wants to write making-of articles, first read `makingof/linee_guida_makingof.md` (gitignored, local only) and follow its "Output richiesto" section. Then propose the topic and wait for approval before writing.
 - **At session end** (or after significant progress): update this file, then commit.
 - **Commit rule**: every STATUS.md update must be committed with message `docs(refactoringDB): update STATUS.md`.
 - **Note:** `issues.md` is gitignored (local only) — temporary choice, may be revisited.
@@ -17,7 +16,7 @@
 
 ## ⚠️ PRIORITÀ 1 — analizzare il transcript della call
 
-Arriveranno aggiornamenti presi dal transcript di una call, relativi a tutto il lavoro in corso (DB, dati SEC su `v.2026-c`, demo `tmp/sec-test/`, EU Funding map). **Primo compito**: analizzare il transcript e valutare gli action points (fattibilità, impatto, ordine) prima di toccare altro. Stato: in attesa del transcript.
+Arriveranno aggiornamenti presi dal transcript di una call, relativi a tutto il lavoro in corso (DB, dati SEC su `v.2026-c`, demo `tmp/sec-test/`, EU Funding map). **Primo compito**: analizzare il transcript e valutare gli action points (fattibilità, impatto, ordine) prima di toccare altro. Stato: transcript arrivato (file del 2026-10-23 in `inbox/`), da analizzare.
 
 ---
 
@@ -375,7 +374,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 | Schema | 3.0 |
 | Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
 | Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-10-19) — after EDF refresh (2582 entities, 3490 rels) |
+| Last validate.py | PASSED (2026-10-24) — 2582 entities, 3490 rels (unchanged since the 2026-10-19 EDF refresh) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
 | Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
