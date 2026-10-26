@@ -1,8 +1,9 @@
 {
-  "_help": "Elenco delle pubblicazioni mostrate nella pagina Publications. Per aggiungere una voce, copia un blocco { } dentro 'items' e compilalo. Campi: 'type' ('article' per un articolo/inchiesta, 'report' per il report PDF), 'title', 'subtitle' (opzionale), 'outlet' (testata/editore), 'date' (formato AAAA-MM-GG, serve per ordinare), 'url' (link esterno per gli articoli, oppure percorso al PDF nel repo per i report, es. 'pubblicazioni/report.pdf'). L'ordine dell'array NON conta: la lista si ordina da sola dalla più recente. I titoli restano nella lingua originale della pubblicazione.",
+  "_help": "Elenco delle pubblicazioni mostrate nella pagina Publications. Per aggiungere una voce, copia un blocco { } dentro 'items' e compilalo. Campi: 'type' ('article' per un articolo/inchiesta, 'report' per il report PDF), 'title', 'subtitle' (opzionale), 'outlet' (testata/editore), 'date' (formato AAAA-MM-GG, serve per ordinare), 'url' (link esterno per gli articoli, oppure percorso al PDF nel repo per i report), 'featured' (opzionale, true = resta fissa in cima nella sezione 'Report della piattaforma', separata dalle altre). L'ordine dell'array NON conta: le voci NON in evidenza si ordinano da sole dalla piu recente. I titoli restano nella lingua originale della pubblicazione.",
   "items": [
     {
       "type": "report",
+      "featured": true,
       "title": "AI: Seek & Destroy. L'industria delle armi autonome",
       "outlet": "info.nodes",
       "date": "2026-09-18",
@@ -10,10 +11,19 @@
     },
     {
       "type": "report",
+      "featured": true,
       "title": "AI: Seek and Destroy. The Autonomous Weapons Industry",
       "outlet": "info.nodes",
       "date": "2026-09-18",
       "url": "https://www.infonodes.org/leggi/ai-seek-and-destroy-en"
+    },
+    {
+      "type": "article",
+      "title": "Armi autonome e startup della Silicon Valley",
+      "subtitle": "L'amministrazione Trump ha voluto una simbiosi tra Difesa e aziende tecnologiche.",
+      "outlet": "IrpiMedia",
+      "date": "2026-10-16",
+      "url": "https://irpimedia.irpi.eu/usa-silicon-valley-trump-difesa/"
     },
     {
       "type": "article",
@@ -22,6 +32,13 @@
       "outlet": "IrpiMedia",
       "date": "2026-07-27",
       "url": "https://irpimedia.irpi.eu/armi-autonome-corsa-alloro-dopo-vertice-nato-ankara/"
+    },
+    {
+      "type": "report",
+      "title": "Man in the loop - Ricerca sullo sviluppo delle armi autonome in Italia",
+      "outlet": "info.nodes",
+      "date": "2023-05",
+      "url": "https://www.infonodes.org/p/man-in-the-loop"
     }
   ]
 }

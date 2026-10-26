@@ -35,6 +35,10 @@
     .pub-outlet { color: var(--text-secondary); }
     .pub-title { font-size: var(--fs-body); color: var(--text-primary); line-height: var(--lh-tight); font-weight: var(--fw-bold); }
     .pub-sub { font-size: var(--fs-sm); color: var(--text-secondary); line-height: var(--lh-body); margin-top: 4px; }
+    .pub-section-label { font-family: var(--font); font-size: var(--fs-xs); color: var(--text-faint); letter-spacing: 1.5px; text-transform: uppercase; margin: 2px 0; }
+    .pub-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+    .pub-item.pub-featured { border-color: var(--accent); background: rgba(0,255,65,0.04); }
+    [data-theme="light"] .pub-item.pub-featured { background: rgba(0,102,34,0.05); }
     /* ── Language switcher ── */
     .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
     .lang-btn { background: none; border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-family: var(--font); font-size: var(--fs-xs); padding: 2px 6px; cursor: pointer; transition: color .15s, border-color .15s; }
@@ -73,9 +77,9 @@
     Ricerche, articoli e inchieste prodotti dal team del progetto Man in the Loop o da ricercatori, ricercatrici, giornalisti e giornaliste che hanno utilizzato la piattaforma per il loro lavoro.
   </div>
 
-  <div id="pub-list"></div>
-
   <p style="font-size: var(--fs-body); color: var(--text-secondary); line-height: var(--lh-body); margin-bottom: 32px;"><span data-i18n="pub.contact">Se vuoi segnalarci la tua pubblicazione, fatta anche grazie a MAN IN THE LOOP, per inserirla in questa sezione, scrivici a:</span> <a href="mailto:comunicazione@infonodes.org" style="color: var(--accent); text-decoration: none;">comunicazione@infonodes.org</a></p>
+
+  <div id="pub-list"></div>
 </div>
 
 <script>
@@ -86,6 +90,12 @@ const PUB_TYPE = {
   en: { article: 'Article',  report: 'Report' },
   fr: { article: 'Article',  report: 'Rapport' },
   es: { article: 'Artículo', report: 'Informe' },
+};
+const PUB_SECTION = {
+  it: { featured: 'Report della piattaforma', others: 'Altre pubblicazioni' },
+  en: { featured: 'Platform report',          others: 'Other publications' },
+  fr: { featured: 'Rapport de la plateforme', others: 'Autres publications' },
+  es: { featured: 'Informe de la plataforma', others: 'Otras publicaciones' },
 };
 let PUBS = [];
 
@@ -98,23 +108,40 @@ function _pubLang() {
 function _esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function _fmtDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
-  return m ? `${m[3]}/${m[2]}/${m[1]}` : (iso || '');
+  if (m) return `${m[3]}/${m[2]}/${m[1]}`;
+  const ym = /^(\d{4})-(\d{2})$/.exec(iso || '');
+  if (ym) return `${ym[2]}/${ym[1]}`;
+  return iso || '';
 }
 function renderPubs(lang) {
   const el = document.getElementById('pub-list');
   if (!el) return;
   const labels = PUB_TYPE[lang] || PUB_TYPE.it;
-  const items = [...PUBS].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
-  el.innerHTML = items.map(p => {
+  const sect = PUB_SECTION[lang] || PUB_SECTION.it;
+  const byDate = (a, b) => String(b.date || '').localeCompare(String(a.date || ''));
+  const featured = PUBS.filter(p => p.featured).sort(byDate);
+  const rest = PUBS.filter(p => !p.featured).sort(byDate);
+  const card = p => {
     const type = (p.type === 'report') ? 'report' : 'article';
     const badge = labels[type] || type;
     const sub = p.subtitle ? `<div class="pub-sub">${_esc(p.subtitle)}</div>` : '';
-    return `<a class="pub-item" href="${_esc(p.url)}" target="_blank" rel="noopener">
+    const feat = p.featured ? ' pub-featured' : '';
+    return `<a class="pub-item${feat}" href="${_esc(p.url)}" target="_blank" rel="noopener">
       <div class="pub-meta"><span class="pub-badge pub-${type}">${_esc(badge)}</span> <span class="pub-outlet">${_esc(p.outlet)}</span> · <span class="pub-date">${_esc(_fmtDate(p.date))}</span></div>
       <div class="pub-title">${_esc(p.title)}</div>
       ${sub}
     </a>`;
-  }).join('');
+  };
+  let html = '';
+  if (featured.length) {
+    html += `<div class="pub-section-label">${_esc(sect.featured)}</div>`;
+    html += featured.map(card).join('');
+  }
+  if (featured.length && rest.length) {
+    html += `<hr class="pub-divider"><div class="pub-section-label">${_esc(sect.others)}</div>`;
+  }
+  html += rest.map(card).join('');
+  el.innerHTML = html;
 }
 fetch('data/publications.json')
   .then(r => r.json())
