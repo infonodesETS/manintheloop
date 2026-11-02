@@ -1,7 +1,7 @@
 # Appalti pubblici (Opentender) → Man in the Loop
 
 **Log delle decisioni e del metodo.** Documento di lavoro vivo: va aggiornato a ogni passo.
-Obiettivo: integrare in Man in the Loop i dati sugli appalti pubblici europei, per capire se e come le aziende che mappiamo ottengono contratti dalla pubblica amministrazione.
+Obiettivo: integrare in Man in the Loop i dati sugli appalti pubblici europei (e, in prospettiva, statunitensi), per capire se e come le aziende che mappiamo ottengono contratti dalla pubblica amministrazione.
 
 - **Avvio lavoro:** 2026-11-02
 - **Stato:** prima estrazione completa 2021-2026 ✓ — 8.437 contratti per 298 aziende MITL (vedi §13)
@@ -155,8 +155,38 @@ Scansione completa dei file 2021-2026 (~180 GB, ~1h). Deduplica per (azienda, ga
 
 ---
 
+## 14. Fonti USA — ricognizione (estensione extra-UE futura)
+
+Per replicare l'analisi sugli appalti pubblici statunitensi. Ricognizione fatta il 2026-11-02.
+
+**usaspending.gov = l'equivalente di Opentender (contratti federali vinti), ma migliore per il nostro metodo:**
+- **API aperta e gratuita** (`api.usaspending.gov`, nessuna chiave/registrazione).
+- Si può scaricare **filtrando per azienda** (recipient / codice UEI) → *non serve scaricare tutto*. Flusso: `autocomplete/recipient` → `spending_by_award` → `download/contract` o `bulk_download/awards` (CSV zippato); `download/count` per l'anteprima delle righe.
+- Campi: beneficiario + **UEI**, agenzia (es. Dept. of Defense), importo, date, e i codici **PSC + NAICS** = l'equivalente dei CPV (ben coperti).
+- Alternativa massiva: *Award Data Archive* (ZIP per anno fiscale/agenzia, dal FY2008, ~830 GB non compressi).
+- Caveat: è spesa **federale** (non statale/locale); le aziende UE vincono tramite **controllate USA** (es. BAE Systems Inc., Leonardo DRS) → il match va fatto su nomi/UEI delle filiali.
+
+**sam.gov = complementare, NON è la fonte degli esiti:**
+- *Entity Management* (anagrafica, UEI, gerarchie societarie) → utile per l'identità e le controllate USA.
+- *Contract Opportunities* (bandi aperti, non esiti) ed *Exclusions* (aziende escluse/sanzionate — interessante).
+- API su `open.gsa.gov` (Opportunities richiede una chiave gratuita; limiti di richieste sui piani free).
+
+**Raccomandazione:** per gli USA usare **usaspending via API, guidati dalle aziende**; **sam.gov** come supporto all'identità (UEI, controllate, esclusioni). Prossimo passo: prova dal vivo dell'API su 1-2 aziende (BAE, Leonardo DRS, Rheinmetall).
+
+Fonti: api.usaspending.gov · usaspending.gov/federal-spending-guide · usaspending.gov/download_center/award_data_archive · sam.gov/contracting · open.gsa.gov/api/opportunities-api · open.gsa.gov/api/entity-api
+
+---
+
 ## 10. Cronologia
 
 - **2026-11-02** — Ricognizione del dataset (struttura, formato, dimensioni). Validato il lettore tollerante su file campione. Estratti e normalizzati i nomi delle aziende MITL (1.417). Misurata la velocità (~50 MB/s). Verificato che il meccanismo trova correttamente le aziende come fornitrici. Decise: Opzione A, anni dal 2021. Avviata la prima scansione di prova (2024, tutti i paesi).
 - **2026-11-02 (pomeriggio)** — Completata la scansione di validazione del 2024: 2.463 contratti puliti (Italia 769). Individuato e corretto un falso positivo (nomi-sigla troppo corti). Metodo validato; pronti per la scansione 2021-2026.
 - **2026-11-02 (sera)** — Completata la scansione 2021-2026: **8.437 contratti per 298 aziende MITL** (~151 mld €). Costruita e applicata la mappa CPV → settore. Scoperto che l'Italia non ha CPV nei dati. Prodotti i due CSV (per-azienda + dettaglio).
+- **2026-11-02 (sera)** — Ricognizione fonti USA (§14): usaspending (API aperta, filtro per azienda, PSC/NAICS) + sam.gov (identità/UEI, bandi, esclusioni).
+
+---
+
+## Prossima sessione — da dove ripartire
+
+1. **Europa (Opentender):** rilanciare la scansione aggiungendo la colonna **titolo/oggetto** della gara; verificare il CPV italiano in altri campi; ripulire il set aziende (IT generica, pharma).
+2. **USA (usaspending):** prova dal vivo dell'API su 1-2 aziende, poi impostare la pipeline guidata dalle aziende (recipient/UEI → CSV).
