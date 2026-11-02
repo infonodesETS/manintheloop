@@ -4,7 +4,7 @@
 Obiettivo: integrare in Man in the Loop i dati sugli appalti pubblici europei, per capire se e come le aziende che mappiamo ottengono contratti dalla pubblica amministrazione.
 
 - **Avvio lavoro:** 2026-11-02
-- **Stato:** validazione completata sul 2024 ✓ — pronti per la scansione completa (2021-2026)
+- **Stato:** prima estrazione completa 2021-2026 ✓ — 8.437 contratti per 298 aziende MITL (vedi §13)
 
 ---
 
@@ -114,7 +114,49 @@ Scansione completa del file 2024 (~34 GB, ~10 minuti, 1,95 milioni di gare esami
 
 ---
 
+## 12. Mappa CPV → settore
+
+Usiamo i codici CPV (categoria merceologica dell'appalto) per etichettare ogni contratto. Regola applicata:
+
+| Famiglia CPV | Settore assegnato |
+|---|---|
+| 353xxxxx, 354xxxxx, 355xxxxx, 356xxxxx, 357xxxxx, 358xxxxx | **difesa** (armi, munizioni, mezzi/navi/aerei/missili, sistemi elettronici, equip. militare) |
+| 35120/35121/35123/35125, 32323500 | **sorveglianza** (sistemi, telecamere, videosorveglianza, identificazione) |
+| 3520xxxx | **ordine pubblico** (equipaggiamento polizia) |
+| 35000/35100/3510/3512 | **sicurezza** (generico) |
+| 7522xxxx | **difesa (servizi)** |
+| 7524xxxx | **ordine pubblico (servizi)** |
+| 7971x (79710/79711/79713/79714) | **vigilanza/sicurezza (servizi)** |
+| 35110xxx, 7525xxxx | soccorso/antincendio (fuori perimetro) |
+| tutto il resto | altro |
+| campo vuoto | senza CPV |
+
+---
+
+## 13. Risultati — appalti 2021-2026
+
+Scansione completa dei file 2021-2026 (~180 GB, ~1h). Deduplica per (azienda, gara).
+
+- **8.437 contratti** riconducibili a **298 aziende** di Man in the Loop.
+- **540** in settori difesa/sicurezza/sorveglianza/ordine pubblico (dove il CPV lo indica).
+- Valore complessivo dichiarato: **~151 miliardi di €**.
+- Aziende in cima (contratti di difesa): Rheinmetall, BAE Systems, Indra Sistemas, FN Herstal, KNDS, Elbit Systems, Thales, Diehl Defence, General Dynamics, Airbus Defence & Space, Nammo.
+- **Italia: 2.499 contratti** (Leonardo, Iveco Defence, RINA, Thales Italia, Fincantieri NexTech, GEM Elettronica, Axon, e-GEOS…).
+
+**Scoperta importante — la copertura CPV varia molto per paese.** Germania, Austria, Spagna ecc. hanno i CPV, quindi possiamo etichettare il settore. **L'Italia NON ha CPV** nei dati Opentender: tutti i 2.499 contratti italiani risultano "senza CPV". Conseguenza: **per l'Italia la rilevanza difesa/sicurezza non si legge dal CPV**, ma dall'**identità dell'azienda** (già nota in MITL) e dal **titolo** della gara.
+
+**Output prodotti:** `mitl-appalti-per-azienda.csv` (sintesi) e `mitl-appalti-dettaglio.csv` (ogni contratto con settore).
+
+**Da migliorare al prossimo giro:**
+- Aggiungere la colonna **titolo/oggetto** della gara (serve per "per quale servizio/prodotto", soprattutto per l'Italia senza CPV) — richiede una nuova scansione.
+- Verificare se per l'Italia il CPV è presente in un **altro campo** del dato.
+- Ripulire dal set le aziende non pertinenti (IT generica, una farmaceutica).
+- Valutare l'estensione a paesi extra-UE e l'integrazione nel grafo MITL.
+
+---
+
 ## 10. Cronologia
 
 - **2026-11-02** — Ricognizione del dataset (struttura, formato, dimensioni). Validato il lettore tollerante su file campione. Estratti e normalizzati i nomi delle aziende MITL (1.417). Misurata la velocità (~50 MB/s). Verificato che il meccanismo trova correttamente le aziende come fornitrici. Decise: Opzione A, anni dal 2021. Avviata la prima scansione di prova (2024, tutti i paesi).
 - **2026-11-02 (pomeriggio)** — Completata la scansione di validazione del 2024: 2.463 contratti puliti (Italia 769). Individuato e corretto un falso positivo (nomi-sigla troppo corti). Metodo validato; pronti per la scansione 2021-2026.
+- **2026-11-02 (sera)** — Completata la scansione 2021-2026: **8.437 contratti per 298 aziende MITL** (~151 mld €). Costruita e applicata la mappa CPV → settore. Scoperto che l'Italia non ha CPV nei dati. Prodotti i due CSV (per-azienda + dettaglio).
