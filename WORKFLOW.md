@@ -36,6 +36,7 @@ flowchart LR
     F -->|va bene| G[Merge in main]
     F -->|serve una modifica| C
     G --> H[GitHub Pages<br/>pubblica il sito]
+    G --> I[Cancello il branch]
 ```
 
 Un branch è una copia di lavoro del progetto dentro il repository stesso. Finché sto sul mio branch posso fare e disfare senza toccare il sito. Quando il lavoro è pronto chiedo di portarlo in `main`, e quello è la pull request.
@@ -94,11 +95,12 @@ sequenceDiagram
     G->>S: GitHub Pages ripubblica il sito
 ```
 
-Tre cose da notare:
+Quattro cose da notare:
 
 - la PR si aggiorna da sola a ogni push sul branch: non si apre una PR nuova per ogni correzione;
 - i controlli automatici (gli script di verifica del database e del sito) girano a ogni PR e il risultato si vede nella PR stessa, con un segno verde o rosso;
-- il sito cambia solo all'ultimo passo, il merge. Fino a quel momento niente di quello che faccio è online.
+- il sito cambia solo all'ultimo passo, il merge. Fino a quel momento niente di quello che faccio è online;
+- quando la PR è mergiata, il branch si cancella: su GitHub c'è il bottone «Delete branch» nella pagina della PR. Il lavoro è già in `main` e la storia resta nella PR, quindi non si perde niente. Così i branch aperti sono solo quelli su cui si sta lavorando.
 
 ## 5. Chi valuta una pull request
 
