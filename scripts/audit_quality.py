@@ -26,7 +26,7 @@ from collections import defaultdict
 
 DRY_RUN = "--dry-run" in sys.argv
 TODAY = date.today().isoformat()
-DB_PATH = "data/database.json"
+DB_PATH = "docs/data/database.json"
 
 db = json.load(open(DB_PATH))
 entities = db["entities"]

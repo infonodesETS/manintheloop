@@ -15,7 +15,7 @@ from pathlib import Path
 # --- Config ---
 OUT = Path(__file__).parent / "charts"
 OUT.mkdir(exist_ok=True)
-DB_PATH = Path(__file__).parent.parent / "data" / "database.json"
+DB_PATH = Path(__file__).resolve().parents[3] / "docs" / "data" / "database.json"
 
 DARK_BG = "#1a1a1a"
 ACCENT = "#4fa8a8"

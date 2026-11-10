@@ -21,7 +21,7 @@ Documento di lavoro interno — da aggiornare quando cambiano i dati o la roadma
 
 ## 2. Il database attuale (il grafo)
 
-Il cuore della piattaforma è un **database a grafo** in `data/database.json`: nodi (entità) collegati da archi (relazioni). Lo schema è descritto in dettaglio in [`reference/SCHEMA.md`](SCHEMA.md).
+Il cuore della piattaforma è un **database a grafo** in `docs/data/database.json`: nodi (entità) collegati da archi (relazioni). Lo schema è descritto in dettaglio in [`reference/SCHEMA.md`](SCHEMA.md).
 
 ### Entità (i nodi) — 2.582
 
@@ -72,12 +72,12 @@ Ogni entità porta con sé la provenienza dei suoi dati, nel blocco `sources`. L
 
 | Pagina | Cosa mostra | Dati usati |
 |---|---|---|
-| **Map** (`index.html`) | Il grafo navigabile, in due modalità: **Finanziamenti EU** (chi partecipa a quali progetti EDF) e **Investimenti globali** (chi investe in chi) | `database.json` (relazioni `edf_participation` e `investment`) |
-| **Networks** (`networks.html`) | Viste di rete/connessioni tra gli attori | `database.json` |
-| **Key Figures** (`key-figures.html`) | Numeri e cifre chiave della mappatura | `database.json` |
-| **Search** (`search.html`) | Ricerca libera tra entità | `database.json` / indice di ricerca |
-| **Publications** (`publications.html`) | Articoli, inchieste e report prodotti con/su la piattaforma | `data/publications.json` |
-| **About** (`about.html`) | Metodo, scopo e contesto del progetto | `data/about_why.json` |
+| **Map** (`docs/index.html`) | Il grafo navigabile, in due modalità: **Finanziamenti EU** (chi partecipa a quali progetti EDF) e **Investimenti globali** (chi investe in chi) | `database.json` (relazioni `edf_participation` e `investment`) |
+| **Networks** (`docs/networks.html`) | Viste di rete/connessioni tra gli attori | `database.json` |
+| **Key Figures** (`docs/key-figures.html`) | Numeri e cifre chiave della mappatura | `database.json` |
+| **Search** (`docs/search.html`) | Ricerca libera tra entità | `database.json` / indice di ricerca |
+| **Publications** (`docs/publications.html`) | Articoli, inchieste e report prodotti con/su la piattaforma | `docs/data/publications.json` |
+| **About** (`docs/about.html`) | Metodo, scopo e contesto del progetto | `docs/data/about_why.json` |
 
 **Dati di supporto** (non una vista a sé): `defence_criteria.json` (perimetro "defence tech"), `glossary.json` / `glossary_terms.json` (glossario), `edf_orgs.json`, `last_update.json`, `mitl-index.json`.
 

@@ -59,8 +59,8 @@ import urllib.request
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
-CANDIDATES_PATH = os.path.join(BASE, "data", "qid_candidates.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+CANDIDATES_PATH = os.path.join(BASE, "work", "qid_candidates.json")
 
 TODAY = date.today().isoformat()
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
@@ -912,7 +912,7 @@ def main():
     print(f"  Final proposed:            {final_proposed}")
     print(f"  Final skipped:             {final_skipped}")
     print(f"\nNext steps:")
-    print(f"  1. Review data/qid_candidates.json")
+    print(f"  1. Review work/qid_candidates.json")
     print(f"     Change status='proposed' → 'accepted' or 'rejected'")
     print(f"  2. python3 scripts/search_missing_qids.py --apply")
     print(f"  3. python3 scripts/validate.py")

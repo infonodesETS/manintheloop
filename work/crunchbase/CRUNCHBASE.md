@@ -7,7 +7,7 @@
 
 ## Context
 
-We are building a single graph database (`data/database.json`) by integrating data from
+We are building a single graph database (`docs/data/database.json`) by integrating data from
 multiple heterogeneous sources (iShares ETFs, EDF beneficiaries, old manual DB, Wikidata,
 Crunchbase). There are **no universal unique identifiers** across these sources. Every
 reconciliation step carries a risk of false matches, silent overwrites, and data drift.
@@ -45,7 +45,7 @@ matched entities, records what changed, and updates the audit trail.
 
 ```bash
 python3 scripts/regenerate_export.py
-# Writes: data/crunchbase_sandbox/companies_export.csv
+# Writes: work/crunchbase/companies_export.csv
 # 1149 rows (all companies), sorted alphabetically
 # Website priority: sources.crunchbase.website > sources.infonodes.website
 ```
@@ -59,9 +59,9 @@ Split into upload candidates and exclusions manually, or reuse the existing `non
 # If reusing previous non_matches.csv (recommended for re-runs):
 python3 -c "
 import csv
-non = {r['name'] for r in csv.DictReader(open('data/crunchbase_sandbox/non_matches.csv'))}
-rows = [r for r in csv.DictReader(open('data/crunchbase_sandbox/companies_export.csv')) if r['name'] not in non]
-w = csv.DictWriter(open('data/crunchbase_sandbox/matches.csv','w',newline=''), fieldnames=['name','website'])
+non = {r['name'] for r in csv.DictReader(open('work/crunchbase/non_matches.csv'))}
+rows = [r for r in csv.DictReader(open('work/crunchbase/companies_export.csv')) if r['name'] not in non]
+w = csv.DictWriter(open('work/crunchbase/matches.csv','w',newline=''), fieldnames=['name','website'])
 w.writeheader(); w.writerows(rows)
 print(len(rows), 'rows written')
 "
@@ -70,29 +70,29 @@ print(len(rows), 'rows written')
 ### Step 3 — Upload to Crunchbase
 
 1. Go to Crunchbase bulk enrichment tool
-2. Upload `data/crunchbase_sandbox/matches.csv`
+2. Upload `work/crunchbase/matches.csv`
 3. Wait for processing
 4. Download enriched CSV
-5. Save to `data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv`
+5. Save to `work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv`
 
 ### Step 4 — Import into database.json
 
 ```bash
 # Preview first — always
 python3 scripts/import_crunchbase_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv \
+    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv \
     --dry-run
 
 # Review the output and unresolved_YYYY-MM-DD.csv
 # Then apply:
 python3 scripts/import_crunchbase_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv
+    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv
 
 # Validate
 python3 scripts/validate.py
 
 # Commit
-git add data/database.json data/crunchbase_sandbox/
+git add docs/data/database.json work/crunchbase/
 git commit -m "data: enrich crunchbase — N entities updated (YYYY-MM-DD)"
 ```
 

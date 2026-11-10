@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Genera data/mitl-index.json: la vista compatta del database che il chatbot
+Genera docs/data/mitl-index.json: la vista compatta del database che il chatbot
 MARLA interroga.
 
 database.json sta sui 12 MB perché porta tutto lo storico e tutti i campi
@@ -20,8 +20,8 @@ import os
 from datetime import date
 
 RADICE   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SORGENTE = os.path.join(RADICE, 'data', 'database.json')
-USCITA   = os.path.join(RADICE, 'data', 'mitl-index.json')
+SORGENTE = os.path.join(RADICE, 'docs', 'data', 'database.json')
+USCITA   = os.path.join(RADICE, 'docs', 'data', 'mitl-index.json')
 
 SITO = 'https://infonodesets.github.io/manintheloop'
 

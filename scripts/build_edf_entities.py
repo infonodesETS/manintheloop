@@ -15,7 +15,7 @@ For each unique organisation (by PIC):
   - Match: adds sources.edf block + history entry (no new entity created).
   - No match: creates new IN-NNNN entity with sources.edf.
 
-Also writes data/edf_orgs.json — a flat PIC-keyed index for reference.
+Also writes docs/data/edf_orgs.json — a flat PIC-keyed index for reference.
 
 Usage:
     python3 scripts/build_edf_entities.py [--dry-run]
@@ -31,8 +31,8 @@ from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EDF_CALLS_PATH = os.path.join(BASE, "rawdata", "edf_calls.json")
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
-EDF_ORGS_PATH = os.path.join(BASE, "data", "edf_orgs.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+EDF_ORGS_PATH = os.path.join(BASE, "docs", "data", "edf_orgs.json")
 
 TODAY = date.today().isoformat()
 
@@ -490,7 +490,7 @@ def main(dry_run: bool = False):
     print(f"✓ edf_orgs.json written ({len(edf_orgs_output)} orgs).")
     print(f"\nNext steps:")
     print(f"  1. python3 scripts/validate.py")
-    print(f"  2. Review auto-matched entries in data/edf_orgs.json")
+    print(f"  2. Review auto-matched entries in docs/data/edf_orgs.json")
     print(f"     (set match_confidence: 'confirmed' after manual check)")
 
 

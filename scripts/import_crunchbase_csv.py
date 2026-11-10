@@ -27,9 +27,9 @@ PRESERVED FIELDS
 
 OUTPUTS
 ────────
-  - data/database.json updated (unless --dry-run)
-  - data/crunchbase_sandbox/import_report_YYYY-MM-DD.json  (full match stats + unresolved list)
-  - data/crunchbase_sandbox/unresolved_YYYY-MM-DD.csv      (rows Crunchbase returned but DB
+  - docs/data/database.json updated (unless --dry-run)
+  - work/crunchbase/import_report_YYYY-MM-DD.json  (full match stats + unresolved list)
+  - work/crunchbase/unresolved_YYYY-MM-DD.csv      (rows Crunchbase returned but DB
                                                             could not match — for manual review)
 
 RE-RUN CYCLE
@@ -51,8 +51,8 @@ import sys
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
-SANDBOX_DIR = os.path.join(BASE, "data", "crunchbase_sandbox")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+SANDBOX_DIR = os.path.join(BASE, "work", "crunchbase")
 
 TODAY = date.today().isoformat()
 

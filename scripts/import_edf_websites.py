@@ -17,8 +17,8 @@ import sys
 from datetime import date
 
 BASE_DIR = __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(__file__)))
-DB_PATH = __import__("os").path.join(BASE_DIR, "data", "database.json")
-EDF_PATH = __import__("os").path.join(BASE_DIR, "data", "edf_orgs.json")
+DB_PATH = __import__("os").path.join(BASE_DIR, "docs", "data", "database.json")
+EDF_PATH = __import__("os").path.join(BASE_DIR, "docs", "data", "edf_orgs.json")
 
 TODAY = date.today().isoformat()
 DRY_RUN = "--dry-run" in sys.argv

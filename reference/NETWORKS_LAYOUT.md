@@ -1,6 +1,6 @@
 # Networks page — layout parameter reference
 
-> Read this before modifying node spacing, clustering, or visual density in `networks.html`.
+> Read this before modifying node spacing, clustering, or visual density in `docs/networks.html`.
 
 ## Where the parameters live
 
@@ -108,6 +108,6 @@ EDF project diamonds are scaled between `DIAM_MIN` and `DIAM_MAX` proportionally
 
 | File | Role |
 |---|---|
-| `networks.html` | All graph logic: `buildElements()`, `buildLayout()`, `renderNetwork()`, `CY_STYLE` |
-| `web/graph.js` | Ego-graph card in `search.html` — separate Cytoscape instance, different layout |
-| `data/database.json` | Source data for all nodes and edges |
+| `docs/networks.html` | All graph logic: `buildElements()`, `buildLayout()`, `renderNetwork()`, `CY_STYLE` |
+| `docs/web/graph.js` | Ego-graph card in `docs/search.html` — separate Cytoscape instance, different layout |
+| `docs/data/database.json` | Source data for all nodes and edges |

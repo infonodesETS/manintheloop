@@ -5,9 +5,9 @@ relationships from rawdata/edf_calls.json.
 
 Source data:
   rawdata/edf_calls.json  — calls, projects, participant slots
-  data/edf_orgs.json      — PIC→db_id crosswalk for EDF orgs
+  docs/data/edf_orgs.json      — PIC→db_id crosswalk for EDF orgs
 
-Output (written to data/database.json):
+Output (written to docs/data/database.json):
   - EDF-NNNN entities  (type: edf_project, includes objective when available)
   - edf_participation relationships  (source=db_id, target=EDF-NNNN)
 
@@ -23,9 +23,9 @@ import sys
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE, "data", "database.json")
+DB_PATH = os.path.join(BASE, "docs", "data", "database.json")
 EDF_CALLS_PATH = os.path.join(BASE, "rawdata", "edf_calls.json")
-EDF_ORGS_PATH = os.path.join(BASE, "data", "edf_orgs.json")
+EDF_ORGS_PATH = os.path.join(BASE, "docs", "data", "edf_orgs.json")
 
 TODAY = date.today().isoformat()
 DRY_RUN = "--dry-run" in sys.argv

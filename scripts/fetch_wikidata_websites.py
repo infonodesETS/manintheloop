@@ -21,7 +21,7 @@ import urllib.request
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE, "data", "database.json")
+DB_PATH = os.path.join(BASE, "docs", "data", "database.json")
 
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 BATCH_SIZE = 50

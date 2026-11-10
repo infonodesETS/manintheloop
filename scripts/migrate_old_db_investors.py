@@ -28,7 +28,7 @@ from datetime import date
 
 BASE          = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OLD_DB_PATH   = os.path.join(BASE, "..", "refactoring", "data", "database.json")
-NEW_DB_PATH   = os.path.join(BASE, "data", "database.json")
+NEW_DB_PATH   = os.path.join(BASE, "docs", "data", "database.json")
 TODAY         = date.today().isoformat()
 DRY_RUN       = "--dry-run" in sys.argv
 

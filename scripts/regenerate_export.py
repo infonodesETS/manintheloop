@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-regenerate_export.py — Regenerate data/crunchbase_sandbox/companies_export.csv from database.json.
+regenerate_export.py — Regenerate work/crunchbase/companies_export.csv from database.json.
 
 Run at the start of each Crunchbase upload cycle to ensure the export reflects the latest DB state
 (new entities added, websites updated, etc.).
 
-Output: data/crunchbase_sandbox/companies_export.csv
+Output: work/crunchbase/companies_export.csv
   Columns: name, website
   Rows: all company entities, sorted alphabetically by name
   Website priority: sources.crunchbase.website > sources.infonodes.website
@@ -22,8 +22,8 @@ import os
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
-OUTPUT_PATH = os.path.join(BASE, "data", "crunchbase_sandbox", "companies_export.csv")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+OUTPUT_PATH = os.path.join(BASE, "work", "crunchbase", "companies_export.csv")
 
 
 def main():
@@ -54,7 +54,7 @@ def main():
     print(f"Written {len(rows)} rows → {OUTPUT_PATH}")
     print(f"  With website:    {with_website} ({with_website / len(rows) * 100:.1f}%)")
     print(f"  Without website: {len(rows) - with_website}")
-    print(f"\nNext: upload data/crunchbase_sandbox/companies_export.csv to Crunchbase bulk enrichment.")
+    print(f"\nNext: upload work/crunchbase/companies_export.csv to Crunchbase bulk enrichment.")
 
 
 if __name__ == "__main__":

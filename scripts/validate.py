@@ -21,7 +21,7 @@ import os
 import sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
 
 VALID_ENTITY_TYPES = {"company", "fund", "investor", "public_fund", "government_agency", "bank", "institution", "person", "edf_project"}
 VALID_ROLES = {"manufacturer", "investor", "board_member"}
