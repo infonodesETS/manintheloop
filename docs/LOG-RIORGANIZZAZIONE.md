@@ -199,3 +199,8 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 ### 2026-11-10 — Spostati i 71 file non tracciati di `old_version/`
 
 - Spostati (non cancellati) in `<backup>/old_version-non-tracciati/` (71 file, 5,7 MB; erano anche nel `.tar.gz`). Nel repo `old_version/` non esiste più sul disco.
+
+### 2026-11-10 — F2.6 PR #29, merge e verifica sul sito vivo ☑ (gate G4)
+
+- Push (con ok esplicito di Nelson): branch `pulizia/f2-beta-old-version` (`fb378f3`) e tag `v.2026-b` (`2e6ae14`), `archivio-2026-06` (`5e9b411`). F2.1 completata. PR #29 aperta e mergiata da Nelson con merge commit `f4edd71`; branch remoto cancellato dal bottone; branch locale cancellato con `-d`. `main` locale allineata.
+- Sito vivo (dopo circa un minuto dal merge): `/beta/index.html` 404; 28/28 percorsi dell'istantanea con hash identico. **G4 soddisfatto.**
