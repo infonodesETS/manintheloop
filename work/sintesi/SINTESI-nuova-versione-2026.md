@@ -38,7 +38,7 @@ Le due sezioni rispondono a due domande diverse:
 
 ## 2. Nuova sezione "Numeri chiave" (Key Figures)
 
-È una vista completamente nuova (`key-figures.html`), assente nella versione
+È una vista completamente nuova (`docs/key-figures.html`), assente nella versione
 precedente. Presenta i **dati aggregati** della sezione — classifiche e cifre
 significative — invece della sola visualizzazione geografica o a rete.
 
@@ -74,10 +74,10 @@ passare fra *"solo defence tech"* e *"tutte le entità"* (vedi capitolo dati).
 
 ## 5. Sotto il cofano (per chi mette mano al codice)
 
-- **`web/countries.js`** — normalizzazione centralizzata dei nomi dei Paesi
+- **`docs/web/countries.js`** — normalizzazione centralizzata dei nomi dei Paesi
   (prima la logica era sparsa e generava incoerenze, es. "Czechia" vs "Czech
   Republic").
-- **`data/defence_criteria.json`** — file di configurazione, modificabile a
+- **`docs/data/defence_criteria.json`** — file di configurazione, modificabile a
   mano, che definisce quali aziende contano come *defence tech*.
 - **Traduzioni** di menu e sotto-menu completate nelle quattro lingue.
 - La priorità di risoluzione del Paese ora usa prima il dato EDF e poi Wikidata.
@@ -165,7 +165,7 @@ Crunchbase, che sono generiche. Conseguenze:
 - altre potrebbero rientrare a torto.
 
 Serve una **revisione a mano** dell'elenco, correggendo i casi singoli nelle liste
-`include` / `exclude` di `data/defence_criteria.json` (dove `exclude` vince su
+`include` / `exclude` di `docs/data/defence_criteria.json` (dove `exclude` vince su
 tutto). Va anche deciso se **allargare il perimetro** ad alcune etichette oggi
 escluse di proposito — *Robotics, Sensor, Autonomous Vehicles, Cyber Security* —
 scartate perché troppo generiche o dual-use.

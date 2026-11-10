@@ -3,7 +3,7 @@
 build_database.py — Build database.json (schema v3.0) from iShares ETF CSV holdings.
 
 Reads the 3 iShares CSVs from rawdata/, deduplicates by normalized company name,
-assigns IN-NNNN IDs in alphabetical order, and writes data/database.json.
+assigns IN-NNNN IDs in alphabetical order, and writes docs/data/database.json.
 
 Usage:
     python3 scripts/build_database.py
@@ -18,7 +18,7 @@ from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAWDATA_DIR = os.path.join(BASE, "rawdata")
-OUTPUT_PATH = os.path.join(BASE, "data", "database.json")
+OUTPUT_PATH = os.path.join(BASE, "docs", "data", "database.json")
 
 TODAY = date.today().isoformat()
 

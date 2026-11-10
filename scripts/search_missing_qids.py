@@ -18,13 +18,13 @@ WORKFLOW
 ────────
   Phase 1 — Search (no DB writes):
       python3 scripts/search_missing_qids.py --search
-      → Writes data/qid_candidates.json with status=proposed / skipped for each entity.
+      → Writes work/qid_candidates.json with status=proposed / skipped for each entity.
       → Review the file manually. Change status from "proposed" to "accepted" to approve.
       → Never modify database.json.
 
   Phase 2 — Apply (no API calls):
       python3 scripts/search_missing_qids.py --apply
-      → Reads data/qid_candidates.json.
+      → Reads work/qid_candidates.json.
       → Applies only entries with status="accepted".
       → Appends history + validation entries to each entity in database.json.
       → Does not call any external API.
@@ -41,8 +41,8 @@ import urllib.request
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
-CANDIDATES_PATH = os.path.join(BASE, "data", "qid_candidates.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+CANDIDATES_PATH = os.path.join(BASE, "work", "qid_candidates.json")
 
 TODAY = date.today().isoformat()
 API = "https://www.wikidata.org/w/api.php"
@@ -330,7 +330,7 @@ def phase_search():
     print(f"  Proposed (review needed):    {proposed}")
     print(f"  Skipped (no safe match):     {skipped}")
     print(f"\nNext steps:")
-    print(f"  1. Review data/qid_candidates.json")
+    print(f"  1. Review work/qid_candidates.json")
     print(f"     Change status from 'proposed' to 'accepted' for correct matches.")
     print(f"     Change status to 'rejected' for wrong matches.")
     print(f"  2. python3 scripts/search_missing_qids.py --apply")

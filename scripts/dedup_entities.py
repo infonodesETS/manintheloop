@@ -33,7 +33,7 @@ import re
 from datetime import date
 from collections import defaultdict
 
-DB_PATH = "data/database.json"
+DB_PATH = "docs/data/database.json"
 TODAY = date.today().isoformat()
 
 DRY_RUN = "--dry-run" in sys.argv

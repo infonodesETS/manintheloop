@@ -32,7 +32,7 @@ Usage:
 
 Example:
   python3 scripts/import_investors_csv.py \\
-      data/crunchbase_sandbox/crunchbase-export-matches-csv-4-13-2026.csv --dry-run
+      work/crunchbase/crunchbase-export-matches-csv-4-13-2026.csv --dry-run
 """
 
 import csv
@@ -43,7 +43,7 @@ import sys
 from datetime import date
 
 BASE        = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH     = os.path.join(BASE, "data", "database.json")
+DB_PATH     = os.path.join(BASE, "docs", "data", "database.json")
 TODAY       = date.today().isoformat()
 DRY_RUN     = "--dry-run" in sys.argv
 

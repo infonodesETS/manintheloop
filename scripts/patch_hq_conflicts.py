@@ -17,7 +17,7 @@ from datetime import date
 
 DRY_RUN = "--dry-run" in sys.argv
 TODAY = date.today().isoformat()
-DB_PATH = "data/database.json"
+DB_PATH = "docs/data/database.json"
 
 # ---------------------------------------------------------------------------
 # Resolution table

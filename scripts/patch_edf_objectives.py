@@ -1,8 +1,8 @@
 """
 patch_edf_objectives.py — add sources.edf_project.objective to all EDF-NNNN entities.
 
-Reads:  rawdata/edf_calls.json, data/database.json
-Writes: data/database.json (sources.edf_project.objective + history[])
+Reads:  rawdata/edf_calls.json, docs/data/database.json
+Writes: docs/data/database.json (sources.edf_project.objective + history[])
 Safe:   skips entities that already have objective set
 """
 
@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 RAW  = ROOT / "rawdata" / "edf_calls.json"
-DB   = ROOT / "data" / "database.json"
+DB   = ROOT / "docs" / "data" / "database.json"
 
 DRY_RUN = "--dry-run" in sys.argv
 

@@ -16,8 +16,8 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
-| — | **BUG — etichette Rete illeggibili in tema light** | In **tema chiaro**, nella vista **Rete** di Finanziamenti EU: cliccando un **progetto EDF** la rete mostra i nomi degli enti coperti da un'**etichetta rettangolare nera** che li rende illeggibili (testo nascosto dietro il box). Probabile sfondo/colore etichetta hardcoded per il tema scuro in `networks.html`. Segnalato dall'utente il 2026-08-31. Vedi anche il bug affine dei nodi rosa "bianco-su-bianco". | 🔴 |
-| — | **Check manuale aziende defence tech** | Il selettore "Perimetro" in Numeri chiave (Investimenti globali) classifica 165 aziende su 378 come defence tech, ma la classificazione è **provvisoria**: si appoggia in gran parte alle industries Crunchbase, che sono generiche. Alcune aziende chiaramente del settore hanno etichette come "Information Technology" e rientrano solo grazie ai segnali strutturali (di norma la partecipazione a progetti EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto. Serve una revisione a mano dell'elenco, correggendo i casi singoli con le liste `include` / `exclude` in `data/defence_criteria.json` (`exclude` vince su tutto). Da decidere anche se allargare il perimetro alle etichette scartate di proposito — `Robotics`, `Sensor`, `Autonomous Vehicles`, `Cyber Security` — elencate con le motivazioni nello stesso file. | 🔴 |
+| — | **BUG — etichette Rete illeggibili in tema light** | In **tema chiaro**, nella vista **Rete** di Finanziamenti EU: cliccando un **progetto EDF** la rete mostra i nomi degli enti coperti da un'**etichetta rettangolare nera** che li rende illeggibili (testo nascosto dietro il box). Probabile sfondo/colore etichetta hardcoded per il tema scuro in `docs/networks.html`. Segnalato dall'utente il 2026-08-31. Vedi anche il bug affine dei nodi rosa "bianco-su-bianco". | 🔴 |
+| — | **Check manuale aziende defence tech** | Il selettore "Perimetro" in Numeri chiave (Investimenti globali) classifica 165 aziende su 378 come defence tech, ma la classificazione è **provvisoria**: si appoggia in gran parte alle industries Crunchbase, che sono generiche. Alcune aziende chiaramente del settore hanno etichette come "Information Technology" e rientrano solo grazie ai segnali strutturali (di norma la partecipazione a progetti EDF): un'azienda analoga senza fondi europei sfuggirebbe del tutto. Serve una revisione a mano dell'elenco, correggendo i casi singoli con le liste `include` / `exclude` in `docs/data/defence_criteria.json` (`exclude` vince su tutto). Da decidere anche se allargare il perimetro alle etichette scartate di proposito — `Robotics`, `Sensor`, `Autonomous Vehicles`, `Cyber Security` — elencate con le motivazioni nello stesso file. | 🔴 |
 | — | Report per Paese | Webapp dinamica in `reports/countries/`. Da collegare alla navigazione del sito e da rifinire (i18n, tema chiaro, mobile). | 🟡 |
 
 ---
@@ -43,7 +43,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 |---|---|---|---|
 | 9 | **Dossier pilota** | Una storia breve con mini-rete curata (dati → racconto). Il vero salto editoriale della piattaforma. | 🔴 |
 | 10 | **Pagina "Perché"** | 4–5 frasi forti in homepage o About che spiegano perché mappare i finanziamenti alle armi autonome. Già parzialmente in About > Chi siamo. | 🟡 |
-| 11 | **Popolare Publications** | La pagina ora legge da `data/publications.json`. Aggiungere le altre ricerche, articoli e inchieste del team o di chi ha usato la piattaforma. | 🟡 |
+| 11 | **Popolare Publications** | La pagina ora legge da `docs/data/publications.json`. Aggiungere le altre ricerche, articoli e inchieste del team o di chi ha usato la piattaforma. | 🟡 |
 
 ---
 
@@ -68,7 +68,7 @@ comuni in `docs/CONTRATTO-FONTI.md`. Qui restano solo le due cose che ci riguard
 | # | Funzionalità | Note | Priorità |
 |---|---|---|---|
 | 17 | **DOPO IL MERGE: cambiare `MITL_INDEX_URL`** | Oggi il chatbot legge l'indice dal branch: `https://raw.githubusercontent.com/infonodesETS/manintheloop/eu-funding/data/mitl-index.json`. Appena `eu-funding` è su `main`, la variabile su Vercel (progetto marlamag, Settings → Environment Variables) va cambiata in `https://infonodesets.github.io/manintheloop/data/mitl-index.json`, poi Redeploy. **Se ce ne dimentichiamo il chatbot continua a funzionare leggendo un branch fermo, quindi risponde con dati vecchi senza dare alcun segnale.** | 🔴 |
-| 18 | **Rigenerare `data/mitl-index.json` a ogni modifica dei dati** | L'indice del chatbot è generato da `scripts/build_chat_index.py` e va ricostruito e committato ogni volta che cambia `data/database.json`, altrimenti MARLA risponde sul database vecchio. Oggi è manuale. MARLA ha già una GitHub Action che rigenera la sua `kb.json` a ogni push; qui non c'è nessuna Action. Da automatizzare allo stesso modo. | 🟡 |
+| 18 | **Rigenerare `docs/data/mitl-index.json` a ogni modifica dei dati** | L'indice del chatbot è generato da `scripts/build_chat_index.py` e va ricostruito e committato ogni volta che cambia `docs/data/database.json`, altrimenti MARLA risponde sul database vecchio. Oggi è manuale. MARLA ha già una GitHub Action che rigenera la sua `kb.json` a ogni push; qui non c'è nessuna Action. Da automatizzare allo stesso modo. | 🟡 |
 | 15 | **Estendere MARLA all'archivio** | Il chatbot oggi vede solo Man in the Loop. Il passo successivo è il modulo per l'archivio info.nodes (report, inchieste), così può incrociare le due fonti in una sola risposta. La ricerca dell'archivio è per parole chiave e andrà rifatta su base semantica, altrimenti sarà la metà inaffidabile. | 🟡 |
 
 ---
@@ -77,16 +77,16 @@ comuni in `docs/CONTRATTO-FONTI.md`. Qui restano solo le due cose che ci riguard
 
 | Funzionalità | Data |
 |---|---|
-| Onboarding riscritto per la nuova struttura EU Funding / Global Investments — 4 blocchi, 4 lingue (`onboard.*` in `web/i18n.js`, overlay in `index.html`) | 2026-08-31 |
+| Onboarding riscritto per la nuova struttura EU Funding / Global Investments — 4 blocchi, 4 lingue (`onboard.*` in `docs/web/i18n.js`, overlay in `docs/index.html`) | 2026-08-31 |
 | Report Italia + webapp report per Paese (`reports/countries/`) | 2026-08-11 |
-| Publications data-driven da `data/publications.json` | 2026-08-11 |
+| Publications data-driven da `docs/data/publications.json` | 2026-08-11 |
 | Hook SessionStart: git fetch+pull automatico all'apertura sessione | 2026-08-11 |
 | Overlay onboarding prima visita (4 lingue) | 2026-06-30 |
 | About: ristrutturazione in 4 sotto-sezioni (Chi siamo / Metodologia / Glossario / Contribuisci) | 2026-06-30 |
 | About: sezione Limiti (metodologici e dei dati) | 2026-06-30 |
-| Glossario data-driven da `data/glossary_terms.json` | 2026-06-30 |
-| Testo "Perché" data-driven da `data/about_why.json` | 2026-06-30 |
-| Data ultimo aggiornamento da `data/last_update.json` | 2026-06-30 |
+| Glossario data-driven da `docs/data/glossary_terms.json` | 2026-06-30 |
+| Testo "Perché" data-driven da `docs/data/about_why.json` | 2026-06-30 |
+| Data ultimo aggiornamento da `docs/data/last_update.json` | 2026-06-30 |
 | Map: modalità EDF Funding (cerchi per finanziamento, zoom EU, panel entità) | 2026-06-23 |
 | Networks: tooltip informativi su checkbox EDF / Investments | 2026-06-23 |
 | Export PNG su Map e Networks, PDF one-click in Search | 2026-06-23 |

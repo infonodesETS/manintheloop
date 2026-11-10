@@ -149,7 +149,7 @@ python3 scripts/fetch_edf_bulk.py
 
 ### Step 2 — Create entities for new participant organisations
 
-New calls may include organisations not seen before — their PICs will not be in `data/edf_orgs.json`, so Step 3 would silently skip their relationships. Fix this first.
+New calls may include organisations not seen before — their PICs will not be in `docs/data/edf_orgs.json`, so Step 3 would silently skip their relationships. Fix this first.
 
 ```bash
 # Dry-run: shows new IN-NNNN entities that would be created + any name-match merges
@@ -192,9 +192,13 @@ python3 scripts/patch_edf_objectives.py
 
 > **Note:** `import_edf_projects.py` already writes `objective` at creation time for newly created entities. This patch is only needed for entities created before that logic was added (EDF-0001–0084 created before 2026-06-03), or if the API later adds objectives to projects that previously had none.
 
-### Step 5 — Validate and commit
+### Step 5 — Sync the site copy, validate and commit
+
+The site (served from `docs/`) uses a copy of the raw file in `docs/data/edf_calls.json`. Keep it aligned:
 
 ```bash
+python3 scripts/sync_site_data.py --write   # copies rawdata/edf_calls.json -> docs/data/edf_calls.json
+python3 scripts/sync_site_data.py --check   # must print OK
 python3 scripts/validate.py
 ```
 
@@ -240,20 +244,20 @@ For scripts that do not support `--dry-run`:
 
 1. **Backup** before running:
    ```bash
-   cp data/database.json data/database.json.bak
+   cp docs/data/database.json docs/data/database.json.bak
    ```
 2. **Run** the script.
 3. **Restore**, compare, then re-run after review:
    ```bash
-   cp data/database.json.bak data/database.json
+   cp docs/data/database.json.bak docs/data/database.json
    ```
 4. Run `validate.py`, then commit.
 5. **Remove** the backup:
    ```bash
-   rm data/database.json.bak
+   rm docs/data/database.json.bak
    ```
 
-> `data/database.json.bak` must never be committed.
+> `docs/data/database.json.bak` must never be committed.
 
 ---
 
@@ -366,14 +370,14 @@ python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID --dry-run
 python3 scripts/dedup_entities.py --merge WINNER_ID LOSER_ID
 
 # 4. If the loser had a sources.edf block, update edf_orgs.json:
-#    Find all entries in data/edf_orgs.json where db_id == LOSER_ID and set db_id = WINNER_ID
+#    Find all entries in docs/data/edf_orgs.json where db_id == LOSER_ID and set db_id = WINNER_ID
 python3 -c "
 import json
 LOSER, WINNER = 'LOSER_ID', 'WINNER_ID'
-with open('data/edf_orgs.json') as f: d = json.load(f)
+with open('docs/data/edf_orgs.json') as f: d = json.load(f)
 fixed = [pic for pic, o in d['orgs'].items() if o.get('db_id') == LOSER]
 for pic in fixed: d['orgs'][pic]['db_id'] = WINNER
-with open('data/edf_orgs.json', 'w') as f: json.dump(d, f, indent=2, ensure_ascii=False)
+with open('docs/data/edf_orgs.json', 'w') as f: json.dump(d, f, indent=2, ensure_ascii=False)
 print(f'Updated {len(fixed)} edf_orgs.json entries: {LOSER} → {WINNER}')
 "
 
@@ -381,9 +385,9 @@ print(f'Updated {len(fixed)} edf_orgs.json entries: {LOSER} → {WINNER}')
 python3 scripts/validate.py
 ```
 
-> **Rule:** `dedup_entities.py` only updates `database.json`. If the loser entity had a `sources.edf` block, its PIC will still point to the loser ID in `data/edf_orgs.json`. Always run step 4 after any merge involving an EDF entity — skipping it leaves stale `db_id` references that break the web UI registry.
+> **Rule:** `dedup_entities.py` only updates `database.json`. If the loser entity had a `sources.edf` block, its PIC will still point to the loser ID in `docs/data/edf_orgs.json`. Always run step 4 after any merge involving an EDF entity — skipping it leaves stale `db_id` references that break the web UI registry.
 
-> **⚠ Dual-role note (IV-* loser merged into IN-* winner):** After this merge, the winning IN-* entity becomes the source of investment relationships. As of 2026-05-14 the frontend (map, networks, search) handles this correctly: `index.html` renders both investors and portfolio in the detail panel; `networks.html` assigns `kind='entity'` styling to IN-* investment sources; `web/app.js` shows a Portfolio card and stat in the entity profile. Document the dual-role nature in the `dedup_decision` history entry.
+> **⚠ Dual-role note (IV-* loser merged into IN-* winner):** After this merge, the winning IN-* entity becomes the source of investment relationships. As of 2026-05-14 the frontend (map, networks, search) handles this correctly: `docs/index.html` renders both investors and portfolio in the detail panel; `docs/networks.html` assigns `kind='entity'` styling to IN-* investment sources; `docs/web/app.js` shows a Portfolio card and stat in the entity profile. Document the dual-role nature in the `dedup_decision` history entry.
 
 After applying a merge, add a `dedup_decision` history entry on the winner explaining **why** the pair was identified as the same entity (name pattern, Wikidata label match, iShares ticker-as-name, etc.). The script's auto-generated history entry records *what* was absorbed; the manual annotation records *why* the decision was made.
 

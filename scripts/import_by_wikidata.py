@@ -25,7 +25,7 @@ from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OLD_DB_PATH = os.path.join(BASE, "..", "refactoring", "data", "database.json")
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
 
 TODAY = date.today().isoformat()
 

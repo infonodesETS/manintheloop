@@ -28,7 +28,7 @@ Arriveranno aggiornamenti presi dal transcript di una call, relativi a tutto il 
 
 ## ⚠️ PRIORITÀ — da cercare (EU Funding map)
 
-La mappa EU Funding (`index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
+La mappa EU Funding (`docs/index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
 
 | Strumento | Stato nella mappa |
 |---|---|
@@ -73,8 +73,8 @@ All screenshots taken during Playwright sessions must be saved to `tmp/playwrigh
 
 ```bash
 # Populate sources.wikidata for all entities with a wikidata_id (skips already-enriched)
-#   Reads: data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
-#   Writes: data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
+#   Reads: docs/data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
+#   Writes: docs/data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
 python3 scripts/enrich_wikidata.py [--dry-run]
 
 # Force re-enrichment of ALL entities (including already-enriched) — use after bulk QID updates
@@ -105,14 +105,14 @@ Run once per enrichment cycle in this order:
 
 ```bash
 # 1. Import EDF web_link field → sources.infonodes.website
-#    Reads: data/edf_orgs.json, data/database.json
-#    Writes: data/database.json (sources.infonodes.website + history[])
+#    Reads: docs/data/edf_orgs.json, docs/data/database.json
+#    Writes: docs/data/database.json (sources.infonodes.website + history[])
 #    Skip: entities that already have crunchbase.website
 python3 scripts/import_edf_websites.py [--dry-run]
 
 # 2. Fetch official website (P856) from Wikidata for companies with wikidata_id but no website
-#    Reads: data/database.json  |  API: SPARQL (batches of 50, 2s delay)
-#    Writes: data/database.json (sources.infonodes.website + history[])
+#    Reads: docs/data/database.json  |  API: SPARQL (batches of 50, 2s delay)
+#    Writes: docs/data/database.json (sources.infonodes.website + history[])
 python3 scripts/fetch_wikidata_websites.py [--dry-run]
 
 # 3. Validate
@@ -125,22 +125,22 @@ Re-run safety: both scripts skip entities that already have a website set → sa
 
 ```bash
 # Phase 1 — Wikidata Search API (resumes from checkpoint if qid_candidates.json exists)
-#    Reads: data/database.json  |  Writes: data/qid_candidates.json (status=proposed/skipped)
+#    Reads: docs/data/database.json  |  Writes: work/qid_candidates.json (status=proposed/skipped)
 #    API: wbsearchentities REST, 1.5s delay
 python3 scripts/search_missing_qids.py --search
 
 # Phase 1b — SPARQL label lookup + Reconciliation API for Phase 1 skipped entries
-#    Reads: data/qid_candidates.json  |  Writes: data/qid_candidates.json (in-place)
+#    Reads: work/qid_candidates.json  |  Writes: work/qid_candidates.json (in-place)
 #    Never overwrites accepted/rejected entries
 python3 scripts/sparql_search_qids.py
 
 # Phase 2 — Human review
-# Open data/qid_candidates.json
+# Open work/qid_candidates.json
 # Change each "proposed" entry to "accepted" or "rejected"
 
 # Phase 3 — Apply accepted QIDs to database.json
-#    Reads: data/qid_candidates.json (accepted only)
-#    Writes: data/database.json (wikidata_id + history[] + validation[])
+#    Reads: work/qid_candidates.json (accepted only)
+#    Writes: docs/data/database.json (wikidata_id + history[] + validation[])
 #    Zero API calls
 python3 scripts/search_missing_qids.py --apply
 
@@ -160,7 +160,7 @@ Run after the main QID pipeline to recover skipped entries via four strategies:
 #    Phase B: P856 website reverse SPARQL lookup (2s delay, batch=10 entities)
 #    Phase C: P31 type confirmation for no-description entries (SPARQL)
 #    Phase D: results[1-4] re-search for wrong-top-result entries (Wikidata API, 1.5s delay)
-#    Writes: data/qid_candidates.json only — never touches database.json
+#    Writes: work/qid_candidates.json only — never touches database.json
 python3 scripts/reprocess_skipped_qids.py
 
 # Then review qid_candidates.json (proposed → accepted/rejected), then apply:
@@ -172,8 +172,8 @@ python3 scripts/validate.py
 
 ```bash
 # Create EDF-NNNN project entities + edf_participation relationships
-#   Reads: rawdata/edf_calls.json, data/edf_orgs.json, data/database.json
-#   Writes: data/database.json (+78 EDF-NNNN entities, +1657 edf_participation rels)
+#   Reads: rawdata/edf_calls.json, docs/data/edf_orgs.json, docs/data/database.json
+#   Writes: docs/data/database.json (+78 EDF-NNNN entities, +1657 edf_participation rels)
 python3 scripts/import_edf_projects.py [--dry-run]
 
 # Validate
@@ -186,8 +186,8 @@ Re-run safety: skips existing EDF-NNNN entities (matched by project_id) and dupl
 
 ```bash
 # Step 1 — Create IV-NNNN entities + investment relationships from crunchbase.top_investors
-#   Reads: data/database.json
-#   Writes: data/database.json (+IV entities, +relationships)
+#   Reads: docs/data/database.json
+#   Writes: docs/data/database.json (+IV entities, +relationships)
 #   Flags: --dry-run (no writes), --wikidata (SPARQL country lookup per investor, ~2s each)
 python3 scripts/import_investors_crunchbase.py [--dry-run] [--wikidata]
 
@@ -206,10 +206,10 @@ or run `import_investors_crunchbase.py --wikidata` (slow: ~610 SPARQL queries ×
 
 ### Crunchbase enrichment pipeline
 
-> **Full process documentation:** `data/crunchbase_sandbox/CRUNCHBASE.md`
+> **Full process documentation:** `work/crunchbase/CRUNCHBASE.md`
 
 ```
-data/crunchbase_sandbox/
+work/crunchbase/
   companies_export.csv                        ← full list (1149 rows: name + website)
   matches.csv                                 ← 812 rows — uploaded to Crunchbase (Cycle 1)
   non_matches.csv                             ← 337 rows — Crunchbase could not match
@@ -224,18 +224,18 @@ python3 scripts/regenerate_export.py
 
 # Import (dry-run first — always)
 python3 scripts/import_crunchbase_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv \
+    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv \
     --dry-run
 
 # Apply
 python3 scripts/import_crunchbase_csv.py \
-    data/crunchbase_sandbox/crunchbase-export-<label>-MM-DD-YYYY.csv
+    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv
 
 # Validate
 python3 scripts/validate.py
 ```
 
-**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `data/crunchbase_sandbox/CRUNCHBASE.md`.
+**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `work/crunchbase/CRUNCHBASE.md`.
 
 ### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
@@ -257,12 +257,12 @@ python3 scripts/validate.py
 | `reference/SCHEMA.md` | Full schema v3.0 spec: entity types, ID prefixes, sources blocks, relationship types, history/validation format |
 | `reference/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
 | `reference/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
-| `reference/NETWORKS_LAYOUT.md` | Cytoscape cose layout parameter reference for `networks.html`: what each param does, current values, tuning guide, node size constants |
-| `data/crunchbase_sandbox/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
+| `reference/NETWORKS_LAYOUT.md` | Cytoscape cose layout parameter reference for `docs/networks.html`: what each param does, current values, tuning guide, node size constants |
+| `work/crunchbase/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
 | `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 | `status-map.md` | Map visualization analysis — architecture, data coverage, Playwright observations, 2 bugs, 10 UX problems, improvement backlog. **Not committed** (in .gitignore). |
 | `status-search.md` | Search/profile visualization analysis — architecture (REGISTRY, REL_MAP, scoring), data coverage, Playwright observations, 2 bugs, 4 search quality gaps, 8 UX problems, improvement backlog. **Not committed** (in .gitignore). |
-| `reference/typography.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
+| `reference/design-system.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
 
 ---
 
@@ -294,31 +294,32 @@ The old DB (`../refactoring/`) is **read-only** — never modify it. All work is
 ## Folder structure
 
 ```
-refactoringDB/
-├── index.html                 ← Map page (D3 SVG world map + investor arcs) — branch new-frontend
-├── search.html                ← Org search + profile viewer (ported from old index.html)
-├── networks.html              ← placeholder
-├── publications.html          ← placeholder
-├── about.html                 ← placeholder
-├── web/
-│   ├── app.js                 ← search/profile JS (extracted from old inline script — single source of truth)
-│   ├── router.js              ← URL routing (?organization=IN-XXXX + compare params)
-│   ├── theme.js               ← dark/light theme toggle (shared across all pages)
-│   ├── base.css               ← base styles (copied from ../refactoring/css/)
-│   ├── components.css         ← component styles
-│   └── companysearch.css      ← search/autocomplete/profile styles
-├── data/
-│   ├── database.json          ← main DB (schema v3.0) — primary artifact
-│   ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
-│   ├── glossary.json          ← source flag tooltip descriptions (CB/EDF/iShares/WD/INF)
-│   ├── qid_candidates.json    ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
-│   └── crunchbase_sandbox/
-│       ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
-│       ├── companies_export.csv  ← full export (1149 rows: name + website)
-│       ├── matches.csv           ← 812 rows uploaded to Crunchbase (Cycle 1)
-│       ├── non_matches.csv       ← 337 rows excluded from Crunchbase upload
-│       ├── crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows from Crunchbase (Cycle 1)
-│       └── unresolved_2026-04-13.csv ← 21 CB rows not matched to DB entity
+manintheloop/
+├── docs/                          ← IL SITO (GitHub Pages serve questa cartella)
+│   ├── CNAME                      ← dominio mitl.infonodes.org
+│   ├── index.html                 ← Map page (D3 SVG world map + investor arcs)
+│   ├── search.html                ← Org search + profile viewer
+│   ├── networks.html, key-figures.html, publications.html, about.html
+│   ├── web/                       ← app.js, router.js, theme.js, i18n.js, graph.js, countries.js, css (single source of truth)
+│   ├── reports/countries/index.html
+│   └── data/
+│       ├── database.json          ← main DB (schema v3.0) — primary artifact
+│       ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
+│       ├── edf_calls.json         ← copia di rawdata/edf_calls.json (tenerla allineata con scripts/sync_site_data.py)
+│       ├── glossary.json, glossary_terms.json, about_why.json, publications.json, last_update.json, defence_criteria.json
+│       └── mitl-index.json        ← indice del chatbot MARLA (generato da scripts/build_chat_index.py)
+├── work/                          ← lavoro interno, NON pubblicato dal sito
+│   ├── qid_candidates.json        ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
+│   ├── crunchbase/
+│   │   ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
+│   │   ├── companies_export.csv  ← full export (1149 rows: name + website)
+│   │   ├── matches.csv           ← 812 rows uploaded to Crunchbase (Cycle 1)
+│   │   ├── non_matches.csv       ← 337 rows excluded from Crunchbase upload
+│   │   ├── crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows from Crunchbase (Cycle 1)
+│   │   └── unresolved_2026-04-13.csv ← 21 CB rows not matched to DB entity
+│   ├── reports/                   ← report Italia, grafici e PDF
+│   ├── sintesi/                   ← sintesi, traduzione EN, OpenTender
+│   └── testi/                     ← testi della piattaforma
 ├── rawdata/
 │   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
 │   ├── ISHARES.md             ← metadata registry for all 4 iShares ETFs (ETF name, ticker, GICS, date)
@@ -337,7 +338,7 @@ refactoringDB/
 │   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
 │   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
 │   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
-│   ├── regenerate_export.py   ← regenerates data/crunchbase_sandbox/companies_export.csv from DB
+│   ├── regenerate_export.py   ← regenerates work/crunchbase/companies_export.csv from DB
 │   ├── import_investors_crunchbase.py ← creates IV-NNNN entities + relationships from top_investors
 │   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors (~90 curated)
 │   ├── patch_iv_countries_p159.py     ← SPARQL P159/P17 fallback for QID-bearing IV with no country
@@ -349,18 +350,17 @@ refactoringDB/
 │   ├── UPDATE_PROTOCOL.md
 │   ├── QID_LOOKUP_PROCESS.md
 │   ├── NETWORKS_LAYOUT.md
-│   └── typography.html            ← Design system reference (open in browser)
+│   └── design-system.html         ← Design system reference (open in browser)
 └── STATUS.md                  ← this file
 ```
 
-> **Serving the web UI (new-frontend branch):** `python3 -m http.server 8001` from `refactoringDB/`, then open `http://localhost:8001/`.
-> **Serving search UI only:** `python3 -m http.server 8000` from `Manintheloop/` root, then open `http://localhost:8000/refactoringDB/`.
+> **Serving the web UI locally:** `cd docs && python3 -m http.server 8001`, then open `http://localhost:8001/`. Run scripts always from the repo root.
 
 ---
 
 ## Esperimenti (cartelle locali)
 
-Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Servono per provare cose senza toccare `data/database.json`.
+Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Servono per provare cose senza toccare `docs/data/database.json`.
 
 | Cartella | Contenuto |
 |---|---|
@@ -383,7 +383,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 | Last validate.py | PASSED (2026-10-24) — 2582 entities, 3490 rels (unchanged since the 2026-10-19 EDF refresh) |
 | iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
 | EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
-| Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `data/crunchbase_sandbox/CYCLE2.md` |
+| Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `work/crunchbase/CYCLE2.md` |
 | Wikidata coverage | IN entities: partial (many EDF SMEs absent from Wikidata) · IV entities: fully enriched for all QID-bearing |
 | QID pipeline | All proposals reviewed; remaining skipped entries are EDF SMEs genuinely absent from Wikidata |
 | validation: cb_wrong_entity | 5 remaining — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft |
@@ -404,7 +404,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 - [x] Result: +226 `IN-NNNN` org entities, +45 `EDF-NNNN` project entities, +505 `edf_participation` rels; 817 existing PIC mappings unchanged (0 `db_id` changed). `validate.py` PASSED — **2582 entities, 3490 relationships**.
 - [ ] **To review**: 7 new entities that may be subsidiaries of existing ones (not matched): Sopra Steria Belgium (~IN-1078), E4 Defense Systems SL (~IN-1242, probably wrong), Central Space Agency (~IV-0572, probably wrong), Rolls-Royce Solutions GmbH (~IN-1328), Kongsberg Maritime Sweden AB (~IN-0828), Decent Cybersecurity Ireland (~IN-0614), Dassault Systèmes UAB (~IN-0105).
 - [ ] New org entities still need QID / Crunchbase / website enrichment (pipelines above).
-- [ ] Not checked: that the EU Funding map in `index.html` shows the new projects.
+- [ ] Not checked: that the EU Funding map in `docs/index.html` shows the new projects.
 
 ### Session 2026-09-03 — Branch sync
 
@@ -418,12 +418,12 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 
 ### Session 2026-09-03 — Map ↔ country report links, eu-funding merged to main
 
-- [x] **`web/countries.js`**: `WD_TO_ISO`/`ISO_TO_NAME` moved here from `index.html` as `MITL.WD_TO_ISO`/`MITL.ISO_TO_NAME` — single source of truth, now shared with `reports/countries/index.html`
-- [x] **`index.html`**: "Go to country report →" button added to `showMapCountry()` only (Global Investments mode; deliberately absent from `showEdfCountry()`/EU Funding mode) — links to `reports/countries/index.html?country=<name>`. New i18n key `map.go_to_country_report` (4 languages)
-- [x] **`reports/countries/index.html`**: translated entirely to English (`lang="en"`, en-US number formatting) — matches `search.html`'s convention of keeping data-driven pages in one fixed language rather than a 4x-template approach. "Go to map →" button under the country title (`?country=<name>` → `index.html?country=<ISO>&countryname=<name>`), hidden when the country has no ISO mapping (3 DB countries affected: Hong Kong, Jersey, Qatar). All organization names (EDF beneficiaries table, EDF coordinators table, "Organizations with the most investors", "Full list by type") now link to their `search.html` profile via new `entityLink()` helper, styled to match the existing `.investor-name` look (`color: var(--text-secondary)`, not `inherit` — avoids the mismatched brightness a first pass had across different containers)
+- [x] **`docs/web/countries.js`**: `WD_TO_ISO`/`ISO_TO_NAME` moved here from `docs/index.html` as `MITL.WD_TO_ISO`/`MITL.ISO_TO_NAME` — single source of truth, now shared with `docs/reports/countries/index.html`
+- [x] **`docs/index.html`**: "Go to country report →" button added to `showMapCountry()` only (Global Investments mode; deliberately absent from `showEdfCountry()`/EU Funding mode) — links to `docs/reports/countries/index.html?country=<name>`. New i18n key `map.go_to_country_report` (4 languages)
+- [x] **`docs/reports/countries/index.html`**: translated entirely to English (`lang="en"`, en-US number formatting) — matches `docs/search.html`'s convention of keeping data-driven pages in one fixed language rather than a 4x-template approach. "Go to map →" button under the country title (`?country=<name>` → `docs/index.html?country=<ISO>&countryname=<name>`), hidden when the country has no ISO mapping (3 DB countries affected: Hong Kong, Jersey, Qatar). All organization names (EDF beneficiaries table, EDF coordinators table, "Organizations with the most investors", "Full list by type") now link to their `docs/search.html` profile via new `entityLink()` helper, styled to match the existing `.investor-name` look (`color: var(--text-secondary)`, not `inherit` — avoids the mismatched brightness a first pass had across different containers)
 - [x] Verified live with Playwright (local server): full round-trip map→report→map on Israel, `showEdfCountry` confirmed button-free, Qatar confirmed button hidden, 167 `entityLink`s generated on Italy, Baidu Class A link resolves to the exact target URL requested
 - [x] Committed on `eu-funding` (`07fd41e`), merged into `main` (36 commits, no conflicts), `validate.py` PASSED, pushed to `origin/main` (`f73364d..7f4652b`)
-- [x] **Branch cleanup** (post-merge, all content verified as ancestor of `main` before deletion): removed local+remote `eu-funding`, local `data-analysis`, local+remote `graph`, local `datacleaning`/`designfix`/`map`/`search` — all fully merged, nothing lost. **`ai-assistant` deleted with 4 unmerged commits** (Ask AI widget prototype in `search.html` — `757e5ec`, `5665506`, `ec2210c`, `94a8bb4`) at explicit user request; not recoverable via a normal branch, would need `git reflog` on this machine before it expires
+- [x] **Branch cleanup** (post-merge, all content verified as ancestor of `main` before deletion): removed local+remote `eu-funding`, local `data-analysis`, local+remote `graph`, local `datacleaning`/`designfix`/`map`/`search` — all fully merged, nothing lost. **`ai-assistant` deleted with 4 unmerged commits** (Ask AI widget prototype in `docs/search.html` — `757e5ec`, `5665506`, `ec2210c`, `94a8bb4`) at explicit user request; not recoverable via a normal branch, would need `git reflog` on this machine before it expires
 - [x] **Reminder still open** (from ROADMAP.md, now more urgent since `eu-funding` is live on `main`): update `MITL_INDEX_URL` on Vercel (marlamag project) from the `eu-funding` branch URL to the `main` one + Redeploy — otherwise MARLA silently keeps answering from stale data
 
 ### DB construction
@@ -439,7 +439,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 - [x] `fetch_wikidata_websites.py`: 220 websites from Wikidata P856 → `sources.infonodes.website`
 - [x] Web research (batches): 258 additional websites via manual web search → `sources.infonodes.website`
 - [x] Final coverage: 1126 / 1149 companies (98.0%) have a website
-- [x] `data/crunchbase_sandbox/companies_export.csv` regenerated with `name` + `website` columns (1149 rows)
+- [x] `work/crunchbase/companies_export.csv` regenerated with `name` + `website` columns (1149 rows)
 
 ### QID enrichment
 - [x] Phase 1 — Wikidata Search API (`search_missing_qids.py --search`): 245 proposed
@@ -499,10 +499,10 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 - [x] `scripts/import_crunchbase_csv.py` real import run — 601 new + 121 updated = 731 entities with `sources.crunchbase`
 - [x] `validate.py` PASSED after import
 
-### Web UI — `index.html` (2026-04-14)
-- [x] Organisation search UI built from `data/database.json` (adapted from refactoring/tmp/new_index.html)
+### Web UI — `docs/index.html` (2026-04-14)
+- [x] Organisation search UI built from `docs/data/database.json` (adapted from refactoring/tmp/new_index.html)
 - [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
-- [x] URL routing: `?organization=IN-XXXX&organizationName=...` — deep-linkable, browser back/forward aware (`web/router.js`)
+- [x] URL routing: `?organization=IN-XXXX&organizationName=...` — deep-linkable, browser back/forward aware (`docs/web/router.js`)
 - [x] Profile header: name, type badge, source flags, EU status line, description, external links, stat bar
 - [x] Single-column collapsible source cards (all expanded by default, independently closable):
   - Infonodes → Wikidata → iShares (ETF table) → Crunchbase (grouped: Identity/Industry/Funding/Team) → EDF (org details + lazy project load) → Change History → Validation
@@ -513,7 +513,7 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 
 > Branch forked from `nuovoDB`. Serve from `refactoringDB/` root: `python3 -m http.server 8001`.
 
-- [x] **`index.html`** — D3 SVG world map (ported from `../refactoring/js/tabs/map.js`)
+- [x] **`docs/index.html`** — D3 SVG world map (ported from `../refactoring/js/tabs/map.js`)
   - Country-level aggregation: one circle per country, sized by arc degree
   - Side panel: country detail (companies list + investor badge `↓N` per company)
   - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
@@ -535,22 +535,22 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
   - **Clickable portfolio companies in investor detail (2026-04-23):** portfolio companies (IN-*) in IV entity detail panel are now clickable — same pattern as investor click, reuses existing `[data-action="filterMapByEntity"]` wiring.
   - **Map label font size +25% (2026-04-23):** `baseFs` constant raised from 11 to 13.75; applies uniformly to all country labels at all zoom levels.
   - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
-    - `index.html` → default panel
-    - `index.html?country=840&countryname=United+States` → country selected
-    - `index.html?country=840&countryname=United+States&entity=IN-0004&entityname=Adobe` → entity detail panel
-    - Entity name click in country panel → entity detail URL (not direct search.html navigation)
-    - Entity detail panel has "Open profile →" link to `search.html`
-    - Browser back from `search.html` restores entity detail panel via URL params read in `init()`
+    - `docs/index.html` → default panel
+    - `docs/index.html?country=840&countryname=United+States` → country selected
+    - `docs/index.html?country=840&countryname=United+States&entity=IN-0004&entityname=Adobe` → entity detail panel
+    - Entity name click in country panel → entity detail URL (not direct docs/search.html navigation)
+    - Entity detail panel has "Open profile →" link to `docs/search.html`
+    - Browser back from `docs/search.html` restores entity detail panel via URL params read in `init()`
   - Filter bar: click a company/investor to highlight connected countries on map
-  - Data loaded from `data/database.json` (no AppState/SPA — standalone fetch)
+  - Data loaded from `docs/data/database.json` (no AppState/SPA — standalone fetch)
   - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
-- [x] **`search.html`** — org search (ported from old `index.html`, navbar added)
+- [x] **`docs/search.html`** — org search (ported from old `docs/index.html`, navbar added)
   - **Relationships card (2026-04-22):** entity profile now shows a Relationships card with clickable portfolio companies (for IV entities) and investors (for IN entities) — data from `REL_MAP`
   - **infCardBody enhanced (2026-04-22):** shows `roles`, `tags`, `wikidata_id` from entity root alongside sources.infonodes fields
-  - **Back-nav fix (2026-04-23):** `Router.replace(item)` added to `web/router.js`; initial URL-based load uses `replaceState` instead of `pushState` to avoid duplicate history entry (was causing double Back click to leave the page)
-- [x] **`networks.html`**, **`publications.html`**, **`about.html`** — placeholder pages (TBD content)
-- [x] **`web/theme.js`** — shared dark/light theme toggle across all pages
-- [x] **`web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
+  - **Back-nav fix (2026-04-23):** `Router.replace(item)` added to `docs/web/router.js`; initial URL-based load uses `replaceState` instead of `pushState` to avoid duplicate history entry (was causing double Back click to leave the page)
+- [x] **`docs/networks.html`**, **`docs/publications.html`**, **`docs/about.html`** — placeholder pages (TBD content)
+- [x] **`docs/web/theme.js`** — shared dark/light theme toggle across all pages
+- [x] **`docs/web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
 
 ### Investor pipeline (2026-04-22)
 - [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
@@ -580,8 +580,8 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
 
 ### Session 2026-05-10 — Graph visualization (branch `graph`)
 
-- [x] **Ego graph card** in `search.html` — Cytoscape.js 3.30.2 (local `web/cytoscape.min.js`)
-  - `web/graph.js` module: `buildElements()`, `initEgoGraph()`, `destroyActive()`
+- [x] **Ego graph card** in `docs/search.html` — Cytoscape.js 3.30.2 (local `docs/web/cytoscape.min.js`)
+  - `docs/web/graph.js` module: `buildElements()`, `initEgoGraph()`, `destroyActive()`
   - 1-hop bipartite view: center entity + direct neighbors only
   - Concentric layout (≤40 nodes) / cose spring (>40 EDF nodes)
   - Adaptive spacingFactor by node count (3.5 for tiny → 1.0 for large)
@@ -590,15 +590,15 @@ Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Serv
   - Card added to both `renderCards()` (IN entities) and `renderInvestorProfile()` (IV entities)
   - Tested: Tesla (22 investors), Leonardo (37 EDF projects), Sequoia (10 portfolio)
 - [x] **Branch `graph` created** from `main`
-- [x] **`networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
-- [x] **`networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
-- [x] **`networks.html` v3 — node interaction (2026-05-11)**
+- [x] **`docs/networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → docs/search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
+- [x] **`docs/networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
+- [x] **`docs/networks.html` v3 — node interaction (2026-05-11)**
   - **Focus/dim on click**: click any node → `closedNeighborhood()` stays at full opacity (`.focused`), all other elements fade to `opacity: 0.07` (`.dimmed`). Click background → reset.
   - **Unified `#detail-panel`**: replaces separate `#proj-panel`. Project click → project details (call, period, EU contrib, portal link). Entity/investor click → entity details (type, country, Wikidata description, EDF proj count, investor/portfolio count, website, profile link). No longer navigates away on entity click.
   - **`selected`/`selectedName` URL params**: every node click pushes `?selected=ID&selectedName=Name` (entity name or project acronym). Close/background click pushes without `selected`. Deep link restores focus + panel after layout. `selectedName` is readable in URL (no lookup needed).
   - **Same-tab profile navigation**: "Open full profile →" uses same tab — Back restores networks state. Intentional: routing is complete, new tab was a workaround.
-  - **URL param schema decision**: `selected`/`selectedName` kept distinct from `search.html`'s `organization`/`organizationName` and `index.html`'s `entity`/`entityname` — each page's params describe its own state. Cross-page links from networks to search already use the correct `?organization=ID&organizationName=Name` format.
-- [x] **`networks.html` — zoom on interaction (2026-05-11)**
+  - **URL param schema decision**: `selected`/`selectedName` kept distinct from `docs/search.html`'s `organization`/`organizationName` and `docs/index.html`'s `entity`/`entityname` — each page's params describe its own state. Cross-page links from networks to search already use the correct `?organization=ID&organizationName=Name` format.
+- [x] **`docs/networks.html` — zoom on interaction (2026-05-11)**
   - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
   - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
   - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
@@ -664,10 +664,10 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 
 ### Session 2026-06-03 — EDF full update + Network button
 
-- [x] **`search.html` — Network ↗ button** on EDF project profiles (`renderEdfProjectProfile`)
-  - Links to `networks.html?edf=1&inv=0&selected=EDF-NNNN` (no country param)
-  - `networks.html`: `resolveEntityCountry()` for EDF-* now prefers coordinator's country (sorts coordinator rel first, falls back to first participant)
-  - `networks.html` init: resolves country from `selected` entity when `country` param absent
+- [x] **`docs/search.html` — Network ↗ button** on EDF project profiles (`renderEdfProjectProfile`)
+  - Links to `docs/networks.html?edf=1&inv=0&selected=EDF-NNNN` (no country param)
+  - `docs/networks.html`: `resolveEntityCountry()` for EDF-* now prefers coordinator's country (sorts coordinator rel first, falls back to first participant)
+  - `docs/networks.html` init: resolves country from `selected` entity when `country` param absent
   - No impact on org/investor profiles
 
 ### Session 2026-06-03 — EDF full update
@@ -684,7 +684,7 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 
 ### Session 2026-05-27 — Networks layout spacing
 
-- [x] **`networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
+- [x] **`docs/networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
 - [x] **`reference/NETWORKS_LAYOUT.md`** — parameter reference: all cose params explained, current values, tuning guide, node size constants. Indexed in STATUS.md.
 
 ### Session 2026-05-21 — Statistical indicators report
@@ -697,11 +697,11 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 
 ### Session 2026-05-14 (about page)
 
-- [x] **`about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
+- [x] **`docs/about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
 
 ### Session 2026-05-14 — Arc click bilateral panel + map panel UX
 
-- [x] **`index.html` — arc click → bilateral investment panel**
+- [x] **`docs/index.html` — arc click → bilateral investment panel**
   - Click any visible arc between two countries opens a bilateral panel in the side panel
   - Hit area: invisible 12px transparent `stroke` path overlaid on each arc (scaled with zoom) — makes 1.5px SVG paths reliably clickable
   - `showArcDetail(srcIso, tgtIso)`: dims all other arcs + nodes; highlights active arc in purple; fits map to the two endpoints
@@ -710,10 +710,10 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
   - URL routing: `?arc={srcISO}-{tgtISO}` — deep-linkable, back-button aware, restored on page load
   - `mapState.selectedArc` added; cleared by `closeMapPanel()` and `showMapCountry()`
   - `restoreMapState()` and `init()` extended to parse and restore `arc` param
-- [x] **`index.html` — country panel reorder**: Capital Flowing In → Capital Flowing Out → Organizations (was: Organizations first)
-- [x] **`index.html` — label rename**: "Entities" → "Organizations" in country panel
-- [x] **`index.html` — org list badge order**: `↓N investor badge` before sector badge (was after)
-- [x] **`index.html` — bilateral arc panel table redesign**:
+- [x] **`docs/index.html` — country panel reorder**: Capital Flowing In → Capital Flowing Out → Organizations (was: Organizations first)
+- [x] **`docs/index.html` — label rename**: "Entities" → "Organizations" in country panel
+- [x] **`docs/index.html` — org list badge order**: `↓N investor badge` before sector badge (was after)
+- [x] **`docs/index.html` — bilateral arc panel table redesign**:
   - FROM/TO two-column CSS grid; investor appears once, portfolio companies as `<ul><li>` in TO cell
   - Row height auto-spans the full `<ul>` (no overflow/clipping)
   - Header `th`: bg `#d3d8d8`, font `#1a1a1a`, bold uppercase
@@ -722,16 +722,16 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
   - Investor IDs hidden from panel; section arrows (↑↓) removed — direction expressed by `A → B` label only
   - Sections grouped: `relsAB` (src→tgt) and `relsBA` (tgt→src), each showing investor count + connection count
 
-- [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `index.html`: arcs and detail panel cover both directions. `networks.html`: `kind='entity'` assigned consistently regardless of country scope. `web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
+- [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `docs/index.html`: arcs and detail panel cover both directions. `docs/networks.html`: `kind='entity'` assigned consistently regardless of country scope. `docs/web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
 - [x] **Ma'aden dedup** — IV-0377 merged into IN-1307. IN-0178 Ivanhoe Electric country set to United States.
 - [x] **Retired entities hidden from UI** — entities with `history[].action === 'entity_retired'` stripped from `DB.entities` and `DB.relationships` at load time in all three pages. Currently: IN-1282 Fortescue Metals Group. DB record preserved.
-- [x] **`networks.html` — search autocomplete A-Z** — results always sorted `localeCompare` instead of match-position heuristic.
-- [x] **`networks.html` — search dropdown limit 14 → 30**.
-- [x] **`networks.html` — IV-* search navigates to portfolio country** — `resolveEntityCountry()` now prefers a portfolio company's country for IV-* investors (guarantees visible connection in graph). Previously used investor's home country, which often had no connected entities.
-- [x] **`networks.html` — outbound investments rendered** — `buildElements()` now collects investment rels where the source is a local investor (country match) and target is foreign. Outbound investor shown as orange node, foreign target as green node. Fixes countries like Indonesia (local investors, no inbound).
-- [x] **`networks.html` — no-data fallback** — when `connectedIds` is empty, falls back to showing all `entityIds` instead of blank "No data" screen.
+- [x] **`docs/networks.html` — search autocomplete A-Z** — results always sorted `localeCompare` instead of match-position heuristic.
+- [x] **`docs/networks.html` — search dropdown limit 14 → 30**.
+- [x] **`docs/networks.html` — IV-* search navigates to portfolio country** — `resolveEntityCountry()` now prefers a portfolio company's country for IV-* investors (guarantees visible connection in graph). Previously used investor's home country, which often had no connected entities.
+- [x] **`docs/networks.html` — outbound investments rendered** — `buildElements()` now collects investment rels where the source is a local investor (country match) and target is foreign. Outbound investor shown as orange node, foreign target as green node. Fixes countries like Indonesia (local investors, no inbound).
+- [x] **`docs/networks.html` — no-data fallback** — when `connectedIds` is empty, falls back to showing all `entityIds` instead of blank "No data" screen.
 
-- [x] **`networks.html` — cross-country neighbor expansion on node click (2026-05-11)**
+- [x] **`docs/networks.html` — cross-country neighbor expansion on node click (2026-05-11)**
   - `addExtraNeighbors(nodeId)`: scans all `edfRels` + `investmentRels` for the clicked node; for each neighbor not already in `cy`, adds node + edge via `cy.add()`
   - New nodes positioned in a circle around the clicked node (`radius = max(130, count × 11)`)
   - EDF project nodes carry full `sources.edf_project` data so `showProjDetail` works on extras too
@@ -740,7 +740,7 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 
 ### Session 2026-05-07
 
-- [x] **map: sector badge fallback removed** — `companyBadges()` in `index.html` no longer shows old-DB `sector` field (Mining, Defence, etc.) for non-iShares entities. Only `Startup` tag preserved. ~46 entities affected.
+- [x] **map: sector badge fallback removed** — `companyBadges()` in `docs/index.html` no longer shows old-DB `sector` field (Mining, Defence, etc.) for non-iShares entities. Only `Startup` tag preserved. ~46 entities affected.
 - [x] **IV/fund/public_fund Wikidata enrichment** — `enrich_wikidata.py --force --types investor,fund,public_fund` run: 196/196 entities enriched (0 missing). Full `wbgetentities` data now present: `instance_of`, `country`, `headquarters`, `inception`, `official_website`, `wikipedia_url`.
 - [x] **`enrich_wikidata.py` --types flag** — new `--types TYPE,...` argument allows scoping enrichment to specific entity types without touching already-correct IN entities.
 - [x] **issues.md** — both open TODOs closed as FIXED.
@@ -764,16 +764,16 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] validate.py PASSED (2026-04-24)
 
 ### EDF frontend (2026-04-23)
-- [x] `web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
+- [x] `docs/web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
 - [x] Entity profile EDF card: immediate project list from REL_MAP (no lazy-load), with role, share, dates, EU Portal link
 - [x] Co-participant expand: clickable list of co-participants with role, country, EU contribution — navigates to their profile
 - [x] `renderEdfProjectProfile`: full profile for EDF-NNNN project entities — stats bar (participants, EU contribution, dates, status), Project details card, Participants card (sorted coordinator-first, all clickable)
 - [x] `buildRegistry`: EDF project entities indexed by acronym, call_id, call_title (searchable as "ENGRT II", "AI-WASP", etc.)
-- [x] `search.html`: `thirdParty` role badge styled (grey, distinct from coordinator/participant)
+- [x] `docs/search.html`: `thirdParty` role badge styled (grey, distinct from coordinator/participant)
 
 ### EDF participation relationships (2026-04-23)
 - [x] `scripts/import_edf_projects.py` — creates 78 `EDF-NNNN` project entities + 1657 `edf_participation` relationships
-  - All 1657 participant slots matched via PIC→db_id crosswalk in `data/edf_orgs.json` (0 missing)
+  - All 1657 participant slots matched via PIC→db_id crosswalk in `docs/data/edf_orgs.json` (0 missing)
   - Each relationship: `source`=entity db_id, `target`=EDF-NNNN, `role` (coordinator/participant), `eu_contribution`
   - Entity sources: `sources.edf_project` with project_id, acronym, call_id, call_title, status, dates, budget, url, type_of_action
   - `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
@@ -791,7 +791,7 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
 - [x] `scripts/import_crunchbase_csv.py` — Crunchbase import (4-tier matching, field-level diff, re-run safe)
 - [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
-- [x] `data/crunchbase_sandbox/CRUNCHBASE.md` — Crunchbase process + reconciliation log
+- [x] `work/crunchbase/CRUNCHBASE.md` — Crunchbase process + reconciliation log
 
 ---
 
@@ -800,7 +800,7 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 ### Session 2026-06-18 — CB HQ country patch (Networks bug fix)
 
 **Bug:** 18/23 MINTL entities (and ~74 other IN-* entities) invisible in Networks — no country in infonodes/wikidata/edf sources.
-**Root cause:** `getCountry()` in networks.html doesn't check `sources.crunchbase.headquarters`; entities added via MINTL import had only CB data.
+**Root cause:** `getCountry()` in docs/networks.html doesn't check `sources.crunchbase.headquarters`; entities added via MINTL import had only CB data.
 **Fix:** `scripts/patch_country_from_cb_hq.py` — extracts country from last segment of CB headquarters string.
 
 - [x] 92 IN entities patched: `sources.infonodes.country` ← last segment of `sources.crunchbase.headquarters`
@@ -831,9 +831,9 @@ Confirmed candidates (from dry-run): Affinity Partners (USA), Balderton Capital 
 **Status:** Fixed in branch `datacleaning` (2026-05-14). Affected entities: `IN-0053` BHP, `IN-0233` Microsoft, `IN-1307` Ma'aden, `IN-1336` Tianqi Lithium.
 
 **Fix applied per page:**
-- `index.html`: arc computation now processes both incoming and outgoing investment rels for any entity; detail panel shows portfolio section alongside investors section for dual-role IN-* entities
-- `networks.html`: `buildElements()` assigns `kind='entity'` (not `'investor'`) when investment source is an IN-* entity — consistent styling regardless of which country is selected
-- `web/app.js` (search): `renderCards()` adds a "Portfolio" card and `renderProfile()` stats show portfolio count for dual-role IN-* entities
+- `docs/index.html`: arc computation now processes both incoming and outgoing investment rels for any entity; detail panel shows portfolio section alongside investors section for dual-role IN-* entities
+- `docs/networks.html`: `buildElements()` assigns `kind='entity'` (not `'investor'`) when investment source is an IN-* entity — consistent styling regardless of which country is selected
+- `docs/web/app.js` (search): `renderCards()` adds a "Portfolio" card and `renderProfile()` stats show portfolio count for dual-role IN-* entities
 
 **Root cause (for reference):** ID prefix used as proxy for role. Fixed by checking `ivId.startsWith('IV-')` before assigning `kind`, and by processing both relationship directions regardless of entity prefix.
 
@@ -875,13 +875,13 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 ### 1. Phase 2: Crunchbase enrichment — Cycle 2 COMPLETE (2026-04-24)
 
 **Cycle 2 status:** Import complete (2026-04-24). 969 entities now have `sources.crunchbase`.
-- Upload file: `data/crunchbase_sandbox/companies_no_cb_2026-04-24.csv` (430 rows)
+- Upload file: `work/crunchbase/companies_no_cb_2026-04-24.csv` (430 rows)
 - CB returned: `companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv` (252 rows)
 - Non-matches: `companies_no_cb_2026-04-24-non-matches.csv` (121 rows)
 - Result: 192 new + 46 updated; 5 re-nulled as cb_wrong_entity
-- See `data/crunchbase_sandbox/CYCLE2.md` for full process doc
+- See `work/crunchbase/CYCLE2.md` for full process doc
 
-**38 unresolved from Cycle 2:** See `data/crunchbase_sandbox/unresolved_2026-04-24.csv`
+**38 unresolved from Cycle 2:** See `work/crunchbase/unresolved_2026-04-24.csv`
 
 **Next cycle (Cycle 3):** Run `python3 scripts/regenerate_export.py`, re-upload for remaining ~237 companies still without CB data.
 
@@ -921,10 +921,10 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 | Branch | Scope |
 |---|---|
-| `map` | `index.html` (D3 map) |
-| `search` | `search.html` + `web/app.js`, `web/router.js` |
-| `graph` | `networks.html` + `web/graph.js` |
-| `designfix` | `web/base.css`, `web/components.css`, `web/companysearch.css`, `tmp/typography.html` |
+| `map` | `docs/index.html` (D3 map) |
+| `search` | `docs/search.html` + `docs/web/app.js`, `docs/web/router.js` |
+| `graph` | `docs/networks.html` + `docs/web/graph.js` |
+| `designfix` | `docs/web/base.css`, `docs/web/components.css`, `docs/web/companysearch.css`, `tmp/typography.html` |
 | `datacleaning` | DB data quality work (scripts, database.json patches) |
 | `main` | Merge target only — receives merges from all branches |
 
@@ -947,11 +947,11 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 
 | Page | Routing module | URL scheme |
 |---|---|---|
-| `search.html` | `web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name[&theme=light]` |
-| `index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded[&theme=light]` |
-| `networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II][&theme=light]` |
+| `docs/search.html` | `docs/web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name[&theme=light]` |
+| `docs/index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded[&theme=light]` |
+| `docs/networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II][&theme=light]` |
 
-**Theme param (2026-05-11):** `theme=light` added to all pages. Dark is default (no param). Managed by `web/theme.js`:
+**Theme param (2026-05-11):** `theme=light` added to all pages. Dark is default (no param). Managed by `docs/web/theme.js`:
 - `initTheme()`: reads URL param > localStorage > dark; `replaceState` to canonicalize
 - `toggleTheme()`: `pushState` with updated param (back button undoes theme change)
 - `popstate` listener: applies theme from URL on back/forward
@@ -959,7 +959,7 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - `themeParam()`: returns `&theme=light` or `''` — used in dynamic cross-page link builders
 - FOUC prevention: all 3 pages read URL param before DOMContentLoaded (inline `<script>` in `<head>`)
 
-**`web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
+**`docs/web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
 
 ---
 

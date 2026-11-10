@@ -15,7 +15,7 @@ Runs after search_missing_qids.py --search. Handles two cases:
       matching, aliases, and partial names — designed for exactly this task.
       Batches of 20 queries per POST, 2s delay between batches.
 
-Adds new "proposed" entries to data/qid_candidates.json.
+Adds new "proposed" entries to work/qid_candidates.json.
 Existing entries with status accepted/proposed/rejected are never overwritten.
 
 After running, review qid_candidates.json and run:
@@ -31,7 +31,7 @@ import urllib.parse
 from datetime import date
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CANDIDATES_PATH = os.path.join(BASE, "data", "qid_candidates.json")
+CANDIDATES_PATH = os.path.join(BASE, "work", "qid_candidates.json")
 
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 RECONCILE_ENDPOINT = "https://wikidata-reconciliation.wmcloud.org/en/api"
@@ -416,7 +416,7 @@ def main():
     print(f"  New candidates added/upgraded: {total_added}")
     print(f"  Total proposed now:            {proposed}")
     print(f"  Total skipped now:             {skipped}")
-    print(f"\nNext: review data/qid_candidates.json, then run:")
+    print(f"\nNext: review work/qid_candidates.json, then run:")
     print(f"  python3 scripts/search_missing_qids.py --apply")
 
 

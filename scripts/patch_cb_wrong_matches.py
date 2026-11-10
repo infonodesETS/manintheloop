@@ -14,7 +14,7 @@ from datetime import date
 DRY_RUN = '--dry-run' in sys.argv
 TODAY = str(date.today())
 
-with open('data/database.json') as f:
+with open('docs/data/database.json') as f:
     db = json.load(f)
 
 emap = {e['id']: e for e in db['entities']}
@@ -128,9 +128,9 @@ if e:
 # ─── WRITE ────────────────────────────────────────────────────────────────────
 if not DRY_RUN:
     db['_updated'] = TODAY
-    with open('data/database.json', 'w') as f:
+    with open('docs/data/database.json', 'w') as f:
         json.dump(db, f, indent=2, ensure_ascii=False)
-    print(f"\nWritten: data/database.json")
+    print(f"\nWritten: docs/data/database.json")
 else:
     print(f"\nDRY RUN — no changes written.")
 

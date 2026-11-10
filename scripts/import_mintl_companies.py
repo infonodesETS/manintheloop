@@ -3,8 +3,8 @@
 import_mintl_companies.py — Import MINTL company list from Crunchbase CSV export.
 
 Reads:  rawdata/mintl-update-companies-20260618-foglio1-csv6-18-2026.csv
-        data/database.json
-Writes: data/database.json (+N new IN-NNNN entities)
+        docs/data/database.json
+Writes: docs/data/database.json (+N new IN-NNNN entities)
 
 Usage:
     python3 scripts/import_mintl_companies.py [--dry-run]
@@ -20,7 +20,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-DB_PATH = ROOT / "data" / "database.json"
+DB_PATH = ROOT / "docs" / "data" / "database.json"
 CSV_PATH = ROOT / "rawdata" / "mintl-update-companies-20260618-foglio1-csv6-18-2026.csv"
 SOURCE_FILE = CSV_PATH.name
 TODAY = date.today().isoformat()

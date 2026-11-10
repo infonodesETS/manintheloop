@@ -3,7 +3,7 @@
 import_ishares_aerospace.py — Import iShares Aerospace & Defense (GICS 201010) ETF holdings.
 
 Input:  rawdata/ishare_aerospace_defense_GICS201010_en.csv  (converted from Italian locale)
-Output: data/database.json
+Output: docs/data/database.json
 
 For each equity row:
   - If a matching company already exists (by normalized name or MANUAL_ALIASES):
@@ -29,7 +29,7 @@ sys.path.insert(0, os.path.join(BASE, "scripts"))
 
 from parse_ishares import parse_csv, normalize_name
 
-DATABASE_PATH = os.path.join(BASE, "data", "database.json")
+DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
 CSV_PATH = os.path.join(BASE, "rawdata", "ishare_aerospace_defense_GICS201010_en.csv")
 
 ETF_NAME = "iShares Global Aerospace & Defence UCITS ETF"

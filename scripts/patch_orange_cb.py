@@ -26,7 +26,7 @@ ORANGE = 'IN-0279'
 NEW_CB_URL = 'https://www.crunchbase.com/organization/orange'
 ORPHANS = ['IV-0388', 'IV-0391', 'IV-0487']
 
-with open('data/database.json') as f:
+with open('docs/data/database.json') as f:
     db = json.load(f)
 
 emap = {e['id']: e for e in db['entities']}
@@ -116,8 +116,8 @@ for iid in ORPHANS:
 # ─── WRITE ────────────────────────────────────────────────────────────────────
 if not DRY_RUN:
     db['_updated'] = TODAY
-    with open('data/database.json', 'w') as f:
+    with open('docs/data/database.json', 'w') as f:
         json.dump(db, f, indent=2, ensure_ascii=False)
-    print("\nWritten: data/database.json")
+    print("\nWritten: docs/data/database.json")
 else:
     print("\nDRY RUN — no changes written.")

@@ -133,7 +133,7 @@ flowchart LR
     W -->|GitHub Pages| SITO[mitl.infonodes.org]
 ```
 
-Oggi GitHub Pages pubblica tutta la root di `main`, quindi è online tutto quello che sta in `main`. La proposta in discussione è di pubblicare solo una cartella dedicata (`docs/`), così script, dati grezzi e note restano nel repository senza finire sul sito. In entrambi i casi la regola non cambia: in `main` si entra con una PR, e quello che è in `main` è pubblico.
+Dal 2026-11-10 GitHub Pages pubblica solo la cartella `docs/` di `main`: è quella il sito. Script, dati grezzi (`rawdata/`), lavoro interno (`work/`) e documentazione (`reference/`) restano nel repository senza finire sul sito. Attenzione: il repository è pubblico, quindi tutto ciò che sta in `main` si può leggere su GitHub anche se non è nel sito. In entrambi i casi la regola non cambia: in `main` si entra con una PR, e quello che è in `main` è pubblico.
 
 Le cartelle di lavoro personali (`tmp/`, `IRPI-test/`, `SEC/`, `Jon_Tassonomia/`, `inbox/`, `reference/meetings/`) sono escluse dal repository tramite `.gitignore` e non vanno committate.
 
@@ -173,17 +173,18 @@ Si fa su GitHub nel browser: nella PR, la scheda «Files changed» mostra riga p
 
 ## 8. Il numero di versione
 
-Sotto il logo, in ogni pagina, compare la versione, oggi `Prototype v.2026-b`. Lo schema è `Prototype v.ANNO-lettera`: a ogni nuova versione pubblicata si passa alla lettera successiva, l'anno cambia con l'anno solare e si riparte da `a`. La stringa è ripetuta nelle sei pagine (`index.html`, `networks.html`, `key-figures.html`, `search.html`, `publications.html`, `about.html`) e va cambiata nella PR che pubblica la nuova versione, non dopo. A ogni versione pubblicata corrisponde anche un tag Git con lo stesso nome, così si può sempre tornare a vedere com'era.
+Sotto il logo, in ogni pagina, compare la versione, oggi `Prototype v.2026-b`. Lo schema è `Prototype v.ANNO-lettera`: a ogni nuova versione pubblicata si passa alla lettera successiva, l'anno cambia con l'anno solare e si riparte da `a`. La stringa è ripetuta nelle sei pagine (`docs/index.html`, `docs/networks.html`, `docs/key-figures.html`, `docs/search.html`, `docs/publications.html`, `docs/about.html`) e va cambiata nella PR che pubblica la nuova versione, non dopo. A ogni versione pubblicata corrisponde anche un tag Git con lo stesso nome, così si può sempre tornare a vedere com'era.
 
 ## 9. Vedere il sito in locale
 
 Dalla cartella del repository:
 
 ```bash
+cd docs
 python3 -m http.server 8001
 ```
 
-Su Windows il comando è `py -3 -m http.server 8001`. Poi si apre `http://localhost:8001`. Non serve altro: il sito è statico e legge i file così come sono.
+Su Windows il comando è `py -3 -m http.server 8001` (sempre dalla cartella `docs/`). Poi si apre `http://localhost:8001`. Non serve altro: il sito è statico e legge i file così come sono.
 
 ## 10. Una nota sulla copia di lavoro
 

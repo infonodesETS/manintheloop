@@ -14,7 +14,7 @@ Last run: 2026-04-12 — 455/1149 companies matched (39.6% coverage).
 
 - Uses `wbsearchentities` REST API (1 call per entity, 1.5s delay)
 - Filters results by: label match + description keyword lists (org/disqualify)
-- Writes `data/qid_candidates.json` with `status=proposed` or `status=skipped`
+- Writes `work/qid_candidates.json` with `status=proposed` or `status=skipped`
 - Saves checkpoint every 50 entries — safe to interrupt and resume
 - **No writes to database.json**
 
@@ -40,7 +40,7 @@ Updates `qid_candidates.json` in-place. Never overwrites `accepted` or `rejected
 
 ### Phase 2 — Human review + Apply
 
-**Review:** Open `data/qid_candidates.json`, change each `"proposed"` entry to:
+**Review:** Open `work/qid_candidates.json`, change each `"proposed"` entry to:
 - `"accepted"` — correct match, ready to apply
 - `"rejected"` — wrong match, discard
 
@@ -68,7 +68,7 @@ python3 scripts/sparql_search_qids.py
 python3 scripts/reprocess_skipped_qids.py
 
 # Step 3 — Human review
-# Open data/qid_candidates.json
+# Open work/qid_candidates.json
 # For each status=proposed entry: change to "accepted" or "rejected"
 
 # Step 4 — Apply accepted entries to database

@@ -1,7 +1,7 @@
 import json
 from collections import Counter, defaultdict
 
-db = json.load(open('data/database.json'))
+db = json.load(open('docs/data/database.json'))
 ents = db['entities']
 rels = db['relationships']
 by_id = {e['id']: e for e in ents}
@@ -29,7 +29,7 @@ IT_NAMES = {'italy', 'italia', 'it'}
 italians = [e for e in ents if (getcountry(e) or '').strip().lower() in IT_NAMES]
 it_ids = {e['id'] for e in italians}
 
-# Known data-quality corrections (see reports/italy/index.html caveats):
+# Known data-quality corrections (see work/reports/countries/italy/index.html caveats):
 # - IN-0863 MBDA Espana Sl: wrong wikidata country (EDF source says Spain)
 # - IN-1431 Idv Defence Vehicles Italia: duplicate of IN-0803 Iveco Defence
 #   Vehicles (same PIC 898895121, same 5 EDF relationships)

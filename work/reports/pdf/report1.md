@@ -1,5 +1,5 @@
 # Report 1 — Indicatori statistici: Man in the Loop
-> Dati: `data/database.json` — 2.157 entità, 2.647 relazioni  
+> Dati: `docs/data/database.json` — 2.157 entità, 2.647 relazioni  
 > Generato: 2026-05-21
 
 ---
