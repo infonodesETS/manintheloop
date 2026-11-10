@@ -181,3 +181,13 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 **F1.7 — Merge di prova `v.2026-c` su `origin/main`** (`git merge-tree --write-tree --name-only`): invariato, **un solo conflitto: `.gitignore`**.
 
 **Pendente:** F1.1 (termini Crunchbase, Nelson). Nessun task di F1 ha modificato qualcosa.
+
+### 2026-11-10 — F2.1-F2.5 Pulizia su branch `pulizia/f2-beta-old-version` (locale, non pushato) ☑ / F2.1 ◐
+
+- **Branch:** `pulizia/f2-beta-old-version` da `origin/main` (`2e6ae14`), con 3 commit: `412c7c7` (log F0/F1), `f5b8024` (rimuove `beta/`), `6b0237c` (rimuove `old_version/`). Il vecchio branch locale `docs/avanzamento-f0` (senza commit propri) è stato cancellato dopo aver spostato le modifiche.
+- **F2.1 Tag locali (non pushati):** `v.2026-b` = `2e6ae14` (53 file `beta/`, 106 `old_version/`); `archivio-2026-06` = `5e9b411` (106 `old_version/`, 0 `beta/` come atteso). Il push dei tag attende l'ok esplicito di Nelson.
+- **F2.2/F2.3:** solo cancellazioni, 53 e 106 file; grep di `beta/` e `old_version/` nei file del sito: vuoto.
+- **F2.4:** i 4 branch avevano 0 commit oltre `origin/main`; `git branch -d` li ha cancellati (SHA sopra e in `log-all.txt` del backup).
+- **F2.5:** 28/28 percorsi con stato 200 dell'istantanea (esclusi `beta/`, `old_version/`) hanno hash uguale nel working tree; C4: 0 mancanti; `scripts/validate.py` OK (2582 entità, 3490 relazioni).
+- **Attenzione:** in `old_version/` restano in locale **71 file non tracciati** (non fanno parte del repo; sono nella copia completa del backup `.tar.gz`). Non cancellati. Decisione a Nelson.
+- **Prossimo:** F2.6 (push branch e tag, PR dal web). Prima serve F0.5 (dettagli ad Andrea e Davide) e l'ok esplicito al push.

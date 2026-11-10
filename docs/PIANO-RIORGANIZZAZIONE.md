@@ -399,11 +399,11 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F1.5 | Inventario script e percorsi | ☑ | 2026-11-10 | 36 script: 8 di rete, 27 con dry-run; 8 usano percorsi relativi alla cwd; destinazioni esatte nel LOG |
 | F1.6 | Baseline segreti e percorsi | ☑ | 2026-11-10 | 1 solo problema reale: percorso Windows personale in `docs/OPENTENDER-APPALTI.md:181`; nessun segreto |
 | F1.7 | Merge di prova di `v.2026-c` | ☑ | 2026-11-10 | 1 solo conflitto (`.gitignore`) |
-| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ☐ | | |
-| F2.2 | Rimuovere `beta/` | ☐ | | |
-| F2.3 | Rimuovere `old_version/` | ☐ | | |
-| F2.4 | Cancellare 4 branch locali finiti | ☐ | | |
-| F2.5 | Test locali di parità | ☐ | | |
+| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ◐ | 2026-11-10 | creati **in locale** (non pushati): `v.2026-b`=`2e6ae14` (53 `beta/`, 106 `old_version/`), `archivio-2026-06`=`5e9b411` (106). Push in attesa di ok |
+| F2.2 | Rimuovere `beta/` | ☑ | 2026-11-10 | commit `f5b8024`: 53 sole cancellazioni; grep riferimenti vuoto |
+| F2.3 | Rimuovere `old_version/` | ☑ | 2026-11-10 | commit `6b0237c`: 106 sole cancellazioni; restano 71 file **non tracciati** in locale (vedi LOG) |
+| F2.4 | Cancellare 4 branch locali finiti | ☑ | 2026-11-10 | `git branch -d` su `edf-merge-script` (be975c4), `edf-update-2026-10` (e6050b7), `nuovi-fondi-eu` (53cfd50), `status-search-keywords` (22eaffe); tutti con 0 commit oltre `origin/main` |
+| F2.5 | Test locali di parità | ☑ | 2026-11-10 | 28/28 percorsi dell'istantanea con hash uguale; C4 0 mancanti; `validate.py` 2582/3490 |
 | F2.6 | PR 1, merge, verifica sul sito (G4) | ☐ | | |
 | F3.1 | Branch `struttura/sito-docs-copia` | ☐ | | |
 | F3.2 | `docs/` → `reference/` | ☐ | | |
