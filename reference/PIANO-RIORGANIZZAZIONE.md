@@ -410,7 +410,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F3.3 | Nuovo `docs/` come copia | ☑ | 2026-11-10 | 29 file; `cmp` ok salvo le 2 righe volute; C4 0 mancanti; JSON validi |
 | F3.4 | Prova nel browser su `docs/` | ☑ | 2026-11-10 | 8 pagine, 0 errori; `loadEdf()` è codice morto (vedi LOG) |
 | F3.5 | PR 2a mergiata | ☑ | 2026-11-10 | PR #30 mergiata (`f318bb1`); sito vivo: 28/28 hash uguali, `/docs/pages-switch-check.txt` 200, `/pages-switch-check.txt` 404, `/docs/SCHEMA.md` 404 |
-| F3.6 | Switch di Pages + verifiche | ☐ | | |
+| F3.6 | Switch di Pages + verifiche | ☑ | 2026-11-10 | Pages su `main` `/docs` (Nelson, account `infonodes`, ~11:00); sentinella in root 200, `rawdata/` 404, `/docs/` 404, 6 pagine 200, `mitl-index.json` 200 su dominio e su `infonodesets.github.io` (301), cert fino al 2026-12-21; 24 hash ok + 4 differenze attese |
 | F3.7 | PR 2b: rimozione copie e riordino | ☐ | | |
 | F3.8 | Fine congelamento | ☐ | | |
 | B1 | Decisioni di schema S1-S7 (G7) | ☐ | | può partire subito |
