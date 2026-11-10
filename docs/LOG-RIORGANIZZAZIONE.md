@@ -191,3 +191,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **F2.5:** 28/28 percorsi con stato 200 dell'istantanea (esclusi `beta/`, `old_version/`) hanno hash uguale nel working tree; C4: 0 mancanti; `scripts/validate.py` OK (2582 entità, 3490 relazioni).
 - **Attenzione:** in `old_version/` restano in locale **71 file non tracciati** (non fanno parte del repo; sono nella copia completa del backup `.tar.gz`). Non cancellati. Decisione a Nelson.
 - **Prossimo:** F2.6 (push branch e tag, PR dal web). Prima serve F0.5 (dettagli ad Andrea e Davide) e l'ok esplicito al push.
+
+### 2026-11-10 — F0.5 Annuncio ad Andrea e Davide ☑ (chiusa da Nelson)
+
+- Nelson ha inviato la comunicazione completa con parole proprie e la dichiara conclusa. Il testo non è registrato qui. Nessuna verifica mia sul contenuto: se non coprisse la sparizione degli URL pubblici (`/beta/`, `/old_version/`, `scripts/`, `rawdata/`, ecc.), va integrata prima di F3.
+
+### 2026-11-10 — Spostati i 71 file non tracciati di `old_version/`
+
+- Spostati (non cancellati) in `<backup>/old_version-non-tracciati/` (71 file, 5,7 MB; erano anche nel `.tar.gz`). Nel repo `old_version/` non esiste più sul disco.
