@@ -135,7 +135,7 @@ flowchart LR
 
 Oggi GitHub Pages pubblica tutta la root di `main`, quindi è online tutto quello che sta in `main`. La proposta in discussione è di pubblicare solo una cartella dedicata (`docs/`), così script, dati grezzi e note restano nel repository senza finire sul sito. In entrambi i casi la regola non cambia: in `main` si entra con una PR, e quello che è in `main` è pubblico.
 
-Le cartelle di lavoro personali (`tmp/`, `IRPI-test/`, `SEC/`, `Jon_Tassonomia/`, `inbox/`, `docs/meetings/`) sono escluse dal repository tramite `.gitignore` e non vanno committate.
+Le cartelle di lavoro personali (`tmp/`, `IRPI-test/`, `SEC/`, `Jon_Tassonomia/`, `inbox/`, `reference/meetings/`) sono escluse dal repository tramite `.gitignore` e non vanno committate.
 
 ## 7. Come si fa in pratica, strumento per strumento
 

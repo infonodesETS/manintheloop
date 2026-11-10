@@ -178,7 +178,7 @@ Per replicare l'analisi sugli appalti pubblici statunitensi. Ricognizione fatta 
 - **Soluzione adottata: Award Data Archive.** ZIP per anno fiscale, ~1,9 GB ciascuno (FY2021-2025), 7 CSV per anno, 297 colonne (include oggetto, agenzia, importo, UEI, **capogruppo**, paese, PSC, NAICS). Letti in streaming con `unzip -p`, senza decomprimere su disco; ~20 minuti per un anno.
 - **FY2024 (ott 2023 – set 2024):** 6,7 mln di righe lette → **60.805 contratti distinti, 79 aziende MITL, ~117,5 mld $ obbligati**. Prime: Lockheed Martin 51,3 mld, General Dynamics 18,5, Northrop Grumman 18,4, L3Harris 9,0, BAE Systems 8,6. Aziende non USA tramite controllate: Rolls-Royce 1,0 mld, Elbit (Elbit America) 0,5, Kongsberg 0,2, Saab, Nammo, Airbus Helicopters, Safran, Rafael.
 - **Match per nome destinatario o capogruppo.** Buchi noti: **Leonardo DRS = 0** e **American Rheinmetall = 3 righe** (nomi delle controllate senza il nome della capogruppo). Serve un secondo passaggio per UEI / tabella controllate.
-- Dati in `C:\Users\byzer\Downloads\usaspending\` (ZIP FY2024 + `us-fy2024-per-azienda.csv`, `us-fy2024-dettaglio.csv`). Restano da fare FY2021-2023, 2025-2026.
+- Dati nella cartella locale `usaspending/` (fuori dal repo) (ZIP FY2024 + `us-fy2024-per-azienda.csv`, `us-fy2024-dettaglio.csv`). Restano da fare FY2021-2023, 2025-2026.
 
 Fonti: api.usaspending.gov · usaspending.gov/federal-spending-guide · usaspending.gov/download_center/award_data_archive · sam.gov/contracting · open.gsa.gov/api/opportunities-api · open.gsa.gov/api/entity-api
 

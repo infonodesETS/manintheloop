@@ -254,15 +254,15 @@ python3 scripts/validate.py
 
 | File | Purpose |
 |---|---|
-| `docs/SCHEMA.md` | Full schema v3.0 spec: entity types, ID prefixes, sources blocks, relationship types, history/validation format |
-| `docs/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
-| `docs/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
-| `docs/NETWORKS_LAYOUT.md` | Cytoscape cose layout parameter reference for `networks.html`: what each param does, current values, tuning guide, node size constants |
+| `reference/SCHEMA.md` | Full schema v3.0 spec: entity types, ID prefixes, sources blocks, relationship types, history/validation format |
+| `reference/UPDATE_PROTOCOL.md` | Rules for every DB modification: IDs permanent, history append-only, dry-run protocol, commit formats, merge/retire procedures |
+| `reference/QID_LOOKUP_PROCESS.md` | How to run the 3-phase QID pipeline (search → SPARQL+Reconciliation fallback → human review → apply) |
+| `reference/NETWORKS_LAYOUT.md` | Cytoscape cose layout parameter reference for `networks.html`: what each param does, current values, tuning guide, node size constants |
 | `data/crunchbase_sandbox/CRUNCHBASE.md` | Crunchbase enrichment cycle: step-by-step process, reconciliation strategy (4-tier matching), Cycle 1 stats, 21 unresolved entities categorised |
 | `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 | `status-map.md` | Map visualization analysis — architecture, data coverage, Playwright observations, 2 bugs, 10 UX problems, improvement backlog. **Not committed** (in .gitignore). |
 | `status-search.md` | Search/profile visualization analysis — architecture (REGISTRY, REL_MAP, scoring), data coverage, Playwright observations, 2 bugs, 4 search quality gaps, 8 UX problems, improvement backlog. **Not committed** (in .gitignore). |
-| `docs/typography.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
+| `reference/typography.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
 
 ---
 
@@ -287,7 +287,7 @@ The old DB (`../refactoring/`) is **read-only** — never modify it. All work is
 - `wikidata_id` format: `Q\d+` or `null`
 - Relationship types allowed: `investment`, `board_membership`, `edf_participation`
 - `sources.wikidata` is script-managed — never edit manually
-- See `docs/SCHEMA.md` for full spec, `docs/UPDATE_PROTOCOL.md` for update rules
+- See `reference/SCHEMA.md` for full spec, `reference/UPDATE_PROTOCOL.md` for update rules
 
 ---
 
@@ -344,7 +344,7 @@ refactoringDB/
 │   ├── migrate_old_db_investors.py    ← migrates funds/banks from legacy refactoring/ DB
 │   ├── import_edf_projects.py         ← creates EDF-NNNN project entities + edf_participation rels
 │   └── validate.py            ← 10-check validation (always run before committing)
-├── docs/
+├── reference/
 │   ├── SCHEMA.md
 │   ├── UPDATE_PROTOCOL.md
 │   ├── QID_LOOKUP_PROCESS.md
@@ -678,14 +678,14 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
 - [x] **Objective logic merged** into `import_edf_projects.py` — future imports write objective at creation time
 - [x] **`build_edf_entities.py`**: +33 new IN-NNNN org entities (26 missing participants from new projects + 7 from other new calls). Zero name-match merges — all genuinely new
 - [x] **`import_edf_projects.py`** re-run: +66 `edf_participation` rels (0 missing PICs). All 6 new projects fully connected
-- [x] **`docs/UPDATE_PROTOCOL.md`**: EDF data refresh pipeline documented (5-step process, constraints, commit format)
+- [x] **`reference/UPDATE_PROTOCOL.md`**: EDF data refresh pipeline documented (5-step process, constraints, commit format)
 - [x] **Fixed SyntaxError** in `build_edf_entities.py` docstring (triple-quote clash)
 - [x] validate.py PASSED. Total DB: **2196 entities, 2791 relationships**
 
 ### Session 2026-05-27 — Networks layout spacing
 
 - [x] **`networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
-- [x] **`docs/NETWORKS_LAYOUT.md`** — parameter reference: all cose params explained, current values, tuning guide, node size constants. Indexed in STATUS.md.
+- [x] **`reference/NETWORKS_LAYOUT.md`** — parameter reference: all cose params explained, current values, tuning guide, node size constants. Indexed in STATUS.md.
 
 ### Session 2026-05-21 — Statistical indicators report
 
@@ -780,9 +780,9 @@ Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hype
   - validate.py PASSED
 
 ### Infrastructure
-- [x] Schema v3.0 (`docs/SCHEMA.md`)
-- [x] Update protocol (`docs/UPDATE_PROTOCOL.md`)
-- [x] QID lookup process (`docs/QID_LOOKUP_PROCESS.md`)
+- [x] Schema v3.0 (`reference/SCHEMA.md`)
+- [x] Update protocol (`reference/UPDATE_PROTOCOL.md`)
+- [x] QID lookup process (`reference/QID_LOOKUP_PROCESS.md`)
 - [x] validate.py (10 checks including PER-NNNN, rel types, edf date format)
 - [x] .gitignore (excludes `__pycache__/`, `*.pyc`, `*.bak`)
 - [x] Initial commit on branch `nuovoDB`

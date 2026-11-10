@@ -21,7 +21,7 @@ Documento di lavoro interno — da aggiornare quando cambiano i dati o la roadma
 
 ## 2. Il database attuale (il grafo)
 
-Il cuore della piattaforma è un **database a grafo** in `data/database.json`: nodi (entità) collegati da archi (relazioni). Lo schema è descritto in dettaglio in [`docs/SCHEMA.md`](SCHEMA.md).
+Il cuore della piattaforma è un **database a grafo** in `data/database.json`: nodi (entità) collegati da archi (relazioni). Lo schema è descritto in dettaglio in [`reference/SCHEMA.md`](SCHEMA.md).
 
 ### Entità (i nodi) — 2.582
 
@@ -117,4 +117,4 @@ Ogni entità porta con sé la provenienza dei suoi dati, nel blocco `sources`. L
 
 - **Conteggi**: riferiti alla fotografia di `database.json` del 2026-10-19. Vanno ricalcolati a ogni aggiornamento dei dati.
 - **Provenienza**: ogni entità conserva in `sources` da dove viene ciascun dato; questo permette di verificare e citare le fonti.
-- **Schema completo**: [`docs/SCHEMA.md`](SCHEMA.md). Protocollo di aggiornamento: [`docs/UPDATE_PROTOCOL.md`](UPDATE_PROTOCOL.md).
+- **Schema completo**: [`reference/SCHEMA.md`](SCHEMA.md). Protocollo di aggiornamento: [`reference/UPDATE_PROTOCOL.md`](UPDATE_PROTOCOL.md).
