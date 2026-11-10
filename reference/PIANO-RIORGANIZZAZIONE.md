@@ -392,23 +392,23 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F0.5 | Annuncio ad Andrea e Davide | ☑ | 2026-11-10 | comunicazione completata da Nelson con testo proprio (contenuto non riportato qui); considerata conclusa da Nelson |
 | F0.6 | PR del piano | ☑ | 2026-11-10 | PR #28 mergiata da Nelson (`2e6ae14`); branch cancellato; `main` locale allineato |
 | F0.7 | Verifiche di Nelson su GitHub/Vercel | ◐ | 2026-11-10 | (a) **fatto**: Pages = Deploy from a branch, `main`, `/ (root)`, dominio `mitl.infonodes.org`, HTTPS attivo, «DNS Check in Progress» (transitorio, DNS verificato). Restano (b) regole, (c) Actions, (d) Vercel (lo guarda Davide), (e) collaboratori e ruolo |
-| F1.1 | Termini Crunchbase (G2) | ☐ | | |
+| F1.1 | Termini Crunchbase (G2) | ◐ | 2026-11-10 | esito «incerto, tendente a consentito» deciso da Nelson; sbloccato con riserva; verifica di dettaglio da fare (vedi LOG) |
 | F1.2 | Diff `beta/` vs `main` | ☑ | 2026-11-10 | 0 file solo in `beta/`; 6 CSV differiscono solo per fine-riga; 8 file sono versioni più vecchie. Si può rimuovere (tag `v.2026-b`) |
 | F1.3 | Istantanea del sito vivo | ☑ | 2026-11-10 | 29 percorsi, 28 con hash = `origin/main`; `CNAME` non servito (normale). Sonda: oggi online anche script, note, rawdata, Crunchbase. G3 soddisfatto |
 | F1.4 | Baseline dipendenze del sito | ☑ | 2026-11-10 | 0 mancanti; 2 riferimenti fuori perimetro (`data/qid_candidates.json`, `rawdata/edf_calls.json`); `italy/` non referenziato; script C4 provato in negativo |
 | F1.5 | Inventario script e percorsi | ☑ | 2026-11-10 | 36 script: 8 di rete, 27 con dry-run; 8 usano percorsi relativi alla cwd; destinazioni esatte nel LOG |
 | F1.6 | Baseline segreti e percorsi | ☑ | 2026-11-10 | 1 solo problema reale: percorso Windows personale in `docs/OPENTENDER-APPALTI.md:181`; nessun segreto |
 | F1.7 | Merge di prova di `v.2026-c` | ☑ | 2026-11-10 | 1 solo conflitto (`.gitignore`) |
-| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ◐ | 2026-11-10 | creati **in locale** (non pushati): `v.2026-b`=`2e6ae14` (53 `beta/`, 106 `old_version/`), `archivio-2026-06`=`5e9b411` (106). Push in attesa di ok |
+| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ☑ | 2026-11-10 | creati **in locale** (non pushati): `v.2026-b`=`2e6ae14` (53 `beta/`, 106 `old_version/`), `archivio-2026-06`=`5e9b411` (106). Push in attesa di ok |
 | F2.2 | Rimuovere `beta/` | ☑ | 2026-11-10 | commit `f5b8024`: 53 sole cancellazioni; grep riferimenti vuoto |
 | F2.3 | Rimuovere `old_version/` | ☑ | 2026-11-10 | commit `6b0237c`: 106 sole cancellazioni; restano 71 file **non tracciati** in locale (vedi LOG) |
 | F2.4 | Cancellare 4 branch locali finiti | ☑ | 2026-11-10 | `git branch -d` su `edf-merge-script` (be975c4), `edf-update-2026-10` (e6050b7), `nuovi-fondi-eu` (53cfd50), `status-search-keywords` (22eaffe); tutti con 0 commit oltre `origin/main` |
 | F2.5 | Test locali di parità | ☑ | 2026-11-10 | 28/28 percorsi dell'istantanea con hash uguale; C4 0 mancanti; `validate.py` 2582/3490 |
-| F2.6 | PR 1, merge, verifica sul sito (G4) | ☐ | | |
-| F3.1 | Branch `struttura/sito-docs-copia` | ☐ | | |
-| F3.2 | `docs/` → `reference/` | ☐ | | |
-| F3.3 | Nuovo `docs/` come copia | ☐ | | |
-| F3.4 | Prova nel browser su `docs/` | ☐ | | |
+| F2.6 | PR 1, merge, verifica sul sito (G4) | ☑ | 2026-11-10 | PR #29 mergiata da Nelson (`f4edd71`); sito vivo: 28/28 hash uguali, `/beta/` e `/old_version/` 404. **G4 soddisfatto** |
+| F3.1 | Branch `struttura/sito-docs-copia` | ☑ | 2026-11-10 | creato da `main` + 1 commit di log |
+| F3.2 | `docs/` → `reference/` | ☑ | 2026-11-10 | 12 rinomine R100 (`63aa00d`); riferimenti testuali; tolto percorso personale |
+| F3.3 | Nuovo `docs/` come copia | ☑ | 2026-11-10 | 29 file; `cmp` ok salvo le 2 righe volute; C4 0 mancanti; JSON validi |
+| F3.4 | Prova nel browser su `docs/` | ☑ | 2026-11-10 | 8 pagine, 0 errori; `loadEdf()` è codice morto (vedi LOG) |
 | F3.5 | PR 2a mergiata | ☐ | | |
 | F3.6 | Switch di Pages + verifiche | ☐ | | |
 | F3.7 | PR 2b: rimozione copie e riordino | ☐ | | |
