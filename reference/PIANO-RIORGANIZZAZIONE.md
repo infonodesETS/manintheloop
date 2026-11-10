@@ -409,7 +409,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F3.2 | `docs/` → `reference/` | ☑ | 2026-11-10 | 12 rinomine R100 (`63aa00d`); riferimenti testuali; tolto percorso personale |
 | F3.3 | Nuovo `docs/` come copia | ☑ | 2026-11-10 | 29 file; `cmp` ok salvo le 2 righe volute; C4 0 mancanti; JSON validi |
 | F3.4 | Prova nel browser su `docs/` | ☑ | 2026-11-10 | 8 pagine, 0 errori; `loadEdf()` è codice morto (vedi LOG) |
-| F3.5 | PR 2a mergiata | ☐ | | |
+| F3.5 | PR 2a mergiata | ☑ | 2026-11-10 | PR #30 mergiata (`f318bb1`); sito vivo: 28/28 hash uguali, `/docs/pages-switch-check.txt` 200, `/pages-switch-check.txt` 404, `/docs/SCHEMA.md` 404 |
 | F3.6 | Switch di Pages + verifiche | ☐ | | |
 | F3.7 | PR 2b: rimozione copie e riordino | ☐ | | |
 | F3.8 | Fine congelamento | ☐ | | |

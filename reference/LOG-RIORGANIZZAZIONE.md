@@ -220,3 +220,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **F3.4:** server da `docs/` su porta 8001 (poi spento): 8 pagine (home, modalità EDF, scheda Leonardo `IN-0841`, search, networks, key-figures, publications, about, reports/countries) con 0 errori e 0 risposte ≥400, salvo `favicon.ico` 404. **Scoperta:** `loadEdf()` in `web/app.js` non è chiamata da nessuna parte: il sito non scarica `edf_calls.json`. La copia in `docs/data/` (O3) è quindi preventiva (4,3 MB); il test «elenco progetti EDF» non è applicabile. Da decidere con Nelson: tenerla o toglierla.
 - **Errore mio:** `pkill -f "http.server 8001"` ha ucciso anche la mia shell (il pattern era nel comando); nessun danno. Server poi terminato.
 - **Prossimo:** F3.5 (push, PR 2a dal web; serve ok esplicito).
+
+### 2026-11-10 — F3.5 PR #30 mergiata e verifica del sito vivo ☑
+
+- Push del branch con ok esplicito di Nelson; congelamento (G5) confermato da Nelson («Andrea e Davide avvisati»). PR #30 mergiata da Nelson (`f318bb1`), branch remoto cancellato; in locale `main` allineata e i branch `struttura/sito-docs-copia` e `docs/log-f2-6` cancellati con `-d`.
+- Sito vivo dopo il merge: 28/28 percorsi dell'istantanea con hash identico; `/docs/pages-switch-check.txt` = 200 (atteso, la root contiene il nuovo `docs/`); `/pages-switch-check.txt` = **404** (Pages serve ancora la root); `/docs/SCHEMA.md` = 404 (atteso).
+- **Prossimo:** F3.6, switch di Pages a `/docs` fatto da Nelson con l'account `infonodes` (Admin). Il branch `struttura/sito-docs-rimozione` è già creato per F3.7, con la sola modifica di questo log.
