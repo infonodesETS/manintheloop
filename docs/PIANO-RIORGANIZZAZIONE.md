@@ -169,8 +169,8 @@ Ogni task rimanda a questi. Fino a F5 sono script usa-e-getta in `<scratchpad>` 
 | C1 | `validate.py` | `python3 scripts/validate.py` | `PASSED`; conteggi 2582 entità / 3490 relazioni, salvo task che li cambiano |
 | C2 | Backup valido | `sha256sum -c SHA256SUMS`; `git bundle verify …bundle`; `git -C …mirror.git fsck`; ripristino: `git clone …bundle <scratch>/restore` + `validate.py` nel clone; estrazione del tar in `<scratch>/untar` e `diff -rq` con la cartella viva | tutto OK; `diff -rq` vuoto (a parte `.git/index` e file toccati dopo il backup) |
 | C3 | Perimetro del cambiamento | `git diff --name-status origin/main...HEAD` confrontato con l'elenco atteso scritto nel task | nessun percorso fuori elenco |
-| C4 | Dipendenze chiuse | script che estrae da `*.html` e `web/*.js` i riferimenti locali (`src`, `href`, `fetch('…')`, `import`, `url()` in CSS), li risolve relativamente al file e verifica che esistano nella cartella del sito | 0 mancanti. Negativo: copia con `<script src="web/non-esiste.js">` → deve riportare 1 mancante |
-| C5 | Parità con il sito vivo | confronta `snapshot-live-2026-11-10.tsv` (`percorso, status, sha256`) con i file locali serviti (o con il sito vivo dopo uno spostamento) | tutti uguali tranne i percorsi dichiarati nel task |
+| C4 | Dipendenze chiuse | script che estrae da `*.html` e `web/*.js` i riferimenti locali (`src`, `href`, `fetch('…')`, `import`, `url()` in CSS), li risolve relativamente al file e verifica che esistano nella cartella del sito | 0 mancanti. Negativo: copia con `<script src="web/non-esiste.js">` → deve riportare 1 mancante. **Attenzione:** `fetch()` in un `.js` si risolve rispetto alla pagina (radice), `import './x.js'` rispetto al modulo (provato in F1.4) |
+| C5 | Parità con il sito vivo | confronta `snapshot-live-2026-11-10.tsv` (`percorso, status, sha256`) con i file locali serviti (o con il sito vivo dopo uno spostamento) | tutti uguali tranne i percorsi dichiarati nel task; **`CNAME` non è servito da Pages (404): escluderlo dal confronto** |
 | C6 | JSON validi | `python3 -I -c` che apre con `json.load` ogni `*.json` della cartella del sito | 0 errori |
 | C7 | Segreti e percorsi | `git grep -nIE '/home/[a-z]\|C:\\\\Users\|BEGIN (RSA\|OPENSSH\|EC) PRIVATE KEY\|(api[_-]?key\|secret\|token\|password)\s*[:=]\s*["'"'"'][A-Za-z0-9_-]{16,}'`; più email non in whitelist (`comunicazione@infonodes.org`) | 0 occorrenze nel perimetro del task (baseline F1.6 elenca le preesistenti) |
 | C8 | Prova nel browser (Playwright MCP, manuale) | server da `python3 -m http.server 8001` dalla cartella del sito; per ognuna delle 6 pagine + `reports/countries/index.html`: 0 errori in console, 0 risposte 4xx su risorse locali. Specifici: `index.html` almeno un `svg circle`; `search.html?organization=<IN con progetti EDF>` e apertura di un progetto EDF (esercita `edf_calls`); `networks.html` canvas/svg presente; `key-figures.html` e `publications.html` con contenuti non vuoti | tutto OK |
@@ -389,21 +389,21 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F0.2 | Backup completo + prova di ripristino (G1) | ☑ | 2026-11-10 | `~/Coding/infonodes/Manintheloop-backup-2026-11-10/` (329 MB); C2 superato; copia su disco esterno **non ancora fatta** |
 | F0.3 | Allineare `main`, branch `docs/piano-repo-unico` | ☑ | 2026-11-10 | `main` = `origin/main` = `e14d920`; i 2 commit vecchi sono su `archivio/locale-2026-11-10` (mai pushato); upstream del nuovo branch **rimosso** (altrimenti `git push` andrebbe su `main`); `stash@{0}` conservato come rete di sicurezza |
 | F0.4 | Freno locale su `main` | ☑ | 2026-11-10 | `.git/hooks/pre-push` (locale, non versionato) + 7 regole `deny` in `.claude/settings.json` (da portare su `main` con una PR: è la modifica non committata sul branch). Le regole `deny` non sono state provate in modo diretto (nessun push tentato) |
-| F0.5 | Annuncio ad Andrea e Davide | ◐ | 2026-11-10 | inviato da Nelson solo un avviso breve (adesione + «non fate modifiche su GitHub in questi giorni»); regole, calendario, domanda a Davide e link condivisi **ancora da comunicare** (Nelson: «i dettagli alla fine»). Da fare prima di F2.6 |
-| F0.6 | PR del piano | ☐ | | |
-| F0.7 | Verifiche di Nelson su GitHub/Vercel | ☐ | | |
+| F0.5 | Annuncio ad Andrea e Davide | ☑ | 2026-11-10 | comunicazione completata da Nelson con testo proprio (contenuto non riportato qui); considerata conclusa da Nelson |
+| F0.6 | PR del piano | ☑ | 2026-11-10 | PR #28 mergiata da Nelson (`2e6ae14`); branch cancellato; `main` locale allineato |
+| F0.7 | Verifiche di Nelson su GitHub/Vercel | ◐ | 2026-11-10 | (a) **fatto**: Pages = Deploy from a branch, `main`, `/ (root)`, dominio `mitl.infonodes.org`, HTTPS attivo, «DNS Check in Progress» (transitorio, DNS verificato). Restano (b) regole, (c) Actions, (d) Vercel (lo guarda Davide), (e) collaboratori e ruolo |
 | F1.1 | Termini Crunchbase (G2) | ☐ | | |
-| F1.2 | Diff `beta/` vs `main` | ☐ | | |
-| F1.3 | Istantanea del sito vivo | ☐ | | |
-| F1.4 | Baseline dipendenze del sito | ☐ | | |
-| F1.5 | Inventario script e percorsi | ☐ | | |
-| F1.6 | Baseline segreti e percorsi | ☐ | | |
-| F1.7 | Merge di prova di `v.2026-c` | ☐ | | |
-| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ☐ | | |
-| F2.2 | Rimuovere `beta/` | ☐ | | |
-| F2.3 | Rimuovere `old_version/` | ☐ | | |
-| F2.4 | Cancellare 4 branch locali finiti | ☐ | | |
-| F2.5 | Test locali di parità | ☐ | | |
+| F1.2 | Diff `beta/` vs `main` | ☑ | 2026-11-10 | 0 file solo in `beta/`; 6 CSV differiscono solo per fine-riga; 8 file sono versioni più vecchie. Si può rimuovere (tag `v.2026-b`) |
+| F1.3 | Istantanea del sito vivo | ☑ | 2026-11-10 | 29 percorsi, 28 con hash = `origin/main`; `CNAME` non servito (normale). Sonda: oggi online anche script, note, rawdata, Crunchbase. G3 soddisfatto |
+| F1.4 | Baseline dipendenze del sito | ☑ | 2026-11-10 | 0 mancanti; 2 riferimenti fuori perimetro (`data/qid_candidates.json`, `rawdata/edf_calls.json`); `italy/` non referenziato; script C4 provato in negativo |
+| F1.5 | Inventario script e percorsi | ☑ | 2026-11-10 | 36 script: 8 di rete, 27 con dry-run; 8 usano percorsi relativi alla cwd; destinazioni esatte nel LOG |
+| F1.6 | Baseline segreti e percorsi | ☑ | 2026-11-10 | 1 solo problema reale: percorso Windows personale in `docs/OPENTENDER-APPALTI.md:181`; nessun segreto |
+| F1.7 | Merge di prova di `v.2026-c` | ☑ | 2026-11-10 | 1 solo conflitto (`.gitignore`) |
+| F2.1 | Tag `v.2026-b`, `archivio-2026-06` | ◐ | 2026-11-10 | creati **in locale** (non pushati): `v.2026-b`=`2e6ae14` (53 `beta/`, 106 `old_version/`), `archivio-2026-06`=`5e9b411` (106). Push in attesa di ok |
+| F2.2 | Rimuovere `beta/` | ☑ | 2026-11-10 | commit `f5b8024`: 53 sole cancellazioni; grep riferimenti vuoto |
+| F2.3 | Rimuovere `old_version/` | ☑ | 2026-11-10 | commit `6b0237c`: 106 sole cancellazioni; restano 71 file **non tracciati** in locale (vedi LOG) |
+| F2.4 | Cancellare 4 branch locali finiti | ☑ | 2026-11-10 | `git branch -d` su `edf-merge-script` (be975c4), `edf-update-2026-10` (e6050b7), `nuovi-fondi-eu` (53cfd50), `status-search-keywords` (22eaffe); tutti con 0 commit oltre `origin/main` |
+| F2.5 | Test locali di parità | ☑ | 2026-11-10 | 28/28 percorsi dell'istantanea con hash uguale; C4 0 mancanti; `validate.py` 2582/3490 |
 | F2.6 | PR 1, merge, verifica sul sito (G4) | ☐ | | |
 | F3.1 | Branch `struttura/sito-docs-copia` | ☐ | | |
 | F3.2 | `docs/` → `reference/` | ☐ | | |
@@ -435,4 +435,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | 2026-11-10 | **F0.3 eseguito.** Copie dei 2 file salvate e verificate con sha256 prima di toccare i branch; `git branch archivio/locale-2026-11-10 main`; `git stash push`; `git switch -c docs/piano-repo-unico origin/main`; `git branch --unset-upstream`; file ricopiati; `git branch -f main origin/main`. Test: `main` e `origin/main` stesso SHA `e14d920`; `git log origin/main..archivio/locale-2026-11-10` = `9a76648`, `c69aa9a`; `git diff --name-status origin/main` = `M STATUS.md`, `A docs/PIANO-RIORGANIZZAZIONE.md`; `WORKFLOW.md` identico a origin. | `e14d920` |
 | 2026-11-10 | **F0.4 eseguito.** Nessun hook git preesistente e `core.hooksPath` non impostato. Creato `.git/hooks/pre-push` (esce con 1 se il ref locale o remoto è `refs/heads/main`). Test con input simulato su stdin: main→main exit 1; branch di lavoro exit 0; cancellazione di `refs/heads/main` exit 1; branch locale→`refs/heads/main` remoto exit 1. `.claude/settings.json`: aggiunto `permissions.deny` (7 regole), JSON valido, hook `SessionStart` intatto. | — |
 | 2026-11-10 | **F0.5 parziale.** Nelson ha inviato ad Andrea e Davide un avviso breve («procedo così»; a Davide: niente modifiche su GitHub in questi giorni; «vi avviso quando ho finito»). Dettagli rimandati alla fine. Congelamento in atto, senza date. Dettaglio nel LOG. | — |
+| 2026-11-10 | **F0.6 chiuso.** PR #28 fusa da Nelson (merge commit `2e6ae14`, 4 file). `main` locale allineato con `--ff-only`. Sito online invariato. Osservazione: `/docs/PIANO-RIORGANIZZAZIONE.md` risponde 200 online ⇒ Pages serve la root di `main` (da confermare in Settings, F0.7a). | `2e6ae14` |
+| 2026-11-10 | **F0.7a Pages verificato** da screenshot di Nelson: Source «Deploy from a branch», branch `main`, cartella `/ (root)`; dominio `mitl.infonodes.org`; Enforce HTTPS attivo; stato «DNS Check in Progress». Controlli miei: CNAME → `infonodesets.github.io`, A = IP di Pages, certificato valido fino al 2026-12-21, http→https 301. Conferma l'ipotesi del piano (Pages sulla root di `main`). Restano F0.7 (b)-(e). | — |
+| 2026-11-10 | **F1.2-F1.7 eseguiti (sola lettura).** `beta/`: nulla di esclusivo (39 identici, 14 diversi di cui 6 solo fine-riga e 8 più vecchi). Istantanea del sito: 28/29 hash = `origin/main` (G3 soddisfatto). C4: 0 mancanti, 2 riferimenti fuori da `docs/`. Script: 8 usano percorsi relativi alla cwd; destinazioni esatte registrate. C7: un percorso personale reale (`docs/OPENTENDER-APPALTI.md:181`). Merge di prova SEC: 1 conflitto (`.gitignore`). Dettagli nel LOG. | `2e6ae14` |
 | | | |
