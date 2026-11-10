@@ -411,8 +411,8 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F3.4 | Prova nel browser su `docs/` | ☑ | 2026-11-10 | 8 pagine, 0 errori; `loadEdf()` è codice morto (vedi LOG) |
 | F3.5 | PR 2a mergiata | ☑ | 2026-11-10 | PR #30 mergiata (`f318bb1`); sito vivo: 28/28 hash uguali, `/docs/pages-switch-check.txt` 200, `/pages-switch-check.txt` 404, `/docs/SCHEMA.md` 404 |
 | F3.6 | Switch di Pages + verifiche | ☑ | 2026-11-10 | Pages su `main` `/docs` (Nelson, account `infonodes`, ~11:00); sentinella in root 200, `rawdata/` 404, `/docs/` 404, 6 pagine 200, `mitl-index.json` 200 su dominio e su `infonodesets.github.io` (301), cert fino al 2026-12-21; 24 hash ok + 4 differenze attese |
-| F3.7 | PR 2b: rimozione copie e riordino | ◐ | 2026-11-10 | fatto e testato in locale sul branch `struttura/sito-docs-rimozione` (non pushato): C3, C4, C6, C7, C1, C10, C12 verdi; manca PR, merge e verifica sul sito (G6) |
-| F3.8 | Fine congelamento | ☐ | | |
+| F3.7 | PR 2b: rimozione copie e riordino | ☑ | 2026-11-10 | PR #31 mergiata (`f21ca8c`); sito vivo = `docs/` (27/27 hash uguali, sentinella in root 404, 6 pagine e dati 200, `mitl-index.json` 200). **G6 soddisfatto** |
+| F3.8 | Fine congelamento | ◐ | 2026-11-10 | da comunicare da Nelson: fine congelamento e nuovi percorsi |
 | B1 | Decisioni di schema S1-S7 (G7) | ☐ | | può partire subito |
 | B2 | `v.2026-c` in `main` | ☐ | | dopo G6 |
 | B3 | Pulizia duplicati | ☐ | | serve chiave Exa |

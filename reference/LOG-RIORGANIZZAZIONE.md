@@ -247,3 +247,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Osservazione:** l'indice nel repo (`docs/data/mitl-index.json`, `generato` 2026-08-21: 2226 soggetti) è **più vecchio** del database; rigenerarlo cambia ciò che vede MARLA: decisione separata (STATUS punto 18).
 - **C8 (browser):** non rifatto: il contenuto di `docs/` è identico a quello provato in F3.4 (cambia solo la rimozione della sentinella).
 - **Prossimo:** ok esplicito al push; PR 2b dal web; dopo il merge verifica del sito (G6: stessi hash di F3.6) e F3.8.
+
+### 2026-11-10 — F3.7 PR #31 mergiata e verifica sul sito vivo ☑ (gate G6)
+
+- Push del branch con ok esplicito di Nelson (con l'account `nelsonmau`); PR #31 mergiata da Nelson (`f21ca8c`), branch remoto cancellato, `main` locale allineata, branch locale cancellato con `-d`. La root del repo ora contiene solo `docs/`, `reference/`, `work/`, `rawdata/`, `scripts/`, `STATUS.md`, `WORKFLOW.md`, `ROADMAP.md` e le cartelle locali ignorate.
+- **Sito vivo (circa un minuto dopo il merge):** `/pages-switch-check.txt` 404 (sentinella rimossa); 6 pagine, `reports/countries/`, `data/database.json`, `data/edf_calls.json`, `data/mitl-index.json`, `web/app.js` tutti 200; **27/27 file di `docs/` con hash identico a quello online** (escluso `CNAME`, non servito); `https://infonodesets.github.io/manintheloop/data/mitl-index.json` → 200 dopo redirect a `https://mitl.infonodes.org/data/mitl-index.json` (MARLA non toccato). **G6 soddisfatto** (sblocca B2, il merge di `v.2026-c`).
+- **F3.8:** resta da Nelson avvisare Andrea e Davide che il congelamento è finito e dei nuovi percorsi (`docs/` = sito, `work/`, `reference/`, script dalla radice).
