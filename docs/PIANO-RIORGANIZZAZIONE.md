@@ -392,7 +392,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F0.5 | Annuncio ad Andrea e Davide | ☑ | 2026-11-10 | comunicazione completata da Nelson con testo proprio (contenuto non riportato qui); considerata conclusa da Nelson |
 | F0.6 | PR del piano | ☑ | 2026-11-10 | PR #28 mergiata da Nelson (`2e6ae14`); branch cancellato; `main` locale allineato |
 | F0.7 | Verifiche di Nelson su GitHub/Vercel | ◐ | 2026-11-10 | (a) **fatto**: Pages = Deploy from a branch, `main`, `/ (root)`, dominio `mitl.infonodes.org`, HTTPS attivo, «DNS Check in Progress» (transitorio, DNS verificato). Restano (b) regole, (c) Actions, (d) Vercel (lo guarda Davide), (e) collaboratori e ruolo |
-| F1.1 | Termini Crunchbase (G2) | ☐ | | |
+| F1.1 | Termini Crunchbase (G2) | ◐ | 2026-11-10 | esito «incerto, tendente a consentito» deciso da Nelson; sbloccato con riserva; verifica di dettaglio da fare (vedi LOG) |
 | F1.2 | Diff `beta/` vs `main` | ☑ | 2026-11-10 | 0 file solo in `beta/`; 6 CSV differiscono solo per fine-riga; 8 file sono versioni più vecchie. Si può rimuovere (tag `v.2026-b`) |
 | F1.3 | Istantanea del sito vivo | ☑ | 2026-11-10 | 29 percorsi, 28 con hash = `origin/main`; `CNAME` non servito (normale). Sonda: oggi online anche script, note, rawdata, Crunchbase. G3 soddisfatto |
 | F1.4 | Baseline dipendenze del sito | ☑ | 2026-11-10 | 0 mancanti; 2 riferimenti fuori perimetro (`data/qid_candidates.json`, `rawdata/edf_calls.json`); `italy/` non referenziato; script C4 provato in negativo |
