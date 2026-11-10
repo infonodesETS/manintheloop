@@ -405,10 +405,10 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F2.4 | Cancellare 4 branch locali finiti | ☑ | 2026-11-10 | `git branch -d` su `edf-merge-script` (be975c4), `edf-update-2026-10` (e6050b7), `nuovi-fondi-eu` (53cfd50), `status-search-keywords` (22eaffe); tutti con 0 commit oltre `origin/main` |
 | F2.5 | Test locali di parità | ☑ | 2026-11-10 | 28/28 percorsi dell'istantanea con hash uguale; C4 0 mancanti; `validate.py` 2582/3490 |
 | F2.6 | PR 1, merge, verifica sul sito (G4) | ☑ | 2026-11-10 | PR #29 mergiata da Nelson (`f4edd71`); sito vivo: 28/28 hash uguali, `/beta/` e `/old_version/` 404. **G4 soddisfatto** |
-| F3.1 | Branch `struttura/sito-docs-copia` | ☐ | | |
-| F3.2 | `docs/` → `reference/` | ☐ | | |
-| F3.3 | Nuovo `docs/` come copia | ☐ | | |
-| F3.4 | Prova nel browser su `docs/` | ☐ | | |
+| F3.1 | Branch `struttura/sito-docs-copia` | ☑ | 2026-11-10 | creato da `main` + 1 commit di log |
+| F3.2 | `docs/` → `reference/` | ☑ | 2026-11-10 | 12 rinomine R100 (`63aa00d`); riferimenti testuali; tolto percorso personale |
+| F3.3 | Nuovo `docs/` come copia | ☑ | 2026-11-10 | 29 file; `cmp` ok salvo le 2 righe volute; C4 0 mancanti; JSON validi |
+| F3.4 | Prova nel browser su `docs/` | ☑ | 2026-11-10 | 8 pagine, 0 errori; `loadEdf()` è codice morto (vedi LOG) |
 | F3.5 | PR 2a mergiata | ☐ | | |
 | F3.6 | Switch di Pages + verifiche | ☐ | | |
 | F3.7 | PR 2b: rimozione copie e riordino | ☐ | | |
