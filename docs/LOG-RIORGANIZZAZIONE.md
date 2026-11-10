@@ -19,7 +19,7 @@
 | F0.4 Freno locale su `main` | ☑ | 2026-11-10 |
 | Creazione di questo log | ☑ | 2026-11-10 |
 | F0.5 Annuncio ad Andrea e Davide | ◐ avviso breve inviato (congelamento); dettagli da inviare alla fine | 2026-11-10 |
-| F0.6 PR del piano | ☐ | |
+| F0.6 PR del piano | ◐ commit e push fatti; PR da aprire dal web | 2026-11-10 |
 | F0.7 Verifiche di Nelson su GitHub/Vercel | ☐ | |
 
 ---
@@ -124,3 +124,11 @@
   2. Davide non sa ancora di dover lavorare solo con branch e PR, né che `beta/` e `old_version/` spariscono: va avvisato **prima di F2.6** (merge della pulizia).
   3. La domanda a Davide resta aperta e blocca solo la rifinitura di `WORKFLOW.md` (F6.1).
 - **Per chiudere F0.5:** Nelson invia i dettagli (testo già pronto in conversazione) e si annota data e canale.
+
+### 2026-11-10 — F0.6 Prima PR (piano + log + freno locale) ◐
+
+- **Controlli prima del commit:** branch `docs/piano-repo-unico`; `git diff --name-status origin/main` = `M .claude/settings.json`, `M STATUS.md`, `A docs/LOG-RIORGANIZZAZIONE.md`, `A docs/PIANO-RIORGANIZZAZIONE.md` (solo i 4 previsti). C7 sui 4 file: le uniche corrispondenze sono testo esplicativo (esempi di pattern e `/home/x/y` come caso di test), nessun percorso o segreto reale; email presenti: solo `git@github.com` (remoto SSH) e `comunicazione@infonodes.org` (whitelist). `settings.json` JSON valido.
+- **Commit:** `83b5c9d` «docs: piano di riorganizzazione a repo unico, log e freno locale su main» (4 file, +581 righe), con la riga Co-Authored-By; working tree pulito dopo il commit.
+- **Push:** `git push -u origin docs/piano-repo-unico` → creato il solo branch remoto `docs/piano-repo-unico` (`83b5c9d`); l'hook `pre-push` lo ha lasciato passare. Verificato con `git ls-remote --heads origin`: `main` remoto invariato (`e14d920`), `v.2026-c` invariato (`0cfa3af`). L'upstream del branch ora è il branch stesso (non `main`).
+- **Questa voce di log** è stata aggiunta dopo il push e viene pushata con un secondo commit sullo stesso branch (la PR si aggiorna da sola).
+- **Da fare per chiudere F0.6:** Nelson apre la PR dal web (`https://github.com/infonodesETS/manintheloop/pull/new/docs/piano-repo-unico`) verso `main`; la valuta il primo che la vede; con il congelamento in corso vale O1 (la fonde Nelson, scrivendolo nella PR); dopo il merge: «Delete branch» dal bottone, poi in locale `git switch main && git pull --ff-only` (il hook di pull deve riuscire: `main` non sarà più divergente) e controllo che `git log` mostri il merge.
