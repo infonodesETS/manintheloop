@@ -3,6 +3,12 @@
 > Authoritative resume point for AI-assisted work.
 > Last updated: 2026-10-26 (transcript della call arrivato in `inbox/`; EDF refresh del 2026-10-19 invariato — DB count verified 2026-10-24: 2582 entities, 3490 rels)
 
+## ⚠️ PIANO IN CORSO — leggere prima di tutto
+
+Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-08: `main` = sito, branch + PR sempre, Pages da `docs/`, controlli come GitHub Action) e gestione degli action points della call del 2026-10-23: **tutto il piano operativo è in [`docs/PIANO-RIORGANIZZAZIONE.md`](docs/PIANO-RIORGANIZZAZIONE.md)**, riscritto il 2026-11-10 (sostituisce la versione a due repo). L'AI lo legge **per intero** a inizio sessione, individua il primo task non completato nella tabella «Stato di avanzamento» (in fondo al piano), esegue i Test indicati per ogni task e guida Nelson passo per passo. Stato: **F0.1-F0.4 fatti** (email archiviata; backup verificato in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`; `main` allineato, lavoro sul branch `docs/piano-repo-unico`; freno locale su `main` attivo); dettagli di ogni task in [`docs/LOG-RIORGANIZZAZIONE.md`](docs/LOG-RIORGANIZZAZIONE.md) (da aggiornare a ogni task); prossimo task F0.5 (annuncio) e F0.7 (verifiche di Nelson su GitHub Pages e Vercel). Transcript della call e email di Andrea sono in `docs/meetings/` (locale, non su git).
+
+---
+
 ## Session protocol
 
 - **At session start**: run `git fetch && git pull` first, list any changes pulled (commits received, files changed), then read this file before taking any action.
