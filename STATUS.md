@@ -1,20 +1,63 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-10 (riorganizzazione a repo unico: F0-F3 fatte, sito servito da `docs/`; DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-11 (B1: decisioni di schema S1-S7 tutte prese; manca il diff di `SCHEMA.md` e `validate.py`. DB invariato: 2582 entities, 3490 rels)
 
-## ⚠️ PIANO IN CORSO — leggere prima di tutto
+## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
-Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-08: `main` = sito, branch + PR sempre, nessun force-push, controlli come GitHub Action) e import dei dati SEC (Release 1 entro il 2026-11-15). **Il piano operativo è in [`reference/PIANO-RIORGANIZZAZIONE.md`](reference/PIANO-RIORGANIZZAZIONE.md)**, il log dettagliato di ogni task in [`reference/LOG-RIORGANIZZAZIONE.md`](reference/LOG-RIORGANIZZAZIONE.md).
+**Preparare e mostrare a Nelson il diff di `reference/SCHEMA.md` e `scripts/validate.py` (chiusura di B1). Non applicarlo prima del suo ok.** Prima guardare come lo schema e `validate.py` trattano oggi le relazioni, poi presentare il diff come proposta con i test che si faranno: `validate.py` aggiornato deve **passare** sul DB attuale (2582 / 3490) e **fallire** su una copia con una relazione di tipo non ammesso (test del test).
 
-**Regola per l'AI a inizio sessione:** leggere per intero piano e log (e `~/.claude/CLAUDE.md`), poi il primo task non completato nella tabella «Stato di avanzamento» (in fondo al piano); eseguire i Test indicati; aggiornare il log, la tabella e questo puntatore **dopo ogni task**; nessuna azione verso l'esterno (push, tag, impostazioni GitHub, testi inviati) senza ok esplicito di Nelson nello stesso turno. Mai push su `main`; PR e merge li fa Nelson dal web (`gh` non è installato).
+Il diff deve contenere (fonte: [log, sezione S7](reference/LOG-RIORGANIZZAZIONE.md)):
+- tipi di relazione `ownership` e `role` (S2); forma del legame di gruppo `parte_di` (S6, da decidere nel diff);
+- `PER_ID_RE` a `^PER-\d{4,}$` (S1);
+- `ownership` con `id` proprio e chiave di unicità `(source, target, type, classe)` (S3);
+- campi sulle relazioni `current`, `as_of`, `as_of_origine` (`proxy`/`testo`/`deposito`), `release`, `history[]` (S5);
+- `sources.sec` ridotto al riferimento di fonte (`P####`, release, file, riga, data), **senza indirizzi** (S4);
+- `person` nel sito: badge in `docs/web/app.js` (`typeBadge`, `TYPE_CLASS`), registro, mappa e reti (vedi «Aperti dopo B1»).
 
-**Dove siamo (2026-11-10):**
-- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`, verificato; `work/` per il lavoro interno, `reference/` per la documentazione; percorsi negli script aggiornati; gate G6 soddisfatto).
-- **In corso: B1, decisioni di schema S1-S7** (blocca l'import SEC, B5). **S1 decisa (Andrea, 2026-11-10): `PER-NNNN`** permanente, con `P####` della release SEC come riferimento di fonte in `sources.sec`; gli ID `P####` sono stabili dal 19 ottobre (registro e file delle unioni nel README della release); il CIK delle persone non c'è nei proxy/10-K (vedi issue #33), non serve per la Release 1; `validate.py` da portare a `PER-\d{4,}` con il diff di B1. **S2 decisa (2026-11-11): opzione (a)**, tipi generali `ownership` (quote) + `role` (ruoli, vocabolario con S7); scartata (b) `shareholder_5pct`/`board_membership`/`executive_officer`. Esito riferito da Nelson: la risposta alla mail (esempio AppLovin/Foroughi/BlackRock) è «sì»; chi ha risposto e quando non è registrato, il testo non l'ho visto. **S3 decisa (2026-11-11): opzione (c)**, nessun merge in B1, `ownership` con `classe` e `id` proprio, tabella ticker+classe → entità, ogni cambio in `history[]`, lapide `entity_retired` se un giorno si unisce: **regole R1-R6 in [`reference/S3-CLASSI-AZIONI.md`](reference/S3-CLASSI-AZIONI.md), da rispettare**. **S4 decisa (2026-11-11): opzione (c)**, entità e relazioni nel DB, **indirizzi delle persone fuori dal DB** (restano nei `rawdata`), **soglia: capitale o voti ≥5%, 5,0 incluso (546 righe su 571; 25 scartate con motivo)**, riconciliazione riga per riga nell'import, front-end adattato nella stessa PR dei dati: **regole in [`reference/S4-DATI-SEC.md`](reference/S4-DATI-SEC.md), da rispettare**. **S5 decisa (2026-11-11): opzione (c)**, una relazione per titolare/azienda/classe con valori correnti, cambi in `history[]` della relazione, `as_of` con `as_of_origine` (proxy/testo/deposito), righe scomparse `current: false` e mai cancellate, report dei cambi prima di ogni re-import: **regole in [`reference/S5-STORICITA.md`](reference/S5-STORICITA.md), da rispettare**. **S6 decisa (2026-11-11): opzione (c)**, un nodo per ogni depositante come nei filing, legame di gruppo aggiunto solo dopo verifica di una persona, abbinamento ai gestori del DB con tabella rivista a mano (mai per nome; FMR non è Fidelity International), **State Street resta `IN-1468`**: **regole in [`reference/S6-GESTORI.md`](reference/S6-GESTORI.md), da rispettare**. **S7 decisa (2026-11-11)**: ruoli con `role` controllato + `role_text` originale (una relazione per ruolo, mai scartare righe; vocabolario da proporre prima della Release 2); persone: `PER-` ↔ `P####`, i casi nei controlli manuali si guardano a mano prima di creare l'ID (4 in Release 1): **regole in [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md), da rispettare**. **S1-S7 tutte decise.** Alla ripresa: preparare e mostrare a Nelson il **diff di `reference/SCHEMA.md` e `scripts/validate.py`** (non applicarlo prima del suo ok), poi B2 (vedi piano, F4/B1).
-- **Poi, nell'ordine consigliato:** B2 (merge di `v.2026-c` in `main`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import quote ≥5% di capitale o di voti, scadenza 2026-11-15), F5 (GitHub Action), F6.
-- **Aperti:** (F3.8 chiuso da Nelson il 2026-11-10); F0.7 (b) regole su `main`, (c) permessi Actions, (e) ruolo Admin (account `infonodes`); `MITL_INDEX_URL` (Vercel, progetto `marlamag`): Davide (2026-11-11) non può leggere la variabile (sensibile) ma dice che «dovrebbe essere» `https://infonodesets.github.io/manintheloop/data/mitl-index.json`; verificato che quell'URL risponde (301 → 200, hash = `docs/data/mitl-index.json`), chiuso con riserva, l'URL non va cambiato; termini Crunchbase: esito «incerto, tendente a consentito», verifica di dettaglio da fare (G2 sbloccato con riserva); indice MARLA `docs/data/mitl-index.json` più vecchio del database (2226 contro 2449 soggetti), rigenerarlo è una decisione separata; `stash@{0}` «f03-modifiche-piano-status» da cancellare solo con ok di Nelson.
-- **Da sapere:** gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dry-run` scrive comunque file di report; il sito è `docs/` (server locale: `cd docs && python3 -m http.server 8001`); transcript della call ed email di Andrea sono in `reference/meetings/` (locale, non su git).
+**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1), F5 (GitHub Action), F6. Per B5: front-end adattato **nella stessa PR dei dati**.
+
+## ⚠️ PIANO IN CORSO
+
+Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-08: `main` = sito, branch + PR sempre, nessun force-push, controlli come GitHub Action) e import dei dati SEC. **Il piano operativo è in [`reference/PIANO-RIORGANIZZAZIONE.md`](reference/PIANO-RIORGANIZZAZIONE.md)**, il log dettagliato di ogni task in [`reference/LOG-RIORGANIZZAZIONE.md`](reference/LOG-RIORGANIZZAZIONE.md).
+
+**Regola per l'AI a inizio sessione:** leggere per intero piano e log (e `~/.claude/CLAUDE.md`), poi il primo task non completato nella tabella «Stato di avanzamento» (in fondo al piano); riassumere a Nelson in 5-8 righe dove siamo e **fermarsi in attesa**; aggiornare il log, la tabella e questo puntatore **dopo ogni task**; nessuna azione verso l'esterno (push, tag, impostazioni GitHub, testi inviati) senza ok esplicito di Nelson nello stesso turno. Se il messaggio di Nelson contiene domande: rispondere e fermarsi, senza modificare file. Mai push su `main`; PR e merge li fa Nelson dal web (`gh` non è installato).
+
+**Criteri di Nelson per le decisioni di schema (2026-11-11):** (1) qualità dei dati; (2) nessuna perdita di informazioni, nemmeno «strada facendo»; (3) impatto sul database; (4) impatto sul sito. **La scadenza del 15 novembre non è un criterio.** Prima di consigliare, verificare sui dati e sul codice (sola lettura) e mostrare i numeri.
+
+## Stato del repo (2026-11-11)
+
+- Branch di lavoro: **`docs/log-f3-8`**, senza upstream. Il hook di avvio segnala «Pull non riuscito / no tracking information»: **è normale finché il branch non è pushato**, non è un conflitto.
+- **11 commit di sola documentazione non pushati** rispetto a `origin/main` (log di F3.8 e di B1, documenti `S3…S7`, questo `STATUS.md`). Nessun file del database o del sito è stato toccato in questa fase.
+- **Da fare con ok di Nelson:** push del branch e PR di documentazione (la apre Nelson dal web).
+- Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato).
+
+## Dove siamo
+
+- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento).
+- **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` ancora da fare e approvare.** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
+  - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
+  - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
+  - **S3** doppie classi: opzione (c), nessun merge in B1, `classe` nella relazione, tabella ticker+classe → entità, lapide `entity_retired` se un giorno si unisce → [`reference/S3-CLASSI-AZIONI.md`](reference/S3-CLASSI-AZIONI.md).
+  - **S4** dove vivono i dati: opzione (c), entità e relazioni nel DB, **indirizzi delle persone fuori dal DB**, **soglia «capitale o voti ≥5%», 5,0 incluso (546 righe su 571, 25 scartate con motivo)**, riconciliazione riga per riga, front-end adattato nella stessa PR → [`reference/S4-DATI-SEC.md`](reference/S4-DATI-SEC.md).
+  - **S5** storicità: opzione (c), valori correnti + cambi in `history[]` della relazione, `as_of` con `as_of_origine`, righe scomparse `current: false` mai cancellate, report dei cambi prima di ogni re-import → [`reference/S5-STORICITA.md`](reference/S5-STORICITA.md).
+  - **S6** gestori: opzione (c), un nodo per ogni depositante, legame di gruppo solo dopo verifica di una persona, abbinamenti con tabella rivista a mano, **State Street resta `IN-1468`**; FMR LLC non è Fidelity International `IV-0214` → [`reference/S6-GESTORI.md`](reference/S6-GESTORI.md).
+  - **S7** ruoli e persone: `role` controllato + `role_text` originale (una relazione per ruolo, nessuna riga scartata); persone con registro di Andrea e controllo a mano dei casi nei controlli manuali (4 in Release 1: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`) → [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md).
+
+## Aperti dopo B1
+
+- **GDPR:** Nelson ritiene non problematico trattare dati pubblici per obbligo SEC (nome, quota, voti); gli indirizzi restano fuori «per il momento». Non è stato chiesto un parere ad Andrea e Davide né a chi cura la parte legale; la pubblicità del dato non esclude il GDPR (nota dell'AI, non parere legale).
+- **Sito:** `app.js` (`REL_MAP`) e `index.html` leggono come investimento ogni relazione diversa da `edf_participation` (BlackRock avrebbe 143 archi sulla mappa); `networks.html` e `key-figures.html` filtrano per tipo e ignorerebbero le nuove. `typeBadge` non conosce `person`. **Non verificato:** se il registro di `app.js` esclude le entità `PER-` (visto solo il ciclo sui `IV-`); come mappa e reti trattano una `person` senza paese; se un link `?organization=<ID ritirato>` possa reindirizzare al vincitore (serve per B3).
+- **Schema:** forma del legame di gruppo `parte_di` (relazione o campo; dipende da S2); se `validate.py` controlla `history[]` delle relazioni; se il sito gestisce `current: false`.
+- **Dati da controllare a mano:** WBD, Vanguard con percentuale «0»; AIR (collisione di ticker Airbus/AAR Corp); Alphabet Class C (DB) contro Class B (SEC); le 143 voci di `controlli-manuali.csv` (121 + 13 persone toccano la Release 2).
+- **Release 2:** vocabolario dei ruoli da proporre e far approvare prima di importare; campi `current`, `start_date`, `end_date` dei ruoli.
+- **Crescita del DB:** stima iniziale +0,5 MB per la Release 1 e +2,6 MB con la 2, sovrastimata (persone distinte 58, entità 110): rifarla in B5.
+- **Infrastruttura:** F0.7 (b) regole su `main`, (c) permessi Actions, (e) ruolo Admin (account `infonodes`); `MITL_INDEX_URL` (Vercel, progetto `marlamag`): Davide non può leggere la variabile ma dice «dovrebbe essere» `https://infonodesets.github.io/manintheloop/data/mitl-index.json`, l'URL risponde (301 → 200), chiuso con riserva, **l'URL non va cambiato**; termini Crunchbase: «incerto, tendente a consentito», verifica di dettaglio da fare (G2 sbloccato con riserva); indice MARLA `docs/data/mitl-index.json` più vecchio del database (2226 contro 2449 soggetti), rigenerarlo è una decisione separata.
+
+## Da sapere
+
+Gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dry-run` scrive comunque file di report; il sito è `docs/` (server locale: `cd docs && python3 -m http.server 8001`); transcript della call ed email di Andrea sono in `reference/meetings/` (locale, non su git); i dati SEC grezzi sono nel branch `v.2026-c` in `rawdata/sec-edgar/2026-10-17/` (git show origin/v.2026-c:… per leggerli senza fare checkout); i conteggi di S3-S7 sono ricalcolabili dai CSV di quella release.
+
 ---
 
 ## Session protocol
