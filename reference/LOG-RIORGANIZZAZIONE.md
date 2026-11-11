@@ -310,3 +310,12 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Da applicare con il diff di B1:** la chiave di unicità delle relazioni in `validate.py` (controllo 2) deve includere la classe per `ownership`; il nuovo tipo `ownership` va gestito in `app.js`, `index.html`, `networks.html` (non verificato come reagiscono oggi a un tipo sconosciuto).
 - **Non verificato:** se un link `?organization=<ID ritirato>` possa reindirizzare al vincitore (serve per B3); Alphabet Class C (DB) contro Class B (SEC).
 - **Prossimo:** S4 (dove vivono i dati SEC: dentro `database.json` o in staging).
+
+### 2026-11-11 — B1: S4 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** opzione (c), ibrida. Nel DB entità `PER-`/`IV-`/`IN-` e relazioni `ownership`, con `sources.sec` ridotto al riferimento di fonte; i CSV restano immutabili in `rawdata/`. Le 91 persone tra i detentori >5% entrano nel DB (dati resi pubblici dalla SEC, parere di Nelson). **Gli indirizzi restano fuori dal DB «per il momento»** (rivedibile con nuova decisione).
+- **Regole:** riferimento alla riga di origine; riconciliazione nell'import (ogni riga importata o scartata con motivo, saldo zero); `rawdata` mai modificati; front-end adattato nella stessa PR dei dati; valgono R1-R6 di S3. Testo completo in [`S4-DATI-SEC.md`](S4-DATI-SEC.md).
+- **Verifiche fatte (sola lettura):** `database.json` 13,2 MB, crescita stimata +0,5 MB con la Release 1 e +2,6 MB con la 2. `app.js` (`REL_MAP`) e `index.html` leggono come investimento ogni relazione diversa da `edf_participation`; `networks.html` e `key-figures.html` filtrano per tipo e ignorerebbero le nuove. `typeBadge` non conosce `person`. Indirizzi: 70 persone su 91, 49 «c/o azienda», 21 no.
+- **GDPR:** Nelson ritiene non problematico trattare dati pubblici per obbligo SEC. Nota mia: la pubblicità non esclude il GDPR; per nome e quota la finalità è chiara, per l'indirizzo no. Non è un parere legale; non ho scritto ad Andrea e Davide. Aperto: se li si vuole sentire.
+- **Non verificato:** se il registro di `app.js` esclude `PER-` (visto solo il ciclo sui `IV-`); come mappa e reti trattano entità `person` senza paese.
+- **Prossimo:** S5 (storicità: solo quota/ruolo attuale o anche lo storico con `as_of`).
