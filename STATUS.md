@@ -17,6 +17,13 @@ Il diff deve contenere (fonte: [log, sezione S7](reference/LOG-RIORGANIZZAZIONE.
 
 **Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1), F5 (GitHub Action), F6. Per B5: front-end adattato **nella stessa PR dei dati**.
 
+## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
+
+1. **Questo file solo fino a «Da sapere».** Il resto (da «Session protocol» in poi, circa 900 righe: script, stato del DB, lavoro passato) è storico e di riferimento: leggerlo solo se serve al compito. Una lettura di un file così lungo viene troncata: non dedurne di aver letto tutto.
+2. **`reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero.** Se la lettura si interrompe, continuare con `offset` fino alla fine; non basta la coda.
+3. **Per il diff di B1, per intero:** `reference/S3-CLASSI-AZIONI.md`, `S4-DATI-SEC.md`, `S5-STORICITA.md`, `S6-GESTORI.md`, `S7-RUOLI-E-PERSONE.md` (regole vincolanti), poi `reference/SCHEMA.md` e `scripts/validate.py`. Il riassunto qui sopra non basta: le regole precise (chiave `(source, target, type, classe)`, `as_of_origine`, niente indirizzi, soglia) stanno in quei file.
+4. **Nel riassunto iniziale a Nelson elencare i file letti con le righe lette** (es. «piano 442/442, log 358/358») **e dire esplicitamente cosa NON è stato letto.** Serve a Nelson per verificare che il contesto sia completo prima di dare l'ok.
+
 ## ⚠️ PIANO IN CORSO
 
 Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-08: `main` = sito, branch + PR sempre, nessun force-push, controlli come GitHub Action) e import dei dati SEC. **Il piano operativo è in [`reference/PIANO-RIORGANIZZAZIONE.md`](reference/PIANO-RIORGANIZZAZIONE.md)**, il log dettagliato di ogni task in [`reference/LOG-RIORGANIZZAZIONE.md`](reference/LOG-RIORGANIZZAZIONE.md).
@@ -27,8 +34,8 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 ## Stato del repo (2026-11-11)
 
-- Branch di lavoro: **`docs/log-f3-8`**, senza upstream. Il hook di avvio segnala «Pull non riuscito / no tracking information»: **è normale finché il branch non è pushato**, non è un conflitto.
-- **11 commit di sola documentazione non pushati** rispetto a `origin/main` (log di F3.8 e di B1, documenti `S3…S7`, questo `STATUS.md`). Nessun file del database o del sito è stato toccato in questa fase.
+- Branch di lavoro: **`docs/log-f3-8`**, senza upstream. Il hook di avvio segnala «Pull non riuscito / no tracking information»: **è normale finché il branch non è pushato**, non è un conflitto: non risolverlo con `git pull` o `--set-upstream`, il push spetta a Nelson.
+- **Commit di sola documentazione non pushati** rispetto a `origin/main` (log di F3.8 e di B1, documenti `S3…S7`, questo `STATUS.md`): contarli con `git log origin/main..HEAD --oneline` (erano 11 il 2026-11-11, più quello di questo aggiornamento). Nessun file del database o del sito è stato toccato in questa fase.
 - **Da fare con ok di Nelson:** push del branch e PR di documentazione (la apre Nelson dal web).
 - Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato).
 
