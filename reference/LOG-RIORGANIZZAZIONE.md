@@ -319,3 +319,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **GDPR:** Nelson ritiene non problematico trattare dati pubblici per obbligo SEC. Nota mia: la pubblicità non esclude il GDPR; per nome e quota la finalità è chiara, per l'indirizzo no. Non è un parere legale; non ho scritto ad Andrea e Davide. Aperto: se li si vuole sentire.
 - **Non verificato:** se il registro di `app.js` esclude `PER-` (visto solo il ciclo sui `IV-`); come mappa e reti trattano entità `person` senza paese.
 - **Prossimo:** S5 (storicità: solo quota/ruolo attuale o anche lo storico con `as_of`).
+
+### 2026-11-11 — B1: soglia di importazione delle quote, opzione (b) ☑ (aggiunta a S4)
+
+- **Domanda di Nelson:** «>5 o ≥5?» (preferenza: dal 5% incluso). Verifica sul CSV `detentori-oltre-5.csv`: il file **non rispetta il titolo**. 523 righe sopra il 5%, **6 esattamente al 5,0%**, 18 sotto il 5% di capitale (0-4,98%), 24 con percentuale vuota («sotto l'1%»). Con le doppie classi il capitale non basta: 17 righe sotto soglia o vuote hanno **voti ≥5%** (Zuckerberg 60,8%, Duffield e Bhusri 69,0%, Foroughi 61,6%, Green 49,7%, Brin 25,3%…).
+- **Decisione (Nelson): opzione (b)**: si importa la riga se `percentuale` ≥ 5 **o** `percentuale_voti` ≥ 5 (5,0 incluso). 546 righe importate, 25 scartate con motivo nel report di riconciliazione (restano nei `rawdata`). Dettaglio e elenco in [`S4-DATI-SEC.md`](S4-DATI-SEC.md).
+- **Correzione a una mia cifra:** le «91 persone» sono 91 **righe** di tipo persona (il README di Andrea le chiama persone): le persone distinte sono 58 (57 con la soglia); le entità distinte 110, non 480. La stima di crescita del DB (+0,5 MB) era sovrastimata. Nel log di S4 la frase «Le 91 persone … entrano» va letta così.
+- **Doppie classi:** i 22 casi di S3 restano 22 con la soglia (verificato).
+- **Da controllare a mano:** WBD, Vanguard a «0%»; AIR (collisione di ticker Airbus/AAR).
