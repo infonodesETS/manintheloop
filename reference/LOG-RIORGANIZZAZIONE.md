@@ -331,3 +331,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 ### 2026-11-11 — Dicitura «>5%» corretta in «≥5%» nei documenti vivi
 
 - Corretta in `S3-CLASSI-AZIONI.md` (titolo), piano (§1.5, §1.6, B5) e `STATUS.md` (B5). Il nome del file di Andrea (`detentori-oltre-5.csv`) e le voci di log già scritte non sono modificati: sono citazioni della fonte e storico.
+
+### 2026-11-11 — B1: S5 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** storicità = attuale più storia dentro la relazione. Chiave `(source, target, type, classe)`; campi `filing_date`, `as_of`, `as_of_origine` (`proxy`/`testo`/`deposito`), `release`, `current`; cambi in `history[]` della relazione (append-only); righe scomparse `current: false`, mai cancellate; report dei cambiamenti prima di ogni re-import, controllato a mano la prima volta. Testo completo in [`S5-STORICITA.md`](S5-STORICITA.md).
+- **Domanda di Nelson e risposta:** `as_of` non è sempre approssimato. Per le righe dalla tabella del proxy è esatto (`quote_al`, «la data a cui il proxy riferisce le quote», README); per 13G/13D/13F il CSV ha la data di deposito e la data vera delle azioni sta nel filing (non verificato su un campione). Per questo si salva l'origine della data.
+- **Verifiche:** una sola fotografia (nessuno storico oggi); 333 righe con data ISO, 135 con data in prosa o assente, 103 senza fonte; nessuna chiave ripetuta; le relazioni del DB hanno solo `created_at`.
+- **Non verificato:** se `validate.py` controlla `history[]` delle relazioni; se il sito gestisce `current: false`. Da vedere con il diff di B1.
+- **Prossimo:** S6 (gestori: nodi normali o aggregati; BlackRock).
