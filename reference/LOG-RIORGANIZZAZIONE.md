@@ -327,3 +327,7 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Correzione a una mia cifra:** le «91 persone» sono 91 **righe** di tipo persona (il README di Andrea le chiama persone): le persone distinte sono 58 (57 con la soglia); le entità distinte 110, non 480. La stima di crescita del DB (+0,5 MB) era sovrastimata. Nel log di S4 la frase «Le 91 persone … entrano» va letta così.
 - **Doppie classi:** i 22 casi di S3 restano 22 con la soglia (verificato).
 - **Da controllare a mano:** WBD, Vanguard a «0%»; AIR (collisione di ticker Airbus/AAR).
+
+### 2026-11-11 — Dicitura «>5%» corretta in «≥5%» nei documenti vivi
+
+- Corretta in `S3-CLASSI-AZIONI.md` (titolo), piano (§1.5, §1.6, B5) e `STATUS.md` (B5). Il nome del file di Andrea (`detentori-oltre-5.csv`) e le voci di log già scritte non sono modificati: sono citazioni della fonte e storico.

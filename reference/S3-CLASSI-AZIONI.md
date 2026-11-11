@@ -2,7 +2,7 @@
 
 **Decisione S3 (Nelson, 2026-11-11): opzione (c) con le regole R1-R6 qui sotto.** Vale per tutto il lavoro SEC/`ownership` e per B3. Una regola di questo file si cambia solo con una nuova decisione registrata nel log.
 
-## Le 22 aziende con più classi tra i detentori >5%
+## Le 22 aziende con più classi tra i detentori della release SEC (soglia: capitale o voti ≥5%, vedi S4)
 
 Fonti: release SEC 2026-10-17 (branch `v.2026-c`, `detentori-oltre-5.csv`) e `docs/data/database.json` al 2026-11-11. L'abbinamento ticker → entità è mio (per ticker iShares e per nome): le righe marcate «?» vanno confermate da una persona.
 Sigle: C=crunchbase, E=edf, I=ishares, W=wikidata. rels = relazioni nel DB; hist = voci di history.
