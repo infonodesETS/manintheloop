@@ -347,3 +347,12 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Cautele registrate:** l'esperienza utente migliora solo quando esistono il legame e il front-end che lo legge; non tutti i legami sono sicuri (9 casi dubbi in `controlli-manuali.csv`); FMR LLC ≠ Fidelity International `IV-0214`.
 - **Non verificato:** forma del legame di gruppo nello schema (relazione o campo; dipende da S2).
 - **Prossimo:** S7 (vocabolario dei ruoli e dedup persone: CIK, ID stabili), poi il diff di `SCHEMA.md` e `validate.py`.
+
+### 2026-11-11 — B1: S7 decisa ☑ — S1-S7 tutte decise
+
+- **Ruoli: opzione (c).** `role` a vocabolario controllato + `role_text` con la dicitura originale; stringhe con più ruoli = più relazioni; mappatura versionata, `other` per il non classificato, nessuna riga scartata. Il vocabolario concreto lo propone l'AI prima della Release 2 e lo approva Nelson.
+- **Persone: opzione (b).** Registro di Andrea (`P####` → `PER-NNNN`, entrambi i riferimenti se due `P####` sono la stessa persona) più controllo a mano prima di creare l'ID per chi compare in un controllo manuale. Release 1: 4 persone su 57 (Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`). Release 2: 121 + 13 persone da pianificare.
+- **Verifiche:** 5.025 righe di ruolo, 2.298 persone; 636 diciture distinte per i dirigenti, 596 per i consiglieri; 143 controlli manuali; le verifiche Exa di Andrea non sono state ricontrollate a mano (README). Testo completo in [`S7-RUOLI-E-PERSONE.md`](S7-RUOLI-E-PERSONE.md).
+- **B1 non è chiuso:** per il piano serve il diff di `reference/SCHEMA.md` e `scripts/validate.py`, approvato da Nelson, e `validate.py` aggiornato che passa **e fallisce** su una relazione con tipo non ammesso (test del test).
+- **Da includere nel diff:** tipi di relazione di S2 (`ownership`, `role`; forma del legame di gruppo di S6); `PER_ID_RE` a `\d{4,}` (S1); `ownership` con `id` proprio e chiave `(source, target, type, classe)` (S3); `current`, `as_of_origine`, `release`, `history[]` sulle relazioni (S5); `sources.sec` ridotto al riferimento di fonte e senza indirizzi (S4); `person` nel sito (badge, registro).
+- **Prossimo:** diff di `SCHEMA.md` e `validate.py`, da mostrare prima di applicarlo.
