@@ -339,3 +339,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Verifiche:** una sola fotografia (nessuno storico oggi); 333 righe con data ISO, 135 con data in prosa o assente, 103 senza fonte; nessuna chiave ripetuta; le relazioni del DB hanno solo `created_at`.
 - **Non verificato:** se `validate.py` controlla `history[]` delle relazioni; se il sito gestisce `current: false`. Da vedere con il diff di B1.
 - **Prossimo:** S6 (gestori: nodi normali o aggregati; BlackRock).
+
+### 2026-11-11 — B1: S6 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** un nodo per ogni soggetto che deposita (`entita_id`), più un legame di gruppo (`parte_di`) aggiunto solo dopo verifica di una persona, con fonte. Abbinamento ai gestori già nel DB con tabella rivista a mano. **State Street resta `IN-1468`** (tipo `bank`, ID permanente). Testo completo in [`S6-GESTORI.md`](S6-GESTORI.md).
+- **Perché (c):** nessuna interpretazione nei dati e nessuna perdita; la lettura per gruppo resta possibile. Esempio Vanguard: 3 depositanti (92 + 17 + 5 società) che coprono 110 società distinte; interrogare solo «The Vanguard Group» darebbe 92 (16% in meno). Solo 4 società hanno più entità Vanguard insieme.
+- **Cautele registrate:** l'esperienza utente migliora solo quando esistono il legame e il front-end che lo legge; non tutti i legami sono sicuri (9 casi dubbi in `controlli-manuali.csv`); FMR LLC ≠ Fidelity International `IV-0214`.
+- **Non verificato:** forma del legame di gruppo nello schema (relazione o campo; dipende da S2).
+- **Prossimo:** S7 (vocabolario dei ruoli e dedup persone: CIK, ID stabili), poi il diff di `SCHEMA.md` e `validate.py`.
