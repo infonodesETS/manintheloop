@@ -412,7 +412,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F3.5 | PR 2a mergiata | ☑ | 2026-11-10 | PR #30 mergiata (`f318bb1`); sito vivo: 28/28 hash uguali, `/docs/pages-switch-check.txt` 200, `/pages-switch-check.txt` 404, `/docs/SCHEMA.md` 404 |
 | F3.6 | Switch di Pages + verifiche | ☑ | 2026-11-10 | Pages su `main` `/docs` (Nelson, account `infonodes`, ~11:00); sentinella in root 200, `rawdata/` 404, `/docs/` 404, 6 pagine 200, `mitl-index.json` 200 su dominio e su `infonodesets.github.io` (301), cert fino al 2026-12-21; 24 hash ok + 4 differenze attese |
 | F3.7 | PR 2b: rimozione copie e riordino | ☑ | 2026-11-10 | PR #31 mergiata (`f21ca8c`); sito vivo = `docs/` (27/27 hash uguali, sentinella in root 404, 6 pagine e dati 200, `mitl-index.json` 200). **G6 soddisfatto** |
-| F3.8 | Fine congelamento | ◐ | 2026-11-10 | da comunicare da Nelson: fine congelamento e nuovi percorsi |
+| F3.8 | Fine congelamento | ☑ | 2026-11-10 | chiuso da Nelson; testo preparato da me (fine congelamento, nuovi percorsi, URL che spariscono); invio e contenuto effettivo non verificati da me |
 | B1 | Decisioni di schema S1-S7 (G7) | ☐ | | può partire subito |
 | B2 | `v.2026-c` in `main` | ☐ | | dopo G6 |
 | B3 | Pulizia duplicati | ☐ | | serve chiave Exa |
@@ -438,4 +438,5 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | 2026-11-10 | **F0.6 chiuso.** PR #28 fusa da Nelson (merge commit `2e6ae14`, 4 file). `main` locale allineato con `--ff-only`. Sito online invariato. Osservazione: `/docs/PIANO-RIORGANIZZAZIONE.md` risponde 200 online ⇒ Pages serve la root di `main` (da confermare in Settings, F0.7a). | `2e6ae14` |
 | 2026-11-10 | **F0.7a Pages verificato** da screenshot di Nelson: Source «Deploy from a branch», branch `main`, cartella `/ (root)`; dominio `mitl.infonodes.org`; Enforce HTTPS attivo; stato «DNS Check in Progress». Controlli miei: CNAME → `infonodesets.github.io`, A = IP di Pages, certificato valido fino al 2026-12-21, http→https 301. Conferma l'ipotesi del piano (Pages sulla root di `main`). Restano F0.7 (b)-(e). | — |
 | 2026-11-10 | **F1.2-F1.7 eseguiti (sola lettura).** `beta/`: nulla di esclusivo (39 identici, 14 diversi di cui 6 solo fine-riga e 8 più vecchi). Istantanea del sito: 28/29 hash = `origin/main` (G3 soddisfatto). C4: 0 mancanti, 2 riferimenti fuori da `docs/`. Script: 8 usano percorsi relativi alla cwd; destinazioni esatte registrate. C7: un percorso personale reale (`docs/OPENTENDER-APPALTI.md:181`). Merge di prova SEC: 1 conflitto (`.gitignore`). Dettagli nel LOG. | `2e6ae14` |
+| 2026-11-11 | `MITL_INDEX_URL`: Davide indica `https://infonodesets.github.io/manintheloop/data/mitl-index.json` (valore non leggibile su Vercel, variabile sensibile). Verificato: 301 → 200, hash = `docs/data/mitl-index.json`. Chiuso con riserva (O10). | — |
 | | | |

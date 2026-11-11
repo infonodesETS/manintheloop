@@ -260,3 +260,21 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Trovato:** `reference/SCHEMA.md` prevede già `PER-NNNN` (persone) e il tipo di relazione `board_membership`; `validate.py` ha `PER_ID_RE = ^PER-\d{4}$`, `VALID_REL_TYPES = {investment, board_membership, edf_participation}`, `VALID_ROLES = {manufacturer, investor, board_member}`. Il documento di sviluppo di `v.2026-c` propone `PE-####` (come domanda aperta) e le relazioni `ownership`/`role`; il test SEC usa `PER-T####`, `board_membership`, `executive_officer`, `shareholder_5pct` (gli ultimi due non nello schema). Gli ID persona del dataset SEC (`P0001…`) si rinumerano a ogni estrazione. 2.298 persone nel test; `\d{4}` arriva a 9999.
 - **S1 proposta a Nelson:** (a) `PER-NNNN` permanente + `P####` come riferimento di fonte in `sources.sec` [raccomandata]; (b) `PE-####`; (c) ID derivato dal CIK. Riconciliazione tra estrazioni: CIK se presente, altrimenti nome normalizzato + azienda con controllo manuale. **Nessuna risposta ancora.** S2-S7 da presentare una alla volta.
 - **Sessione:** Nelson interrompe qui e riparte con `/clear` leggendo `STATUS.md`; il puntatore di `STATUS.md` è stato corretto (rimandava a `docs/PIANO-RIORGANIZZAZIONE.md`, spostato in `reference/` da PR #30) e aggiornato con «Dove siamo».
+
+### 2026-11-10 — F3.8 Fine congelamento ☑ (chiuso da Nelson)
+
+- Preparato il testo per Andrea e Davide (fine congelamento, lavoro su branch da `main` aggiornato con PR, nuovi percorsi `docs/`, `work/`, `reference/`, tag `v.2026-b` e `archivio-2026-06`, script dalla radice, vecchi URL `/docs/…`, `/rawdata/…`, `/scripts/…` non più online). Nelson ha approvato la prima parte; la frase finale su S1 è stata scartata e sostituita con un rimando a un indirizzo mai indicato; poi ha detto «skippiamo, segna come fatto».
+- Registrato come fatto su decisione di Nelson. Non so se e con quale testo sia stato inviato.
+- **B1:** S1 (prefisso persone) resta senza risposta.
+
+### 2026-11-10 — B1 S1: parere chiesto ad Andrea, in pausa
+
+- Su richiesta di Nelson ho scritto un messaggio per Andrea Borruso con la proposta S1 (`PER-NNNN` permanente, `P####` come riferimento di fonte in `sources.sec`, riconciliazione via CIK o nome normalizzato più azienda) e le alternative `PE-####` e ID da CIK. Invio non verificato da me.
+- Nelson sospende B1 finché Andrea non risponde. S2-S7 non presentate. Alla ripresa: leggere la risposta di Andrea, registrare la scelta di S1 e passare a S2.
+- Il branch `docs/log-f3-8` contiene questi aggiornamenti di log (F3.8 e B1), non ancora committati né pushati.
+
+### 2026-11-11 — MITL_INDEX_URL: risposta di Davide, chiuso con riserva
+
+- Davide non può recuperare il valore da Vercel (variabile sensibile); dice che dovrebbe essere `https://infonodesets.github.io/manintheloop/data/mitl-index.json`. Nelson aggiunge che la GitHub Page funziona regolarmente.
+- **Verifica (sola lettura):** quell'URL risponde 301 verso `https://mitl.infonodes.org/data/mitl-index.json`, poi 200; sha256 del corpo = sha256 di `docs/data/mitl-index.json` (`714c0f04…c446f`). Quindi MARLA legge il file del repo, che è il vecchio (`generato` 2026-08-21, 2226 soggetti contro 2449 nel database).
+- Il valore effettivo su Vercel resta non verificato direttamente. Regola: l'URL non cambia. Rigenerare l'indice è una decisione separata e va comunicata a Davide (cambiano le risposte di MARLA).
