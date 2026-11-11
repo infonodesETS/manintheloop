@@ -413,7 +413,7 @@ Legenda: ☐ da fare · ◐ in corso · ☑ fatto · ✖ bloccato (motivo nelle 
 | F3.6 | Switch di Pages + verifiche | ☑ | 2026-11-10 | Pages su `main` `/docs` (Nelson, account `infonodes`, ~11:00); sentinella in root 200, `rawdata/` 404, `/docs/` 404, 6 pagine 200, `mitl-index.json` 200 su dominio e su `infonodesets.github.io` (301), cert fino al 2026-12-21; 24 hash ok + 4 differenze attese |
 | F3.7 | PR 2b: rimozione copie e riordino | ☑ | 2026-11-10 | PR #31 mergiata (`f21ca8c`); sito vivo = `docs/` (27/27 hash uguali, sentinella in root 404, 6 pagine e dati 200, `mitl-index.json` 200). **G6 soddisfatto** |
 | F3.8 | Fine congelamento | ☑ | 2026-11-10 | chiuso da Nelson; testo preparato da me (fine congelamento, nuovi percorsi, URL che spariscono); invio e contenuto effettivo non verificati da me |
-| B1 | Decisioni di schema S1-S7 (G7) | ◐ | 2026-11-11 | S1 ☑ (`PER-NNNN` + `P####` in `sources.sec`; `validate.py` a `\d{4,}` da applicare). S2: si riparte da opzione (a) (`ownership` + `role`), da confermare con Andrea e Davide. Restano S3-S7 |
+| B1 | Decisioni di schema S1-S7 (G7) | ◐ | 2026-11-11 | S1 ☑ (`PER-NNNN` + `P####` in `sources.sec`; `validate.py` a `\d{4,}` da applicare). S2 ☑ opzione (a) (`ownership` + `role`), confermata con un «sì» riferito da Nelson. Restano S3-S7 |
 | B2 | `v.2026-c` in `main` | ☐ | | dopo G6 |
 | B3 | Pulizia duplicati | ☐ | | serve chiave Exa |
 | B4 | `sec-test` e controlli manuali | ☐ | | |
