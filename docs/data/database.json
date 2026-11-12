@@ -78868,6 +78868,19 @@
             "exchange": "Borsa Italiana",
             "currency": "USD",
             "source_file": "ishares_comm_services_gics50.csv"
+          },
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Comm Services ETF",
+            "etf_ticker": "IXP",
+            "gics_code": "50",
+            "stock_ticker": "TITR",
+            "stock_sector": "Communication",
+            "weight_pct": 0.14,
+            "location": "Italy",
+            "exchange": "Borsa Italiana",
+            "currency": "USD",
+            "source_file": "ishares_comm_services_gics50.csv"
           }
         ],
         "crunchbase": {
@@ -79038,6 +79051,113 @@
           "old": null,
           "new": "sources.wikidata populated (Q144617)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q144617)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Comm Services ETF (GICS 50, ishares_comm_services_gics50.csv)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q144617",
+          "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.gruppotim.it/",
+          "description": "Official website (P856) fetched from Wikidata (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q144617)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q144617)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q144617",
+          "new": null,
+          "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q144617",
+          "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0366",
+          "note": "Unita IN-0366 (Telecom Italia S.p.a) in questa entita. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXP/TITR)",
+            "sources.wikidata: blocco del perdente diverso, conservato in history"
+          ],
+          "loser_name": "Telecom Italia S.p.a",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "TIM Group",
+              "description": "Italian telecommunications company",
+              "aliases": [
+                "Telecom Italia",
+                "Telecom Italia Group",
+                "Gruppo TIM"
+              ],
+              "instance_of": [
+                "business",
+                "enterprise",
+                "telecommunication company"
+              ],
+              "country": "Italy",
+              "inception": "1994-07-27",
+              "headquarters": "Milan",
+              "official_website": "https://www.gruppotim.it/",
+              "isin": "IT0003497168",
+              "employees": 26874,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/TIM%20Group"
+            }
+          }
         }
       ],
       "validation": [
@@ -79106,6 +79226,20 @@
           "description": "sources.wikidata populated from Wikidata API (Q144617). label='TIM Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_nulled_duplicate",
+          "wikidata_id_removed": "Q144617",
+          "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-0366"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0366 (Telecom Italia S.p.a) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -79230,6 +79364,13 @@
           "old": null,
           "new": "Q144617",
           "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0365 (Telecom Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "canonical": "IN-0365",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -79275,6 +79416,13 @@
           "description": "wikidata_id Q144617 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0365 (Telecom Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "canonical": "IN-0365",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
