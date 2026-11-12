@@ -370,3 +370,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Non toccato:** il front-end (`REL_MAP`, badge `person`), che resta nella PR dati di B5 (S4). Il DB non è cambiato.
 - **File toccati:** `scripts/validate.py`, `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` (non committati al momento di questa voce).
 - **Prossimo:** B2 (merge di `v.2026-c` in `main`, sul branch `integrate-sec`, dopo la PR di documentazione).
+
+### 2026-11-12 — PR #34 fusa; allineamento di `main` e correzione di processo ☑
+
+- **PR #34** «B1: decisioni di schema S1-S7, SCHEMA.md e validate.py per le quote SEC» aperta e fusa da Nelson (merge `78d67f5`, 13 commit, 11 file, +688/−42); branch remoto cancellato dal bottone. Il push del branch (`9ee7ab7`) è stato fatto da Nelson dopo il mio ok.
+- **Allineamento locale:** `git fetch --prune`, `git switch main`, `git pull --ff-only`: `main` = `origin/main` = `78d67f5`; `validate.py` su `main` PASSED (2582 entità, 3490 relazioni). Nessun dato né file del sito cambiato dalla PR.
+- **Commit sconosciuto e correzione di processo:** prima del merge `origin/main` era `7ef916a` (PR #32, log di F3.7 del 2026-11-10, 3 file di testo). Non compariva in `STATUS.md` né nel log; l'ho presentato come «non conosciuto» e ho scritto «già incorporato» **prima** di verificarlo. Verifica dopo la domanda di Nelson: `git merge-base 7ef916a 9ee7ab7` = `7ef916a`, cioè il commit era antenato del nostro lavoro: nessun rischio di sovrascrittura. L'errore era di metodo, non nei dati. **Regola:** prima di operare su `main` si controlla con git cosa contiene (`git log --merges`), non ci si fida solo dei documenti. Aggiunta una riga di registro con le PR fuse (#27-#34).
+- **Prossimo:** B2, solo con il via libera di Nelson. Il branch `docs/log-f3-8` locale è fuso e si può cancellare con `-d` (in attesa di ok).
