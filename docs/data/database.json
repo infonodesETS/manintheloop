@@ -51798,6 +51798,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q105563992)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1311 (MP Materials). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "canonical": "IN-1311",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -51855,6 +51862,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q105563992). label='MP Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1311 (MP Materials). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "canonical": "IN-1311",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -244941,7 +244955,21 @@
       "sector": "Mining",
       "wikidata_id": "Q105563992",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "MP",
+            "stock_sector": "Materials",
+            "weight_pct": 0.51,
+            "location": "United States",
+            "exchange": "NYSE",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -245007,7 +245035,8 @@
           "country": "United States",
           "tax_id": "82-1327150 (EIN)",
           "main_focus": "Neodimio",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials",
+          "website": "http://mpmaterials.com/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -245145,6 +245174,96 @@
           "old": null,
           "new": "sources.wikidata populated (Q105563992)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q105563992",
+          "description": "wikidata_id set via search: label='MP Materials', description='American Rare Earth materials company'. Search name used: 'Mp Materials'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "http://mpmaterials.com/",
+          "description": "Official website (P856) fetched from Wikidata (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0242",
+          "note": "Unita IN-0242 (MP Materials Class A) in questa entita. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/MP)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "MP Materials Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -245214,6 +245333,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q105563992). label='MP Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0242"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0242 (MP Materials Class A) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
