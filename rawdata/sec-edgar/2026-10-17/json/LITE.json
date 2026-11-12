@@ -1,0 +1,385 @@
+{
+  "company": "Lumentum Holdings Inc.",
+  "ticker": "LITE",
+  "cik": "0001633978",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-10-06",
+    "accession": "0001308179-26-000420",
+    "meeting": null,
+    "ownership_as_of": "2026-08-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1633978/000130817926000420/lite2026-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Pamela F. Fletcher",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "Isaac H. Harris",
+      "roles": [
+        "Director",
+        "Audit Committee member",
+        "Governance Committee member"
+      ],
+      "director_since": "2021-06",
+      "independent": true
+    },
+    {
+      "name": "Penelope A. Herscher",
+      "roles": [
+        "Director",
+        "Board Chair",
+        "Governance Committee Chair"
+      ],
+      "director_since": "2015-08",
+      "independent": true
+    },
+    {
+      "name": "Michael E. Hurlston",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2025-02",
+      "independent": false
+    },
+    {
+      "name": "Brian J. Lillie",
+      "roles": [
+        "Director",
+        "Compensation Committee member"
+      ],
+      "director_since": "2015-08",
+      "independent": true
+    },
+    {
+      "name": "Paul R. Lundstrom",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2024-12",
+      "independent": true
+    },
+    {
+      "name": "Ian S. Small",
+      "roles": [
+        "Director",
+        "Compensation Committee member"
+      ],
+      "director_since": "2018-12",
+      "independent": true
+    },
+    {
+      "name": "S. Thad Trent",
+      "roles": [
+        "Director",
+        "Audit Committee member"
+      ],
+      "director_since": "2025-12",
+      "independent": true
+    },
+    {
+      "name": "Julia S. Johnson",
+      "roles": [
+        "Director",
+        "Audit Committee member",
+        "Governance Committee member"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Paul R. Lundstrom",
+        "Julia S. Johnson",
+        "Isaac H. Harris",
+        "S. Thad Trent"
+      ],
+      "chair": "Paul R. Lundstrom",
+      "meetings": 9,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Pamela F. Fletcher",
+        "Brian J. Lillie",
+        "Ian S. Small"
+      ],
+      "chair": "Pamela F. Fletcher",
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Penelope A. Herscher",
+        "Julia S. Johnson",
+        "Isaac H. Harris"
+      ],
+      "chair": "Penelope A. Herscher",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael E. Hurlston",
+      "age": 59,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Wajid Ali",
+      "age": 53,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jae Kim",
+      "age": 55,
+      "positions": [
+        "Senior Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Vincent Retort",
+      "age": 72,
+      "positions": [
+        "Executive Vice President, Global Reliability & Quality"
+      ]
+    },
+    {
+      "name": "Wupen Yuen",
+      "age": 57,
+      "positions": [
+        "President, Global Business Units"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-28",
+    "note": "Percentuali calcolate su 90.385.389 azioni di Common Stock in circolazione al 28 agosto 2026. '*' indica una partecipazione inferiore all'1%. Le azioni comprendono quelle esercitabili o da esercitare entro 60 giorni dal 28 agosto 2026.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5252142,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A dated April 30, 2026",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5240774,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A dated April 24, 2026",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Michael E. Hurlston",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31713,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Pamela F. Fletcher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6123,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Isaac H. Harris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6258,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Penelope A. Herscher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40152,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julia S. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian J. Lillie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12627,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul R. Lundstrom",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2798,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ian S. Small",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19725,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "S. Thad Trent",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wajid Ali",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46005,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jae Kim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8999,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vincent Retort",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5191,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wupen Yuen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 62250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 253878,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Julia S. Johnson compare nei comitati (Audit e Governance) e nella tabella di proprietà, ma non nell'elenco dei nominee della sezione board: è inclusa come direttore in carica. Titolo, data di nomina e status di indipendenza sono ricavati dalle dichiarazioni sui comitati ('all members ... are independent'), non da una biografia; director_since è null perché non dato.",
+    "Harold L. Covert è citato come membro dell'Audit Committee fino all'assemblea 2025 e come audit committee financial expert, ma non compare né fra i nominee né nell'elenco dei comitati attuali: non è incluso fra i direttori in carica. Il documento non indica la data di uscita dal consiglio; verificare.",
+    "Vincent Retort è incluso fra gli executive officer come da tabella, ma il documento indica che si è ritirato dalla società con effetto dal 2 ottobre 2026, prima della data del documento (6 ottobre 2026).",
+    "Penelope A. Herscher compare con l'etichetta 'BOARD CHAIR' nella sezione dei nominee; il documento non dichiara esplicitamente la carica di presidente del consiglio in forma chiara, quindi il ruolo 'Board Chair' è da verificare.",
+    "Il documento non dichiara esplicitamente l'indipendenza di ciascun nominee: il valore 'independent' di Fletcher, Harris, Herscher, Lillie, Lundstrom, Small e Trent è ricavato dalla dichiarazione del consiglio sui membri dei comitati. Michael E. Hurlston, CEO, è indicato come non indipendente.",
+    "Cambi di presidenza dei comitati con effetto dal 1° ottobre 2026: Pamela F. Fletcher ha sostituito Ian S. Small come Chair del Compensation Committee; Penelope A. Herscher ha sostituito Julia S. Johnson come Chair del Governance Committee. Sono stati riportati i chair aggiornati.",
+    "Il comitato indicato nel documento come 'Governance Committee' (che funge anche da comitato di nomina) è riportato con il nome usato nel documento.",
+    "Isaac H. Harris e' indicato come membro di Audit e Governance 'joined as of July 2026': l'appartenenza è riportata come attuale."
+  ]
+}

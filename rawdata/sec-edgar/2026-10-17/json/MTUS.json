@@ -1,0 +1,475 @@
+{
+  "company": "Metallus Inc.",
+  "ticker": "MTUS",
+  "cik": "0001598428",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-12",
+    "accession": "0001193125-26-102544",
+    "meeting": "2026 annual meeting of shareholders",
+    "ownership_as_of": "2026-02-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526102544/d13614ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-20",
+      "accession": "0001193125-26-061042",
+      "url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526061042/mtus-20251231.htm",
+      "as_of": "2026-02-20"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Mary Ellen Baker",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Nicholas J. Chirekos",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Randall H. Edwards",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Kenneth V. Garcia",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Ellis A. Jones",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Melissa M. Miller",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Donald T. Misheff",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Jamy P. Rankin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Ronald A. Rice",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Michael S. Williams",
+      "roles": [
+        "Director",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Randall A. Wotring",
+      "roles": [
+        "Director",
+        "Nominating and Corporate Governance Committee Chair"
+      ],
+      "director_since": "2014",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Donald T. Misheff",
+        "Mary Ellen Baker",
+        "Nicholas J. Chirekos",
+        "Ellis A. Jones",
+        "Jamy P. Rankin"
+      ],
+      "chair": "Donald T. Misheff",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Kenneth V. Garcia",
+        "Randall H. Edwards",
+        "Melissa M. Miller",
+        "Randall A. Wotring"
+      ],
+      "chair": "Kenneth V. Garcia",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Randall A. Wotring",
+        "Randall H. Edwards",
+        "Ellis A. Jones",
+        "Ronald A. Rice"
+      ],
+      "chair": "Randall A. Wotring",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael S. Williams",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Kristopher R. Westbrooks",
+      "age": 47,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "John M. Zaranec",
+      "age": 44,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kristine C. Syrvalin",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, General Counsel and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Kevin A. Raketich",
+      "age": 59,
+      "positions": [
+        "Executive Vice President and Chief Commercial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-27",
+    "note": "Percentuali calcolate su 41.730.421 azioni ordinarie in circolazione al 27 febbraio 2026. '*' indica una quota inferiore all'1%. Le azioni dei direttori e dirigenti includono le opzioni esercitabili entro il 28 aprile 2026 e le azioni differite, come da note (a) e (b) della tabella.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6322457,
+            "pct": 15.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Ellwood Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4285026,
+            "pct": 10.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed 2016-01-05",
+        "address": "1105 N. Market Street, P.O. Box 8985, Suite 1300, Wilmington, DE 19810"
+      },
+      {
+        "name": "The Vanguard Group Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3185572,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2859588,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-15",
+        "address": "6300 Bee Cave Road, Building One, Austin, TX 78746"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2308590,
+            "pct": 5.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-05-13",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mary Ellen Baker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19775,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nicholas J. Chirekos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19775,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Randall H. Edwards",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 104160,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth V. Garcia",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 104182,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellis A. Jones",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26560,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melissa M. Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5770,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Donald T. Misheff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 107562,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jamy P. Rankin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10970,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronald A. Rice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 135423,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Randall A. Wotring",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 138069,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael S. Williams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 526582,
+            "pct": 1.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin A. Raketich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 133124,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristine C. Syrvalin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 77862,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristopher R. Westbrooks",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 165237,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Zaranec III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1575051,
+          "pct": 3.8
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuota e non è stata ricostruita dalle biografie dei direttori.",
+    "Il documento non dichiara esplicitamente l'indipendenza di ciascun direttore: il valore independent è dedotto dalla dichiarazione del consiglio sull'indipendenza dei membri dei comitati; Michael S. Williams è impostato a false perché è CEO e dipendente della società.",
+    "Il documento fa riferimento a un Chairman non esecutivo del consiglio (compenso aggiuntivo di 90.000 dollari nel 2025), ma non lo identifica per nome nel testo; nessun direttore è marcato come Chairman nei ruoli.",
+    "Nessun direttore risulta uscito dal consiglio alla data del documento: Chirekos, Edwards e Wotring sono nominees per il 2026 e restano in carica.",
+    "La data dell'assemblea annuale 2026 non è indicata nel testo estratto: meeting riporta solo la dicitura generica.",
+    "Riunioni dei comitati: il documento dà un numero per ciascun comitato nel 2025 (Audit 5, Compensation 5, Nominating and Corporate Governance 4), quindi i valori sono riportati separatamente.",
+    "Nella tabella dei detentori oltre il 5%, Ellwood Group, Inc. è riportato con un Schedule 13D/A datato 2016-01-05: il dato potrebbe non essere aggiornato alla data del documento, ma è stato riportato come dichiarato.",
+    "Il blocco named_executive_officers_and_directors include anche Kevin A. Raketich, Kristine C. Syrvalin, Kristopher R. Westbrooks e John M. Zaranec III; il testo non indica se siano NEO o solo executive officer, né la loro carica, perché la sezione executives è assente.",
+    "La classe delle azioni è indicata come 'Common Stock' sulla base dell'intestazione della tabella dei direttori ('Number of Shares of Common Stock Beneficially Owned'); il testo altrove usa 'common shares'. Il documento non riporta altre classi di azioni.",
+    "Nessuna colonna di percentuale di voto (pct_of_votes) è presente nel documento: il campo è null in tutti i blocchi.",
+    "Le percentuali dei detentori oltre il 5% sono calcolate dal documento su 41.730.421 azioni in circolazione al 27 febbraio 2026; le quote di Williams e della riga di gruppo seguono la stessa base.",
+    "executive_officers presi dal Form 10-K del 2026-02-20: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 della Parte III è un semplice rimando alla Parte I e al proxy: l'elenco è stato estratto esclusivamente dalla sezione della Parte I.",
+    "10-K: La biografia di John M. Zaranec contiene la frase 'Division, Chief Financial Officer - Performance Materials', che sembra un errore di formattazione; la carica attuale è stata presa dalla colonna 'Current Position' e dalla frase introduttiva della biografia."
+  ]
+}

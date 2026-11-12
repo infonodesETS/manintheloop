@@ -1,0 +1,390 @@
+{
+  "company": "Fair Isaac Corporation",
+  "ticker": "FICO",
+  "cik": "0000814547",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-27",
+    "accession": "0001193125-26-024403",
+    "meeting": null,
+    "ownership_as_of": "2025-11-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/814547/000119312526024403/d27709ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-11-07",
+      "accession": "0000814547-25-000030",
+      "url": "https://www.sec.gov/Archives/edgar/data/814547/000081454725000030/fico-20250930.htm",
+      "as_of": "2025-09-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Braden R. Kelly",
+      "roles": [
+        "Chairman of the Board",
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Fabiola R. Arredondo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "William J. Lansing",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2006",
+      "independent": false
+    },
+    {
+      "name": "Eva Manolis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Marc F. McMorris",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Joanna Rees",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "David A. Rey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "H. Tayloe Stansbury",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "David A. Rey",
+        "Marc F. McMorris",
+        "H. Tayloe Stansbury"
+      ],
+      "chair": "David A. Rey",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Leadership Development and Compensation Committee",
+      "members": [
+        "Joanna Rees",
+        "Fabiola R. Arredondo",
+        "Braden R. Kelly",
+        "Eva Manolis"
+      ],
+      "chair": "Joanna Rees",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance, Nominating and Executive Committee",
+      "members": [
+        "Braden R. Kelly",
+        "Joanna Rees",
+        "David A. Rey"
+      ],
+      "chair": "Braden R. Kelly",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "William J. Lansing",
+      "age": 67,
+      "positions": [
+        "Chief Executive Officer",
+        "member of the Board of Directors of the Company"
+      ]
+    },
+    {
+      "name": "Steven P. Weber",
+      "age": 62,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer of the Company"
+      ]
+    },
+    {
+      "name": "Nikhil Behl",
+      "age": 51,
+      "positions": [
+        "President, Software of the Company"
+      ]
+    },
+    {
+      "name": "Thomas A. Bowers",
+      "age": 70,
+      "positions": [
+        "Executive Vice President, Corporate Strategy of the Company"
+      ]
+    },
+    {
+      "name": "Richard S. Deal",
+      "age": 58,
+      "positions": [
+        "Executive Vice President, Chief Human Resources Officer of the Company"
+      ]
+    },
+    {
+      "name": "Michael S. Leonard",
+      "age": 60,
+      "positions": [
+        "Vice President, Chief Accounting Officer of the Company"
+      ]
+    },
+    {
+      "name": "Mark R. Scadina",
+      "age": 56,
+      "positions": [
+        "Executive Vice President, General Counsel and Corporate Secretary of the Company"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-11-28",
+    "note": "Percentuali calcolate su 23.690.661 azioni ordinarie in circolazione al 28 novembre 2025. Le azioni sottostanti opzioni esercitabili, RSU, PSU e MSU che maturano entro il 27 gennaio 2026 sono incluse nel numero del singolo detentore. Per Vanguard e BlackRock le percentuali sono quelle dichiarate nei rispettivi deposito 13G/A, non alla data del 28 novembre 2025. '*' indica una partecipazione inferiore all'1%. Il dato pct_of_votes non è riportato nel documento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3069749,
+            "pct": 12.78
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2101659,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "William J. Lansing",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 420431,
+            "pct": 1.77
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Scadina",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 120128,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard S. Deal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64476,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James Wehmann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51911,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanna Rees",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19504,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nikhil Behl",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18744,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Braden R. Kelly",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15888,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eva Manolis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7547,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David A. Rey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7192,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Weber",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6757,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fabiola R. Arredondo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6131,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marc F. McMorris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "H. Tayloe Stansbury",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 540,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 719282,
+          "pct": 3.02
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota e il roster dei dirigenti potrebbe trovarsi nel 10-K. William J. Lansing (CEO) compare fra i direttori.",
+    "Il ticker FICO non compare esplicitamente negli estratti forniti: è stato ripreso dall'indicazione di azienda in input.",
+    "Il documento non riporta una data di assemblea (meeting) nelle sezioni fornite: meeting è null.",
+    "James Wehmann compare nella tabella di proprietà ma il documento precisa che non è più un executive officer; è escluso dalla riga di gruppo, quindi è incluso in named_executive_officers_and_directors come riportato in tabella.",
+    "Coerenza riga di gruppo: la riga dichiara 14 persons, mentre nella tabella individuale compaiono 13 righe (inclusi Wehmann). La nota 17 spiega che il gruppo esclude Wehmann e include executive officer non singolarmente elencati (opzioni 7.664, RSU 2.202, PSU 2.148, MSU 1.857). Il numero di persone nel gruppo non coincide quindi con le righe elencate, ma non è un errore di estrazione.",
+    "Vanguard e BlackRock: le percentuali e i numeri di azioni sono quelli riportati nei loro deposito 13G/A, non aggiornati al 28 novembre 2025, come precisato dal documento.",
+    "Nessun direttore risulta uscito dal consiglio alla data del documento; nessun direttore in uscita o non ricandidato è indicato nelle sezioni fornite.",
+    "Le sezioni committees e board riportano lo stesso assetto per i comitati (Kelly, Arredondo, Rees, Manolis, McMorris, Rey, Stansbury); la matrice è stata letta per colonna e coincide con le assegnazioni in prosa.",
+    "executive_officers presi dal Form 10-K del 2025-11-07: il DEF 14A non li elenca."
+  ]
+}

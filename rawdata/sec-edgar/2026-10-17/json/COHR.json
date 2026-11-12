@@ -1,0 +1,519 @@
+{
+  "company": "Coherent Corp.",
+  "ticker": "COHR",
+  "cik": "0000820318",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-10-09",
+    "accession": "0001104659-26-114847",
+    "meeting": null,
+    "ownership_as_of": "2026-08-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/820318/000110465926114847/tm264288-6_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Joseph J. Corasanti",
+      "roles": [
+        "Director",
+        "Class Three nominee"
+      ],
+      "director_since": "2002",
+      "independent": true
+    },
+    {
+      "name": "Patricia Hatter",
+      "roles": [
+        "Director",
+        "Class Three nominee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Stephen A. Skaggs",
+      "roles": [
+        "Director",
+        "Class Three nominee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Sandeep Vij",
+      "roles": [
+        "Director",
+        "Class Three nominee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "James R. Anderson",
+      "roles": [
+        "Chief Executive Officer and President",
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": false
+    },
+    {
+      "name": "Michael L. Dreyer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Stephen Pagliuca",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Elizabeth A. Patrick",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Howard H. Xia",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Enrico DiGirolamo",
+      "roles": [
+        "Independent Board Chair"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "David L. Motley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Lisa Neal-Graves",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Shaker Sadasivam",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Michelle Sterling",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Risk Committee",
+      "members": [
+        "Stephen A. Skaggs",
+        "Joseph J. Corasanti",
+        "Enrico DiGirolamo",
+        "Michael L. Dreyer",
+        "David L. Motley",
+        "Shaker Sadasivam"
+      ],
+      "chair": "Stephen A. Skaggs",
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Human Capital Committee",
+      "members": [
+        "Michelle Sterling",
+        "Stephen Pagliuca",
+        "Elizabeth A. Patrick",
+        "Sandeep Vij",
+        "Howard H. Xia"
+      ],
+      "chair": "Michelle Sterling",
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Joseph J. Corasanti",
+        "Michael L. Dreyer",
+        "Patricia Hatter",
+        "Lisa Neal-Graves",
+        "Stephen A. Skaggs"
+      ],
+      "chair": "Joseph J. Corasanti",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "James R. Anderson",
+      "age": 54,
+      "positions": [
+        "Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Sherri Luther",
+      "age": 61,
+      "positions": [
+        "Chief Financial Officer and Treasurer"
+      ]
+    },
+    {
+      "name": "Rob Beard",
+      "age": 48,
+      "positions": [
+        "Chief Strategy and Legal Affairs Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Julie S. Eng",
+      "age": 59,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Jeffrey Place",
+      "age": 53,
+      "positions": [
+        "Chief Supply Chain Officer"
+      ]
+    },
+    {
+      "name": "Ilaria Mocciaro",
+      "age": 56,
+      "positions": [
+        "Senior Vice President, Chief Accounting Officer and Corporate Controller"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-31",
+    "note": "Percentuali riferite alle azioni di Common Stock; 196.934.659 azioni in circolazione al 2026-08-31; percentuali arrotondate al decimo. '*' = meno dell'1%. Per i direttori e i dirigenti le azioni includono opzioni esercitabili e RSU che maturano entro 60 giorni dalla data di riferimento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13968914,
+            "pct": 7.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12978940,
+            "pct": 6.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-04-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11006110,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-07-08",
+        "address": "245 Summer Street, Boston, MA 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James R. Anderson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph J. Corasanti",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 85726,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Enrico DiGirolamo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16959,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael L. Dreyer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18085,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patricia Hatter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29392,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David L. Motley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25918,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa Neal-Graves",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14954,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen Pagliuca",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18468,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth A. Patrick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5103,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shaker Sadasivam",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40894,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen A. Skaggs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14313,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle Sterling",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8645,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sandeep Vij",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24467,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Howard H. Xia",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 65551,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sherri Luther",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9484,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rob Beard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10861,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie S. Eng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17252,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey Place",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4724,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Giovanni Barbarossa",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 154815,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 486549,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Quattro candidati alla rielezione (Classe Tre) sono indicati come direttori in carica: Joseph J. Corasanti, Patricia Hatter, Stephen A. Skaggs, Sandeep Vij. Nessun direttore risulta uscito dal consiglio alla data del documento.",
+    "James R. Anderson è amministratore esecutivo (CEO e President): indicato come non indipendente, con 'independent: false'. Non compare fra i comitati.",
+    "Nei comitati, il documento segna con asterisco (*) gli 'audit committee financial expert' (Skaggs, Corasanti, DiGirolamo, Sadasivam). Lo schema non prevede questo campo, quindi l'informazione non è riportata.",
+    "Riunioni dei comitati: i numeri (Audit 7, Compensation 5, Nominating 4) sono ciascuno del singolo comitato per l'esercizio fiscale 2026, come da sezione 'Committee Overview'.",
+    "Giovanni Barbarossa compare nella tabella di proprietà azionaria (154.815 azioni) ma non nel roster dei dirigenti esecutivi, che elenca sei persone; è stato incluso fra i NEO nel blocco named_executive_officers_and_directors in base alla presenza nella tabella del management. Il documento non lo qualifica esplicitamente come NEO nell'estratto.",
+    "Ilaria Mocciaro compare nel roster dei dirigenti esecutivi ma non nella tabella di proprietà azionaria dei direttori e dei dirigenti: non è stata inclusa in named_executive_officers_and_directors perché il documento non ne riporta il dato.",
+    "Riga di gruppo: il documento dichiara '18 persons', ma le righe nominative sono 19 (14 direttori più Luther, Beard, Eng, Place e Barbarossa). Sono state conservate tutte le righe; la discrepanza è da verificare nel documento originale.",
+    "Sandeep Vij: le 24.467 azioni includono 8.792 azioni detenute dal Vij Family 2001 Trust. Il documento le attribuisce a Vij; il trust è un veicolo familiare (ambiguo rispetto a holder_type, qui non applicabile perché la riga è di una persona fisica).",
+    "Le azioni indicate nella riga di ciascun direttore includono opzioni e RSU maturabili entro 60 giorni dal 2026-08-31, come da nota della tabella; le percentuali sono '*' (meno dell'1%) e quindi riportate come null.",
+    "Nessuna riga di aggregazione o di subtotale è presente nella tabella dei detentori oltre il 5%."
+  ]
+}

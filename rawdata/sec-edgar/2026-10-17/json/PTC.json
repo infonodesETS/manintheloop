@@ -1,0 +1,417 @@
+{
+  "company": "PTC",
+  "ticker": "PTC",
+  "cik": "0000857005",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-12-23",
+    "accession": "0001104659-25-124170",
+    "meeting": null,
+    "ownership_as_of": "2025-11-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/857005/000110465925124170/tm2526581-1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Neil Barua",
+      "roles": [
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Mark Benjamin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Robert Bernshteyn",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Janice Chaffin",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Michal Katz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Amar Hanspal",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Paul Lacy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Corinna Lathan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "James Lico",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    },
+    {
+      "name": "Trac Pham",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Michal Katz"
+      ],
+      "chair": null,
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and People Committee",
+      "members": [
+        "Mark Benjamin",
+        "Robert Bernshteyn",
+        "Janice Chaffin"
+      ],
+      "chair": "Mark Benjamin",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance Committee",
+      "members": [
+        "Janice Chaffin"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [
+        "Mark Benjamin",
+        "Janice Chaffin"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Neil Barua",
+      "age": 48,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Kristian Talvitie",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Robert Dahdah",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, Chief Revenue Officer"
+      ]
+    },
+    {
+      "name": "Jon Stevenson",
+      "age": 65,
+      "positions": [
+        "Executive Vice President, Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Aaron von Staats",
+      "age": 60,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-11-30",
+    "note": "Percentuali calcolate su 119.364.941 azioni in circolazione al 30 novembre 2025 (per Barua, più 7.628 azioni derivanti da RSU maturabili entro il 29 gennaio 2026). * = meno dell'1%. — = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "T. Rowe Price Investment Management, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17783204,
+            "pct": 14.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-11-14",
+        "address": "101 E. Pratt Street, Baltimore, MD 21201"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13535231,
+            "pct": 11.34
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12258557,
+            "pct": 10.27
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-05",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark Benjamin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9683,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Bernshteyn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1765,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janice Chaffin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41976,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amar Hanspal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8816,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michal Katz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3375,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Lacy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 53893,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Corinna Lathan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7604,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James Lico",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Trac Pham",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neil Barua",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89164,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristian Talvitie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 67335,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Dahdah",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6178,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Catherine Kniker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26302,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jon Stevenson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 436,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aaron von Staats",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28789,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 345136,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Paul Lacy e Amar Hanspal lasceranno il consiglio alla scadenza del mandato a febbraio 2026; sono inclusi perché in carica alla data del documento.",
+    "Corinna Lathan, James Lico e Trac Pham compaiono come nominee nella matrice delle competenze e nella tabella dei comitati, ma senza biografia nella finestra board: i dati biografici e la data di ingresso di Lathan non sono disponibili (director_since null per Lathan).",
+    "Data di ingresso di James Lico (2025-10) e Trac Pham (2025-03) ricavata dalle note sotto la tabella delle proprietà azionarie.",
+    "Appartenenza ai comitati: la tabella dei comitati è stata appiattita in testo e non permette di attribuire con certezza tutte le celle. Le liste dei membri sono ricavate dalle biografie (Benjamin, Bernshteyn, Chaffin, Katz); i membri di Audit e Corporate Governance potrebbero essere incompleti e Lacy, Hanspal, Lathan, Lico e Pham non sono attribuiti ad alcun comitato.",
+    "Presidenti di comitato: il documento identifica come Chair solo Mark Benjamin (Compensation and People); per Audit Committee, Corporate Governance Committee e Cybersecurity Committee il presidente non è determinabile dal testo fornito, quindi chair è null.",
+    "Riunioni 2025: 8 (Audit), 4 (Compensation and People), 4 (Corporate Governance), 4 (Cybersecurity), ciascuna riferita al singolo comitato.",
+    "Catherine Kniker compare nella tabella delle proprietà azionarie come dirigente/NEO, ma non è nel roster degli executive officers della sezione executives: il dato è riportato nei detentori, non nel roster.",
+    "Mark Benjamin, Janice Chaffin: nessuna riga di aggregazione o subtotale nelle tabelle dei detentori oltre il 5%.",
+    "Paul Lacy: 53.893 azioni comprendono 42.000 azioni detenute indirettamente tramite trust, come da nota del documento.",
+    "James Lico e Trac Pham: la tabella riporta '—' (zero azioni); le RSU assegnate (2.262 e 3.792) non sono azioni possedute e non sono conteggiate.",
+    "Il numero di persone nella riga di gruppo (15) è coerente con le 15 righe di direttori e dirigenti in named_executive_officers_and_directors.",
+    "Il documento non indica una data di assemblea (meeting) esplicita nelle finestre fornite: meeting è null."
+  ]
+}

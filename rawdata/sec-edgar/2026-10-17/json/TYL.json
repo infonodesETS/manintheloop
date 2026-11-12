@@ -1,0 +1,370 @@
+{
+  "company": "Tyler Technologies, Inc.",
+  "ticker": "TYL",
+  "cik": "0000860731",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-23",
+    "accession": "0000860731-26-000022",
+    "meeting": "2026 Annual Meeting of Shareholders",
+    "ownership_as_of": "2026-03-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000022/tyl-20260323.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "H. Lynn Moore, Jr.",
+      "roles": [
+        "Director",
+        "Chief Executive Officer and President"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "Glenn A. Carter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Margot L. Carter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Brenda A. Cline",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Ronnie D. Hawkins, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Cecil W. Jones",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Daniel M. Pope",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Andrew D. Teed",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "John S. Marr, Jr.",
+      "roles": [
+        "Executive Chair"
+      ],
+      "director_since": null,
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Brenda A. Cline",
+        "Daniel M. Pope",
+        "Andrew D. Teed"
+      ],
+      "chair": "Brenda A. Cline",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Daniel M. Pope",
+        "Glenn A. Carter",
+        "Ronnie D. Hawkins, Jr."
+      ],
+      "chair": "Daniel M. Pope",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Glenn A. Carter",
+        "Margot L. Carter",
+        "Brenda A. Cline"
+      ],
+      "chair": "Glenn A. Carter",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "John S. Marr, Jr.",
+        "H. Lynn Moore, Jr."
+      ],
+      "chair": "John S. Marr, Jr.",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "H. Lynn Moore, Jr.",
+      "age": 58,
+      "positions": [
+        "Chief Executive Officer and President",
+        "Director"
+      ]
+    },
+    {
+      "name": "Brian K. Miller",
+      "age": 67,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jeffrey D. Puckett",
+      "age": 59,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Abigail M. Diaz",
+      "age": 46,
+      "positions": [
+        "Chief Administrative Officer and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-13",
+    "note": "Beneficial ownership al 13 marzo 2026 su 42.453.700 azioni ordinarie in circolazione; pct è la percentuale di classe (Percent of Class). * = meno dell'1%; — = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5570120,
+            "pct": 13.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 13 filed 2025-07-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4071227,
+            "pct": 9.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 17 filed 2025-02-05",
+        "address": "55 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Glenn A. Carter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10750,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Margot L. Carter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 970,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brenda A. Cline",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6973,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronnie D. Hawkins, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2971,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cecil W. Jones",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 425,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel M. Pope",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3323,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew D. Teed",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7570,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John S. Marr, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55933,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "H. Lynn Moore, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 241144,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian K. Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey D. Puckett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52454,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Abigail M. Diaz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12838,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 451051,
+          "pct": 1.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "John S. Marr, Jr. non si ricandida: lascerà il consiglio al termine dell'assemblea 2026. È ancora in carica alla data del documento, quindi è incluso in board_of_directors. Il suo director_since non è indicato nel documento.",
+    "Per John S. Marr, Jr. l'indipendenza è stata valutata come false: ricopre il ruolo di Executive Chair ed è presidente dell'Executive Committee. Il documento non dichiara esplicitamente il suo stato di indipendenza.",
+    "Cecil W. Jones è un nuovo candidato proposto da un direttore non esecutivo; il documento non indica la sua data di ingresso (director_since: null). Il suo stato di indipendenza è stato valutato come true, perché è un direttore non esecutivo, ma il documento non lo dichiara esplicitamente.",
+    "Il consiglio attuale comprende nove persone: gli otto nominee più John S. Marr, Jr., che lascerà alla fine dell'assemblea 2026. Il documento indica che il consiglio sarà composto da otto persone dopo l'assemblea.",
+    "H. Lynn Moore, Jr. è sia direttore sia CEO/President: compare sia in board_of_directors sia in executive_officers, e in security_ownership nel blocco NEO e direttori.",
+    "John S. Marr, Jr. è Named Executive Officer e Executive Chair, ma non compare nel roster dei dirigenti come executive officer, e il documento non dichiara la sua età. Non è incluso in executive_officers.",
+    "L'Executive Committee non richiede indipendenza per i suoi membri: John S. Marr, Jr. e H. Lynn Moore, Jr. non sono indipendenti. Il sanity check sul vincolo comitati ⊆ indipendenti non si applica a questo comitato.",
+    "Executive Committee: il documento indica le riunioni come 'Periodically', senza un numero. Per questo meetings è null e meetings_year è null.",
+    "Tutti i comitati sono indicati con i nomi completi usati nel documento. La tabella dei comitati dà per il 2025 cinque riunioni all'Audit Committee, quattro al Compensation Committee e quattro al Nominating and Governance Committee.",
+    "Nella tabella di proprietà, i detentori oltre il 5% (The Vanguard Group e BlackRock, Inc.) sono entità istituzionali. Nessun direttore o dirigente supera il 5% della classe.",
+    "La riga di gruppo dichiara 12 persone. Le 12 righe di direttori e NEO sono coerenti con questo numero: 7 direttori più 5 NEO, incluso Moore.",
+    "La riga di gruppo è coerente con la somma delle sue componenti: 166.531 + 238.495 + 9.040 + 36.985 = 451.051.",
+    "Il documento non indica un numero di voti separato: pct_of_votes è null per tutte le righe, perché la colonna misura la percentuale di classe."
+  ]
+}

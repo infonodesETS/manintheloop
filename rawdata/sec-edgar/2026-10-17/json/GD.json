@@ -1,0 +1,601 @@
+{
+  "company": "General Dynamics Corporation",
+  "ticker": "GD",
+  "cik": "0000040533",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-27",
+    "accession": "0001308179-26-000168",
+    "meeting": null,
+    "ownership_as_of": "2026-03-11",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/40533/000130817926000168/gd014595-def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-30",
+      "accession": "0000040533-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000006/gd-20251231.htm",
+      "as_of": "2026-01-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Richard D. Clarke",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "Rudy F. deLeon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014-09",
+      "independent": true
+    },
+    {
+      "name": "Cecil D. Haney",
+      "roles": [
+        "Director",
+        "Chair, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2019-03",
+      "independent": true
+    },
+    {
+      "name": "Charles W. Hooper",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-06",
+      "independent": true
+    },
+    {
+      "name": "Mark M. Malcolm",
+      "roles": [
+        "Director",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "2015-08",
+      "independent": true
+    },
+    {
+      "name": "James N. Mattis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Phebe N. Novakovic",
+      "roles": [
+        "Chairman and Chief Executive Officer"
+      ],
+      "director_since": "2012-05",
+      "independent": false
+    },
+    {
+      "name": "C. Howard Nye",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "2018-05",
+      "independent": true
+    },
+    {
+      "name": "Catherine B. Reynolds",
+      "roles": [
+        "Director",
+        "Chair, Finance and Benefit Plans Committee",
+        "Audit Committee Financial Expert"
+      ],
+      "director_since": "2017-05",
+      "independent": true
+    },
+    {
+      "name": "Laura J. Schumacher",
+      "roles": [
+        "Director",
+        "Lead Director",
+        "Chair, Compensation Committee"
+      ],
+      "director_since": "2014-02",
+      "independent": true
+    },
+    {
+      "name": "Robert K. Steel",
+      "roles": [
+        "Director",
+        "Chair, Sustainability Committee"
+      ],
+      "director_since": "2021-02",
+      "independent": true
+    },
+    {
+      "name": "John G. Stratton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020-02",
+      "independent": true
+    },
+    {
+      "name": "Peter A. Wall",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-08",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "C. Howard Nye",
+        "Cecil D. Haney",
+        "Charles W. Hooper",
+        "Mark M. Malcolm",
+        "James N. Mattis",
+        "Catherine B. Reynolds",
+        "John G. Stratton"
+      ],
+      "chair": "C. Howard Nye",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Laura J. Schumacher",
+        "Rudy F. deLeon",
+        "C. Howard Nye",
+        "Robert K. Steel"
+      ],
+      "chair": "Laura J. Schumacher",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance and Benefit Plans Committee",
+      "members": [
+        "Richard D. Clarke",
+        "Rudy F. deLeon",
+        "Mark M. Malcolm",
+        "Catherine B. Reynolds",
+        "Robert K. Steel",
+        "John G. Stratton",
+        "Peter A. Wall"
+      ],
+      "chair": "Catherine B. Reynolds",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Cecil D. Haney",
+        "Richard D. Clarke",
+        "Charles W. Hooper",
+        "Laura J. Schumacher",
+        "Peter A. Wall"
+      ],
+      "chair": "Cecil D. Haney",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Sustainability Committee",
+      "members": [
+        "Robert K. Steel",
+        "Rudy F. deLeon",
+        "Catherine B. Reynolds",
+        "Peter A. Wall"
+      ],
+      "chair": "Robert K. Steel",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jason W. Aiken",
+      "age": 53,
+      "positions": [
+        "Executive Vice President, Combat Systems and Mission Systems"
+      ]
+    },
+    {
+      "name": "Shane A. Berg",
+      "age": 54,
+      "positions": [
+        "Senior Vice President, Human Resources and Administration"
+      ]
+    },
+    {
+      "name": "Christopher J. Brady",
+      "age": 63,
+      "positions": [
+        "Vice President of the company",
+        "President of General Dynamics Mission Systems"
+      ]
+    },
+    {
+      "name": "Mark L. Burns",
+      "age": 66,
+      "positions": [
+        "Executive Vice President of the company",
+        "President of Gulfstream Aerospace Corporation"
+      ]
+    },
+    {
+      "name": "Danny Deep",
+      "age": 56,
+      "positions": [
+        "President of the company"
+      ]
+    },
+    {
+      "name": "Gregory S. Gallopoulos",
+      "age": 66,
+      "positions": [
+        "Senior Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "M. Amy Gilliland",
+      "age": 51,
+      "positions": [
+        "Executive Vice President",
+        "President of General Dynamics Information Technology"
+      ]
+    },
+    {
+      "name": "Kimberly A. Kuryea",
+      "age": 58,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "William A. Moss",
+      "age": 62,
+      "positions": [
+        "Vice President and Controller"
+      ]
+    },
+    {
+      "name": "Phebe N. Novakovic",
+      "age": 68,
+      "positions": [
+        "Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "David Paddock",
+      "age": 58,
+      "positions": [
+        "Vice President of the company",
+        "President of General Dynamics Land Systems"
+      ]
+    },
+    {
+      "name": "Mark Rayha",
+      "age": 59,
+      "positions": [
+        "Vice President of the company",
+        "President of Electric Boat Corporation"
+      ]
+    },
+    {
+      "name": "Robert E. Smith",
+      "age": 58,
+      "positions": [
+        "Executive Vice President, Marine Systems"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-11",
+    "note": "La tabella dei dirigenti riporta: Shares Owned (azioni possedute, incluse quote 401(k) e azioni soggette a restrizioni), Options Exercisable within 60 Days e Total Common Stock. Il valore di shares è la colonna Shares Owned; il Total include anche le opzioni. * = meno dell'1%. La nota non specifica la base della Percentage of Class, che nella tabella dei dirigenti è indicata solo per il gruppo. Per la tabella dei detentori oltre il 5%, * non compare e la percentuale è quella dichiarata.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Longview Asset Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27060944,
+            "pct": 10.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Informazioni fornite dal detentore (nota a); nessun deposito citato",
+        "address": "222 North LaSalle Street, Suite 700, Chicago, IL 60601"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24238215,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-10-30 (dati al 2025-09-30)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Newport Trust Company, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13576419,
+            "pct": 5.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Informazioni fornite dal detentore (nota c); voto condiviso sulle azioni del General Dynamics Stock Fund",
+        "address": "1627 Eye Street, NW, Suite 950, Washington, DC 20006"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14500792,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-01-31 (dati al 2023-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Richard D. Clarke",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1285,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rudy F. deLeon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5741,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cecil D. Haney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3019,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles W. Hooper",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1308,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark M. Malcolm",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10643,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James N. Mattis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3455,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Phebe N. Novakovic",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 802357,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "C. Howard Nye",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6632,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Catherine B. Reynolds",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7217,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura J. Schumacher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13478,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert K. Steel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3096,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John G. Stratton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8275,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter A. Wall",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3969,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason W. Aiken",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 184491,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark L. Burns",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 73887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Danny Deep",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34551,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kimberly A. Kuryea",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 88081,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 25,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1635644,
+          "pct": 1.4
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers lasciato vuoto.",
+    "James N. Mattis non compare tra i 12 nominee per il 2026 ma risulta direttore in carica (membro dell'Audit Committee alla data del 2026-03-11, citato come non-management director indipendente e nella tabella di proprietà). Incluso come direttore attuale; verificare se non sarà ricandidato. La data di inizio mandato (director_since) non è riportata nella finestra: null.",
+    "Gli incarichi di Mattis in Finance and Benefit Plans, Nominating and Corporate Governance e Sustainability non sono determinabili dal testo estratto (la matrice dei comitati è troncata): non incluso in questi comitati.",
+    "La matrice dei comitati è appiattita e poco leggibile; l'appartenenza ai comitati Finance and Benefit Plans, Nominating and Corporate Governance e Sustainability è ricostruita dalle biografie dei direttori, mentre quella dell'Audit Committee e della Compensation Committee è confermata dalle liste dei membri correnti nella finestra dei comitati.",
+    "Riunioni 2025: Audit Committee 8 e Compensation Committee 4. Per Finance and Benefit Plans, Nominating and Corporate Governance e Sustainability il numero di riunioni non compare nella finestra estratta: meetings lasciato null.",
+    "Phebe N. Novakovic è Chairman e CEO e non è indipendente; non è membro di comitati.",
+    "Il gruppo di direttori e dirigenti dichiara 'persons: 25', mentre la tabella nominativa ne riporta 17 (13 direttori e 4 NEO): i conteggi non coincidono; dato riportato così com'è.",
+    "Nella tabella dei dirigenti, shares è la colonna 'Shares Owned' (azioni possedute), mentre le opzioni esercitabili entro 60 giorni sono nella colonna Options Exercisable e il Total Common Stock le somma: il dato di Total non è stato usato come shares.",
+    "La colonna Percentage of Class della tabella dei dirigenti non è specificata per singola riga (solo '*' per meno dell'1% e '1.4%' per il gruppo): pct è null per le righe individuali; il gruppo riporta 1.4 come da documento.",
+    "Newport Trust Company, LLC è fiduciario e gestore degli investimenti del General Dynamics Stock Fund del 401(k), con voto condiviso: è incluso tra i detentori oltre il 5% perché così riportato dal documento, ma la natura del possesso è diversa da quella di un azionista ordinario. Fonte e dati forniti dal detentore stesso.",
+    "Il dato di BlackRock, Inc. è aggiornato al 2023-12-31 (Schedule 13G del 2024-01-31), quindi non è coerente con la data del documento (2026-03-11).",
+    "Il dato di The Vanguard Group è aggiornato al 2025-09-30 (Schedule 13G del 2025-10-30), non alla data del documento.",
+    "Il dato di Longview Asset Management, LLC è fornito dal detentore stesso (nota a), senza riferimento a un deposito SEC: source riporta la provenienza dichiarata.",
+    "executive_officers presi dal Form 10-K del 2026-01-30: il DEF 14A non li elenca.",
+    "10-K: Il Item 10 della Parte III non elenca i dirigenti: rimanda alla sezione 'Information About Our Executive Officers' della Parte I e al proxy statement 2026. L'elenco è stato quindi tratto interamente dalla Parte I.",
+    "10-K: Nella finestra della Parte I compare isolato il numero '29' tra le righe di Gilliland e Kuryea; è probabilmente un'intestazione o un numero di pagina e non è stato attribuito a nessun dirigente.",
+    "10-K: Le età sono state attribuite leggendo il numero finale di ciascuna voce; il testo è privo di separazione tabellare, quindi va verificato sul documento originale.",
+    "10-K: Le cariche sono quelle attuali indicate nella voce di ciascun dirigente; sono omessi gli incarichi passati della biografia (per esempio le precedenti cariche di Aiken e di Deep)."
+  ]
+}

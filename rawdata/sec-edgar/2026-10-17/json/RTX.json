@@ -1,0 +1,509 @@
+{
+  "company": "RTX Corporation",
+  "ticker": "RTX",
+  "cik": "0000101829",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-09",
+    "accession": "0001308179-26-000036",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-02-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/101829/000130817926000036/rtx014050-def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-06",
+      "accession": "0000101829-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000006/rtx-20251231.htm",
+      "as_of": "2026-02-06"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Tracy A. Atkinson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Christopher T. Calio",
+      "roles": [
+        "Chairman",
+        "President",
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Leanne G. Caret",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Bernard A. Harris, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "George R. Oliver",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Ellen M. Pawlikowski",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Denise L. Ramos",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Fredric G. Reynolds",
+      "roles": [
+        "Independent Lead Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Brian C. Rogers",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Robert O. Work",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Leanne G. Caret",
+        "Bernard A. Harris, Jr.",
+        "Denise L. Ramos",
+        "Robert O. Work"
+      ],
+      "chair": "Leanne G. Caret",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Public Policy Committee",
+      "members": [
+        "Robert O. Work",
+        "Denise L. Ramos",
+        "Fredric G. Reynolds"
+      ],
+      "chair": "Robert O. Work",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Brian C. Rogers",
+        "Tracy A. Atkinson",
+        "Christopher T. Calio",
+        "George R. Oliver"
+      ],
+      "chair": "Brian C. Rogers",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Capital & Compensation Committee",
+      "members": [
+        "Tracy A. Atkinson",
+        "George R. Oliver",
+        "Ellen M. Pawlikowski",
+        "Fredric G. Reynolds",
+        "Brian C. Rogers"
+      ],
+      "chair": "Tracy A. Atkinson",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Special Activities Committee",
+      "members": [
+        "Christopher T. Calio",
+        "Leanne G. Caret",
+        "Bernard A. Harris, Jr.",
+        "Ellen M. Pawlikowski",
+        "Robert O. Work"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Troy Brunk",
+      "age": 56,
+      "positions": [
+        "President, Collins Aerospace (since July 2024)"
+      ]
+    },
+    {
+      "name": "Christopher T. Calio",
+      "age": 52,
+      "positions": [
+        "Chairman (since April 2025)",
+        "Chief Executive Officer (since May 2024)",
+        "President, RTX Corporation (since March 2023)"
+      ]
+    },
+    {
+      "name": "Kevin G. DaSilva",
+      "age": 62,
+      "positions": [
+        "Senior Vice President, Treasurer, RTX Corporation (since April 2020)"
+      ]
+    },
+    {
+      "name": "Shane G. Eddy",
+      "age": 61,
+      "positions": [
+        "President, Pratt & Whitney (since March 2022)"
+      ]
+    },
+    {
+      "name": "Philip J. Jasper",
+      "age": 57,
+      "positions": [
+        "President, Raytheon (since January 2024)"
+      ]
+    },
+    {
+      "name": "Amy L. Johnson",
+      "age": 51,
+      "positions": [
+        "Senior Vice President, Controller, RTX Corporation (since September 2021)"
+      ]
+    },
+    {
+      "name": "Ramsaran Maharajh, Jr.",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and General Counsel, RTX Corporation (since December 2021)"
+      ]
+    },
+    {
+      "name": "Neil G. Mitchill, Jr.",
+      "age": 50,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer, RTX Corporation (since April 2021)"
+      ]
+    },
+    {
+      "name": "Dantaya M. Williams",
+      "age": 51,
+      "positions": [
+        "Executive Vice President & Chief Human Resources Officer, RTX Corporation (since June 2020)"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-17",
+    "note": "Tabella dei direttori e dirigenti al 17 febbraio 2026; nessun direttore o il gruppo supera l'1% di RTX Common Stock, quindi le percentuali sono null. La tabella dei detentori oltre il 5% è al 31 dicembre 2025. Per le classi, il documento riporta solo il numero totale di azioni beneficiarie (SAR, RSU e DSU convertibili inclusi).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 124986171,
+            "pct": 9.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2026-01-29; Schedule 13G/A filed 2024-02-13",
+        "address": "P.O. Box 2600, Valley Forge, PA 19482-2600"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 104920146,
+            "pct": 7.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2026-02-12; Schedule 13G/A filed 2024-01-26",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 91884588,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2026-02-13; Schedule 13G/A filed 2024-01-30",
+        "address": "1 Congress Street, Suite 1, Boston, MA 02114-2016"
+      },
+      {
+        "name": "Capital Research Global Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76140352,
+            "pct": 5.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2026-02-11; Schedule 13G/A filed 2024-02-09",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Tracy A. Atkinson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19402,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher T. Calio",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 421213,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leanne G. Caret",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bernard A. Harris, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10754,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George R. Oliver",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32081,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellen M. Pawlikowski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18678,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Denise L. Ramos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28458,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fredric G. Reynolds",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46843,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian C. Rogers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42442,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James A. Winnefeld, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert O. Work",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22356,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "N. Mitchill, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 259711,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "P. Jasper",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 99097,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "S. Eddy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 118630,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "T. Brunk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10959,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 19,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1406743,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuoto e non è stato ricostruito dalle biografie.",
+    "James A. Winnefeld, Jr. si è dimesso dal Consiglio il 5 marzo 2026, prima della data del documento: escluso da board_of_directors, ma incluso in named_executive_officers_and_directors perché figura come direttore alla data di riferimento della tabella (17 febbraio 2026).",
+    "Winnefeld era presidente del Special Activities Committee: la presidenza risulta vacante (chair null) e il documento annuncia la nomina di un nuovo presidente prima o subito dopo l'assemblea 2026. Winnefeld è escluso anche dai membri del comitato e dal Governance and Public Policy Committee.",
+    "Il comitato indicato nel titolo come 'Governance and Public Policy' è chiamato nel testo 'Governance Committee': il nome usato è 'Governance and Public Policy Committee'.",
+    "George R. Oliver assumerà la presidenza del Governance and Public Policy Committee dal 30 aprile 2026; alla data del documento non ne è ancora membro nella tabella e non è incluso tra i suoi membri.",
+    "Christopher T. Calio è dirigente attivo (non indipendente) ma siede nel Finance Committee e nello Special Activities Committee: è mantenuto nei comitati come riportato dal documento, in deroga al controllo di indipendenza dei membri dei comitati.",
+    "Il numero di riunioni è riportato per ciascun comitato separatamente, per l'esercizio 2025.",
+    "Riga di gruppo: il documento dichiara 'persons: 19' (direttori e dirigenti, con dirigenti elencati nel 10-K), ma le righe nominative sono 15 (11 direttori incluso Winnefeld e 4 NEO non direttori). I due numeri sono riportati entrambi.",
+    "Le percentuali individuali di direttori e dirigenti non sono riportate (sotto l'1%): pct impostato a null.",
+    "Brian C. Rogers: le 42.442 azioni includono 5.000 azioni detenute con potere di voto e investimento congiunto, come indicato dalla nota 5 del documento.",
+    "Le date dei dati differiscono: la tabella dei direttori e dirigenti è al 17 febbraio 2026, quella dei detentori oltre il 5% al 31 dicembre 2025. security_ownership.as_of riporta la data della tabella del management.",
+    "Le classi di azioni sono indicate come 'Common Stock' (RTX Common Stock) senza ulteriori classi nel documento.",
+    "Le quattro righe dei detentori oltre il 5% provengono dalla finestra ownership_5pct; i dati 13F sono più recenti dei rispettivi Schedule 13G/A indicati come fonte.",
+    "executive_officers presi dal Form 10-K del 2026-02-06: il DEF 14A non li elenca.",
+    "10-K: L'elenco proviene dall'Item 10 della Parte III; la sezione della Parte I non compare nella finestra fornita, quindi non è stato possibile confrontarlo con quella.",
+    "10-K: Christopher T. Calio ha tre cariche attuali nel documento (Chairman, Chief Executive Officer, President); sono state riportate tutte e tre, con le rispettive date.",
+    "10-K: L'età è riferita al 6/2/2026, come indicato nella colonna 'Age as of' della tabella."
+  ]
+}

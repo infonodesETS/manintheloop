@@ -1,0 +1,406 @@
+{
+  "company": "Materion Corporation",
+  "ticker": "MTRN",
+  "cik": "0001104657",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-26",
+    "accession": "0001104657-26-000022",
+    "meeting": "Annual meeting of shareholders, 2026-05-07",
+    "ownership_as_of": "2026-01-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000022/mtrn-20260326.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "accession": "0001104657-26-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000011/mtrn-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Thomas T. Edman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-01",
+      "independent": true
+    },
+    {
+      "name": "Vinod M. Khilnani",
+      "roles": [
+        "Director",
+        "Non-Executive Chairman of the Board"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Emily M. Liggett",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Robert J. Phillippy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Patrick Prevost",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "N. Mohan Reddy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Craig S. Shular",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "Darlene J. S. Solomon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Robert B. Toth",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Jugal K. Vijayvargiya",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2017",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Risk Committee",
+      "members": [
+        "Robert J. Phillippy",
+        "Emily M. Liggett",
+        "Robert B. Toth",
+        "Thomas T. Edman",
+        "N. Mohan Reddy"
+      ],
+      "chair": "Robert J. Phillippy",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Human Capital Committee",
+      "members": [
+        "Craig S. Shular",
+        "Darlene J. S. Solomon",
+        "Vinod M. Khilnani",
+        "Patrick Prevost"
+      ],
+      "chair": "Craig S. Shular",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating, Governance, and Corporate Responsibility Committee",
+      "members": [
+        "Vinod M. Khilnani",
+        "Emily M. Liggett",
+        "Thomas T. Edman",
+        "Robert J. Phillippy",
+        "Patrick Prevost",
+        "Craig S. Shular",
+        "Robert B. Toth",
+        "N. Mohan Reddy",
+        "Darlene J. S. Solomon"
+      ],
+      "chair": "Vinod M. Khilnani",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jugal K. Vijayvargiya",
+      "age": 57,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Shelly M. Chadwick",
+      "age": 54,
+      "positions": [
+        "Vice President, Finance and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Gregory R. Chemnitz",
+      "age": 68,
+      "positions": [
+        "Vice President, General Counsel and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-31",
+    "note": "Tabella dei dirigenti e direttori: dati al 31 gennaio 2026 salvo diversa indicazione. Le azioni comprendono le SAR esercitabili entro 60 giorni dal 31 gennaio 2026. * = meno dell'1% delle azioni ordinarie in circolazione; — = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3114866,
+            "pct": 15.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed April 30, 2025 (dati al 31 marzo 2025)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2344101,
+            "pct": 11.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 30, 2026 (dati al 31 dicembre 2025)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Capital Research Global Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1838484,
+            "pct": 8.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 13, 2025 (dati al 31 dicembre 2024)",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1298956,
+            "pct": 6.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed August 11, 2025 (dati al 30 giugno 2025)",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Shelly M. Chadwick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29677,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory R. Chemnitz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25444,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas T. Edman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vinod M. Khilnani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37658,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Emily M. Liggett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5045,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert J. Phillippy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17174,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick Prevost",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15998,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "N. Mohan Reddy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45161,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Craig S. Shular",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58296,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Darlene J. S. Solomon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28417,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert B. Toth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26826,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jugal K. Vijayvargiya",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 290495,
+            "pct": 1.4
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 580191,
+          "pct": 2.8
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel DEF 14A: executive_officers lasciato vuoto. Le NEO (Vijayvargiya, Chadwick, Chemnitz) compaiono nella CD&A e nella tabella di proprietà, ma non sono state ricostruite come roster dirigenti.",
+    "Comitati non in forma di matrice: appartenenza e riunioni ricavate dalla prosa nella finestra board. Le riunioni sono dichiarate per l'esercizio 2025 per ciascun comitato separatamente.",
+    "N. Mohan Reddy è in carica alla data del documento (membro di due comitati, compreso nella tabella di compenso 2025 e nella tabella di proprietà) ma non compare fra i nove nominee. Il documento non dichiara la sua uscita né la data di inizio del mandato: director_since è null. Incluso fra i direttori attuali; uscita da verificare.",
+    "Thomas T. Edman è nominee con director_since gennaio 2026; il documento dice che è membro di Audit and Risk e NGCR, quindi è incluso nei comitati.",
+    "Il consiglio dichiara 10 direttori, di cui 9 indipendenti: Vijayvargiya è l'unico non indipendente, coerente con i dati.",
+    "Riga di gruppo: il documento dice 'including the Named Executive Officers (11 persons)' con persons = 11, ma le righe nominative elencano 12 persone (10 direttori più Chadwick e Chemnitz). Tenute entrambe le informazioni: 11 come dichiarato nella riga di gruppo, 12 righe nominative.",
+    "Nota (4) della tabella di proprietà riferisce 'January 31, 2025' mentre la data della tabella è 31 gennaio 2026: probabile refuso nel documento, riportato come dato dichiarato nella tabella.",
+    "La finestra ownership_5pct duplica la finestra ownership (stesso contenuto): unificate in un'unica sezione senza duplicare i detentori.",
+    "Nessuna riga di aggregazione o subtotale nella tabella dei >5%; nessun direttore o dirigente oltre il 5% di azioni ordinarie (Vijayvargiya 1,4%).",
+    "Nessun dato di pct_of_votes: il documento riporta solo la percentuale della classe Common Stock.",
+    "executive_officers presi dal Form 10-K del 2026-02-12: il DEF 14A non li elenca.",
+    "10-K: La data di riferimento dell'elenco e delle età non è indicata nel documento: as_of lasciato null.",
+    "10-K: La sezione della Parte I rimanda all'Item 10; i dati sono stati estratti dall'Item 10, che è la fonte più completa.",
+    "10-K: Per ciascun dirigente sono state riportate solo le cariche attuali; le date e le posizioni passate presenti nella biografia (ad esempio Delphi Electronics and Safety, The Timken Company) non sono incluse."
+  ]
+}

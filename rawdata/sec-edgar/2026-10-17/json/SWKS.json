@@ -1,0 +1,385 @@
+{
+  "company": "Skyworks Solutions, Inc.",
+  "ticker": "SWKS",
+  "cik": "0000004127",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-03",
+    "accession": "0001104659-26-039476",
+    "meeting": null,
+    "ownership_as_of": "2026-03-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/4127/000110465926039476/tm261577-5_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Christine King",
+      "roles": [
+        "Chairman of the Board"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Philip G. Brace",
+      "roles": [
+        "Chief Executive Officer and President",
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Alan S. Batey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Kevin L. Beebe",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Eric J. Guerin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Suzanne E. McBride",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "David P. McGlade",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Schriesheim",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Maryann Turcke",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "David P. McGlade",
+        "Eric J. Guerin",
+        "Christine King"
+      ],
+      "chair": "David P. McGlade",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Talent Committee",
+      "members": [
+        "Alan S. Batey",
+        "Christine King",
+        "Maryann Turcke"
+      ],
+      "chair": "Alan S. Batey",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Kevin L. Beebe",
+        "Suzanne E. McBride",
+        "David P. McGlade",
+        "Maryann Turcke"
+      ],
+      "chair": "Kevin L. Beebe",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [],
+  "security_ownership": {
+    "as_of": "2026-03-01",
+    "note": "Percentuali calcolate su 150.405.903 azioni di common stock in circolazione al 1 marzo 2026. * = meno dell'1%. Le azioni soggette a opzioni o diritti esercitabili entro 60 giorni sono considerate in circolazione solo per il calcolo della percentuale del relativo detentore. Non sono incluse le RSU e le PSA non vestate con vesting oltre 60 giorni, riportate in nota.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20714323,
+            "pct": 13.77
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-31",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Pzena Investment Management LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17552125,
+            "pct": 11.67
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-04",
+        "address": "320 Park Ave., 8th floor, New York, NY 10022"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16885842,
+            "pct": 11.23
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-07-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Alan S. Batey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11995,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin L. Beebe",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 53005,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philip G. Brace",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17249,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philip Carter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 683,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karilee A. Durham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34537,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Liam K. Griffin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 211585,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric J. Guerin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7590,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Reza Kasnavi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27775,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christine King",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25329,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Suzanne E. McBride",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7598,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David P. McGlade",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 47266,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Schriesheim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 63153,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kris Sennesael",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32748,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert J. Terry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23194,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maryann Turcke",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6427,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 325801,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è lasciata vuota e non ricostruita dalle biografie.",
+    "Robert A. Schriesheim risulta nel consiglio attuale; l'indipendenza non è dichiarata esplicitamente nella finestra fornita ed è dedotta dal fatto che il consiglio ha nove direttori attuali e la maggioranza indipendenti. Verificare.",
+    "Philip G. Brace è CEO e Presidente oltre che direttore: marcato come non indipendente sulla base della carica di dirigente, non di una dichiarazione esplicita del documento.",
+    "Robert A. Schriesheim è stato membro dell'Audit Committee e del Compensation and Talent Committee fino al 29 maggio 2025 (nomina a Interim CFO); non è più membro attuale dei comitati e non è incluso nei membri sopra.",
+    "Robert A. Schriesheim ha ricoperto la carica di Interim CFO da maggio a settembre 2025.",
+    "Liam K. Griffin compare nella tabella di proprietà ma non è più direttore né dirigente alla data del 1 marzo 2026: ha lasciato il consiglio e l'incarico di executive officer il 17 febbraio 2025, con fine rapporto di lavoro il 16 maggio 2025. È incluso nel blocco named_executive_officers_and_directors perché presente nella tabella; la sua partecipazione è riferita al 31 ottobre 2024 (nota 7).",
+    "Kris Sennesael compare nella tabella di proprietà ma ha cessato di essere executive officer e dipendente il 9 maggio 2025; non è direttore alla data del documento. È incluso nel blocco named_executive_officers_and_directors perché presente nella tabella (nota 9: escluso dal totale di gruppo).",
+    "La riga di gruppo dichiara 13 persone; il blocco named_executive_officers_and_directors contiene 15 righe, coerentemente con l'esclusione di Griffin e Sennesael dal gruppo indicata in nota 9. Il dato è coerente ma diverso dal numero di righe.",
+    "La riga di gruppo mostra il valore '(*)' per la percentuale: impostata a null come meno dell'1%.",
+    "Le azioni di Philip Carter, Liam K. Griffin, Reza Kasnavi, Robert J. Terry, Karilee A. Durham, Kris Sennesael e Philip G. Brace includono quote del piano 401(k) o di altra natura indicate nelle note: i valori sono riportati come dichiarati.",
+    "Non sono presenti righe di aggregazione o subtotale nella tabella dei detentori oltre il 5%; nessun direttore o dirigente supera il 5% del capitale ordinario.",
+    "La tabella riporta solo la classe 'common stock'; nessun'altra classe è dichiarata nel documento fornito.",
+    "La percentuale per Vanguard, Pzena e BlackRock è riferita al common stock in circolazione (150.405.903 azioni al 1 marzo 2026) come dichiarato nel documento; pct_of_votes non è dichiarato e resta null.",
+    "executive_officers: elenco formale dei dirigenti non disponibile, né nel DEF 14A né nel Form 10-K del 2025-11-07. I dirigenti con compensi dichiarati sono in named_executive_officers_and_directors.",
+    "10-K: La finestra contiene solo l'Item 10 della Parte III, che incorpora per riferimento le informazioni sui direttori e sui dirigenti dal proxy statement per l'Assemblea annuale 2026; il documento fornito non elenca gli executive officer.",
+    "10-K: La sezione della Parte I con l'elenco dei dirigenti non è presente nella finestra fornita, quindi non è possibile estrarre nomi, età o cariche.",
+    "10-K: Nessuna data di riferimento (as_of) è indicata nella finestra fornita."
+  ]
+}

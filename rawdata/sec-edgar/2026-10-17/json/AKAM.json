@@ -1,0 +1,460 @@
+{
+  "company": "Akamai Technologies, Inc.",
+  "ticker": "AKAM",
+  "cik": "0001086222",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-31",
+    "accession": "0001086222-26-000042",
+    "meeting": "2026 Annual Meeting of Stockholders, 13 maggio 2026",
+    "ownership_as_of": "2026-02-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1086222/000108622226000042/akam-20260330.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Janaki Akella",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Sharon Bowen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Marianne Brown",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Bas Burger",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Monte Ford",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Dan Hesse",
+      "roles": [
+        "Director",
+        "Chair of the Board"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Tom Killalea",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Tom Leighton",
+      "roles": [
+        "Director",
+        "Chief Executive Officer"
+      ],
+      "director_since": "1998",
+      "independent": false
+    },
+    {
+      "name": "Jonathan Miller",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Madhu Ranganathan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Ben Verwaayen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Janaki Akella",
+        "Sharon Bowen",
+        "Marianne Brown",
+        "Tom Killalea",
+        "Madhu Ranganathan"
+      ],
+      "chair": "Madhu Ranganathan",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "ESG Committee",
+      "members": [
+        "Sharon Bowen",
+        "Bas Burger",
+        "Monte Ford",
+        "Dan Hesse",
+        "Jonathan Miller",
+        "Ben Verwaayen"
+      ],
+      "chair": "Ben Verwaayen",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Janaki Akella",
+        "Marianne Brown",
+        "Tom Killalea",
+        "Madhu Ranganathan"
+      ],
+      "chair": "Marianne Brown",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "TL&C Committee",
+      "members": [
+        "Bas Burger",
+        "Monte Ford",
+        "Dan Hesse",
+        "Jonathan Miller",
+        "Ben Verwaayen"
+      ],
+      "chair": "Monte Ford",
+      "meetings": 7,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Tom Leighton",
+      "age": 69,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Aaron Ahola",
+      "age": 56,
+      "positions": [
+        "Executive Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Robert Blumofe",
+      "age": 61,
+      "positions": [
+        "Executive Vice President and Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Paul Joseph",
+      "age": 52,
+      "positions": [
+        "Executive Vice President, Global Sales and Services"
+      ]
+    },
+    {
+      "name": "Adam Karon",
+      "age": 54,
+      "positions": [
+        "Chief Operating Officer and General Manager, Cloud Technology Group"
+      ]
+    },
+    {
+      "name": "Edward McGowan",
+      "age": 55,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer",
+        "Treasurer"
+      ]
+    },
+    {
+      "name": "Kim Salem-Jackson",
+      "age": 49,
+      "positions": [
+        "Executive Vice President and Chief Marketing Officer"
+      ]
+    },
+    {
+      "name": "Mani Sundaram",
+      "age": 50,
+      "positions": [
+        "Executive Vice President and General Manager, Security Technology Group"
+      ]
+    },
+    {
+      "name": "Anthony Williams",
+      "age": 52,
+      "positions": [
+        "Executive Vice President and Chief Human Resources Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-20",
+    "note": "Percentuali calcolate su 145.013.967 azioni ordinarie in circolazione al 20 febbraio 2026. * = meno dell'1%. La titolarità include le azioni acquisibili entro 60 giorni dal 20 febbraio 2026. Salvo diversa indicazione, indirizzo c/o Akamai Technologies, Inc., 145 Broadway, Cambridge, Massachusetts 02142.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18376759,
+            "pct": 12.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10026738,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Janaki Akella",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sharon Bowen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14493,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marianne Brown",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18201,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bas Burger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Monte Ford",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27036,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dan Hesse",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34845,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tom Killalea",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22868,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tom Leighton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2759456,
+            "pct": 1.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jonathan Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33806,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Madhu Ranganathan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12249,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ben Verwaayen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30080,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward McGowan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28428,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Joseph",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49688,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Adam Karon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41199,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mani Sundaram",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45936,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 3317206,
+          "pct": 2.3
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Monte Ford e Ben Verwaayen (direttori dal 2013) lasceranno il consiglio dopo l'assemblea del 13 maggio 2026: sono inclusi come direttori in carica, con uscita prevista a valle dell'assemblea. Il consiglio è dichiarato di undici persone, coerente con i nove nominee più questi due.",
+    "Bill Wagner si è dimesso dal consiglio il 24 febbraio 2025: escluso da board_of_directors. Nella tabella delle remunerazioni dei direttori risulta come ex membro del TL&C Committee.",
+    "Appartenenza di Monte Ford e Verwaayen ai comitati ESG e TL&C ricostruita dalla matrice appiattita (righe 'X X*' e 'X* X') e dalla composizione del TL&C Committee indicata nella sezione Compensation Committee Interlocks; l'attribuzione precisa delle colonne va verificata sul documento originale.",
+    "Il blocco all_executive_officers_and_directors_as_group dichiara 18 persone. Il blocco named_executive_officers_and_directors contiene 15 persone (11 direttori, incluso Leighton, più 4 NEO senza Leighton). Gli executive officers non NEO e non direttori (Aaron Ahola, Robert Blumofe, Kim Salem-Jackson, Anthony Williams) portano il totale teorico a 19: il numero di 18 non torna con l'elenco e va verificato.",
+    "Le percentuali pct_of_votes non sono dichiarate nel documento (c'è una sola classe, Common Stock): impostate a null.",
+    "Non sono presenti altri detentori oltre il 5% fra direttori o dirigenti: Dr. Tom Leighton detiene l'1,9%."
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "company": "SunCoke Energy, Inc.",
+  "ticker": "SXC",
+  "cik": "0001514705",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-01",
+    "accession": "0001193125-26-136032",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1514705/000119312526136032/d78067ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-20",
+      "accession": "0001514705-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1514705/000151470526000010/sxc-20251231.htm",
+      "as_of": "2026-02-20"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Martha Z. Carnes",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Katherine T. Gates",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Ralph M. Della Ratta, Jr.",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Susan R. Landahl",
+      "roles": [
+        "Director",
+        "Governance Committee Chair"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Arthur F. Anton",
+      "roles": [
+        "Director",
+        "Non-executive Chairman of the Board"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Andrei A. Mikhalevsky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Michael W. Lewis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Martha Z. Carnes",
+        "Ralph M. Della Ratta, Jr.",
+        "Michael W. Lewis"
+      ],
+      "chair": "Martha Z. Carnes",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Ralph M. Della Ratta, Jr.",
+        "Arthur F. Anton",
+        "Susan R. Landahl",
+        "Andrei A. Mikhalevsky"
+      ],
+      "chair": "Ralph M. Della Ratta, Jr.",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Susan R. Landahl",
+        "Arthur F. Anton",
+        "Michael W. Lewis",
+        "Andrei A. Mikhalevsky"
+      ],
+      "chair": "Susan R. Landahl",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Katherine T. Gates",
+      "age": 49,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Mark W. Marinko",
+      "age": 64,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "P. Michael Hardesty",
+      "age": 63,
+      "positions": [
+        "Senior Vice President, Commercial Operations, Business Development, Terminals and International Coke"
+      ]
+    },
+    {
+      "name": "Sarah E. Albert",
+      "age": 47,
+      "positions": [
+        "Senior Vice President, Chief Legal and Administrative Officer"
+      ]
+    },
+    {
+      "name": "Karl A. Zabiello",
+      "age": 40,
+      "positions": [
+        "Vice President, Controller"
+      ]
+    },
+    {
+      "name": "Shantanu Agrawal",
+      "age": 39,
+      "positions": [
+        "Vice President, Finance and Treasurer"
+      ]
+    },
+    {
+      "name": "John F. Quanci",
+      "age": 64,
+      "positions": [
+        "Vice President, Engineering and Technology and Chief Technology Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Quote beneficiarie al 31 marzo 2026. La colonna Total è la somma di Shares of Common Stock e Right to Acquire Within 60 days (il documento indica il 15 marzo 2026 come data di riferimento per i diritti). * = meno dell'1%. Le azioni includono le common stock units (deferred share units) dei direttori non dirigenti, senza diritto di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13001418,
+            "pct": 15.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed 2025-04-28; holdings as of 2025-03-31",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6765652,
+            "pct": 8.08
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed 2024-02-13; holdings as of 2023-12-31",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6561503,
+            "pct": 7.75
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-08-08; holdings as of 2025-06-30",
+        "address": "State Street Financial Center, 1 Congress Street, Suite 1, Boston, MA 02111"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5529872,
+            "pct": 6.53
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed 2025-07-15; holdings as of 2025-06-30",
+        "address": "6300 Bee Cave Road, Building One, Austin, TX 78746"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Arthur F. Anton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 99902,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martha Z. Carnes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 112191,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ralph M. Della Ratta, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 122883,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan R. Landahl",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 141378,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael W. Lewis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76219,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrei A. Mikhalevsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48269,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Katherine T. Gates",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 356851,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark W. Marinko",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71798,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "P. Michael Hardesty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 337750,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sarah E. Albert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6599,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John F. Quanci",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34092,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1407932,
+          "pct": 1.66
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è lasciato vuoto e non è ricostruito dalle biografie.",
+    "La sezione committees non è presente come finestra dedicata: l'appartenenza ai comitati è stata letta dalla tabella 'The Board of Directors and its Committees' nella finestra board, usando la tabella di composizione alla data del 1 aprile 2026 (non quella post-assemblea).",
+    "Michael W. Lewis: il documento dice che intende ritirarsi dal consiglio alla data della Assemblea annuale 2026. È incluso come direttore in carica alla data del documento, con uscita da segnalare. Non è presente una biografia né la data di primo incarico, quindi director_since è null.",
+    "Katherine T. Gates è indicata come President e Chief Executive Officer; l'indipendenza è false per ruolo di dirigente, il documento non la qualifica esplicitamente come non indipendente.",
+    "Per i comitati, la matrice cita membri e presidenti alla data del 1 aprile 2026; il documento riporta anche la composizione post-assemblea 2026, nella quale Lewis non compare più e non sono indicate riunioni per il 2026.",
+    "Le riunioni dei comitati (Audit 8, Compensation 4, Governance 3) si riferiscono all'esercizio 2025; le riunioni del consiglio (10) non hanno un campo nello schema e sono omesse.",
+    "Nella tabella di proprietà, la colonna Total somma le azioni detenute e i diritti di acquisto entro 60 giorni; sono inclusi anche i deferred share units dei direttori non dirigenti. Il documento indica come data di riferimento per i diritti il 15 marzo 2026, mentre il titolo della tabella indica il 31 marzo 2026.",
+    "Le percentuali individuali nella tabella management sono * (meno dell'1%) e quindi null; la riga di gruppo riporta 1,66%.",
+    "I dati dei detentori oltre il 5% hanno date di riferimento diverse (31/03/2025, 31/12/2023, 30/06/2025, 30/06/2025) e non sono allineati alla data del 31 marzo 2026 della tabella management; i valori sono riportati come dichiarati.",
+    "La tabella dei detentori oltre il 5% è stampata in due finestre (ownership e ownership_5pct); i dati coincidono e non ci sono righe di aggregazione o subtotale da escludere. Nessun direttore o dirigente supera il 5% della classe Common Stock.",
+    "pct_of_votes è null per tutti i detentori perché il documento non riporta una percentuale dei diritti di voto.",
+    "executive_officers presi dal Form 10-K del 2026-02-20: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 della Parte III rinvia al proxy statement per il 2026 e non contiene l'elenco: i dati sono stati estratti esclusivamente dalla sezione Parte I (\"Information about our Executive Officers\").",
+    "10-K: Il nome di John F. Quanci è riportato senza il titolo \"Dr.\", come da regole di estrazione."
+  ]
+}

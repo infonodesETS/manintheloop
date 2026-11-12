@@ -1,0 +1,374 @@
+{
+  "company": "Roper Technologies, Inc.",
+  "ticker": "ROP",
+  "cik": "0000882835",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-07",
+    "accession": "0001193125-26-145481",
+    "meeting": null,
+    "ownership_as_of": "2026-02-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/882835/000119312526145481/d204543ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-24",
+      "accession": "0000882835-26-000009",
+      "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283526000009/rop-20251231.htm",
+      "as_of": "2026-02-24"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Shellye L. Archambeau",
+      "roles": [
+        "Former Chief Executive Officer, MetricStream, Inc."
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Amy Woods Brinkley",
+      "roles": [
+        "Founder, AWB Consulting, LLC"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Irene M. Esteves",
+      "roles": [
+        "Former Chief Financial Officer, Spirit AeroSystems Holdings, Inc."
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "L. Neil Hunn",
+      "roles": [
+        "President and Chief Executive Officer, Roper Technologies, Inc."
+      ],
+      "director_since": "2018",
+      "independent": false
+    },
+    {
+      "name": "Robert D. Johnson",
+      "roles": [
+        "Former Chairman, Spirit AeroSystems Holdings, Inc."
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Thomas P. Joyce, Jr.",
+      "roles": [
+        "Retired President and Chief Executive Officer, Danaher Corporation"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "John F. Murphy",
+      "roles": [
+        "Former Executive Vice President and Chief Financial Officer, Adobe Inc."
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Laura G. Thatcher",
+      "roles": [
+        "Retired Head of Executive Compensation Practice, Alston & Bird LLP"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Richard F. Wallman",
+      "roles": [
+        "Retired Chief Financial Officer and Senior Vice President, Honeywell International Inc."
+      ],
+      "director_since": "2007",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Irene M. Esteves",
+        "Thomas P. Joyce, Jr.",
+        "John F. Murphy",
+        "Richard F. Wallman"
+      ],
+      "chair": "Richard F. Wallman",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Amy Woods Brinkley",
+        "Robert D. Johnson",
+        "Thomas P. Joyce, Jr.",
+        "John F. Murphy",
+        "Laura G. Thatcher"
+      ],
+      "chair": "Laura G. Thatcher",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Shellye L. Archambeau",
+        "Amy Woods Brinkley",
+        "Irene M. Esteves",
+        "Robert D. Johnson"
+      ],
+      "chair": "Shellye L. Archambeau",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive",
+      "members": [
+        "Shellye L. Archambeau",
+        "Amy Woods Brinkley",
+        "Laura G. Thatcher",
+        "Richard F. Wallman"
+      ],
+      "chair": "Amy Woods Brinkley",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "L. Neil Hunn",
+      "age": 53,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Jason P. Conley",
+      "age": 50,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "John K. Stipancich",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, General Counsel and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-28",
+    "note": "Beneficial ownership al 28 febbraio 2026, salvo diversa indicazione nelle note. Include le azioni acquisibili entro il 29 aprile 2026 tramite opzioni (Hunn 341.472, Conley 73.938, Stipancich 70.133; gruppo 485.543). Include anche il restricted stock non vestato con diritto di voto (gruppo 51.061). * = meno dell'1%. Le percentuali sono sulla classe (Percent of Class).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12477080,
+            "pct": 11.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-30 (dati al 2025-12-31)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9638792,
+            "pct": 9.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25 (dati al 2023-12-31)",
+        "address": "50 Hudson Yards, New York, NY, 10001"
+      },
+      {
+        "name": "WindAcre Partnership LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7100000,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Stockholder analysis report di terze parti (stima al 2026-03-19); la società non ha ricevuto Schedule 13D o 13G",
+        "address": "2200 Post Oak Boulevard, Suite 1580 Houston, TX 77056"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Shellye L. Archambeau",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7857,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy Woods Brinkley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18184,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason P. Conley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 105633,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Irene M. Esteves",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3438,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "L. Neil Hunn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 531591,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert D. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4157,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas P. Joyce, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4838,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John F. Murphy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1496,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura G. Thatcher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20924,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard F. Wallman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12574,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John K. Stipancich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 108965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 819657,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A (dichiarata nel documento come probabilmente nel 10-K): executive_officers è vuoto. Hunn, CEO, compare solo tra i direttori.",
+    "Executive Committee: il documento non riporta il numero di riunioni né l'esercizio; meetings e meetings_year sono null.",
+    "Il comitato è denominato 'Executive' nel documento, senza la parola 'Committee'; il nome è riportato come scritto.",
+    "L. Neil Hunn è l'unico direttore non indipendente, secondo la determinazione del consiglio; non siede in alcun comitato.",
+    "Vanguard Group: la tabella riporta i dati del Schedule 13G/A del 2026-01-30 (al 2025-12-31). Un 13G/A successivo del 2026-03-27 segnala una riorganizzazione interna e che alcune controllate riporteranno separatamente; il dato in tabella potrebbe non essere più attuale.",
+    "BlackRock, Inc.: il dato deriva dal Schedule 13G/A del 2024-01-25 (al 2023-12-31) e può non essere aggiornato.",
+    "WindAcre Partnership LLC: nella tabella il nome è scritto 'Windacre', nella nota 'WindAcre'; è stato usato 'WindAcre Partnership LLC' come nella nota. La società non ha ricevuto Schedule 13D o 13G e non ha verificato il dato indipendentemente; holder_type 'entity' per il suffisso LLC.",
+    "Riga di gruppo: la tabella indica 'All current directors and named executive officers as a group (11 individuals)' e la percentuale è '*' (meno dell'1%), quindi pct è null. Il numero di persone (11) è coerente con le 11 righe di named_executive_officers_and_directors.",
+    "Nessun direttore dichiarato uscito dal consiglio alla data del documento.",
+    "executive_officers presi dal Form 10-K del 2026-02-24: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 contiene solo un rimando alla parte supplementare in fondo alla Parte I, che è la fonte dei dati estratti."
+  ]
+}

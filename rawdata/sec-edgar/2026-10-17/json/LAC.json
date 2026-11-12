@@ -1,0 +1,415 @@
+{
+  "company": "Lithium Americas Corp.",
+  "ticker": "LAC",
+  "cik": "0001966983",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-05-06",
+    "accession": "0001193125-26-207522",
+    "meeting": null,
+    "ownership_as_of": "2026-04-23",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1966983/000119312526207522/lac-20260501.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Kelvin Dushnisky",
+      "roles": [
+        "Executive Chair"
+      ],
+      "director_since": "2023-10",
+      "independent": false
+    },
+    {
+      "name": "Yuan Gao",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Michael Brown",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Fabiana Chubbs",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Jonathan Evans",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2023-10",
+      "independent": false
+    },
+    {
+      "name": "Jinhee Magie",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Philip Montgomery",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Clayton Walker",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-05-04",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Risk Committee",
+      "members": [
+        "Michael Brown",
+        "Fabiana Chubbs"
+      ],
+      "chair": "Fabiana Chubbs",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation and Leadership Committee",
+      "members": [
+        "Yuan Gao",
+        "Philip Montgomery"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Governance and Nomination Committee",
+      "members": [
+        "Yuan Gao",
+        "Fabiana Chubbs"
+      ],
+      "chair": "Yuan Gao",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Safety and Sustainability Committee",
+      "members": [
+        "Michael Brown",
+        "Jonathan Evans",
+        "Philip Montgomery"
+      ],
+      "chair": "Michael Brown",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Technical Committee",
+      "members": [
+        "Yuan Gao",
+        "Jonathan Evans",
+        "Philip Montgomery"
+      ],
+      "chair": "Philip Montgomery",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Kelvin Dushnisky",
+      "age": 62,
+      "positions": [
+        "Executive Chair"
+      ]
+    },
+    {
+      "name": "Jonathan Evans",
+      "age": 56,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Luke Colton",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Richard Gerspacher",
+      "age": 51,
+      "positions": [
+        "Executive Vice President, Capital Projects and Operations"
+      ]
+    },
+    {
+      "name": "Tim Crowley",
+      "age": 57,
+      "positions": [
+        "Senior Vice President, Government and External Relations"
+      ]
+    },
+    {
+      "name": "Edward Grandy",
+      "age": 57,
+      "positions": [
+        "Senior Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Rob Russell-Smith",
+      "age": 46,
+      "positions": [
+        "Senior Vice President, Finance"
+      ]
+    },
+    {
+      "name": "Aubree Barnum",
+      "age": 41,
+      "positions": [
+        "Vice President, Human Resources"
+      ]
+    },
+    {
+      "name": "Alexi Zawadzki",
+      "age": 54,
+      "positions": [
+        "Vice President, Corporate Development"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-23",
+    "note": "Azioni detenute al 23 aprile 2026; percentuali calcolate su 348.821.406 azioni in circolazione. * = meno dell'1%. Le quote di alcuni direttori includono deferred share units (DSU) come indicato in nota.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Orion Resource Partners (USA) LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 29226660,
+            "pct": 7.73
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G al 31 dicembre 2025, depositato il 17 febbraio 2026",
+        "address": "1045 Avenue of the Americas, New York, NY 10018"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Aubree Barnum",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 99118,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Brown",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 124107,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fabiana Chubbs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 122547,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luke Colton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 50285,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tim Crowley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 181011,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kelvin Dushnisky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 221052,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jonathan Evans",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 791192,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yuan Gao",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 140682,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard Gerspacher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 146838,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward Grandy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 173322,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jinhee Magie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 95110,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philip Montgomery",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 73374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rob Russell-Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1844,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alexi Zawadzki",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 96233,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Shares",
+          "shares": 2316715,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Jinhee Magie non è candidata alla rielezione e resta in carica fino all'assemblea annuale 2026: è inclusa tra i direttori attuali. Nel documento in input non compare il profilo individuale: director_since è null e le sue cariche di comitato non sono state estratte dal testo (la matrice di appartenenza ai comitati ha i simboli non leggibili).",
+    "Clayton Walker è stato nominato direttore con decorrenza 4 maggio 2026; risulta indipendente. Non compare nella tabella della proprietà azionaria (data di riferimento 23 aprile 2026, precedente alla nomina). Nel profilo risulta 'LAC Committees: None', mentre le nomine in A&R Committee, S&S Committee (Presidente) e Technical Committee sono previste con effetto dopo l'assemblea: non incluse nei comitati attuali.",
+    "Il documento prevede la ricomposizione di tutti i comitati dopo l'assemblea annuale; l'output riporta la composizione attuale (secondo i profili 'LAC Committees'), non quella futura.",
+    "La matrice 'Board Committee Participation' è appiattita nel testo senza i simboli di Presidente/Membro: l'appartenenza è stata ricavata dalle righe 'LAC Committees' dei profili. L'appartenenza di Jinhee Magie all'A&R Committee non è verificabile dal testo (la nota 4 indica che tutti i membri dell'A&R Committee sono esperti finanziari o alfabetizzati; Magie è indicata come esperta finanziaria, quindi potrebbe essere membro).",
+    "Il Compensation and Leadership Committee non ha un Presidente indicato nel testo: chair è null.",
+    "Il numero di riunioni per comitato e l'esercizio di riferimento non compaiono nell'input: meetings e meetings_year sono null.",
+    "Jonathan Evans (non indipendente, CEO) è membro dello Safety and Sustainability Committee e del Technical Committee, come indicato dal documento. Ciò non è coerente con il controllo 'comitati ⊆ indipendenti': l'appartenenza è mantenuta come riportata nel documento.",
+    "Kelvin Dushnisky, Executive Chair, non è membro di alcun comitato (partecipa a riunioni in qualità di Executive Chair), e per questo non compare in alcuna lista di membri.",
+    "Orion Resource Partners (USA) LP: le 29.226.660 azioni sono quelle emettibili alla conversione delle note convertibili senior da 195 milioni di dollari, soggette a un limite di proprietà beneficiaria del 9,99%. Secondo il documento, alla data del 23 aprile 2026 Orion non aveva convertito alcuna nota e non deteneva azioni. Il dato è riportato come da tabella, con la fonte dichiarata.",
+    "Il detentore >5% Orion è un'entità (LP). Nessun direttore o dirigente supera il 5% delle azioni in circolazione: i maggiori (Jonathan Evans, 791.192 azioni) sono sotto l'1%.",
+    "La tabella della proprietà azionaria riporta una sola classe, 'Common Shares' (indicata come 'Number of Common Shares held'); non sono presenti altre classi.",
+    "Nella riga di gruppo la percentuale è indicata come '*%' (meno dell'1%): pct è null. Il numero di persone (14) corrisponde alle 14 righe della tabella dei direttori e dirigenti, senza discrepanze.",
+    "La data dell'assemblea annuale non è indicata nel testo in input: meeting è null."
+  ]
+}

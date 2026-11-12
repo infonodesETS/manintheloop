@@ -1,0 +1,495 @@
+{
+  "company": "F5, Inc.",
+  "ticker": "FFIV",
+  "cik": "0001048695",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-26",
+    "accession": "0001048695-26-000012",
+    "meeting": null,
+    "ownership_as_of": "2026-01-06",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000012/ffiv-20260126.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-11-25",
+      "accession": "0001048695-25-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869525000157/ffiv-20250930.htm",
+      "as_of": "2025-11-25"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "François Locoh-Donou",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2017-04",
+      "independent": false
+    },
+    {
+      "name": "Marianne N. Budnik",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-10",
+      "independent": true
+    },
+    {
+      "name": "Elizabeth L. Buse",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020-09",
+      "independent": true
+    },
+    {
+      "name": "Michel Combes",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Michael L. Dreyer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Tami Erwin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Julie M. Gonzalez",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-10",
+      "independent": true
+    },
+    {
+      "name": "Alan J. Higginson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Maya McReynolds",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-10",
+      "independent": true
+    },
+    {
+      "name": "Nikhil Mehta",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-01",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Michel Combes",
+        "Michael L. Dreyer",
+        "Tami Erwin",
+        "Julie M. Gonzalez",
+        "Maya McReynolds"
+      ],
+      "chair": "Julie M. Gonzalez",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Risk Committee",
+      "members": [
+        "Michael L. Dreyer",
+        "Marianne N. Budnik",
+        "Elizabeth L. Buse",
+        "Julie M. Gonzalez",
+        "Nikhil Mehta"
+      ],
+      "chair": "Marianne N. Budnik",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Talent and Compensation Committee",
+      "members": [
+        "Michel Combes",
+        "Alan J. Higginson",
+        "Nikhil Mehta",
+        "Elizabeth L. Buse",
+        "Tami Erwin"
+      ],
+      "chair": "Elizabeth L. Buse",
+      "meetings": 10,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating Committee",
+      "members": [
+        "Michael L. Dreyer",
+        "Alan J. Higginson",
+        "Marianne N. Budnik",
+        "Elizabeth L. Buse",
+        "Maya McReynolds"
+      ],
+      "chair": "Michael L. Dreyer",
+      "meetings": 8,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "François Locoh-Donou",
+      "age": 54,
+      "positions": [
+        "President, Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Edward Werner",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Tom Fountain",
+      "age": 49,
+      "positions": [
+        "Executive Vice President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Chad Whalen",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Revenue Officer"
+      ]
+    },
+    {
+      "name": "Lyra Schramm",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and Chief People Officer"
+      ]
+    },
+    {
+      "name": "Kunal Anand",
+      "age": 42,
+      "positions": [
+        "Executive Vice President and Chief Innovation Officer"
+      ]
+    },
+    {
+      "name": "John Maddison",
+      "age": 62,
+      "positions": [
+        "Executive Vice President and Chief Product Marketing and Technology Alliances Officer"
+      ]
+    },
+    {
+      "name": "Angelique Okeke",
+      "age": 50,
+      "positions": [
+        "Executive Vice President and General Counsel"
+      ]
+    },
+    {
+      "name": "Michael Montoya",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Technology Operations Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-06",
+    "note": "* = meno dell'1%. Percentuali calcolate sulle azioni ordinarie in circolazione al 6 gennaio 2026. Le quote includono RSU esigibili entro 60 giorni da tale data, e non quelle soggette a vesting per performance futura. La riga di gruppo comprende i direttori e i dirigenti attuali alla stessa data, esclusi Pelzer, Rogers e Klein.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7435868,
+            "pct": 13.09
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed on February 13, 2024",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6189770,
+            "pct": 10.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed on December 6, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "Hotchkis & Wiley Capital Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4835512,
+            "pct": 8.51
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed on November 14, 2025",
+        "address": "601 S. Figueroa Street 39th Fl, Los Angeles, CA 90017"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3102464,
+            "pct": 5.46
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed on January 29, 2024",
+        "address": "State Street Financial Center, 1 Congress Street, Suite 1, Boston, MA 02114-2016"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "François Locoh-Donou",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 156557,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cooper Werner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6692,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank Pelzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37995,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tom Fountain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2699,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Maddison",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8050,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chad Whalen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27957,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marianne N. Budnik",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1207,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth L. Buse",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5013,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michel Combes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4871,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael L. Dreyer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4376,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tami Erwin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1908,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie M. Gonzalez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 480,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alan J. Higginson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8610,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maya McReynolds",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 480,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nikhil Mehta",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10109,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 274763,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel DEF 14A: executive_officers lasciato vuoto (probabilmente nel 10-K).",
+    "Data dell'assemblea annuale non presente nelle finestre fornite: meeting impostato a null.",
+    "Michael L. Dreyer incluso come consigliere in carica: non sarà ricandidato e resterà in consiglio fino all'assemblea annuale. Data di prima nomina non riportata nel testo: director_since impostato a null.",
+    "Alan J. Higginson incluso come consigliere in carica: si ritira e non sarà ricandidato in occasione dell'assemblea. Data di prima nomina non riportata nel testo: director_since impostato a null.",
+    "Il consiglio attuale conta dieci direttori; l'assemblea propone otto nominativi, e il numero autorizzato di direttori scenderà a otto all'apertura delle votazioni.",
+    "Peter Klein ha dato le dimissioni con effetto dal 25 aprile 2025 e Michael Montoya ha lasciato il consiglio prima della data del documento: esclusi da board_of_directors. Per Montoya la data di uscita non è indicata nel testo fornito.",
+    "Frank Pelzer è in pensione dal 18 novembre 2024 ma compare nella tabella dei detentori: incluso nel blocco named_executive_officers_and_directors, escluso dalla riga di gruppo come da nota 12.",
+    "Hotchkis & Wiley: la nota 5 scrive 'LCC'; il nome è riportato come 'LLC' nel testo principale.",
+    "La riga di gruppo dichiara 18 persone, mentre la tabella individuale ne elenca 15: le tre restanti (dirigenti non nominati singolarmente) non compaiono nelle righe nominative.",
+    "Nessuna riga di aggregazione o subtotale nella tabella dei detentori oltre il 5%.",
+    "Il comitato 'Talent and Compensation Committee' è così intestato nel documento, mentre il testo usa anche la forma 'Compensation Committee'; usato il nome dell'intestazione.",
+    "Riunioni per comitato riportate separatamente per l'esercizio fiscale 2025 (Audit 6, Talent and Compensation 10, Nominating 8, Risk 4): nessuna somma tra comitati.",
+    "executive_officers presi dal Form 10-K del 2025-11-25: il DEF 14A non li elenca.",
+    "10-K: La finestra della Parte III (Item 10) rimanda al proxy e alla Parte I; i dati sono stati estratti dalla tabella 'Executive Officers of the Registrant' della Parte I.",
+    "10-K: Kunal Anand: la tabella indica 'Chief Innovation Officer', mentre la biografia dice che dal ottobre 2025 è 'Executive Vice President and Chief Product Officer' (dall'ottobre 2024 al 2025 era Chief Innovation Officer). Riportata la carica della tabella; verificare la carica attuale.",
+    "10-K: John Maddison: la tabella indica 'Chief Product Marketing and Technology Alliances Officer', mentre la biografia dice che dal ottobre 2025 è 'Chief Marketing Officer'. Riportata la carica della tabella; verificare la carica attuale."
+  ]
+}

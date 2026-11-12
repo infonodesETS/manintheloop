@@ -1,0 +1,417 @@
+{
+  "company": "NVIDIA Corporation",
+  "ticker": "NVDA",
+  "cik": "0001045810",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-05-12",
+    "accession": "0001045810-26-000036",
+    "meeting": "Annual Meeting of Stockholders, 24 giugno 2026 (virtuale)",
+    "ownership_as_of": "2026-03-23",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000036/nvda-20260512.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "accession": "0001045810-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "as_of": "2026-02-20"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Tench Coxe",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1993",
+      "independent": true
+    },
+    {
+      "name": "John O. Dabiri",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Jen-Hsun Huang",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "1993",
+      "independent": false
+    },
+    {
+      "name": "Dawn Hudson",
+      "roles": [
+        "Director",
+        "Chairperson CC"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Harvey C. Jones",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1993",
+      "independent": true
+    },
+    {
+      "name": "Melissa B. Lora",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Stephen C. Neal",
+      "roles": [
+        "Director",
+        "Lead Director",
+        "Chairperson NCGC"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "A. Brooke Seawell",
+      "roles": [
+        "Director",
+        "Chairperson AC"
+      ],
+      "director_since": "1997",
+      "independent": true
+    },
+    {
+      "name": "Aarti Shah",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Mark A. Stevens",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2008",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "AC",
+      "members": [
+        "A. Brooke Seawell",
+        "Tench Coxe",
+        "Harvey C. Jones",
+        "Melissa B. Lora",
+        "Aarti Shah"
+      ],
+      "chair": "A. Brooke Seawell",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "CC",
+      "members": [
+        "Dawn Hudson",
+        "Tench Coxe",
+        "John O. Dabiri",
+        "Aarti Shah",
+        "Mark A. Stevens"
+      ],
+      "chair": "Dawn Hudson",
+      "meetings": 3,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "NCGC",
+      "members": [
+        "Stephen C. Neal",
+        "John O. Dabiri",
+        "Harvey C. Jones",
+        "Melissa B. Lora",
+        "Mark A. Stevens"
+      ],
+      "chair": "Stephen C. Neal",
+      "meetings": 3,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jen-Hsun Huang",
+      "age": 63,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Colette M. Kress",
+      "age": 58,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Ajay K. Puri",
+      "age": 71,
+      "positions": [
+        "Executive Vice President, Worldwide Field Operations"
+      ]
+    },
+    {
+      "name": "Debora Shoquist",
+      "age": 71,
+      "positions": [
+        "Executive Vice President, Operations"
+      ]
+    },
+    {
+      "name": "Timothy S. Teter",
+      "age": 59,
+      "positions": [
+        "Executive Vice President and General Counsel"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-23",
+    "note": "Percentuali basate su 24.312.141.810 azioni di common stock in circolazione al 23 marzo 2026, adattate come richiesto dalle regole SEC. Include azioni soggette a PSU/RSU che maturano entro 60 giorni dal 23 marzo 2026. Le informazioni sui principal stockholder, salvo le percentuali, derivano solo da Schedule 13G/A. '*' indica meno dell'1%. '—' indica zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1805935550,
+            "pct": 7.43
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A datato 26 gennaio 2024, depositato il 26 gennaio 2024; dati al 31 dicembre 2023",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1777408252,
+            "pct": 7.31
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G datato 28 aprile 2026, depositato il 28 aprile 2026; dati al 31 marzo 2026",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jen-Hsun Huang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 870604104,
+            "pct": 3.58
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Colette M. Kress",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4443523,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ajay K. Puri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3266897,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Debora Shoquist",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1580729,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Timothy S. Teter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2687197,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tench Coxe",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30555240,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John O. Dabiri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14788,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dawn Hudson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 368887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Harvey C. Jones",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7003687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melissa B. Lora",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1799,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen C. Neal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 184867,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "A. Brooke Seawell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2506607,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aarti Shah",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25620,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark A. Stevens",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34069572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 957313517,
+          "pct": 3.94
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuota. Jen-Hsun Huang è CEO e compare come NEO e direttore, ma non è stato inserito fra gli executive officer perché il documento non riporta il roster.",
+    "Non esiste una finestra committees dedicata: l'appartenenza ai comitati è stata letta dalla prosa della sezione board (Committees Membership). Il documento usa solo le abbreviazioni AC, CC e NCGC, quindi i nomi dei comitati sono riportati così come scritti.",
+    "Le riunioni dei comitati (AC 4, CC 3, NCGC 3) si riferiscono a Fiscal 2026 come dichiarato dal documento, indicato in meetings_year come 2026. Il consiglio si è riunito 5 volte nello stesso esercizio, dato che non riguarda i comitati e non è incluso.",
+    "Dr. Drell si è dimesso dal consiglio nel gennaio 2026 (il nome di battesimo non è indicato nel documento). Non è incluso in board_of_directors perché ha già lasciato il consiglio alla data del documento.",
+    "Mr. Burgess compariva fra i membri del CC all'inizio dell'esercizio fiscale 2026, ma non è più nel comitato e il documento non indica la data di uscita. Non è incluso in board_of_directors né in committees.",
+    "Suzanne Nora Johnson è stata nominata dal consiglio il 7 maggio 2026, con effetto dal 13 luglio 2026. Non è ancora un direttore alla data del documento e non è candidata all'assemblea 2026, quindi è esclusa da board_of_directors.",
+    "I dati sulla proprietà di BlackRock provengono da uno Schedule 13G/A del 26 gennaio 2024 con dati al 31 dicembre 2023, quindi possono non essere aggiornati.",
+    "Le azioni di Jen-Hsun Huang (870.604.104) includono anche le quote dei trust familiari e del Huang Foundation, come spiegato nella nota (1). Il holder_type è 'person' perché si tratta di una persona fisica, ma la titolarità è indiretta.",
+    "Il dato di Stephen C. Neal include anche quote di trust e di un trust intestato alla moglie (nota 9). Il holder_type è 'person'.",
+    "Il gruppo dei direttori e dirigenti dichiara 14 persone, e le righe di named_executive_officers_and_directors sono 14 (5 NEO, incluso Huang, e 9 direttori). I due numeri sono coerenti.",
+    "Jen-Hsun Huang è l'unico direttore dichiarato non indipendente. Il consiglio non ha un presidente indipendente: il ruolo di guida indipendente è svolto da un Lead Director (Stephen C. Neal).",
+    "Nell'intestazione del documento il nome del registrante è scritto 'NVIDIA C ORPORATION' con uno spazio; nel testo corrente è 'NVIDIA Corporation', usato qui.",
+    "executive_officers presi dal Form 10-K del 2026-02-25: il DEF 14A non li elenca.",
+    "10-K: Dati estratti dalla sezione 'Information About Our Executive Officers' della Parte I; l'Item 10 rimanda a tale sezione tramite incorporazione per riferimento e non contiene un elenco proprio.",
+    "10-K: Per Timothy S. Teter la tabella riporta solo 'Executive Vice President and General Counsel', mentre la biografia indica anche la carica di Secretary; la carica di Secretary non è stata inclusa perché non compare nella tabella."
+  ]
+}

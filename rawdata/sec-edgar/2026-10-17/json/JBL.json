@@ -1,0 +1,443 @@
+{
+  "company": "Jabil Inc.",
+  "ticker": "JBL",
+  "cik": "0000898293",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-12-12",
+    "accession": "0001193125-25-316927",
+    "meeting": null,
+    "ownership_as_of": null,
+    "source_url": "https://www.sec.gov/Archives/edgar/data/898293/000119312525316927/d946966ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-10-17",
+      "accession": "0001628280-25-045293",
+      "url": "https://www.sec.gov/Archives/edgar/data/898293/000162828025045293/jbl-20250831.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Anousheh Ansari",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Sujatha Chandrasekaran",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Michael Dastoor",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": false
+    },
+    {
+      "name": "Christopher S. Holland",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Mark Mondello",
+      "roles": [
+        "Chairman of the Board"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "John C. Plant",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Steven A. Raymund",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "1996",
+      "independent": true
+    },
+    {
+      "name": "James Siminoff",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": null
+    },
+    {
+      "name": "N.V. Tyagarajan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-01",
+      "independent": true
+    },
+    {
+      "name": "Kathleen Walters",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": null
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Adam E. Berry",
+      "age": 48,
+      "positions": [
+        "Senior Vice President, Investor Relations & Corporate Affairs"
+      ]
+    },
+    {
+      "name": "Steven D. Borges",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, Global Business Units"
+      ]
+    },
+    {
+      "name": "Matthew Crowley",
+      "age": 50,
+      "positions": [
+        "Executive Vice President, Global Business Units"
+      ]
+    },
+    {
+      "name": "Michael Dastoor",
+      "age": 59,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Gregory B. Hebard",
+      "age": 56,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Frederic E. McCoy",
+      "age": 56,
+      "positions": [
+        "Executive Vice President, Operations"
+      ]
+    },
+    {
+      "name": "Francis G. McKay",
+      "age": 55,
+      "positions": [
+        "Senior Vice President, Chief Supply Chain and Procurement Officer"
+      ]
+    },
+    {
+      "name": "Kristine Melachrino",
+      "age": 47,
+      "positions": [
+        "Executive Vice President, General Counsel"
+      ]
+    },
+    {
+      "name": "Mark T. Mondello",
+      "age": 61,
+      "positions": [
+        "Chairman of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Andrew D. Priestley",
+      "age": 54,
+      "positions": [
+        "Executive Vice President, Global Business Units"
+      ]
+    },
+    {
+      "name": "Gary K. Schick",
+      "age": 55,
+      "positions": [
+        "Senior Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "May Y. Yap",
+      "age": 55,
+      "positions": [
+        "Senior Vice President, Chief Information Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": null,
+    "note": "Tabella riferita al Record Date (data non indicata nel testo). Percentuali calcolate su 106.822.960 azioni di Common Stock in circolazione al Record Date. * = meno dell'1%. Le percentuali di voto non sono riportate.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15070042,
+            "pct": 14.11
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13 (dati al 2023-12-29)",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10275465,
+            "pct": 9.62
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-26 (dati al 2023-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Anousheh Ansari",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 36400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sujatha Chandrasekaran",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Dastoor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33407,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher Holland",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11210,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Mondello",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1109400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Plant",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5900,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Raymund",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 86396,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James Siminoff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "N.V. Tyagarajan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2511,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen Walters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory Hebard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8791,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Borges",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29126,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Priestley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10994,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1438832,
+          "pct": 1.35
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, non ricostruito da cariche citate nelle biografie.",
+    "Comitati: la matrice di appartenenza ha perso i simboli (Member/Chair/Financial Expert) nella conversione a testo; le posizioni non sono leggibili. Membri e presidenti lasciati vuoti. Nel documento è indicato che, dopo l'assemblea, Ansari entrerà nell'Audit Committee, Tyagarajan diventerà Chair del Compensation Committee e Chandrasekaran entrerà nei Compensation e Cybersecurity Committee (cambiamenti futuri, non attuali).",
+    "Riunioni dei comitati: il documento riporta solo le 14 riunioni del Consiglio nell'esercizio 2025, nessun dato per singolo comitato; meetings lasciato null per tutti.",
+    "Mark Mondello (Chairman), James Siminoff e Kathleen Walters non si ricandidano all'assemblea ma risultano ancora in carica alla data del documento: inclusi nel consiglio attuale. Il Consiglio si ridurrà a sette membri con l'elezione.",
+    "Mark Mondello: indicato come Chairman in uscita all'assemblea; independent impostato a false (già CEO di Jabil fino a maggio 2024). Nel documento non è dichiarata la sua indipendenza in modo esplicito.",
+    "Director_since mancante nel testo per Mark Mondello, James Siminoff e Kathleen Walters: impostato a null.",
+    "Indipendenza di James Siminoff e Kathleen Walters non dichiarata nel testo: independent impostato a null.",
+    "Indipendenza degli altri direttori non dichiarata singolarmente: independent impostato a true per i non dirigenti (Ansari, Chandrasekaran, Holland, Plant, Raymund, Tyagarajan), sulla base della dichiarazione che tutti i membri dei comitati sono indipendenti e che la maggioranza dei nominee è indipendente. Michael Dastoor è CEO quindi non indipendente.",
+    "Steven Raymund: Lead Independent Director; il documento indica che sarà nominato Chairman dopo l'uscita di Mondello.",
+    "Michael Dastoor compare sia fra i direttori sia fra i NEO: presente in entrambi i blocchi come da regola.",
+    "Mark Mondello compare nel blocco dei direttori e in quello dei NEO nel testo; qui è inserito nel blocco named_executive_officers_and_directors una sola volta come direttore.",
+    "Riga di gruppo: dichiara 20 persone, ma le righe nominative elencate sono 13 (10 direttori e 3 NEO). Dato incoerente, entrambe le informazioni conservate.",
+    "Holder_type di Vanguard e BlackRock impostato a entity per la forma societaria e il deposito Schedule 13G/A.",
+    "Vanguard e BlackRock: dati di possesso riferiti a date di riferimento del 2023 (secondo i rispettivi 13G/A), diverse dal Record Date del documento.",
+    "executive_officers presi dal Form 10-K del 2025-10-17: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data specifica a cui riferire l'elenco o le età; il campo as_of è stato lasciato vuoto.",
+    "10-K: Per Mark T. Mondello il documento indica la carica di Chairman del Consiglio di amministrazione e dice che mantiene 'various executive responsibilities', senza specificarle; la sua presenza tra gli executive officer è quella dichiarata dal documento.",
+    "10-K: Il nome di Francis McKay compare nel documento come 'Francis (\"Frank\") G. McKay'; il soprannome tra parentesi è stato omesso secondo le regole di estrazione.",
+    "10-K: Nella biografia di Gregory B. Hebard compare 'Senior Vice President, CFO Green Point' riferito a un periodo passato (2017-2021); non è stato incluso tra le cariche attuali."
+  ]
+}

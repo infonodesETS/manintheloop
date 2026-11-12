@@ -1,0 +1,440 @@
+{
+  "company": "NetApp, Inc.",
+  "ticker": "NTAP",
+  "cik": "0001002047",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-07-28",
+    "accession": "0001193125-26-321210",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-07-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526321210/ntap-20260727.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-06-05",
+      "accession": "0001193125-26-259683",
+      "url": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm",
+      "as_of": "2026-06-05"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "T. Michael Nevens",
+      "roles": [
+        "Chair of the Board",
+        "Corporate Governance and Nominating Committee Chair"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Deepak Ahuja",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Paul Fipps",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-01",
+      "independent": true
+    },
+    {
+      "name": "Anders Gustafsson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Gerald Held",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Deborah L. Kerr",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "George Kurian",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": false
+    },
+    {
+      "name": "Carrie Palin",
+      "roles": [
+        "Director",
+        "Talent and Compensation Committee Chair"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Frank Pelzer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "June Yang",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-09",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Deepak Ahuja",
+        "T. Michael Nevens",
+        "Anders Gustafsson",
+        "Deborah L. Kerr",
+        "Frank Pelzer"
+      ],
+      "chair": "Deepak Ahuja",
+      "meetings": 10,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Talent and Compensation Committee",
+      "members": [
+        "Carrie Palin",
+        "Paul Fipps",
+        "Gerald Held",
+        "Frank Pelzer",
+        "June Yang"
+      ],
+      "chair": "Carrie Palin",
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "T. Michael Nevens",
+        "Anders Gustafsson",
+        "Gerald Held"
+      ],
+      "chair": "T. Michael Nevens",
+      "meetings": 8,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "George Kurian",
+      "age": 59,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "César Cernuda",
+      "age": 54,
+      "positions": [
+        "President"
+      ]
+    },
+    {
+      "name": "Wissam Jabre",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Syam Nair",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Elizabeth M. O'Callahan",
+      "age": 57,
+      "positions": [
+        "Executive Vice President",
+        "Chief Administrative Officer",
+        "Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-07-13",
+    "note": "Percentage of Class based on 196,234,265 shares of common stock outstanding on July 13, 2026. Shares subject to options and RSUs exercisable or issuable within 60 days are included for the holder but not for others. * = less than 1%. Address c/o NetApp, Inc., 3060 Olsen Drive, San Jose, California 95128, unless otherwise indicated.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19367597,
+            "pct": 9.87
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 15) filed 2025-04-23",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14399983,
+            "pct": 7.34
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-30",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "Vanguard Portfolio Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12718223,
+            "pct": 6.48
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-29",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10283026,
+            "pct": 5.24
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-10-17",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "George Kurian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 362354,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wissam Jabre",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 39294,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Syam Nair",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 53512,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cesar Cernuda",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51208,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth M. O'Callahan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34205,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "T. Michael Nevens",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deepak Ahuja",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19790,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Fipps",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2646,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anders Gustafsson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13756,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerald Held",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60161,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah L. Kerr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32816,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carrie Palin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11660,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank Pelzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3763,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "June Yang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2307,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 701159,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è lasciato vuoto. George Kurian (CEO) compare fra i direttori; gli altri dirigenti (Wissam Jabre, Syam Nair, Cesar Cernuda, Elizabeth M. O'Callahan) compaiono solo nella tabella di proprietà, senza età né cariche.",
+    "Il consiglio dichiara dieci membri e tutti i dieci nominee sono in carica; il documento non nomina direttori usciti negli ultimi cinque anni, pur dicendo che tre hanno lasciato il consiglio.",
+    "Paul Fipps: data di ingresso riportata come 2026-01 dalla sezione sulla proprietà (gennaio 2026); la biografia dà solo l'anno 2026. Ha assunto il comitato Talent and Compensation a febbraio 2026.",
+    "Meetings: i numeri di riunione sono per ciascun comitato, riferiti all'esercizio fiscale 2026 (meetings_year 2026). Non sono stati sommati.",
+    "State Street Corporation: la tabella riporta 10.283.026 azioni, mentre la nota 5 indica 10.261.170 di potere di disposizione condiviso e 6.425.972 di potere di voto condiviso; il dato è da una Schedule 13G del 2024-10-17, non recente rispetto alla data di riferimento 2026-07-13.",
+    "BlackRock, Inc.: il dato deriva da una Schedule 13G/A del 2025-04-23, anch'esso non allineato alla data di riferimento del 2026-07-13.",
+    "I campi pct sono espressi come percentuale di classe così come stampata nel documento (es. 9.87 = 9,87%). pct_of_votes è null perché il documento non fornisce una percentuale sul diritto di voto.",
+    "Gerald Held: il titolo «Ph.D.» è stato omesso dal nome.",
+    "George Kurian compare sia fra i direttori (non indipendente) sia nella tabella di proprietà come NEO; nessun detentore supera il 5%, quindi nessuno è stato aggiunto al blocco dei >5% per questa ragione.",
+    "executive_officers presi dal Form 10-K del 2026-06-05: il DEF 14A non li elenca.",
+    "10-K: Per Syam Nair, la tabella indica 'Executive Vice President and Chief Product Officer', mentre la biografia nel testo riporta solo 'Chief Product Officer'. Ho mantenuto la formulazione della tabella."
+  ]
+}

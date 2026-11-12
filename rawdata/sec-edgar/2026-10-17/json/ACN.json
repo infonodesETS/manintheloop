@@ -1,0 +1,506 @@
+{
+  "company": "Accenture plc",
+  "ticker": "ACN",
+  "cik": "0001467373",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-12-12",
+    "accession": "0001308179-25-000651",
+    "meeting": "Annual General Meeting 2026-01-28",
+    "ownership_as_of": "2025-12-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1467373/000130817925000651/acn-20251210.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-10-10",
+      "accession": "0001467373-25-000217",
+      "url": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm",
+      "as_of": "2025-10-10"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Martin Brudermüller",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Venkata Renduchintala",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Alan Jope",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Arun Sarin",
+      "roles": [
+        "Independent Lead Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Nancy McKinstry",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Julie Sweet",
+      "roles": [
+        "Chair of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Jennifer Nason",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Tracey T. Travis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Paula A. Price",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Masahiko Uotani",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Jaime Ardila",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Tracey T. Travis",
+        "Jaime Ardila",
+        "Martin Brudermüller",
+        "Paula A. Price",
+        "Venkata Renduchintala"
+      ],
+      "chair": "Tracey T. Travis",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation, Culture & People Committee",
+      "members": [
+        "Nancy McKinstry",
+        "Jennifer Nason",
+        "Paula A. Price",
+        "Arun Sarin"
+      ],
+      "chair": "Nancy McKinstry",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Jaime Ardila",
+        "Alan Jope",
+        "Jennifer Nason",
+        "Tracey T. Travis",
+        "Venkata Renduchintala",
+        "Masahiko Uotani"
+      ],
+      "chair": "Jaime Ardila",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating, Governance & Sustainability Committee",
+      "members": [
+        "Arun Sarin",
+        "Jaime Ardila",
+        "Alan Jope",
+        "Nancy McKinstry"
+      ],
+      "chair": "Arun Sarin",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Melissa Burgum",
+      "age": 53,
+      "positions": [
+        "chief accounting officer",
+        "corporate controller"
+      ]
+    },
+    {
+      "name": "Kate Clifford",
+      "age": 48,
+      "positions": [
+        "chief leadership and human resources officer"
+      ]
+    },
+    {
+      "name": "Atsushi Egawa",
+      "age": 60,
+      "positions": [
+        "co-chief executive officer—Asia Pacific",
+        "chief executive officer—Japan"
+      ]
+    },
+    {
+      "name": "Kate Hogan",
+      "age": 49,
+      "positions": [
+        "chief operating officer"
+      ]
+    },
+    {
+      "name": "Mauro Macchi",
+      "age": 60,
+      "positions": [
+        "chief executive officer—EMEA"
+      ]
+    },
+    {
+      "name": "Angie Park",
+      "age": 53,
+      "positions": [
+        "chief financial officer"
+      ]
+    },
+    {
+      "name": "Ryoji Sekido",
+      "age": 58,
+      "positions": [
+        "co-chief executive officer—Asia Pacific",
+        "chief executive officer—Asia Oceania"
+      ]
+    },
+    {
+      "name": "Manish Sharma",
+      "age": 57,
+      "positions": [
+        "chief strategy and services officer"
+      ]
+    },
+    {
+      "name": "Julie Sweet",
+      "age": 58,
+      "positions": [
+        "chair of the Board of Directors",
+        "chief executive officer"
+      ]
+    },
+    {
+      "name": "Joel Unruch",
+      "age": 47,
+      "positions": [
+        "general counsel",
+        "corporate secretary"
+      ]
+    },
+    {
+      "name": "John Walsh",
+      "age": 61,
+      "positions": [
+        "chief executive officer—the Americas"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-01",
+    "note": "Beneficial ownership di Class A Ordinary Shares al 1 dicembre 2025; '*' = meno dell'1% delle Class A in circolazione. Nessuna persona detiene Class X Ordinary Shares. Le percentuali sono sulle Class A; il documento non dichiara una percentuale dei voti.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 63802647,
+            "pct": 10.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-07",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 47931575,
+            "pct": 7.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-01",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jaime Ardila",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 11505,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martin Brudermüller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 344,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alan Jope",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 1011,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nancy McKinstry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 6438,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer Nason",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paula A. Price",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 6374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Venkata Renduchintala",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 3084,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arun Sarin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 7854,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tracey T. Travis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 7534,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Masahiko Uotani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie Sweet",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 6906,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mauro Macchi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 4415,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "KC McClure",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 1200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Angie Park",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 8348,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Manish Sharma",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 1460,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Walsh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Ordinary Shares",
+            "shares": 21645,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 21,
+      "classes": [
+        {
+          "class": "Class A Ordinary Shares",
+          "shares": 144910,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A (probabilmente nel 10-K): executive_officers lasciata vuota.",
+    "Jaime Ardila non è ricandidato all'assemblea 2026 e lascerà il consiglio al termine dell'assemblea; è incluso come direttore in carica alla data del documento. La data di prima nomina (director_since) non è presente nel testo fornito, quindi è null.",
+    "Beth E. Mooney e Gilles C. Pélisson non erano ricandidati all'assemblea 2025 e risultano usciti dal consiglio prima della data del documento: esclusi da board_of_directors. Data precisa di uscita non indicata.",
+    "Alan Jope diventerà presidente del Finance Committee al termine dell'assemblea; alla data del documento il presidente è Jaime Ardila, come riportato in chair.",
+    "Julie Sweet è indicata come Chair & CEO e non compare nella lista degli indipendenti: independent impostato a false.",
+    "Il numero di riunioni è stato assegnato per comitato dalla riga 'Number of Meetings in Fiscal 2025' (Audit 9, Compensation, Culture & People 7, Finance 4, Nominating, Governance & Sustainability 5), tutti riferiti all'esercizio fiscale 2025.",
+    "Il nome 'Venkata (Murthy) Renduchintala' è stato normalizzato a 'Venkata Renduchintala' rimuovendo il soprannome fra parentesi.",
+    "La riga di gruppo dichiara 21 persone mentre la tabella named_executive_officers_and_directors contiene 16 righe: le 5 persone non nominalmente elencate non sono identificabili dal testo fornito. Tenute entrambe, da verificare.",
+    "La percentuale della riga di gruppo è dichiarata '*%' (meno dell'1%): pct impostato a null.",
+    "Accenture plc detiene 44.997.383 Class A (6,8%) come azioni proprie, non votabili: non è un detentore con diritto di voto e non è incluso nel blocco dei >5%.",
+    "Il documento non dichiara alcuna percentuale dei voti: pct_of_votes impostato a null per tutti i detentori.",
+    "Nel blocco dei >5% non compaiono direttori o dirigenti oltre il 5% di Class A; nessuna persona detiene Class X.",
+    "executive_officers presi dal Form 10-K del 2025-10-10: il DEF 14A non li elenca.",
+    "10-K: I dirigenti sono stati estratti dalla sezione 'Information About Our Executive Officers' della Parte I; l'Item 10 contiene solo un rimando e non elenca dirigenti.",
+    "10-K: Atsushi Egawa e Ryoji Sekido risultano entrambi 'co-chief executive officer—Asia Pacific' nel documento; la sovrapposizione del titolo è riportata così come scritta.",
+    "10-K: Julie Sweet è indicata sia come presidente del Consiglio di amministrazione sia come amministratore delegato; entrambe le cariche sono riportate.",
+    "10-K: La biografia di Angie Park presenta periodi che si sovrappongono (responsabile investor relations fino a settembre 2022 e finance director fino a settembre 2023); il dato è riportato come nel documento e non è stato corretto, poiché riguarda la biografia e non le cariche attuali."
+  ]
+}

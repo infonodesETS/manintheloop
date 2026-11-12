@@ -1,0 +1,503 @@
+{
+  "company": "International Business Machines Corporation",
+  "ticker": "IBM",
+  "cik": "0000051143",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-10",
+    "accession": "0000051143-26-000025",
+    "meeting": "Annual Meeting 2026-04-28 (virtuale)",
+    "ownership_as_of": "2025-12-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000025/ibm-20260306.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-24",
+      "accession": "0000051143-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Marianne C. Brown",
+      "roles": [
+        "Former Chief Operating Officer, Global Financial Solutions, Fidelity National Information Services, Inc."
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Thomas Buberl",
+      "roles": [
+        "Chief Executive Officer, AXA S.A."
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "David N. Farr",
+      "roles": [
+        "Retired Chairman and Chief Executive Officer, Emerson Electric Co."
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Alex Gorsky",
+      "roles": [
+        "Former Chairman and Chief Executive Officer, Johnson & Johnson",
+        "Lead Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Michelle J. Howard",
+      "roles": [
+        "Retired Admiral, United States Navy"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Arvind Krishna",
+      "roles": [
+        "Chairman, President and Chief Executive Officer, IBM"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Ramon Laguarta",
+      "roles": [
+        "Chairman and Chief Executive Officer, PepsiCo, Inc."
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Andrew N. Liveris",
+      "roles": [
+        "Retired Chairman and Chief Executive Officer, The Dow Chemical Company"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Frederick William McNabb III",
+      "roles": [
+        "Retired Chairman and Chief Executive Officer, The Vanguard Group, Inc."
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Michael Miebach",
+      "roles": [
+        "Chief Executive Officer, Mastercard Incorporated"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Martha E. Pollack",
+      "roles": [
+        "President Emerita, Cornell University"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Peter R. Voser",
+      "roles": [
+        "Retired Chief Executive Officer, Royal Dutch Shell plc"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Alfred W. Zollar",
+      "roles": [
+        "Former Executive Advisor, Siris Capital Group, LLC"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Frederick H. Waddell",
+      "roles": [],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Arvind Krishna",
+        "Alex Gorsky",
+        "Andrew N. Liveris",
+        "Peter R. Voser",
+        "Frederick H. Waddell",
+        "Thomas Buberl"
+      ],
+      "chair": "Arvind Krishna",
+      "meetings": 0,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Peter R. Voser",
+        "David N. Farr",
+        "Michelle J. Howard",
+        "Frederick William McNabb III"
+      ],
+      "chair": "Peter R. Voser",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Directors and Corporate Governance Committee",
+      "members": [
+        "Andrew N. Liveris",
+        "Marianne C. Brown",
+        "Alfred W. Zollar",
+        "Ramon Laguarta"
+      ],
+      "chair": "Andrew N. Liveris",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Compensation and Management Resources Committee",
+      "members": [
+        "Frederick H. Waddell",
+        "Thomas Buberl",
+        "Michael Miebach",
+        "Martha E. Pollack"
+      ],
+      "chair": "Frederick H. Waddell",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Arvind Krishna",
+      "age": 63,
+      "positions": [
+        "Chairman of the Board, President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Gary D. Cohn",
+      "age": 65,
+      "positions": [
+        "Vice Chairman"
+      ]
+    },
+    {
+      "name": "Nicolas A. Fehring",
+      "age": 47,
+      "positions": [
+        "Vice President and Controller"
+      ]
+    },
+    {
+      "name": "James J. Kavanaugh",
+      "age": 59,
+      "positions": [
+        "Senior Vice President, Finance and Operations, and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Nickle J. LaMoreaux",
+      "age": 46,
+      "positions": [
+        "Senior Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Anne Robinson",
+      "age": 55,
+      "positions": [
+        "Senior Vice President and Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Robert D. Thomas",
+      "age": 51,
+      "positions": [
+        "Senior Vice President, Software and Chief Commercial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-31",
+    "note": "Percentuali riferite alla classe Common Stock al 31 dicembre 2025, salvo diversa indicazione in nota. La tabella dei direttori e dei dirigenti non riporta percentuali individuali: la nota (12) dichiara che nessun individuo e il gruppo superano l'1% delle azioni in circolazione (pct null). Il valore 'Common stock' è l'unico considerato come classe; sono escluse le stock-based holdings, le DCEAP shares e le opzioni/RSU acquisibili entro 60 giorni.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 92822090,
+            "pct": 10.03
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-02-07",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 75479656,
+            "pct": 8.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-01-25",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55035821,
+            "pct": 6.03
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-01-30",
+        "address": "State Street Financial Center, 1 Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Marianne C. Brown",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 440,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Buberl",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary Cohn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89866,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David N. Farr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9708,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Gorsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4444,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle J. Howard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 144,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James J. Kavanaugh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 144456,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arvind Krishna",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 418689,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ramon Laguarta",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew N. Liveris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2655,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frederick William McNabb III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Miebach",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martha E. Pollack",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anne Robinson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6240,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert D. Thomas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64012,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter R. Voser",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frederick H. Waddell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3763,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alfred W. Zollar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 936,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 809792,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento (rimandata al 10-K): executive_officers lasciato vuoto, come da regola.",
+    "Frederick H. Waddell non è tra i nominee del 2026 ma è ancora in carica alla data del documento (membro del Consiglio fino all'assemblea del 28 aprile 2026): incluso in board_of_directors con warning di uscita. Profilo biografico assente nel documento: roles vuoto e director_since null.",
+    "Arvind Krishna, presidente dell'Executive Committee, è dichiarato non indipendente (unico non indipendente su 13 nominee): il sanity check 1 non è rispettato per questo comitato; il dato è mantenuto come da documento.",
+    "Thomas Buberl figura nel roster dell'Executive Compensation and Management Resources Committee e dell'Executive Committee con efficacia dal 28 aprile 2026; il suo profilo biografico lo indica anche nel Directors and Corporate Governance Committee, che però non compare nel roster dei comitati: usato il roster della sezione committees.",
+    "Frederick H. Waddell è presidente dell'Executive Compensation and Management Resources Committee fino al 28 aprile 2026 (successore: Thomas Buberl), e membro dell'Executive Committee fino alla stessa data: inclusi con warning.",
+    "Ramon Laguarta è entrato nel Directors and Corporate Governance Committee il 1° marzo 2026 e nel Consiglio il 1° marzo 2026: non era membro durante le 4 riunioni del 2025 del comitato.",
+    "Alex Gorsky: il profilo biografico riporta affiliazione all'Audit Committee come Financial Expert, ma il roster della sezione committees non lo elenca in Audit (membri: Voser, Farr, Howard, McNabb): usato il roster della sezione committees.",
+    "Le riunioni dell'Executive Committee sono 0 nel 2025 come dichiarato dal documento; le riunioni di ciascun comitato sono riportate separatamente e non sommate.",
+    "Frederick William McNabb III compare nel documento anche come 'F. William McNabb III': usata la forma completa 'Frederick William McNabb III' in tutti i blocchi.",
+    "Michelle J. Howard: il titolo 'Admiral' presente nel testo biografico è stato rimosso dal nome; mantenuto solo nel ruolo occupazionale ('Retired Admiral, United States Navy').",
+    "Nella tabella dei direttori e dirigenti, le righe con zero azioni di Common Stock (Buberl, Laguarta, Miebach, Pollack, Voser) hanno classes vuoto: il documento dichiara zero azioni di Common Stock per questi soggetti.",
+    "Nella tabella dei direttori e dirigenti sono riportate solo le azioni di Common Stock; stock-based holdings, DCEAP shares (Promised Fee Shares) e opzioni/RSU acquisibili non sono inclusi come classi di azioni.",
+    "Sanity check 3: la riga di gruppo dichiara 20 persone, ma named_executive_officers_and_directors contiene 18 righe (14 direttori e 4 dirigenti: Cohn, Kavanaugh, Robinson, Thomas). Non sono riportati nominativi aggiuntivi nel documento.",
+    "executive_officers presi dal Form 10-K del 2026-02-24: il DEF 14A non li elenca.",
+    "10-K: La data a cui si riferiscono le età non è indicata nella finestra; la data di deposito (2026-02-24) non è stata usata come as_of.",
+    "10-K: Arvind Krishna è indicato come membro del Consiglio di Amministrazione (nota 1); la nota non è stata riportata nelle cariche.",
+    "10-K: La tabella riporta anche l'anno di nomina come executive officer (Officer since), non incluso nel formato di output.",
+    "10-K: Anne Robinson è stata in precedenza Managing Director, General Counsel e Corporate Secretary di The Vanguard Group (fino a giugno 2024); cariche passate non incluse in positions."
+  ]
+}

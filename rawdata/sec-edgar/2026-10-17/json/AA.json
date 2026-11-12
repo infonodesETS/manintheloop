@@ -1,0 +1,487 @@
+{
+  "company": "Alcoa Corporation",
+  "ticker": "AA",
+  "cik": "0001675149",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-19",
+    "accession": "0001193125-26-115997",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-03-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1675149/000119312526115997/aa-20260319.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-26",
+      "accession": "0001193125-26-077167",
+      "url": "https://www.sec.gov/Archives/edgar/data/1675149/000119312526077167/aa-20251231.htm",
+      "as_of": "2026-02-20"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Thomas J. Gorman",
+      "roles": [
+        "Non-Executive Chairman of the Board",
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "John A. Bevan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Mary Anne Citrino",
+      "roles": [
+        "Director",
+        "Chair, Governance and Nominating Committee"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Alistair Field",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Pasquale Fiore",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Brian R. Galovich",
+      "roles": [
+        "Director nominee (first nominated at the 2026 Annual Meeting)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "James A. Hughes",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Roberto O. Marques",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "William F. Oplinger",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Carol L. Roberts",
+      "roles": [
+        "Director",
+        "Chair, People and Compensation Committee"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Jackson P. Roberts",
+      "roles": [
+        "Director",
+        "Chair, Safety, Sustainability and Public Issues Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Ernesto Zedillo",
+      "roles": [
+        "Director (not nominated for re-election, retirement under the Retirement Policy)"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "James A. Hughes",
+        "John A. Bevan",
+        "Mary Anne Citrino",
+        "Pasquale Fiore",
+        "Roberto O. Marques"
+      ],
+      "chair": "James A. Hughes",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Mary Anne Citrino",
+        "James A. Hughes",
+        "Jackson P. Roberts",
+        "Ernesto Zedillo"
+      ],
+      "chair": "Mary Anne Citrino",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "People and Compensation Committee",
+      "members": [
+        "Carol L. Roberts",
+        "Alistair Field",
+        "Pasquale Fiore",
+        "Roberto O. Marques"
+      ],
+      "chair": "Carol L. Roberts",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Safety, Sustainability and Public Issues Committee",
+      "members": [
+        "Jackson P. Roberts",
+        "John A. Bevan",
+        "Alistair Field",
+        "Carol L. Roberts",
+        "Ernesto Zedillo"
+      ],
+      "chair": "Jackson P. Roberts",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "William F. Oplinger",
+      "age": 59,
+      "positions": [
+        "President and Chief Executive Officer of Alcoa Corporation"
+      ]
+    },
+    {
+      "name": "Molly S. Beerman",
+      "age": 62,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer of Alcoa Corporation"
+      ]
+    },
+    {
+      "name": "Renato Bacchi",
+      "age": 49,
+      "positions": [
+        "Executive Vice President and Chief Commercial Officer of Alcoa Corporation"
+      ]
+    },
+    {
+      "name": "Andrew Hastings",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and General Counsel of Alcoa Corporation"
+      ]
+    },
+    {
+      "name": "Tammi A. Jones",
+      "age": 46,
+      "positions": [
+        "Executive Vice President and Chief Human Resources Officer of Alcoa Corporation"
+      ]
+    },
+    {
+      "name": "Matthew T. Reed",
+      "age": 53,
+      "positions": [
+        "Executive Vice President and Chief Operations Officer of Alcoa Corporation"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-01",
+    "note": "Percentuali calcolate su 263.862.492 azioni di common stock, incluse quelle sottostanti i CDI, in circolazione al 1° marzo 2026. '*' indica una percentuale inferiore all'1%. Per i direttori e i dirigenti il totale include azioni e diritti esercitabili entro 60 giorni; le DSU/RSU differite sono nella colonna separata e non sono incluse nel totale.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23391807,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17959035,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "Eagle Capital Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15443997,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-11-14",
+        "address": "65 East 55th Street, 26th Floor, New York, NY 10022"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Thomas J. Gorman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20795,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John A. Bevan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Anne Citrino",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54133,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alistair Field",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9667,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Pasquale Fiore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian R. Galovich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James A. Hughes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51098,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roberto O. Marques",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13268,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carol L. Roberts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64669,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jackson P. Roberts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17140,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ernesto Zedillo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 96505,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William F. Oplinger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 358323,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Molly S. Beerman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 119461,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew T. Reed",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76370,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Hastings",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 43532,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Renato Bacchi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 75630,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1124521,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers lasciato vuoto, come da istruzioni. William F. Oplinger compare anche come dirigente nella tabella di proprietà.",
+    "Brian R. Galovich è indicato come nominee non ancora in carica (first nominated at the 2026 Annual Meeting): incluso nel consiglio come candidato, director_since null. Non ha azioni dichiarate ('—' nella tabella di proprietà).",
+    "Ernesto Zedillo risulta ancora in carica alla data del documento ma non è tra i nominee: non ricandidato per il Retirement Policy (età 75). Incluso con warning. director_since non indicato nel documento (null).",
+    "Steven Williams ha lasciato il consiglio il 8 maggio 2025: escluso da board_of_directors perché già uscito alla data del documento.",
+    "La tabella dei comitati (committees) è appiattita senza i segni di appartenenza: l'appartenenza ai comitati è ricavata dalle liste 'Members' nella sezione board. Il Chair è incluso anche tra i members.",
+    "Le riunioni sono indicate per ciascun comitato separatamente (Audit 5, Governance and Nominating 4, People and Compensation 5, Safety, Sustainability and Public Issues 4, tutte nel 2025): nessuna somma.",
+    "La riga di gruppo dichiara 17 persone, mentre nelle righe nominative sono presenti 16 persone: discrepanza da verificare (il gruppo potrebbe includere un dirigente non elencato singolarmente, dato che la sezione executives è assente).",
+    "Non sono presenti righe di aggregazione o subtotale nella tabella dei detentori oltre il 5%.",
+    "executive_officers presi dal Form 10-K del 2026-02-26: il DEF 14A non li elenca.",
+    "10-K: L'elenco è tratto dalla Parte I, Item 1 (\"Information about our Executive Officers\"), a cui rimanda l'Item 10 della Parte III; la finestra dell'Item 10 non contiene un proprio elenco.",
+    "10-K: Il documento riporta le età e le cariche alla data del 20 febbraio 2026; la data di deposito è il 26 febbraio 2026, che non è stata usata come as_of.",
+    "10-K: Nella finestra dell'Item 10 la didascalia \"Information Relating to the 2027 Annual Meeting\" riferisce all'assemblea 2027, mentre il proxy citato è quello per l'assemblea 2026: possibile refuso nel documento, non rilevante per l'elenco dei dirigenti."
+  ]
+}
