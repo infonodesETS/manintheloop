@@ -153567,12 +153567,12 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Iveco Defence Vehicles",
+      "name": "IDV Defence Vehicles Italia",
       "sector": null,
       "wikidata_id": "Q532299",
       "sources": {
         "edf": {
-          "extracted_at": "2026-04-01",
+          "extracted_at": "2026-10-19",
           "pic": "898895121",
           "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/898895121",
           "activity_type": "Private for profit organisation",
@@ -153582,10 +153582,10 @@
           "country_code": "IT",
           "city": "Bolzano",
           "web_link": "www.idvgroup.com",
-          "total_eu_contribution": 6025451.57,
-          "project_count": 5,
-          "call_count": 5,
-          "coordinator_count": 1,
+          "total_eu_contribution": 8298744.37,
+          "project_count": 6,
+          "call_count": 6,
+          "coordinator_count": 2,
           "source_file": "edf_calls.json"
         },
         "ishares": null,
@@ -153740,6 +153740,122 @@
           "old": null,
           "new": "sources.wikidata populated (Q532299)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q532299)"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from EDF calls data: PIC 898895121, 5 projects, €6,025,452 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 898895121, 5 projects, €6,025,452 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 898895121, 6 projects, €8,298,744 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Iveco Defence Vehicles",
+          "new_value": "IDV Defence Vehicles Italia",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-1431 (Idv Defence Vehicles Italia)."
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1431",
+          "note": "Unita IN-1431 (Idv Defence Vehicles Italia) in questa entita. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "absorbed": [
+            "sources.edf: tenuto il blocco piu recente del perdente (2026-10-19 contro 2026-04-01), il precedente conservato in history",
+            "nome del vincitore: 'Iveco Defence Vehicles' -> 'IDV Defence Vehicles Italia'",
+            "relazioni: 5 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Idv Defence Vehicles Italia",
+          "preserved": {
+            "sources.edf (versione precedente del vincitore)": {
+              "extracted_at": "2026-04-01",
+              "pic": "898895121",
+              "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/898895121",
+              "activity_type": "Private for profit organisation",
+              "type_code": "PRC",
+              "sme": false,
+              "country": "Italy",
+              "country_code": "IT",
+              "city": "Bolzano",
+              "web_link": "www.idvgroup.com",
+              "total_eu_contribution": 6025451.57,
+              "project_count": 5,
+              "call_count": 5,
+              "coordinator_count": 1,
+              "source_file": "edf_calls.json"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IN-1431",
+                "target": "EDF-0008",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 706862.05,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0029",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 899714.52,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0031",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 646187.5,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0037",
+                "type": "edf_participation",
+                "role": "coordinator",
+                "eu_contribution": 2578562.5,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0041",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1194125.0,
+                "created_at": "2026-06-03"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -153802,6 +153918,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q532299). label='Iveco Defence Vehicles'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-1431 (Idv Defence Vehicles Italia) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -314901,6 +315023,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 898895121, 6 projects, €8,298,744 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0803 (IDV Defence Vehicles Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "canonical": "IN-0803",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -314909,6 +315038,13 @@
           "description": "Entity added from EDF participant data. Roles and sector need manual review. Check if this org appears in iShares ETFs or Crunchbase.",
           "author": "build_edf_entities.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0803 (IDV Defence Vehicles Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "canonical": "IN-0803",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -357639,14 +357775,6 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0008",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 706862.05,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1439",
       "target": "EDF-0010",
       "type": "edf_participation",
@@ -357735,27 +357863,11 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0029",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 899714.52,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-0467",
       "target": "EDF-0031",
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 1849307.74,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1431",
-      "target": "EDF-0031",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 646187.5,
       "created_at": "2026-06-03"
     },
     {
@@ -357767,27 +357879,11 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0037",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 2578562.5,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1415",
       "target": "EDF-0041",
       "type": "edf_participation",
       "role": "coordinator",
       "eu_contribution": 1750218.75,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1431",
-      "target": "EDF-0041",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1194125.0,
       "created_at": "2026-06-03"
     },
     {
@@ -362903,12 +362999,19 @@
       "created_at": "2026-10-19"
     },
     {
-      "source": "IN-1431",
+      "source": "IN-0803",
       "target": "EDF-0122",
       "type": "edf_participation",
       "role": "coordinator",
       "eu_contribution": 2273292.8,
-      "created_at": "2026-10-19"
+      "created_at": "2026-10-19",
+      "history": [
+        {
+          "date": "2026-11-12",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1431 -> IN-0803 (merge)"
+        }
+      ]
     },
     {
       "source": "IN-0970",
