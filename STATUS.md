@@ -40,7 +40,7 @@
 
 **Rischio da ricordare:** `search_missing_qids.py` ha rimesso il 2026-06-18 un QID su un'entità già dichiarata duplicata (`IN-0366`), ricreando il QID doppio. Una lapide non protegge da un nuovo lancio dello script. Non lanciarlo senza prima controllare le lapidi.
 
-### Prompt di ripartenza (da incollare in una sessione nuova)
+### Prompt di ripartenza da eseguire: da cancellare da qui in status dopo averlo eseguito
 
 ```
 Leggi STATUS.md fino a «Da sapere», in particolare il blocco «B3 IN CORSO», poi
