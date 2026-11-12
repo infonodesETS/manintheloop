@@ -404,3 +404,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **ID:** `PER-T` = `PER-T` + `P####` senza la P: deterministico; 2298 persone = 2298 ID unici. La stabilità tra due estrazioni non è verificabile con una sola release.
 - **Limite del test:** `sec-test` usa i tipi del vecchio test (`board_membership`, `executive_officer`, `shareholder_5pct`) e legge tutte le righe di `detentori-oltre-5.csv` senza la soglia di S4 (dal codice): non è il modello di B5 e i suoi numeri non vanno confrontati con 546/25.
 - **Prossimo:** B3 (serve la chiave Exa; pilota di 10 casi registrato da una persona) oppure preparazione dei 4 controlli a mano della Release 1; B5 dipende da B3 per i casi SEC (prerequisito del piano).
+
+### 2026-11-12 — PR #38 fusa; preparazione della ripartenza da `STATUS.md` ☑
+
+- **PR:** #37 (`f9a00db`) e #38 (`357507c`) fuse da Nelson; in locale `main` allineata con `--ff-only`, branch `fix/sec-test-percorso-db` cancellato con `-d`. Su GitHub restano `main` e `v.2026-c`. `validate.py` su `main`: PASSED, 2582 entità, 3490 relazioni.
+- **Ripartenza:** Nelson vuole azzerare il contesto e ripartire da `STATUS.md`. Controllato `STATUS.md` contro git: era indietro (B4 «in attesa di PR», `main` a `fc38f14`, branch `docs/stato-post-b2` già cancellato, PR #37 e #38 mancanti, scelta aperta tra B3 e 4 controlli a mano non registrata, nessuna lettura indicata per B3). Corretto in un branch `docs/stato-pre-ripartenza`.
+- **Aggiunto a `STATUS.md`:** scelta di Nelson in attesa (B3, 4 controlli a mano o entrambi) con il primo gesto della sessione; elenco di lettura per B3; stato del repo rimisurato; trabocchetti incontrati (file tracciati sotto `tmp/` ignorata, banco di prova con modello vecchio).
