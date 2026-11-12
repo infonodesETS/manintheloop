@@ -58,6 +58,11 @@ solo dopo il mio via libera. Dopo il caso 8: caso 3 (IBM), casi 5 e 6 (regola su
 classi), caso 9 (qid_removed su IN-1290). Un caso alla volta, un commit per caso,
 validate.py dopo ciascuno. Non pushare, non toccare main, non stampare mai la chiave
 Exa. Se il mio messaggio contiene domande, rispondi e fermati.
+
+Dopo aver eseguito la parte di rilettura e riassunto (non aspettare la fine di B3),
+cancella da STATUS.md l'intera sezione «Prompt di ripartenza da eseguire» (titolo e
+riquadro), lasciando il resto del blocco «B3 IN CORSO», e committa con il messaggio
+«docs(refactoringDB): update STATUS.md». Non pushare.
 ```
 
 
