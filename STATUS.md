@@ -1,13 +1,15 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-12 (B1 chiuso con la PR #34, B2 chiuso con la PR #36 (`fc38f14`): i dati SEC sono nel repo ma non sul sito. Prossimo: B4, poi B3. DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-12 (B1 chiuso con la PR #34, B2 chiuso con la PR #36 (`fc38f14`): i dati SEC sono nel repo ma non sul sito. B4 eseguito (fix dei percorsi di `tmp/sec-test/`, in attesa di PR). Prossimo: B3. DB invariato: 2582 entities, 3490 rels)
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
 **B1 e B2 sono chiusi e in `main`.** B1: PR #34 (`78d67f5`), schema e `validate.py`. B2: PR #36 (`fc38f14`), merge di `v.2026-c` con i dati SEC 2026-10-17, `tmp/sec-test/` e `scripts/export_labelling_sheets.py`; conflitti risolti `.gitignore` e `ROADMAP.md`; `docs/dev-v2026c-sec.md` spostato in `reference/`. **Verificato sul sito vivo il 2026-11-12:** `/rawdata/sec-edgar/…`, `/docs/dev-v2026c-sec.md`, `/reference/…`, `/tmp/sec-test/…`, `/scripts/…`, `/STATUS.md` danno 404; home, `data/database.json`, `data/mitl-index.json` danno 200; 27/27 file di `docs/` con hash uguale a `main`. Dettagli nel [log](reference/LOG-RIORGANIZZAZIONE.md).
 
-**Prossimo task: B4** (rilanciare `sec-test` e contare i controlli manuali ancora aperti), poi B3, solo con il via libera di Nelson. B4 si può fare subito: non richiede la chiave Exa e scrive solo in `tmp/sec-test/`. Metodo dal piano: dalla radice `python3 -I tmp/sec-test/join_aziende.py` e `python3 -I tmp/sec-test/build_sec_test.py`; il conteggio dei controlli aperti si **calcola dal CSV** (`controlli-manuali.csv`), non si assume. **B3** (duplicati, metodo Exa) richiede la chiave Exa di Nelson, solo in variabile d'ambiente; il pilota di 10 casi lo registra una persona, non l'AI.
+**B4 è eseguito** (2026-11-12, branch `fix/sec-test-percorso-db`): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia con output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (dal CSV). Prima di fidarsi di questo stato controllare con git se la PR del fix è già in `main`.
+
+**Prossimo task: B3** (pulizia duplicati, metodo Exa), prerequisito di B5 per i casi SEC: richiede la chiave Exa di Nelson, solo in variabile d'ambiente; il pilota di 10 casi lo registra una persona, non l'AI. In parallelo si possono preparare i **4 controlli a mano della Release 1** (S7: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`). Sempre solo con il via libera di Nelson.
 
 **Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14` (il #33 è un'issue).
 
@@ -15,7 +17,7 @@ Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/S
 
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
-**Poi, nell'ordine:** B4, B3, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
+**Poi, nell'ordine:** B3, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
 
 ## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
 
