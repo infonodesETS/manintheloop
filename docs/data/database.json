@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-10-19",
+  "_updated": "2026-11-12",
   "entities": [
     {
       "id": "IN-0001",
@@ -930,6 +930,13 @@
           "old": null,
           "new": "https://www.amd.com",
           "description": "Official website added via web research"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1249 (AMD). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "canonical": "IN-1249",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -944,6 +951,13 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1249 (AMD). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "canonical": "IN-1249",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -228597,7 +228611,21 @@
       "sector": "Tech",
       "wikidata_id": "Q128896",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "AMD",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.95,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -228665,7 +228693,8 @@
           "tax_id": "94-1692300 (EIN)",
           "main_focus": null,
           "wikipedia_url": "https://en.wikipedia.org/wiki/AMD",
-          "headquarters": "Santa Clara, California, United States"
+          "headquarters": "Santa Clara, California, United States",
+          "website": "https://www.amd.com"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -228805,6 +228834,46 @@
           "old": null,
           "new": "sources.wikidata populated (Q128896)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q128896)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0006"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.amd.com",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0006"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0006",
+          "note": "Unita IN-0006 (Advanced Micro Devices) in questa entita. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXN/AMD)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Advanced Micro Devices",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -228879,6 +228948,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q128896). label='AMD'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0006"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0006 (Advanced Micro Devices) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
