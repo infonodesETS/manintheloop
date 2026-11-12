@@ -64,6 +64,7 @@ def main():
     ap.add_argument("loser")
     ap.add_argument("--why", default="")
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--rename", default="", help="nuovo nome del vincitore (la correzione e tracciata in history)")
     ap.add_argument("--history-letta", action="store_true",
                     help="conferma che la history di entrambe le entita e stata letta (obbligatoria con --apply)")
     ap.add_argument("--db", default="docs/data/database.json")
@@ -105,6 +106,18 @@ def main():
     for key in l_src:
         if key in ("ishares", "infonodes"):
             continue
+        wb, lb = w_src.get(key), l_src.get(key)
+        # blocco EDF dello stesso PIC: e lo stesso dato aggiornato in momenti diversi, vince il piu recente
+        if key == "edf" and wb and lb and wb != lb and wb.get("pic") == lb.get("pic") \
+                and (lb.get("extracted_at") or "") > (wb.get("extracted_at") or ""):
+            preserved["sources.edf (versione precedente del vincitore)"] = copy.deepcopy(wb)
+            w_src["edf"] = copy.deepcopy(lb)
+            absorbed.append("sources.edf: tenuto il blocco piu recente del perdente (%s contro %s), il precedente conservato in history"
+                            % (lb.get("extracted_at"), wb.get("extracted_at")))
+            continue
+        if key == "crunchbase" and wb and lb and wb.get("profile_url") != lb.get("profile_url"):
+            absorbed.append("ATTENZIONE crunchbase: profili diversi (%s contro %s): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano"
+                            % (wb.get("profile_url"), lb.get("profile_url")))
         merge_block(w_src, l_src, key, preserved, absorbed)
     if l_src.get("infonodes"):
         wi = w_src.setdefault("infonodes", {})
@@ -120,6 +133,13 @@ def main():
         if diff:
             preserved["sources.infonodes"] = diff
             absorbed.append("sources.infonodes: %d campi diversi conservati in history (%s)" % (len(diff), ", ".join(diff)))
+
+    rename_entry = None
+    if a.rename.strip() and a.rename.strip() != w.get("name"):
+        rename_entry = {"date": TODAY, "action": "field_corrected", "field": "name", "old_value": w.get("name"),
+                        "new_value": a.rename.strip(), "author": AUTHOR,
+                        "note": "Nome aggiornato in occasione dell'unione con %s (%s)." % (a.loser, l.get("name"))}
+        absorbed.append("nome del vincitore: '%s' -> '%s'" % (w.get("name"), a.rename.strip()))
 
     # --- roles ---
     roles = sorted(set(w.get("roles") or []) | set(l.get("roles") or []))
@@ -223,6 +243,9 @@ def main():
         r.setdefault("history", []).append({"date": TODAY, "author": AUTHOR,
                                             "description": "Entity reference redirected: %s -> %s (merge)" % (a.loser, a.winner)})
     w.setdefault("history", []).extend(w_hist_add)
+    if rename_entry:
+        w["name"] = rename_entry["new_value"]
+        w["history"].append(rename_entry)
     w["history"].append(decision)
     w.setdefault("validation", []).extend(w_val_add)
     w["validation"].append({"status": "merged_from", "description": "Entita %s (%s) unita in questa il %s e lasciata come lapide." % (a.loser, l.get("name"), TODAY),
