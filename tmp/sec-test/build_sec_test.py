@@ -1,5 +1,5 @@
 """Costruisce tmp/sec-test/sec-test.json dai CSV SEC + join_aziende.json.
-NON tocca data/database.json. Id provvisori: PER-T#### e IV-T#### (T = test)."""
+NON tocca docs/data/database.json. Id provvisori: PER-T#### e IV-T#### (T = test)."""
 import csv, json, re
 from collections import defaultdict
 from pathlib import Path
@@ -9,7 +9,7 @@ SEC = ROOT / "rawdata/sec-edgar/2026-10-17"
 OUT = Path(__file__).resolve().parent
 rd = lambda n: list(csv.DictReader(open(SEC / f"{n}.csv")))
 
-db = json.load(open(ROOT / "data/database.json"))
+db = json.load(open(ROOT / "docs/data/database.json"))
 ents = {e["id"]: e for e in db["entities"]}
 join = json.load(open(OUT / "join_aziende.json"))          # ticker SEC -> [IN-]
 aziende = {a["ticker"]: a for a in rd("aziende")}

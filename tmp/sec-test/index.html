@@ -81,7 +81,7 @@ let DB, SEC, ENT = {}, SB = {}, REL = {};
 const idx = (map, k, v) => (map[k] ||= []).push(v);
 
 async function load() {
-  [DB, SEC] = await Promise.all([fetch('../../data/database.json').then(r => r.json()), fetch('sec-test.json').then(r => r.json())]);
+  [DB, SEC] = await Promise.all([fetch('../../docs/data/database.json').then(r => r.json()), fetch('sec-test.json').then(r => r.json())]);
   for (const e of DB.entities) ENT[e.id] = e;
   for (const p of SEC.persons) ENT[p.id] = p;
   for (const i of SEC.new_investors) ENT[i.id] = i;
