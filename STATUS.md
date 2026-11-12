@@ -1,27 +1,28 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-11 (B1: decisioni di schema S1-S7 tutte prese; manca il diff di `SCHEMA.md` e `validate.py`. DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-12 (B1 chiuso: S1-S7 decise e diff di `SCHEMA.md`/`UPDATE_PROTOCOL.md`/`validate.py` applicato, non ancora committato. DB invariato: 2582 entities, 3490 rels)
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
-**Preparare e mostrare a Nelson il diff di `reference/SCHEMA.md` e `scripts/validate.py` (chiusura di B1). Non applicarlo prima del suo ok.** Prima guardare come lo schema e `validate.py` trattano oggi le relazioni, poi presentare il diff come proposta con i test che si faranno: `validate.py` aggiornato deve **passare** sul DB attuale (2582 / 3490) e **fallire** su una copia con una relazione di tipo non ammesso (test del test).
+**B1 è chiuso (2026-11-12).** Il diff di `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` e `scripts/validate.py` è nel working tree del branch `docs/log-f3-8`, **non committato**: chiedere a Nelson se committare (messaggio proposto: `docs: B1 chiuso, schema e validate.py per ownership, role e parte_di`) prima di iniziare altro. Dettagli, prove e deviazioni nel [log, voce del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md).
 
-Il diff deve contenere (fonte: [log, sezione S7](reference/LOG-RIORGANIZZAZIONE.md)):
-- tipi di relazione `ownership` e `role` (S2); forma del legame di gruppo `parte_di` (S6, da decidere nel diff);
-- `PER_ID_RE` a `^PER-\d{4,}$` (S1);
-- `ownership` con `id` proprio e chiave di unicità `(source, target, type, classe)` (S3);
-- campi sulle relazioni `current`, `as_of`, `as_of_origine` (`proxy`/`testo`/`deposito`), `release`, `history[]` (S5);
-- `sources.sec` ridotto al riferimento di fonte (`P####`, release, file, riga, data), **senza indirizzi** (S4);
-- `person` nel sito: badge in `docs/web/app.js` (`typeBadge`, `TYPE_CLASS`), registro, mappa e reti (vedi «Aperti dopo B1»).
+Cosa è stato deciso nel diff (oltre a S1-S7):
+- le relazioni reali **non hanno `id`**, `sources`, `added_at`, `author` (lo schema vecchio le descriveva): solo le nuove `ownership`, `role`, `parte_di` hanno un `id` proprio (`REL-NNNN`, 4 cifre o più); le 3490 esistenti non cambiano;
+- campi di `ownership` al livello superiore della relazione; chiave `(source, target, type, classe)`; per `role` chiave con `role_code`;
+- **`role_code`** (non `role`) + `role_text` (modifica rispetto a S7, per non confondersi col `role` di `edf_participation`);
+- `sources.sec` ridotto al riferimento di fonte, `validate.py` rifiuta chiavi `indirizzo`/`address`;
+- `validate.py [file]` accetta un percorso opzionale; senza argomenti è come prima.
 
-**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1), F5 (GitHub Action), F6. Per B5: front-end adattato **nella stessa PR dei dati**.
+**Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
+
+**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main` su branch `integrate-sec`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6.
 
 ## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
 
 1. **Questo file solo fino a «Da sapere».** Il resto (da «Session protocol» in poi, circa 900 righe: script, stato del DB, lavoro passato) è storico e di riferimento: leggerlo solo se serve al compito. Una lettura di un file così lungo viene troncata: non dedurne di aver letto tutto.
 2. **`reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero.** Se la lettura si interrompe, continuare con `offset` fino alla fine; non basta la coda.
-3. **Per il diff di B1, per intero:** `reference/S3-CLASSI-AZIONI.md`, `S4-DATI-SEC.md`, `S5-STORICITA.md`, `S6-GESTORI.md`, `S7-RUOLI-E-PERSONE.md` (regole vincolanti), poi `reference/SCHEMA.md` e `scripts/validate.py`. Il riassunto qui sopra non basta: le regole precise (chiave `(source, target, type, classe)`, `as_of_origine`, niente indirizzi, soglia) stanno in quei file.
+3. **Per B5 (import), per intero:** `reference/S3-CLASSI-AZIONI.md`, `S4-DATI-SEC.md`, `S5-STORICITA.md`, `S6-GESTORI.md`, `S7-RUOLI-E-PERSONE.md` (regole vincolanti), poi `reference/SCHEMA.md` (sezione *Relationships*) e `scripts/validate.py` (controllo 11). Il riassunto qui sopra non basta: le regole precise (chiave `(source, target, type, classe)`, `as_of_origine`, niente indirizzi, soglia) stanno in quei file.
 4. **Nel riassunto iniziale a Nelson elencare i file letti con le righe lette** (es. «piano 442/442, log 358/358») **e dire esplicitamente cosa NON è stato letto.** Serve a Nelson per verificare che il contesto sia completo prima di dare l'ok.
 
 ## ⚠️ PIANO IN CORSO
@@ -42,7 +43,7 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 ## Dove siamo
 
 - **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento).
-- **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` ancora da fare e approvare.** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
+- **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` applicato il 2026-11-12 (vedi «PROSSIMO PASSO»).** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
   - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
   - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
   - **S3** doppie classi: opzione (c), nessun merge in B1, `classe` nella relazione, tabella ticker+classe → entità, lapide `entity_retired` se un giorno si unisce → [`reference/S3-CLASSI-AZIONI.md`](reference/S3-CLASSI-AZIONI.md).
@@ -55,7 +56,7 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 - **GDPR:** Nelson ritiene non problematico trattare dati pubblici per obbligo SEC (nome, quota, voti); gli indirizzi restano fuori «per il momento». Non è stato chiesto un parere ad Andrea e Davide né a chi cura la parte legale; la pubblicità del dato non esclude il GDPR (nota dell'AI, non parere legale).
 - **Sito:** `app.js` (`REL_MAP`) e `index.html` leggono come investimento ogni relazione diversa da `edf_participation` (BlackRock avrebbe 143 archi sulla mappa); `networks.html` e `key-figures.html` filtrano per tipo e ignorerebbero le nuove. `typeBadge` non conosce `person`. **Non verificato:** se il registro di `app.js` esclude le entità `PER-` (visto solo il ciclo sui `IV-`); come mappa e reti trattano una `person` senza paese; se un link `?organization=<ID ritirato>` possa reindirizzare al vincitore (serve per B3).
-- **Schema:** forma del legame di gruppo `parte_di` (relazione o campo; dipende da S2); se `validate.py` controlla `history[]` delle relazioni; se il sito gestisce `current: false`.
+- **Schema:** `parte_di` è una relazione (deciso nel diff di B1); `validate.py` controlla `history[]` solo sulle nuove relazioni. **Non verificato:** se il sito gestisce `current: false`.
 - **Dati da controllare a mano:** WBD, Vanguard con percentuale «0»; AIR (collisione di ticker Airbus/AAR Corp); Alphabet Class C (DB) contro Class B (SEC); le 143 voci di `controlli-manuali.csv` (121 + 13 persone toccano la Release 2).
 - **Release 2:** vocabolario dei ruoli da proporre e far approvare prima di importare; campi `current`, `start_date`, `end_date` dei ruoli.
 - **Crescita del DB:** stima iniziale +0,5 MB per la Release 1 e +2,6 MB con la 2, sovrastimata (persone distinte 58, entità 110): rifarla in B5.

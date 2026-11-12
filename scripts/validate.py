@@ -12,7 +12,12 @@ Checks:
   7. Date fields: YYYY-MM-DD format
   8. Required fields present: id, name, type, roles, history
   9. PER-NNNN IDs only on person entities
- 10. Relationship type values only: investment, board_membership, edf_participation
+ 10. Relationship type values only: investment, board_membership, edf_participation,
+     ownership, role, parte_di
+ 11. Fields of the new relationship types (ownership, role, parte_di) — schema B1,
+     decisions S1-S7 in reference/S*.md. Not applied to older relationship types.
+
+Usage: python3 scripts/validate.py [path/to/database.json]
 """
 
 import json
@@ -21,17 +26,22 @@ import os
 import sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
+DATABASE_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "docs", "data", "database.json")
 
 VALID_ENTITY_TYPES = {"company", "fund", "investor", "public_fund", "government_agency", "bank", "institution", "person", "edf_project"}
 VALID_ROLES = {"manufacturer", "investor", "board_member"}
-VALID_REL_TYPES = {"investment", "board_membership", "edf_participation"}
+VALID_REL_TYPES = {"investment", "board_membership", "edf_participation", "ownership", "role", "parte_di"}
+# Types introduced by B1 (S2, S6): they carry their own `id` and are checked in [11].
+NEW_REL_TYPES = {"ownership", "role", "parte_di"}
+HOLDER_TYPES = {"fund", "company", "person"}          # S2 (holder_type); to be confirmed with the first import
+AS_OF_ORIGINS = {"proxy", "testo", "deposito"}         # S5
+HISTORY_KEYS = {"date", "release", "source_ref", "field", "old", "new"}  # S5, new types only
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WIKIDATA_RE = re.compile(r"^Q\d+$")
-PER_ID_RE = re.compile(r"^PER-\d{4}$")
-IN_ID_RE = re.compile(r"^IN-\d{4}$")
-IV_ID_RE = re.compile(r"^IV-\d{4}$")
-REL_ID_RE = re.compile(r"^REL-\d{4}$")
+PER_ID_RE = re.compile(r"^PER-\d{4,}$")   # S1: four digits or more
+IN_ID_RE = re.compile(r"^IN-\d{4,}$")
+IV_ID_RE = re.compile(r"^IV-\d{4,}$")
+REL_ID_RE = re.compile(r"^REL-\d{4,}$")   # only the new relationship types have an id
 
 
 def err(msg: str):
@@ -72,12 +82,17 @@ def main():
 
     entity_id_set = set(entity_ids)
 
-    # ── Check 2: No duplicate relationships (source, target, type) ───────────
+    # ── Check 2: No duplicate relationships ───────────────────────────────────
+    # Key: (source, target, type); ownership adds `classe` (S3 R2), role adds `role_code` (S7).
     print("\n[2] Checking relationship uniqueness...")
     seen_r: set[tuple] = set()
     dup_rels = []
     for r in relationships:
         key = (r.get("source"), r.get("target"), r.get("type"))
+        if r.get("type") == "ownership":
+            key += (r.get("classe"),)
+        elif r.get("type") == "role":
+            key += (r.get("role_code"),)
         if key in seen_r:
             dup_rels.append(key)
         seen_r.add(key)
@@ -197,7 +212,12 @@ def main():
                 check_date(f"{ctx} validation.datestamp", ds)
 
     for r in relationships:
-        check_date(f"{r.get('id','?')} added_at", r.get("added_at"))
+        rctx = f"{r.get('type','?')} {r.get('source','?')}->{r.get('target','?')}"
+        for field in ("added_at", "created_at", "filing_date", "as_of", "release"):
+            check_date(f"{rctx} {field}", r.get(field))
+        for h in r.get("history") or []:
+            if isinstance(h, dict):
+                check_date(f"{rctx} history.date", h.get("date"))
 
     if date_errors:
         for m in date_errors[:20]:
@@ -258,6 +278,123 @@ def main():
             err(m)
     else:
         ok("All relationship type values are valid")
+
+    # ── Check 11: new relationship types (ownership, role, parte_di) ─────────
+    print("\n[11] Checking ownership / role / parte_di relationships...")
+    new_errors: list[str] = []
+
+    def bad(r, msg):
+        m = f"{r.get('id','?')} ({r.get('type')} {r.get('source')}->{r.get('target')}): {msg}"
+        new_errors.append(m)
+        errors.append(m)
+
+    def is_num(v):
+        return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+    def prefix(eid):
+        return str(eid).split("-")[0] if eid else ""
+
+    seen_rel_ids: set[str] = set()
+    n_new = 0
+    for r in relationships:
+        t = r.get("type")
+        if t not in NEW_REL_TYPES:
+            continue
+        n_new += 1
+        rid = r.get("id")
+        if not isinstance(rid, str) or not REL_ID_RE.match(rid):
+            bad(r, f"missing or invalid id '{rid}' (expected REL-NNNN)")
+        elif rid in seen_rel_ids:
+            bad(r, f"duplicate relationship id '{rid}'")
+        else:
+            seen_rel_ids.add(rid)
+        if not isinstance(r.get("source_ref"), str) or not r.get("source_ref"):
+            bad(r, "source_ref is required (non-empty string)")
+        if not DATE_RE.match(str(r.get("created_at"))):
+            bad(r, "created_at is required (YYYY-MM-DD)")
+        if "current" in r and not isinstance(r["current"], bool):
+            bad(r, "current must be true or false")
+        hist = r.get("history")
+        if hist is not None:
+            if not isinstance(hist, list):
+                bad(r, "history must be a list")
+            else:
+                for i, h in enumerate(hist):
+                    if not isinstance(h, dict):
+                        bad(r, f"history[{i}] is not an object")
+                        continue
+                    miss = HISTORY_KEYS - set(h.keys())
+                    if miss:
+                        bad(r, f"history[{i}] missing keys: {sorted(miss)}")
+
+        sp, tp = prefix(r.get("source")), prefix(r.get("target"))
+        if t == "ownership":
+            if sp not in ("IV", "IN", "PER") or tp != "IN":
+                bad(r, "ownership goes from IV-/IN-/PER- (holder) to IN- (company)")
+            if not isinstance(r.get("classe"), str) or not r.get("classe"):
+                bad(r, "classe is required (non-empty string, as in the filing)")
+            if r.get("holder_type") not in HOLDER_TYPES:
+                bad(r, f"holder_type must be one of {sorted(HOLDER_TYPES)}")
+            for f in ("pct", "pct_voti"):
+                v = r.get(f)
+                if v is not None and (not is_num(v) or v < 0 or v > 100):
+                    bad(r, f"{f} must be a number between 0 and 100, or null")
+            v = r.get("shares")
+            if v is not None and (not is_num(v) or v < 0):
+                bad(r, "shares must be a non-negative number or null")
+            if r.get("pct") is None and r.get("pct_voti") is None and r.get("shares") is None:
+                bad(r, "at least one of pct, pct_voti, shares is required")
+            if r.get("as_of") is not None and r.get("as_of_origine") not in AS_OF_ORIGINS:
+                bad(r, f"as_of_origine must be one of {sorted(AS_OF_ORIGINS)} when as_of is set")
+            if r.get("as_of") is None and r.get("as_of_origine") is not None:
+                bad(r, "as_of_origine set but as_of is null")
+        elif t == "role":
+            if sp != "PER" or tp != "IN":
+                bad(r, "role goes from PER- (person) to IN- (company)")
+            for f in ("role_code", "role_text"):
+                if not isinstance(r.get(f), str) or not r.get(f):
+                    bad(r, f"{f} is required (non-empty string)")
+        elif t == "parte_di":
+            if sp not in ("IV", "IN") or tp not in ("IV", "IN"):
+                bad(r, "parte_di links two IV-/IN- entities")
+            if r.get("source") == r.get("target"):
+                bad(r, "parte_di cannot link an entity to itself")
+    if new_errors:
+        for m in new_errors[:30]:
+            err(m)
+        if len(new_errors) > 30:
+            print(f"  ... and {len(new_errors) - 30} more")
+    else:
+        ok(f"{n_new} ownership/role/parte_di relationships checked, all valid")
+
+    # sources.sec (S4): reference to the source only, never addresses
+    FORBIDDEN_SEC_KEYS = {"indirizzo", "address", "indirizzi", "addresses"}
+
+    def walk_keys(x):
+        if isinstance(x, dict):
+            for k, v in x.items():
+                yield k
+                yield from walk_keys(v)
+        elif isinstance(x, list):
+            for v in x:
+                yield from walk_keys(v)
+
+    sec_errors = []
+    for e in entities:
+        sec = (e.get("sources") or {}).get("sec")
+        if sec is None:
+            continue
+        if not isinstance(sec, dict):
+            sec_errors.append(f"{e.get('id','?')}: sources.sec must be an object")
+            continue
+        bad_keys = {str(k).lower() for k in walk_keys(sec)} & FORBIDDEN_SEC_KEYS
+        if bad_keys:
+            sec_errors.append(f"{e.get('id','?')}: sources.sec contains address fields {sorted(bad_keys)} (S4: addresses stay out of the DB)")
+    for m in sec_errors:
+        err(m)
+        errors.append(m)
+    if not sec_errors:
+        ok("sources.sec blocks contain no address fields")
 
     # ── Summary ────────────────────────────────────────────────────────────────
     print("\n" + "─" * 60)

@@ -79,7 +79,21 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
    ```
 5. Bump `_updated`. Run `validate.py` before committing.
 
+> **Note (B1, 2026-11-12):** the relationship example above shows `id`, `details.role`, `sources`, `added_at` and `author`. The relationships actually in the database have none of those fields: see `reference/SCHEMA.md`, section *Relationships*. For SEC data (persons, ownership, roles) follow `reference/S1…S7` and the checks in `validate.py` (check 11); persons from the SEC release are created only after the manual check required by S7.
+
 > **Deduplication:** Before adding, search existing PER entities. Same person at multiple companies → one PER entity, multiple REL entries.
+
+---
+
+## SEC relationships (`ownership`, `role`, `parte_di`)
+
+Rules in `reference/S3-CLASSI-AZIONI.md` … `S7-RUOLI-E-PERSONE.md`; fields and checks in `reference/SCHEMA.md` and `scripts/validate.py` (check 11). In short:
+
+1. Every new relationship of these types gets its own `REL-NNNN` id (the next free number; the older relationships have no id). IDs are never reused.
+2. Re-import never deletes: a row that disappears becomes `current: false` with an entry in the relationship `history[]`; changed values are written to `history[]` with the old value (S5).
+3. Before a re-import the script prints a report of new, changed and disappeared rows; a person looks at it the first time.
+4. `rawdata/` is never modified; every imported or discarded row appears in the reconciliation report (S4).
+5. Run `python3 scripts/validate.py` before every commit, as for any other change.
 
 ---
 
