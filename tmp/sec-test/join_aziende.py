@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SEC = ROOT / "rawdata/sec-edgar/2026-10-17"
 OUT = Path(__file__).resolve().parent
 
-db = json.load(open(ROOT / "data/database.json"))
+db = json.load(open(ROOT / "docs/data/database.json"))
 ents = {e["id"]: e for e in db["entities"]}
 retired = {e["id"] for e in ents.values()
            if any(h.get("action") == "entity_retired" for h in e.get("history", []))}
