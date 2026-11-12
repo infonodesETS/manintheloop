@@ -260,3 +260,113 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Trovato:** `reference/SCHEMA.md` prevede già `PER-NNNN` (persone) e il tipo di relazione `board_membership`; `validate.py` ha `PER_ID_RE = ^PER-\d{4}$`, `VALID_REL_TYPES = {investment, board_membership, edf_participation}`, `VALID_ROLES = {manufacturer, investor, board_member}`. Il documento di sviluppo di `v.2026-c` propone `PE-####` (come domanda aperta) e le relazioni `ownership`/`role`; il test SEC usa `PER-T####`, `board_membership`, `executive_officer`, `shareholder_5pct` (gli ultimi due non nello schema). Gli ID persona del dataset SEC (`P0001…`) si rinumerano a ogni estrazione. 2.298 persone nel test; `\d{4}` arriva a 9999.
 - **S1 proposta a Nelson:** (a) `PER-NNNN` permanente + `P####` come riferimento di fonte in `sources.sec` [raccomandata]; (b) `PE-####`; (c) ID derivato dal CIK. Riconciliazione tra estrazioni: CIK se presente, altrimenti nome normalizzato + azienda con controllo manuale. **Nessuna risposta ancora.** S2-S7 da presentare una alla volta.
 - **Sessione:** Nelson interrompe qui e riparte con `/clear` leggendo `STATUS.md`; il puntatore di `STATUS.md` è stato corretto (rimandava a `docs/PIANO-RIORGANIZZAZIONE.md`, spostato in `reference/` da PR #30) e aggiornato con «Dove siamo».
+
+### 2026-11-10 — F3.8 Fine congelamento ☑ (chiuso da Nelson)
+
+- Preparato il testo per Andrea e Davide (fine congelamento, lavoro su branch da `main` aggiornato con PR, nuovi percorsi `docs/`, `work/`, `reference/`, tag `v.2026-b` e `archivio-2026-06`, script dalla radice, vecchi URL `/docs/…`, `/rawdata/…`, `/scripts/…` non più online). Nelson ha approvato la prima parte; la frase finale su S1 è stata scartata e sostituita con un rimando a un indirizzo mai indicato; poi ha detto «skippiamo, segna come fatto».
+- Registrato come fatto su decisione di Nelson. Non so se e con quale testo sia stato inviato.
+- **B1:** S1 (prefisso persone) resta senza risposta.
+
+### 2026-11-10 — B1 S1: parere chiesto ad Andrea, in pausa
+
+- Su richiesta di Nelson ho scritto un messaggio per Andrea Borruso con la proposta S1 (`PER-NNNN` permanente, `P####` come riferimento di fonte in `sources.sec`, riconciliazione via CIK o nome normalizzato più azienda) e le alternative `PE-####` e ID da CIK. Invio non verificato da me.
+- Nelson sospende B1 finché Andrea non risponde. S2-S7 non presentate. Alla ripresa: leggere la risposta di Andrea, registrare la scelta di S1 e passare a S2.
+- Il branch `docs/log-f3-8` contiene questi aggiornamenti di log (F3.8 e B1), non ancora committati né pushati.
+
+### 2026-11-11 — MITL_INDEX_URL: risposta di Davide, chiuso con riserva
+
+- Davide non può recuperare il valore da Vercel (variabile sensibile); dice che dovrebbe essere `https://infonodesets.github.io/manintheloop/data/mitl-index.json`. Nelson aggiunge che la GitHub Page funziona regolarmente.
+- **Verifica (sola lettura):** quell'URL risponde 301 verso `https://mitl.infonodes.org/data/mitl-index.json`, poi 200; sha256 del corpo = sha256 di `docs/data/mitl-index.json` (`714c0f04…c446f`). Quindi MARLA legge il file del repo, che è il vecchio (`generato` 2026-08-21, 2226 soggetti contro 2449 nel database).
+- Il valore effettivo su Vercel resta non verificato direttamente. Regola: l'URL non cambia. Rigenerare l'indice è una decisione separata e va comunicata a Davide (cambiano le risposte di MARLA).
+
+### 2026-11-11 — B1 S1 decisa: `PER-NNNN` ☑ (risposta di Andrea Borruso, 2026-11-10 13:11)
+
+- **Scelta:** ID permanente `PER-NNNN`, assegnato una volta e mai cambiato; il codice `P####` della release SEC resta in `sources.sec` come riferimento di fonte. Andrea: passare a `PE-####` costerebbe senza dare niente in cambio.
+- **Correzione a una mia affermazione precedente** (log di B1 del 2026-11-10: «gli ID `P0001…` si rinumerano a ogni estrazione»): **era sbagliata**. Verificato in `rawdata/sec-edgar/2026-10-17/README.md` (sezione «Le persone e il loro ID»): gli ID sono stabili dal 19 ottobre; un registro ricorda l'ID di ogni nome normalizzato per azienda; una persona già vista riprende il suo ID, una nuova prende il primo numero mai usato, un numero non è mai riassegnato; se due ID sono la stessa persona resta il più basso e l'altro è segnato come sostituito in un file di unioni.
+- **Conseguenza su (c):** il riconoscimento fra estrazioni lo fa già il registro di Andrea. Al DB basta la corrispondenza `P####` → `PER-NNNN` fatta una volta e il trattamento del file delle unioni. Il CIK delle persone non esiste nei proxy e 10-K (solo nei Form 3/4/5, non ancora trattati; issue #33 di Andrea): non è chiave per la Release 1.
+- **Proposta di Andrea su `validate.py`:** `PER_ID_RE = ^PER-\d{4}$` arriva a 9999; passare a «quattro cifre in su» (`\d{4,}`). Persone oggi 2.298; con la Release 2 il tetto si può superare. **Da applicare con il diff di B1** (non ancora fatto).
+- **Prossimo:** S2 (tipi di relazione).
+
+### 2026-11-11 — B1: S1 chiusa, S2 si riparte dall'opzione (a)
+
+- **S1 ☑** registrata come fatta da Nelson: `PER-NNNN` + `P####` in `sources.sec` (vedi sezione precedente). Resta da applicare in `validate.py` `PER_ID_RE` → `^PER-\d{4,}$` (con il diff di B1).
+- **S2 (tipi di relazione): punto di ripartenza = opzione (a).** Tipi generali: `ownership` per le quote (campi della bozza di `v.2026-c`: `holder_type` fondo/società/persona, `pct`, `shares`, `source_ref`, `filing_date`, `as_of`) e `role` per i ruoli (campo `role` a vocabolario controllato, deciso con S7). L'opzione (b) (`shareholder_5pct`, `board_membership`, `executive_officer`, come nel test) è l'alternativa scartata per ora. Per la Release 1 serve solo `ownership`; `role` si può decidere dopo; `board_membership` resta per compatibilità.
+- **Esempio dai dati** (CSV release 2026-10-17 e `database.json`, sola lettura, non verificato sui filing): AppLovin `IN-0034` (nel DB c'è solo la Class A, non la Class B); Adam Foroughi `P0014` è CEO, consigliere e detiene il 92,5% delle Class B (61,6% dei voti); BlackRock `IV-0077` detiene il 7,0% delle Class A (Schedule 13G, 2025-10-17). Sono 4 relazioni: in (a) 2 `ownership` + 2 `role`, in (b) 2 `shareholder_5pct` + `executive_officer` + `board_membership`. Nelson ha preparato una mail breve per Andrea e Davide con le due opzioni e questo esempio; **non so se e quando sia stata inviata, né se abbiano risposto**. Decisione finale di S2 da confermare con la loro risposta.
+- **Da fare alla ripresa:** (1) chiedere a Nelson se Andrea/Davide hanno risposto su S2; (2) confermare S2 e registrarla; (3) presentare S3 (doppie classi di azioni: Alphabet IN-0017/0018, Fox IN-0135/0136, Heico IN-1372/1378, News Corp IN-0250/0251; AppLovin ha la stessa questione con Class A/B); poi S4-S7 una alla volta.
+
+### 2026-11-11 — B1: S2 decisa, opzione (a) ☑
+
+- **Esito:** Nelson riferisce che la risposta alla mail su S2 è «sì», cioè conferma dell'opzione (a): `ownership` per le quote (`holder_type`, `pct`, `shares`, `source_ref`, `filing_date`, `as_of`) e `role` per i ruoli (campo `role` a vocabolario controllato, deciso con S7). Scartata la (b).
+- **Non registrato:** chi ha risposto (Andrea, Davide o entrambi) e quando; il testo della risposta non è stato mostrato a me. Da completare se Nelson lo fornisce.
+- **Da applicare con il diff di B1:** aggiornare `reference/SCHEMA.md` e `scripts/validate.py` (tipi di relazione ammessi: `ownership`, `role`, più `board_membership`, `investment`, `edf_participation` per compatibilità); `PER_ID_RE` → `^PER-\d{4,}$` (S1).
+- **Prossimo:** S3 (doppie classi di azioni: Alphabet IN-0017/0018, Fox IN-0135/0136, Heico IN-1372/1378, News Corp IN-0250/0251; AppLovin con Class A/B).
+
+### 2026-11-11 — B1: S3 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** doppie classi di azioni = opzione (c). Nessun merge di entità in B1 (il merge è B3). La relazione `ownership` porta sempre `classe`, `pct`, `pct_voti`, `shares`, ha un `id` proprio e la classe entra nella chiave di unicità. Tabella ticker + classe → ID entità scritta a mano e rivista da una persona. Ogni cambio su un'entità va in `history[]` (voce nuova, append-only). Coppie marcate con `share_class_variant` (documentato, mai usato finora) o `accepted_duplicate`. Se un domani si unisce: prima si corregge lo script, e il perdente diventa lapide `entity_retired` con puntatore al vincitore.
+- **Criteri indicati da Nelson:** qualità dei dati; nessuna perdita di informazioni; impatto sul database; impatto sul sito. La scadenza del 15 non è un criterio.
+- **Documento di riferimento:** [`S3-CLASSI-AZIONI.md`](S3-CLASSI-AZIONI.md), con la tabella delle 22 aziende, le regole R1-R6 e tre esempi. L'abbinamento ticker → entità è mio, da confermare da una persona.
+- **Perdite del merge attuale** (`scripts/dedup_entities.py`, letto, non eseguito): (1) blocchi `crunchbase` e `edf` del perdente scartati se il vincitore li ha; (2) `ishares` del perdente aggiunti solo se il `stock_ticker` è nuovo; (3) `sources.infonodes`: prevale il vincitore; (4) il nome della classe resta solo nel testo della voce di merge; (5) relazioni uguali per `(source, target, type)` dopo il redirect: una è cancellata; (6) `edf_orgs.json` da correggere a mano; il perdente è rimosso da `entities`. History conservata con prefisso `[from ID]`.
+- **Da applicare con il diff di B1:** la chiave di unicità delle relazioni in `validate.py` (controllo 2) deve includere la classe per `ownership`; il nuovo tipo `ownership` va gestito in `app.js`, `index.html`, `networks.html` (non verificato come reagiscono oggi a un tipo sconosciuto).
+- **Non verificato:** se un link `?organization=<ID ritirato>` possa reindirizzare al vincitore (serve per B3); Alphabet Class C (DB) contro Class B (SEC).
+- **Prossimo:** S4 (dove vivono i dati SEC: dentro `database.json` o in staging).
+
+### 2026-11-11 — B1: S4 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** opzione (c), ibrida. Nel DB entità `PER-`/`IV-`/`IN-` e relazioni `ownership`, con `sources.sec` ridotto al riferimento di fonte; i CSV restano immutabili in `rawdata/`. Le 91 persone tra i detentori >5% entrano nel DB (dati resi pubblici dalla SEC, parere di Nelson). **Gli indirizzi restano fuori dal DB «per il momento»** (rivedibile con nuova decisione).
+- **Regole:** riferimento alla riga di origine; riconciliazione nell'import (ogni riga importata o scartata con motivo, saldo zero); `rawdata` mai modificati; front-end adattato nella stessa PR dei dati; valgono R1-R6 di S3. Testo completo in [`S4-DATI-SEC.md`](S4-DATI-SEC.md).
+- **Verifiche fatte (sola lettura):** `database.json` 13,2 MB, crescita stimata +0,5 MB con la Release 1 e +2,6 MB con la 2. `app.js` (`REL_MAP`) e `index.html` leggono come investimento ogni relazione diversa da `edf_participation`; `networks.html` e `key-figures.html` filtrano per tipo e ignorerebbero le nuove. `typeBadge` non conosce `person`. Indirizzi: 70 persone su 91, 49 «c/o azienda», 21 no.
+- **GDPR:** Nelson ritiene non problematico trattare dati pubblici per obbligo SEC. Nota mia: la pubblicità non esclude il GDPR; per nome e quota la finalità è chiara, per l'indirizzo no. Non è un parere legale; non ho scritto ad Andrea e Davide. Aperto: se li si vuole sentire.
+- **Non verificato:** se il registro di `app.js` esclude `PER-` (visto solo il ciclo sui `IV-`); come mappa e reti trattano entità `person` senza paese.
+- **Prossimo:** S5 (storicità: solo quota/ruolo attuale o anche lo storico con `as_of`).
+
+### 2026-11-11 — B1: soglia di importazione delle quote, opzione (b) ☑ (aggiunta a S4)
+
+- **Domanda di Nelson:** «>5 o ≥5?» (preferenza: dal 5% incluso). Verifica sul CSV `detentori-oltre-5.csv`: il file **non rispetta il titolo**. 523 righe sopra il 5%, **6 esattamente al 5,0%**, 18 sotto il 5% di capitale (0-4,98%), 24 con percentuale vuota («sotto l'1%»). Con le doppie classi il capitale non basta: 17 righe sotto soglia o vuote hanno **voti ≥5%** (Zuckerberg 60,8%, Duffield e Bhusri 69,0%, Foroughi 61,6%, Green 49,7%, Brin 25,3%…).
+- **Decisione (Nelson): opzione (b)**: si importa la riga se `percentuale` ≥ 5 **o** `percentuale_voti` ≥ 5 (5,0 incluso). 546 righe importate, 25 scartate con motivo nel report di riconciliazione (restano nei `rawdata`). Dettaglio e elenco in [`S4-DATI-SEC.md`](S4-DATI-SEC.md).
+- **Correzione a una mia cifra:** le «91 persone» sono 91 **righe** di tipo persona (il README di Andrea le chiama persone): le persone distinte sono 58 (57 con la soglia); le entità distinte 110, non 480. La stima di crescita del DB (+0,5 MB) era sovrastimata. Nel log di S4 la frase «Le 91 persone … entrano» va letta così.
+- **Doppie classi:** i 22 casi di S3 restano 22 con la soglia (verificato).
+- **Da controllare a mano:** WBD, Vanguard a «0%»; AIR (collisione di ticker Airbus/AAR).
+
+### 2026-11-11 — Dicitura «>5%» corretta in «≥5%» nei documenti vivi
+
+- Corretta in `S3-CLASSI-AZIONI.md` (titolo), piano (§1.5, §1.6, B5) e `STATUS.md` (B5). Il nome del file di Andrea (`detentori-oltre-5.csv`) e le voci di log già scritte non sono modificati: sono citazioni della fonte e storico.
+
+### 2026-11-11 — B1: S5 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** storicità = attuale più storia dentro la relazione. Chiave `(source, target, type, classe)`; campi `filing_date`, `as_of`, `as_of_origine` (`proxy`/`testo`/`deposito`), `release`, `current`; cambi in `history[]` della relazione (append-only); righe scomparse `current: false`, mai cancellate; report dei cambiamenti prima di ogni re-import, controllato a mano la prima volta. Testo completo in [`S5-STORICITA.md`](S5-STORICITA.md).
+- **Domanda di Nelson e risposta:** `as_of` non è sempre approssimato. Per le righe dalla tabella del proxy è esatto (`quote_al`, «la data a cui il proxy riferisce le quote», README); per 13G/13D/13F il CSV ha la data di deposito e la data vera delle azioni sta nel filing (non verificato su un campione). Per questo si salva l'origine della data.
+- **Verifiche:** una sola fotografia (nessuno storico oggi); 333 righe con data ISO, 135 con data in prosa o assente, 103 senza fonte; nessuna chiave ripetuta; le relazioni del DB hanno solo `created_at`.
+- **Non verificato:** se `validate.py` controlla `history[]` delle relazioni; se il sito gestisce `current: false`. Da vedere con il diff di B1.
+- **Prossimo:** S6 (gestori: nodi normali o aggregati; BlackRock).
+
+### 2026-11-11 — B1: S6 decisa, opzione (c) ☑
+
+- **Decisione (Nelson):** un nodo per ogni soggetto che deposita (`entita_id`), più un legame di gruppo (`parte_di`) aggiunto solo dopo verifica di una persona, con fonte. Abbinamento ai gestori già nel DB con tabella rivista a mano. **State Street resta `IN-1468`** (tipo `bank`, ID permanente). Testo completo in [`S6-GESTORI.md`](S6-GESTORI.md).
+- **Perché (c):** nessuna interpretazione nei dati e nessuna perdita; la lettura per gruppo resta possibile. Esempio Vanguard: 3 depositanti (92 + 17 + 5 società) che coprono 110 società distinte; interrogare solo «The Vanguard Group» darebbe 92 (16% in meno). Solo 4 società hanno più entità Vanguard insieme.
+- **Cautele registrate:** l'esperienza utente migliora solo quando esistono il legame e il front-end che lo legge; non tutti i legami sono sicuri (9 casi dubbi in `controlli-manuali.csv`); FMR LLC ≠ Fidelity International `IV-0214`.
+- **Non verificato:** forma del legame di gruppo nello schema (relazione o campo; dipende da S2).
+- **Prossimo:** S7 (vocabolario dei ruoli e dedup persone: CIK, ID stabili), poi il diff di `SCHEMA.md` e `validate.py`.
+
+### 2026-11-11 — B1: S7 decisa ☑ — S1-S7 tutte decise
+
+- **Ruoli: opzione (c).** `role` a vocabolario controllato + `role_text` con la dicitura originale; stringhe con più ruoli = più relazioni; mappatura versionata, `other` per il non classificato, nessuna riga scartata. Il vocabolario concreto lo propone l'AI prima della Release 2 e lo approva Nelson.
+- **Persone: opzione (b).** Registro di Andrea (`P####` → `PER-NNNN`, entrambi i riferimenti se due `P####` sono la stessa persona) più controllo a mano prima di creare l'ID per chi compare in un controllo manuale. Release 1: 4 persone su 57 (Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`). Release 2: 121 + 13 persone da pianificare.
+- **Verifiche:** 5.025 righe di ruolo, 2.298 persone; 636 diciture distinte per i dirigenti, 596 per i consiglieri; 143 controlli manuali; le verifiche Exa di Andrea non sono state ricontrollate a mano (README). Testo completo in [`S7-RUOLI-E-PERSONE.md`](S7-RUOLI-E-PERSONE.md).
+- **B1 non è chiuso:** per il piano serve il diff di `reference/SCHEMA.md` e `scripts/validate.py`, approvato da Nelson, e `validate.py` aggiornato che passa **e fallisce** su una relazione con tipo non ammesso (test del test).
+- **Da includere nel diff:** tipi di relazione di S2 (`ownership`, `role`; forma del legame di gruppo di S6); `PER_ID_RE` a `\d{4,}` (S1); `ownership` con `id` proprio e chiave `(source, target, type, classe)` (S3); `current`, `as_of_origine`, `release`, `history[]` sulle relazioni (S5); `sources.sec` ridotto al riferimento di fonte e senza indirizzi (S4); `person` nel sito (badge, registro).
+- **Prossimo:** diff di `SCHEMA.md` e `validate.py`, da mostrare prima di applicarlo.
+
+### 2026-11-12 — B1: diff di `SCHEMA.md`, `UPDATE_PROTOCOL.md` e `validate.py` applicato ☑ (B1 chiuso, G7 soddisfatto)
+
+- **Verifiche preliminari (sola lettura) che hanno cambiato il diff:** le 3490 relazioni del DB **non hanno** `id`, `sources`, `added_at`, `author` (descritti da `SCHEMA.md` e `UPDATE_PROTOCOL.md`); hanno `source`, `target`, `type`, `created_at` e, per tipo, `source_ref` (1177 `investment`), `details` (94), `role` ed `eu_contribution` (2313 `edf_participation`); una sola ha `history[]`, in forma povera (`date`, `author`, `description`). Nessuna ha un `id`, quindi `REL_ID_RE` non era mai usata e il controllo 7 sulle date delle relazioni guardava un campo inesistente. Il campo `role` esiste già su `edf_participation` (`participant`, `coordinator`, …). Le lapidi nel DB sono una voce di `history[]` con `action: entity_retired` (letta da `app.js`, `networks.html`, `key-figures.html`, `build_chat_index.py`) più una voce `retired` in `validation[]`, non uno stato `entity_retired`. Tipi di entità reali: anche `investor` (393), `public_fund` (52), `edf_project` (129), non elencati nello schema. Stati di validazione in uso: 28; `share_class_variant` 0.
+- **Decisioni di Nelson in sessione («mi fido della tua analisi»):** (1) `id` solo sulle nuove relazioni `ownership`/`role`/`parte_di`, le 3490 esistenti non cambiano; (2) campi di `ownership` al livello superiore della relazione, come fa `edf_participation`, non dentro `details`; (3) nel campo del ruolo il nome diventa `role_code` (con `role_text`) invece di `role`, per non confonderlo con il `role` di `edf_participation`. **Modifica rispetto a S7**, che diceva `role`: la nota di S7 va letta con `role_code`.
+- **Cosa è cambiato:**
+  - `scripts/validate.py`: tipi ammessi `ownership`, `role`, `parte_di`; `PER_ID_RE`, `REL_ID_RE`, `IN_ID_RE`, `IV_ID_RE` a `\d{4,}`; chiave del controllo 2 con `classe` (ownership) e `role_code` (role); controllo 7 su `created_at`, `filing_date`, `as_of`, `release` e date di `history[]` delle relazioni; nuovo controllo 11 solo sui tre tipi nuovi (`id` unico, `source_ref`, `created_at`, direzione source/target, `classe`, `holder_type`, `pct`/`pct_voti` 0-100, almeno un valore, `as_of_origine`, `current`, forma di `history[]` secondo S5, `role_code`/`role_text`, niente `parte_di` su se stessa) e controllo che `sources.sec` non contenga chiavi `indirizzo`/`address` (S4); percorso del DB opzionale come argomento (`python3 scripts/validate.py [file]`), invariato senza argomenti.
+  - `reference/SCHEMA.md`: sezione *Relationships* riscritta con i campi reali e una nota di correzione; tipi di entità reali; blocco `sources.sec`; lapidi; elenco degli stati di validazione con i conteggi; nota sulle tre accezioni di «role».
+  - `reference/UPDATE_PROTOCOL.md`: nota sull'esempio di persona e sezione breve sulle relazioni SEC.
+- **Test:** (1) `validate.py` nuovo sul DB reale: PASSED, 2582 entità, 3490 relazioni. (2) 19 casi su copie del DB: 14 falliscono come atteso (tipo `foo`, classe duplicata o mancante, `as_of_origine` non valido, `pct` 120, nessun valore, `id` mancante o duplicato, `filing_date` non ISO, `current` non booleano, `history` senza campi S5, target non `IN-`, `role_text` mancante, `parte_di` su se stessa), 5 passano come atteso (set valido dei tre tipi, due classi sulla stessa coppia, `history` corretta, `PER-10000`, vecchia relazione con `history` povera tollerata). (3) `sources.sec` con chiave `indirizzo`: rifiutato; senza: accettato. (4) Un `ownership` valido fa **fallire** il vecchio `validate.py` (tipo non ammesso) e passa sul nuovo. Script di prova e copie in `<scratch>/b1/` (fuori dal repo).
+- **Non verificato:** il vecchio `validate.py` su `PER-10000` non è stato eseguito (legge un percorso fisso; dal codice `^PER-\d{4}$` non lo accetta). I nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`) e i valori di `holder_type` (`fund`, `company`, `person`) sono proposte mie, da confermare in B5. Nessun altro script importa `validate.py` o le sue costanti (grep).
+- **Non toccato:** il front-end (`REL_MAP`, badge `person`), che resta nella PR dati di B5 (S4). Il DB non è cambiato.
+- **File toccati:** `scripts/validate.py`, `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` (non committati al momento di questa voce).
+- **Prossimo:** B2 (merge di `v.2026-c` in `main`, sul branch `integrate-sec`, dopo la PR di documentazione).
