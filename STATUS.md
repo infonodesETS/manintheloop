@@ -1,24 +1,21 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-12 (B1 chiuso e in `main` con la PR #34 (`78d67f5`). Prossimo: B2. DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-12 (B1 chiuso con la PR #34, B2 chiuso con la PR #36 (`fc38f14`): i dati SEC sono nel repo ma non sul sito. Prossimo: B4, poi B3. DB invariato: 2582 entities, 3490 rels)
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
-**B1 è chiuso e in `main` (PR #34, `78d67f5`). B2 è fatto in locale, non ancora in `main`:** il merge di `v.2026-c` è sul branch `integrate-sec` (commit `40e8e54`, più un commit di documentazione), controlli superati, **non pushato**. Tocca a Nelson: `git push -u origin integrate-sec` e PR verso `main`. Dopo il merge: verificare con `curl -sI` che `https://mitl.infonodes.org/rawdata/sec-edgar/2026-10-17/…` e `…/docs/dev-v2026c-sec.md` diano 404, poi aggiornare questo file. Dettagli nel [log, voce B2 del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md). Prossimo dopo B2: B3 (duplicati, metodo Exa; serve la chiave Exa) e B4 (rilanciare `sec-test`), solo con il via libera di Nelson.
+**B1 e B2 sono chiusi e in `main`.** B1: PR #34 (`78d67f5`), schema e `validate.py`. B2: PR #36 (`fc38f14`), merge di `v.2026-c` con i dati SEC 2026-10-17, `tmp/sec-test/` e `scripts/export_labelling_sheets.py`; conflitti risolti `.gitignore` e `ROADMAP.md`; `docs/dev-v2026c-sec.md` spostato in `reference/`. **Verificato sul sito vivo il 2026-11-12:** `/rawdata/sec-edgar/…`, `/docs/dev-v2026c-sec.md`, `/reference/…`, `/tmp/sec-test/…`, `/scripts/…`, `/STATUS.md` danno 404; home, `data/database.json`, `data/mitl-index.json` danno 200; 27/27 file di `docs/` con hash uguale a `main`. Dettagli nel [log](reference/LOG-RIORGANIZZAZIONE.md).
 
-**Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5` (il #33 è un'issue).
+**Prossimo task: B4** (rilanciare `sec-test` e contare i controlli manuali ancora aperti), poi B3, solo con il via libera di Nelson. B4 si può fare subito: non richiede la chiave Exa e scrive solo in `tmp/sec-test/`. Metodo dal piano: dalla radice `python3 -I tmp/sec-test/join_aziende.py` e `python3 -I tmp/sec-test/build_sec_test.py`; il conteggio dei controlli aperti si **calcola dal CSV** (`controlli-manuali.csv`), non si assume. **B3** (duplicati, metodo Exa) richiede la chiave Exa di Nelson, solo in variabile d'ambiente; il pilota di 10 casi lo registra una persona, non l'AI.
 
-Cosa è stato deciso nel diff (oltre a S1-S7):
-- le relazioni reali **non hanno `id`**, `sources`, `added_at`, `author` (lo schema vecchio le descriveva): solo le nuove `ownership`, `role`, `parte_di` hanno un `id` proprio (`REL-NNNN`, 4 cifre o più); le 3490 esistenti non cambiano;
-- campi di `ownership` al livello superiore della relazione; chiave `(source, target, type, classe)`; per `role` chiave con `role_code`;
-- **`role_code`** (non `role`) + `role_text` (modifica rispetto a S7, per non confondersi col `role` di `edf_participation`);
-- `sources.sec` ridotto al riferimento di fonte, `validate.py` rifiuta chiavi `indirizzo`/`address`;
-- `validate.py [file]` accetta un percorso opzionale; senza argomenti è come prima.
+**Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14` (il #33 è un'issue).
+
+Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/SCHEMA.md` e nel log del 2026-11-12): relazioni reali **senza `id`**; `id` proprio (`REL-NNNN`, 4 cifre o più) solo per le nuove `ownership`, `role`, `parte_di`; campi di `ownership` al livello superiore, chiave `(source, target, type, classe)`; **`role_code`** (non `role`) + `role_text`; `sources.sec` senza indirizzi (`validate.py` lo impone); `validate.py [file]` con percorso opzionale.
 
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
-**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main` su branch `integrate-sec`; il 2026-11-12 i conflitti rimisurati erano 2, `.gitignore` e `ROADMAP.md`, risolti; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6.
+**Poi, nell'ordine:** B4, B3, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
 
 ## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
 
@@ -37,13 +34,14 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 ## Stato del repo (2026-11-12)
 
-- `main` locale = `origin/main` = `78d67f5` (merge della PR #34). Branch di lavoro attuale: `docs/stato-post-b1` (aggiornamento di questo file e del log, non ancora pushato: il push e la PR spettano a Nelson). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
-- Nessun file del database o del sito è stato toccato dopo F3.7; B1 ha toccato solo documentazione e `scripts/validate.py`.
-- Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato), branch locale `docs/log-f3-8` (fuso in `main`, da cancellare con `-d` quando Nelson lo conferma).
+- `main` locale = `origin/main` = `fc38f14` (merge della PR #36). Branch di lavoro attuale: `docs/stato-post-b2` (questo aggiornamento, non ancora pushato: il push e la PR spettano a Nelson). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
+- Su GitHub restano solo `main` e `v.2026-c` (non si tocca; tag `sec-2026-10-17`).
+- Nessun file del database o del sito è cambiato dopo F3.7; B1 ha toccato documentazione e `scripts/validate.py`, B2 ha aggiunto `rawdata/sec-edgar/`, `tmp/sec-test/` e uno script.
+- Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato).
 
 ## Dove siamo
 
-- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento), B1 (PR #34, schema e `validate.py`).
+- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento), B1 (PR #34, schema e `validate.py`), B2 (PR #36, dati SEC in `main` ma non sul sito).
 - **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` applicato il 2026-11-12 (vedi «PROSSIMO PASSO»).** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
   - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
   - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
