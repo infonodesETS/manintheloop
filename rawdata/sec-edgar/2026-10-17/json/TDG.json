@@ -1,0 +1,445 @@
+{
+  "company": "TransDigm Group Incorporated",
+  "ticker": "TDG",
+  "cik": "0001260221",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-23",
+    "accession": "0001260221-26-000009",
+    "meeting": "Annual Meeting of Stockholders, 2026-03-05",
+    "ownership_as_of": "2026-01-09",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000009/tdg-20260122.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "David A. Barr",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Jane M. Cronin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Michael Graff",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2003",
+      "independent": false
+    },
+    {
+      "name": "Sean P. Hennessy",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "W. Nicholas Howley",
+      "roles": [
+        "Chairman of the Board",
+        "Executive Committee Chair"
+      ],
+      "director_since": "1993",
+      "independent": false
+    },
+    {
+      "name": "Michael J. Lisman",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Gary E. McCullough",
+      "roles": [
+        "Director",
+        "Nominating and Corporate Governance Committee Chair"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Peter J. Palmer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Michele L. Santana",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Robert J. Small",
+      "roles": [
+        "Lead Independent Director",
+        "Director"
+      ],
+      "director_since": "2010",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Sean P. Hennessy",
+        "Jane M. Cronin",
+        "Michele L. Santana"
+      ],
+      "chair": "Sean P. Hennessy",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "David A. Barr",
+        "Gary E. McCullough",
+        "Robert J. Small"
+      ],
+      "chair": "David A. Barr",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Gary E. McCullough",
+        "Jane M. Cronin",
+        "Michele L. Santana",
+        "Michael Graff"
+      ],
+      "chair": "Gary E. McCullough",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "W. Nicholas Howley",
+        "Michael Graff",
+        "Robert J. Small"
+      ],
+      "chair": "W. Nicholas Howley",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael J. Lisman",
+      "age": 43,
+      "positions": [
+        "President and Chief Executive Officer (since October 1, 2025)"
+      ]
+    },
+    {
+      "name": "Sarah L. Wynne",
+      "age": 52,
+      "positions": [
+        "Chief Financial Officer (since May 2023)"
+      ]
+    },
+    {
+      "name": "Joel B. Reiss",
+      "age": 55,
+      "positions": [
+        "Co-Chief Operating Officer (since May 2023)"
+      ]
+    },
+    {
+      "name": "Patrick J. Murphy",
+      "age": 53,
+      "positions": [
+        "Co-Chief Operating Officer (since August 2025)"
+      ]
+    },
+    {
+      "name": "Kevin M. Stein",
+      "age": 59,
+      "positions": [
+        "Former Chief Executive Officer (to September 30, 2025)",
+        "Former President (to September 30, 2025)"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-09",
+    "note": "Percentuali calcolate su 56.452.336 azioni di Common Stock in circolazione al 9 gennaio 2026. '*' = meno dell'1%. Le azioni nella tabella dei direttori e NEO includono le opzioni esercitabili entro 60 giorni dal 9 gennaio 2026 (colonna 'Total Number of Shares'). Nessuna azione dei direttori o NEO è in pegno.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6790800,
+            "pct": 12.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2025-11-07, holdings as of 2025-09-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Capital International Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6489193,
+            "pct": 11.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2025-11-13, holdings as of 2025-09-30",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      },
+      {
+        "name": "Capital World Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3938687,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 13F filed 2025-11-13, holdings as of 2025-09-30",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2918533,
+            "pct": 5.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13F filed 2025-11-12, holdings as of 2025-09-30",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "David A. Barr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41348,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jane M. Cronin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2180,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Graff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18259,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sean P. Hennessy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38259,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "W. Nicholas Howley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 630539,
+            "pct": 1.11
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary E. McCullough",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10125,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Palmer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40055,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michele L. Santana",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7551,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert J. Small",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 504661,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin M. Stein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 101725,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sarah L. Wynne",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 56490,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael J. Lisman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 163163,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joel B. Reiss",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 148030,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick J. Murphy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 72635,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1843619,
+          "pct": 3.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è ricavata dal campo 'Committees' delle biografie dei nominee. Le riunioni dei comitati non sono riportate nel documento: meetings è null per tutti.",
+    "Le caselle di indipendenza e di appartenenza ai comitati della tabella nominee non sono leggibili nel testo: i valori di 'independent' sono dedotti dalle biografie (es. Graff è senior advisor di Warburg Pincus; Howley è Chairman ed ex CEO; Lisman e Palmer sono dirigenti o ex dirigenti). Da verificare.",
+    "Sanity check 1 non soddisfatto: Michael Graff (indipendent: false) risulta membro del Nominating and Corporate Governance Committee e dell'Executive Committee; W. Nicholas Howley (indipendent: false) presiede l'Executive Committee. Mantenuti come riportati nelle biografie, da verificare.",
+    "Kevin M. Stein ha lasciato la carica di CEO e di President il 30 settembre 2025 e non è più nel consiglio (sostituito da Lisman). Compare nel roster come NEO con le cariche passate; il documento dice che resterà advisor di TransDigm fino al fiscale 2027. Non è incluso fra i direttori.",
+    "Il sig. Valladares ha lasciato il consiglio (il suo posto è stato occupato da Palmer). Il documento non dà la data di uscita: non incluso in board_of_directors.",
+    "Peter J. Palmer compare come 'Pete Palmer' nella lettera del CEO; è usato il nome completo della sezione nominee.",
+    "Joel B. Reiss: il totale dichiarato (148.030) non coincide con la somma di azioni (3.600) e opzioni (148.330 = 151.930). Usato il totale dichiarato; da verificare nel documento originale.",
+    "Riga di gruppo: il documento dichiara '15 persons', ma le righe nominative sono 14 (10 direttori, compreso Lisman, più Stein, Wynne, Reiss, Murphy). Mantenuti entrambi i dati; la discrepanza è da verificare.",
+    "La colonna 'shares' per direttori e NEO è il totale della tabella di beneficial ownership, che include le opzioni esercitabili entro 60 giorni (colonna 'Shares Subject to Options'). Le classi di azioni sono una sola: Common Stock.",
+    "Le quattro righe dei detentori oltre il 5% derivano da Form 13F (non 13D/13G) con holdings al 30 settembre 2025; il documento non fornisce percentuali di voto (pct_of_votes null). Vanguard dichiara un potere di voto condiviso su 336.315 azioni; Capital International e Capital World dichiarano potere di voto esclusivo su 6.481.731 e 3.939.246 azioni; BlackRock su 3.805.827 azioni.",
+    "Nessuna riga di aggregazione o subtotale è presente nella tabella dei detentori oltre il 5%.",
+    "Nessun direttore o dirigente individualmente supera il 5% della classe (il massimo è Howley con 1,11%): non sono aggiunti al blocco dei >5%.",
+    "Il blocco 'holder_type' è 'person' per tutti i direttori e NEO, 'entity' per tutti i detentori oltre il 5%: nessun caso ambiguo rilevato.",
+    "Le date di filing e accession sono copiate dall'intestazione dell'input; ownership_as_of è la data del record date indicata nel documento (9 gennaio 2026)."
+  ]
+}

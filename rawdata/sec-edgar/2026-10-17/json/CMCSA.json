@@ -1,0 +1,455 @@
+{
+  "company": "Comcast Corporation",
+  "ticker": "CMCSA",
+  "cik": "0001166691",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001193125-26-177138",
+    "meeting": "2026 annual meeting of shareholders",
+    "ownership_as_of": "2026-01-23",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1166691/000119312526177138/cmcsa-20260424.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-03",
+      "accession": "0001628280-26-004994",
+      "url": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026004994/cmcsa-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Brian L. Roberts",
+      "roles": [
+        "Chairman of the Board",
+        "Co-CEO"
+      ],
+      "director_since": "1988-03",
+      "independent": false
+    },
+    {
+      "name": "Kenneth J. Bacon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2002-11",
+      "independent": true
+    },
+    {
+      "name": "Thomas J. Baltimore, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-03",
+      "independent": true
+    },
+    {
+      "name": "Asuka Nakahara",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017-02",
+      "independent": true
+    },
+    {
+      "name": "Wonya Y. Lucas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-04",
+      "independent": true
+    },
+    {
+      "name": "Louise F. Brady",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-10",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey A. Honickman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2005-12",
+      "independent": true
+    },
+    {
+      "name": "Edward D. Breen",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2014-02",
+      "independent": true
+    },
+    {
+      "name": "Madeline S. Bell",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-02",
+      "independent": true
+    },
+    {
+      "name": "Gordon Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-02",
+      "independent": true
+    },
+    {
+      "name": "Michael J. Cavanagh",
+      "roles": [
+        "Co-CEO",
+        "Director"
+      ],
+      "director_since": "2026-01",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Jeffrey A. Honickman",
+        "Wonya Y. Lucas",
+        "Asuka Nakahara",
+        "Gordon Smith"
+      ],
+      "chair": "Jeffrey A. Honickman",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Human Capital Committee",
+      "members": [
+        "Edward D. Breen",
+        "Thomas J. Baltimore, Jr.",
+        "Louise F. Brady"
+      ],
+      "chair": "Edward D. Breen",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Corporate Responsibility Committee",
+      "members": [
+        "Kenneth J. Bacon",
+        "Madeline S. Bell",
+        "Jeffrey A. Honickman"
+      ],
+      "chair": "Kenneth J. Bacon",
+      "meetings": 5,
+      "meetings_year": "2024"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Brian L. Roberts",
+      "age": 66,
+      "positions": [
+        "Chairman and Co-Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Michael J. Cavanagh",
+      "age": 60,
+      "positions": [
+        "Co-Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Jason S. Armstrong",
+      "age": 49,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jennifer Khoury",
+      "age": 52,
+      "positions": [
+        "Chief Communications Officer"
+      ]
+    },
+    {
+      "name": "Thomas J. Reid",
+      "age": 61,
+      "positions": [
+        "Chief Legal Officer and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-23",
+    "note": "Tabella dei direttori e dirigenti al 23 gennaio 2026 (Gordon Smith al 4 febbraio 2026). Tabella dei detentori oltre il 5% al 31 dicembre 2025. * = meno dell'1% della classe; — = zero. Le azioni includono opzioni esercitabili e unità in scadenza entro 60 giorni, come indicato nelle note del documento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 373581278,
+            "pct": 10.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-06-05 (dati al 2025-05-30)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 298215422,
+            "pct": 7.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13 (dati al 2023-12-31)",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 186826370,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-09 (dati al 2025-12-31)",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "Brian L. Roberts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B common stock",
+            "shares": 9444375,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": 33.33,
+        "source": null,
+        "address": "One Comcast Center, Philadelphia, PA 19103"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jason S. Armstrong",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 904654,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth J. Bacon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 42223,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas J. Baltimore, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 38344,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Madeline S. Bell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 74344,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Louise F. Brady",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 31507,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward D. Breen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 25825,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael J. Cavanagh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 6184484,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey A. Honickman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 455132,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer Khoury",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 540766,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wonya Y. Lucas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 21508,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Asuka Nakahara",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 92171,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas J. Reid",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 1180582,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian L. Roberts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 30897450,
+            "pct": null
+          },
+          {
+            "class": "Class B common stock",
+            "shares": 9444375,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gordon Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 7869,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Class A common stock",
+          "shares": 40496859,
+          "pct": 1.13
+        },
+        {
+          "class": "Class B common stock",
+          "shares": 9444375,
+          "pct": 100
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuoto. Jason S. Armstrong, Jennifer Khoury e Thomas J. Reid compaiono nella tabella di proprietà ma non sono stati classificati come dirigenti.",
+    "Il numero di riunioni di comitato non è stato sommato: Audit 8 e Compensation 6 riferiti al 2025; Governance and Corporate Responsibility 5 riferiti al 2024. Il totale di 19 riunioni di comitato del documento è cumulativo e non è stato ripartito.",
+    "David C. Novak è uscito dal Consiglio a gennaio 2026 (per diventare Chairman di Versant): escluso da board_of_directors.",
+    "Gordon Smith: la snapshot del consiglio riporta 'Director Since January 2026', mentre il testo dice che è entrato a febbraio 2026. È stato usato 2026-02, come nel testo.",
+    "La snapshot del consiglio riporta Louise F. Brady con età 59 e un comitato diverso dalla sua biografia (età 61, Compensation and Human Capital). È stata usata la biografia e la sezione comitati; l'elenco comitati nella snapshot non è coerente con Audit.",
+    "Brian L. Roberts è indicato nella snapshot come 'Chairman of the Board, President and CEO', mentre la biografia e la sezione Board Structure lo indicano come Chairman e Co-CEO: è stato usato Chairman e Co-CEO.",
+    "Brian L. Roberts compare in entrambe le tabelle (detentori oltre il 5% per la classe B e management). Nel blocco dei >5% la classe B è al 100%; pct_of_votes 33.33 deriva dal testo ('33 1/3%' del potere di voto combinato). La classe A (30.897.450 azioni) compare solo nel blocco management.",
+    "Michael J. Cavanagh e Brian L. Roberts sono non indipendenti; tutti i membri dei comitati sono indipendenti. Nessun membro dei comitati è stato escluso.",
+    "I dati dei grandi azionisti hanno date diverse: Vanguard è al 2025-05-30 (13G/A del 2025-06-05), BlackRock è al 2023-12-31 (13G/A del 2024-02-13, dato datato), State Street è al 2025-12-31 (13G del 2026-02-09). La tabella dei detentori oltre il 5% è al 31 dicembre 2025, quella del management al 23 gennaio 2026.",
+    "La riga di gruppo dichiara 14 persone e il conteggio delle righe in named_executive_officers_and_directors è coerente (14). Il 1,13% indicato è la percentuale della classe A; pct_of_votes è null perché non dichiarato.",
+    "La data dell'assemblea 2026 non compare nel testo fornito: meeting è indicato in forma generica.",
+    "executive_officers presi dal Form 10-K del 2026-02-03: il DEF 14A non li elenca.",
+    "10-K: La finestra non indica una data esplicita per l'elenco dei dirigenti: il testo dice solo «as of the date hereof». La data di deposito è 2026-02-03, ma non l'ho usata come as_of.",
+    "10-K: La biografia di Michael J. Cavanagh dice che è President dal'ottobre 2022, ma la carica non compare nella colonna «Position» della tabella, che riporta solo Co-Chief Executive Officer. Ho seguito la tabella; la carica di President potrebbe essere cessata o omessa.",
+    "10-K: Il riferimento al 31 dicembre 2025 nella biografia di Brian L. Roberts riguarda il potere di voto, non la data dell'elenco, quindi non l'ho usato come as_of."
+  ]
+}

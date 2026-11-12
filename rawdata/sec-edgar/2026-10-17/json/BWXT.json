@@ -1,0 +1,441 @@
+{
+  "company": "BWX Technologies, Inc.",
+  "ticker": "BWXT",
+  "cik": "0001486957",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-18",
+    "accession": "0001486957-26-000021",
+    "meeting": "2026 Annual Meeting of Stockholders, 2026-04-30",
+    "ownership_as_of": "2026-03-06",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1486957/000148695726000021/bwxt-20260318.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Jan A. Bertsch",
+      "roles": [
+        "Independent Board Chair"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Gerhard F. Burbach",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Rex D. Geveden",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "Daniel L. Jablonsky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "James M. Jaska",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Kenneth J. Krieg",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Leland D. Melvin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Barbara A. Niland",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Nicole W. Piasecki",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "John M. Richardson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Finance Committee",
+      "members": [
+        "Barbara A. Niland",
+        "Gerhard F. Burbach",
+        "Daniel L. Jablonsky",
+        "James M. Jaska",
+        "John M. Richardson"
+      ],
+      "chair": "Barbara A. Niland",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Gerhard F. Burbach",
+        "James M. Jaska",
+        "John M. Richardson"
+      ],
+      "chair": "Gerhard F. Burbach",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Nicole W. Piasecki",
+        "Kenneth J. Krieg",
+        "Leland D. Melvin",
+        "Barbara A. Niland"
+      ],
+      "chair": "Nicole W. Piasecki",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Rex D. Geveden",
+      "age": 65,
+      "positions": [
+        "President and Chief Executive Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Michael T. Fitzgerald",
+      "age": 41,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kurt A. Bender",
+      "age": 48,
+      "positions": [
+        "Chief Digital Officer"
+      ]
+    },
+    {
+      "name": "Gonzalo R. Cajade",
+      "age": 50,
+      "positions": [
+        "Senior Vice President, Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "John R. MacQuarrie",
+      "age": 59,
+      "positions": [
+        "President, Commercial Operations"
+      ]
+    },
+    {
+      "name": "Joseph K. Miller",
+      "age": 46,
+      "positions": [
+        "President, Government Operations"
+      ]
+    },
+    {
+      "name": "Toby W. Smith",
+      "age": 52,
+      "positions": [
+        "Senior Vice President and General Counsel"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-06",
+    "note": "Azioni beneficialmente possedute al 6 marzo 2026. Le azioni differite (Shares Deferred) non sono considerate beneficialmente possedute e non sono incluse. Ogni direttore o dirigente individualmente detiene meno dell'1% delle azioni in circolazione; la percentuale individuale non è dichiarata (null). Il gruppo detiene meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9453104,
+            "pct": 10.3
+          }
+        ],
+        "pct_of_votes": 10.3,
+        "source": "Schedule 13G/A filed 2024-01-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9211924,
+            "pct": 10.1
+          }
+        ],
+        "pct_of_votes": 10.1,
+        "source": "Schedule 13G/A filed 2025-01-08",
+        "address": "100 Vanguard Blvd., Malvern, PA 19335"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jan A. Bertsch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23531,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerhard F. Burbach",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11254,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gonzalo R. Cajade",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 170,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert L. Duffy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17060,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rex D. Geveden",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 300823,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael T. Fitzgerald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10919,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel L. Jablonsky",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James M. Jaska",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13309,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth J. Krieg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20873,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robb A. LeMasters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8482,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin M. McCoy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 501,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Omar F. Meguid",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16008,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leland D. Melvin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6960,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph K. Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8529,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barbara A. Niland",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21096,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nicole W. Piasecki",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Richardson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7596,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 499840,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La finestra 'committees' è assente: l'appartenenza ai comitati è ricavata dalla prosa 'Committees of the Board' nella sezione board.",
+    "Il paragrafo 'Compensation Committee Interlocks' cita Robert Nardelli come membro del Compensation Committee nel 2025, ma non compare né fra i nominee né fra i direttori in carica: possibile incoerenza del documento, dato non incluso.",
+    "Il Jablonsky è nominee e direttore dal 2026; la tabella della proprietà riporta '—' per le azioni beneficialmente possedute (0) e 123 azioni differite non considerate beneficialmente possedute: classes lasciato vuoto.",
+    "La riga di gruppo dichiara 20 persons, ma nella tabella nominativa compaiono 17 righe: 3 persone del gruppo non sono individuate nella finestra.",
+    "Robert L. Duffy, Robb A. LeMasters, Kevin M. McCoy e Omar F. Meguid compaiono nella tabella della proprietà ma non nel roster dei dirigenti (executive officer profiles), quindi non sono inclusi in executive_officers.",
+    "Rex D. Geveden compare sia fra i direttori sia fra i dirigenti; in board_of_directors è indicato come non indipendente.",
+    "Per BlackRock e Vanguard la percentuale di voto (pct_of_votes) coincide con la percentuale di classe, perché il documento indica il Common Stock come unica classe con diritto di voto.",
+    "Le percentuali per i singoli direttori e dirigenti non sono riportate (meno dell'1%): pct impostato a null per tutte le righe individuali."
+  ]
+}

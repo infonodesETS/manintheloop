@@ -1,0 +1,397 @@
+{
+  "company": "Qnity Electronics, Inc.",
+  "ticker": "Q",
+  "cik": "0002058873",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-08",
+    "accession": "0001628280-26-024259",
+    "meeting": null,
+    "ownership_as_of": "2026-03-10",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2058873/000162828026024259/q-20260408.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark A. Blinn",
+      "roles": [
+        "Chair of the Board",
+        "Former CEO and CFO, Flowserve Corporation"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Shumeet Banerji",
+      "roles": [
+        "Founder and Partner, Condorcet, LP",
+        "Former CEO, Booz & Company"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Terrence R. Curtin",
+      "roles": [
+        "CEO, TE Connectivity plc"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Karin De Bondt",
+      "roles": [
+        "SVP and Chief Strategy Officer, Trane Technologies plc"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Byron Green",
+      "roles": [
+        "Former VP Global Operations, L3Harris Technologies"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Kristina M. Johnson",
+      "roles": [
+        "Managing Director, Catalyzer Ventures"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Jon Kemp",
+      "roles": [
+        "Chief Executive Officer and Director, Qnity"
+      ],
+      "director_since": "2025-11",
+      "independent": false
+    },
+    {
+      "name": "Anne Noonan",
+      "roles": [
+        "Former President and CEO, Summit Materials"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Yi Hyon Paik",
+      "roles": [
+        "Former President and Chief Strategy Officer, Samsung SDI Company"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "Steven M. Sterin",
+      "roles": [
+        "Consultant, Amber Energy"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Steven M. Sterin",
+        "Terrence R. Curtin",
+        "Karin De Bondt"
+      ],
+      "chair": "Steven M. Sterin",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nomination and Governance Committee",
+      "members": [
+        "Mark A. Blinn",
+        "Shumeet Banerji",
+        "Yi Hyon Paik"
+      ],
+      "chair": "Mark A. Blinn",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "People and Compensation Committee",
+      "members": [
+        "Anne Noonan",
+        "Byron Green",
+        "Kristina M. Johnson"
+      ],
+      "chair": "Anne Noonan",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jon Kemp",
+      "age": 50,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Michael Goss",
+      "age": 50,
+      "positions": [
+        "Interim Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Chuck Xu",
+      "age": 61,
+      "positions": [
+        "President, Interconnect Solutions"
+      ]
+    },
+    {
+      "name": "Peter Hennessey",
+      "age": 48,
+      "positions": [
+        "General Counsel"
+      ]
+    },
+    {
+      "name": "Kathleen Fortebuono",
+      "age": 55,
+      "positions": [
+        "Chief People Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-10",
+    "note": "Percentuali calcolate sulle 209.582.425 azioni in circolazione al 10 marzo 2026. Le azioni includono quelle acquisibili entro il 9 maggio 2026. '*' indica meno dell'1%; '—' indica zero. Il documento non fornisce una percentuale di voto (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27345199,
+            "pct": 13.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed by The Vanguard Group on December 3, 2025 with the SEC reporting beneficial ownership as of December 31, 2025",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14370667,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed by BlackRock, Inc. on January 21, 2026 with the SEC reporting beneficial ownership as of December 31, 2025",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark A. Blinn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shumeet Banerji",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Terrence R. Curtin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karin De Bondt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Byron Green",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1637,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristina M. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 275,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jon Kemp",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 188933,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anne Noonan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3249,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yi Hyon Paik",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven M. Sterin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen Fortebuono",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24606,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew Harbaugh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Hennessey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6248,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chuck Xu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42119,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 312229,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Il ticker non è indicato nel documento: 'Q' è ricavato dall'etichetta AZIENDA fornita in input.",
+    "La sezione committees è assente nell'input: l'appartenenza ai comitati è stata letta dalla sezione Corporate Governance (grafico Committee Membership e descrizioni dei comitati).",
+    "I nomi dei comitati nel documento variano: 'Nomination and Governance Committee' nelle intestazioni e 'Nomination and Corporate Governance Committee' nel testo. È stata usata la forma delle intestazioni.",
+    "Il documento riporta le riunioni dei comitati 'during 2025, from the date of the Spin-Off in November 2025'. Il numero di riunioni è quindi riferito al periodo successivo allo spin-off, non all'intero esercizio.",
+    "Matthew Harbaugh compare come named executive officer nella tabella di proprietà azionaria e nella sezione Section 16 (con Form 3 tardivo), ma non compare nel roster degli executive officers né tra i direttori. Incluso nel blocco NEO con valori a zero, come dichiarato dal documento.",
+    "Michael Goss è elencato come executive officer (Interim CFO) ma non compare nella tabella di proprietà azionaria. Non è possibile stabilire se sia incluso nel conteggio di 14 persone della riga di gruppo.",
+    "Nella tabella di proprietà, 'shares' riporta il totale beneficiario (azioni correnti più diritti di acquisto entro il 9 maggio 2026). La suddivisione tra azioni correnti e diritti non è rappresentata nello schema: per Jon Kemp, ad esempio, 49.111 correnti e 139.822 da acquisire.",
+    "Il documento non fornisce percentuali di voto: pct_of_votes è null per tutte le righe.",
+    "Il numero di persone nella riga di gruppo (14) è coerente con le 14 righe del blocco named_executive_officers_and_directors.",
+    "Steven M. Sterin risulta nominato nel consiglio a ottobre 2025, mentre gli altri direttori sono indicati come nominati a novembre 2025.",
+    "Jon Kemp è indicato come non indipendente: è amministratore e CEO. Non fa parte di alcun comitato ('Committee Membership: None')."
+  ]
+}

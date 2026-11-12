@@ -1,0 +1,424 @@
+{
+  "company": "Loar Holdings Inc.",
+  "ticker": "LOAR",
+  "cik": "0002000178",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-14",
+    "accession": "0001193125-26-153469",
+    "meeting": null,
+    "ownership_as_of": "2026-04-06",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2000178/000119312526153469/d71575ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-02",
+      "accession": "0002000178-26-000003",
+      "url": "https://www.sec.gov/Archives/edgar/data/2000178/000200017826000003/ck0002000178-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Dirkson Charles",
+      "roles": [
+        "President",
+        "Chief Executive Officer",
+        "Executive Co-Chairman",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Anthony M. Carpenito",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Taiwo K. Danmola",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Paul S. Levy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Raja Bobbili",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Alison Bomberg",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Margaret McGetrick",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Brett Milgrim",
+      "roles": [
+        "Executive Co-Chairman",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "David Abrams",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "M. Chad Crow",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Taiwo K. Danmola",
+        "M. Chad Crow",
+        "Margaret McGetrick"
+      ],
+      "chair": "Taiwo K. Danmola",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Raja Bobbili",
+        "David Abrams",
+        "Paul S. Levy"
+      ],
+      "chair": "Raja Bobbili",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Alison Bomberg",
+        "Anthony M. Carpenito",
+        "Paul S. Levy"
+      ],
+      "chair": "Alison Bomberg",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Dirkson Charles",
+      "age": null,
+      "positions": [
+        "Chief Executive Officer",
+        "Co-Chairman"
+      ]
+    },
+    {
+      "name": "Glenn D'Alessandro",
+      "age": null,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Michael Manella",
+      "age": null,
+      "positions": [
+        "VP & General Counsel"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-06",
+    "note": "Percentuali calcolate su 93.624.471 azioni ordinarie in circolazione al 6 aprile 2026. '*' indica meno dell'1,0%; '—' indica nessuna azione. Le azioni ottenibili tramite opzioni o warrant esercitabili entro il 5 giugno 2026 sono incluse per il detentore che le possiede.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Abrams Capital Management, L.P. and affiliates",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31438420,
+            "pct": 33.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "222 Berkeley Street, 21st Floor, Boston, MA 02116"
+      },
+      {
+        "name": "GPV Loar LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8087580,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "440 Royal Palm Way, Palm Beach, FL 33480"
+      },
+      {
+        "name": "Capital International Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7288569,
+            "pct": 7.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed with the SEC on February 13, 2026",
+        "address": "333 South Hope Street, 55th Fl, Los Angeles, CA 90071"
+      },
+      {
+        "name": "Paul S. Levy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8087580,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "440 Royal Palm Way, Palm Beach, FL 33480"
+      },
+      {
+        "name": "David Abrams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31438420,
+            "pct": 33.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Dirkson Charles",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4371005,
+            "pct": 4.7
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brett Milgrim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4115058,
+            "pct": 4.4
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Glenn D'Alessandro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1062135,
+            "pct": 1.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Manella",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1050531,
+            "pct": 1.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Abrams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Raja Bobbili",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alison Bomberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anthony M. Carpenito",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4800,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "M. Chad Crow",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89286,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Taiwo K. Danmola",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89286,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul S. Levy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8087580,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Margaret McGetrick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89286,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 19008967,
+          "pct": 20.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto. Dirkson Charles compare come CEO nella tabella dei direttori, ma senza roster dirigenti; Glenn D'Alessandro e Michael Manella compaiono solo nella tabella di proprietà senza cariche dichiarate, quindi non sono stati inseriti.",
+    "Data di inizio mandato da direttore (director_since) non indicata nel documento: il testo dice solo di essere entrati nel consiglio in relazione all'IPO. Campo lasciato a null.",
+    "Data dell'assemblea annuale non indicata nella finestra analizzata: meeting lasciato a null.",
+    "Ticker LOAR ricavato dall'intestazione dell'input, non dal testo del documento.",
+    "Riunioni dei comitati non indicate per singolo comitato: il documento riporta solo le sette riunioni del consiglio nel 2025 e le quattro sessioni esecutive dei non esecutivi. meetings e meetings_year lasciati a null per tutti e tre i comitati.",
+    "Nome del comitato di nomina: la sezione lo chiama 'Nominating and Governance Committee', mentre le note della tabella di proprietà lo chiamano 'nominating and corporate governance committee'. Usato il nome della sezione.",
+    "Raja Bobbili, Alison Bomberg e Margaret McGetrick sono candidati alla rielezione nell'assemblea annuale; sono inclusi come consiglio attuale perché siedono fino a tale data.",
+    "Classi di azioni: il documento riporta un'unica categoria di azioni ordinarie, indicata come 'Common Stock'.",
+    "David Abrams: la propria riga riporta '—', ma è beneficial owner di 31.438.420 azioni (33,6%) tramite le entità Abrams Capital (nota 1). Inserito anche nel blocco dei >5% con le stesse azioni dell'entità Abrams Capital Management, L.P. and affiliates, quindi il dato è duplicato tra le due righe.",
+    "Paul S. Levy: beneficial owner di 8.087.580 azioni (8,6%) tramite GPV Loar LLC, di cui è unico Manager (nota 2). Inserito anche nel blocco dei >5% con le stesse azioni di GPV Loar LLC; il dato è duplicato tra le due righe.",
+    "Detentori possibilmente ambigui quanto a tipo (holder_type): Dirkson Charles (Charles Family Trust 13, di cui è trustee), Brett Milgrim (BNM Capital LLC), Raja Bobbili (estate planning vehicle), Michael Manella (Michael J. Manella Living Trust – 2006) e Margaret McGetrick (trust revocabile). Classificati come 'person' perché il dato è riferito all'individuo in nome proprio.",
+    "Le righe di Dirkson Charles, Brett Milgrim, Glenn D'Alessandro, Michael Manella, Paul S. Levy, Margaret McGetrick ecc. includono azioni ottenibili tramite opzioni esercitabili entro il 5 giugno 2026 (per esempio Charles 142.000 + 142.000 su Tranche A e B; D'Alessandro e Manella 77.000 + 77.000). Il numero è riportato così com'è nel documento.",
+    "Nessun detentore è in una tabella separata di >5% diversa da quella del management: la sezione ownership_5pct non era presente come finestra separata.",
+    "Nessuna riga di aggregazione o subtotale nelle tabelle di proprietà: nessun elemento escluso dal blocco dei >5%.",
+    "Consiglio: Dirkson Charles e Brett Milgrim non sono indipendenti secondo la determinazione del consiglio; tutti gli altri membri sono indipendenti.",
+    "Nessun direttore in uscita o già dimesso segnalato nel documento.",
+    "executive_officers presi dal Form 10-K del 2026-03-02: il DEF 14A non li elenca.",
+    "10-K: La finestra della Parte I (Item 1) non contiene un elenco formale degli executive officer: i tre nomi sono ricavati dalla biografia della direzione, dove sono indicati con le rispettive cariche.",
+    "10-K: L'Item 10 rimanda al proxy statement (Regulation 14A) e non contiene l'elenco degli executive officer né le età: l'elenco completo andrebbe verificato nel proxy.",
+    "10-K: Età mancanti per tutti gli elementi estratti: campo age impostato a null.",
+    "10-K: Brett Milgrim è indicato come Co-Chairman, ma non è presentato come executive officer nel testo fornito: non è incluso nell'elenco.",
+    "10-K: Data di riferimento dell'elenco non indicata nel testo: as_of impostato a null. Il documento riporta al 31 dicembre 2025 solo la quota azionaria detenuta dal management, che non riguarda l'elenco dei dirigenti.",
+    "10-K: Le cariche sono riportate come scritte nel documento; 'VP & General Counsel' non specifica se si tratti di Vice President o di Executive Vice President."
+  ]
+}

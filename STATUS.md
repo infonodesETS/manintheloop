@@ -5,9 +5,9 @@
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
-**B1 è chiuso e in `main` (2026-11-12, PR #34, merge `78d67f5`).** Il diff di `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` e `scripts/validate.py` è già su `origin/main`. **Prossimo task: B2** (merge di `v.2026-c` in `main` su un branch `integrate-sec`, con PR), solo con il via libera esplicito di Nelson. Dettagli, prove e deviazioni di B1 nel [log, voce del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md).
+**B1 è chiuso e in `main` (PR #34, `78d67f5`). B2 è fatto in locale, non ancora in `main`:** il merge di `v.2026-c` è sul branch `integrate-sec` (commit `40e8e54`, più un commit di documentazione), controlli superati, **non pushato**. Tocca a Nelson: `git push -u origin integrate-sec` e PR verso `main`. Dopo il merge: verificare con `curl -sI` che `https://mitl.infonodes.org/rawdata/sec-edgar/2026-10-17/…` e `…/docs/dev-v2026c-sec.md` diano 404, poi aggiornare questo file. Dettagli nel [log, voce B2 del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md). Prossimo dopo B2: B3 (duplicati, metodo Exa; serve la chiave Exa) e B4 (rilanciare `sec-test`), solo con il via libera di Nelson.
 
-**Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5` (il #33 è un'issue).
+**Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5` (il #33 è un'issue).
 
 Cosa è stato deciso nel diff (oltre a S1-S7):
 - le relazioni reali **non hanno `id`**, `sources`, `added_at`, `author` (lo schema vecchio le descriveva): solo le nuove `ownership`, `role`, `parte_di` hanno un `id` proprio (`REL-NNNN`, 4 cifre o più); le 3490 esistenti non cambiano;
@@ -18,7 +18,7 @@ Cosa è stato deciso nel diff (oltre a S1-S7):
 
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
-**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main` su branch `integrate-sec`; un solo conflitto noto, `.gitignore`; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6.
+**Poi, nell'ordine:** B2 (merge di `v.2026-c` in `main` su branch `integrate-sec`; il 2026-11-12 i conflitti rimisurati erano 2, `.gitignore` e `ROADMAP.md`, risolti; non lasciare file SEC in `docs/`), B3 (duplicati, metodo Exa), B4, B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6.
 
 ## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
 

@@ -1,0 +1,359 @@
+{
+  "company": "Arista Networks, Inc.",
+  "ticker": "ANET",
+  "cik": "0001596532",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-16",
+    "accession": "0001193125-26-158942",
+    "meeting": null,
+    "ownership_as_of": "2026-04-02",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1596532/000119312526158942/d66465ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Lewis Chew",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2021-07",
+      "independent": true
+    },
+    {
+      "name": "Greg Lavender",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "Mark B. Templeton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017-06",
+      "independent": true
+    },
+    {
+      "name": "Kelly Battles",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020-07",
+      "independent": true
+    },
+    {
+      "name": "Kenneth Duda",
+      "roles": [
+        "Director",
+        "President",
+        "Chief Technology Officer"
+      ],
+      "director_since": "2023-12",
+      "independent": false
+    },
+    {
+      "name": "Charles Giancarlo",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2013-04",
+      "independent": true
+    },
+    {
+      "name": "Daniel Scheinman",
+      "roles": [
+        "Director",
+        "Lead Independent Director",
+        "Nominating and Corporate Governance Committee Chair"
+      ],
+      "director_since": "2011-10",
+      "independent": true
+    },
+    {
+      "name": "Jayshree Ullal",
+      "roles": [
+        "Chief Executive Officer",
+        "Chairperson of the Board"
+      ],
+      "director_since": "2008-10",
+      "independent": false
+    },
+    {
+      "name": "Yvonne Wassenaar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-07",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lewis Chew",
+        "Kelly Battles",
+        "Greg Lavender",
+        "Yvonne Wassenaar"
+      ],
+      "chair": "Lewis Chew",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Charles Giancarlo",
+        "Daniel Scheinman",
+        "Mark B. Templeton"
+      ],
+      "chair": "Charles Giancarlo",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Daniel Scheinman",
+        "Yvonne Wassenaar"
+      ],
+      "chair": "Daniel Scheinman",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Jayshree Ullal",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer",
+        "Chairperson"
+      ]
+    },
+    {
+      "name": "Chantelle Breithaupt",
+      "age": 54,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kenneth Duda",
+      "age": 54,
+      "positions": [
+        "Founder",
+        "President",
+        "Chief Technology Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Todd Nightingale",
+      "age": 46,
+      "positions": [
+        "President",
+        "Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-02",
+    "note": "Percentuali calcolate su 1.259.169.438 azioni ordinarie in circolazione al 2 aprile 2026. '*' indica una partecipazione inferiore all'1%; '—' indica zero. Le azioni includono quelle esercitabili o da attribuire entro 60 giorni dal 2 aprile 2026 (opzioni, RSU) solo per il calcolo della singola persona. La colonna percentuale non è una percentuale di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Bechtolsheim Family Trust",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 183799896,
+            "pct": 14.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 73684608,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-29 (dati al 31 dicembre 2023)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jayshree Ullal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 29300817,
+            "pct": 2.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chantelle Breithaupt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 81890,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth Duda",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3519006,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Todd Nightingale",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6128,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marc Taxay",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kelly Battles",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lewis Chew",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31232,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles Giancarlo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 217304,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Greg Lavender",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4069,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Scheinman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 158192,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark B. Templeton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 133072,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yvonne Wassenaar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12150,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 33474360,
+          "pct": 2.7
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente: l'appartenenza ai comitati è stata letta dalla prosa nella finestra board, dove il documento elenca i membri di ciascun comitato con il numero di riunioni 2025.",
+    "Il numero di riunioni è riferito al singolo comitato (4 per Audit, Compensation e Nominating and Corporate Governance), nessuna somma tra comitati.",
+    "The Bechtolsheim Family Trust: holder_type impostato a 'entity' per il suffisso 'Trust', ma il trust è intestato a Mr. Bechtolsheim, che ne è trustee; il caso è ambiguo. Il documento non indica il deposito di riferimento né l'indirizzo, quindi source e address sono null.",
+    "BlackRock, Inc.: la partecipazione è riportata dalla Schedule 13G/A del 29 gennaio 2024, con dati al 31 dicembre 2023; la percentuale non è aggiornata alla data della tabella (2 aprile 2026).",
+    "Marc Taxay compare nella tabella dei NEO e dei direttori con zero azioni e percentuale '*'; si è dimesso come Senior Vice President, General Counsel il 7 maggio 2025 e non è un dirigente o direttore attuale. Per questo non è conteggiato nel gruppo e non ha classi elencate.",
+    "Incoerenza nel conteggio: la riga di gruppo dichiara 11 persone (current executive officers and directors), mentre la tabella NEO e direttori contiene 12 righe, incluso Marc Taxay come ex dirigente. Sono state mantenute tutte le righe, come da regola.",
+    "La riga di gruppo riporta 11 persone con 33.474.360 azioni e 2,7%; il valore non è stato ricalcolato dalle singole righe, che includono quote in trust e azioni da attribuire.",
+    "Il documento non indica la data dell'assemblea annuale 2026: il campo meeting è null."
+  ]
+}

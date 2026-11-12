@@ -1,0 +1,389 @@
+{
+  "company": "Howmet Aerospace Inc.",
+  "ticker": "HWM",
+  "cik": "0000004281",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-06",
+    "accession": "0001104659-26-039940",
+    "meeting": null,
+    "ownership_as_of": "2026-03-24",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/4281/000110465926039940/tm261330-1_def14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "accession": "0000004281-26-000012",
+      "url": "https://www.sec.gov/Archives/edgar/data/4281/000000428126000012/hwm-20251231.htm",
+      "as_of": "2026-02-12"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "James F. Albaugh",
+      "roles": [
+        "Independent Lead Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Amy E. Alving",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Sharon R. Barner",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Joseph S. Cantie",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Robert F. Leduc",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Jody G. Miller",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "John C. Plant",
+      "roles": [
+        "Chair of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Ulrich R. Schmidt",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Gunner S. Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Ulrich R. Schmidt",
+        "Joseph S. Cantie",
+        "Robert F. Leduc",
+        "Gunner S. Smith"
+      ],
+      "chair": "Ulrich R. Schmidt",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Benefits Committee",
+      "members": [
+        "James F. Albaugh",
+        "Sharon R. Barner",
+        "Jody G. Miller"
+      ],
+      "chair": "James F. Albaugh",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Nominating Committee",
+      "members": [
+        "Sharon R. Barner",
+        "James F. Albaugh",
+        "Amy E. Alving"
+      ],
+      "chair": "Sharon R. Barner",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [
+        "Amy E. Alving",
+        "Robert F. Leduc",
+        "Jody G. Miller"
+      ],
+      "chair": "Jody G. Miller",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Joseph S. Cantie",
+        "Ulrich R. Schmidt",
+        "Gunner S. Smith"
+      ],
+      "chair": "Joseph S. Cantie",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael N. Chanatry",
+      "age": 65,
+      "positions": [
+        "Vice President and Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Neil E. Marchuk",
+      "age": 68,
+      "positions": [
+        "Executive Vice President, Chief Administrative Officer"
+      ]
+    },
+    {
+      "name": "John C. Plant",
+      "age": 72,
+      "positions": [
+        "Executive Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Patrick Winterlich",
+      "age": 56,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-24",
+    "note": "Il blocco dei >5% si basa su deposito 13(d)/13(g) alla data del 31 marzo 2026; le percentuali sono sulle 400.713.557 azioni in circolazione al 24 marzo 2026. Nella tabella di management, '*' indica meno dell'1% e le azioni includono opzioni esercitabili entro 60 giorni; le unità DRSU e DSU sono riportate separatamente nel documento e non sono incluse in 'classes'.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35689575,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G amendment dated October 17, 2025",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "JPMorgan Chase & Co.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30955301,
+            "pct": 7.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G amendment dated July 22, 2025",
+        "address": "383 Madison Avenue, New York, NY 10179"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James F. Albaugh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy E. Alving",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4902,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sharon R. Barner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph S. Cantie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert F. Leduc",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jody G. Miller",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John C. Plant",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2816585,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ulrich R. Schmidt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5333,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gunner S. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick J. Winterlich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neil E. Marchuk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55450,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael N. Chanatry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 189096,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 3081406,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A (probabilmente nel 10-K): executive_officers è vuoto e non è stato ricostruito dalle biografie.",
+    "John C. Plant è indicato come Chief Executive Officer (2021-Present) ed è anche Chair of the Board: impostato come non indipendente (independent: false) in base alla carica, non a una dichiarazione esplicita del documento nella finestra board.",
+    "La finestra committees è troncata dopo il Governance and Nominating Committee: le riunioni di Cybersecurity Committee e Finance Committee non compaiono nel testo, quindi meetings e meetings_year sono null. La composizione di questi due comitati è ricavata dalle biografie dei direttori (sezione Board Committees), non dalla tabella dedicata.",
+    "Ownership: il blocco dei detentori >5% è basato su deposito 13(d)/13(g) con data 31 marzo 2026, mentre la tabella di management è al 24 marzo 2026; security_ownership.as_of è stato impostato al 24 marzo 2026.",
+    "Le unità DRSU (deferred restricted share units) e DSU (deferred share units) dei direttori e del gruppo non sono state inserite in 'classes' perché non sono azioni di una classe; restano quindi escluse dai valori shares riportati (es. gruppo: 3.081.406 azioni più 316.754 DRSU e 8.764 DSU, per un totale di 3.406.924).",
+    "Patrick J. Winterlich compare nella tabella dei NEO con '—' in tutte le colonne: riportato come 0 azioni di Common Stock.",
+    "Il dato di gruppo dichiara 12 individui, coerente con le 12 righe di named_executive_officers_and_directors (8 direttori più Plant, Winterlich, Marchuk, Chanatry).",
+    "Nessun direttore o dirigente detiene oltre il 5% della classe: John C. Plant, con 2.816.585 azioni, è sotto l'1% per la tabella di management, quindi non è stato aggiunto al blocco dei >5%.",
+    "Il numero di riunioni del Governance and Nominating Committee, Audit Committee e Compensation and Benefits Committee si riferisce all'esercizio 2025 come indicato nel documento.",
+    "executive_officers presi dal Form 10-K del 2026-02-12: il DEF 14A non li elenca.",
+    "10-K: La finestra non contiene l'Item 10 della Parte III; l'elenco è stato estratto solo dalla sezione Executive Officers della Parte I.",
+    "10-K: Lola F. Lin è menzionata come dimessa a settembre 2025 (Executive Vice President, Chief Legal and Compliance Officer and Secretary) e non compare nell'elenco attuale, quindi non è stata inclusa.",
+    "10-K: La biografia di Marchuk indica che le funzioni Legal and Compliance riferiscono a lui fino alla nomina di un successore; questa non è una carica formale e non è stata aggiunta alle posizioni."
+  ]
+}

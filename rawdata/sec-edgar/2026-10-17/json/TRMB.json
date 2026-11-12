@@ -1,0 +1,427 @@
+{
+  "company": "Trimble Inc.",
+  "ticker": "TRMB",
+  "cik": "0000864749",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-09",
+    "accession": "0000864749-26-000042",
+    "meeting": "Annual Meeting of Stockholders, 2026-05-26, virtuale",
+    "ownership_as_of": "2026-03-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000042/trmb-20260409.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "accession": "0000864749-26-000015",
+      "url": "https://www.sec.gov/Archives/edgar/data/864749/000086474926000015/trmb-20260102.htm",
+      "as_of": "2026-02-25"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Börje Ekholm",
+      "roles": [
+        "Chairperson of the Board",
+        "President and Chief Executive Officer, Ericsson"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Kaigham Gabriel",
+      "roles": [
+        "Chief Executive Officer, Pitt BioForge"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Meaghan Lloyd",
+      "roles": [
+        "Chief of Staff and Partner, Gehry Partners, LLP"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Ronald S. Nersesian",
+      "roles": [
+        "Chair of the Board of Directors, Keysight Technologies"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Robert G. Painter",
+      "roles": [
+        "President and Chief Executive Officer of the Company"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Mark S. Peek",
+      "roles": [
+        "Former Co-President, Workday"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Kara Sprague",
+      "roles": [
+        "Chief Executive Officer, HackerOne"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Thomas Sweet",
+      "roles": [
+        "Former Chief Financial Officer, Dell Technologies"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Johan Wibergh",
+      "roles": [
+        "Former Chief Technology Officer, Vodafone"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "James C. Dalton",
+      "roles": [
+        "Retired, U.S. Army Corps of Engineers"
+      ],
+      "director_since": "2020",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kaigham Gabriel",
+        "Mark S. Peek",
+        "Kara Sprague",
+        "Thomas Sweet"
+      ],
+      "chair": "Mark S. Peek",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "People & Compensation Committee",
+      "members": [
+        "Börje Ekholm",
+        "Meaghan Lloyd",
+        "Ronald S. Nersesian",
+        "Johan Wibergh"
+      ],
+      "chair": "Johan Wibergh",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "James C. Dalton",
+        "Meaghan Lloyd",
+        "Mark S. Peek"
+      ],
+      "chair": "Meaghan Lloyd",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Robert G. Painter",
+      "age": 54,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Phillip Sawarynski",
+      "age": 53,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jennifer Allison",
+      "age": 53,
+      "positions": [
+        "Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Kenneth B. Bement",
+      "age": 46,
+      "positions": [
+        "Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Ronald J. Bisio",
+      "age": 57,
+      "positions": [
+        "Senior Vice President"
+      ]
+    },
+    {
+      "name": "Chris Keating",
+      "age": 55,
+      "positions": [
+        "Senior Vice President"
+      ]
+    },
+    {
+      "name": "Peter Large",
+      "age": 56,
+      "positions": [
+        "Senior Vice President"
+      ]
+    },
+    {
+      "name": "Mark Schwartz",
+      "age": 51,
+      "positions": [
+        "Senior Vice President"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-30",
+    "note": "Percentuali calcolate su 232.088.731 azioni di common stock in circolazione al 30 marzo 2026 (Record Date). Azioni con opzioni, RSU o warrant esercitabili/maturabili entro 60 giorni sono conteggiate nel calcolo del detentore. '*' indica meno dell'1% (percentuale null).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30570253,
+            "pct": 13.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on January 30, 2026",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "Morgan Stanley",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13064278,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed with the SEC on August 5, 2025",
+        "address": "1585 Broadway, New York, NY 10036"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Ronald J. Bisio",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 146619,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James C. Dalton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12460,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Börje Ekholm",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61634,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kaigham Gabriel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15170,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chris Keating",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27366,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Meaghan Lloyd",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 53119,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronald S. Nersesian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12327,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert G. Painter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 660409,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark S. Peek",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 92517,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Phillip Sawarynski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 59310,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Schwartz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 74895,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kara Sprague",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6810,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Sweet",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19001,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Johan Wibergh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 36409,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1370377,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota. Gli NEO elencati nella sezione Executive Compensation (Painter, Sawarynski, Bisio, Keating, Schwartz) non sono stati usati come roster dei dirigenti.",
+    "James C. Dalton non è ricandidato: resta in carica fino alla data dell'assemblea del 26 maggio 2026 e per questo è incluso in board_of_directors. Il suo posto nel consiglio termina alla data dell'assemblea.",
+    "Il numero di persone nella riga di gruppo (17) non coincide con le 14 righe nominative della tabella di management: la differenza riguarda dirigenti non nominati nel documento. Entrambi i valori sono riportati.",
+    "Riga di gruppo: la percentuale è indicata con '*' (meno dell'1%) e quindi è null. Il totale include 674.170 azioni non emesse al Record Date (vedi nota 9).",
+    "Nella tabella di management, Ronald J. Bisio, Chris Keating, Robert G. Painter, Phillip Sawarynski e Mark Schwartz includono azioni non emesse al Record Date, come indicato nelle note; i valori sono riportati come dichiarati.",
+    "Vanguard e Morgan Stanley: le informazioni sono tratte dagli Schedule 13G/13G/A citati e non sono state verificate indipendentemente dalla società.",
+    "executive_officers presi dal Form 10-K del 2026-02-25: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 rimanda alla sezione «Information about our Executive Officers» della Parte I, quindi l'elenco è stato estratto da quella sezione.",
+    "10-K: Il titolo di Jennifer Allison è «Vice President, General Counsel and Secretary» nella tabella, mentre la biografia parla di «general counsel and corporate secretary»; è stato usato il titolo della tabella.",
+    "10-K: Per Bisio, Keating, Large e Schwartz la tabella riporta solo «Senior Vice President»; le responsabilità di segmento (Field Systems, T&L, strategia, AECO) compaiono nelle biografie e non sono state inserite in positions.",
+    "10-K: Il titolo «Dr.» di Peter Large, presente nella biografia, è stato omesso secondo le regole sui nomi.",
+    "10-K: Il testo della finestra è interrotto da un numero di pagina e da «Table of Contents» all'interno della biografia di Keating; il contenuto è stato ricostruito senza effetti sull'elenco."
+  ]
+}

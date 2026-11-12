@@ -1,0 +1,350 @@
+{
+  "company": "Archer Aviation Inc.",
+  "ticker": "ACHR",
+  "cik": "0001824502",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-30",
+    "accession": "0001104659-26-052227",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1824502/000110465926052227/tm268999-5_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Barbara Pilarski",
+      "roles": [
+        "Director",
+        "Class II nominee"
+      ],
+      "director_since": "2022-01",
+      "independent": true
+    },
+    {
+      "name": "Maria Pinelli",
+      "roles": [
+        "Director",
+        "Class II nominee",
+        "Audit Committee Chair",
+        "Audit committee financial expert"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Adam Goldstein",
+      "roles": [
+        "Founder, CEO and Director",
+        "Class III"
+      ],
+      "director_since": "2021-09",
+      "independent": false
+    },
+    {
+      "name": "Oscar Munoz",
+      "roles": [
+        "Director",
+        "Class III"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Fred M. Diaz",
+      "roles": [
+        "Lead Independent Director",
+        "Class I"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Deborah Diaz",
+      "roles": [
+        "Director",
+        "Class I"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Michael Spellacy",
+      "roles": [
+        "Director",
+        "Class II"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Maria Pinelli",
+        "Deborah Diaz",
+        "Fred M. Diaz"
+      ],
+      "chair": "Maria Pinelli",
+      "meetings": 7,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Fred M. Diaz",
+        "Oscar Munoz",
+        "Maria Pinelli"
+      ],
+      "chair": "Fred M. Diaz",
+      "meetings": 7,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Deborah Diaz",
+        "Barbara Pilarski",
+        "Fred M. Diaz"
+      ],
+      "chair": "Deborah Diaz",
+      "meetings": 5,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Adam Goldstein",
+      "age": 46,
+      "positions": [
+        "Founder, CEO and Director"
+      ]
+    },
+    {
+      "name": "Priya Gupta",
+      "age": 43,
+      "positions": [
+        "Acting Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Eric Lentell",
+      "age": 46,
+      "positions": [
+        "Chief Strategy & Legal Officer"
+      ]
+    },
+    {
+      "name": "Tom Muniz",
+      "age": 41,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Percentuali calcolate su 757.908.497 azioni di Class A common stock in circolazione al 31 marzo 2026; le RSU e i warrant esercitabili entro 60 giorni sono considerati in circolazione solo per il calcolo della quota del relativo detentore. * = meno dell'1%. Indirizzo di default: c/o Archer Aviation Inc., 190 W. Tasman Drive, San Jose, California 95134.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Stellantis N.V.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 78235067,
+            "pct": 10.09
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D, Amendment 10, filed 2026-01-06 (dati al 2026-01-03)",
+        "address": "Taurusavenue 1, 2132LS, Hoofddorp, The Netherlands"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 52989964,
+            "pct": 6.99
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G, Amendment 3, filed 2026-01-21 (dati al 2025-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Adam Goldstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 37002416,
+            "pct": 4.88
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Mesler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 582960,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Priya Gupta",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 198910,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tom Muniz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 1520234,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric Lentell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 143260,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tosha Perkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 481945,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah Diaz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 202191,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Fred M. Diaz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 156016,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Oscar Munoz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 496124,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barbara Pilarski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maria Pinelli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 182685,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Spellacy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 2263764,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Class A common stock",
+          "shares": 42165600,
+          "pct": 5.55
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Michael Spellacy non è stato rinominato: il suo mandato di Class II scade all'assemblea annuale; è incluso tra i direttori attuali perché siede ancora in consiglio alla data del documento. Il documento indica che il numero di direttori autorizzati scenderà da sette a sei.",
+    "Michael Spellacy: la data di prima nomina (director_since) non è indicata nell'estratto; il campo è null. L'indipendenza è dedotta dal fatto che ha fatto parte del comitato Nominating and Corporate Governance nel 2025, non da una dichiarazione esplicita.",
+    "Michael Spellacy è stato membro del Nominating and Corporate Governance Committee nel 2025 ma non ne fa parte attualmente: non è incluso nei membri del comitato.",
+    "Il numero di riunioni dei comitati (7, 7, 5) non riporta l'esercizio di riferimento nell'estratto: meetings_year è null.",
+    "Barbara Pilarski ha annunciato l'intenzione di ritirarsi dal lavoro nel 2026, ma il documento non dice che lasci il consiglio: resta inclusa tra i direttori attuali.",
+    "Barbara Pilarski: nella tabella dei detentori le azioni sono indicate come '—' (quindi 0) e la percentuale come '*'; è riportata con 0 azioni e pct null.",
+    "Il numero di persone dichiarato nella riga di gruppo è 10, mentre la tabella NEO e direttori elenca 12 righe: Mark Mesler (ex CFO, dimesso il 7 luglio 2025) e Tosha Perkins (ex Chief Administrative Officer, dimessa il 17 aprile 2026) sono ex dirigenti e sono esclusi dal conteggio del gruppo. Sono riportati nel blocco named_executive_officers_and_directors perché compaiono nella tabella.",
+    "Tosha Perkins e Mark Mesler non compaiono nel roster dei dirigenti attuali e per questo non sono inclusi in executive_officers.",
+    "Eric Lentell: nella biografia il nome è scritto in maiuscolo come 'ERIC LENTELL'; è usata la forma 'Eric Lentell' del roster e della tabella di proprietà.",
+    "Stellantis N.V.: la riga di 78.235.067 azioni include 52.986.841 azioni detenute da Stellantis N.V., 7.500.000 detenute da Stellantis Europe S.p.A., e warrant esercitabili per 16.671.202 e 1.077.024 azioni; il valore indicato è il totale della nota.",
+    "Adam Goldstein detiene il 4,88% della Class A, quindi non supera la soglia del 5% e non è incluso nel blocco dei detentori oltre il 5%.",
+    "Nessuna riga di aggregazione o subtotale è stata trovata tra i detentori oltre il 5%."
+  ]
+}

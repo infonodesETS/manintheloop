@@ -1,0 +1,406 @@
+{
+  "company": "Alphabet Inc.",
+  "ticker": "GOOG",
+  "cik": "0001652044",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001308179-26-000342",
+    "meeting": "2026-06-05",
+    "ownership_as_of": "2026-04-06",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000130817926000342/goog-20260424.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Larry Page",
+      "roles": [
+        "Co-Founder",
+        "Director"
+      ],
+      "director_since": "1998",
+      "independent": false
+    },
+    {
+      "name": "Sergey Brin",
+      "roles": [
+        "Co-Founder",
+        "Director"
+      ],
+      "director_since": "1998",
+      "independent": false
+    },
+    {
+      "name": "Sundar Pichai",
+      "roles": [
+        "Chief Executive Officer, Alphabet and Google",
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "John L. Hennessy",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Frances H. Arnold",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "R. Martin Chávez",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "L. John Doerr",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1999",
+      "independent": true
+    },
+    {
+      "name": "Roger W. Ferguson Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "K. Ram Shriram",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1998",
+      "independent": true
+    },
+    {
+      "name": "Robin L. Washington",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Roger W. Ferguson Jr.",
+        "R. Martin Chávez",
+        "Robin L. Washington"
+      ],
+      "chair": "Roger W. Ferguson Jr.",
+      "meetings": 13,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Risk and Compliance Committee",
+      "members": [
+        "Roger W. Ferguson Jr.",
+        "R. Martin Chávez",
+        "Robin L. Washington"
+      ],
+      "chair": "Roger W. Ferguson Jr.",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Leadership Development, Inclusion and Compensation Committee",
+      "members": [
+        "Robin L. Washington",
+        "L. John Doerr",
+        "K. Ram Shriram"
+      ],
+      "chair": "Robin L. Washington",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "John L. Hennessy",
+        "Frances H. Arnold"
+      ],
+      "chair": "John L. Hennessy",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Larry Page",
+        "Sergey Brin",
+        "Sundar Pichai"
+      ],
+      "chair": "Larry Page",
+      "meetings": 0,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Sundar Pichai",
+      "age": 53,
+      "positions": [
+        "Chief Executive Officer, Alphabet and Google"
+      ]
+    },
+    {
+      "name": "Anat Ashkenazi",
+      "age": 53,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer, Alphabet and Google"
+      ]
+    },
+    {
+      "name": "Ruth M. Porat",
+      "age": 68,
+      "positions": [
+        "President and Chief Investment Officer, Alphabet and Google"
+      ]
+    },
+    {
+      "name": "Philipp Schindler",
+      "age": 55,
+      "positions": [
+        "Senior Vice President, Chief Business Officer, Google"
+      ]
+    },
+    {
+      "name": "Kent Walker",
+      "age": 65,
+      "positions": [
+        "President, Global Affairs, Chief Legal Officer and Secretary, Alphabet and Google"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-06",
+    "note": "Percentuali basate su 5.823.665.113 azioni Classe A e 835.779.041 azioni Classe B in circolazione al 6 aprile 2026. La Classe C non è inclusa. '*' indica meno dell'1%; '—' indica zero. Il 'pct_of_votes' è la percentuale di potere di voto totale (Classe A e B votano insieme; ogni azione di Classe B vale 10 voti).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Larry Page",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 389051160,
+            "pct": 46.5
+          }
+        ],
+        "pct_of_votes": 27.4,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "Sergey Brin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 37469,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 358939978,
+            "pct": 42.9
+          }
+        ],
+        "pct_of_votes": 25.3,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 356934964,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": 2.5,
+        "source": "Schedule 13G/A filed 2024-02-12",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Larry Page",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 389051160,
+            "pct": 46.5
+          }
+        ],
+        "pct_of_votes": 27.4
+      },
+      {
+        "name": "Sergey Brin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 37469,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 358939978,
+            "pct": 42.9
+          }
+        ],
+        "pct_of_votes": 25.3
+      },
+      {
+        "name": "Sundar Pichai",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 227560,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anat Ashkenazi",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Ruth M. Porat",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 28060,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philipp Schindler",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Kent Walker",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Frances H. Arnold",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "R. Martin Chávez",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "L. John Doerr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 472165,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 22348940,
+            "pct": 2.7
+          }
+        ],
+        "pct_of_votes": 1.6
+      },
+      {
+        "name": "Roger W. Ferguson Jr.",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "John L. Hennessy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 20624,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "K. Ram Shriram",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1811108,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robin L. Washington",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 2596986,
+          "pct": null
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 770340078,
+          "pct": 92.2
+        }
+      ],
+      "pct_of_votes": 54.3
+    }
+  },
+  "warnings": [
+    "Il Comitato Esecutivo include Larry Page, Sergey Brin e Sundar Pichai, che il documento indica come non indipendenti; la regola 'membri dei comitati ⊆ indipendenti' non è rispettata per questo comitato. Il documento stesso dichiara che il Comitato Esecutivo è privo di direttori indipendenti. Dati mantenuti come pubblicati.",
+    "Larry Page e Sergey Brin compaiono sia in greater_than_5pct_stockholders (oltre il 5% della Classe B) sia in named_executive_officers_and_directors, come richiesto.",
+    "Vanguard Group, Inc. non compare nella tabella. La nota (7) riporta una precedente Schedule 13G/A del 13 febbraio 2024 con 493.782.758 azioni di Classe A, ma il 26 marzo 2026 Vanguard ha comunicato una riorganizzazione interna: non detiene più la titolarità di tali azioni e le società controllate riporteranno separatamente. Il dato sulla quota attuale non è noto; Vanguard non è stato incluso nel blocco dei >5%.",
+    "Larry Page, Sergey Brin e Sundar Pichai non compaiono nel roster dei dirigenti come voce separata in quanto biografie già indicate fra i direttori; Sundar Pichai è incluso in executive_officers perché il documento lo dichiara executive officer (biografia a pagina 17). Larry Page e Sergey Brin non sono dichiarati executive officer nella sezione executives e pertanto non sono inclusi in executive_officers.",
+    "Riga di gruppo: il documento dichiara 14 persone e nella tabella sono presenti 14 righe di direttori e dirigenti; coerenza verificata.",
+    "Nelle righe con soli trattini (—) per tutte le classi, la lista 'classes' è vuota e 'pct_of_votes' è 0; per Brin, Porat, Pichai, Hennessy e Shriram la percentuale di Classe A è '*' e quindi null."
+  ]
+}

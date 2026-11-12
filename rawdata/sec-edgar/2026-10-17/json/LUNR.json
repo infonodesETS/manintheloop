@@ -1,0 +1,391 @@
+{
+  "company": "Intuitive Machines, Inc.",
+  "ticker": "LUNR",
+  "cik": "0001844452",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001628280-26-027022",
+    "meeting": "2026 Annual Meeting of Stockholders, 2026-06-04 (virtuale)",
+    "ownership_as_of": "2026-04-10",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1844452/000162828026027022/lunr-20260424.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Stephen Altemus",
+      "roles": [
+        "Chief Executive Officer and President",
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": false
+    },
+    {
+      "name": "Dr. Kamal Ghaffarian",
+      "roles": [
+        "Chairman of the Board of Directors"
+      ],
+      "director_since": "2023-02",
+      "independent": false
+    },
+    {
+      "name": "Michael Blitzer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "William J. Liquori",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "Robert L. Masson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-02",
+      "independent": true
+    },
+    {
+      "name": "Nicole Seligman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-06",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "William J. Liquori",
+        "Michael Blitzer",
+        "Robert L. Masson"
+      ],
+      "chair": "Robert L. Masson",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Robert L. Masson",
+        "Michael Blitzer"
+      ],
+      "chair": "Michael Blitzer",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Michael Blitzer",
+        "William J. Liquori",
+        "Nicole Seligman"
+      ],
+      "chair": "Nicole Seligman",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Conflicts Committee",
+      "members": [
+        "Michael Blitzer",
+        "William J. Liquori",
+        "Robert L. Masson",
+        "Nicole Seligman"
+      ],
+      "chair": "William J. Liquori",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Strategic Transactions Committee",
+      "members": [
+        "Stephen Altemus",
+        "Robert L. Masson",
+        "Michael Blitzer"
+      ],
+      "chair": "Michael Blitzer",
+      "meetings": 10,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Stephen Altemus",
+      "age": 62,
+      "positions": [
+        "Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Timothy Crain",
+      "age": 53,
+      "positions": [
+        "Senior Vice President and Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Peter McGrath",
+      "age": 58,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Anna Jones",
+      "age": 47,
+      "positions": [
+        "Senior Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Chris Johnson",
+      "age": 49,
+      "positions": [
+        "President of Lanteris Space Systems"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-10",
+    "note": "Percentuali di Class A, Class B e Class C come riportate per classe; * = meno dell'1%; — = zero. % of Total Voting Power = potere di voto combinato delle classi A, B e C (Class C: tre voti per azione). Base: 159.961.860 azioni Class A e 56.852.458 azioni Class C in circolazione al 10 aprile 2026; nessuna Class B in circolazione.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 9450141,
+            "pct": 5.9
+          }
+        ],
+        "pct_of_votes": 2.9,
+        "source": "Schedule 13G/A filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Advent Reporting Persons",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 22991028,
+            "pct": 14.4
+          }
+        ],
+        "pct_of_votes": 7.0,
+        "source": "Schedule 13G filed 2026-01-20",
+        "address": "Prudential Tower, 800 Boylston Street, Suite 3300, Boston, MA 02199-8069"
+      },
+      {
+        "name": "Stephen Altemus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1176246,
+            "pct": null
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 12342213,
+            "pct": 21.7
+          }
+        ],
+        "pct_of_votes": 11.6,
+        "source": null,
+        "address": "c/o Intuitive Machines, LLC, 13467 Columbia Shuttle Street, Houston, Texas 77059"
+      },
+      {
+        "name": "Dr. Kamal Ghaffarian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3640860,
+            "pct": 2.3
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 35639630,
+            "pct": 62.7
+          }
+        ],
+        "pct_of_votes": 33.5,
+        "source": null,
+        "address": "5937 Sunnyslope Drive, Naples, FL 34119"
+      },
+      {
+        "name": "Dr. Timothy Crain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 359726,
+            "pct": null
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 8870615,
+            "pct": 15.6
+          }
+        ],
+        "pct_of_votes": 8.2,
+        "source": null,
+        "address": "c/o Intuitive Machines, LLC, 13467 Columbia Shuttle Street, Houston, Texas 77059"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Stephen Altemus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1176246,
+            "pct": null
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 12342213,
+            "pct": 21.7
+          }
+        ],
+        "pct_of_votes": 11.6
+      },
+      {
+        "name": "Dr. Kamal Ghaffarian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3640860,
+            "pct": 2.3
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 35639630,
+            "pct": 62.7
+          }
+        ],
+        "pct_of_votes": 33.5
+      },
+      {
+        "name": "Dr. Timothy Crain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 359726,
+            "pct": null
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 8870615,
+            "pct": 15.6
+          }
+        ],
+        "pct_of_votes": 8.2
+      },
+      {
+        "name": "Peter McGrath",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 509237,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Blitzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1931248,
+            "pct": 1.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William J. Liquori",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 81248,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert L. Masson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 81248,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nicole Seligman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 81248,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 8193058,
+          "pct": 3.5
+        },
+        {
+          "class": "Class C Common Stock",
+          "shares": 56852458,
+          "pct": 100.0
+        }
+      ],
+      "pct_of_votes": 54.1
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai comitati è stata ricavata dal testo in prosa della sezione board (Audit, Compensation, Nominating and Corporate Governance, Conflicts, Strategic Transactions).",
+    "La matrice appiattita dei comitati non è pienamente coerente con la prosa: per William J. Liquori compaiono quattro simboli mentre la prosa lo indica in tre comitati (Audit, Nominating and Corporate Governance, Conflicts come chair). Si è seguita la prosa.",
+    "Strategic Transactions Committee: il testo dice 'serving as Chair' senza nominare il presidente; la matrice indica Michael Blitzer come chair, scelta adottata.",
+    "Sanity check 1 non superato: Stephen Altemus (independent: false) è membro dello Strategic Transactions Committee. Il dato è mantenuto come riportato dal documento.",
+    "Michael Blitzer compare nella tabella degli azionisti come >5% solo per la classe A con 1,2%: non è stato inserito fra i >5%.",
+    "Stephen Altemus, Dr. Kamal Ghaffarian e Dr. Timothy Crain detengono oltre il 5% della Class C Common Stock e quindi compaiono anche in greater_than_5pct_stockholders, come previsto per direttori e dirigenti; compaiono anche in named_executive_officers_and_directors. Il valore di source è null perché non deriva da un deposito istituzionale.",
+    "La colonna 'Number' totale per ciascun detentore (somma di Class A, B e C) non è rappresentata come classe; sono stati riportati i valori per classe e pct_of_votes. Totali per detentore: Altemus 13.518.459; Ghaffarian 39.280.490; Crain 9.230.341; McGrath 509.237; Blitzer 1.931.248; Liquori 81.248; Masson 81.248; Seligman 81.248; BlackRock 9.450.141; Advent 22.991.028; gruppo 65.045.516.",
+    "Riga di gruppo: il documento dichiara 'All directors and executive officers as a group (10 individuals)', ma le righe nominative sono 8. Jones e Johnson sono dirigenti non presenti singolarmente nella tabella. Le tre voci (10 persone, 8 righe nominative) sono riportate come nel documento.",
+    "Riga di gruppo: la percentuale di Class A indicata (3,5%) non coincide con 8.193.058 su 159.961.860 azioni (circa 5,1%). Il dato è riportato come dichiarato dal documento.",
+    "Advent: il nome nella tabella è 'Advent Reporting Person'; la nota 9 indica come soggetti collettivi Advent International, L.P., Advent International GP, LLC, Galileo TopCo, Inc. e Vantor Holdings Inc. Il nome usato è quello della tabella con la dicitura 'Reporting Persons' della nota.",
+    "Il documento riporta anche patti di aggregazione o di subtotale? No: non sono presenti righe di subtotale o di patto di voto nella tabella."
+  ]
+}

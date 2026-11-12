@@ -1,0 +1,433 @@
+{
+  "company": "Cisco Systems, Inc.",
+  "ticker": "CSCO",
+  "cik": "0000858877",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-10-28",
+    "accession": "0000858877-25-000150",
+    "meeting": "2025 Annual Meeting of Stockholders, 16 dicembre 2025",
+    "ownership_as_of": "2025-08-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000150/csco-20251027.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-09-03",
+      "accession": "0000858877-25-000111",
+      "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+      "as_of": "2025-08-31"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Michael D. Capellas",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Mark Garrett",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "John D. Harris II",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Kristina M. Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Sarah Rae Murphy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Charles H. Robbins",
+      "roles": [
+        "Chair and CEO"
+      ],
+      "director_since": "2015",
+      "independent": false
+    },
+    {
+      "name": "Daniel H. Schulman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Marianna Tessel",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Kevin Weil",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-05",
+      "independent": true
+    },
+    {
+      "name": "Wesley G. Bush",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "n/d",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Mark Garrett",
+        "John D. Harris II",
+        "Sarah Rae Murphy"
+      ],
+      "chair": "Mark Garrett",
+      "meetings": 12,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Management Development Committee",
+      "members": [
+        "Daniel H. Schulman",
+        "Kristina M. Johnson",
+        "Marianna Tessel"
+      ],
+      "chair": "Daniel H. Schulman",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nomination and Governance Committee",
+      "members": [
+        "Michael D. Capellas",
+        "Mark Garrett",
+        "Daniel H. Schulman"
+      ],
+      "chair": "Michael D. Capellas",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Public Policy Committee",
+      "members": [
+        "Wesley G. Bush",
+        "Michael D. Capellas",
+        "Kevin Weil"
+      ],
+      "chair": "Wesley G. Bush",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Charles H. Robbins",
+      "age": 59,
+      "positions": [
+        "Chair and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Mark Patterson",
+      "age": 55,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jeetendra Patel",
+      "age": 54,
+      "positions": [
+        "President, Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Deborah L. Stahlkopf",
+      "age": 55,
+      "positions": [
+        "Executive Vice President and Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Thimaya Subaiya",
+      "age": 47,
+      "positions": [
+        "Executive Vice President, Operations"
+      ]
+    },
+    {
+      "name": "Oliver Tuszik",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, Global Sales"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-08-28",
+    "note": "Titolarità effettiva al 28 agosto 2025. Percentuali calcolate su 3.953.196.953 azioni in circolazione più i diritti di acquisto entro 60 giorni. * = meno dell'1%. Il documento non riporta la percentuale di voti (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 383853104,
+            "pct": 9.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G depositato il 13 febbraio 2024",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 351115676,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G depositato il 25 gennaio 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Wesley G. Bush",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60205,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael D. Capellas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 169887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Garrett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 36928,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John D. Harris II",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24834,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "R. Scott Herren",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1693,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kristina M. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71629,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sarah Rae Murphy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15825,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeetu Patel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles H. Robbins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 526,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel H. Schulman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10456,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dev Stahlkopf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4482,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary Steele",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7243,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thimaya Subaiya",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3459,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marianna Tessel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33031,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kevin Weil",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4313,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 487889,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota e non è stata ricostruita dalle biografie. Jeetu Patel, Dev Stahlkopf, Gary Steele, Thimaya Subaiya, R. Scott Herren compaiono solo nella tabella di titolarità, non come dirigenti dichiarati in questo documento.",
+    "Wesley G. Bush ha comunicato di non ricandidarsi all'assemblea del 2025; resta nel consiglio fino all'assemblea ed è incluso in board_of_directors con warning di uscita. Il numero di membri autorizzati scende da dieci a nove.",
+    "Ekta-Singh Bushell, già membro del consiglio, ha lasciato il consiglio a dicembre 2024: non incluso in board_of_directors. Era membro dell'Audit Committee e del Public Policy Committee fino a dicembre 2024.",
+    "Variazioni di composizione nell'agosto 2025: Wesley G. Bush e John D. Harris II hanno lasciato il Compensation and Management Development Committee, a cui si è unita Marianna Tessel; Kristina M. Johnson ha lasciato il Public Policy Committee, a cui si è unito Kevin Weil. Le liste di committees riportano la composizione attuale; i membri di inizio esercizio fiscale 2025 erano Bush, Harris, Johnson e Schulman (Compensation) e Bush, Capellas, Johnson e Bushell (Public Policy).",
+    "Il titolo 'Dr.' di Kristina M. Johnson è stato rimosso dal nome. Kevin Weil compare come nominato per l'elezione nel 2025 con data di primo ingresso maggio 2025, scritta come YYYY-MM.",
+    "Le posizioni dei comitati sono riportate come nel documento; le riunioni di ciascun comitato sono riferite all'esercizio fiscale 2025 come indicato nella sezione dei comitati. Il consiglio ha tenuto sei riunioni, dato non incluso nei comitati.",
+    "I dati dei >5% (Vanguard e BlackRock) derivano dagli Schedule 13G del 2024 citati nelle note del documento e possono non riflettere la titolarità corrente. Nessuna riga di aggregazione o subtotale è presente nella tabella dei >5%.",
+    "Il numero di persone nella riga di gruppo (15) è coerente con le 15 righe in named_executive_officers_and_directors.",
+    "Il documento non fornisce la percentuale di voti (pct_of_votes) per nessun detentore; il campo è null.",
+    "executive_officers presi dal Form 10-K del 2025-09-03: il DEF 14A non li elenca.",
+    "10-K: La finestra dell'Item 10 non contiene un elenco di executive officer: rimanda al proxy statement, quindi i dati provengono interamente dalla sezione della Parte I.",
+    "10-K: Il documento non indica se l'elenco delle cariche sia completo rispetto al proxy statement; l'estrazione riflette solo ciò che è stampato nella Parte I."
+  ]
+}

@@ -1,0 +1,463 @@
+{
+  "company": "Netflix, Inc.",
+  "ticker": "NFLX",
+  "cik": "0001065280",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-16",
+    "accession": "0001193125-26-159286",
+    "meeting": null,
+    "ownership_as_of": "2026-04-06",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000119312526159286/d20613ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Richard N. Barton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2002",
+      "independent": true
+    },
+    {
+      "name": "Mathias Döpfner",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Reed Hastings",
+      "roles": [
+        "Chairman of the Board",
+        "Non-executive director"
+      ],
+      "director_since": "1997",
+      "independent": false
+    },
+    {
+      "name": "Jay C. Hoag",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "1999",
+      "independent": true
+    },
+    {
+      "name": "Leslie Kilgore",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Strive Masiyiwa",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Ann Mather",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Elinor Mertz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Greg Peters",
+      "roles": [
+        "Co-Chief Executive Officer and President",
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Susan Rice",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Ted Sarandos",
+      "roles": [
+        "Co-Chief Executive Officer and President",
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Brad Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Anne M. Sweeney",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Richard N. Barton",
+        "Ann Mather",
+        "Elinor Mertz"
+      ],
+      "chair": "Ann Mather",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Mathias Döpfner",
+        "Leslie Kilgore",
+        "Anne M. Sweeney"
+      ],
+      "chair": "Leslie Kilgore",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Jay C. Hoag",
+        "Strive Masiyiwa",
+        "Susan Rice",
+        "Brad Smith"
+      ],
+      "chair": "Jay C. Hoag",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "David Hyman",
+      "age": 60,
+      "positions": [
+        "Chief Legal Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Spencer Neumann",
+      "age": 56,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Greg Peters",
+      "age": 55,
+      "positions": [
+        "Co-Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Ted Sarandos",
+      "age": 61,
+      "positions": [
+        "Co-Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Clete Willems",
+      "age": 46,
+      "positions": [
+        "Chief Global Affairs Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-06",
+    "note": "Proprietà alla data del 6 aprile 2026. Le azioni includono opzioni esercitabili e RSU con maturazione entro 60 giorni, computate nel denominatore della percentuale della persona interessata ma non per gli altri. Indirizzo c/o Netflix, Inc., 121 Albright Way, Los Gatos, CA 95032, salvo diversa indicazione. * = meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 364382750,
+            "pct": 8.65
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed February 13, 2024 (dati al 29 dicembre 2023)",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 308989260,
+            "pct": 7.34
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 26, 2024 (dati al 31 dicembre 2023)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 222750326,
+            "pct": 5.29
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed April 7, 2025 (dati al 29 dicembre 2023)",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Richard N. Barton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 151211,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mathias Döpfner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 69351,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Reed Hastings",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37759062,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jay C. Hoag",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2539341,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Hyman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 673869,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leslie Kilgore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 458671,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Strive Masiyiwa",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41641,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ann Mather",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 123471,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elinor Mertz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30452,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Spencer Neumann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1680565,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Greg Peters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2747038,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan Rice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8970,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ted Sarandos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5719962,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brad Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 310781,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anne M. Sweeney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 92811,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Clete Willems",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6168,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 52413364,
+          "pct": 1.24
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Reed Hastings non è ricandidato all'assemblea annuale ma siede ancora nel consiglio alla data del documento: incluso in board_of_directors con uscita segnalata. Indipendenza valorizzata a false perché non compare nella determinazione di indipendenza del consiglio (ex co-CEO).",
+    "Jay C. Hoag non ha ricevuto la maggioranza dei voti nel 2025; il consiglio ha respinto la sua dimissione il 22 giugno 2025. Resta in carica e risulta incluso.",
+    "Un direttore 'Mr. Haley' è citato come indipendente durante il suo servizio nel consiglio; non è nel consiglio attuale e il documento non indica il nome completo né la data di uscita. Escluso da board_of_directors.",
+    "La sezione committees è assente in questo DEF 14A. L'appartenenza ai comitati è ricavata dalle schede dei direttori (campo 'COMMITTEES'); i presidenti sono dedotti dalle stesse schede.",
+    "Il documento non indica il numero di riunioni per nessun comitato: meetings e meetings_year sono null.",
+    "Peters e Sarandos compaiono sia tra i direttori sia tra gli executive officers; valorizzati come executive non indipendenti. Clete Willems è executive officer ma non direttore.",
+    "Vanguard: la tabella riporta 364.382.750 azioni (8,65%) con dati al 29 dicembre 2023 da Schedule 13G/A del 13 febbraio 2024. La nota indica un Schedule 13G/A del 27 marzo 2026 con 0,0% al 13 marzo 2026, dopo una riorganizzazione interna. Il dato della tabella è mantenuto come riportato.",
+    "FMR LLC: la nota indica dati al 29 dicembre 2023 ma la fonte citata è un Schedule 13G/A depositato il 7 aprile 2025; le date non coincidono.",
+    "Le percentuali individuali sono tutte '*' (meno dell'1%) nella tabella: pct impostato a null per tutti i direttori e dirigenti.",
+    "Il numero di azioni dei singoli direttori e dirigenti include opzioni e RSU con maturazione entro 60 giorni; i dati sono copiati dalla tabella senza scorporarli.",
+    "La riga di gruppo dichiara 16 persone; le righe named_executive_officers_and_directors sono 16, quindi coerenti.",
+    "Nessun direttore o dirigente supera il 5% di Common Stock: il blocco greater_than_5pct_stockholders contiene solo i tre grandi azionisti istituzionali.",
+    "Hoag detiene azioni tramite Hoag Family Trust e Hamilton Investments LP: holder_type 'person' per il nome individuale, con quote in trust incluse nel totale come riportato."
+  ]
+}

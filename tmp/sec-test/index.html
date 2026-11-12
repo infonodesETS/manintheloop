@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEST SEC — Man in the Loop</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Archivo:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../web/base.css">
+<style>
+  html { font-size: 112.5%; }
+  body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: var(--font); overflow: auto; }
+  a { color: var(--text-secondary); text-decoration: none; border-bottom: 1px dotted var(--border); }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border);
+           display: flex; align-items: center; gap: 16px; padding: 10px 24px; }
+  header .brand { font-weight: var(--fw-bold); color: var(--accent); border: 0; letter-spacing: .5px; }
+  header .test { font-size: var(--fs-sm); color: #ffb020; border: 1px solid #ffb02088; border-radius: 3px; padding: 1px 7px; }
+  #q { flex: 1; max-width: 460px; background: var(--surface-input); color: var(--text-primary); border: 1px solid var(--border);
+       border-radius: 4px; padding: 7px 10px; font-family: var(--font); font-size: var(--fs-body); }
+  #sugg { position: absolute; top: 52px; left: 190px; width: 460px; background: var(--surface-ac); border: 1px solid var(--border);
+          border-radius: 4px; max-height: 360px; overflow: auto; display: none; }
+  #sugg div { padding: 6px 10px; cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+  #sugg div:hover { background: var(--surface2); }
+  main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 1.7rem; margin: 0 0 6px; }
+  h2 { font-size: var(--fs-lg); margin: 0; }
+  .sub { color: var(--text-tertiary); font-size: var(--fs-body); margin-bottom: 10px; }
+  .flags { display: flex; gap: 5px; flex-wrap: wrap; margin: 8px 0 16px; }
+  .flag { font-size: calc(var(--fs-body) * .82); border: 1px solid; border-radius: 3px; padding: 1px 6px; }
+  .f-cb  { background: rgba(255,140,40,.07);  border-color: rgba(255,140,40,.35);  color: rgba(255,160,60,.9); }
+  .f-edf { background: rgba(100,160,255,.07); border-color: rgba(100,160,255,.35); color: rgba(100,160,255,.9); }
+  .f-is  { background: rgba(255,215,0,.07);   border-color: rgba(255,215,0,.3);    color: rgba(255,215,0,.85); }
+  .f-wd  { background: rgba(180,130,255,.07); border-color: rgba(180,130,255,.3);  color: rgba(180,130,255,.85); }
+  .f-inf { background: rgba(0,255,65,.06);    border-color: rgba(0,255,65,.22);    color: rgba(0,255,65,.75); }
+  .f-sec { background: rgba(0,210,220,.09);   border-color: rgba(0,210,220,.45);   color: rgba(0,225,235,.95); }
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 18px; }
+  .stat { background: var(--surface3); border: 1px solid var(--border); border-radius: 4px; padding: 8px 14px; min-width: 110px; }
+  .stat b { display: block; font-size: 1.5rem; color: var(--accent); font-weight: var(--fw-bold); }
+  .stat span { font-size: var(--fs-sm); color: var(--text-tertiary); }
+  .card { background: var(--surface3); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 16px; }
+  .card > .hd { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--surface2);
+                border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
+  .card > .hd .n { margin-left: auto; color: var(--text-faint); font-size: var(--fs-sm); }
+  .card.closed > .bd { display: none; }
+  .card > .bd { padding: 6px 14px 12px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: var(--fs-body); }
+  th { text-align: left; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .4px; color: var(--text-faint);
+       padding: 8px 8px 6px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 6px 8px; border-bottom: 1px solid rgba(105,105,105,.25); vertical-align: top; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { font-size: var(--fs-sm); border: 1px solid var(--border); border-radius: 3px; padding: 0 5px; color: var(--text-tertiary); margin-right: 4px; white-space: nowrap; }
+  .tag.chair { border-color: var(--accent); color: var(--accent); }
+  .tag.ind { border-color: #6aa7ff88; color: #8fbfff; }
+  .bar { display: inline-block; height: 8px; background: var(--accent); border-radius: 2px; vertical-align: middle; opacity: .8; }
+  .muted { color: var(--text-faint); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+  #cy { height: 520px; background: var(--bg); border-radius: 0 0 4px 4px; }
+  .legend { display: flex; gap: 14px; font-size: var(--fs-sm); color: var(--text-tertiary); padding: 8px 14px 0; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+  .note { font-size: var(--fs-sm); color: var(--text-faint); margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">Man in the Loop</a><span class="test">TEST · dati SEC · non in produzione</span>
+  <input id="q" placeholder="Cerca azienda, persona o gestore…" autocomplete="off">
+  <div id="sugg"></div>
+</header>
+<main id="main"><p class="muted">Caricamento…</p></main>
+
+<script src="../../web/cytoscape.min.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => n == null || n === '' ? '—' : Number(n).toLocaleString('it-IT');
+const pct = p => p == null || p === '' ? '<span class="muted" title="asterisco nel documento: sotto l\'1%, oppure non indicato">—</span>' : Number(p).toLocaleString('it-IT', {maximumFractionDigits: 2}) + '%';
+const link = (view, id, label) => `<a href="?view=${view}&id=${encodeURIComponent(id)}">${esc(label)}</a>`;
+
+let DB, SEC, ENT = {}, SB = {}, REL = {};
+const idx = (map, k, v) => (map[k] ||= []).push(v);
+
+async function load() {
+  [DB, SEC] = await Promise.all([fetch('../../data/database.json').then(r => r.json()), fetch('sec-test.json').then(r => r.json())]);
+  for (const e of DB.entities) ENT[e.id] = e;
+  for (const p of SEC.persons) ENT[p.id] = p;
+  for (const i of SEC.new_investors) ENT[i.id] = i;
+  SB = SEC.sec_blocks;
+  REL = {board: {}, exec: {}, sh: {}, byPer: {}, byHolder: {}, cbInv: {}};
+  for (const r of SEC.relationships) {
+    if (r.type === 'board_membership') { idx(REL.board, r.target, r); idx(REL.byPer, r.source, r); }
+    else if (r.type === 'executive_officer') { idx(REL.exec, r.target, r); idx(REL.byPer, r.source, r); }
+    else { idx(REL.sh, r.target, r); idx(r.source.startsWith('PER') ? REL.byPer : REL.byHolder, r.source, r); }
+  }
+  for (const r of DB.relationships) if (r.type === 'investment') idx(REL.cbInv, r.target, r);
+}
+const name = id => ENT[id]?.name ?? id;
+const coKey = id => SB[id]?.cik ?? id;            // le doppie classi condividono il CIK
+
+function flags(id) {
+  const s = ENT[id]?.sources;
+  const f = [];
+  if (s) {
+    const m = {crunchbase: ['f-cb','CB'], edf: ['f-edf','EDF'], ishares: ['f-is','iShares'], wikidata: ['f-wd','WD'], infonodes: ['f-inf','INF']};
+    for (const k of Object.keys(s)) if (m[k]) f.push(m[k]);
+  }
+  if (SB[id] || ENT[id]?.sources?.sec) f.push(['f-sec', 'SEC']);
+  return `<div class="flags">${f.map(([c, l]) => `<span class="flag ${c}">${l}</span>`).join('')}</div>`;
+}
+function card(title, n, body, closed = false) {
+  return `<section class="card ${closed ? 'closed' : ''}"><div class="hd" onclick="this.parentNode.classList.toggle('closed')"><h2>${title}</h2><span class="n">${n ?? ''}</span></div><div class="bd">${body}</div></section>`;
+}
+const stat = (v, l) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`;
+
+/* ── grafo a un salto ───────────────────────────────────────────── */
+function graph(centerId, edges) {
+  // edges: [{a, b, label, kind}] con a,b = id; le doppie classi vengono fuse per CIK
+  const nodes = new Map(), eds = [];
+  const nid = id => SB[id] ? 'co:' + coKey(id) : id;
+  const add = (id, center) => { const k = nid(id);
+    if (!nodes.has(k)) nodes.set(k, {data: {id: k, real: id, label: name(id), t: id.startsWith('IN') ? 'co' : id.startsWith('PER') ? 'per' : 'iv', center: center ? 1 : 0}}); };
+  add(centerId, true);
+  for (const e of edges) { add(e.a); add(e.b); eds.push({data: {id: 'e' + eds.length, source: nid(e.a), target: nid(e.b), label: e.label || '', kind: e.kind}}); }
+  const n = nodes.size;
+  const cy = cytoscape({container: $('#cy'), elements: [...nodes.values(), ...eds],
+    style: [
+      {selector: 'node', style: {label: 'data(label)', color: '#ddd', 'font-size': 9, 'text-wrap': 'ellipsis', 'text-max-width': 90, 'text-valign': 'bottom', 'text-margin-y': 3, width: 14, height: 14, 'background-color': '#999'}},
+      {selector: 'node[t="co"]', style: {'background-color': '#00ff41'}},
+      {selector: 'node[t="per"]', style: {'background-color': '#6aa7ff'}},
+      {selector: 'node[t="iv"]', style: {'background-color': '#ff9a3c'}},
+      {selector: 'node[center=1]', style: {width: 30, height: 30, 'font-size': 12, 'font-weight': 700, color: '#fff', 'border-width': 2, 'border-color': '#fff'}},
+      {selector: 'edge', style: {width: 1, 'line-color': '#666', opacity: .7, 'curve-style': 'haystack'}},
+      {selector: 'edge[kind="sh"]', style: {'line-color': '#ff9a3c', 'line-style': 'dashed'}},
+      {selector: 'edge[kind="board"]', style: {'line-color': '#6aa7ff'}},
+      {selector: 'edge[kind="exec"]', style: {'line-color': '#9fe0a0'}},
+    ],
+    layout: n <= 40 ? {name: 'concentric', concentric: x => x.data('center') ? 10 : 1, levelWidth: () => 1, minNodeSpacing: 26, animate: false}
+                    : {name: 'cose', nodeRepulsion: 9000, idealEdgeLength: 90, gravity: .1, numIter: 800, animate: false}});
+  cy.on('tap', 'node', ev => { const d = ev.target.data(); if (d.center) return;
+    location.search = `?view=${d.t === 'co' ? 'company' : d.t === 'per' ? 'person' : 'holder'}&id=${encodeURIComponent(d.real)}`; });
+}
+const graphCard = (n, extra = '') => card('Grafo a un salto', `${n} nodi`,
+  `<div class="legend"><span><i class="dot" style="background:#00ff41"></i>azienda</span><span><i class="dot" style="background:#6aa7ff"></i>persona</span><span><i class="dot" style="background:#ff9a3c"></i>gestore / fondo</span>${extra}</div><div id="cy"></div>`);
+
+/* ── vista: azienda ─────────────────────────────────────────────── */
+function viewCompany(id) {
+  const e = ENT[id], sb = SB[id];
+  if (!e) return notFound();
+  const board = REL.board[id] || [], exec = REL.exec[id] || [], sh = REL.sh[id] || [];
+  const cbs = [...new Set((REL.cbInv[id] || []).map(r => r.source))];
+  const doc = sb ? `<div class="sub">Proxy statement (DEF 14A) depositato il ${esc(sb.proxy_filed)} · quote al ${esc(sb.shares_as_of)} · <a href="${esc(sb.proxy_url)}" target="_blank" rel="noopener">documento SEC ↗</a> · CIK ${esc(sb.cik)} · ticker ${esc(sb.ticker)}</div>` : '<div class="sub">Nessun dato SEC per questa entità.</div>';
+  const boardRows = [...board].sort((a, b) => (/chair/i.test(b.roles) - /chair/i.test(a.roles)) || name(a.source).localeCompare(name(b.source)))
+    .map(r => `<tr><td style="white-space:nowrap">${link('person', r.source, name(r.source))}</td><td style="min-width:300px">${esc(r.roles)}</td><td class="num" style="white-space:nowrap">${esc(r.since ?? '—')}</td><td>${r.independent ? '<span class="tag ind">indipendente</span>' : ''}</td><td>${r.committees.map(c => `<span class="tag ${c.chair ? 'chair' : ''}" title="${c.chair ? 'presidente' : 'membro'}">${esc(c.committee)}${c.chair ? ' (pres.)' : ''}</span>`).join('')}</td></tr>`).join('');
+  const execRows = exec.map(r => `<tr><td>${link('person', r.source, name(r.source))}</td><td>${esc(r.roles)}</td><td class="num">${esc(r.age ?? '—')}</td><td><span class="tag">${esc(r.doc)}</span></td></tr>`).join('');
+  const maxp = Math.max(1, ...sh.map(r => +r.pct || 0));
+  const shRows = [...sh].sort((a, b) => (+b.pct || 0) - (+a.pct || 0)).map(r => {
+    const v = r.source.startsWith('PER') ? 'person' : 'holder';
+    return `<tr><td>${link(v, r.source, name(r.source))}${v === 'person' ? ' <span class="tag">persona</span>' : ''}</td><td>${esc(r.share_class)}</td><td class="num">${fmt(r.shares)}</td><td class="num">${pct(r.pct)}</td><td><span class="bar" style="width:${Math.round(((+r.pct || 0) / maxp) * 90)}px"></span></td><td class="muted">${esc(r.filing)}</td></tr>`; }).join('');
+  const cbList = cbs.length ? cbs.map(i => link('holder', i, name(i))).join(', ') : '<span class="muted">nessuno nel DB</span>';
+  const edges = [...board.map(r => ({a: r.source, b: id, kind: 'board'})), ...exec.map(r => ({a: r.source, b: id, kind: 'exec'})),
+                 ...sh.map(r => ({a: r.source, b: id, kind: 'sh', label: r.pct ? r.pct + '%' : ''}))];
+  $('#main').innerHTML = `<h1>${esc(e.name)}</h1>${doc}${flags(id)}
+    <div class="stats">${stat(board.length, 'consiglieri')}${stat(board.filter(r => r.independent).length, 'indipendenti')}${stat(exec.length, 'dirigenti')}${stat(sh.length, 'azionisti &gt; 5%')}${stat(cbs.length, 'investitori Crunchbase')}</div>
+    ${card('Consiglio di amministrazione', board.length, `<table><thead><tr><th>Persona</th><th>Cariche</th><th class="num">Dal</th><th></th><th>Comitati</th></tr></thead><tbody>${boardRows}</tbody></table>`)}
+    ${card('Dirigenti esecutivi', exec.length, `<table><thead><tr><th>Persona</th><th>Cariche</th><th class="num">Età</th><th>Fonte</th></tr></thead><tbody>${execRows}</tbody></table>`)}
+    ${card('Chi la possiede (azionisti oltre il 5%)', sh.length, `<table><thead><tr><th>Azionista</th><th>Classe</th><th class="num">Azioni</th><th class="num">Quota</th><th></th><th>Dichiarazione</th></tr></thead><tbody>${shRows}</tbody></table>`)}
+    ${card('Chi l\'ha finanziata (investitori Crunchbase)', cbs.length, `<p>${cbList}</p><p class="note">Dati già nel DB (relazioni <code>investment</code>). Affiancati ai proprietari SEC per vedere l'altro livello.</p>`)}
+    ${graphCard(new Set(edges.flatMap(e => [e.a])).size + 1)}`;
+  graph(id, edges);
+}
+
+/* ── vista: persona ─────────────────────────────────────────────── */
+function viewPerson(id) {
+  const p = ENT[id]; if (!p) return notFound();
+  const rels = REL.byPer[id] || [];
+  const byCo = {};
+  for (const r of rels) (byCo[coKey(r.target)] ||= {ids: [], rows: []}).rows.push(r), byCo[coKey(r.target)].ids.includes(r.target) || byCo[coKey(r.target)].ids.push(r.target);
+  const label = {board_membership: 'consigliere', executive_officer: 'dirigente', shareholder_5pct: 'azionista &gt; 5%'};
+  const rows = Object.values(byCo).map(g => `<tr><td>${link('company', g.ids[0], name(g.ids[0]))}</td><td>${g.rows.map(r => `<div><span class="tag">${label[r.type]}</span>${esc(r.roles || (r.pct ? r.pct + '% · ' + r.share_class : ''))}${(r.committees || []).map(c => ` <span class="tag ${c.chair ? 'chair' : ''}">${esc(c.committee)}</span>`).join('')}</div>`).join('')}</td></tr>`).join('');
+  const edges = Object.values(byCo).flatMap(g => g.rows.slice(0, 1).map(r => ({a: id, b: g.ids[0], kind: r.type === 'board_membership' ? 'board' : r.type === 'executive_officer' ? 'exec' : 'sh'})));
+  const al = p.aliases?.length ? `<div class="sub">Altre grafie: ${p.aliases.map(esc).join(' · ')}</div>` : '';
+  $('#main').innerHTML = `<h1>${esc(p.name)}</h1><div class="sub">Persona · ID provvisorio ${esc(id)} (dataset ${esc(p.sources.sec.persona_id)})</div>${al}${flags(id)}
+    <div class="stats">${stat(Object.keys(byCo).length, 'aziende')}${stat(rels.filter(r => r.type === 'board_membership').length, 'cariche da consigliere')}</div>
+    ${card('Aziende e ruoli', Object.keys(byCo).length, `<table><thead><tr><th>Azienda</th><th>Ruoli</th></tr></thead><tbody>${rows}</tbody></table>`)}
+    ${graphCard(edges.length + 1)}`;
+  graph(id, edges);
+}
+
+/* ── vista: gestore ─────────────────────────────────────────────── */
+function viewHolder(id) {
+  const h = ENT[id]; if (!h) return notFound();
+  const rels = [...(REL.byHolder[id] || [])].sort((a, b) => (+b.pct || 0) - (+a.pct || 0));
+  const seen = new Set(), uniq = rels.filter(r => { const k = coKey(r.target) + r.share_class; return seen.has(k) ? false : seen.add(k); });
+  const rows = uniq.map(r => `<tr><td>${link('company', r.target, name(r.target))}</td><td>${esc(r.share_class)}</td><td class="num">${fmt(r.shares)}</td><td class="num">${pct(r.pct)}</td><td class="muted">${esc(r.filing)}</td></tr>`).join('');
+  const cos = new Set(uniq.map(r => coKey(r.target)));
+  const nm = ENT[id].sources?.sec?.role ? 'nuovo (non nel DB)' : 'già nel DB';
+  const edges = uniq.map(r => ({a: id, b: r.target, kind: 'sh', label: r.pct ? r.pct + '%' : ''}));
+  $('#main').innerHTML = `<h1>${esc(h.name)}</h1><div class="sub">Gestore / fondo · ${esc(id)} · ${nm}</div>${flags(id)}
+    <div class="stats">${stat(cos.size, 'aziende del perimetro')}${stat(uniq.length, 'posizioni &gt; 5%')}</div>
+    ${card('Partecipazioni oltre il 5%', uniq.length, `<table><thead><tr><th>Azienda</th><th>Classe</th><th class="num">Azioni</th><th class="num">Quota</th><th>Dichiarazione</th></tr></thead><tbody>${rows}</tbody></table>`)}
+    ${graphCard(edges.length + 1)}`;
+  graph(id, edges);
+}
+
+/* ── home: interlocking e concentrazione ───────────────────────── */
+function viewHome() {
+  const multi = Object.entries(REL.byPer).map(([pid, rs]) => {
+    const cos = [...new Set(rs.filter(r => r.type !== 'shareholder_5pct').map(r => coKey(r.target)))];
+    return {pid, cos, rs};
+  }).filter(x => x.cos.length >= 2).sort((a, b) => b.cos.length - a.cos.length || name(a.pid).localeCompare(name(b.pid)));
+  const firstIn = k => Object.keys(SB).find(i => SB[i].cik === k);
+  const mRows = multi.map(x => `<tr><td>${link('person', x.pid, name(x.pid))}</td><td class="num">${x.cos.length}</td><td>${x.cos.map(k => link('company', firstIn(k), name(firstIn(k)))).join(', ')}</td></tr>`).join('');
+  const hold = Object.entries(REL.byHolder).map(([hid, rs]) => ({hid, n: new Set(rs.map(r => coKey(r.target))).size}))
+    .sort((a, b) => b.n - a.n).slice(0, 25);
+  const hRows = hold.map(h => `<tr><td>${link('holder', h.hid, name(h.hid))}${ENT[h.hid].sources?.sec?.role ? '' : ' <span class="tag">già nel DB</span>'}</td><td class="num">${h.n}</td></tr>`).join('');
+  const nCo = new Set(Object.values(SB).map(s => s.cik)).size;
+  $('#main').innerHTML = `<h1>Consigli e azionisti dai documenti SEC</h1>
+    <div class="sub">Test di aggregazione e rendering. Fonte: DEF 14A, estrazione del ${esc(Object.values(SB)[0].release)}. Il DB principale non è stato modificato.</div>
+    <div class="stats">${stat(nCo, 'aziende')}${stat(SEC.persons.length.toLocaleString('it-IT'), 'persone')}${stat(multi.length, 'in più aziende')}${stat(Object.keys(REL.byHolder).length, 'gestori / fondi')}</div>
+    <div class="two">
+    ${card('Persone in più aziende', multi.length, `<table><thead><tr><th>Persona</th><th class="num">Aziende</th><th>Quali</th></tr></thead><tbody>${mRows}</tbody></table>`)}
+    ${card('Gestori con più partecipazioni &gt; 5%', 'top 25', `<table><thead><tr><th>Gestore</th><th class="num">Aziende</th></tr></thead><tbody>${hRows}</tbody></table><p class="note">Conta le aziende del perimetro (doppie classi fuse).</p>`)}
+    </div>`;
+}
+const notFound = () => $('#main').innerHTML = '<h1>Non trovato</h1><p><a href="index.html">← home</a></p>';
+
+/* ── ricerca ────────────────────────────────────────────────────── */
+function initSearch() {
+  const items = [
+    ...Object.keys(SB).map(i => ({id: i, view: 'company', t: 'azienda'})),
+    ...SEC.persons.map(p => ({id: p.id, view: 'person', t: 'persona'})),
+    ...Object.keys(REL.byHolder).map(i => ({id: i, view: 'holder', t: 'gestore'}))];
+  const q = $('#q'), box = $('#sugg');
+  q.addEventListener('input', () => {
+    const s = q.value.trim().toLowerCase();
+    if (s.length < 2) { box.style.display = 'none'; return; }
+    const r = items.filter(x => name(x.id).toLowerCase().includes(s)).sort((a, b) => name(a.id).localeCompare(name(b.id))).slice(0, 30);
+    box.innerHTML = r.map(x => `<div onclick="location.search='?view=${x.view}&id=${encodeURIComponent(x.id)}'"><span class="tag">${x.t}</span>${esc(name(x.id))}</div>`).join('');
+    box.style.display = r.length ? 'block' : 'none';
+  });
+  document.addEventListener('click', e => { if (e.target !== q) box.style.display = 'none'; });
+}
+
+load().then(() => {
+  initSearch();
+  const p = new URLSearchParams(location.search), v = p.get('view'), id = p.get('id');
+  ({company: viewCompany, person: viewPerson, holder: viewHolder}[v] || viewHome)(id);
+}).catch(e => $('#main').innerHTML = `<p style="color:#f66">Errore: ${esc(e.message)} — avvia <code>python3 -m http.server 8001</code> dalla root del progetto e apri <code>/tmp/sec-test/</code></p>`);
+</script>
+</body>
+</html>

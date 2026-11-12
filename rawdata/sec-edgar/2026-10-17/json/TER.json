@@ -1,0 +1,416 @@
+{
+  "company": "Teradyne, Inc.",
+  "ticker": "TER",
+  "cik": "0000097210",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-27",
+    "accession": "0001193125-26-127504",
+    "meeting": "2026 Annual Meeting of Shareholders",
+    "ownership_as_of": "2026-03-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/97210/000119312526127504/ter-20260325.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Andrew C. Henry",
+      "roles": [
+        "Executive Vice President, Physical AI Business Unit, Arm Holdings",
+        "Executive Vice President, Strategy and Ecosystems, Arm Holdings"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Peter Herweck",
+      "roles": [
+        "Former Chief Executive Officer, Schneider Electric SE"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Mercedes Johnson",
+      "roles": [
+        "Former Chief Financial Officer, Avago Technologies"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Ernest E. Maddock",
+      "roles": [
+        "Former Chief Financial Officer, Micron Technology"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Marilyn Matz",
+      "roles": [
+        "CEO & Board Chair, Paradigm4, Inc."
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Necip Sayiner",
+      "roles": [
+        "Former Executive Vice President and General Manager, Renesas Electronics"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Gregory S. Smith",
+      "roles": [
+        "President, Chief Executive Officer, and Director"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "Paul J. Tufano",
+      "roles": [
+        "Former CEO, Benchmark Electronics, Inc.",
+        "Independent Chair of the Board"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Bridget van Kralingen",
+      "roles": [
+        "Partner, Motive Partners"
+      ],
+      "director_since": "2024",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Mercedes Johnson",
+        "Ernest E. Maddock",
+        "Paul J. Tufano",
+        "Necip Sayiner"
+      ],
+      "chair": "Mercedes Johnson",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Peter Herweck",
+        "Andrew C. Henry",
+        "Marilyn Matz",
+        "Bridget van Kralingen"
+      ],
+      "chair": "Peter Herweck",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Marilyn Matz",
+        "Andrew C. Henry",
+        "Peter Herweck",
+        "Bridget van Kralingen"
+      ],
+      "chair": "Marilyn Matz",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Gregory S. Smith",
+      "age": 63,
+      "positions": [
+        "President, Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Michelle Turner",
+      "age": 52,
+      "positions": [
+        "Vice President, Chief Financial Officer and Treasurer"
+      ]
+    },
+    {
+      "name": "Ryan Driscoll",
+      "age": 48,
+      "positions": [
+        "Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Shannon Poulin",
+      "age": 55,
+      "positions": [
+        "President, Semiconductor Test"
+      ]
+    },
+    {
+      "name": "Regan Mills",
+      "age": 56,
+      "positions": [
+        "President, Product Test"
+      ]
+    },
+    {
+      "name": "Jean Pierre Hathout",
+      "age": 56,
+      "positions": [
+        "President, Robotics"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-13",
+    "note": "Percentuali calcolate su 156.559.428 azioni di Common Stock in circolazione al 13 marzo 2026. * = meno dell'1%. Le quote includono opzioni esercitabili e RSU che maturano entro 60 giorni e, per alcuni direttori non esecutivi, azioni emettibili ai sensi del Deferral Plan. pct_of_votes non dichiarato.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20972755,
+            "pct": 13.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 16) filed 2025-07-29; dati al 30 giugno 2025",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14337126,
+            "pct": 9.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 13) filed 2024-01-24; dati al 29 dicembre 2023",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7910777,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 5) filed 2025-05-09; dati al 31 marzo 2025",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Ryan Driscoll",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4378,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew C. Henry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2132,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Herweck",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15374,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mercedes Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8864,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ernest E. Maddock",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9597,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marilyn Matz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19173,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sanjay Mehta",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30964,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Regan Mills",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5062,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shannon Poulin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6085,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Necip Sayiner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2132,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory S. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 118581,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul J. Tufano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64886,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle Turner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 116,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bridget van Kralingen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5556,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 292900,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Gregory S. Smith è sia direttore (non indipendente, Executive Director) sia executive officer; è incluso in board_of_directors, executive_officers e nei blocchi della proprietà.",
+    "Paul J. Tufano è indicato come Independent Chair of the Board; il consiglio conta nove membri, di cui otto indipendenti.",
+    "Marilyn Matz: la biografia del nominee la indica nei comitati Compensation, Nominating & Governance (Chair), mentre le pagine dei comitati la danno membro del Compensation Committee e Chair del Nominating and Corporate Governance Committee. Si è usata la pagina dei comitati.",
+    "Il documento indica che il consiglio nominerà i membri dei comitati per il termine 2026-2027 dopo l'elezione all'assemblea; la composizione riportata è quella attuale.",
+    "Audit Committee: Ford Tamer ha fatto parte del comitato fino a maggio 2025; Paul J. Tufano vi è stato nominato a maggio 2025 e Necip Sayiner a luglio 2025. Il documento non indica altri direttori in uscita dal consiglio.",
+    "Compensation Committee e Nominating and Corporate Governance Committee: Drew Henry è stato nominato nei comitati a luglio 2025, mentre Paul J. Tufano ne ha fatto parte fino a maggio 2025.",
+    "Riunioni dei comitati: il documento riporta il numero per ciascun comitato per l'esercizio 2025; non sono stati sommati tra comitati diversi. Il dato dell'Audit Committee riguarda otto riunioni nell'esercizio 2025.",
+    "Sanjay Mehta compare nella tabella della proprietà azionaria (30.964 azioni) ma non tra i nominee alla rielezione né tra gli executive officer elencati nella finestra executives. Il documento non ne indica lo status nelle sezioni fornite; è incluso nel blocco dei NEO e direttori come da tabella.",
+    "Jean Pierre Hathout è executive officer ma non compare nella tabella della proprietà azionaria; la riga di gruppo lo considera, pertanto le righe nominative (14) e il numero di persone del gruppo (15) non coincidono. Il numero di persone del gruppo è riportato come dichiarato; la discrepanza è segnalata.",
+    "Riga di gruppo: il documento indica 'current directors and executive officers as a group (15)' con 292.900 azioni; la quota include 72.540 azioni da opzioni esercitabili, 26.023 azioni da RSU in maturazione e 72.539 azioni differite dei direttori non esecutivi.",
+    "Dati dei grandi azionisti: le percentuali provengono dalle note ai Schedule 13G e non sono tutte aggiornate alla data di riferimento della proprietà (13 marzo 2026). Vanguard è al 30 giugno 2025, BlackRock al 29 dicembre 2023 (dato più datato), FMR al 31 marzo 2025.",
+    "Le percentuali delle società oltre il 5% sono quelle dichiarate nel documento, calcolate sulla base di 156.559.428 azioni in circolazione al 13 marzo 2026.",
+    "Nessun direttore o dirigente nominato supera il 5% del Common Stock, quindi non vi sono ulteriori righe da aggiungere al blocco dei detentori oltre il 5%.",
+    "Il documento non riporta classi di azioni diverse dal Common Stock nella sezione proprietà; tutte le righe usano la classe Common Stock."
+  ]
+}

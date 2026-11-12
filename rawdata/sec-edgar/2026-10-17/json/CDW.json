@@ -1,0 +1,437 @@
+{
+  "company": "CDW",
+  "ticker": "CDW",
+  "cik": "0001402057",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-10",
+    "accession": "0001308179-26-000251",
+    "meeting": null,
+    "ownership_as_of": "2026-03-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1402057/000130817926000251/cdw014321-def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Virginia C. Addicott",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "James A. Bell",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Lynda M. Clarizio",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Anthony R. Foxx",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Kelly J. Grier",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Marc E. Jones",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Christine A. Leahy",
+      "roles": [
+        "Chair",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "David W. Nelms",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Joseph R. Swedish",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Sanjay Mehrotra",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Donna F. Zarcone",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kelly J. Grier",
+        "Virginia C. Addicott",
+        "David W. Nelms",
+        "Donna F. Zarcone"
+      ],
+      "chair": "Kelly J. Grier",
+      "meetings": 10,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Sanjay Mehrotra",
+        "James A. Bell",
+        "Lynda M. Clarizio",
+        "Anthony R. Foxx",
+        "Marc E. Jones",
+        "Joseph R. Swedish"
+      ],
+      "chair": "Sanjay Mehrotra",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "James A. Bell",
+        "Virginia C. Addicott",
+        "Lynda M. Clarizio",
+        "Anthony R. Foxx",
+        "Kelly J. Grier",
+        "Marc E. Jones",
+        "Sanjay Mehrotra",
+        "David W. Nelms",
+        "Joseph R. Swedish",
+        "Donna F. Zarcone"
+      ],
+      "chair": "James A. Bell",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Christine A. Leahy",
+      "age": null,
+      "positions": [
+        "Chair, President, and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Elizabeth H. Connelly",
+      "age": null,
+      "positions": [
+        "Chief Commercial Officer and Executive Vice President"
+      ]
+    },
+    {
+      "name": "Frederick J. Kulevich",
+      "age": null,
+      "positions": [
+        "Chief Legal Officer, Executive Vice President, Risk and Compliance, and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Mukesh Kumar",
+      "age": null,
+      "positions": [
+        "Chief Services and Solutions Officer and Executive Vice President"
+      ]
+    },
+    {
+      "name": "Albert J. Miralles",
+      "age": null,
+      "positions": [
+        "Chief Financial Officer and Executive Vice President, Enterprise Business Operations"
+      ]
+    },
+    {
+      "name": "Katherine E. Sanderson",
+      "age": null,
+      "positions": [
+        "Chief Human Resources Officer and Executive Vice President, Coworker Success"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-01",
+    "note": "Quote delle azioni al 1 marzo 2026; percentuali calcolate su 128.707.881 azioni ordinarie in circolazione al 1 marzo 2026. Include le opzioni esercitabili entro 60 giorni e le RSU già maturate o maturabili entro 60 giorni. * = meno dell'1%. — = 0.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16835076,
+            "pct": 13.08
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-07-29 (dati al 2025-06-30); Schedule 13G/A successivo del 2026-03-26 riporta 0% al 2026-03-13 dopo riorganizzazione interna",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10883748,
+            "pct": 8.46
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25 (dati al 2023-12-31)",
+        "address": "55 East 52nd Street, New York, New York 10055"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Christine A. Leahy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 617938,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Albert J. Miralles",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 83529,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth H. Connelly",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82888,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mukesh Kumar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sona Chawla",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 125862,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Virginia C. Addicott",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16796,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James A. Bell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24123,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynda M. Clarizio",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14110,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anthony R. Foxx",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5051,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kelly J. Grier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2430,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marc E. Jones",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2859,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sanjay Mehrotra",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4763,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David W. Nelms",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31007,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph R. Swedish",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18086,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Donna F. Zarcone",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21270,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1050712,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della assemblea (meeting) non presente nelle finestre fornite: lasciata null.",
+    "Età dei dirigenti non presente nella sezione executives (roster senza età): tutti i valori age impostati a null.",
+    "Sanjay Mehrotra e Donna F. Zarcone compaiono come direttori nei comitati e nella tabella di proprietà, ma la loro biografia non è nella finestra board: director_since è null.",
+    "Sanjay Mehrotra: indipendenza ricavata dal fatto che il documento dichiara che tutti i membri del Compensation Committee rispettano i requisiti di indipendenza (la sua posizione nella matrice è di Chair, non nella colonna Independent); verificare.",
+    "Donna F. Zarcone: indipendenza ricavata dalla dichiarazione del documento sui membri dell'Audit Committee; verificare.",
+    "Christine A. Leahy è Chair, President e CEO e non è marcata INDEPENDENT: independent impostato a false.",
+    "Christine A. Leahy compare sia fra i direttori sia fra gli executive officers, come previsto dal documento.",
+    "James A. Bell e Marc E. Jones hanno fatto parte dell'Audit Committee nel 2025 fino a maggio 2025; David W. Nelms vi è entrato a maggio 2025. Non compaiono fra i membri attuali dell'Audit Committee come membri in carica.",
+    "David W. Nelms è stato Lead Independent Director fino a marzo 2025 (documento); attualmente siede come Director.",
+    "Sona Chawla si è ritirata dalla Società il 31 dicembre 2025: non compare nel roster degli executive officers, ma è inclusa nella tabella di proprietà dei direttori e dei dirigenti con nota del documento; le sue quote sono basate sulle informazioni alla data di uscita.",
+    "Riga di gruppo: 'All directors and executive officers as a group (15 persons)' con 1.050.712 azioni; le righe nominative elencate sono 15, coerenti con il numero dichiarato.",
+    "Mukesh Kumar: riga con trattino nel documento (nessuna azione), valorizzato a 0 azioni.",
+    "The Vanguard Group: la Schedule 13G/A del 2025-07-29 riporta 16.835.076 azioni (13,08%); la Schedule 13G/A del 2026-03-26 riporta 0% al 2026-03-13 per riorganizzazione interna, con divisioni che riportano separatamente. Dato inserito dalla fonte del 2025 come da tabella; verificare la data di riferimento.",
+    "BlackRock, Inc.: dato della Schedule 13G/A del 2024-01-25 (al 2023-12-31), potenzialmente non aggiornato rispetto alla data della tabella."
+  ]
+}

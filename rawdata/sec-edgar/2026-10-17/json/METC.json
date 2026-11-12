@@ -1,0 +1,634 @@
+{
+  "company": "Ramaco Resources, Inc.",
+  "ticker": "METC",
+  "cik": "0001687187",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-27",
+    "accession": "0001213900-26-047772",
+    "meeting": null,
+    "ownership_as_of": "2026-04-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026047772/ea0286044-01.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Randall W. Atkins",
+      "roles": [
+        "Director",
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2015-08",
+      "independent": false
+    },
+    {
+      "name": "Bryan H. Lawrence",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-12",
+      "independent": false
+    },
+    {
+      "name": "David E.K. Frischkorn, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-01",
+      "independent": true
+    },
+    {
+      "name": "Michael R. Graney",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-09",
+      "independent": true
+    },
+    {
+      "name": "Richard M. Whiting",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016-12",
+      "independent": true
+    },
+    {
+      "name": "Evan H. Jenkins",
+      "roles": [
+        "Director",
+        "Vice-Chairman of the Board",
+        "Secretary"
+      ],
+      "director_since": "2025-03",
+      "independent": false
+    },
+    {
+      "name": "Joseph Manchin III",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-04",
+      "independent": true
+    },
+    {
+      "name": "Peter Leidel",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-11",
+      "independent": false
+    },
+    {
+      "name": "C. Lynch Christian III",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-06",
+      "independent": true
+    },
+    {
+      "name": "Aurelia Skipwith Giacometto",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-01",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit, Finance and Investment Committee",
+      "members": [
+        "David E.K. Frischkorn, Jr.",
+        "Michael R. Graney",
+        "Richard M. Whiting"
+      ],
+      "chair": "Richard M. Whiting",
+      "meetings": null,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "David E.K. Frischkorn, Jr.",
+        "Michael R. Graney",
+        "Richard M. Whiting"
+      ],
+      "chair": "David E.K. Frischkorn, Jr.",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Environmental, Health and Safety Committee",
+      "members": [
+        "David E.K. Frischkorn, Jr.",
+        "C. Lynch Christian III",
+        "Joseph Manchin III"
+      ],
+      "chair": "C. Lynch Christian III",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "C. Lynch Christian III",
+        "Aurelia Skipwith Giacometto",
+        "Richard M. Whiting"
+      ],
+      "chair": "Aurelia Skipwith Giacometto",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Government Relations Committee",
+      "members": [
+        "Michael R. Graney",
+        "Aurelia Skipwith Giacometto",
+        "Joseph Manchin III"
+      ],
+      "chair": "Michael R. Graney",
+      "meetings": 0,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Technology Committee",
+      "members": [
+        "C. Lynch Christian III",
+        "Aurelia Skipwith Giacometto",
+        "Joseph Manchin III"
+      ],
+      "chair": "Joseph Manchin III",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Randall W. Atkins",
+      "age": 73,
+      "positions": [
+        "Chief Executive Officer",
+        "Director",
+        "Chairman of the Board"
+      ]
+    },
+    {
+      "name": "Jeremy R. Sussman",
+      "age": 43,
+      "positions": [
+        "Chief Financial Officer",
+        "Assistant Secretary"
+      ]
+    },
+    {
+      "name": "Christopher L. Blanchard",
+      "age": 51,
+      "positions": [
+        "EVP for Mine Planning and Development"
+      ]
+    },
+    {
+      "name": "Jason T. Fannin",
+      "age": 52,
+      "positions": [
+        "EVP and Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Paul B. Horn, Jr.",
+      "age": 54,
+      "positions": [
+        "EVP for Mine Operations"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-20",
+    "note": "Quote di classe come dichiarate nel documento; * = meno dell'1%; — = zero. Azioni comuni in circolazione al 20 aprile 2026: 65.677.144 (54.307.004 Classe A e 11.370.140 Classe B). Il documento non dichiara la percentuale di voti (pct_of_votes non disponibile). Le colonne «Total Common Stock» non sono classi e non sono riportate.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Yorktown Energy Partners IX, L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2437247,
+            "pct": 4.5
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 1233952,
+            "pct": 10.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A (No. 12) depositato il 2026-03-25; Yorktown Class B Schedule 13D/A depositato il 2026-04-01; Form 4 di Lawrence depositato il 2026-03-31",
+        "address": "410 Park Avenue, 20th Floor, New York, New York 10022"
+      },
+      {
+        "name": "Yorktown Energy Partners X, L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1969646,
+            "pct": 3.6
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 826611,
+            "pct": 7.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A (No. 2) depositato il 2025-08-11; Yorktown Class B Schedule 13D/A depositato il 2026-04-01; Form 4 di Lawrence depositato il 2026-03-31",
+        "address": "410 Park Avenue, 20th Floor, New York, New York 10022"
+      },
+      {
+        "name": "Yorktown Energy Partners XI, L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2979968,
+            "pct": 5.5
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 1250613,
+            "pct": 11.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A (No. 4) depositato il 2026-03-31; Yorktown Class B Schedule 13D/A depositato il 2026-04-01; Form 4 di Lawrence depositato il 2026-03-31",
+        "address": "410 Park Avenue, 20th Floor, New York, New York 10022"
+      },
+      {
+        "name": "Dayah Energy Partners, L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4713262,
+            "pct": 8.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G (Class A) depositato il 2026-03-06 (dati al 2026-02-27)",
+        "address": "600 Summer Street, Suite 500, Stamford, CT 06901"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3067732,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G depositato il 2026-01-21 (dati al 2025-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Discovery Capital Management, LLC/CT",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 5452360,
+            "pct": 10.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A depositato il 2025-11-13 (dati al 2025-09-30)",
+        "address": "20 Marshall Street, Suite 310, South Norwalk, CT 06854"
+      },
+      {
+        "name": "Randall W. Atkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3167599,
+            "pct": 5.8
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 780476,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Ramaco Resources, Inc., 250 West Main Street, Suite 1900, Lexington, Kentucky 40507"
+      },
+      {
+        "name": "Bryan H. Lawrence",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7521738,
+            "pct": 13.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 3339144,
+            "pct": 29.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 4 depositato il 2026-03-31; Yorktown Class B Schedule 13D/A depositato il 2026-04-01",
+        "address": "c/o Ramaco Resources, Inc., 250 West Main Street, Suite 1900, Lexington, Kentucky 40507"
+      },
+      {
+        "name": "Peter Leidel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7472335,
+            "pct": 13.8
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 3321576,
+            "pct": 29.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Form 4 depositato il 2025-08-11; Yorktown Class B Schedule 13D/A depositato il 2026-04-01",
+        "address": "c/o Ramaco Resources, Inc., 250 West Main Street, Suite 1900, Lexington, Kentucky 40507"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Randall W. Atkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3167599,
+            "pct": 5.8
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 780476,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher L. Blanchard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 519271,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 123528,
+            "pct": 1.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeremy R. Sussman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 463278,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 108660,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason T. Fannin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 273862,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 60764,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul B. Horn, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 75211,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 14389,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bryan H. Lawrence",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7521738,
+            "pct": 13.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 3339144,
+            "pct": 29.4
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Leidel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7472335,
+            "pct": 13.8
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 3321576,
+            "pct": 29.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard M. Whiting",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 139028,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 32471,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael R. Graney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7688,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "C. Lynch Christian III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 117609,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 23970,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David E.K. Frischkorn, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 61572,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 10395,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Evan H. Jenkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 23324,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 959,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aurelia Skipwith Giacometto",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 38022,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 4845,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph Manchin III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 18248,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 99,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 25745278,
+          "pct": 47.4
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 4510100,
+          "pct": 39.7
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente da questo DEF 14A: l'appartenenza ai comitati è stata letta dalla matrice «Committee Memberships» nella finestra board, incrociata con la prosa biografica.",
+    "Audit, Finance and Investment Committee: il documento dà 16 riunioni cumulative per il 2025 (5 del Finance and Investment Committee più 11 dell'Audit Committee, poi fusi). Il numero per il solo comitato fuso non è separabile: meetings impostato a null.",
+    "Il Government Relations Committee è stato costituito a dicembre 2025 e non ha tenuto riunioni nel 2025 (meetings: 0).",
+    "Patrick C. Graney III è deceduto ad agosto 2025 e non compare fra i direttori attuali: non incluso in board_of_directors. Era membro dei comitati Compensation, Nominating and Corporate Governance e Finance and Investment.",
+    "C. Lynch Christian III ha lasciato l'Audit Committee il 19 febbraio 2026 (rimane direttore): non compare fra i membri dell'Audit, Finance and Investment Committee.",
+    "I ruoli dei comitati e i presidenti sono stati letti dalla matrice con allineamento per colonna; verificati incrociando la prosa biografica, che conferma l'appartenenza di ciascun direttore.",
+    "Evan H. Jenkins è Secretary e Vice-Chairman ma non compare nel roster dei Named Executive Officers: non aggiunto a executive_officers.",
+    "Randall W. Atkins, Bryan H. Lawrence e Peter Leidel superano il 5% di una classe e compaiono sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors. Lawrence e Leidel riportano come beneficiari indiretti anche le quote dei fondi Yorktown: le quote dei fondi Yorktown e quelle dei due direttori si sovrappongono e non vanno sommate.",
+    "La fonte e l'indirizzo per Atkins, Lawrence e Leidel non sono indicati nelle note dei rispettivi depositi come per i detentori esterni: per Lawrence e Leidel l'indirizzo è quello c/o Ramaco indicato nel documento; per Atkins source è null.",
+    "Dayah Energy Partners, L.P.: la classe B riporta «—» e «*», quindi non è elencata.",
+    "Il documento non indica la data esatta dell'assemblea annuale 2026 (meeting: null).",
+    "pct_of_votes non è dichiarato nel documento per nessun detentore né per il gruppo."
+  ]
+}

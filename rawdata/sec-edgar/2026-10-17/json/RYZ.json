@@ -1,0 +1,450 @@
+{
+  "company": "Ryerson Holding Corporation",
+  "ticker": "RYZ",
+  "cik": "0001481582",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-18",
+    "accession": "0001193125-26-114120",
+    "meeting": "Assemblea annuale 2026, 2026-04-30 16:00 CDT (solo webcast virtuale)",
+    "ownership_as_of": "2026-02-24",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1481582/000119312526114120/ryz-20260318.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Kirk K. Calhoun",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Court D. Carruthers",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2015-08",
+      "independent": true
+    },
+    {
+      "name": "Bruce T. Crawford",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-04",
+      "independent": true
+    },
+    {
+      "name": "Jacob Kotzubei",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2010-01",
+      "independent": true
+    },
+    {
+      "name": "Edward J. Lehner",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2022-02",
+      "independent": false
+    },
+    {
+      "name": "Michelle A. Kumbier",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-04",
+      "independent": true
+    },
+    {
+      "name": "Karen M. Leggio",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-04",
+      "independent": true
+    },
+    {
+      "name": "Richard T. Marabito",
+      "roles": [
+        "Director",
+        "President and Chief Operating Officer"
+      ],
+      "director_since": "2026-02",
+      "independent": false
+    },
+    {
+      "name": "Peter J. Scott",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-02",
+      "independent": true
+    },
+    {
+      "name": "Michael D. Siegal",
+      "roles": [
+        "Director",
+        "Chair of the Board"
+      ],
+      "director_since": "2026-02",
+      "independent": false
+    },
+    {
+      "name": "Richard P. Stovsky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Jacob Kotzubei",
+        "Edward J. Lehner"
+      ],
+      "chair": null,
+      "meetings": 0,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Transaction Committee",
+      "members": [
+        "Court D. Carruthers",
+        "Jacob Kotzubei"
+      ],
+      "chair": null,
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Court D. Carruthers",
+        "Karen M. Leggio"
+      ],
+      "chair": null,
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kirk K. Calhoun",
+        "Bruce T. Crawford",
+        "Michelle A. Kumbier"
+      ],
+      "chair": "Kirk K. Calhoun",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Kirk K. Calhoun",
+        "Court D. Carruthers",
+        "Jacob Kotzubei"
+      ],
+      "chair": "Court D. Carruthers",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Edward J. Lehner",
+      "age": null,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Richard T. Marabito",
+      "age": null,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "James J. Claussen",
+      "age": 53,
+      "positions": [
+        "Executive Vice President & Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Andrew S. Greiff",
+      "age": 64,
+      "positions": [
+        "Executive Vice President - Ryerson & President - Olympic Steel"
+      ]
+    },
+    {
+      "name": "Molly D. Kannan",
+      "age": 44,
+      "positions": [
+        "Chief Accounting Officer & Corporate Controller"
+      ]
+    },
+    {
+      "name": "Mark S. Silver",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, Chief Legal & Risk Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-24",
+    "note": "Tabella dei direttori e dei dirigenti: data di riferimento 24 febbraio 2026 (Table Date), 51.482.714 azioni in circolazione a quella data. Tabella dei detentori oltre il 5%: data di riferimento 28 febbraio 2026, percentuali calcolate su 51.718.313 azioni. * = meno dell'1%. Nelle note del documento il gruppo è indicato come 16 persone.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Tom Gores, Platinum Equity, LLC and the other reporting persons identified in the applicable Schedule 13G/A",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3924478,
+            "pct": 7.59
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-12",
+        "address": "360 North Crescent Drive, South Building, Beverly Hills, California 90210"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2772128,
+            "pct": 5.36
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "Franklin Mutual Advisers, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2829535,
+            "pct": 5.47
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-05-09",
+        "address": "101 John F. Kennedy Parkway, Short Hills, NJ 07078-2789"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Kirk K. Calhoun",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4187,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Court D. Carruthers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce T. Crawford",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1063,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jacob Kotzubei",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle A. Kumbier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2756,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen M. Leggio",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4883,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard T. Marabito",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 246398,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Scott",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8603,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael D. Siegal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1825226,
+            "pct": 3.55
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard P. Stovsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 30591,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward J. Lehner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 711978,
+            "pct": 1.38
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James J. Claussen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 117334,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Molly D. Kannan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48791,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark S. Silver",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 154166,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 3308194,
+          "pct": 6.58
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Philip E. Norment è indicato come nominee per l'elezione 2026, ma il documento dice che è stato nel Consiglio dal 2014 fino al 2025: non è un direttore in carica alla data del documento, quindi è escluso da board_of_directors. Non compare nemmeno nella tabella di proprietà.",
+    "Kirk K. Calhoun non è stato ricandidato e cesserà di essere direttore subito dopo l'assemblea del 30 aprile 2026: è incluso in board_of_directors come direttore in carica, con l'uscita segnalata. Il documento non dà la data in cui è entrato nel Consiglio, quindi director_since è null.",
+    "Stephen P. Larson si è dimesso dal Consiglio il 13 febbraio 2026: è escluso da board_of_directors e dalla membership del Transaction Committee. La riga della tabella di proprietà (96.531 azioni, *) è esclusa dal blocco named_executive_officers_and_directors, perché non è più direttore alla data della tabella; il dato resta qui per non perderlo.",
+    "Jacob Kotzubei è Co-President di Platinum Equity, che nella tabella dei >5% detiene 3.924.478 azioni (7,59%). Il documento lo dichiara indipendente, con determinazione del Consiglio: il valore è riportato così come scritto, ma il legame con un grande azionista è rilevante.",
+    "Tom Gores, Platinum Equity, LLC e gli altri soggetti della dichiarazione congiunta Schedule 13G/A sono un gruppo di segnalanti: include anche una persona fisica (Tom Gores). Il campo holder_type è 'entity' perché la riga rimanda a un deposito istituzionale e comprende soggetti giuridici; il dubbio resta, perché il nome è anche quello di una persona fisica.",
+    "Nelle tabelle le date di riferimento e il numero di azioni in circolazione non coincidono: 51.482.714 al 24 febbraio 2026 per la tabella dei direttori e dei dirigenti, 51.718.313 al 28 febbraio 2026 per la tabella dei >5%. Le percentuali di ciascuna tabella sono riportate come pubblicate.",
+    "Riga di gruppo: il documento dichiara 16 persone, mentre nel blocco named_executive_officers_and_directors ci sono 14 righe. La differenza di 2 è plausibilmente Andrew S. Greiff (dirigente non elencato singolarmente nella tabella) e Stephen P. Larson (escluso perché non più direttore), ma il documento non lo dice.",
+    "Nella sezione Audit Committee, il documento dice 'Messrs. Calhoun, and Crawford and Ms. Kumbier', poi nella frase successiva cita 'Messrs. Calhoun and Carruthers and Ms. Kumbier' come indipendenti. La membership usata è quella esplicita (Calhoun, Crawford, Kumbier); la menzione di Carruthers appare un errore di testo.",
+    "Executive Committee: Edward J. Lehner, CEO, non è indipendente (independent: false), quindi il membro non soddisfa il controllo comitati ⊆ indipendenti. È mantenuto perché il documento lo indica esplicitamente come membro. Nel 2025 il comitato non si è riunito (meetings 0).",
+    "Chair non indicati nel documento per Executive Committee, Transaction Committee e Nominating and Corporate Governance Committee: chair è null. Il documento usa l'abbreviazione 'Governance Committee' per il Nominating and Corporate Governance Committee, ma il nome completo è quello riportato.",
+    "Età non indicata nel documento per Edward J. Lehner e Richard T. Marabito, che hanno le biografie in altre pagine: age è null.",
+    "Dirigente non elencato singolarmente nella tabella di proprietà: Andrew S. Greiff è incluso in executive_officers, ma non compare come riga in named_executive_officers_and_directors perché non è un NEO né un direttore.",
+    "Richard T. Marabito e Michael D. Siegal non sono indipendenti secondo il documento, che li qualifica come management o come ex dirigenti di Olympic Steel acquisita nel febbraio 2026; non hanno incarichi in comitati."
+  ]
+}

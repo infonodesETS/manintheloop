@@ -1,0 +1,567 @@
+{
+  "company": "Salesforce, Inc.",
+  "ticker": "CRM",
+  "cik": "0001108524",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-16",
+    "accession": "0001108524-26-000085",
+    "meeting": null,
+    "ownership_as_of": "2026-03-25",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000085/crm-20260416.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-02",
+      "accession": "0001108524-26-000060",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "as_of": "2026-02-28"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Marc Benioff",
+      "roles": [
+        "Chair",
+        "Chief Executive Officer",
+        "Co-Founder"
+      ],
+      "director_since": "1999",
+      "independent": false
+    },
+    {
+      "name": "Laura Alber",
+      "roles": [
+        "President & Chief Executive Officer, Williams-Sonoma"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Amy Chang",
+      "roles": [
+        "Former CEO and Founder, Accompany",
+        "Technology Advisor"
+      ],
+      "director_since": "2025-07",
+      "independent": true
+    },
+    {
+      "name": "Craig Conway",
+      "roles": [
+        "Former President & Chief Executive Officer, PeopleSoft"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Arnold Donald",
+      "roles": [
+        "Lead Independent Director",
+        "Former President & CEO, Carnival Corporation"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Parker Harris",
+      "roles": [
+        "Co-Founder, Salesforce",
+        "Chief Technology Officer, Slack"
+      ],
+      "director_since": "2018",
+      "independent": false
+    },
+    {
+      "name": "David B. Kirk",
+      "roles": [
+        "Former Chief Scientist, VP of Architecture & Fellow, NVIDIA"
+      ],
+      "director_since": "2025-07",
+      "independent": true
+    },
+    {
+      "name": "Neelie Kroes",
+      "roles": [
+        "Former Vice President of the European Commission"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Sachin Mehra",
+      "roles": [
+        "Chief Financial Officer, Mastercard",
+        "Financial Expert"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "G. Mason Morfit",
+      "roles": [
+        "Co-Chief Executive Officer & Chief Investment Officer, ValueAct Capital"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Oscar Munoz",
+      "roles": [
+        "Former Chairman & Chief Executive Officer, United Airlines"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "John V. Roos",
+      "roles": [
+        "Former U.S. Ambassador to Japan",
+        "Co-Founder, Geodesic Capital"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Robin Washington",
+      "roles": [
+        "President & Chief Operating and Financial Officer, Salesforce"
+      ],
+      "director_since": "2013",
+      "independent": false
+    },
+    {
+      "name": "Maynard Webb",
+      "roles": [],
+      "director_since": "2006",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit & Finance Committee",
+      "members": [
+        "Sachin Mehra",
+        "Arnold Donald",
+        "Craig Conway",
+        "Oscar Munoz"
+      ],
+      "chair": "Sachin Mehra",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Mason Morfit",
+        "Neelie Kroes",
+        "John V. Roos",
+        "David B. Kirk",
+        "Maynard Webb"
+      ],
+      "chair": "Mason Morfit",
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating & Corporate Governance Committee",
+      "members": [
+        "John V. Roos",
+        "Laura Alber",
+        "Amy Chang",
+        "Arnold Donald"
+      ],
+      "chair": "John V. Roos",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Cybersecurity & Privacy Committee",
+      "members": [
+        "Neelie Kroes",
+        "Parker Harris",
+        "Amy Chang",
+        "David B. Kirk",
+        "Maynard Webb"
+      ],
+      "chair": "Neelie Kroes",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Business Transformation Committee",
+      "members": [
+        "Oscar Munoz",
+        "Craig Conway",
+        "Mason Morfit",
+        "Robin Washington",
+        "Maynard Webb"
+      ],
+      "chair": "Oscar Munoz",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Marc Benioff",
+      "age": 61,
+      "positions": [
+        "Chair of the Board",
+        "Chief Executive Officer",
+        "co-Founder"
+      ]
+    },
+    {
+      "name": "Parker Harris",
+      "age": 59,
+      "positions": [
+        "Director",
+        "Chief Technology Officer, Slack",
+        "co-Founder"
+      ]
+    },
+    {
+      "name": "Miguel Milano",
+      "age": 57,
+      "positions": [
+        "President",
+        "Chief Revenue Officer"
+      ]
+    },
+    {
+      "name": "Sabastian Niles",
+      "age": 46,
+      "positions": [
+        "President",
+        "Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Sundeep Reddy",
+      "age": 53,
+      "positions": [
+        "Executive Vice President",
+        "Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Srinivas Tallapragada",
+      "age": 56,
+      "positions": [
+        "President",
+        "Chief Engineering Officer",
+        "Customer Success Officer"
+      ]
+    },
+    {
+      "name": "Robin Washington",
+      "age": 63,
+      "positions": [
+        "Director",
+        "President",
+        "Chief Operating and Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-25",
+    "note": "Percentuali riferite alla classe di azioni; * = meno dell'1%. Le quote dei dirigenti includono opzioni esercitabili e RSU/PRSU con vesting entro 60 giorni dal 25 marzo 2026. Il documento non riporta percentuali di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 83624885,
+            "pct": 10.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on February 13, 2024",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 72882619,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on January 26, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49018644,
+            "pct": 6.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed with the SEC on October 16, 2024",
+        "address": "1 Congress Street, Suite 1, Boston, Massachusetts 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Marc Benioff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22791882,
+            "pct": 2.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura Alber",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9972,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy Chang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1732,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Craig Conway",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9496,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arnold Donald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5576,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Parker Harris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2332259,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David B. Kirk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14131,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neelie Kroes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8183,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Miguel Milano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35010,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sachin Mehra",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "G. Mason Morfit",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2994509,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Oscar Munoz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13549,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John V. Roos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16848,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Schmaier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 244226,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Srinivas Tallapragada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 124902,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robin Washington",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64923,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy Weaver",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50824,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maynard Webb",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3861,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 28451477,
+          "pct": 3.5
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers lasciato vuoto. Milano, Schmaier, Tallapragada e Weaver compaiono solo nella tabella di proprietà e non sono stati inseriti come dirigenti.",
+    "Maynard Webb non è ricandidato: resta in carica fino all'assemblea 2026 ed è incluso in board_of_directors e nei comitati, con uscita prevista all'Annual Meeting 2026.",
+    "Amy Weaver non è più in carica (dimissioni dal ruolo di President and CFO effettive 21 marzo 2025, fine del servizio 3 luglio 2025): non è inclusa in board_of_directors. Compare solo nel blocco NEO della tabella di proprietà, come riportato dal documento.",
+    "Indipendenza ricavata dalle note sui comitati e dalla designazione di Lead Independent Director, perché la colonna Independent della tabella non è leggibile nel testo: Benioff, Harris e Washington indicati come non indipendenti; gli altri come indipendenti.",
+    "Conflitto con il sanity check 1: Parker Harris (non indipendente) è membro del Cybersecurity & Privacy Committee e Robin Washington (non indipendente) del Business Transformation Committee. Il documento stesso lo indica (\"all committee members, other than Mr. Harris/Ms. Washington, are independent\"). Mantenuti i membri con warning.",
+    "Date di ingresso di Amy Chang e David B. Kirk: nomina del consiglio con effetto 9 luglio 2025, riportata come 2025-07.",
+    "Riunioni dei comitati: ogni valore si riferisce al solo comitato (fiscal 2026, esercizio chiuso il 31 gennaio 2026). Non sono stati sommati valori tra comitati diversi.",
+    "Il nome del comitato di audit è 'Audit & Finance Committee' nell'intestazione del documento; il testo lo chiama anche 'Audit Committee'. Mantenuto il nome dell'intestazione.",
+    "Data di riferimento della tabella di proprietà (2026-03-25) ricavata dalle note 4-14, che calcolano opzioni e RSU esercitabili/vesting entro 60 giorni da tale data; il documento non la indica come data della tabella.",
+    "Classe di azioni 'Common Stock' non dichiarata esplicitamente nella tabella di proprietà: il nome è dedotto dal fatto che Salesforce ha una sola classe di azioni ordinarie citata nel documento.",
+    "Vanguard: la nota 1 riporta dati della Schedule 13G/A del 13 febbraio 2024, con successiva riorganizzazione interna che ha disaggregato la titolarità verso sussidiarie e divisioni (non riportate separatamente qui). Dato potenzialmente non aggiornato.",
+    "BlackRock e State Street: dati da Schedule 13G/A del 26 gennaio 2024 e Schedule 13G del 16 ottobre 2024, potenzialmente non aggiornati al 2026.",
+    "Nessun direttore o dirigente oltre il 5%: Benioff detiene il 2,8%. Non sono presenti righe di aggregazione o subtotale nella tabella dei >5%.",
+    "Benioff: 10.000.000 azioni detenute tramite Marc Benioff Fund LLC incluse nelle sue 22.791.882 azioni. Trattato come holder_type 'person' perché il nome è di persona fisica, con dubbio segnalato.",
+    "Morfit: le 2.994.509 azioni sono detenute direttamente da ValueAct Capital Master Fund, L.P., e attribuite a Morfit in quanto membro del management board di ValueAct Holdings GP, LLC. Trattato come holder_type 'person' per il nome di persona fisica, con dubbio segnalato.",
+    "Riga di gruppo: dichiara 17 persone; le righe NEO/direttori sono 18 perché include Amy Weaver, non più in carica. Il dato di gruppo è coerente con 17 persone correnti, ma il conteggio non coincide con le righe elencate.",
+    "executive_officers presi dal Form 10-K del 2026-03-02: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 della Parte III rinvia alla sezione Part I «Information About Our Executive Officers»; l'elenco è quindi stato estratto dalla finestra della Parte I (righe 682-714).",
+    "10-K: Sabastian Niles: nella biografia risulta anche Corporate Secretary dal dicembre 2024, carica non presente nella tabella; non è stata aggiunta alle cariche perché la tabella non la riporta.",
+    "10-K: Srinivas Tallapragada: la tabella indica «President and Chief Engineering Officer and Customer Success Officer», mentre la biografia indica «President and Chief Engineering & Customer Success Officer». Riportata la forma della tabella.",
+    "10-K: Robin Washington: la biografia cita il ruolo di Lead Independent Director tra il 2022 e il 2025, ruolo passato e quindi non incluso nelle cariche attuali.",
+    "10-K: Il documento riporta Robin Washington come principal financial officer e Sundeep Reddy come principal accounting officer nell'Item 10; coerente con le cariche elencate."
+  ]
+}

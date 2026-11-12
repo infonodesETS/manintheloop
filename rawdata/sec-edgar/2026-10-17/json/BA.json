@@ -1,0 +1,576 @@
+{
+  "company": "The Boeing Company",
+  "ticker": "BA",
+  "cik": "0000012927",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-06",
+    "accession": "0001193125-26-096787",
+    "meeting": null,
+    "ownership_as_of": "2026-02-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000119312526096787/d39411ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-30",
+      "accession": "0001628280-26-004357",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "as_of": "2026-01-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Robert A. Bradway",
+      "roles": [
+        "Chairman and CEO, Amgen Inc."
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Mortimer J. Buckley",
+      "roles": [
+        "Former Chairman and CEO, The Vanguard Group"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Lynne M. Doughtie",
+      "roles": [
+        "Former U.S. Chairman and CEO, KPMG"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "David L. Gitlin",
+      "roles": [
+        "Chairman and CEO, Carrier Global Corporation"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Lynn J. Good",
+      "roles": [
+        "Former Chair and CEO, Duke Energy Corporation"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Stayce D. Harris",
+      "roles": [
+        "Retired United Airlines Pilot",
+        "Retired Lt. General and Former Inspector General, U.S. Air Force"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Akhil Johri",
+      "roles": [
+        "Former Executive Vice President and CFO, United Technologies Corporation"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "David L. Joyce",
+      "roles": [
+        "Former President and CEO, GE Aviation; Former Vice Chair, General Electric Company"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Steven M. Mollenkopf",
+      "roles": [
+        "Former CEO, Qualcomm Incorporated",
+        "Independent Board Chair"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Robert Kelly Ortberg",
+      "roles": [
+        "President and CEO, The Boeing Company"
+      ],
+      "director_since": "2024",
+      "independent": false
+    },
+    {
+      "name": "John M. Richardson",
+      "roles": [
+        "31st Chief of Naval Operations; Former Director of the Naval Nuclear Propulsion Program, U.S. Navy"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Bradley D. Tilden",
+      "roles": [
+        "Former Chairman, President and CEO, Alaska Air Group, Inc."
+      ],
+      "director_since": "2025",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Aerospace Safety Committee",
+      "members": [
+        "David L. Gitlin",
+        "Stayce D. Harris",
+        "David L. Joyce",
+        "John M. Richardson",
+        "Bradley D. Tilden"
+      ],
+      "chair": "David L. Joyce",
+      "meetings": 16,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lynne M. Doughtie",
+        "David L. Gitlin",
+        "Lynn J. Good",
+        "Akhil Johri"
+      ],
+      "chair": "Lynne M. Doughtie",
+      "meetings": 11,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Robert A. Bradway",
+        "Lynne M. Doughtie",
+        "Lynn J. Good",
+        "Steven M. Mollenkopf"
+      ],
+      "chair": "Lynn J. Good",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Mortimer J. Buckley",
+        "Akhil Johri",
+        "John M. Richardson",
+        "Bradley D. Tilden"
+      ],
+      "chair": "Akhil Johri",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance & Public Policy Committee",
+      "members": [
+        "Robert A. Bradway",
+        "Mortimer J. Buckley",
+        "Stayce D. Harris",
+        "David L. Joyce",
+        "Steven M. Mollenkopf"
+      ],
+      "chair": "Robert A. Bradway",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Special Programs Committee",
+      "members": [
+        "Stayce D. Harris",
+        "David L. Joyce",
+        "Steven M. Mollenkopf",
+        "John M. Richardson"
+      ],
+      "chair": "John M. Richardson",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Uma M. Amuluru",
+      "age": 48,
+      "positions": [
+        "Executive Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Dana S. Deasy",
+      "age": 66,
+      "positions": [
+        "Chief Information Digital Officer",
+        "Senior Vice President, Information Digital Technology & Security"
+      ]
+    },
+    {
+      "name": "Brett C. Gerry",
+      "age": 54,
+      "positions": [
+        "Chief Legal Officer",
+        "Executive Vice President, Global Compliance"
+      ]
+    },
+    {
+      "name": "Jesus Malave, Jr.",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Howard E. McKenzie",
+      "age": 59,
+      "positions": [
+        "Chief Engineer",
+        "Executive Vice President, Engineering, Test & Technology"
+      ]
+    },
+    {
+      "name": "Brendan J. Nelson",
+      "age": 67,
+      "positions": [
+        "Senior Vice President",
+        "President, Boeing Global"
+      ]
+    },
+    {
+      "name": "Robert K. Ortberg",
+      "age": 65,
+      "positions": [
+        "President and Chief Executive Officer",
+        "Member of the Board"
+      ]
+    },
+    {
+      "name": "Stephen K. Parker",
+      "age": 54,
+      "positions": [
+        "Executive Vice President",
+        "President and Chief Executive Officer of Boeing Defense, Space & Security"
+      ]
+    },
+    {
+      "name": "Stephanie F. Pope",
+      "age": 53,
+      "positions": [
+        "Executive Vice President",
+        "President and Chief Executive Officer, Boeing Commercial Airplanes"
+      ]
+    },
+    {
+      "name": "D. Christopher Raymond",
+      "age": 61,
+      "positions": [
+        "Executive Vice President",
+        "President and Chief Executive Officer, Boeing Global Services"
+      ]
+    },
+    {
+      "name": "Ann M. Schmidt",
+      "age": 50,
+      "positions": [
+        "Senior Vice President and Chief Communications & Brand Officer"
+      ]
+    },
+    {
+      "name": "Jeffrey S. Shockey",
+      "age": 59,
+      "positions": [
+        "Executive Vice President of Government Operations, Global Public Policy & Corporate Strategy"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-17",
+    "note": "Proprietà dei direttori, dei NEO e del gruppo al 17 febbraio 2026. Il campo shares riporta la colonna 'Shares Beneficially Owned'; le stock units sono escluse da classes. Ogni direttore e NEO, e il gruppo, possiede meno dell'1% delle azioni ordinarie. La tabella dei detentori oltre il 5% usa come base 784.669.191 azioni al 31 dicembre 2025.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 70989325,
+            "pct": 9.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "SEC filing (Schedule 13G) as of December 31, 2025",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54979044,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "SEC filing (Schedule 13G) as of December 31, 2025",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52979795,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "SEC filing (Schedule 13G) as of December 31, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Robert A. Bradway",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mortimer J. Buckley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynne M. Doughtie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David L. Gitlin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynn J. Good",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 483,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stayce D. Harris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Akhil Johri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 150,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David L. Joyce",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven M. Mollenkopf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3767,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Richardson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley D. Tilden",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 180,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brett C. Gerry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jesus Malave, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Kelly Ortberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9606,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephanie F. Pope",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28322,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey S. Shockey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 352,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian J. West",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 94965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 23,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 191347,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers è vuoto e non è stato ricostruito dalle biografie. Il documento rimanda al 10-K.",
+    "Robert Kelly Ortberg è direttore non indipendente (Committees: None) ed è incluso nel consiglio. Nella tabella di proprietà compare solo fra i NEO, non fra i direttori.",
+    "Il comitato 'Governance & Public Policy' è abbreviato 'GPP Committee' nella tabella di presenza ai comitati; il nome completo è quello dei profili dei direttori.",
+    "La tabella dei comitati è una matrice con icone non estratte nel testo. L'appartenenza è stata letta dai profili dei direttori e verificata sulla matrice (celle vuote = membro, '—' = non membro); i presidenti sono quelli indicati nei profili.",
+    "Le riunioni sono riportate per singolo comitato nel 2025 (Aerospace Safety 16, Audit 11, Compensation 8, Finance 7, GPP 6, Special Programs 3); nessun dato cumulativo.",
+    "Nomi ripuliti da titoli e soprannomi: 'Mortimer J. Buckley' (senza 'Tim'), 'Stayce D. Harris' (senza 'Lt. General'), 'John M. Richardson' (senza 'Admiral'), 'Robert Kelly Ortberg' (forma completa).",
+    "Brian J. West ha lasciato la carica di EVP e CFO il 15 agosto 2025; è incluso come NEO ma non è un executive officer corrente.",
+    "Brett C. Gerry: 23.633 azioni sono detenute in un trust familiare. Il holder_type è 'person', ma il trust potrebbe essere un veicolo diverso: valutare.",
+    "David L. Gitlin (5 azioni in trust familiare) e Bradley D. Tilden (180 azioni in trust) hanno quote in trust incluse nel totale individuale.",
+    "Le stock units (direttori e NEO) non sono incluse in shares. Il gruppo registra 191.347 azioni e 556.364 stock units (totale 747.711): le stock units non sono rappresentate nello schema.",
+    "Riga di gruppo: 'persons' = 23, ma le righe nominative sono 17; il gruppo include altri executive officer correnti non nominati nella tabella. Percentuale del gruppo meno dell'1%, quindi pct è null.",
+    "BlackRock: la nota a piè di pagina indica i dati al 31 dicembre 2024, mentre Vanguard e FMR sono al 31 dicembre 2025 e il conteggio azioni è al 31 dicembre 2025. La fonte è riportata come nella nota.",
+    "Nessuna riga di aggregazione o subtotale (patti di voto, trust, totali) è presente nella tabella dei detentori oltre il 5%.",
+    "Nessun direttore risulta uscito dal consiglio prima della data del documento.",
+    "executive_officers presi dal Form 10-K del 2026-01-30: il DEF 14A non li elenca.",
+    "10-K: La sezione della Parte I contiene solo un rimando all'Item 10; l'elenco è stato estratto dall'Item 10 della Parte III.",
+    "10-K: Il nome 'Jesus Malave, Jr.' è riportato nel documento senza accento; è stato mantenuto così com'è.",
+    "10-K: Per Robert K. Ortberg, 'member of the Board' è indicato nel testo accanto alla carica di CEO ed è stato incluso tra le cariche; non è una carica di executive officer in senso stretto.",
+    "10-K: Il titolo 'Dr.' di Brendan J. Nelson è stato omesso, come da regole."
+  ]
+}
