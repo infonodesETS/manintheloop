@@ -1,11 +1,13 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-12 (B1 chiuso: S1-S7 decise e diff di `SCHEMA.md`/`UPDATE_PROTOCOL.md`/`validate.py` applicato, non ancora committato. DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-12 (B1 chiuso e in `main` con la PR #34 (`78d67f5`). Prossimo: B2. DB invariato: 2582 entities, 3490 rels)
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
-**B1 è chiuso (2026-11-12).** Il diff di `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` e `scripts/validate.py` è nel working tree del branch `docs/log-f3-8`, **non committato**: chiedere a Nelson se committare (messaggio proposto: `docs: B1 chiuso, schema e validate.py per ownership, role e parte_di`) prima di iniziare altro. Dettagli, prove e deviazioni nel [log, voce del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md).
+**B1 è chiuso e in `main` (2026-11-12, PR #34, merge `78d67f5`).** Il diff di `reference/SCHEMA.md`, `reference/UPDATE_PROTOCOL.md` e `scripts/validate.py` è già su `origin/main`. **Prossimo task: B2** (merge di `v.2026-c` in `main` su un branch `integrate-sec`, con PR), solo con il via libera esplicito di Nelson. Dettagli, prove e deviazioni di B1 nel [log, voce del 2026-11-12](reference/LOG-RIORGANIZZAZIONE.md).
+
+**Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5` (il #33 è un'issue).
 
 Cosa è stato deciso nel diff (oltre a S1-S7):
 - le relazioni reali **non hanno `id`**, `sources`, `added_at`, `author` (lo schema vecchio le descriveva): solo le nuove `ownership`, `role`, `parte_di` hanno un `id` proprio (`REL-NNNN`, 4 cifre o più); le 3490 esistenti non cambiano;
@@ -33,16 +35,15 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 **Criteri di Nelson per le decisioni di schema (2026-11-11):** (1) qualità dei dati; (2) nessuna perdita di informazioni, nemmeno «strada facendo»; (3) impatto sul database; (4) impatto sul sito. **La scadenza del 15 novembre non è un criterio.** Prima di consigliare, verificare sui dati e sul codice (sola lettura) e mostrare i numeri.
 
-## Stato del repo (2026-11-11)
+## Stato del repo (2026-11-12)
 
-- Branch di lavoro: **`docs/log-f3-8`**, senza upstream. Il hook di avvio segnala «Pull non riuscito / no tracking information»: **è normale finché il branch non è pushato**, non è un conflitto: non risolverlo con `git pull` o `--set-upstream`, il push spetta a Nelson.
-- **Commit di sola documentazione non pushati** rispetto a `origin/main` (log di F3.8 e di B1, documenti `S3…S7`, questo `STATUS.md`): contarli con `git log origin/main..HEAD --oneline` (erano 11 il 2026-11-11, più quello di questo aggiornamento). Nessun file del database o del sito è stato toccato in questa fase.
-- **Da fare con ok di Nelson:** push del branch e PR di documentazione (la apre Nelson dal web).
-- Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato).
+- `main` locale = `origin/main` = `78d67f5` (merge della PR #34). Branch di lavoro attuale: `docs/stato-post-b1` (aggiornamento di questo file e del log, non ancora pushato: il push e la PR spettano a Nelson). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
+- Nessun file del database o del sito è stato toccato dopo F3.7; B1 ha toccato solo documentazione e `scripts/validate.py`.
+- Altri riferimenti locali: `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok), branch `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato), branch locale `docs/log-f3-8` (fuso in `main`, da cancellare con `-d` quando Nelson lo conferma).
 
 ## Dove siamo
 
-- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento).
+- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento), B1 (PR #34, schema e `validate.py`).
 - **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` applicato il 2026-11-12 (vedi «PROSSIMO PASSO»).** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
   - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
   - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
