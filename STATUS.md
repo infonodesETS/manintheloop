@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-12 (B1 chiuso con la PR #34, B2 chiuso con la PR #36 (`fc38f14`): i dati SEC sono nel repo ma non sul sito. B4 chiuso con la PR #38 (`357507c`). Prossimo: B3 o preparazione dei 4 controlli a mano, **scelta di Nelson in attesa**. DB invariato: 2582 entities, 3490 rels)
+> Last updated: 2026-11-12, sera (B3 in corso: pilota Exa fatto, 4 unioni su 10 applicate sul branch `dati/b3-unione-amd`, non pushato. DB sul branch: 2582 entità (2574 attive), 3485 relazioni. Sessione interrotta da Nelson: ripartire dal blocco «B3 IN CORSO» qui sotto)
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
@@ -9,7 +9,57 @@
 
 **B4 è chiuso e in `main`** (PR #38, `357507c`, 2026-11-12): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia, output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (calcolati dal CSV `controlli-manuali.csv`, colonne `esito` e `nota` vuote).
 
-**⚠️ SCELTA DI NELSON IN ATTESA — non partire da soli.** Proposto, senza risposta: (1) **B3** (pulizia duplicati, metodo Exa), prerequisito di B5 per i casi SEC; richiede la **chiave Exa di Nelson**, solo in variabile d'ambiente (mai nei file, nei log, nei commit, nelle risposte); il pilota di 10 casi con evidenze (URL e frase) in un CSV lo **registra una persona**, non l'AI; (2) **foglio di lavoro per i 4 controlli a mano della Release 1** (S7: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`), che riempie una persona; (3) tutti e due, nell'ordine 2 poi 1, se la chiave non è subito disponibile. Dove mettere il foglio (`work/` o `inbox/`) è da decidere. **Primo gesto della sessione: riassumere e chiedere quale delle tre.**
+## ⚠️ B3 IN CORSO — PUNTO ESATTO DI RIPARTENZA (2026-11-12)
+
+**Branch di lavoro: `dati/b3-unione-amd`** (da `origin/main` `357507c`; **non pushato**: push e PR le fa Nelson dal web; mai su `main`). Commit sul branch, nell'ordine: `7e0d164` script `scripts/merge_entities.py`; `73e9ea4` caso 1; `7b36ca8` ritocco script (blocco EDF più recente, `--rename`); `eaee57c` caso 4; `876964b` caso 2; `cf94fae` caso 7; poi i commit di documentazione (STATUS, log, piano, file in `work/`). **Rimisurare con git all'inizio** (`git log --oneline origin/main..HEAD`, `git status`, `python3 scripts/validate.py`): attesi 2582 entità (2574 attive, 8 lapidi: 4 vecchie + 4 di B3) e **3485 relazioni** (erano 3490: 5 relazioni EDF identiche tolte nel caso 4 e conservate in `preserved` nella `history` di `IN-0803`).
+
+**Pilota Exa (10 casi) fatto e registrato** in `work/b3-pilota/pilota-exa-2026-11-12.csv` (risposte e fonti di Exa, verdetti e note; `controllato_da` = «Nelson (proposto da Claude, approvato il 2026-11-12)»; script `work/b3-pilota/pilota_exa.py`, non scrive nel DB). Lettura delle fonti da parte mia: aperte solo quelle dei casi 4, 7, 9, 10 (tramite agenti); **non riaperte** quelle dei casi 1, 2, 3, 5, 6, 8. **Errore di Exa trovato (caso 10):** diceva «Alcoa Warrick non è una società», ma l'Exhibit 21 di Alcoa elenca «Alcoa Warrick LLC» (Delaware); verdetto corretto: controllata.
+
+| Caso | Entità | Verdetto | Stato |
+|---|---|---|---|
+| 1 AMD | `IN-0006` → `IN-1249` | stessa | **applicato** (`73e9ea4`) |
+| 2 MP Materials | `IN-0242` → `IN-1311` | stessa | **applicato** (`876964b`); l'`accepted_duplicate` era un'etichetta automatica del 2026-04-23, non una scelta di tenerle separate |
+| 3 IBM | `IN-0062` / `IN-1294` | stessa | **da fare**: vincitore da scegliere dopo la lettura delle history; rinominare in «IBM» con `--rename` («Business Machines» è troncato); due profili Crunchbase diversi (`business-machines` su `IN-0062`, `ibm` su `IN-1294`): lo script avvisa e tiene quello del vincitore, l'altro resta in `preserved`: **decidere a mano quale è quello giusto** |
+| 4 IDV | `IN-1431` → `IN-0803` | stessa | **applicato** (`eaee57c`); rinominata «IDV Defence Vehicles Italia» (stesso LEI e PIC 898895121, cambio nome efficace 2026-01-28 secondo lei.report: **da riverificare su search.gleif.org**) |
+| 5 Palantir | `IN-0282` → `IN-1318` | classi | **da fare con la regola sulle classi** (sotto) |
+| 6 Alphabet | `IN-0017`, `IN-0018` → `IN-1247` | classi | **da fare con la regola sulle classi**; la «Class B» del SEC è la classe non quotata dei fondatori, non la C di GOOG: le ownership di Class B vanno sulla madre `IN-1247` |
+| 7 Telecom Italia | `IN-0366` → `IN-0365` | stessa | **applicato** (`cf94fae`); completa la decisione manuale del 2026-04-23; conversione delle azioni di risparmio il 2026-05-21 letta sulla pagina TIM |
+| 8 Fincantieri | `IV-0702` → `IN-0682` | stessa | **da fare — PROSSIMO**: ruolo doppio (investitore in azienda): la sua unica relazione (`investment` verso `IN-1220` Wsense) va spostata sul vincitore e documentata nel motivo |
+| 9 HII | `IN-1290` (non unire) | errore-db | **da fare con la procedura `qid_removed`** (togliere il QID Q7257522 a `IN-1290`, controllata «HII Mission Technologies Corp.», Delaware, Exhibit 21.1 del 10-K 2025); `merge_entities.py` **non** lo fa: serve una patch dedicata con `--dry-run` |
+| 10 Alcoa Warrick | `IN-1352` (non unire) | controllata | nessuna azione sul DB |
+
+**Metodo vincolante (richiesta esplicita di Nelson, 2026-11-12):** per ogni unione **leggere la `history` e la `validation` di entrambe le entità prima di applicare** (lo script le stampa; `--apply` non parte senza `--history-letta`), citare nel `--why` cosa si è visto, fare un caso alla volta: dry-run → lettura → `--apply` → `python3 scripts/validate.py` → un commit per caso. Comando tipo: `python3 -I scripts/merge_entities.py VINCITORE PERDENTE --why "motivo con la history letta" [--rename "Nome"] --history-letta --apply`. Senza `--apply` è un dry-run. Il perdente resta come **lapide** (`entity_retired` con `canonical`), i dati che non entrano restano in `preserved` nella voce `dedup_decision` del vincitore, lo script **si ferma** (exit 2) se due relazioni «uguali» hanno contenuto diverso, e aggiorna `edf_orgs.json`.
+
+**Regola unica sulle classi di azioni (approvata da Nelson il 2026-11-12, vale per i casi 5 e 6):** un'entità-classe si unisce alla madre solo se valgono **tutte** queste condizioni: (1) esiste già l'entità «società» (la madre), senza classe nel nome, e l'emittente è lo stesso (confermato); (2) l'entità-classe ha 0 relazioni e nessun dato unico (solo blocchi iShares, infonodes, wikidata; nessun crunchbase/edf in conflitto); (3) il ticker resta nel blocco `ishares` del vincitore e il nome della classe va in `history`; (4) il perdente diventa lapide, non sparisce; (5) la classe vive nel campo `classe` della relazione `ownership` (S3). **Esclusi**: coppie dove entrambe hanno relazioni (SSAB A/B), quotazioni su borse diverse (Jiangxi Copper A/H), certificati (Tata Steel GDR), società senza entità madre (Fox, Heico: restano una entità per classe, S3 gruppo 2). Altri candidati alla regola, **non toccare senza nuovo ok**: Ericsson B `IN-0123` → `IN-0655`, Grupo Mexico B `IN-0151` → `IN-1286`, Samsung Non Voting Pref `IN-0313` → `IN-0312`.
+
+**Poi:** chiusura di B3 (aggiornare log, piano e questo file; l'indice `docs/data/mitl-index.json` NON va rigenerato senza decisione separata e avviso a Davide), PR dal web con `validate.py` passato; casi di ROADMAP 16 non nel pilota (MBDA España `IN-0863` con paese Wikidata errato; Fincantieri ha anche `IN-0683` e `IN-1553`, probabili filiali, **non toccare** senza verdetto); estensione oltre il pilota solo dopo che Nelson ha visto gli errori del pilota (uno trovato: caso 10). Poi B5.
+
+**Foglio dei 4 controlli a mano della Release 1** (Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`): `work/controlli-release1/foglio-4-controlli.csv`, colonne `esito`, `nota`, `controllato_da`, `data` **vuote: le compila Nelson**. Exa dice «stessa persona» per tutte e quattro, ma le verifiche di Andrea non sono state ricontrollate a mano (README della release). Serve prima di B5 per creare i `PER-NNNN`.
+
+**Chiave Exa:** salvata da Nelson in locale in `~/.config/infonodes/exa.env` (cartella `700`, file `600`, variabile `EXA_API_KEY`); **mai nei file del repo, nei log, nei commit, nelle risposte**; non stamparla. La chiave è stata incollata una volta in chiaro nella chat: Nelson valuti di rigenerarla a B3 finita.
+
+**Rischio da ricordare:** `search_missing_qids.py` ha rimesso il 2026-06-18 un QID su un'entità già dichiarata duplicata (`IN-0366`), ricreando il QID doppio. Una lapide non protegge da un nuovo lancio dello script. Non lanciarlo senza prima controllare le lapidi.
+
+### Prompt di ripartenza (da incollare in una sessione nuova)
+
+```
+Leggi STATUS.md fino a «Da sapere», in particolare il blocco «B3 IN CORSO», poi
+reference/PIANO-RIORGANIZZAZIONE.md e reference/LOG-RIORGANIZZAZIONE.md per intero
+(l'ultima voce del log è del 2026-11-12, B3). Rimisura lo stato con git (branch
+dati/b3-unione-amd, git log --oneline origin/main..HEAD, git status) e lancia
+python3 scripts/validate.py: attese 2582 entità (2574 attive) e 3485 relazioni.
+Riassumi in 5-8 righe dove siamo, elenca i file letti con le righe lette e cosa NON
+hai letto, e fermati in attesa del mio ok.
+
+Poi, con il mio ok, si riparte dal caso 8 del pilota B3 (Fincantieri, IV-0702 da
+unire in IN-0682, ruolo doppio): prima leggi la history e la validation di entrambe
+le entità, poi dry-run di scripts/merge_entities.py, mostrami l'output, e applica
+solo dopo il mio via libera. Dopo il caso 8: caso 3 (IBM), casi 5 e 6 (regola sulle
+classi), caso 9 (qid_removed su IN-1290). Un caso alla volta, un commit per caso,
+validate.py dopo ciascuno. Non pushare, non toccare main, non stampare mai la chiave
+Exa. Se il mio messaggio contiene domande, rispondi e fermati.
+```
+
 
 **Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14`, #37 `f9a00db`, #38 `357507c` (il #33 è un'issue). Il registro può essere indietro di una PR: contare sempre con `git log --merges`.
 
@@ -17,14 +67,14 @@ Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/S
 
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
-**Poi, nell'ordine:** B3 (o prima i 4 controlli a mano), B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
+**Poi, nell'ordine:** finire B3 (e i 4 controlli a mano, che compila Nelson), B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
 
 ## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
 
 1. **Questo file solo fino a «Da sapere».** Il resto (da «Session protocol» in poi, circa 900 righe: script, stato del DB, lavoro passato) è storico e di riferimento: leggerlo solo se serve al compito. Una lettura di un file così lungo viene troncata: non dedurne di aver letto tutto.
 2. **`reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero.** Se la lettura si interrompe, continuare con `offset` fino alla fine; non basta la coda.
 3. **Per B5 (import), per intero:** `reference/S3-CLASSI-AZIONI.md`, `S4-DATI-SEC.md`, `S5-STORICITA.md`, `S6-GESTORI.md`, `S7-RUOLI-E-PERSONE.md` (regole vincolanti), poi `reference/SCHEMA.md` (sezione *Relationships*) e `scripts/validate.py` (controllo 11). Il riassunto qui sopra non basta: le regole precise (chiave `(source, target, type, classe)`, `as_of_origine`, niente indirizzi, soglia) stanno in quei file.
-4. **Per B3 (duplicati), per intero:** la sezione *Merging a duplicate entity* di `reference/UPDATE_PROTOCOL.md`, `scripts/dedup_entities.py` (merge e lapidi), `scripts/patch_orange_cb.py` (esempio di patch con lapide), `reference/S3-CLASSI-AZIONI.md` (regole R1-R6, casi noti), `reference/S6-GESTORI.md`, `rawdata/sec-edgar/2026-10-17/controlli-manuali.csv` e `README.md` della release, voce 16 di `ROADMAP.md`. Casi noti nel piano (B3): AMD `IN-0006`/`IN-1249`, MP Materials `IN-0242`/`IN-1311`, Palantir `IN-0282`/`IN-1318`, Alphabet `IN-0017`/`IN-0018` ↔ `IN-1247`, IBM `IN-0062` ↔ `IN-1294`, filiali Alcoa Warrick `IN-1352` e HII Mission Technologies `IN-1290`, più quelli di ROADMAP 16.
+4. **Per B3 (duplicati), per intero:** `scripts/merge_entities.py` (lo script da usare, non `dedup_entities.py --merge`), `work/b3-pilota/pilota-exa-2026-11-12.csv` (verdetti), e la sezione *Merging a duplicate entity* di `reference/UPDATE_PROTOCOL.md`, `scripts/dedup_entities.py` (merge e lapidi), `scripts/patch_orange_cb.py` (esempio di patch con lapide), `reference/S3-CLASSI-AZIONI.md` (regole R1-R6, casi noti), `reference/S6-GESTORI.md`, `rawdata/sec-edgar/2026-10-17/controlli-manuali.csv` e `README.md` della release, voce 16 di `ROADMAP.md`. Casi noti nel piano (B3): AMD `IN-0006`/`IN-1249`, MP Materials `IN-0242`/`IN-1311`, Palantir `IN-0282`/`IN-1318`, Alphabet `IN-0017`/`IN-0018` ↔ `IN-1247`, IBM `IN-0062` ↔ `IN-1294`, filiali Alcoa Warrick `IN-1352` e HII Mission Technologies `IN-1290`, più quelli di ROADMAP 16.
 5. **Nel riassunto iniziale a Nelson elencare i file letti con le righe lette** (al 2026-11-12: piano 449, log 406, `STATUS.md` fino a «Da sapere» riga 66 su 1043) **e dire esplicitamente cosa NON è stato letto.** Serve a Nelson per verificare che il contesto sia completo prima di dare l'ok.
 
 ## ⚠️ PIANO IN CORSO
@@ -37,10 +87,10 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 ## Stato del repo (2026-11-12)
 
-- `main` = `origin/main` = `357507c` (merge della PR #38) al momento della scrittura. Branch di lavoro: `docs/stato-pre-ripartenza` (questo aggiornamento, non ancora pushato: il push e la PR spettano a Nelson; se la PR non è ancora fusa quando si apre la sessione, il branch corrente è questo e va bene così). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
+- `main` = `origin/main` = `357507c` (merge della PR #38) al momento della scrittura. **Branch di lavoro attuale: `dati/b3-unione-amd`** (vedi «B3 IN CORSO»; contiene anche, via cherry-pick `8b8a134`, l'aggiornamento di STATUS/log/piano del vecchio branch `docs/stato-pre-ripartenza`, che resta in locale e si può cancellare con `-d` solo dopo il merge, con ok di Nelson). Vecchio branch di lavoro: `docs/stato-pre-ripartenza` (questo aggiornamento, non ancora pushato: il push e la PR spettano a Nelson; se la PR non è ancora fusa quando si apre la sessione, il branch corrente è questo e va bene così). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
 - Su GitHub restano solo `main` e `v.2026-c` (non si tocca; tag `sec-2026-10-17`).
 - Branch locali: `main`, `v.2026-c`, `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato; cancellare solo con ok), più il branch di lavoro. `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok).
-- Nessun file del database o del sito è cambiato dopo F3.7. `validate.py` PASSED: 2582 entità, 3490 relazioni.
+- **Sul branch `dati/b3-unione-amd` il database è cambiato** (4 unioni di B3, 3485 relazioni, 8 lapidi in tutto); su `main` resta com'era dopo F3.7: 2582 entità, 3490 relazioni. `validate.py` PASSED su entrambi.
 - **Da non dimenticare:** il database non contiene ancora nessun dato SEC; i dati SEC sono solo in `rawdata/sec-edgar/` (nel repo pubblico, non sul sito).
 
 ## Dove siamo
