@@ -12948,6 +12948,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q37156)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q37156)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1294 (IBM). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -13010,6 +13017,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q37156). label='IBM'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1294 (IBM). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -240689,9 +240703,23 @@
       ],
       "name": "IBM",
       "sector": "Tech",
-      "wikidata_id": null,
+      "wikidata_id": "Q37156",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "IBM",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.31,
+            "location": "United States",
+            "exchange": "NYSE",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -240755,7 +240783,8 @@
           "country": "United States",
           "tax_id": "13-0871985 (EIN)",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/IBM"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/IBM",
+          "website": "https://www.ibm.com"
         },
         "wikidata": {
           "retrieved_at": "2026-04-13",
@@ -240877,6 +240906,183 @@
           "new": null,
           "note": "Duplicate of IN-0062 Business Machines (same entity: IBM Q37156). IN-0062 is canonical (has iShares source data). QID nulled here.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.ibm.com",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q37156",
+          "description": "wikidata_id set via search: label='IBM', description='American multinational technology corporation'. Search name used: 'Business Machines'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0062",
+          "note": "Unita IN-0062 (Business Machines) in questa entita. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "absorbed": [
+            "wikidata_id Q37156 adottato dal perdente (il vincitore non ne aveva)",
+            "sources.ishares: +1 voci (IXN/IBM)",
+            "ATTENZIONE crunchbase: profili diversi (https://www.crunchbase.com/organization/ibm contro https://www.crunchbase.com/organization/business-machines): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano",
+            "sources.crunchbase: blocco del perdente diverso, conservato in history",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Business Machines",
+          "preserved": {
+            "sources.crunchbase": {
+              "extracted_at": "2026-04-13",
+              "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+              "profile_url": "https://www.crunchbase.com/organization/business-machines",
+              "stage": "",
+              "description": "Business Machines provides printing services.",
+              "description_full": "Business Machines provides printing services.",
+              "website": "https://www.businessmachines.com",
+              "cb_rank": 3753807,
+              "headquarters": "Bel Air, Maryland, United States",
+              "headquarters_regions": "Greater Baltimore-Maryland Area, East Coast, Southern US",
+              "operating_status": "Closed",
+              "founded_date": "1995-01-01",
+              "company_type": "For Profit",
+              "investment_stage": null,
+              "investor_type": "",
+              "primary_industry": null,
+              "primary_industry_url": null,
+              "industry_groups": [
+                "Content and Publishing",
+                "Media and Entertainment",
+                "Other"
+              ],
+              "industries": [
+                "Printing",
+                "Service Industry"
+              ],
+              "founders": [],
+              "num_funding_rounds": null,
+              "funding_status": "M&A",
+              "last_funding_date": null,
+              "last_funding_amount_usd": null,
+              "last_funding_type": null,
+              "total_equity_funding_usd": null,
+              "total_funding_usd": null,
+              "total_funding_native": null,
+              "top_investors": [],
+              "num_investors": null,
+              "revenue_range": null,
+              "patents_granted": null,
+              "domain": null,
+              "acquired_by": null,
+              "acquired_by_url": null,
+              "board": []
+            },
+            "sources.wikidata": {
+              "retrieved_at": "2026-06-03",
+              "label": "IBM",
+              "description": "American multinational technology corporation",
+              "aliases": [
+                "International Business Machines Corporation (Armonk, NY)",
+                "IBM Corp.",
+                "18M",
+                "ibm.com"
+              ],
+              "instance_of": [
+                "software company",
+                "business",
+                "enterprise",
+                "technology company",
+                "public company",
+                "professional services firm",
+                "multinational corporation",
+                "organization"
+              ],
+              "country": "United States",
+              "inception": "1911-06-16",
+              "headquarters": "Armonk",
+              "official_website": "https://www.ibm.com/",
+              "isin": "US4592001014",
+              "employees": 352600,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/IBM"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -240922,6 +241128,26 @@
           "note": "Duplicate of IN-0062 Business Machines (same entity: IBM Q37156). IN-0062 is canonical (has iShares source data). QID nulled here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0062"
+        },
+        {
+          "status": "field_conflict",
+          "description": "headquarters real conflict: sources.wikidata.headquarters='Armonk' vs sources.crunchbase.headquarters='Bel Air, Maryland, United States' — sources disagree; manual review required to set canonical value.",
+          "author": "audit_quality.py",
+          "datestamp": "2026-04-24",
+          "from_entity": "IN-0062"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0062 (Business Machines) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
