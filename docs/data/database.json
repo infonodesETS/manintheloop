@@ -3224,6 +3224,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20800404)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -3281,6 +3288,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20800404). label='Alphabet Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -228292,7 +228306,21 @@
       "sector": "Tech",
       "wikidata_id": "Q20800404",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Comm Services ETF",
+            "etf_ticker": "IXP",
+            "gics_code": "50",
+            "stock_ticker": "GOOGL",
+            "stock_sector": "Communication",
+            "weight_pct": 10.32,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_comm_services_gics50.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -228360,7 +228388,8 @@
           "country": "United States",
           "tax_id": "61-1767919 (EIN)",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+          "website": "https://abc.xyz"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -228499,6 +228528,96 @@
           "old": null,
           "new": "sources.wikidata populated (Q20800404)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Comm Services ETF (GICS 50, ishares_comm_services_gics50.csv)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://abc.xyz",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q20800404",
+          "description": "wikidata_id set via search: label='Alphabet Inc.', description='American multinational technology conglomerate'. Search name used: 'Alphabet'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0017",
+          "note": "Unita IN-0017 (Alphabet Class A) in questa entita. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXP/GOOGL)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Alphabet Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -228568,6 +228687,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q20800404). label='Alphabet Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0017"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0017 (Alphabet Class A) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
