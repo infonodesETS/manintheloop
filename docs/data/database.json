@@ -239991,7 +239991,7 @@
       ],
       "name": "HII Mission Technologies",
       "sector": "Defence",
-      "wikidata_id": "Q7257522",
+      "wikidata_id": null,
       "sources": {
         "ishares": null,
         "edf": null,
@@ -240041,28 +240041,7 @@
           "main_focus": "Largest US military shipbuilder (Aircraft carriers and submarines).",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
         },
-        "wikidata": {
-          "retrieved_at": "2026-06-03",
-          "label": "Huntington Ingalls Industries",
-          "description": "American shipbuilding company",
-          "aliases": [
-            "Northrop Grumman Shipbuilding",
-            "HII",
-            "Huntington Ingalls"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company"
-          ],
-          "country": "United States",
-          "inception": "2011-03-31",
-          "headquarters": "Newport News",
-          "official_website": "https://hii.com",
-          "isin": "US4464131063",
-          "employees": 44000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -240163,6 +240142,37 @@
           "old": null,
           "new": "sources.wikidata populated (Q7257522)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q7257522)"
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q7257522",
+          "new": null,
+          "description": "QID Q7257522 tolto: nella Wikidata e 'Huntington Ingalls Industries'. Perche lo aveva: QID della casa madre arrivato dal vecchio DB (migrazione 2026-03-14, import_by_wikidata.py 2026-04-01); il profilo Crunchbase abbinato è una divisione di HII; la casa madre è IN-1375, che porta lo stesso QID. Verdetto errore-db del pilota B3 (2026-11-12), history e validation lette. L'entita e: HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre. Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-06-03",
+            "label": "Huntington Ingalls Industries",
+            "description": "American shipbuilding company",
+            "aliases": [
+              "Northrop Grumman Shipbuilding",
+              "HII",
+              "Huntington Ingalls"
+            ],
+            "instance_of": [
+              "business",
+              "enterprise",
+              "public company"
+            ],
+            "country": "United States",
+            "inception": "2011-03-31",
+            "headquarters": "Newport News",
+            "official_website": "https://hii.com",
+            "isin": "US4464131063",
+            "employees": 44000,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
+          }
         }
       ],
       "validation": [
@@ -240219,6 +240229,14 @@
           "description": "sources.wikidata populated from Wikidata API (Q7257522). label='Huntington Ingalls Industries'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q7257522",
+          "wikidata_label": "Huntington Ingalls Industries",
+          "description": "QID Q7257522 tolto: nella Wikidata e 'Huntington Ingalls Industries'. Perche lo aveva: QID della casa madre arrivato dal vecchio DB (migrazione 2026-03-14, import_by_wikidata.py 2026-04-01); il profilo Crunchbase abbinato è una divisione di HII; la casa madre è IN-1375, che porta lo stesso QID. Verdetto errore-db del pilota B3 (2026-11-12), history e validation lette. L'entita e: HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre. Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
