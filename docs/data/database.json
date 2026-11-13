@@ -240037,9 +240037,9 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "United States",
-          "tax_id": "90-0607005 (EIN)",
-          "main_focus": "Largest US military shipbuilder (Aircraft carriers and submarines).",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null
         },
         "wikidata": null
       },
@@ -240173,6 +240173,33 @@
             "employees": 44000,
             "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
           }
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.wikipedia_url",
+          "old": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.main_focus",
+          "old": "Largest US military shipbuilder (Aircraft carriers and submarines).",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "90-0607005 (EIN)",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
         }
       ],
       "validation": [
@@ -240236,6 +240263,17 @@
           "wikidata_label": "Huntington Ingalls Industries",
           "description": "QID Q7257522 tolto: nella Wikidata e 'Huntington Ingalls Industries'. Perche lo aveva: QID della casa madre arrivato dal vecchio DB (migrazione 2026-03-14, import_by_wikidata.py 2026-04-01); il profilo Crunchbase abbinato è una divisione di HII; la casa madre è IN-1375, che porta lo stesso QID. Verdetto errore-db del pilota B3 (2026-11-12), history e validation lette. L'entita e: HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre. Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
           "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-13"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "wikipedia_url",
+            "main_focus",
+            "tax_id"
+          ],
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old).",
+          "author": "patch_clear_infonodes.py",
           "datestamp": "2026-11-13"
         }
       ],
