@@ -1,6 +1,6 @@
 {
   "_generated_at": "2026-06-18",
-  "_total": 589,
+  "_total": 590,
   "_proposed": 0,
   "_skipped": 434,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
@@ -5893,6 +5893,16 @@
       "reason": "QID Q7257522 tolto con qid_removed il 2026-11-13 (HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre): non riproporre ne applicare.",
       "qid": "Q7257522",
       "label": "Huntington Ingalls Industries",
+      "description": null
+    },
+    {
+      "entity_id": "IN-1352",
+      "entity_name": "Alcoa Warrick",
+      "search_name": "Alcoa Warrick",
+      "status": "rejected",
+      "reason": "QID Q131884343 tolto con qid_removed il 2026-11-13 (controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp): non riproporre ne applicare.",
+      "qid": "Q131884343",
+      "label": "Alcoa Nederland",
       "description": null
     }
   ]
