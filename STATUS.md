@@ -9,16 +9,9 @@
 
 **B4 è chiuso e in `main`** (PR #38, `357507c`, 2026-11-12): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia, output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (calcolati dal CSV `controlli-manuali.csv`, colonne `esito` e `nota` vuote).
 
-## ⚠️ Prompt di ripartenza da eseguire (cancellare questa sezione dopo l'esecuzione)
+## Cose da fare ora (ripartenza eseguita il 2026-11-13: letture, rimisura e riassunto fatti, ok di Nelson ricevuto)
 
-Nelson ha azzerato il contesto (`/clear`). Fare, nell'ordine, senza saltare passi:
-
-1. Leggere `~/.claude/CLAUDE.md`, questo file **fino a «Da sapere»**, `reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` **per intero** (se la lettura si interrompe, continuare con `offset`).
-2. Rimisurare: `git status`, `git log --oneline origin/main..HEAD` (attesi circa 23 commit su `dati/b3-unione-amd`, ultimo `64e4683` più i commit di documentazione), `python3 scripts/validate.py` (attesi PASSED, 2582 entità, 3485 relazioni), `python3 -I scripts/check_b3_branch.py` (atteso superato). Il hook di avvio può segnalare «Pull non riuscito / no tracking information»: è normale su un branch non pushato.
-3. Riassumere a Nelson in 5-8 righe dove siamo, **elencando i file letti con le righe e dicendo cosa NON è stato letto**, e **fermarsi in attesa dell'ok**.
-4. Dopo l'ok, cancellare questa sezione e committare con `docs(refactoringDB): update STATUS.md`.
-
-Cose da fare dopo l'ok (ordine proposto; ognuna con ok di Nelson):
+Ordine proposto; ognuna con ok di Nelson:
 
 (a) **PR di B3.** Nelson la apre dal web (non pushare, `gh` non c'è). Testo pronto, in testo semplice: `work/b3-pilota/testo-PR.txt`. Il testo dice che i controlli a mano si fanno dopo il rilascio.
 (b) **Foglio di controllo** (https://docs.google.com/spreadsheets/d/1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c/edit , id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`): va aggiornato **sullo stesso file** (stesso link). Serve il connettore Google Sheets: il 2026-11-13 nella sessione c'erano solo gli strumenti Drive (che non modificano); verificare con ToolSearch «google sheets update», altrimenti dire a Nelson di abilitarlo (`/mcp` o riavvio) e **non** creare un secondo file. Regole di modifica: skill `anthropic-skills:google-workspace` e `references/sheets.md` (field mask senza parentesi, indici da 0, apice `'` per il testo). Da cambiare: (1) la scheda «Come si controlla» e la «Legenda» dicono che il controllo A si fa «prima della pubblicazione» e che i dubbi bloccano la pubblicazione: **non è più vero**, si controlla dopo il rilascio; (2) nuova colonna «Cosa c'era sulla scheda ritirata» nella scheda «Controlli»; (3) una riga su cosa fare se l'esito è «Sbagliata»: correggere con una nuova PR o con un revert della PR di B3. Nelson condivide il foglio da sé con chi controlla (ha un account Google). Poi rileggere il foglio via Drive per verificare.
