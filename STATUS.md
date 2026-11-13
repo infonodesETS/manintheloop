@@ -1,13 +1,29 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-13 sera (ripartenza eseguita). `origin/main` = `ac78b5a` (PR #42 fusa; prima #39 `1a041a9` e #41 `1565fae` di B3, #40 `61812b0` solo documentazione). Foglio di controllo compilato con gli esiti A/B approvati da Nelson; QID di `IN-1352` tolto. DB su `main`: 2582 entità (2569 attive, 13 lapidi), 3485 relazioni. **Ripartire dalla sezione «Ripartenza eseguita» qui sotto e dal punto (1)**
+> Last updated: 2026-11-13 sera (ripartenza eseguita). `origin/main` = `ac78b5a` (PR #42 fusa; prima #39 `1a041a9` e #41 `1565fae` di B3, #40 `61812b0` solo documentazione). Foglio di controllo compilato con gli esiti A/B approvati da Nelson; QID di `IN-1352` tolto. DB su `main`: 2582 entità (2569 attive, 13 lapidi), 3485 relazioni. **Ripartire dal «Prompt di ripartenza» qui sotto (poi `IN-1352`)**
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
 **B1 e B2 sono chiusi e in `main`.** B1: PR #34 (`78d67f5`), schema e `validate.py`. B2: PR #36 (`fc38f14`), merge di `v.2026-c` con i dati SEC 2026-10-17, `tmp/sec-test/` e `scripts/export_labelling_sheets.py`; conflitti risolti `.gitignore` e `ROADMAP.md`; `docs/dev-v2026c-sec.md` spostato in `reference/`. **Verificato sul sito vivo il 2026-11-12:** `/rawdata/sec-edgar/…`, `/docs/dev-v2026c-sec.md`, `/reference/…`, `/tmp/sec-test/…`, `/scripts/…`, `/STATUS.md` danno 404; home, `data/database.json`, `data/mitl-index.json` danno 200; 27/27 file di `docs/` con hash uguale a `main`. Dettagli nel [log](reference/LOG-RIORGANIZZAZIONE.md).
 
 **B4 è chiuso e in `main`** (PR #38, `357507c`, 2026-11-12): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia, output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (calcolati dal CSV `controlli-manuali.csv`, colonne `esito` e `nota` vuote).
+
+## ⚠️ Prompt di ripartenza da eseguire (cancellare questa sezione dopo l'esecuzione)
+
+Nelson azzera il contesto (`/clear`) la sera del 2026-11-13 e vuole ripartire in modo preciso. Valori sotto = ultimo stato misurato, da **rimisurare** (piano §0.3): `origin/main` = `ac78b5a` (PR #42); branch locale **`docs/stato-ripartenza-eseguita`** con 4 commit di sola documentazione **non pushati** (`25304fb` prompt cancellato e stato; `7296afe` testi del foglio corretti, log; `d2e6481` regola sul numero di PR in piano §0.3 e qui sotto; più il commit di questo prompt): **non aprire una PR a parte, confluiscono nella prossima PR di dati** (regola di Nelson); branch locali anche `main`, `v.2026-c`, `archivio/locale-2026-11-10` e `docs/stato-pre-ripartenza` (non toccare; cancellare solo con ok); `stash@{0}` non toccare. L'hook di avvio può dire «Pull non riuscito» se il branch corrente non ha remoto: normale.
+
+**Fare, nell'ordine:**
+
+1. Leggere `~/.claude/CLAUDE.md`, questo file **fino a «Da sapere»**, `reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` **per intero** (`allow_large`). Per toccare il foglio: skill `anthropic-skills:google-workspace` e `references/sheets.md`; `update_values` si carica con ToolSearch.
+2. Rimisurare in sola lettura: `git status`, `git branch --show-current`, `git fetch --prune`, `git ls-remote --heads origin`, `git log --oneline origin/main..HEAD`, `git log --merges --oneline -4 origin/main`, `python3 scripts/validate.py`, `python3 -I scripts/check_b3_branch.py`, `git branch --list`; rileggere il foglio (`get_values` su `Controlli!A1:P13`).
+3. **Chiedere a Nelson** (non assumere): (a) la PR #42 l'ha fusa lui, con «Create a merge commit»? (b) qualcuno ha cambiato il foglio dopo il 2026-11-13? il link «chiunque ha il link» è Lettore: va bene o serve Editor? (c) i 4 controlli a mano della Release 1 sono compilati? (d) il DB deve rappresentare l'acquisizione di Wsense da parte di Fincantieri (B3-09)? (e) ha mandato ad Andrea il testo sul numero di PR (sotto)? risposta?
+4. Riassumere in 5-8 righe, **con i file letti e le righe, e cosa NON è stato letto**, e **fermarsi in attesa dell'ok**.
+5. Dopo l'ok: cancellare questa sezione e committare con `docs(refactoringDB): update STATUS.md` **sul branch `docs/stato-ripartenza-eseguita`** (mai su `main`).
+
+**Poi: `IN-1352` Alcoa Warrick** (punto (2) sotto), un passo alla volta con ok di Nelson: (i) sola lettura di scheda, `history`, `validation` di `IN-1352`, mostrare a Nelson; (ii) EIN 81-1153200 sulla scheda (EIN di Alcoa Corp: 81-1789115; l'agente non lo ha trovato) e profilo Crunchbase `alcoa-warrick-operations` (403 ai nostri strumenti: li apre Nelson nel browser); (iii) se l'EIN è sbagliato: `scripts/patch_clear_infonodes.py` in dry-run, mostrare, `--history-letta --apply`, `validate.py`, `check_b3_branch.py`, un commit. Una sola PR di dati; porta con sé i commit di documentazione. **Prima di proporre la PR dire quante PR sono già state aperte nella giornata** (piano §0.3, regola di Nelson del 2026-11-13). Dopo: (3) 41 QID rimessi, (4) 4 controlli Release 1 (li compila Nelson, in parallelo), (6) B5.
+
+**Testo per Andrea sul numero di PR** (preparato il 2026-11-13, in testo semplice; invio non verificato; i conteggi: 14 PR dal 10 novembre, dalla #28 alla #42 senza la #33, di cui almeno 5 solo documenti: #32, #35, #37, #40, #42): vedi il log del 2026-11-13 sera. Il link al piano in `main` mostra il testo vecchio finché la regola non entra con la prossima PR di dati.
 
 ## ⚠️ Ripartenza eseguita il 2026-11-13 (sera)
 
