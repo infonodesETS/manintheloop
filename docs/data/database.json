@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-12",
+  "_updated": "2026-11-13",
   "entities": [
     {
       "id": "IN-0001",
@@ -134973,6 +134973,7 @@
       "id": "IN-0682",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Fincantieri",
@@ -135195,6 +135196,36 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999771629, 5 projects, €2,338,196 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0702"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0702",
+          "note": "Unita IV-0702 (Fincantieri) in questa entita. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Fincantieri",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -135251,6 +135282,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1327429). label='Fincantieri'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IV-0702 (Fincantieri) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -320873,6 +320910,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0682 (Fincantieri). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "canonical": "IN-0682",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -320881,6 +320925,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0682 (Fincantieri). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "canonical": "IN-0682",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -359125,11 +359176,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0702",
+      "source": "IN-0682",
       "target": "IN-1220",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-13",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0702 -> IN-0682 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0048",
