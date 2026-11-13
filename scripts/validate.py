@@ -16,6 +16,11 @@ Checks:
      ownership, role, parte_di
  11. Fields of the new relationship types (ownership, role, parte_di) — schema B1,
      decisions S1-S7 in reference/S*.md. Not applied to older relationship types.
+ 12. A wikidata_id removed from an entity (history `null_wikidata_id`, history field wikidata_id
+     old=QID new=null, validation `qid_removed` / `qid_nulled_duplicate`) must not come back on an
+     active entity (retired entities are skipped). Known cases from before B3 are listed in
+     work/qid-rimessi-noti.json: only NEW cases fail. To restore a QID on purpose add a validation
+     entry status `qid_restored` with `wikidata_id` after the removal.
 
 Usage: python3 scripts/validate.py [path/to/database.json]
 """
@@ -42,6 +47,39 @@ PER_ID_RE = re.compile(r"^PER-\d{4,}$")   # S1: four digits or more
 IN_ID_RE = re.compile(r"^IN-\d{4,}$")
 IV_ID_RE = re.compile(r"^IV-\d{4,}$")
 REL_ID_RE = re.compile(r"^REL-\d{4,}$")   # only the new relationship types have an id
+
+QID_BASELINE_PATH = os.path.join(BASE, "work", "qid-rimessi-noti.json")
+
+
+def qid_rimessi(entities):
+    """Coppie 'ID:QID' di entita attive il cui QID e stato tolto e poi rimesso (senza qid_restored).
+    La stessa logica e in scripts/search_missing_qids.py (qid_is_blocked): gli script girano con -I e
+    non importano i fratelli, quindi la copia e voluta; tenerle allineate."""
+    out = []
+    for e in entities:
+        if any(h.get("action") == "entity_retired" for h in e.get("history", [])):
+            continue
+        cur = e.get("wikidata_id")
+        if not cur:
+            continue
+        removed, sets, restored = "", "", []
+        for h in e.get("history", []):
+            dt = h.get("date") or ""
+            if h.get("action") == "null_wikidata_id" and h.get("old") == cur and not h.get("from_entity"):
+                removed = max(removed, dt)
+            elif h.get("field") == "wikidata_id" and h.get("old") == cur and h.get("new") is None:
+                removed = max(removed, dt)
+            elif h.get("field") == "wikidata_id" and h.get("old") is None and h.get("new") == cur:
+                sets = max(sets, dt)
+        for v in e.get("validation", []):
+            dt = v.get("datestamp") or ""
+            if v.get("status") in ("qid_removed", "qid_nulled_duplicate") and v.get("wikidata_id_removed") == cur and not v.get("from_entity"):
+                removed = max(removed, dt)
+            if v.get("status") == "qid_restored" and v.get("wikidata_id") == cur:
+                restored.append(dt)
+        if removed and sets and sets >= removed and not any(d >= removed for d in restored):
+            out.append(f"{e['id']}:{cur}")
+    return out
 
 
 def err(msg: str):
@@ -395,6 +433,22 @@ def main():
         errors.append(m)
     if not sec_errors:
         ok("sources.sec blocks contain no address fields")
+
+    # ── 12. QID removed and put back ─────────────────────────────────────────
+    print("\n[12] Checking that removed wikidata_id values did not come back...")
+    known = set()
+    if os.path.exists(QID_BASELINE_PATH):
+        with open(QID_BASELINE_PATH, encoding="utf-8") as f:
+            known = set(json.load(f).get("coppie", []))
+    now = set(qid_rimessi(entities))
+    new_cases = sorted(now - known)
+    for c in new_cases:
+        m = f"{c}: wikidata_id was removed and then set again (add a 'qid_restored' validation entry only if intended)"
+        err(m)
+        errors.append(m)
+    solved = len(known - now)
+    if not new_cases:
+        ok(f"no new cases ({len(now & known)} known cases from before B3 still to review in work/qid-rimessi-noti.json, {solved} solved)")
 
     # ── Summary ────────────────────────────────────────────────────────────────
     print("\n" + "─" * 60)

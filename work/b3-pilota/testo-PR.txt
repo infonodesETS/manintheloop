@@ -1,0 +1,38 @@
+Titolo: dati(b3): pilota di pulizia dei duplicati (10 casi), con lapidi
+
+Cosa fa questa PR
+
+Applica al database il pilota di B3 (pulizia dei duplicati) su 10 casi scelti: 9 unioni con lapide e un QID tolto a una controllata. Tocca solo docs/data/database.json, docs/data/edf_orgs.json, work/qid_candidates.json, alcuni script in scripts/ e i documenti di stato. Non tocca il sito (docs/web), non rigenera docs/data/mitl-index.json.
+
+Numeri (rispetto a main 357507c)
+(a) entità: 2582 prima, 2582 dopo (le lapidi restano nel database); attive: 2578 prima, 2569 dopo
+(b) relazioni: 3490 prima, 3485 dopo (5 relazioni EDF identiche tolte, conservate nella history di IN-0803)
+(c) lapidi nuove: 9; entità canoniche che ricevono i dati: 8; entità con QID tolto: 1 (IN-1290, con i campi della casa madre tolti dalla scheda)
+
+I 10 casi
+(1) AMD: IN-0006 in IN-1249
+(2) MP Materials: IN-0242 in IN-1311
+(3) IBM: IN-0062 in IN-1294 (vincitore invertito rispetto alla patch manuale del 2026-04-23: il profilo Crunchbase di IN-0062 era un abbinamento sbagliato)
+(4) IDV Defence Vehicles Italia: IN-1431 in IN-0803 (stesso LEI e stesso PIC; il nuovo nome va riverificato su GLEIF)
+(5) Palantir: IN-0282 in IN-1318 (classe di azioni)
+(6) Alphabet: IN-0017 e IN-0018 in IN-1247 (classi di azioni)
+(7) Telecom Italia: IN-0366 in IN-0365
+(8) Fincantieri: IV-0702 in IN-0682
+(9) HII Mission Technologies: nessuna unione; IN-1290 è una controllata e aveva il QID della casa madre, che viene tolto (anche wikipedia_url, main_focus e tax_id, che descrivevano la casa madre; i vecchi valori restano nella history)
+(10) Alcoa Warrick: IN-1352 è una controllata, nessuna modifica
+
+Come è stato fatto
+Per ogni unione: history e validation di entrambe le entità lette prima, dry-run, applicazione, validate.py, un commit per caso. Gli script nuovi sono scripts/merge_entities.py, patch_qid_removed.py, patch_clear_infonodes.py e check_b3_branch.py (controllo in sola lettura dell'intero branch contro main). Aggiunta anche una protezione: search_missing_qids.py non riapplica più un QID tolto e salta le lapidi, e validate.py ha un nuovo controllo 12 sul rientro di QID tolti (41 casi già noti in work/qid-rimessi-noti.json, da rivedere a parte).
+
+Controlli già fatti
+validate.py: PASSED. scripts/check_b3_branch.py: superato (18 entità cambiate, tutte previste; history append-only; nessuna relazione su una lapide).
+
+Cosa resta da fare dopo il merge
+Il controllo a mano delle decisioni (foglio Google "Controlli riconciliazione dati - Man in the Loop", 11 righe) e il controllo sul sito vivo vengono fatti DOPO il rilascio. Se un esito è "Sbagliata", si corregge con una nuova PR o con un revert di questa.
+
+Cose da sapere
+(a) Il sito toglie le lapidi al caricamento e non reindirizza: un link ?organization= con l'ID di una lapide mostra la ricerca vuota. Un reindirizzamento sarebbe una modifica al sito, da decidere a parte.
+(b) docs/data/mitl-index.json non è stato rigenerato (decisione separata, da concordare con Davide).
+(c) B3 non è chiuso: restano casi fuori dal pilota.
+
+Generato con Claude Code (https://claude.com/claude-code)

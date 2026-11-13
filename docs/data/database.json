@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-10-19",
+  "_updated": "2026-11-13",
   "entities": [
     {
       "id": "IN-0001",
@@ -930,6 +930,13 @@
           "old": null,
           "new": "https://www.amd.com",
           "description": "Official website added via web research"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1249 (AMD). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "canonical": "IN-1249",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -944,6 +951,13 @@
           "description": "Official website added via web research (sources.infonodes.website)",
           "author": "manual_web_enrichment",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1249 (AMD). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "canonical": "IN-1249",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -3210,6 +3224,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20800404)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -3267,6 +3288,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20800404). label='Alphabet Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -3398,6 +3426,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20800404)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0018 (Alphabet Class C, ticker GOOG, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOG resta nel blocco ishares del vincitore; la classe C è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -3455,6 +3490,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20800404). label='Alphabet Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1247 (Alphabet). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0018 (Alphabet Class C, ticker GOOG, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOG resta nel blocco ishares del vincitore; la classe C è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "canonical": "IN-1247",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -12934,6 +12976,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q37156)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q37156)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1294 (IBM). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -12996,6 +13045,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q37156). label='IBM'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1294 (IBM). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -51784,6 +51840,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q105563992)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1311 (MP Materials). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "canonical": "IN-1311",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -51841,6 +51904,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q105563992). label='MP Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1311 (MP Materials). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "canonical": "IN-1311",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -60631,6 +60701,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q2047336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1318 (Palantir Technologies). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "canonical": "IN-1318",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -60688,6 +60765,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q2047336). label='Palantir Technologies'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1318 (Palantir Technologies). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "canonical": "IN-1318",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -78840,6 +78924,19 @@
             "exchange": "Borsa Italiana",
             "currency": "USD",
             "source_file": "ishares_comm_services_gics50.csv"
+          },
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Comm Services ETF",
+            "etf_ticker": "IXP",
+            "gics_code": "50",
+            "stock_ticker": "TITR",
+            "stock_sector": "Communication",
+            "weight_pct": 0.14,
+            "location": "Italy",
+            "exchange": "Borsa Italiana",
+            "currency": "USD",
+            "source_file": "ishares_comm_services_gics50.csv"
           }
         ],
         "crunchbase": {
@@ -79010,6 +79107,113 @@
           "old": null,
           "new": "sources.wikidata populated (Q144617)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q144617)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Comm Services ETF (GICS 50, ishares_comm_services_gics50.csv)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q144617",
+          "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.gruppotim.it/",
+          "description": "Official website (P856) fetched from Wikidata (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q144617)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q144617)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q144617)",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q144617",
+          "new": null,
+          "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q144617",
+          "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0366"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0366",
+          "note": "Unita IN-0366 (Telecom Italia S.p.a) in questa entita. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXP/TITR)",
+            "sources.wikidata: blocco del perdente diverso, conservato in history"
+          ],
+          "loser_name": "Telecom Italia S.p.a",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "TIM Group",
+              "description": "Italian telecommunications company",
+              "aliases": [
+                "Telecom Italia",
+                "Telecom Italia Group",
+                "Gruppo TIM"
+              ],
+              "instance_of": [
+                "business",
+                "enterprise",
+                "telecommunication company"
+              ],
+              "country": "Italy",
+              "inception": "1994-07-27",
+              "headquarters": "Milan",
+              "official_website": "https://www.gruppotim.it/",
+              "isin": "IT0003497168",
+              "employees": 26874,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/TIM%20Group"
+            }
+          }
         }
       ],
       "validation": [
@@ -79078,6 +79282,20 @@
           "description": "sources.wikidata populated from Wikidata API (Q144617). label='TIM Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_nulled_duplicate",
+          "wikidata_id_removed": "Q144617",
+          "note": "Telecom Italia S.p.a (legal name). IN-0365 Telecom Italia is canonical (iShares + CB + 4 relationships). QID nulled here.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-0366"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0366 (Telecom Italia S.p.a) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -79202,6 +79420,13 @@
           "old": null,
           "new": "Q144617",
           "description": "wikidata_id set via search: label='TIM Group', description='Italian telecommunications company'. Search name used: 'Telecom Italia S.P.'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0365 (Telecom Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "canonical": "IN-0365",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -79247,6 +79472,13 @@
           "description": "wikidata_id Q144617 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0365 (Telecom Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa societa: Telecom Italia S.p.A. (TIM) con due righe iShares, TIT (ordinarie) e TITR (risparmio). B3 pilota caso 7, verdetto Nelson 2026-11-12. History di entrambe letta: il 2026-04-23 una patch manuale aveva gia stabilito IN-0365 canonica e IN-0366 'legal name' del duplicato annullandone il QID; il 2026-06-18 search_missing_qids.py ha rimesso il QID Q144617 sul duplicato, ricreando il QID doppio. Pagina TIM: il 2026-05-21 conversione delle azioni di risparmio in ordinarie (6.027.791.699 emesse), capitale ora solo ordinarie; il 2026-06-15 raggruppamento 1 su 10 con nuovo ISIN. Il ticker TITR resta nel blocco iShares come storico.",
+          "canonical": "IN-0365",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -134797,6 +135029,7 @@
       "id": "IN-0682",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Fincantieri",
@@ -135019,6 +135252,36 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999771629, 5 projects, €2,338,196 EU contribution"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0702"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0702",
+          "note": "Unita IV-0702 (Fincantieri) in questa entita. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Fincantieri",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -135075,6 +135338,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1327429). label='Fincantieri'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IV-0702 (Fincantieri) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -153553,12 +153822,12 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Iveco Defence Vehicles",
+      "name": "IDV Defence Vehicles Italia",
       "sector": null,
       "wikidata_id": "Q532299",
       "sources": {
         "edf": {
-          "extracted_at": "2026-04-01",
+          "extracted_at": "2026-10-19",
           "pic": "898895121",
           "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/898895121",
           "activity_type": "Private for profit organisation",
@@ -153568,10 +153837,10 @@
           "country_code": "IT",
           "city": "Bolzano",
           "web_link": "www.idvgroup.com",
-          "total_eu_contribution": 6025451.57,
-          "project_count": 5,
-          "call_count": 5,
-          "coordinator_count": 1,
+          "total_eu_contribution": 8298744.37,
+          "project_count": 6,
+          "call_count": 6,
+          "coordinator_count": 2,
           "source_file": "edf_calls.json"
         },
         "ishares": null,
@@ -153726,6 +153995,122 @@
           "old": null,
           "new": "sources.wikidata populated (Q532299)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q532299)"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from EDF calls data: PIC 898895121, 5 projects, €6,025,452 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 898895121, 5 projects, €6,025,452 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 898895121, 6 projects, €8,298,744 EU contribution",
+          "from_entity": "IN-1431"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Iveco Defence Vehicles",
+          "new_value": "IDV Defence Vehicles Italia",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-1431 (Idv Defence Vehicles Italia)."
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1431",
+          "note": "Unita IN-1431 (Idv Defence Vehicles Italia) in questa entita. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "absorbed": [
+            "sources.edf: tenuto il blocco piu recente del perdente (2026-10-19 contro 2026-04-01), il precedente conservato in history",
+            "nome del vincitore: 'Iveco Defence Vehicles' -> 'IDV Defence Vehicles Italia'",
+            "relazioni: 5 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Idv Defence Vehicles Italia",
+          "preserved": {
+            "sources.edf (versione precedente del vincitore)": {
+              "extracted_at": "2026-04-01",
+              "pic": "898895121",
+              "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/898895121",
+              "activity_type": "Private for profit organisation",
+              "type_code": "PRC",
+              "sme": false,
+              "country": "Italy",
+              "country_code": "IT",
+              "city": "Bolzano",
+              "web_link": "www.idvgroup.com",
+              "total_eu_contribution": 6025451.57,
+              "project_count": 5,
+              "call_count": 5,
+              "coordinator_count": 1,
+              "source_file": "edf_calls.json"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IN-1431",
+                "target": "EDF-0008",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 706862.05,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0029",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 899714.52,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0031",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 646187.5,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0037",
+                "type": "edf_participation",
+                "role": "coordinator",
+                "eu_contribution": 2578562.5,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1431",
+                "target": "EDF-0041",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1194125.0,
+                "created_at": "2026-06-03"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -153788,6 +154173,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q532299). label='Iveco Defence Vehicles'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-1431 (Idv Defence Vehicles Italia) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -227929,7 +228320,34 @@
       "sector": "Tech",
       "wikidata_id": "Q20800404",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Comm Services ETF",
+            "etf_ticker": "IXP",
+            "gics_code": "50",
+            "stock_ticker": "GOOGL",
+            "stock_sector": "Communication",
+            "weight_pct": 10.32,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_comm_services_gics50.csv"
+          },
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Comm Services ETF",
+            "etf_ticker": "IXP",
+            "gics_code": "50",
+            "stock_ticker": "GOOG",
+            "stock_sector": "Communication",
+            "weight_pct": 8.27,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_comm_services_gics50.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -227997,7 +228415,8 @@
           "country": "United States",
           "tax_id": "61-1767919 (EIN)",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+          "website": "https://abc.xyz"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -228136,6 +228555,185 @@
           "old": null,
           "new": "sources.wikidata populated (Q20800404)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Comm Services ETF (GICS 50, ishares_comm_services_gics50.csv)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://abc.xyz",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q20800404",
+          "description": "wikidata_id set via search: label='Alphabet Inc.', description='American multinational technology conglomerate'. Search name used: 'Alphabet'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0017"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0017",
+          "note": "Unita IN-0017 (Alphabet Class A) in questa entita. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0017 (Alphabet Class A, ticker GOOGL, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOGL resta nel blocco ishares del vincitore; la classe A è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXP/GOOGL)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Alphabet Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Comm Services ETF (GICS 50, ishares_comm_services_gics50.csv)",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://abc.xyz",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q20800404",
+          "description": "wikidata_id set via search: label='Alphabet Inc.', description='American multinational technology conglomerate'. Search name used: 'Alphabet'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20800404)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20800404)",
+          "from_entity": "IN-0018"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0018",
+          "note": "Unita IN-0018 (Alphabet Class C) in questa entita. Motivo: Alphabet, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0018 (Alphabet Class C, ticker GOOG, ETF IXP) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q20800404 della madre IN-1247 (Alphabet, nome senza classe); accepted_duplicate del 2026-04-23 annotato come share classes of same entity su tutte e tre. Il ticker GOOG resta nel blocco ishares del vincitore; la classe C è registrata in history. La Class B del SEC (non quotata) non è questa: le ownership di Class B vanno sulla madre.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXP/GOOG)",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Alphabet Class C",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -228205,6 +228803,25 @@
           "description": "sources.wikidata populated from Wikidata API (Q20800404). label='Alphabet Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0017"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0017 (Alphabet Class A) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0018 (Alphabet Class C) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -228597,7 +229214,21 @@
       "sector": "Tech",
       "wikidata_id": "Q128896",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "AMD",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.95,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -228665,7 +229296,8 @@
           "tax_id": "94-1692300 (EIN)",
           "main_focus": null,
           "wikipedia_url": "https://en.wikipedia.org/wiki/AMD",
-          "headquarters": "Santa Clara, California, United States"
+          "headquarters": "Santa Clara, California, United States",
+          "website": "https://www.amd.com"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -228805,6 +229437,46 @@
           "old": null,
           "new": "sources.wikidata populated (Q128896)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q128896)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0006"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.amd.com",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0006"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0006",
+          "note": "Unita IN-0006 (Advanced Micro Devices) in questa entita. Motivo: Stessa societa: Advanced Micro Devices e AMD (B3 pilota caso 1, verdetto Nelson 2026-11-12). History di entrambe letta: nessun conflitto; vincitore IN-1249 con QID Q128896 verificato (fix_qid_shift.py, 2026-03-14); IN-0006 aveva solo import iShares e sito web. Exa: risposta con fonti ir.amd.com e SEC.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXN/AMD)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Advanced Micro Devices",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -228879,6 +229551,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q128896). label='AMD'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0006"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0006 (Advanced Micro Devices) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -239306,7 +239991,7 @@
       ],
       "name": "HII Mission Technologies",
       "sector": "Defence",
-      "wikidata_id": "Q7257522",
+      "wikidata_id": null,
       "sources": {
         "ishares": null,
         "edf": null,
@@ -239352,32 +240037,11 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "United States",
-          "tax_id": "90-0607005 (EIN)",
-          "main_focus": "Largest US military shipbuilder (Aircraft carriers and submarines).",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
+          "tax_id": null,
+          "main_focus": null,
+          "wikipedia_url": null
         },
-        "wikidata": {
-          "retrieved_at": "2026-06-03",
-          "label": "Huntington Ingalls Industries",
-          "description": "American shipbuilding company",
-          "aliases": [
-            "Northrop Grumman Shipbuilding",
-            "HII",
-            "Huntington Ingalls"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise",
-            "public company"
-          ],
-          "country": "United States",
-          "inception": "2011-03-31",
-          "headquarters": "Newport News",
-          "official_website": "https://hii.com",
-          "isin": "US4464131063",
-          "employees": 44000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -239478,6 +240142,64 @@
           "old": null,
           "new": "sources.wikidata populated (Q7257522)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q7257522)"
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q7257522",
+          "new": null,
+          "description": "QID Q7257522 tolto: nella Wikidata e 'Huntington Ingalls Industries'. Perche lo aveva: QID della casa madre arrivato dal vecchio DB (migrazione 2026-03-14, import_by_wikidata.py 2026-04-01); il profilo Crunchbase abbinato è una divisione di HII; la casa madre è IN-1375, che porta lo stesso QID. Verdetto errore-db del pilota B3 (2026-11-12), history e validation lette. L'entita e: HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre. Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-06-03",
+            "label": "Huntington Ingalls Industries",
+            "description": "American shipbuilding company",
+            "aliases": [
+              "Northrop Grumman Shipbuilding",
+              "HII",
+              "Huntington Ingalls"
+            ],
+            "instance_of": [
+              "business",
+              "enterprise",
+              "public company"
+            ],
+            "country": "United States",
+            "inception": "2011-03-31",
+            "headquarters": "Newport News",
+            "official_website": "https://hii.com",
+            "isin": "US4464131063",
+            "employees": 44000,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Huntington%20Ingalls%20Industries"
+          }
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.wikipedia_url",
+          "old": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.main_focus",
+          "old": "Largest US military shipbuilder (Aircraft carriers and submarines).",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "90-0607005 (EIN)",
+          "new": null,
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old)."
         }
       ],
       "validation": [
@@ -239534,6 +240256,25 @@
           "description": "sources.wikidata populated from Wikidata API (Q7257522). label='Huntington Ingalls Industries'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q7257522",
+          "wikidata_label": "Huntington Ingalls Industries",
+          "description": "QID Q7257522 tolto: nella Wikidata e 'Huntington Ingalls Industries'. Perche lo aveva: QID della casa madre arrivato dal vecchio DB (migrazione 2026-03-14, import_by_wikidata.py 2026-04-01); il profilo Crunchbase abbinato è una divisione di HII; la casa madre è IN-1375, che porta lo stesso QID. Verdetto errore-db del pilota B3 (2026-11-12), history e validation lette. L'entita e: HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre. Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-13"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "wikipedia_url",
+            "main_focus",
+            "tax_id"
+          ],
+          "description": "Campi della casa madre Huntington Ingalls Industries (IN-1375), non della controllata HII Mission Technologies Corp.: wikipedia_url è la pagina Wikipedia della casa madre (Q7257522); main_focus ('Largest US military shipbuilder (Aircraft carriers and submarines)') descrive la casa madre; tax_id 90-0607005 è l'EIN di Huntington Ingalls Industries, Inc. sulla copertina dei 10-K (sec.gov). Valori conservati in history (old).",
+          "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -240286,9 +241027,23 @@
       ],
       "name": "IBM",
       "sector": "Tech",
-      "wikidata_id": null,
+      "wikidata_id": "Q37156",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "IBM",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.31,
+            "location": "United States",
+            "exchange": "NYSE",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -240352,7 +241107,8 @@
           "country": "United States",
           "tax_id": "13-0871985 (EIN)",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/IBM"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/IBM",
+          "website": "https://www.ibm.com"
         },
         "wikidata": {
           "retrieved_at": "2026-04-13",
@@ -240474,6 +241230,183 @@
           "new": null,
           "note": "Duplicate of IN-0062 Business Machines (same entity: IBM Q37156). IN-0062 is canonical (has iShares source data). QID nulled here.",
           "script": "manual patch 2026-04-23"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.ibm.com",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q37156",
+          "description": "wikidata_id set via search: label='IBM', description='American multinational technology corporation'. Search name used: 'Business Machines'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q37156)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q37156)",
+          "from_entity": "IN-0062"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0062",
+          "note": "Unita IN-0062 (Business Machines) in questa entita. Motivo: IBM: history di entrambe lette. IN-0062 (Business Machines, nome troncato; iShares IXN/IBM, QID Q37156, sito ibm.com) e IN-1294 (IBM; QID tolto il 2026-04-23 da patch manuale perché IN-0062 era dichiarata canonica solo per i dati iShares) sono la stessa società. Vincitore invertito su decisione di Nelson 2026-11-13: il profilo Crunchbase business-machines su IN-0062 (printing services, Bel Air Maryland, 1995) è un abbinamento sbagliato e resta solo in preserved; vale il profilo ibm di IN-1294 (Armonk, 1911). QID Q37156 verificato su Wikidata il 2026-11-13 come QID della pagina en.wikipedia IBM.",
+          "absorbed": [
+            "wikidata_id Q37156 adottato dal perdente (il vincitore non ne aveva)",
+            "sources.ishares: +1 voci (IXN/IBM)",
+            "ATTENZIONE crunchbase: profili diversi (https://www.crunchbase.com/organization/ibm contro https://www.crunchbase.com/organization/business-machines): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano",
+            "sources.crunchbase: blocco del perdente diverso, conservato in history",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Business Machines",
+          "preserved": {
+            "sources.crunchbase": {
+              "extracted_at": "2026-04-13",
+              "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+              "profile_url": "https://www.crunchbase.com/organization/business-machines",
+              "stage": "",
+              "description": "Business Machines provides printing services.",
+              "description_full": "Business Machines provides printing services.",
+              "website": "https://www.businessmachines.com",
+              "cb_rank": 3753807,
+              "headquarters": "Bel Air, Maryland, United States",
+              "headquarters_regions": "Greater Baltimore-Maryland Area, East Coast, Southern US",
+              "operating_status": "Closed",
+              "founded_date": "1995-01-01",
+              "company_type": "For Profit",
+              "investment_stage": null,
+              "investor_type": "",
+              "primary_industry": null,
+              "primary_industry_url": null,
+              "industry_groups": [
+                "Content and Publishing",
+                "Media and Entertainment",
+                "Other"
+              ],
+              "industries": [
+                "Printing",
+                "Service Industry"
+              ],
+              "founders": [],
+              "num_funding_rounds": null,
+              "funding_status": "M&A",
+              "last_funding_date": null,
+              "last_funding_amount_usd": null,
+              "last_funding_type": null,
+              "total_equity_funding_usd": null,
+              "total_funding_usd": null,
+              "total_funding_native": null,
+              "top_investors": [],
+              "num_investors": null,
+              "revenue_range": null,
+              "patents_granted": null,
+              "domain": null,
+              "acquired_by": null,
+              "acquired_by_url": null,
+              "board": []
+            },
+            "sources.wikidata": {
+              "retrieved_at": "2026-06-03",
+              "label": "IBM",
+              "description": "American multinational technology corporation",
+              "aliases": [
+                "International Business Machines Corporation (Armonk, NY)",
+                "IBM Corp.",
+                "18M",
+                "ibm.com"
+              ],
+              "instance_of": [
+                "software company",
+                "business",
+                "enterprise",
+                "technology company",
+                "public company",
+                "professional services firm",
+                "multinational corporation",
+                "organization"
+              ],
+              "country": "United States",
+              "inception": "1911-06-16",
+              "headquarters": "Armonk",
+              "official_website": "https://www.ibm.com/",
+              "isin": "US4592001014",
+              "employees": 352600,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/IBM"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -240519,6 +241452,26 @@
           "note": "Duplicate of IN-0062 Business Machines (same entity: IBM Q37156). IN-0062 is canonical (has iShares source data). QID nulled here.",
           "author": "manual patch 2026-04-23",
           "datestamp": "2026-04-23"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0062"
+        },
+        {
+          "status": "field_conflict",
+          "description": "headquarters real conflict: sources.wikidata.headquarters='Armonk' vs sources.crunchbase.headquarters='Bel Air, Maryland, United States' — sources disagree; manual review required to set canonical value.",
+          "author": "audit_quality.py",
+          "datestamp": "2026-04-24",
+          "from_entity": "IN-0062"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0062 (Business Machines) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -244737,7 +245690,21 @@
       "sector": "Mining",
       "wikidata_id": "Q105563992",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "MP",
+            "stock_sector": "Materials",
+            "weight_pct": 0.51,
+            "location": "United States",
+            "exchange": "NYSE",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -244803,7 +245770,8 @@
           "country": "United States",
           "tax_id": "82-1327150 (EIN)",
           "main_focus": "Neodimio",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/MP_Materials",
+          "website": "http://mpmaterials.com/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -244941,6 +245909,96 @@
           "old": null,
           "new": "sources.wikidata populated (Q105563992)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q105563992",
+          "description": "wikidata_id set via search: label='MP Materials', description='American Rare Earth materials company'. Search name used: 'Mp Materials'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "http://mpmaterials.com/",
+          "description": "Official website (P856) fetched from Wikidata (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q105563992)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q105563992)",
+          "from_entity": "IN-0242"
+        },
+        {
+          "date": "2026-11-12",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0242",
+          "note": "Unita IN-0242 (MP Materials Class A) in questa entita. Motivo: Stessa societa: MP Materials Corp. (ticker MP, NYSE); il 'Class A' nel nome di IN-0242 viene dall'etichetta iShares, MP non e tra le 22 societa a piu classi del SEC. B3 pilota caso 2, verdetto Nelson 2026-11-12. History di entrambe letta: stesso QID Q105563992 confermato da due percorsi indipendenti (IN-0242 approvato a mano 2026-04-12, IN-1311 da inspector 2026-03-14, etichetta Wikidata 'MP Materials' su entrambe); l'accepted_duplicate del 2026-04-23 (patch_country_quality.py) dice 'same Wikidata entity' e serviva a silenziare l'avviso dei QID doppi. Fonti Exa: filing SEC di MP Materials (non riaperte).",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/MP)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "MP Materials Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -245010,6 +246068,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q105563992). label='MP Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0242"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0242 (MP Materials Class A) unita in questa il 2026-11-12 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -246579,7 +247650,21 @@
       "sector": "Tech",
       "wikidata_id": "Q2047336",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "PLTR",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.94,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -246653,7 +247738,8 @@
           "country": "United States",
           "tax_id": "81-5460515",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir",
+          "website": "https://www.palantir.com/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -246787,6 +247873,96 @@
           "old": null,
           "new": "sources.wikidata populated (Q2047336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2047336",
+          "description": "wikidata_id set via search: label='Palantir Technologies', description='American software and services company, specializing in data analysis'. Search name used: 'Palantir Technologies'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.palantir.com/",
+          "description": "Official website (P856) fetched from Wikidata (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0282",
+          "note": "Unita IN-0282 (Palantir Technologies Class A) in questa entita. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXN/PLTR)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Palantir Technologies Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -246868,6 +248044,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q2047336). label='Palantir Technologies'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0282"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0282 (Palantir Technologies Class A) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -314819,6 +316008,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 898895121, 6 projects, €8,298,744 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0803 (IDV Defence Vehicles Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "canonical": "IN-0803",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "validation": [
@@ -314827,6 +316023,13 @@
           "description": "Entity added from EDF participant data. Roles and sector need manual review. Check if this org appears in iShares ETFs or Crunchbase.",
           "author": "build_edf_entities.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0803 (IDV Defence Vehicles Italia). Unita il 2026-11-12: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Stessa entita giuridica: stesso LEI 549300BS2IFEV60X1K48 e stesso PIC 898895121; Iveco Defence Vehicles S.p.A. e stata ribattezzata IDV Defence Vehicles Italia S.p.A. con efficacia 2026-01-28 (lei.report, da riverificare su search.gleif.org), dal 2026-03-18 controllata di Leonardo (comunicato Iveco Group). B3 pilota caso 4, verdetto Nelson 2026-11-12. History di entrambe letta: IN-1431 creata da dati EDF a giugno 2026 con blocco EDF aggiornato al 2026-10-19 (6 progetti), quello di IN-0803 era del 2026-04-01 (5 progetti): tenuto il piu recente, somma importi relazioni = totale blocco (8298744.37). 5 relazioni EDF identiche tolte e conservate in history.",
+          "canonical": "IN-0803",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-12"
         }
       ],
       "tags": []
@@ -320375,6 +321578,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0682 (Fincantieri). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "canonical": "IN-0682",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -320383,6 +321593,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0682 (Fincantieri). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Fincantieri investitore creato da Crunchbase top_investors il 2026-06-18 (history 1 voce, validation needs_review, nessun QID né dati EDF/CB) e Fincantieri società IN-0682 (QID Q1327429, PIC 999771629, history 12 voci, validation 9 voci) sono la stessa società; verdetto Exa+Nelson 2026-11-12; la relazione investment verso IN-1220 Wsense (Fincantieri è tra i top_investors di Wsense) passa a IN-0682.",
+          "canonical": "IN-0682",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -357557,14 +358774,6 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0008",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 706862.05,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1439",
       "target": "EDF-0010",
       "type": "edf_participation",
@@ -357653,27 +358862,11 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0029",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 899714.52,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-0467",
       "target": "EDF-0031",
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 1849307.74,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1431",
-      "target": "EDF-0031",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 646187.5,
       "created_at": "2026-06-03"
     },
     {
@@ -357685,27 +358878,11 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1431",
-      "target": "EDF-0037",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 2578562.5,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1415",
       "target": "EDF-0041",
       "type": "edf_participation",
       "role": "coordinator",
       "eu_contribution": 1750218.75,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1431",
-      "target": "EDF-0041",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1194125.0,
       "created_at": "2026-06-03"
     },
     {
@@ -358667,11 +359844,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0702",
+      "source": "IN-0682",
       "target": "IN-1220",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-13",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0702 -> IN-0682 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0048",
@@ -362821,12 +364005,19 @@
       "created_at": "2026-10-19"
     },
     {
-      "source": "IN-1431",
+      "source": "IN-0803",
       "target": "EDF-0122",
       "type": "edf_participation",
       "role": "coordinator",
       "eu_contribution": 2273292.8,
-      "created_at": "2026-10-19"
+      "created_at": "2026-10-19",
+      "history": [
+        {
+          "date": "2026-11-12",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1431 -> IN-0803 (merge)"
+        }
+      ]
     },
     {
       "source": "IN-0970",

@@ -201,6 +201,43 @@ def search_wikidata(query: str, limit: int = 5) -> list[dict]:
 
 # ── Phase 1: Search ───────────────────────────────────────────────────────────
 
+# ── Guardia sui QID tolti (B3, 2026-11-13) ─────────────────────────────────────
+# Un QID tolto a un'entita (history `null_wikidata_id`, history con field wikidata_id old=QID new=null,
+# validation `qid_removed` / `qid_nulled_duplicate`) non va rimesso da questo script: il 2026-06-18
+# --apply ha rimesso il QID su 41 entita attive e su IN-0366 perche le voci `accepted` del file dei
+# candidati erano piu vecchie della rimozione. Per rimetterlo di proposito: validation `qid_restored`
+# con `wikidata_id` dopo la rimozione.
+def is_retired(entity: dict) -> bool:
+    return any(h.get("action") == "entity_retired" for h in entity.get("history", []))
+
+
+def removed_qid_dates(entity: dict) -> dict:
+    """QID -> data della rimozione piu recente (esclude le voci copiate da un'altra entita: from_entity)."""
+    out = {}
+    for h in entity.get("history", []):
+        q = None
+        if h.get("action") == "null_wikidata_id" and h.get("old") and not h.get("from_entity"):
+            q = h["old"]
+        elif h.get("field") == "wikidata_id" and h.get("old") and h.get("new") is None:
+            q = h["old"]
+        if q:
+            out[q] = max(out.get(q, ""), h.get("date") or "")
+    for v in entity.get("validation", []):
+        if v.get("status") in ("qid_removed", "qid_nulled_duplicate") and v.get("wikidata_id_removed") and not v.get("from_entity"):
+            q = v["wikidata_id_removed"]
+            out[q] = max(out.get(q, ""), v.get("datestamp") or "")
+    return out
+
+
+def qid_is_blocked(entity: dict, qid: str) -> bool:
+    removed = removed_qid_dates(entity).get(qid)
+    if removed is None:
+        return False
+    restored = [v.get("datestamp") or "" for v in entity.get("validation", [])
+                if v.get("status") == "qid_restored" and v.get("wikidata_id") == qid]
+    return not any(d >= removed for d in restored)
+
+
 def phase_search():
     print("Phase 1 — Search (no database writes)")
     print("=" * 60)
@@ -210,7 +247,7 @@ def phase_search():
 
     missing = [
         e for e in db["entities"]
-        if e.get("type") == "company" and not e.get("wikidata_id")
+        if e.get("type") == "company" and not e.get("wikidata_id") and not is_retired(e)
     ]
     print(f"Companies missing wikidata_id: {len(missing)}\n")
 
@@ -379,6 +416,7 @@ def phase_apply():
 
     entity_map = {e["id"]: e for e in db["entities"]}
     applied = 0
+    blocked = 0
 
     for c in accepted:
         eid = c["entity_id"]
@@ -392,6 +430,14 @@ def phase_apply():
             continue
         if entity.get("wikidata_id"):
             print(f"  SKIP: {eid} already has wikidata_id={entity['wikidata_id']}")
+            continue
+        if is_retired(entity):
+            print(f"  SKIP: {eid} is a retired entity (tombstone): QID not applied")
+            continue
+        if qid_is_blocked(entity, qid):
+            print(f"  BLOCKED: {eid} had {qid} removed (see its history/validation): not re-applied. "
+                  f"To restore on purpose add a validation entry status='qid_restored' with wikidata_id={qid}")
+            blocked += 1
             continue
 
         entity["wikidata_id"] = qid
@@ -425,7 +471,7 @@ def phase_apply():
     with open(DATABASE_PATH, "w", encoding="utf-8") as f:
         json.dump(db, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✓ Applied {applied} QIDs to database.json.")
+    print(f"\n✓ Applied {applied} QIDs to database.json. Blocked (QID previously removed): {blocked}.")
     print(f"Next: python3 scripts/validate.py")
 
 

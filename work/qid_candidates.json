@@ -1,6 +1,6 @@
 {
   "_generated_at": "2026-06-18",
-  "_total": 588,
+  "_total": 589,
   "_proposed": 0,
   "_skipped": 434,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
@@ -5884,6 +5884,16 @@
       "qid": "Q140231356",
       "label": "Zero Markup Trips",
       "description": "international tour operator and travel planning company serving travel agencies and affiliates across 70+ destinations"
+    },
+    {
+      "entity_id": "IN-1290",
+      "entity_name": "HII Mission Technologies",
+      "search_name": "HII Mission Technologies",
+      "status": "rejected",
+      "reason": "QID Q7257522 tolto con qid_removed il 2026-11-13 (HII Mission Technologies Corp., controllata di Huntington Ingalls Industries (Delaware, Exhibit 21.1 del 10-K 2025), non la casa madre): non riproporre ne applicare.",
+      "qid": "Q7257522",
+      "label": "Huntington Ingalls Industries",
+      "description": null
     }
   ]
 }
