@@ -60673,6 +60673,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q2047336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1318 (Palantir Technologies). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "canonical": "IN-1318",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "validation": [
@@ -60730,6 +60737,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q2047336). label='Palantir Technologies'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1318 (Palantir Technologies). Unita il 2026-11-13: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "canonical": "IN-1318",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
@@ -247326,7 +247340,21 @@
       "sector": "Tech",
       "wikidata_id": "Q2047336",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares Global Tech ETF",
+            "etf_ticker": "IXN",
+            "gics_code": "45",
+            "stock_ticker": "PLTR",
+            "stock_sector": "Information Technology",
+            "weight_pct": 1.94,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishares_tech_gics45.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-24",
@@ -247400,7 +247428,8 @@
           "country": "United States",
           "tax_id": "81-5460515",
           "main_focus": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Palantir",
+          "website": "https://www.palantir.com/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -247534,6 +247563,96 @@
           "old": null,
           "new": "sources.wikidata populated (Q2047336)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Global Tech ETF (GICS 45, ishares_tech_gics45.csv)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q2047336",
+          "description": "wikidata_id set via search: label='Palantir Technologies', description='American software and services company, specializing in data analysis'. Search name used: 'Palantir Technologies'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.palantir.com/",
+          "description": "Official website (P856) fetched from Wikidata (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2047336)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2047336)",
+          "from_entity": "IN-0282"
+        },
+        {
+          "date": "2026-11-13",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0282",
+          "note": "Unita IN-0282 (Palantir Technologies Class A) in questa entita. Motivo: Palantir, regola sulle classi (approvata da Nelson 2026-11-12), history di entrambe lette: IN-0282 (Palantir Technologies Class A, ticker PLTR, ETF IXN) ha 0 relazioni e solo blocchi iShares, infonodes e wikidata, stesso QID Q2047336 della madre IN-1318 (Palantir Technologies, nome senza classe); accepted_duplicate del 2026-04-23 già annotato come same entity su entrambe. Il ticker PLTR resta nel blocco ishares del vincitore; la classe A è registrata in history.",
+          "absorbed": [
+            "sources.ishares: +1 voci (IXN/PLTR)",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "Palantir Technologies Class A",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -247615,6 +247734,19 @@
           "description": "sources.wikidata populated from Wikidata API (Q2047336). label='Palantir Technologies'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0282"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0282 (Palantir Technologies Class A) unita in questa il 2026-11-13 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
