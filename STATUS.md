@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-13 sera (PR #39 `1a041a9` e #41 `1565fae` di B3 fuse in `main`, #40 `61812b0` solo documentazione; foglio di controllo compilato con gli esiti A/B approvati da Nelson; QID di `IN-1352` tolto. Branch locale `docs/foglio-controllo-b3` con 4 commit di documentazione **non pushato** (push e PR di Nelson). DB su `main`: 2582 entità (2569 attive, 13 lapidi), 3485 relazioni. **Ripartire dal «Prompt di ripartenza» qui sotto**)
+> Last updated: 2026-11-13 sera (ripartenza eseguita). `origin/main` = `ac78b5a` (PR #42 fusa; prima #39 `1a041a9` e #41 `1565fae` di B3, #40 `61812b0` solo documentazione). Foglio di controllo compilato con gli esiti A/B approvati da Nelson; QID di `IN-1352` tolto. DB su `main`: 2582 entità (2569 attive, 13 lapidi), 3485 relazioni. **Ripartire dalla sezione «Ripartenza eseguita» qui sotto e dal punto (1)**
 
 ## ⚠️ PROSSIMO PASSO — leggere prima di tutto
 
@@ -9,19 +9,9 @@
 
 **B4 è chiuso e in `main`** (PR #38, `357507c`, 2026-11-12): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia, output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (calcolati dal CSV `controlli-manuali.csv`, colonne `esito` e `nota` vuote).
 
-## ⚠️ Prompt di ripartenza da eseguire (cancellare questa sezione dopo l'esecuzione)
+## ⚠️ Ripartenza eseguita il 2026-11-13 (sera)
 
-Nelson azzera il contesto (`/clear`) la sera del 2026-11-13 e vuole ripartire in modo preciso dal piano. Ultimo stato che ho misurato (da **rimisurare**, regola §0.3 del piano): `origin/main` = `1565fae` (merge della PR #41); PR fuse di B3: #39 `1a041a9` (pilota di 10 casi), #40 `61812b0` (solo documentazione), #41 `1565fae` (QID di `IN-1352` tolto); `validate.py` PASSED 2582 entità, 3485 relazioni; sito vivo = `main` (sha256 di `database.json` `372fed56…` e `mitl-index.json` `714c0f04…` uguali a `docs/`, 6 pagine 200). Su GitHub solo `main` e `v.2026-c`. Branch locali: `main`, `v.2026-c`, **`docs/foglio-controllo-b3`** (4 commit su `main`, solo STATUS, piano, log: registrano #41, la copia di sicurezza del foglio, l'agente di verifica, gli esiti scritti nel foglio e questo prompt; **non pushato: push e PR li fa Nelson**), `docs/stato-pre-ripartenza` (fuso, si cancella con `-d` solo con ok), `archivio/locale-2026-11-10` (non toccare), `stash@{0}` (non toccare). L'hook di avvio può dire «Pull non riuscito» se il branch corrente non ha remoto: è normale, non risolverlo con `git pull`.
-
-**Foglio di controllo** (id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`, 11 righe B3-01…B3-11; condiviso da Nelson con «chiunque ha il link», ruolo non verificato da me). Il 2026-11-13 ho scritto le colonne L-P (esiti A e B, nota, «Controllato da», data) con gli esiti proposti da un agente di sola lettura e **approvati da Nelson**: «Corretta»/«Corretto» su B3-01, 02, 03, 05, 06, 07, 08, 09; «Dubbia» su B3-04 (A) e B3-11 (A); «Dubbio» su B3-10 (B) e B3-11 (B). **Copia di sicurezza dei valori prima delle compilazioni** (non export byte per byte: niente formattazione, menu, link): `~/Coding/infonodes/Manintheloop-backup-2026-11-10/foglio-controllo-b3-2026-11-13/foglio-controlli-b3.json` (sola lettura, sha256 in `SHA256SUMS`). Serve per confrontare il foglio quando altri lo compilano: ogni cella di L-P diversa da quanto scritto il 2026-11-13 è una modifica di terzi.
-
-**Fare, nell'ordine, senza saltare passi:**
-
-1. Leggere `~/.claude/CLAUDE.md`, questo file **fino a «Da sapere»**, `reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` **per intero** (`allow_large` o `offset` se la lettura si interrompe). Per toccare il foglio: skill `anthropic-skills:google-workspace` e `references/sheets.md` (field mask senza parentesi, apice `'` per il testo che sembra data o numero, `get_values` prima di ogni scrittura).
-2. Rimisurare, in sola lettura: `git status`, `git branch --show-current`, `git fetch --prune`, `git ls-remote --heads origin` (se compare `docs/foglio-controllo-b3` è stato pushato), `git log --oneline origin/main..HEAD`, `git log --merges --oneline -4 origin/main` (c'è una PR nuova dopo #41?), `python3 scripts/validate.py`, `python3 -I scripts/check_b3_branch.py`, `git branch --list`. Rileggere il foglio (`get_values` su `Controlli!A1:P13`) e confrontarlo con la copia di sicurezza.
-3. **Chiedere a Nelson**, non assumerlo da git: (a) `docs/foglio-controllo-b3` è stato pushato e fuso? con quale numero? (b) qualcuno ha compilato o cambiato il foglio dopo il 2026-11-13? con che ruolo è condiviso il link (Visualizzatore o Editor)? (c) ok a correggere i testi del foglio (vedi sotto)? (d) i 4 controlli a mano della Release 1 sono stati compilati?
-4. Riassumere in 5-8 righe dove siamo, **elencando i file letti con le righe e dicendo cosa NON è stato letto**, e **fermarsi in attesa dell'ok**.
-5. Dopo l'ok: cancellare questa sezione e committare con `docs(refactoringDB): update STATUS.md` (su un branch, mai su `main`).
+Misurato: `origin/main` = `ac78b5a` (merge della PR #42 `docs/foglio-controllo-b3`, fusa; branch locale omonimo non più presente); `validate.py` PASSED 2582/3485; `check_b3_branch.py` superato (0 differenze). Foglio di controllo (id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`): colonne L-P uguali agli esiti approvati il 2026-11-13; condivisione «chiunque ha il link» = **Lettore** (Editor: account `ddelmonte79`; proprietario Nelson). **Non risposte da Nelson (da richiedere):** PR #42 fusa da lui e tipo di merge; modifiche di terzi al foglio; ruolo desiderato per il link; compilazione dei 4 controlli Release 1. Testi del foglio ancora da correggere (vedi punto (1) sotto), solo con ok di Nelson. Backup del foglio: `~/Coding/infonodes/Manintheloop-backup-2026-11-10/foglio-controllo-b3-2026-11-13/` (stato prima delle compilazioni L-P).
 
 **Poi, nell'ordine del piano (ognuno con ok di Nelson, un passo alla volta):**
 
