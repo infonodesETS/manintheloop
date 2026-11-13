@@ -256482,7 +256482,7 @@
       ],
       "name": "Alcoa Warrick",
       "sector": "Mining",
-      "wikidata_id": "Q131884343",
+      "wikidata_id": null,
       "sources": {
         "ishares": null,
         "edf": null,
@@ -256539,22 +256539,7 @@
           "main_focus": "Gallium",
           "wikipedia_url": null
         },
-        "wikidata": {
-          "retrieved_at": "2026-06-03",
-          "label": null,
-          "description": null,
-          "aliases": [],
-          "instance_of": [
-            "organization"
-          ],
-          "country": "United States",
-          "inception": null,
-          "headquarters": null,
-          "official_website": "http://www.alcoa.com",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": null
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -256637,6 +256622,31 @@
           "old": null,
           "new": "sources.wikidata populated (Q131884343)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q131884343)"
+        },
+        {
+          "date": "2026-11-13",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q131884343",
+          "new": null,
+          "description": "QID Q131884343 tolto: nella Wikidata e 'Alcoa Nederland'. Perche lo aveva: QID assegnato per ricerca il 2026-04-13 con etichetta e descrizione vuote; su Wikidata Q131884343 e' 'Alcoa Nederland' (istanza di organization, nessun sitelink), non Alcoa Warrick; la casa madre Alcoa Corp e' Q135325 (IN-0013). History e validation di IN-1352 lette prima. L'entita e: controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp. Alcoa Warrick LLC non risulta avere un QID proprio",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-06-03",
+            "label": null,
+            "description": null,
+            "aliases": [],
+            "instance_of": [
+              "organization"
+            ],
+            "country": "United States",
+            "inception": null,
+            "headquarters": null,
+            "official_website": "http://www.alcoa.com",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": null
+          }
         }
       ],
       "validation": [
@@ -256693,6 +256703,14 @@
           "description": "sources.wikidata populated from Wikidata API (Q131884343). label=None",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q131884343",
+          "wikidata_label": "Alcoa Nederland",
+          "description": "QID Q131884343 tolto: nella Wikidata e 'Alcoa Nederland'. Perche lo aveva: QID assegnato per ricerca il 2026-04-13 con etichetta e descrizione vuote; su Wikidata Q131884343 e' 'Alcoa Nederland' (istanza di organization, nessun sitelink), non Alcoa Warrick; la casa madre Alcoa Corp e' Q135325 (IN-0013). History e validation di IN-1352 lette prima. L'entita e: controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp. Alcoa Warrick LLC non risulta avere un QID proprio",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-13"
         }
       ],
       "tags": []
