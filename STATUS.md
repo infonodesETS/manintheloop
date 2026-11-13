@@ -40,31 +40,6 @@
 
 **Rischio da ricordare:** `search_missing_qids.py` ha rimesso il 2026-06-18 un QID su un'entità già dichiarata duplicata (`IN-0366`), ricreando il QID doppio. Una lapide non protegge da un nuovo lancio dello script. Non lanciarlo senza prima controllare le lapidi.
 
-### Prompt di ripartenza da eseguire: da cancellare da qui in status dopo averlo eseguito
-
-```
-Leggi STATUS.md fino a «Da sapere», in particolare il blocco «B3 IN CORSO», poi
-reference/PIANO-RIORGANIZZAZIONE.md e reference/LOG-RIORGANIZZAZIONE.md per intero
-(l'ultima voce del log è del 2026-11-12, B3). Rimisura lo stato con git (branch
-dati/b3-unione-amd, git log --oneline origin/main..HEAD, git status) e lancia
-python3 scripts/validate.py: attese 2582 entità (2574 attive) e 3485 relazioni.
-Riassumi in 5-8 righe dove siamo, elenca i file letti con le righe lette e cosa NON
-hai letto, e fermati in attesa del mio ok.
-
-Poi, con il mio ok, si riparte dal caso 8 del pilota B3 (Fincantieri, IV-0702 da
-unire in IN-0682, ruolo doppio): prima leggi la history e la validation di entrambe
-le entità, poi dry-run di scripts/merge_entities.py, mostrami l'output, e applica
-solo dopo il mio via libera. Dopo il caso 8: caso 3 (IBM), casi 5 e 6 (regola sulle
-classi), caso 9 (qid_removed su IN-1290). Un caso alla volta, un commit per caso,
-validate.py dopo ciascuno. Non pushare, non toccare main, non stampare mai la chiave
-Exa. Se il mio messaggio contiene domande, rispondi e fermati.
-
-Dopo aver eseguito la parte di rilettura e riassunto (non aspettare la fine di B3),
-cancella da STATUS.md l'intera sezione «Prompt di ripartenza da eseguire» (titolo e
-riquadro), lasciando il resto del blocco «B3 IN CORSO», e committa con il messaggio
-«docs(refactoringDB): update STATUS.md». Non pushare.
-```
-
 
 **Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14`, #37 `f9a00db`, #38 `357507c` (il #33 è un'issue). Il registro può essere indietro di una PR: contare sempre con `git log --merges`.
 
