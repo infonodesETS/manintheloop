@@ -15,6 +15,7 @@ This document defines the rules for updating `database.json` when new data is av
 5. **Full provenance is required.** Every history entry must be traceable back to its raw source. Specify the raw source file, the exact field/value, and — when correcting — both the original entry and the evidence used.
 6. **`sources.wikidata` is script-managed.** Never manually edit it; edits will be silently lost on the next `enrich_wikidata.py` run.
 7. **Every data change must produce a dedicated git commit.** A commit modifying `database.json` must be atomic (one logical change), include a descriptive message naming affected entities, and pass `validate.py` before pushing.
+8. **Text written into `history[]` and `validation[]` is in English** (decision of Nelson, 2026-11-14), with correct spelling; identifiers, QIDs, registry numbers and proper names stay as they are. Entries are append-only, so a wrong-language entry is not rewritten. Between 2026-11-12 and 2026-11-14 about 15 entries were written in Italian (cases `IN-0365`, `IN-0682`, `IN-0803`, `IN-0863`, `IN-1247`, `IN-1249`, `IN-1290`, `IN-1294`, `IN-1311`, `IN-1318`, `IN-1352`): they stay as they are. Notes, logs, documents and sheets outside `database.json` remain in Italian.
 
 ---
 
