@@ -120829,7 +120829,7 @@
       ],
       "name": "Damen Naval",
       "sector": null,
-      "wikidata_id": "Q950580",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -120859,26 +120859,7 @@
           "wikipedia_url": null,
           "website": "https://www.damennaval.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Damen Group",
-          "description": "shipbuilding company",
-          "aliases": [
-            "Damen Shipyards Group",
-            "Damen"
-          ],
-          "instance_of": [
-            "corporate group",
-            "organization"
-          ],
-          "country": "Netherlands",
-          "inception": "1927-01-01",
-          "headquarters": "Gorinchem",
-          "official_website": "https://www.damen.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Damen%20Group"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -120969,6 +120950,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 874038774, 4 projects, €4,507,241 EU contribution"
+        },
+        {
+          "date": "2026-11-14",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q950580",
+          "new": null,
+          "description": "QID Q950580 removed: on Wikidata it is 'Damen Group'. Why the entity had it: assigned by name search on 2026-04-12 as the group QID, removed by hand on 2026-04-23 (parent, not this entity), put back by search_missing_qids.py on 2026-06-18; on Wikidata Q950580 is the parent group (corporate group, Gorinchem). The entity is: Damen Naval B.V. (KvK 89106253, Vlissingen, incorporated 2023-01-26 per a registry aggregator), a legal entity within the Damen Shipyards Group; separate from Damen Schelde Naval Shipbuilding (IN-0601, its own QID Q1158347). No QID for Damen Naval B.V. looked up yet (absence of evidence, not evidence of absence).",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Damen Group",
+            "description": "shipbuilding company",
+            "aliases": [
+              "Damen Shipyards Group",
+              "Damen"
+            ],
+            "instance_of": [
+              "corporate group",
+              "organization"
+            ],
+            "country": "Netherlands",
+            "inception": "1927-01-01",
+            "headquarters": "Gorinchem",
+            "official_website": "https://www.damen.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Damen%20Group"
+          }
         }
       ],
       "validation": [
@@ -121014,6 +121024,14 @@
           "description": "wikidata_id Q950580 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q950580",
+          "wikidata_label": "Damen Group",
+          "description": "QID Q950580 removed: on Wikidata it is 'Damen Group'. Why the entity had it: assigned by name search on 2026-04-12 as the group QID, removed by hand on 2026-04-23 (parent, not this entity), put back by search_missing_qids.py on 2026-06-18; on Wikidata Q950580 is the parent group (corporate group, Gorinchem). The entity is: Damen Naval B.V. (KvK 89106253, Vlissingen, incorporated 2023-01-26 per a registry aggregator), a legal entity within the Damen Shipyards Group; separate from Damen Schelde Naval Shipbuilding (IN-0601, its own QID Q1158347). No QID for Damen Naval B.V. looked up yet (absence of evidence, not evidence of absence).",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-14"
         }
       ],
       "tags": []
@@ -121026,7 +121044,7 @@
       ],
       "name": "Damen Research Development Innovation",
       "sector": null,
-      "wikidata_id": "Q950580",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -121104,26 +121122,7 @@
           "wikipedia_url": null,
           "website": "https://www.damen.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Damen Group",
-          "description": "shipbuilding company",
-          "aliases": [
-            "Damen Shipyards Group",
-            "Damen"
-          ],
-          "instance_of": [
-            "corporate group",
-            "organization"
-          ],
-          "country": "Netherlands",
-          "inception": "1927-01-01",
-          "headquarters": "Gorinchem",
-          "official_website": "https://www.damen.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Damen%20Group"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -121223,6 +121222,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 888269353, 1 projects, €781,535 EU contribution"
+        },
+        {
+          "date": "2026-11-14",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q950580",
+          "new": null,
+          "description": "QID Q950580 removed: on Wikidata it is 'Damen Group'. Why the entity had it: assigned by name search on 2026-04-13 as the group QID, removed by hand on 2026-04-23 (parent, not this entity), put back by search_missing_qids.py on 2026-06-18; on Wikidata Q950580 is the parent group (corporate group, Gorinchem). The entity is: Damen Research Development & Innovation B.V. (KvK 84607343, Gorinchem, per registry aggregators), subsidiary of Damen Supporting Services Holding B.V. within the Damen Shipyards Group. No QID for Damen R&D&I B.V. looked up yet (absence of evidence, not evidence of absence). Note: the Crunchbase block of this entity describes the group (profile damen-shipyards): to be reviewed separately.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Damen Group",
+            "description": "shipbuilding company",
+            "aliases": [
+              "Damen Shipyards Group",
+              "Damen"
+            ],
+            "instance_of": [
+              "corporate group",
+              "organization"
+            ],
+            "country": "Netherlands",
+            "inception": "1927-01-01",
+            "headquarters": "Gorinchem",
+            "official_website": "https://www.damen.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Damen%20Group"
+          }
         }
       ],
       "validation": [
@@ -121274,6 +121302,14 @@
           "description": "wikidata_id Q950580 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q950580",
+          "wikidata_label": "Damen Group",
+          "description": "QID Q950580 removed: on Wikidata it is 'Damen Group'. Why the entity had it: assigned by name search on 2026-04-13 as the group QID, removed by hand on 2026-04-23 (parent, not this entity), put back by search_missing_qids.py on 2026-06-18; on Wikidata Q950580 is the parent group (corporate group, Gorinchem). The entity is: Damen Research Development & Innovation B.V. (KvK 84607343, Gorinchem, per registry aggregators), subsidiary of Damen Supporting Services Holding B.V. within the Damen Shipyards Group. No QID for Damen R&D&I B.V. looked up yet (absence of evidence, not evidence of absence). Note: the Crunchbase block of this entity describes the group (profile damen-shipyards): to be reviewed separately.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-14"
         }
       ],
       "tags": []
@@ -256746,6 +256782,12 @@
           ],
           "description": "EIN 81-1153200 senza fonte: viene dalla migrazione del 2026-03-07 (identità non verificata); Exa (2026-11-14) non lo associa ad alcuna società né trova l'EIN di Alcoa Warrick LLC in fonti primarie. Alcoa Corp ha 81-1789115 (non verificato). History e validation di IN-1352 lette prima.",
           "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-14"
+        },
+        {
+          "status": "needs_review",
+          "description": "Alcoa Warrick LLC is a legal entity distinct from Alcoa (IN-0013), not a duplicate. Crunchbase profile alcoa-warrick-operations (read on 2026-11-14, secondary source): legal name Alcoa Warrick LLC, operating status Active, sub-organization of Alcoa, acquired by Kaiser Aluminum (announced 2020-11-30, USD 670M). Alcoa's 8-K, reopened on 2026-11-14, reports the sale of Alcoa Warrick LLC and the rolling mill to Kaiser as of 2021-03-31 (not verified that the two dates refer to the same transaction). To review: whether the entity still describes Alcoa (name, website, country). History and validation of IN-1352 read before writing.",
+          "author": "Claude (proposed), Nelson (approved 2026-11-14)",
           "datestamp": "2026-11-14"
         }
       ],
