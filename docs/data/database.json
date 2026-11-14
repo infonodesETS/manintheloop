@@ -256783,6 +256783,12 @@
           "description": "EIN 81-1153200 senza fonte: viene dalla migrazione del 2026-03-07 (identità non verificata); Exa (2026-11-14) non lo associa ad alcuna società né trova l'EIN di Alcoa Warrick LLC in fonti primarie. Alcoa Corp ha 81-1789115 (non verificato). History e validation di IN-1352 lette prima.",
           "author": "patch_clear_infonodes.py",
           "datestamp": "2026-11-14"
+        },
+        {
+          "status": "needs_review",
+          "description": "Alcoa Warrick LLC is a legal entity distinct from Alcoa (IN-0013), not a duplicate. Crunchbase profile alcoa-warrick-operations (read on 2026-11-14, secondary source): legal name Alcoa Warrick LLC, operating status Active, sub-organization of Alcoa, acquired by Kaiser Aluminum (announced 2020-11-30, USD 670M). Alcoa's 8-K, reopened on 2026-11-14, reports the sale of Alcoa Warrick LLC and the rolling mill to Kaiser as of 2021-03-31 (not verified that the two dates refer to the same transaction). To review: whether the entity still describes Alcoa (name, website, country). History and validation of IN-1352 read before writing.",
+          "author": "Claude (proposed), Nelson (approved 2026-11-14)",
+          "datestamp": "2026-11-14"
         }
       ],
       "tags": []
