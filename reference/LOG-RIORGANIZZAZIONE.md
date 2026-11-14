@@ -498,3 +498,7 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Dubbio aperto, non toccato:** `IN-0013` Alcoa ha il profilo Crunchbase `alcoa`, `IN-1352` ha `alcoa-warrick-operations` (stabilimento o società?). Crunchbase dà 403: lo apre Nelson. Alcoa Warrick LLC è stata acquistata da Kaiser Aluminum nel 2021 (fonti sopra, non riaperte): il testo del foglio B3-11 la dice ancora controllata di Alcoa. Prossimo, con ok: una `validation` `needs_review` sulla scheda e il testo del foglio.
 - **PR:** la prima di oggi (zero aperte prima). Contiene i tre commit di documentazione del 2026-11-13 e il commit di dati; la ristrutturazione di `STATUS.md` e la regola sulle ricerche con Exa restano sul branch `docs/stato-ripartenza-eseguita` (PR di sola documentazione a fine giornata).
 
+
+### 2026-11-14 — Risposta di Andrea sul numero di PR
+
+- Andrea risponde via mail il 2026-11-14 (riferito da Nelson). Chiude la domanda (e) del prompt di ripartenza: il testo era stato inviato.
