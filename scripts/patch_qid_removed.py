@@ -43,7 +43,7 @@ def main():
     ap.add_argument("--label", required=True, help="etichetta Wikidata del QID tolto")
     ap.add_argument("--is", dest="what", required=True, help="cosa e davvero l'entita (es. controllata, filiale)")
     ap.add_argument("--why", required=True, help="perche l'entita aveva quel QID")
-    ap.add_argument("--new-qid-note", default="Un QID corretto potrebbe non esistere: da cercare con la pipeline QID.",
+    ap.add_argument("--new-qid-note", default="A correct QID may not exist: to be searched with the QID pipeline.",
                     help="se puo esistere un QID corretto")
     ap.add_argument("--clear-wikidata-block", action="store_true")
     ap.add_argument("--apply", action="store_true")
@@ -66,7 +66,7 @@ def main():
     others = [(x["id"], x["name"]) for x in db["entities"] if x.get("wikidata_id") == a.qid and x["id"] != a.entity]
 
     old_block = (e.get("sources") or {}).get("wikidata")
-    desc = ("QID %s tolto: nella Wikidata e '%s'. Perche lo aveva: %s. L'entita e: %s. %s"
+    desc = ("QID %s removed: on Wikidata it is '%s'. Why the entity had it: %s. The entity is: %s. %s"
             % (a.qid, a.label, a.why, a.what, a.new_qid_note))
     h = {"date": TODAY, "source": "manual", "author": AUTHOR, "field": "wikidata_id",
          "old": a.qid, "new": None, "description": desc}

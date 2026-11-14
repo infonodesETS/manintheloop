@@ -1949,8 +1949,8 @@
       "entity_id": "IN-0599",
       "entity_name": "Damen Naval",
       "search_name": "Damen Naval",
-      "status": "accepted",
-      "reason": "found via reconciliation: wikidata_label='Damen Group', score=62.0",
+      "status": "rejected",
+      "reason": "QID Q950580 tolto con qid_removed il 2026-11-14 (Damen Naval B.V. (KvK 89106253, Vlissingen, incorporated 2023-01-26 per a registry aggregator), a legal entity within the Damen Shipyards Group; separate from Damen Schelde Naval Shipbuilding (IN-0601, its own QID Q1158347)): non riproporre ne applicare. Stato precedente: accepted (found via reconciliation: wikidata_label='Damen Group', score=62.0, qid Q950580).",
       "qid": "Q950580",
       "label": "Damen Group",
       "description": "shipbuilding company"
@@ -1959,8 +1959,8 @@
       "entity_id": "IN-0600",
       "entity_name": "Damen Research Development Innovation",
       "search_name": "Damen Research Development Innovation",
-      "status": "accepted",
-      "reason": "P856 website match (https://www.damen.com) + org keyword 'company'",
+      "status": "rejected",
+      "reason": "QID Q950580 tolto con qid_removed il 2026-11-14 (Damen Research Development & Innovation B.V. (KvK 84607343, Gorinchem, per registry aggregators), subsidiary of Damen Supporting Services Holding B.V. within the Damen Shipyards Group): non riproporre ne applicare. Stato precedente: accepted (P856 website match (https://www.damen.com) + org keyword 'company', qid Q950580).",
       "qid": "Q950580",
       "label": "Damen Group",
       "description": "shipbuilding company"
@@ -3019,8 +3019,8 @@
       "entity_id": "IN-0863",
       "entity_name": "Mbda Espana Sl",
       "search_name": "Mbda Espana Sl",
-      "status": "accepted",
-      "reason": "P856 website match (https://www.mbda-systems.com/) — no description",
+      "status": "rejected",
+      "reason": "QID Q131887361 tolto con qid_removed il 2026-11-14 (societa spagnola distinta (MBDA ESPAÑA, SL, NIF B86093689, Registro Mercantile di Madrid; controllata del gruppo MBDA), non MBDA Italia): non riproporre ne applicare. Stato precedente: accepted (P856 website match (https://www.mbda-systems.com/) — no description, qid Q131887361).",
       "qid": "Q131887361",
       "label": "",
       "description": ""
