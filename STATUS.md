@@ -1,23 +1,7 @@
 # refactoringDB — Project Status
 
 > Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
-> Ultimo aggiornamento: 2026-11-14 (ristrutturazione). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). **Ripartire dal «Prompt di ripartenza» qui sotto**, poi `IN-1352`.
-
-## ⚠️ Prompt di ripartenza da eseguire (cancellare questa sezione dopo l'esecuzione)
-
-Nelson azzera il contesto (`/clear`) il 2026-11-14, dopo la ristrutturazione di `STATUS.md` (vedi il log del 2026-11-14), e vuole ripartire in modo preciso dal solo `STATUS.md`: chi legge parte da zero e deve ricostruire dove siamo e proporre il passo giusto, non rifare il lavoro. Valori sotto = ultimo stato misurato, da **rimisurare** (piano §0.3): `origin/main` = `ac78b5a` (PR #42); branch locale **`docs/stato-ripartenza-eseguita`** con commit di sola documentazione **non pushati** (da contare con `git log --oneline origin/main..HEAD`: testi del foglio, regola sul numero di PR, prompt, e la **ristrutturazione di `STATUS.md` del 2026-11-14**, che ha anche spostato blocchi in `reference/` e in `ROADMAP.md`): **i commit del 2026-11-13 confluiscono nella prossima PR di dati, senza PR a parte** (regola di Nelson); per i commit della ristrutturazione del 2026-11-14 la destinazione (fine giornata o prossima PR di dati) **è ancora da decidere: vedi domanda (g)**; branch locali anche `main`, `v.2026-c`, `archivio/locale-2026-11-10` e `docs/stato-pre-ripartenza` (non toccare; cancellare solo con ok); `stash@{0}` non toccare. L'hook di avvio può dire «Pull non riuscito» se il branch corrente non ha remoto: normale.
-
-**Fare, nell'ordine:**
-
-1. Leggere `~/.claude/CLAUDE.md`, questo file **per intero** (ristrutturato il 2026-11-14: ora sta in una sola lettura), `reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` **per intero** (`allow_large`). Per toccare il foglio: skill `anthropic-skills:google-workspace` e `references/sheets.md`; `update_values` si carica con ToolSearch.
-2. Rimisurare in sola lettura: `git status`, `git branch --show-current`, `git fetch --prune`, `git ls-remote --heads origin`, `git log --oneline origin/main..HEAD`, `git log --merges --oneline -4 origin/main`, `python3 scripts/validate.py`, `python3 -I scripts/check_b3_branch.py`, `git branch --list`; rileggere il foglio (`get_values` su `Controlli!A1:P13`).
-3. **Chiedere a Nelson** (non assumere): (a) la PR #42 l'ha fusa lui, con «Create a merge commit»? (b) qualcuno ha cambiato il foglio dopo il 2026-11-13? il link «chiunque ha il link» è Lettore: va bene o serve Editor? (c) i 4 controlli a mano della Release 1 sono compilati? (d) il DB deve rappresentare l'acquisizione di Wsense da parte di Fincantieri (B3-09)? (e) ha mandato ad Andrea il testo sul numero di PR (sotto)? risposta? (f) la ristrutturazione di `STATUS.md` (blocchi spostati in `reference/`, backlog e EU Funding in `ROADMAP.md`) gli sembra completa, o manca qualcosa che si aspettava di trovare? (g) la PR di sola documentazione la vuole a fine giornata o insieme alla prossima PR di dati, e vuole che si scriva `scripts/check_docs.py` (specifica nel log del 2026-11-14: avvisi, perimetro `STATUS.md` e `reference/SCRIPTS.md`, tetto 400 righe)?
-4. Dire se lo stato misurato coincide con «Dove siamo» e dove no; poi riassumere in 5-8 righe, **con i file letti e le righe, e cosa NON è stato letto**, e **fermarsi in attesa dell'ok**.
-5. Dopo l'ok: cancellare questa sezione, **aggiornare la riga «Ultimo aggiornamento» in testa** (non deve più dire di ripartire dal prompt) e committare con `docs(refactoringDB): update STATUS.md` **sul branch `docs/stato-ripartenza-eseguita`** (mai su `main`).
-
-**Poi: `IN-1352` Alcoa Warrick** (vedi «Prossimi lavori»), un passo alla volta con ok di Nelson: (i) sola lettura di scheda, `history`, `validation` di `IN-1352`, mostrare a Nelson; (ii) EIN 81-1153200 sulla scheda (EIN di Alcoa Corp: 81-1789115; l'agente non lo ha trovato) e profilo Crunchbase `alcoa-warrick-operations` (403 ai nostri strumenti: li apre Nelson nel browser); (iii) se l'EIN è sbagliato: `scripts/patch_clear_infonodes.py` in dry-run, mostrare, `--history-letta --apply`, `validate.py`, `check_b3_branch.py`, un commit. Una sola PR di dati; porta con sé i commit di documentazione. **Prima di proporre la PR dire quante PR sono già state aperte nella giornata** (piano §0.3, regola di Nelson del 2026-11-13). Dopo: i 41 QID rimessi, i 4 controlli Release 1 (li compila Nelson, in parallelo), B5.
-
-**Testo per Andrea sul numero di PR** (preparato il 2026-11-13, in testo semplice; invio non verificato; i conteggi: 14 PR dal 10 novembre, dalla #28 alla #42 senza la #33, di cui almeno 5 solo documenti: #32, #35, #37, #40, #42): vedi il log del 2026-11-13 sera. Il link al piano in `main` mostra il testo vecchio finché la regola non entra con la prossima PR di dati.
+> Ultimo aggiornamento: 2026-11-14 (ripartenza eseguita dopo la ristrutturazione). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). **Ripartire da «Dove siamo» e «Prossimi lavori»**, poi `IN-1352`.
 
 ## Dove siamo
 
@@ -64,7 +48,7 @@ Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu
 - **Ogni riepilogo** con gli URL locali o del sito delle schede toccate, forma `http://localhost:8001/search.html?lang=en&organization=IN-1318&organizationName=Palantir+Technologies` (server: `cd docs && python3 -m http.server 8001`).
 - **Agenti e ricerche web:** i risultati sono **proposte e dati**, non esiti. L'esito lo decide e lo firma Nelson (formula: «Nelson (proposto da agente Claude, approvato il AAAA-MM-GG)»). Un agente non scrive nel foglio né nel repo.
 - **Non cancellare** branch, stash o file senza ok. Risposte in italiano con gli accenti. Commit con `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>` e, per questo file, messaggio `docs(refactoringDB): update STATUS.md`.
-- **I numeri sullo stato di git hanno una scadenza** (piano §0.3): si rimisurano a inizio task. **In questo file non si scrivono SHA di `main`, numeri di PR in corso né conteggi del database**: per restare veri richiederebbero un'altra PR. Si scrive il comando che li misura (unica eccezione: il «Prompt di ripartenza», che si cancella dopo l'uso). **Prima di operare su `main`** controllare con git cosa contiene (`git log --merges --oneline main`): la PR #32 era in `main` senza voce nel registro (errore di processo, 2026-11-12).
+- **I numeri sullo stato di git hanno una scadenza** (piano §0.3): si rimisurano a inizio task. **In questo file non si scrivono SHA di `main`, numeri di PR in corso né conteggi del database**: per restare veri richiederebbero un'altra PR. Si scrive il comando che li misura. **Prima di operare su `main`** controllare con git cosa contiene (`git log --merges --oneline main`): la PR #32 era in `main` senza voce nel registro (errore di processo, 2026-11-12).
 - **Chiudere un lavoro = cancellarlo da qui**: una riga nel log (e la riga del piano, se c'è), e la voce sparisce da «Dove siamo» e «Prossimi lavori».
 
 ## Non verificato
@@ -123,7 +107,7 @@ Gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dr
 
 ## Session protocol
 
-- **A inizio sessione**: eseguire il «Prompt di ripartenza». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
+- **A inizio sessione**: leggere «Dove siamo» e «Prossimi lavori» e rimisurare lo stato con i comandi della sezione «Come si misura lo stato». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
 - **A inizio sessione, controllare anche `inbox/`** (ignorata da git, solo locale): se contiene file, leggerli e proporre dove spostarli (cartella o documento giusto), così che `inbox/` finisca vuota. Non spostare né cancellare nulla prima dell'ok.
 - **A fine sessione** (o dopo un progresso importante): aggiornare questo file (riscrivendo, non aggiungendo) e committare. Messaggio: `docs(refactoringDB): update STATUS.md`.
 - **Prima di ogni commit sui dati**: `python3 scripts/validate.py` deve passare. `issues.md` è ignorato da git (solo locale; scelta provvisoria).
