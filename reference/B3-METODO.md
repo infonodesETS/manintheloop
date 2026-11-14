@@ -2,6 +2,8 @@
 
 > Spostato da `STATUS.md` (stato `4c437bf`), testo invariato. Non è un punto di ripartenza: le informazioni qui possono essere datate. Prima di fidarsi di un numero o di un percorso, rimisurare.
 
+> **Rimandi superati in questo testo (nota del 2026-11-14, il testo sotto non è stato toccato):** il branch `dati/b3-unione-amd` non esiste più (PR #39 fusa e branch cancellato); «la lista (h) del prompt di ripartenza» e «da aggiornare, vedi prompt di ripartenza» non esistono più: i casi aperti di B3 sono in `STATUS.md`, «Prossimi lavori», e il foglio di controllo è già stato aggiornato (esiti e testi, 2026-11-13); i «Prossimi passi» in fondo sono in gran parte fatti. Valgono ancora: il metodo vincolante, la regola unica sulle classi, la tabella dei 10 casi.
+
 ## ⚠️ B3: PILOTA APPLICATO E IN `main` (PR #39, `1a041a9`); CONTROLLI A MANO DOPO IL RILASCIO (2026-11-13)
 
 **Branch di lavoro: `dati/b3-unione-amd`** (da `origin/main` `357507c`; **pushato e fuso da Nelson con la PR #39, `1a041a9`; branch remoto cancellato**; mai su `main` direttamente). Commit sul branch, nell'ordine: `7e0d164` script `scripts/merge_entities.py`; `73e9ea4` caso 1; `7b36ca8` ritocco script (blocco EDF più recente, `--rename`); `eaee57c` caso 4; `876964b` caso 2; `cf94fae` caso 7; poi i commit di documentazione (STATUS, log, piano, file in `work/`). **Rimisurare con git all'inizio** (`git log --oneline origin/main..HEAD`, `git status`, `python3 scripts/validate.py`): attesi 2582 entità (2574 attive, 8 lapidi: 4 vecchie + 4 di B3) e **3485 relazioni** (erano 3490: 5 relazioni EDF identiche tolte nel caso 4 e conservate in `preserved` nella `history` di `IN-0803`).
