@@ -513,3 +513,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Bozza provvisoria del metodo:** `reference/METODO-VERIFICA-WEB.md`, marcata «da confermare definitivamente». Decisione di Nelson: i test del metodo su casi reali in una fase successiva. Risposte di Exa del primo test in `work/verifica-web-test-2026-11-14-risposte.csv`.
 - **Non fatto:** nessuna modifica ai dati; profilo Crunchbase `alcoa-warrick-operations` non aperto (lo apre Nelson); foglio B3-11 da aggiornare (Alcoa Warrick LLC è di Kaiser dal 2021, fonte non ancora riletta oltre l'8-K); nessuna PR aperta per questo lavoro (la sola PR del giorno è la #43).
 - **Ripartenza:** Nelson interrompe la sessione; la sezione «Ripartenza» di `STATUS.md` dice cosa leggere, cosa misurare, cosa chiedere e il prossimo passo proposto (`IN-0863`).
+
+### 2026-11-14 (sera) — Verifica a freddo della sezione «Ripartenza» di `STATUS.md` e correzioni
+
+- **Verifica** (sola lettura, controllo di riferimenti e coerenza; **non** una lettura vera da parte di un'altra AI): percorsi, link, assenza di SHA, stato di git, controlli, chiave Exa. Regge. Errore mio di conteggio in chat: i commit non pushati erano 11, non 13 (la sezione non riportava il numero).
+- **5 lacune corrette:** (1) la voce «A inizio sessione» del Session protocol ora rimanda alla sezione «Ripartenza»; (2) rilettura e scrittura del foglio B3 con gli strumenti; (3) caso del branch assente o già fuso; (4) controllo di `inbox/` tra i passi; (5) percorsi completi e `scripts/check_docs.py` segnato come non ancora scritto. **Rimessa la domanda (f)**, tolta per errore e mai risposta; la (e) è chiusa.
+- **Non fatto:** il test a freddo con un agente senza contesto (serve l'ok di Nelson; la risposta «yes» era ambigua).
