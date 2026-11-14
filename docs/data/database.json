@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-13",
+  "_updated": "2026-11-14",
   "entities": [
     {
       "id": "IN-0001",
@@ -256535,7 +256535,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Mining",
           "country": "United States",
-          "tax_id": "81-1153200 (EIN)",
+          "tax_id": null,
           "main_focus": "Gallium",
           "wikipedia_url": null
         },
@@ -256647,6 +256647,15 @@
             "employees": null,
             "wikipedia_url": null
           }
+        },
+        {
+          "date": "2026-11-14",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "81-1153200 (EIN)",
+          "new": null,
+          "description": "EIN 81-1153200 senza fonte: viene dalla migrazione del 2026-03-07 (identità non verificata); Exa (2026-11-14) non lo associa ad alcuna società né trova l'EIN di Alcoa Warrick LLC in fonti primarie. Alcoa Corp ha 81-1789115 (non verificato). History e validation di IN-1352 lette prima."
         }
       ],
       "validation": [
@@ -256711,6 +256720,15 @@
           "description": "QID Q131884343 tolto: nella Wikidata e 'Alcoa Nederland'. Perche lo aveva: QID assegnato per ricerca il 2026-04-13 con etichetta e descrizione vuote; su Wikidata Q131884343 e' 'Alcoa Nederland' (istanza di organization, nessun sitelink), non Alcoa Warrick; la casa madre Alcoa Corp e' Q135325 (IN-0013). History e validation di IN-1352 lette prima. L'entita e: controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp. Alcoa Warrick LLC non risulta avere un QID proprio",
           "author": "patch_qid_removed.py",
           "datestamp": "2026-11-13"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "tax_id"
+          ],
+          "description": "EIN 81-1153200 senza fonte: viene dalla migrazione del 2026-03-07 (identità non verificata); Exa (2026-11-14) non lo associa ad alcuna società né trova l'EIN di Alcoa Warrick LLC in fonti primarie. Alcoa Corp ha 81-1789115 (non verificato). History e validation di IN-1352 lette prima.",
+          "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-14"
         }
       ],
       "tags": []

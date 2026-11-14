@@ -24,7 +24,7 @@ Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/S
 
 ## Prossimi lavori (ognuno con ok di Nelson, un passo alla volta)
 
-- **`IN-1352` Alcoa Warrick:** il QID è già stato tolto (PR #41, 2026-11-13); resta da verificare l'EIN 81-1153200 sulla scheda (l'agente non l'ha trovato; EIN di Alcoa Corp 81-1789115) e il profilo Crunchbase `alcoa-warrick-operations` (Crunchbase dà 403 ai nostri strumenti: serve un browser di Nelson). Se l'EIN è sbagliato: `scripts/patch_clear_infonodes.py` (dry-run, mostrare, `--history-letta --apply`, PR a parte).
+- **`IN-1352` Alcoa Warrick, residuo:** QID e EIN senza fonte sono già stati tolti (PR #41 e #43; vedi il log del 2026-11-14). Resta il profilo Crunchbase `alcoa-warrick-operations` (403 ai nostri strumenti: lo apre Nelson; `IN-0013` Alcoa ha il profilo `alcoa`): è lo stabilimento o la società? Poi, con ok, una `validation` `needs_review` sulla scheda e il testo del foglio B3-11 (Alcoa Warrick LLC è stata acquistata da Kaiser nel 2021: fonti da riaprire).
 - **41 entità attive con QID rimesso** (baseline `work/qid-rimessi-noti.json`): caso per caso, a gruppi piccoli; lo stesso metodo di `IN-1352` (verificare l'etichetta del QID su Wikidata prima di tutto: due errori su tre trovati finora avevano etichetta vuota o della madre).
 - **4 controlli a mano della Release 1** (`work/controlli-release1/foglio-4-controlli.csv`): li compila Nelson, servono prima di B5.
 - **Casi aperti di B3** (MBDA España `IN-0863`, `IN-0683`/`IN-1553` non toccare, Ericsson B `IN-0123`, Grupo Mexico B `IN-0151`, Samsung Non Voting Pref `IN-0313`, `IN-1352` residuo); chiave Exa da rigenerare a B3 finita; nome «IDV Defence Vehicles Italia» da riverificare su GLEIF (il cambio di nome è del 2026-08-07 per GLEIF, vedi B3-04 sul foglio); `search_missing_qids.py` ha ora la guardia sui QID tolti, ma non va lanciato senza controllare le lapidi.
@@ -54,7 +54,7 @@ Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu
 
 ## Non verificato
 
-**Non verificato al momento della scrittura:** tipo di merge delle PR #39, #40, #41 («Create a merge commit»?) e se la nota O1 era nelle PR; ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; EIN e profilo Crunchbase di `IN-1352`; profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
+**Non verificato al momento della scrittura:** tipo di merge delle PR #39, #40, #41 («Create a merge commit»?) e se la nota O1 era nelle PR; ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; profilo Crunchbase di `IN-1352` (403); profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
 
 ## ⚠️ Letture obbligatorie (per tipo di lavoro)
 
