@@ -521,3 +521,32 @@ From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` v
 - 411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
 - Optional: run `reprocess_skipped_qids.py` again for any remaining matches
 
+---
+
+> Aggiunto il 2026-11-14: ex «Current DB state» di `STATUS.md` (valori al 2026-10-24 circa, non aggiornati; conteggi e righe «retired» superati: rimisurare con `validate.py`).
+
+## Current DB state
+
+> Exact counts change as data evolves — run `python3 scripts/validate.py` and the enrichment analysis script for live figures.
+
+| Aspect | Status |
+|---|---|
+| Schema | 3.0 |
+| Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
+| Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
+| Last validate.py | PASSED (2026-10-24) — 2582 entities, 3490 rels (unchanged since the 2026-10-19 EDF refresh) |
+| iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
+| EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
+| Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `work/crunchbase/CYCLE2.md` |
+| Wikidata coverage | IN entities: partial (many EDF SMEs absent from Wikidata) · IV entities: fully enriched for all QID-bearing |
+| QID pipeline | All proposals reviewed; remaining skipped entries are EDF SMEs genuinely absent from Wikidata |
+| validation: cb_wrong_entity | 5 remaining — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft |
+| validation: cb_hq_mismatch_subsidiary | Several — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, etc.) |
+| validation: wikidata_country_corrected | 4 entities where WD P17 was wrong and nulled (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) |
+| retired entities | IN-1282 Fortescue Metals Group — duplicate of IN-0133 |
+
+---
+
+> Aggiunto il 2026-11-14: paragrafo «Regola (piano §0.3)» di `STATUS.md`, con l'elenco delle PR fuse fino alla #39 (storico; la regola è ora in «Regole che valgono sempre»).
+
+**Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14`, #37 `f9a00db`, #38 `357507c`, #39 `1a041a9` (il #33 è un'issue). Il registro può essere indietro di una PR: contare sempre con `git log --merges`.
