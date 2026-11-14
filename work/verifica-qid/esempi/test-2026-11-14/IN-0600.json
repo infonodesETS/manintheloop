@@ -1,0 +1,42 @@
+{
+  "entity_id": "IN-0600",
+  "entity_name": "Damen Research Development Innovation",
+  "qid": "Q950580",
+  "wikidata_label": "Damen Group",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "shipbuilding company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q950580 is Damen Group (Damen Shipyards Group), the shipbuilding corporate group (P31: corporate group, organization). The card is Damen Research Development & Innovation B.V., a separate Dutch B.V. (KvK 84607343) owned by Damen Supporting Services Holding B.V.",
+  "entity_is": "Damen Research Development & Innovation B.V., private limited company (B.V.), Avelingen-West 20, 4202 MS Gorinchem, Netherlands; R&D arm of the Damen Shipyards Group; owned by Damen Supporting Services Holding B.V.",
+  "identifiers": [
+    {
+      "type": "KvK",
+      "value": "84607343",
+      "source_url": "https://www.northdata.com/Damen%20Research%20Development%20&%20Innovation%20B%C2%B7V%C2%B7,%20Gorinchem/KVK%2084607343"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "The entity is a separate B.V. with KvK number 84607343 in Gorinchem",
+      "url": "https://www.northdata.com/Damen%20Research%20Development%20&%20Innovation%20B%C2%B7V%C2%B7,%20Gorinchem/KVK%2084607343",
+      "phrase": "Kamer van Koophandel 84607343",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "The entity is owned by Damen Supporting Services Holding B.V., i.e. it is a subsidiary, not the group",
+      "url": "https://companyinfo.nl/organisatieprofiel/natuurwetenschappelijk-onderzoek-en-experimentele-ontwikkeling/damen-research-development-innovation-b-v-gorinchem-84607343-000050717324",
+      "phrase": "Damen Supporting Services Holding B.V.",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "The entity is the central R&D arm of the group, not the group itself",
+      "url": "https://marconnect-project.eu/meet-the-partner-damen-rdi/",
+      "phrase": "the central R&D arm of the Damen Shipyards Group",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0599"
+  ],
+  "notes": "Exa /answer cited the KvK number from aggregators (North Data, Company.info), not from the KvK registry itself, so evidence is secondary. The QID was removed on 2026-04-23 (manual patch, note: subsidiary) and re-added on 2026-06-18 by search_missing_qids.py (same search name, human-reviewed via qid_candidates.json), so the same error recurred. IN-0599 shares the QID; not assessed. Crunchbase block (damen-shipyards, 'Damen Shipyards Group consists of 32 operating companies') describes the group, not this B.V.; likely a wrong profile for this card. EDF PIC 888269353, Gorinchem, www.damen.com."
+}

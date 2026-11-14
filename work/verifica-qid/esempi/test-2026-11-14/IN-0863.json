@@ -1,0 +1,42 @@
+{
+  "entity_id": "IN-0863",
+  "entity_name": "Mbda Espana Sl",
+  "qid": "Q131887361",
+  "wikidata_label": "MBDA Italia SpA",
+  "wikidata_label_lang": "mul",
+  "wikidata_description": "organisation in Italy (Arabic description only: منظمة في إيطاليا)",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q131887361 is labelled 'MBDA Italia SpA' (language mul), with P17 Italy and EU Transparency Register ID 646563537295-46. The card is MBDA Espana, S.L., a Spanish limited company in Madrid (CIF B86093689), a different entity.",
+  "entity_is": "MBDA Espana, S.L., Sociedad de Responsabilidad Limitada, Madrid, Spain, CIF B86093689, incorporated 2010-12-03, Spanish subsidiary of the MBDA group.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "CIF B86093689",
+      "source_url": "https://www.infoempresa.com/en-in/en/company/mbda-espana-sl"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Spanish tax ID (CIF) of MBDA Espana S.L.",
+      "url": "https://openmercantil.es/empresa/mbda-espana-sl",
+      "phrase": "B86093689",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Legal form is Sociedad de Responsabilidad Limitada",
+      "url": "https://www.infoempresa.com/en-in/en/company/mbda-espana-sl",
+      "phrase": "Legal Form Sociedad de Responsabilidad Limitada",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Registered in the Mercantile Registry of Madrid",
+      "url": "https://www.infoempresa.com/en-in/en/company/mbda-espana-sl",
+      "phrase": "The company is registered in the Mercantile Registry of Madrid",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0865"
+  ],
+  "notes": "Wikidata item has only a 'mul' label 'MBDA Italia SpA' and an Arabic description (no en, nl, it, es label); P31 = organization (Q43229), P17 = Italy (Q38), P856 = https://www.mbda-systems.com/, P2657 = 646563537295-46 with qualifier 'MBDA Italia SpA' (reference lobbyfacts.eu mbda-italia-spa). IN-0865 is 'Mbda Italia' (Italy, PIC 990040007) and is the likely true owner of the QID. History: the QID was set 2026-04-13, removed 2026-04-23 (manual patch, 'not found in Wikidata, both MBDA entities are subsidiaries'), set again 2026-06-18 via search_missing_qids.py; the card's stored wikidata block shows country Italy. Sources are aggregators of BORME (secondary); the BOE PDF and MBDA legal-information page cited by Exa were not reopened. Exa also listed an unrelated URL (empresite BALSIQUIA) which was ignored. Card has crunchbase null; the EDF web_link points to the group site, not a Spanish-specific site."
+}

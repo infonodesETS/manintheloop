@@ -75,6 +75,48 @@ Nuove fonti (portale **SEC / EDGAR**) e nuovi tipi di dati. **Spec completa e sc
 
 ---
 
+## Da fare — Dati aperti (spostati da `STATUS.md`, 2026-11-14)
+
+> Voci riprese dal vecchio «Completed work»/«Pending work» di `STATUS.md` (ora in `reference/STORIA-LAVORI.md`). Le cifre sono del 2026-11-14 dove dichiarato; altrimenti quelle del testo originale, da rimisurare.
+
+| Voce | Note |
+|---|---|
+| `patch_iv_countries_p159.py` da rilanciare | 23 investitori con QID e senza paese (misurato 2026-11-14, come nel TODO del 2026-06-18). Script di rete: prima `--dry-run`, endpoint SPARQL stabile; poi `validate.py` |
+| Investitori senza paese | 319 investitori attivi senza paese (misurato 2026-11-14; il testo di aprile diceva 211). Quasi tutti senza QID: fondi regionali e persone |
+| Crunchbase Cycle 3 | `python3 scripts/regenerate_export.py`, poi riupload per le aziende ancora senza dati Crunchbase (circa 237 secondo il testo di aprile, da rimisurare); 38 non risolte del Cycle 2 in `work/crunchbase/unresolved_2026-04-24.csv`; processo in `work/crunchbase/CYCLE2.md` |
+| QID: 411 voci saltate | Per lo più PMI EDF assenti da Wikidata o nomi iShares troncati; opzionale rilanciare `reprocess_skipped_qids.py` |
+| 7 entità nuove forse controllate di esistenti | Dal refresh EDF del 2026-10-19, non verificate: Sopra Steria Belgium (~IN-1078), E4 Defense Systems SL (~IN-1242, probabilmente sbagliato), Central Space Agency (~IV-0572, probabilmente sbagliato), Rolls-Royce Solutions GmbH (~IN-1328), Kongsberg Maritime Sweden AB (~IN-0828), Decent Cybersecurity Ireland (~IN-0614), Dassault Systèmes UAB (~IN-0105). **Messe qui come stanno, senza controllo** |
+| Nuove entità EDF da arricchire | Le entità create dal refresh del 2026-10-19 non hanno ancora QID, Crunchbase, sito |
+| Mappa EU Funding con i nuovi progetti | Non verificato che `docs/index.html` mostri i progetti EDF aggiunti il 2026-10-19 |
+| 23 entità MINTL con `roles: ['manufacturer']` | `IN-1449`–`IN-1471` (State Street `IN-1468` già corretta a `investor`): alcune sono solo software o AI, «review needed» |
+
+---
+
+## ⚠️ PRIORITÀ — da cercare (EU Funding map)
+
+La mappa EU Funding (`docs/index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
+
+| Strumento | Stato nella mappa |
+|---|---|
+| EDF | attivo |
+| HORIZON | work in progress → **da cercare** |
+| PESCO | work in progress → **da cercare** |
+| EDIP | work in progress → **da cercare** |
+| EUDIS | work in progress → **da cercare** |
+| EIF | work in progress → **da cercare** |
+| DIANA | work in progress → **da cercare** |
+| NIF | work in progress → **da cercare** |
+
+**Search keywords** (per filtrare i bandi/progetti HORIZON che interessano):
+
+autonomous weapons, unmanned, UAV, UAS, drone, FPV, VTOL, UGV, USV, UUV, AUV, robotic combat vehicle, unmanned ground vehicle, unmanned surface vessel, loitering munition, kamikaze drone, collaborative autonomy, MUM-T, automatic target recognition, ATR, target acquisition, targeting, kill chain, sensor-to-shooter, terminal guidance, autonomous navigation, GPS-denied, GNSS-denied, visual navigation, last-mile autonomy, fire control, weapon system, engagement, counter-UAS, C-UAS, counter-drone, interceptor, artificial intelligence, AI, machine learning, deep learning, neural network, computer vision, object detection, object recognition, image recognition, edge AI, edge computing, sensor fusion, data fusion, multi-sensor, decision support, decision advantage, surveillance, defense, defence, military, warfighter, battlefield, combat, tactical, lethality, command and control, C2, C4ISR, C5ISR, ISR, intelligence surveillance reconnaissance, situational awareness, battle management, common operating picture, mission planning, reconnaissance, persistent surveillance, wide-area, border security, border control, electronic warfare, EW, jamming, signal intelligence, SIGINT, dual-use, dual use
+
+Testo di presentazione della mappa (così com'è oggi, da tenere allineato quando i selettori si attivano):
+
+> This map shows the European funding for weapons development granted to individual EU States and, in detail, to which of their companies, universities or other public and private entities. The diameter of each circle is proportional to the total funding received by the State. Clicking on the circle for a country opens the list of all the individual entities that have received European funding, with the amount each one received. You can click on the name of any entity to open its detail page, containing all the information we have been able to collect. Using the selectors, you can choose to view all types of European public funding (EDF, Horizon, PESCO, etc.) or only the one(s) you are interested in.
+
+---
+
 ## Fase 2 — Chatbot
 
 ✅ **Fatto** (2026-08-21). MARLA interroga il database su `https://marlamag.vercel.app/dati/`,

@@ -1,0 +1,42 @@
+{
+  "entity_id": "IN-0865",
+  "entity_name": "Mbda Italia",
+  "qid": "Q131887361",
+  "wikidata_label": "MBDA Italia SpA",
+  "wikidata_label_lang": "mul",
+  "wikidata_description": "",
+  "verdict": "keep_qid",
+  "verdict_reason": "Q131887361 is labelled 'MBDA Italia SpA' (language 'mul'; en/nl/it requests return empty because the label is only in 'mul'), P31 organization, country Italy, i.e. the same entity as the card: MBDA Italia S.p.A., Rome, wholly owned by MBDA SaS.",
+  "entity_is": "MBDA Italia S.p.A., societa per azioni, registered office Via Monte Flavio 45, 00131 Roma, REA RM-983961, VAT 06700621003, share capital EUR 120,000,000; sole shareholder is the French holding MBDA SaS (the group is owned by BAE Systems 37.5%, Airbus 37.5%, Leonardo).",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "REA RM-983961 / P.IVA 06700621003",
+      "source_url": "https://www.aziende.it/mbda-italia-s-p-a"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Italian company identifiers, legal form and registered office",
+      "url": "https://www.aziende.it/mbda-italia-s-p-a",
+      "phrase": "P.IVA 06700621003 REA RM-983961",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Registered office of MBDA Italia",
+      "url": "https://www.mbda-systems.com/country-it/sito-di-roma",
+      "phrase": "Sede legale:",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "MBDA Italia is wholly owned by the holding MBDA SaS (it is a subsidiary, not the group parent)",
+      "url": "https://www.mbda-systems.com/country-it/media/26160/download",
+      "phrase": "that is the sole  shareholder of MBDA Italia",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0863"
+  ],
+  "notes": "The label exists only in language 'mul' and is 'MBDA Italia SpA' (an en|nl|it query shows it empty); the only description is Arabic ('organization in Italy'). The item has no sitelinks and no P159. Its P856 is the group site and it has an EU Transparency Register number (646563537295-46) not checked against the register: not enough to say it is the group. Earlier note: the website P856 and an EU Transparency Register number (646563537295-46) that I did not check against the register. History: QID set 2026-04-13, nulled 2026-04-23 ('not found in Wikidata'), re-applied 2026-06-18 via search_missing_qids.py; the record currently has the QID again. IN-0863 (Mbda Espana Sl) shares the same QID. Crunchbase block is null. EDF website is the group site. The 2026-04-23 null ('not found in Wikidata') was probably caused by the label being only in 'mul'; the stored sources.wikidata block has label null for the same reason. Exa /answer returned the registry data; the Registro Imprese itself was not reached (aggregator only)."
+}

@@ -1,97 +1,86 @@
 # refactoringDB — Project Status
 
-> Authoritative resume point for AI-assisted work.
-> Last updated: 2026-11-13 sera (ripartenza eseguita). `origin/main` = `ac78b5a` (PR #42 fusa; prima #39 `1a041a9` e #41 `1565fae` di B3, #40 `61812b0` solo documentazione). Foglio di controllo compilato con gli esiti A/B approvati da Nelson; QID di `IN-1352` tolto. DB su `main`: 2582 entità (2569 attive, 13 lapidi), 3485 relazioni. **Ripartire dalla sezione «Ripartenza eseguita» qui sotto e dal punto (1)**
+> Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
+> Ultimo aggiornamento: 2026-11-14 (sera, prima di interrompere la sessione). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). **Ripartire dalla sezione «Ripartenza» qui sotto** (da cancellare dopo l'esecuzione), poi «Dove siamo» e «Prossimi lavori».
 
-## ⚠️ PROSSIMO PASSO — leggere prima di tutto
+## ⚠️ Ripartenza dopo la sessione del 2026-11-14 (cancellare questa sezione dopo l'esecuzione)
 
-**B1 e B2 sono chiusi e in `main`.** B1: PR #34 (`78d67f5`), schema e `validate.py`. B2: PR #36 (`fc38f14`), merge di `v.2026-c` con i dati SEC 2026-10-17, `tmp/sec-test/` e `scripts/export_labelling_sheets.py`; conflitti risolti `.gitignore` e `ROADMAP.md`; `docs/dev-v2026c-sec.md` spostato in `reference/`. **Verificato sul sito vivo il 2026-11-12:** `/rawdata/sec-edgar/…`, `/docs/dev-v2026c-sec.md`, `/reference/…`, `/tmp/sec-test/…`, `/scripts/…`, `/STATUS.md` danno 404; home, `data/database.json`, `data/mitl-index.json` danno 200; 27/27 file di `docs/` con hash uguale a `main`. Dettagli nel [log](reference/LOG-RIORGANIZZAZIONE.md).
+Nelson interrompe la sessione per azzerare il contesto (era all'81%): chi legge parte da zero. **Fare, nell'ordine:**
 
-**B4 è chiuso e in `main`** (PR #38, `357507c`, 2026-11-12): i 3 file di `tmp/sec-test/` leggevano il vecchio percorso del database, corretto; script provati in una copia, output identici a quelli nel repo; **controlli manuali aperti: 143 su 143** (calcolati dal CSV `controlli-manuali.csv`, colonne `esito` e `nota` vuote).
+1. **Leggere** `~/.claude/CLAUDE.md` e questo file per intero; `reference/METODO-AGENTICO.md` e `reference/METODO-VERIFICA-WEB.md` (bozze provvisorie); `work/verifica-qid/ISTRUZIONE-AGENTE.md` e `work/verifica-qid/check_risultato.py` (intestazione e regole). Piano e log (`reference/PIANO-RIORGANIZZAZIONE.md`, `reference/LOG-RIORGANIZZAZIONE.md`, con `allow_large`) sono lunghi: leggere **per intero il piano**, e del log **almeno la voce «2026-11-14 (sera, seconda parte)» (in fondo) e le eventuali voci successive**; dire nel riassunto cosa non è stato letto.
+2. **Rimisurare** in sola lettura i comandi di «Come si misura lo stato». Atteso, **da verificare**: branch `docs/stato-ripartenza-eseguita` con commit di sola documentazione non pushati (`git log --oneline origin/main..HEAD`); `main` allineata a `origin/main` (ultimo merge: PR #45); su GitHub solo `main` e `v.2026-c`; branch locali da non toccare: `main`, `v.2026-c`, `archivio/locale-2026-11-10`, `docs/stato-pre-ripartenza`; `stash@{0}` non toccare. L'hook di avvio può dire «Pull non riuscito» se il branch non ha remoto: normale. Branch locali già cancellati con ok di Nelson il 2026-11-14 (fusi): `dati/qid-mbda-espana`, `dati/qid-damen`. **Il branch di documentazione è stato allineato con `origin/main` il 2026-11-14 (merge `35e024f`, senza conflitti).** Da verificare: `git rev-list --left-right --count origin/main...HEAD` deve dare `0 N` (nessun commit mancante) e `git merge-base --is-ancestor origin/main HEAD` deve riuscire. Se invece `origin/main` è avanti (altre PR fuse nel frattempo), il branch è indietro: `validate.py` mostra il controllo 12 con più casi e `check_b3_branch.py` dà errori che non sono dei dati; allineare con un merge (ok di Nelson) prima di misurare. Sul branch allineato i numeri attesi erano: controllo 12 = 38 casi noti da rivedere, 3 risolti; `check_b3_branch.py` superato (0 entità cambiate). Controllare `inbox/` (se contiene file, proporre dove spostarli; nulla prima dell'ok).
+3. **Fatto il 2026-11-14:** PR #43 (`IN-1352`, `tax_id`), #44 (`IN-0863`), #45 (Damen e nota su `IN-1352`) fuse; foglio B3-11 e B3-09 aggiornati; Wsense verificato con Exa (nessuna scrittura nel DB); metodo agentico provato su 3 schede già trattate; regola sulla lingua di `history` e `validation` (inglese) in `UPDATE_PROTOCOL.md`.
+4. **Chiedere a Nelson** (non assumere), tutte insieme: (a) quali schede del gruppo A prendere per il pilota (l'AI propone 5-6 con nome, QID ed etichetta Wikidata, scelte nel gruppo A di `work/verifica-web-test-2026-11-14.md`, **escluse le già trattate `IN-0599`, `IN-0600`, `IN-0863`, `IN-0865`, `IN-1352`**: quel file non segna quali sono state trattate; meglio una scheda per QID, per non averne due con lo stesso codice); (b) se aprire ora la PR di sola documentazione con i commit non pushati (oggi sarebbe la quarta PR della giornata dopo #43, #44, #45: dirlo) o a fine giornata; (c) i 4 controlli a mano della Release 1 sono compilati? (ultimo stato registrato nel log: no) (d) il profilo Crunchbase `alcoa-warrick-operations` è già stato letto con Claude in Chrome il 2026-11-14 (log): Alcoa Warrick LLC, sub-organization di Alcoa, acquisita da Kaiser (annuncio 2020-11-30); la nota è già sulla scheda `IN-1352` (`validation`, PR #45). Resta da decidere con Nelson se la scheda descrive ancora Alcoa (nome, sito, paese) e se va corretta (e) vuole che si scriva `scripts/check_docs.py`? (a cosa serve: avvisa quando `STATUS.md` e `SCRIPTS.md` citano percorsi, script o branch che non esistono più, sezioni mancanti o SHA scritti nel testo; solo avvisi, non blocca; file non ancora scritto).
+5. **Riassumere** in 5-8 righe **con i file letti e le righe, e cosa NON è stato letto**, e **fermarsi in attesa dell'ok**. Dopo l'ok: cancellare questa sezione, aggiornare la riga «Ultimo aggiornamento» e committare con `docs(refactoringDB): update STATUS.md` **sul branch `docs/stato-ripartenza-eseguita`** (mai su `main`). **Se quel branch non esiste più o è già stato fuso** (dopo `git fetch --prune` lo dicono `git branch --list`, `git ls-remote --heads origin` e il controllo `git merge-base --is-ancestor <branch> origin/main`: `git log --merges` da solo non basta, mostra le PR ma non dice se il branch è già dentro), non forzare: allineare `main` con `--ff-only`, creare un branch nuovo da `origin/main` e dirlo a Nelson.
 
-## ⚠️ Ripartenza eseguita il 2026-11-13 (sera)
+**Per il pilota** (dopo l'ok): lanciare gli agenti con `work/verifica-qid/ISTRUZIONE-AGENTE.md` (uno per scheda, in parallelo, sola lettura; non lanciare agenti senza l'ok di Nelson), rilanciare **personalmente** `check_risultato.py` sui file, verificare con `git status` che gli agenti non abbiano scritto altro, riferire a Nelson una tabella con verdetto, prove e esito del controllo, e solo con il suo ok applicare le patch (dry-run, `--history-letta --apply`, un commit per scheda, una PR per gruppo). Testi in `history` e `validation` **in inglese**.
 
-Misurato: `origin/main` = `ac78b5a` (merge della PR #42 `docs/foglio-controllo-b3`, fusa; branch locale omonimo non più presente); `validate.py` PASSED 2582/3485; `check_b3_branch.py` superato (0 differenze). Foglio di controllo (id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`): colonne L-P uguali agli esiti approvati il 2026-11-13; condivisione «chiunque ha il link» = **Lettore** (Editor: account `ddelmonte79`; proprietario Nelson). **Non risposte da Nelson (da richiedere):** PR #42 fusa da lui e tipo di merge; modifiche di terzi al foglio; ruolo desiderato per il link; compilazione dei 4 controlli Release 1. Testi del foglio ancora da correggere (vedi punto (1) sotto), solo con ok di Nelson. Backup del foglio: `~/Coding/infonodes/Manintheloop-backup-2026-11-10/foglio-controllo-b3-2026-11-13/` (stato prima delle compilazioni L-P).
+## Dove siamo
 
-**Poi, nell'ordine del piano (ognuno con ok di Nelson, un passo alla volta):**
-
-- **(1) FATTO il 2026-11-13 sera, con ok di Nelson: testi del foglio corretti** (celle `Controlli!D5`, `K5`, `K10`, `N10`, `D11`, `N11`, `B12`, `D12`, `G12`, `K12`, `N12`, riletto con `get_values`; esiti L-M, «Controllato da» e data non toccati; la nota `N5` di B3-04 non toccata; backup non aggiornato; aspetto nel browser non verificato). Restano: Nelson riesamina «Dubbia»/«Dubbio»; B3-09: decidere se il DB deve rappresentare l'acquisizione di Wsense. Testo originale del punto, tenuto per riferimento: (solo con ok): B3-11 non è più «Nessuna modifica» (QID tolto con la #41, PR da citare); B3-04: GLEIF registra il cambio di nome il 2026-08-07, non il 2026-01-28 di lei.report (nome attuale «IDV DEFENCE VEHICLES ITALIA S.P.A.», precedente «IVECO DEFENCE VEHICLES S.P.A.», capogruppo diretta Leonardo); B3-09: l'acquisizione di Wsense (61,95%, SPV, con condizioni) è riportata da startupbusiness.it del 2026-07-07, il testo «non confermata da altre fonti» va corretto, e resta da decidere se il DB debba rappresentarla; B3-10: sulla scheda `IN-1290` il sito non c'è (il link viene da Crunchbase), il testo «sito, settore e paese restano» va corretto; il profilo Crunchbase abbinato è una divisione di HII, non verificato. Poi Nelson riesamina «Dubbia»/«Dubbio». Aggiornare anche il backup solo se Nelson lo chiede (non sovrascriverlo: la copia di partenza resta com'è).
-- **(2) `IN-1352` Alcoa Warrick, residuo:** l'EIN senza fonte è stato tolto (vedi il log del 2026-11-14). Resta il profilo Crunchbase `alcoa-warrick-operations` (403 ai nostri strumenti: lo apre Nelson; `IN-0013` Alcoa ha il profilo `alcoa`): è lo stabilimento o la società? Poi, con ok, una `validation` `needs_review` sulla scheda e il testo del foglio B3-11 (Alcoa Warrick LLC è stata acquistata da Kaiser nel 2021: fonti da riaprire).
-- **(3) Punto (c): 41 entità attive con QID rimesso** (baseline `work/qid-rimessi-noti.json`): caso per caso, a gruppi piccoli; lo stesso metodo di `IN-1352` (verificare l'etichetta del QID su Wikidata prima di tutto: due errori su tre trovati finora avevano etichetta vuota o della madre).
-- **(4) Punto (e): 4 controlli a mano della Release 1** (`work/controlli-release1/foglio-4-controlli.csv`): li compila Nelson, servono prima di B5.
-- **(5) Punto (h):** casi aperti di B3 (MBDA España `IN-0863`, `IN-0683`/`IN-1553` non toccare, Ericsson B `IN-0123`, Grupo Mexico B `IN-0151`, Samsung Non Voting Pref `IN-0313`, `IN-1352` residuo); chiave Exa da rigenerare a B3 finita.
-- **(6) B5, import Release 1** (scadenza del 2026-11-15; **la scadenza non è un criterio**, criteri: qualità dei dati, nessuna perdita, impatto su DB e sito). Prima delle letture obbligatorie per B5 (sezione «LETTURA OBBLIGATORIA», punto 3): `S3`-`S7` per intero, `SCHEMA.md` (sezione *Relationships*), `validate.py` controllo 11; dry-run approvato prima di qualunque scrittura; PR aperta con dry-run approvato = consegna.
-
-**Regole che valgono sempre (promemoria):** **quante PR (Nelson, 2026-11-13; testo in piano §0.3): documenti nella PR del lavoro a cui si riferiscono, PR di sola documentazione solo a fine giornata o se serve a un altro, dati una PR per caso o gruppo piccolo omogeneo, e prima di proporre una PR dire quante già aperte oggi;** domande → rispondere e fermarsi; niente push né modifiche su `main`; push e PR li fa Nelson (`gh` non c'è): dare titolo e descrizione in testo semplice tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE»; per ogni modifica ai dati: dry-run, history e validation lette, ok, `--history-letta --apply`, `validate.py`, `check_b3_branch.py`, un commit per caso; ogni riepilogo con gli URL locali o del sito delle schede toccate; i risultati di agenti e di ricerche web sono **proposte e dati**, non esiti: l'esito lo decide e lo firma Nelson (formula usata: «Nelson (proposto da agente Claude, approvato il AAAA-MM-GG)»); un agente non scrive nel foglio né nel repo; non cancellare branch, stash o file senza ok.
-
-**Non verificato al momento della scrittura:** tipo di merge delle PR #39, #40, #41 («Create a merge commit»?) e se la nota O1 era nelle PR; ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; EIN e profilo Crunchbase di `IN-1352`; profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
-
-## Cose da fare (ordine proposto; ognuna con ok di Nelson). Stato al 2026-11-13: (a) e (b) fatti
-
-(a) **FATTO il 2026-11-13: PR #39 di B3 fusa in `main`** (merge `1a041a9`; fusa da Nelson dal web; se con «Create a merge commit» e se nella PR è scritto che non c'è stata revisione di Andrea e Davide, O1: **non verificato da me**). Verificato dopo il merge: `validate.py` PASSED 2582/3485; `docs/data/database.json` e `docs/data/mitl-index.json` sul sito vivo con sha256 uguale a `main`; 6 pagine e `data/mitl-index.json` 200; nel merge nulla sotto `docs/web`, `mitl-index.json` non toccato. **Foglio:** condiviso da Nelson con «chiunque ha il link» (Drive lo segna `UNLISTED`; il ruolo, Visualizzatore o Editor, non è verificato da me). **Copia di sicurezza dei valori** (scheda «Controlli» e «Legenda», letta con `get_values` il 2026-11-13 prima di modifiche altrui; non è un export byte per byte: niente formattazione, menu, colori, link cliccabili) in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/foglio-controllo-b3-2026-11-13/foglio-controlli-b3.json` (fuori dal repo, sola lettura, sha256 in `SHA256SUMS` nella stessa cartella). Da usare per confrontare il foglio quando sarà compilato: ogni cella di Esito, Nota, Controllato da e Data cambiata rispetto alla copia è una compilazione. Un agente di sola lettura ha proposto gli esiti A e B (vedi log del 2026-11-13); **Nelson li ha approvati e li ho scritti nel foglio il 2026-11-13** (colonne L-P: «Corretta»/«Corretto» su B3-01, 02, 03, 05, 06, 07, 08, 09; «Dubbia»/«Dubbio» su B3-04 (data del cambio di nome IDV), B3-10 (sito assente e profilo Crunchbase), B3-11 (QID, ora tolto); «Controllato da»: «Nelson (proposto da agente Claude, approvato il 2026-11-13)»). **Da fare sul foglio, con ok di Nelson:** aggiornare la riga B3-11 (il QID è stato tolto, non è «nessuna modifica») e correggere i testi di B3-04 (data 2026-08-07 di GLEIF), B3-09 (acquisizione di Wsense riportata da startupbusiness.it) e B3-10 («il sito resta» non è vero sulla scheda). **Restano:** i controlli A e B sul foglio; se l'esito è «Sbagliata»: nuova PR di correzione o revert della #39. Il branch locale `dati/b3-unione-amd` si cancella con `git branch -d` solo con ok di Nelson.
-(b) **FATTO il 2026-11-13, sullo stesso file, riletto con `get_values` e con la lettura della griglia** (nuova colonna G «Cosa c'era sulla scheda ritirata», dati ricavati dalla scheda su `origin/main`; testi di «Come si controlla» e «Legenda» passati a «dopo il rilascio»; nuova riga «Se l'esito è Sbagliata»; riga B3-10 aggiornata con i campi `infonodes` tolti; formule di avanzamento ora su L e M, menu a tendina spostati, 11/11/0/11/0 corretti). **Non verificati:** larghezze e aspetto nel browser, link cliccabili; la condivisione resta a Nelson. Testo originale del punto: **Foglio di controllo** (https://docs.google.com/spreadsheets/d/1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c/edit , id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`): va aggiornato **sullo stesso file** (stesso link). Serve il connettore Google Sheets: il 2026-11-13 nella sessione c'erano solo gli strumenti Drive (che non modificano); verificare con ToolSearch «google sheets update», altrimenti dire a Nelson di abilitarlo (`/mcp` o riavvio) e **non** creare un secondo file. Regole di modifica: skill `anthropic-skills:google-workspace` e `references/sheets.md` (field mask senza parentesi, indici da 0, apice `'` per il testo). Da cambiare: (1) la scheda «Come si controlla» e la «Legenda» dicono che il controllo A si fa «prima della pubblicazione» e che i dubbi bloccano la pubblicazione: **non è più vero**, si controlla dopo il rilascio; (2) nuova colonna «Cosa c'era sulla scheda ritirata» nella scheda «Controlli»; (3) una riga su cosa fare se l'esito è «Sbagliata»: correggere con una nuova PR o con un revert della PR di B3. Nelson condivide il foglio da sé con chi controlla (ha un account Google). Poi rileggere il foglio via Drive per verificare.
-(c) **41 entità attive con QID rimesso** (vedi «Scoperta del 2026-11-13» sotto): lavoro a parte, caso per caso.
-(d) **Reindirizzamento dalle lapidi** sul sito (`docs/web/app.js` righe 90-94): decisione separata, è una modifica al sito.
-(e) **4 controlli a mano della Release 1** (`work/controlli-release1/foglio-4-controlli.csv`): li compila Nelson; servono prima di B5.
-(f) **B5** (import Release 1) dopo B3; front-end adattato nella stessa PR dei dati.
-(g) **Chiave Exa** in `~/.config/infonodes/exa.env`: Nelson la rigenera a B3 finita; non stamparla mai.
-(h) Altri aperti di B3: MBDA España `IN-0863` (paese Wikidata errato), `IN-0683` e `IN-1553` (Fincantieri, non toccare), Ericsson B `IN-0123`, Grupo Mexico B `IN-0151`, Samsung Non Voting Pref `IN-0313`; nome «IDV Defence Vehicles Italia» da riverificare su GLEIF; `IN-1352`: QID tolto con la PR #41, restano da verificare EIN e profilo Crunchbase (vedi tabella dei casi); `search_missing_qids.py` può ancora proporre un QID a `IN-1290` (ora bloccato dalla guardia, ma non lanciarlo senza controllare le lapidi); `docs/data/mitl-index.json` NON va rigenerato senza decisione separata e avviso a Davide.
-
-**Regole di Nelson sempre valide:** se il messaggio contiene domande, rispondere e fermarsi; testi da inviare in testo semplice (niente markdown) tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE»; risposte in italiano con gli accenti; commit con `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`; mai push né modifiche su `main`; in ogni riepilogo gli URL locali delle schede, forma `http://localhost:8001/search.html?lang=en&organization=IN-1318&organizationName=Palantir+Technologies` (server: `cd docs && python3 -m http.server 8001`); per ogni unione leggere prima history e validation di entrambe, dry-run, mostrare, `--history-letta --apply` solo dopo l'ok, `validate.py`, un commit per caso.
-
-## ⚠️ Scoperta del 2026-11-13: 41 entità ATTIVE con QID tolto il 2026-04-23 e rimesso il 2026-06-18
-
-Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu rimesso il 2026-06-18 da `search_missing_qids.py --apply` (le voci `accepted` di `work/qid_candidates.json` erano più vecchie della rimozione). Esempi: i quattro «Airbus Defence And Space», Beyond Gravity Austria e Svezia, MBDA España `IN-0863` e Italia `IN-0865`, `IN-0287`, `IN-0401`, `IN-1253`. **Non verificati uno per uno, non sono B3**: da rivedere caso per caso (il QID rimesso è giusto o è ancora quello della casa madre?). L'elenco delle 41 coppie è la baseline di `work/qid-rimessi-noti.json`; il controllo 12 di `validate.py` fallisce solo su casi NUOVI. La guardia in `search_missing_qids.py` (`is_retired`, `removed_qid_dates`, `qid_is_blocked`) impedisce ora un nuovo rientro (`--apply` stampa BLOCKED; per ripristinare di proposito serve una validation `status=qid_restored` con `wikidata_id`).
-
-## ⚠️ B3: PILOTA APPLICATO E IN `main` (PR #39, `1a041a9`); CONTROLLI A MANO DOPO IL RILASCIO (2026-11-13)
-
-**Branch di lavoro: `dati/b3-unione-amd`** (da `origin/main` `357507c`; **pushato e fuso da Nelson con la PR #39, `1a041a9`; branch remoto cancellato**; mai su `main` direttamente). Commit sul branch, nell'ordine: `7e0d164` script `scripts/merge_entities.py`; `73e9ea4` caso 1; `7b36ca8` ritocco script (blocco EDF più recente, `--rename`); `eaee57c` caso 4; `876964b` caso 2; `cf94fae` caso 7; poi i commit di documentazione (STATUS, log, piano, file in `work/`). **Rimisurare con git all'inizio** (`git log --oneline origin/main..HEAD`, `git status`, `python3 scripts/validate.py`): attesi 2582 entità (2574 attive, 8 lapidi: 4 vecchie + 4 di B3) e **3485 relazioni** (erano 3490: 5 relazioni EDF identiche tolte nel caso 4 e conservate in `preserved` nella `history` di `IN-0803`).
-
-**Pilota Exa (10 casi) fatto e registrato** in `work/b3-pilota/pilota-exa-2026-11-12.csv` (risposte e fonti di Exa, verdetti e note; `controllato_da` = «Nelson (proposto da Claude, approvato il 2026-11-12)»; script `work/b3-pilota/pilota_exa.py`, non scrive nel DB). Lettura delle fonti da parte mia: aperte solo quelle dei casi 4, 7, 9, 10 (tramite agenti); **non riaperte** quelle dei casi 1, 2, 3, 5, 6, 8. **Errore di Exa trovato (caso 10):** diceva «Alcoa Warrick non è una società», ma l'Exhibit 21 di Alcoa elenca «Alcoa Warrick LLC» (Delaware); verdetto corretto: controllata.
-
-| Caso | Entità | Verdetto | Stato |
-|---|---|---|---|
-| 1 AMD | `IN-0006` → `IN-1249` | stessa | **applicato** (`73e9ea4`) |
-| 2 MP Materials | `IN-0242` → `IN-1311` | stessa | **applicato** (`876964b`); l'`accepted_duplicate` era un'etichetta automatica del 2026-04-23, non una scelta di tenerle separate |
-| 3 IBM | `IN-0062` → `IN-1294` | stessa | **applicato** (`2de05aa`); vincitore invertito rispetto alla patch del 2026-04-23 (decisione di Nelson 2026-11-13): il profilo Crunchbase `business-machines` di `IN-0062` (stampa, Maryland, 1995) è un abbinamento sbagliato, vale `ibm` di `IN-1294`; QID Q37156 verificato su Wikidata come QID della pagina en.wikipedia IBM |
-| 4 IDV | `IN-1431` → `IN-0803` | stessa | **applicato** (`eaee57c`); rinominata «IDV Defence Vehicles Italia» (stesso LEI e PIC 898895121, cambio nome efficace 2026-01-28 secondo lei.report: **da riverificare su search.gleif.org**) |
-| 5 Palantir | `IN-0282` → `IN-1318` | classi | **applicato** (`8fa731c`), regola sulle classi |
-| 6 Alphabet | `IN-0017`, `IN-0018` → `IN-1247` | classi | **applicato** (`c822db5`, `18f1548`), regola sulle classi; `IN-1247` ha ora due blocchi iShares (GOOGL, GOOG); la «Class B» del SEC è la classe non quotata dei fondatori, non la C di GOOG: le ownership di Class B vanno sulla madre `IN-1247` |
-| 7 Telecom Italia | `IN-0366` → `IN-0365` | stessa | **applicato** (`cf94fae`); completa la decisione manuale del 2026-04-23; conversione delle azioni di risparmio il 2026-05-21 letta sulla pagina TIM |
-| 8 Fincantieri | `IV-0702` → `IN-0682` | stessa | **applicato** (`52f6e10`); la relazione `investment` verso `IN-1220` (Wsense) è passata sul vincitore; Fincantieri è tra i `top_investors` di Wsense su Crunchbase e in due articoli (Tech.eu, Silicon Canals) |
-| 9 HII | `IN-1290` (non unire) | errore-db | **applicato** (`63b2d2a`) con `scripts/patch_qid_removed.py`: QID Q7257522 tolto a `IN-1290`, blocco `sources.wikidata` (era della madre) spostato nella history, voce `rejected` in `work/qid_candidates.json`; poi `64e4683`: tolti a `IN-1290` `sources.infonodes.wikipedia_url`, `main_focus` e `tax_id` (descrivevano la madre HII, EIN 90-0607005 sulla copertina del 10-K) con `scripts/patch_clear_infonodes.py`, valori conservati nella history; `website`, settore e paese restano; i valori **non** sono stati aggiunti alla madre `IN-1375` (non approvato) |
-| 10 Alcoa Warrick | `IN-1352` (non unire) | controllata | nessuna azione nel pilota; **dopo la verifica A/B del foglio (riga B3-11) il QID `Q131884343` è stato tolto con la PR #41** (`1565fae`): su Wikidata è «Alcoa Nederland», non Alcoa Warrick; la casa madre è `Q135325` (`IN-0013`). **Ancora aperti su `IN-1352`:** EIN 81-1153200 sulla scheda non trovato in nessuna fonte (EIN di Alcoa Corp: 81-1789115), profilo Crunchbase `alcoa-warrick-operations` non verificato |
-
-**Metodo vincolante (richiesta esplicita di Nelson, 2026-11-12):** per ogni unione **leggere la `history` e la `validation` di entrambe le entità prima di applicare** (lo script le stampa; `--apply` non parte senza `--history-letta`), citare nel `--why` cosa si è visto, fare un caso alla volta: dry-run → lettura → `--apply` → `python3 scripts/validate.py` → un commit per caso. Comando tipo: `python3 -I scripts/merge_entities.py VINCITORE PERDENTE --why "motivo con la history letta" [--rename "Nome"] --history-letta --apply`. Senza `--apply` è un dry-run. Il perdente resta come **lapide** (`entity_retired` con `canonical`), i dati che non entrano restano in `preserved` nella voce `dedup_decision` del vincitore, lo script **si ferma** (exit 2) se due relazioni «uguali» hanno contenuto diverso, e aggiorna `edf_orgs.json`.
-
-**Regola unica sulle classi di azioni (approvata da Nelson il 2026-11-12, vale per i casi 5 e 6):** un'entità-classe si unisce alla madre solo se valgono **tutte** queste condizioni: (1) esiste già l'entità «società» (la madre), senza classe nel nome, e l'emittente è lo stesso (confermato); (2) l'entità-classe ha 0 relazioni e nessun dato unico (solo blocchi iShares, infonodes, wikidata; nessun crunchbase/edf in conflitto); (3) il ticker resta nel blocco `ishares` del vincitore e il nome della classe va in `history`; (4) il perdente diventa lapide, non sparisce; (5) la classe vive nel campo `classe` della relazione `ownership` (S3). **Esclusi**: coppie dove entrambe hanno relazioni (SSAB A/B), quotazioni su borse diverse (Jiangxi Copper A/H), certificati (Tata Steel GDR), società senza entità madre (Fox, Heico: restano una entità per classe, S3 gruppo 2). Altri candidati alla regola, **non toccare senza nuovo ok**: Ericsson B `IN-0123` → `IN-0655`, Grupo Mexico B `IN-0151` → `IN-1286`, Samsung Non Voting Pref `IN-0313` → `IN-0312`.
-
-**Controlli fatti il 2026-11-13:** (a) `python3 -I scripts/check_b3_branch.py` (sola lettura, confronta con `origin/main`) → superato: 18 entità cambiate, tutte previste (9 lapidi, 8 canonici, 1 `qid_removed`), history append-only, nessuna relazione su lapidi, attive 2578 → 2569, relazioni 3490 → 3485; provato con 5 errori piantati su copie. (b) Il sito toglie le lapidi al caricamento (`docs/web/app.js` righe 90-94) e non reindirizza: `?organization=<ID lapide>` mostra la ricerca vuota, senza errori; il vincitore mostra la scheda completa. Un reindirizzamento al vincitore sarebbe una modifica al sito: decisione separata. (c) Foglio per chi controlla a mano, in italiano, su Google Sheets (11 righe, due controlli per riga: A decisione giusta, B risultato sul sito; **dal 2026-11-13 si fanno entrambi dopo il rilascio**, ma il testo del foglio dice ancora «prima della pubblicazione»: da aggiornare, vedi prompt di ripartenza): https://docs.google.com/spreadsheets/d/1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c/edit . **La condivisione la fa Nelson** (il foglio è nel Drive di Nelson, privato finché non lo condivide). Per aggiungere righe sullo stesso file serve il connettore Google Sheets (nella sessione del 2026-11-13 c'era solo Drive). Menu a tendina, colori e link cliccabili del foglio non verificati dall'esterno.
-
-**Prossimi passi (ordine deciso da Nelson il 2026-11-13: PR prima dei controlli a mano):** (1) PR dal web con `validate.py` e `check_b3_branch.py` passati, testo in `work/b3-pilota/testo-PR.txt`; (2) dopo il rilascio, controllo A (decisione giusta?) e B (risultato sul sito vivo) con il foglio, condiviso da Nelson; se l'esito è «Sbagliata»: nuova PR di correzione o revert; (3) l'indice `docs/data/mitl-index.json` NON va rigenerato senza decisione separata e avviso a Davide (il piano dice «indice rigenerato» nella definizione di B3: da correggere in quella direzione); (4) **non è B3 chiuso**: restano i casi della lista (h) del prompt di ripartenza; estensione oltre il pilota solo dopo che Nelson ha visto gli errori del pilota (uno trovato: caso 10, errore di Exa); (5) fatte il 2026-11-13: protezione in `search_missing_qids.py` e controllo 12 in `validate.py` (`6cef1e6`), revisione dei campi di `IN-1290` (`64e4683`); (6) poi B5.
-
-**Foglio dei 4 controlli a mano della Release 1** (Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`): `work/controlli-release1/foglio-4-controlli.csv`, colonne `esito`, `nota`, `controllato_da`, `data` **vuote: le compila Nelson**. Exa dice «stessa persona» per tutte e quattro, ma le verifiche di Andrea non sono state ricontrollate a mano (README della release). Serve prima di B5 per creare i `PER-NNNN`.
-
-**Chiave Exa:** salvata da Nelson in locale in `~/.config/infonodes/exa.env` (cartella `700`, file `600`, variabile `EXA_API_KEY`); **mai nei file del repo, nei log, nei commit, nelle risposte**; non stamparla. La chiave è stata incollata una volta in chiaro nella chat: Nelson valuti di rigenerarla a B3 finita.
-
-**Rischio da ricordare:** `search_missing_qids.py` ha rimesso il 2026-06-18 un QID su un'entità già dichiarata duplicata (`IN-0366`), ricreando il QID doppio. Una lapide non protegge da un nuovo lancio dello script. Non lanciarlo senza prima controllare le lapidi.
-
-
-**Regola (piano §0.3):** i numeri sullo stato di git qui scritti sono previsioni con data; si rimisurano con git all'inizio di ogni task. **Prima di operare su `main` controllare con git cosa contiene** (`git log --merges --oneline main`), non fidarsi solo di questo file: la PR #32 era in `main` senza voce nel registro (errore di processo rilevato il 2026-11-12). PR fuse finora: #27 `ac98a52`, #28 `2e6ae14`, #29 `f4edd71`, #30 `f318bb1`, #31 `f21ca8c`, #32 `7ef916a`, #34 `78d67f5`, #35 `ec7f190`, #36 `fc38f14`, #37 `f9a00db`, #38 `357507c`, #39 `1a041a9` (il #33 è un'issue). Il registro può essere indietro di una PR: contare sempre con `git log --merges`.
+- **B3 (pulizia duplicati):** pilota di 10 casi in `main`; **non chiuso** (casi aperti sotto). Controlli A/B sul foglio compilati con esiti approvati da Nelson; restano tre «Dubbia»/«Dubbio» (B3-04, B3-10, B3-11) e la decisione su Wsense (B3-09). Metodo, tabella dei casi e regola sulle classi: [`reference/B3-METODO.md`](reference/B3-METODO.md).
+- **B5 (import Release 1)** non iniziato; scadenza 2026-11-15, **che non è un criterio**. I **4 controlli a mano** della Release 1 li compila Nelson prima di B5.
+- **Foglio di controllo B3** (Google Sheets, id `1u5hWbQa0p3V53YPBWC27iMk2bWG8EWg-RPMxzBQl-7c`): proprietario Nelson; condivisione «chiunque ha il link» = Lettore (Editor: un altro account); copia dei valori del 2026-11-13 in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/foglio-controllo-b3-2026-11-13/` (fuori dal repo).
+- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento), B1 (PR #34, schema e `validate.py`), B2 (PR #36, dati SEC in `main` ma non sul sito), B4 (PR #38, percorsi di `tmp/sec-test/`).
+- **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` applicato il 2026-11-12 (vedi il log del 2026-11-12).** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
+  - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
+  - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
+  - **S3** doppie classi: opzione (c), nessun merge in B1, `classe` nella relazione, tabella ticker+classe → entità, lapide `entity_retired` se un giorno si unisce → [`reference/S3-CLASSI-AZIONI.md`](reference/S3-CLASSI-AZIONI.md).
+  - **S4** dove vivono i dati: opzione (c), entità e relazioni nel DB, **indirizzi delle persone fuori dal DB**, **soglia «capitale o voti ≥5%», 5,0 incluso (546 righe su 571, 25 scartate con motivo)**, riconciliazione riga per riga, front-end adattato nella stessa PR → [`reference/S4-DATI-SEC.md`](reference/S4-DATI-SEC.md).
+  - **S5** storicità: opzione (c), valori correnti + cambi in `history[]` della relazione, `as_of` con `as_of_origine`, righe scomparse `current: false` mai cancellate, report dei cambi prima di ogni re-import → [`reference/S5-STORICITA.md`](reference/S5-STORICITA.md).
+  - **S6** gestori: opzione (c), un nodo per ogni depositante, legame di gruppo solo dopo verifica di una persona, abbinamenti con tabella rivista a mano, **State Street resta `IN-1468`**; FMR LLC non è Fidelity International `IV-0214` → [`reference/S6-GESTORI.md`](reference/S6-GESTORI.md).
+  - **S7** ruoli e persone: `role` controllato + `role_text` originale (una relazione per ruolo, nessuna riga scartata); persone con registro di Andrea e controllo a mano dei casi nei controlli manuali (4 in Release 1: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`) → [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md).
 
 Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/SCHEMA.md` e nel log del 2026-11-12): relazioni reali **senza `id`**; `id` proprio (`REL-NNNN`, 4 cifre o più) solo per le nuove `ownership`, `role`, `parte_di`; campi di `ownership` al livello superiore, chiave `(source, target, type, classe)`; **`role_code`** (non `role`) + `role_text`; `sources.sec` senza indirizzi (`validate.py` lo impone); `validate.py [file]` con percorso opzionale.
 
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
-**Poi, nell'ordine:** finire B3 (e i 4 controlli a mano, che compila Nelson), B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
+## Prossimi lavori (ognuno con ok di Nelson, un passo alla volta)
 
-## ⚠️ LETTURA OBBLIGATORIA prima di agire (nell'ordine)
+- **Sequenza proposta dall'AI il 2026-11-14** (ogni passo con ok di Nelson, motivazione e costo): (i) PR di sola documentazione con i commit non pushati del branch di documentazione: **a fine giornata o insieme alla prossima PR di dati**; prima di proporla dire quante PR Nelson ha già aperto nella giornata (fuse o no): git non lo misura (`gh` non c'è), si ricava dal log e chiedendolo a Nelson; (ii) **pilota agentico** su 5-6 schede mai trattate del gruppo A dei 41 QID (`IN-0863`, `IN-0599`, `IN-0600` sono fatte: vedi il log del 2026-11-14), una PR per gruppo; per ogni scheda: `history` e `validation` lette, risultato dell'agente controllato con `work/verifica-qid/check_risultato.py`, dry-run di `scripts/patch_qid_removed.py`, ok di Nelson; (iii) la conferma definitiva dei metodi `reference/METODO-VERIFICA-WEB.md` e `reference/METODO-AGENTICO.md` dopo il pilota.
+- **B3-09 Wsense (decisione di Nelson, 2026-11-14):** il database rappresenta l'acquisizione di Wsense da parte di Fincantieri solo se Wsense si occupa di armi autonome ed è nella filiera difesa. Verifica Exa (proposta, non esito): nessuna fonte indica armi, la filiera difesa sì (beneficiaria EDF). Closing e quota iniziale (61,95% solo di startupbusiness.it) **non confermati**: non si scrive nulla finché non si conoscono. Dettagli nel log del 2026-11-14.
+- **`IN-1352` Alcoa Warrick, residuo:** QID e EIN senza fonte sono già stati tolti (PR #41 e #43; vedi il log del 2026-11-14). Il profilo Crunchbase `alcoa-warrick-operations` è stato letto con Claude in Chrome il 2026-11-14 (Alcoa Warrick LLC, sub-organization di Alcoa, acquisita da Kaiser: annuncio 2020-11-30, cessione al 2021-03-31 secondo l'8-K); la nota è sulla scheda (`validation`, PR #45) e sul foglio B3-11. Resta da decidere se la scheda descrive ancora Alcoa (nome, sito, paese) e se va corretta.
+- **41 entità attive con QID rimesso** (baseline `work/qid-rimessi-noti.json`): caso per caso, a gruppi piccoli; lo stesso metodo di `IN-1352` (verificare l'etichetta del QID su Wikidata prima di tutto: due errori su tre trovati finora avevano etichetta vuota o della madre). **Valutazione del 2026-11-14** (sola lettura, proposte non esiti) in `work/verifica-web-test-2026-11-14.md`: gruppo A 20 schede con sospetto QID della casa madre, B 1 errore chiaro (`IN-0863`, **risolto con la PR #44**: il QID resta su `IN-0865`, dove è giusto), C 6 probabilmente a posto, D 14 con più schede per lo stesso QID. Quanti restano: `python3 scripts/validate.py`, controllo 12.
+- **Metodo agentico (bozza provvisoria, provato su 3 schede già trattate):** agenti in sola lettura, controllo automatico del risultato, tabella per Nelson; da provare su 5-6 schede mai trattate del gruppo A dei 41 QID (pilota). Nota e limiti in [`reference/METODO-AGENTICO.md`](reference/METODO-AGENTICO.md), istruzione e controllo in `work/verifica-qid/`.
+- **Metodo di verifica web con Exa:** bozza **provvisoria** in `reference/METODO-VERIFICA-WEB.md`, da provare su casi reali (fase successiva) e poi confermare.
+- **4 controlli a mano della Release 1** (`work/controlli-release1/foglio-4-controlli.csv`): li compila Nelson, servono prima di B5.
+- **Casi aperti di B3** (`IN-0863` chiuso con la PR #44; `IN-0683`/`IN-1553` non toccare, Ericsson B `IN-0123`, Grupo Mexico B `IN-0151`, Samsung Non Voting Pref `IN-0313`, `IN-1352` residuo); chiave Exa da rigenerare a B3 finita; nome «IDV Defence Vehicles Italia» da riverificare su GLEIF (il cambio di nome è del 2026-08-07 per GLEIF, vedi B3-04 sul foglio); `search_missing_qids.py` ha ora la guardia sui QID tolti, ma non va lanciato senza controllare le lapidi.
+- **B5, import Release 1** (scadenza del 2026-11-15; **la scadenza non è un criterio**, criteri: qualità dei dati, nessuna perdita, impatto su DB e sito). Prima delle letture obbligatorie per B5 (sezione «Letture obbligatorie», punto 3): `S3`-`S7` per intero, `SCHEMA.md` (sezione *Relationships*), `validate.py` controllo 11; dry-run approvato prima di qualunque scrittura; PR aperta con dry-run approvato = consegna.
+- **Poi, nell'ordine:** finire B3 (e i 4 controlli a mano, che compila Nelson), B5 (import Release 1; front-end adattato **nella stessa PR dei dati**: `REL_MAP` in `app.js`, `index.html`, `networks.html`, `key-figures.html`, badge `person`), F5 (GitHub Action), F6. Da verificare quando capita: se il bug delle etichette Rete in tema chiaro (riga in `ROADMAP.md`) esiste ancora.
+- **Reindirizzamento dalle lapidi** sul sito (`docs/web/app.js`, dove si tolgono le entità con `entity_retired` al caricamento): decisione separata, è una modifica al sito.
+- **Backlog dati** (patch P159, Crunchbase Cycle 3, investitori senza paese, entità forse controllate, ecc.): vedi «Da fare — Dati» in [`ROADMAP.md`](ROADMAP.md).
 
-1. **Questo file solo fino a «Da sapere».** Il resto (da «Session protocol» in poi, circa 900 righe: script, stato del DB, lavoro passato) è storico e di riferimento: leggerlo solo se serve al compito. Una lettura di un file così lungo viene troncata: non dedurne di aver letto tutto.
-2. **`reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero.** Se la lettura si interrompe, continuare con `offset` fino alla fine; non basta la coda.
+**Foglio dei 4 controlli a mano della Release 1** (Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`): `work/controlli-release1/foglio-4-controlli.csv`, colonne `esito`, `nota`, `controllato_da`, `data` **vuote: le compila Nelson**. Exa dice «stessa persona» per tutte e quattro, ma le verifiche di Andrea non sono state ricontrollate a mano (README della release). Serve prima di B5 per creare i `PER-NNNN`.
+
+### Scoperta del 2026-11-13: 41 entità attive con QID tolto e rimesso
+
+Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu rimesso il 2026-06-18 da `search_missing_qids.py --apply` (le voci `accepted` di `work/qid_candidates.json` erano più vecchie della rimozione). Esempi: i quattro «Airbus Defence And Space», Beyond Gravity Austria e Svezia, MBDA España `IN-0863` e Italia `IN-0865`, `IN-0287`, `IN-0401`, `IN-1253`. **Non verificati uno per uno, non sono B3**: da rivedere caso per caso (il QID rimesso è giusto o è ancora quello della casa madre?). L'elenco delle 41 coppie è la baseline di `work/qid-rimessi-noti.json`; il controllo 12 di `validate.py` fallisce solo su casi NUOVI. La guardia in `search_missing_qids.py` (`is_retired`, `removed_qid_dates`, `qid_is_blocked`) impedisce ora un nuovo rientro (`--apply` stampa BLOCKED; per ripristinare di proposito serve una validation `status=qid_restored` con `wikidata_id`).
+
+## Regole che valgono sempre
+
+- **Domande → rispondere e fermarsi.** «Voglio che… + domande» è una richiesta di proposta, non un via libera. Nel dubbio è una domanda.
+- **Mai push né modifiche su `main`** (in `main` si entra solo da un branch con PR). Push e PR li fa Nelson dal web (`gh` non c'è). Titolo, descrizione e ogni testo da inviare: testo semplice (niente markdown) tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE».
+- **Quante PR (Nelson, 2026-11-13; Andrea ha risposto via mail il 2026-11-14; testo in piano §0.3):** documenti nella PR del lavoro a cui si riferiscono; PR di sola documentazione solo a fine giornata o se serve a un altro; dati una PR per caso o gruppo piccolo omogeneo; prima di proporre una PR dire quante già aperte oggi.
+- **Per ogni modifica ai dati:** dry-run, history e validation lette (di entrambe, per le unioni), mostrare, ok di Nelson, `--history-letta --apply`, `validate.py`, `check_b3_branch.py`, un commit per caso.
+- **Ogni riepilogo** con gli URL locali o del sito delle schede toccate, forma `http://localhost:8001/search.html?lang=en&organization=IN-1318&organizationName=Palantir+Technologies` (server: `cd docs && python3 -m http.server 8001`).
+- **Ricerche web sempre con Exa** (regola di Nelson, 2026-11-14): endpoint `/answer`, chiave in `~/.config/infonodes/exa.env` (mai stampata), nella query solo dati pubblici (nomi di società, codici); esempio in `work/b3-pilota/pilota_exa.py`. Le fonti che Exa cita si riaprono prima di darle per buone. Metodo in bozza provvisoria: [`reference/METODO-VERIFICA-WEB.md`](reference/METODO-VERIFICA-WEB.md).
+- **Agenti e ricerche web:** i risultati sono **proposte e dati**, non esiti. L'esito lo decide e lo firma Nelson (formula: «Nelson (proposto da agente Claude, approvato il AAAA-MM-GG)»). Un agente non scrive nel foglio né nel repo.
+- **Non cancellare** branch, stash o file senza ok. Risposte in italiano con gli accenti. Commit con `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>` e, per questo file, messaggio `docs(refactoringDB): update STATUS.md`.
+- **I numeri sullo stato di git hanno una scadenza** (piano §0.3): si rimisurano a inizio task. **In questo file non si scrivono SHA di `main`, numeri di PR in corso né conteggi del database**: per restare veri richiederebbero un'altra PR. Si scrive il comando che li misura. **Prima di operare su `main`** controllare con git cosa contiene (`git log --merges --oneline main`): la PR #32 era in `main` senza voce nel registro (errore di processo, 2026-11-12).
+- **Chiudere un lavoro = cancellarlo da qui**: una riga nel log (e la riga del piano, se c'è), e la voce sparisce da «Dove siamo» e «Prossimi lavori».
+
+## Non verificato
+
+**Non verificato al momento della scrittura:** se la nota O1 era nelle PR #39-#45 (il tipo di merge è misurabile: `git log --merges` mostra «Merge pull request #N» per #40-#45); ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; data esatta della cessione di Alcoa Warrick a Kaiser (annuncio 2020-11-30 contro 8-K 2021-03-31: stessa operazione?); profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
+
+## ⚠️ Letture obbligatorie (per tipo di lavoro)
+
+1. **Sempre:** `~/.claude/CLAUDE.md` e questo file **per intero** (sta in una lettura; se la lettura si interrompe, continuare con `offset`).
+2. **Riorganizzazione, B3, B5 e a inizio sessione:** **`reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero.** Se la lettura si interrompe, continuare con `offset` fino alla fine; non basta la coda.
 3. **Per B5 (import), per intero:** `reference/S3-CLASSI-AZIONI.md`, `S4-DATI-SEC.md`, `S5-STORICITA.md`, `S6-GESTORI.md`, `S7-RUOLI-E-PERSONE.md` (regole vincolanti), poi `reference/SCHEMA.md` (sezione *Relationships*) e `scripts/validate.py` (controllo 11). Il riassunto qui sopra non basta: le regole precise (chiave `(source, target, type, classe)`, `as_of_origine`, niente indirizzi, soglia) stanno in quei file.
-4. **Per B3 (duplicati), per intero:** `scripts/merge_entities.py` (lo script da usare, non `dedup_entities.py --merge`), `work/b3-pilota/pilota-exa-2026-11-12.csv` (verdetti), e la sezione *Merging a duplicate entity* di `reference/UPDATE_PROTOCOL.md`, `scripts/dedup_entities.py` (merge e lapidi), `scripts/patch_orange_cb.py` (esempio di patch con lapide), `reference/S3-CLASSI-AZIONI.md` (regole R1-R6, casi noti), `reference/S6-GESTORI.md`, `rawdata/sec-edgar/2026-10-17/controlli-manuali.csv` e `README.md` della release, voce 16 di `ROADMAP.md`. Casi noti nel piano (B3): AMD `IN-0006`/`IN-1249`, MP Materials `IN-0242`/`IN-1311`, Palantir `IN-0282`/`IN-1318`, Alphabet `IN-0017`/`IN-0018` ↔ `IN-1247`, IBM `IN-0062` ↔ `IN-1294`, filiali Alcoa Warrick `IN-1352` e HII Mission Technologies `IN-1290`, più quelli di ROADMAP 16.
-5. **Nel riassunto iniziale a Nelson elencare i file letti con le righe lette** (al 2026-11-12: piano 449, log 406, `STATUS.md` fino a «Da sapere» riga 66 su 1043) **e dire esplicitamente cosa NON è stato letto.** Serve a Nelson per verificare che il contesto sia completo prima di dare l'ok.
+4. **Per B3 (duplicati), per intero:** **`reference/B3-METODO.md`** (metodo vincolante, regola unica sulle classi di azioni, tabella dei 10 casi), `scripts/merge_entities.py` (lo script da usare, non `dedup_entities.py --merge`), `work/b3-pilota/pilota-exa-2026-11-12.csv` (verdetti), e la sezione *Merging a duplicate entity* di `reference/UPDATE_PROTOCOL.md`, `scripts/dedup_entities.py` (merge e lapidi), `scripts/patch_orange_cb.py` (esempio di patch con lapide), `reference/S3-CLASSI-AZIONI.md` (regole R1-R6, casi noti), `reference/S6-GESTORI.md`, `rawdata/sec-edgar/2026-10-17/controlli-manuali.csv` e `README.md` della release, voce 16 di `ROADMAP.md`. Casi noti nel piano (B3): AMD `IN-0006`/`IN-1249`, MP Materials `IN-0242`/`IN-1311`, Palantir `IN-0282`/`IN-1318`, Alphabet `IN-0017`/`IN-0018` ↔ `IN-1247`, IBM `IN-0062` ↔ `IN-1294`, filiali Alcoa Warrick `IN-1352` e HII Mission Technologies `IN-1290`, più quelli di ROADMAP 16.
+5. **Per modifiche al sito (front-end), anche dentro B5:** `reference/CONVENZIONI-SITO.md` (routing con `pushState`/`replaceState`, decisioni chiave) e `reference/design-system.html`. Prima di rieseguire una pipeline di dati: `reference/SCRIPTS.md` (comandi, ripetibilità, script una tantum da non rilanciare).
+6. **Per una correzione di dati su una singola scheda:** scheda, `history` e `validation` dell'entità, lo script di patch che si usa (`patch_qid_removed.py`, `patch_clear_infonodes.py`, `merge_entities.py`) e `reference/UPDATE_PROTOCOL.md`; se la verifica passa dal web, anche `reference/METODO-VERIFICA-WEB.md` (bozza provvisoria); non serve il resto.
+7. **Nel riassunto iniziale a Nelson elencare i file letti con le righe lette** **e dire esplicitamente cosa NON è stato letto.** Serve a Nelson per verificare che il contesto sia completo prima di dare l'ok.
 
 ## ⚠️ PIANO IN CORSO
 
@@ -101,25 +90,17 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 **Criteri di Nelson per le decisioni di schema (2026-11-11):** (1) qualità dei dati; (2) nessuna perdita di informazioni, nemmeno «strada facendo»; (3) impatto sul database; (4) impatto sul sito. **La scadenza del 15 novembre non è un criterio.** Prima di consigliare, verificare sui dati e sul codice (sola lettura) e mostrare i numeri.
 
-## Stato del repo (2026-11-12)
+## Come si misura lo stato (non scrivere i valori qui)
 
-- `main` = `origin/main` = `357507c` (merge della PR #38) al momento della scrittura. **Branch di lavoro attuale: `dati/b3-unione-amd`** (vedi «B3 IN CORSO»; contiene anche, via cherry-pick `8b8a134`, l'aggiornamento di STATUS/log/piano del vecchio branch `docs/stato-pre-ripartenza`, che resta in locale e si può cancellare con `-d` solo dopo il merge, con ok di Nelson). Vecchio branch di lavoro: `docs/stato-pre-ripartenza` (questo aggiornamento, non ancora pushato: il push e la PR spettano a Nelson; se la PR non è ancora fusa quando si apre la sessione, il branch corrente è questo e va bene così). Il hook di avvio può segnalare «Pull non riuscito / no tracking information» su un branch non ancora pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
-- Su GitHub restano solo `main` e `v.2026-c` (non si tocca; tag `sec-2026-10-17`).
-- Branch locali: `main`, `v.2026-c`, `archivio/locale-2026-11-10` (conserva i 2 commit del vecchio piano a due repo; mai pushato; cancellare solo con ok), più il branch di lavoro. `stash@{0}` «f03-modifiche-piano-status» (cancellare solo con ok).
-- **Sul branch `dati/b3-unione-amd` il database è cambiato** (pilota B3 applicato, 3485 relazioni, 13 lapidi in tutto, 2569 entità attive); su `main` resta com'era dopo F3.7: 2582 entità, 3490 relazioni. `validate.py` PASSED su entrambi.
-- **Da non dimenticare:** il database non contiene ancora nessun dato SEC; i dati SEC sono solo in `rawdata/sec-edgar/` (nel repo pubblico, non sul sito).
+```
+git status; git branch --show-current; git fetch --prune; git ls-remote --heads origin
+git log --oneline origin/main..HEAD; git log --merges --oneline -4 origin/main; git branch --list
+python3 scripts/validate.py; python3 -I scripts/check_b3_branch.py
+```
 
-## Dove siamo
-
-- **Fatto:** F0 (backup in `~/Coding/infonodes/Manintheloop-backup-2026-11-10/`, freno locale su `main`, PR #28), F1 (verifiche), F2 (PR #29: tolti `beta/` e `old_version/`, tag `v.2026-b` e `archivio-2026-06`), F3 (PR #30 e #31: il sito sta in `docs/`; Pages servito da `main` `/docs`; gate G6 soddisfatto), F3.8 (fine congelamento), B1 (PR #34, schema e `validate.py`), B2 (PR #36, dati SEC in `main` ma non sul sito), B4 (PR #38, percorsi di `tmp/sec-test/`).
-- **B1 — decisioni di schema (G7): S1-S7 prese il 2026-11-10/11; diff di schema e `validate.py` applicato il 2026-11-12 (vedi «PROSSIMO PASSO»).** Una riga per decisione; le regole complete stanno nei file indicati e **vanno rispettate**:
-  - **S1** persone: `PER-NNNN` permanente, `P####` della release SEC come riferimento di fonte in `sources.sec` (Andrea, 2026-11-10). Il CIK delle persone non esiste nei proxy/10-K (issue #33).
-  - **S2** tipi di relazione: opzione (a), `ownership` (quote) + `role` (ruoli). Esito riferito da Nelson come «sì»; chi ha risposto e quando non è registrato.
-  - **S3** doppie classi: opzione (c), nessun merge in B1, `classe` nella relazione, tabella ticker+classe → entità, lapide `entity_retired` se un giorno si unisce → [`reference/S3-CLASSI-AZIONI.md`](reference/S3-CLASSI-AZIONI.md).
-  - **S4** dove vivono i dati: opzione (c), entità e relazioni nel DB, **indirizzi delle persone fuori dal DB**, **soglia «capitale o voti ≥5%», 5,0 incluso (546 righe su 571, 25 scartate con motivo)**, riconciliazione riga per riga, front-end adattato nella stessa PR → [`reference/S4-DATI-SEC.md`](reference/S4-DATI-SEC.md).
-  - **S5** storicità: opzione (c), valori correnti + cambi in `history[]` della relazione, `as_of` con `as_of_origine`, righe scomparse `current: false` mai cancellate, report dei cambi prima di ogni re-import → [`reference/S5-STORICITA.md`](reference/S5-STORICITA.md).
-  - **S6** gestori: opzione (c), un nodo per ogni depositante, legame di gruppo solo dopo verifica di una persona, abbinamenti con tabella rivista a mano, **State Street resta `IN-1468`**; FMR LLC non è Fidelity International `IV-0214` → [`reference/S6-GESTORI.md`](reference/S6-GESTORI.md).
-  - **S7** ruoli e persone: `role` controllato + `role_text` originale (una relazione per ruolo, nessuna riga scartata); persone con registro di Andrea e controllo a mano dei casi nei controlli manuali (4 in Release 1: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`) → [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md).
+- Su GitHub restano solo `main` e `v.2026-c` (non si tocca; tag `sec-2026-10-17`). Branch locali da non toccare senza ok: `main`, `v.2026-c`, `archivio/locale-2026-11-10` (i 2 commit del vecchio piano a due repo, mai pushato), `docs/stato-pre-ripartenza`; `stash@{0}` «f03-modifiche-piano-status».
+- L'hook di avvio può dire «Pull non riuscito / no tracking information» su un branch non pushato: è normale, non risolverlo con `git pull` o `--set-upstream`.
+- Il database **non contiene ancora nessun dato SEC**: sono solo in `rawdata/sec-edgar/` (nel repo pubblico, non servito dal sito). Il database è `docs/data/database.json` e in `main` entra solo con una PR; `docs/data/mitl-index.json` **non** va rigenerato senza decisione separata e avviso a Davide.
 
 ## Aperti dopo B1
 
@@ -137,248 +118,51 @@ Riorganizzazione in **un solo repo** (linea di Andrea Borruso, mail del 2026-11-
 
 Gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dry-run` scrive comunque file di report; il sito è `docs/` (server locale: `cd docs && python3 -m http.server 8001`); transcript della call ed email di Andrea sono in `reference/meetings/` (locale, non su git); i dati SEC grezzi sono nel branch `v.2026-c` in `rawdata/sec-edgar/2026-10-17/` (git show origin/v.2026-c:… per leggerli senza fare checkout); i conteggi di S3-S7 sono ricalcolabili dai CSV di quella release.
 
----
+**Chiave Exa:** salvata da Nelson in locale in `~/.config/infonodes/exa.env` (cartella `700`, file `600`, variabile `EXA_API_KEY`); **mai nei file del repo, nei log, nei commit, nelle risposte**; non stamparla. La chiave è stata incollata una volta in chiaro nella chat: Nelson valuti di rigenerarla a B3 finita.
+
+**Rischio da ricordare:** `search_missing_qids.py` ha rimesso il 2026-06-18 un QID su un'entità già dichiarata duplicata (`IN-0366`), ricreando il QID doppio. Una lapide non protegge da un nuovo lancio dello script. Non lanciarlo senza prima controllare le lapidi.
 
 ## Session protocol
 
-- **At session start**: run `git fetch && git pull` first, list any changes pulled (commits received, files changed), then read this file before taking any action.
-- **At session start, also check `inbox/`** (gitignored, local only): if it contains files, read them and propose where each one should be moved (the right folder or doc), so that `inbox/` always ends up empty. Never move or delete anything before the user approves the proposal.
-- **At session end** (or after significant progress): update this file, then commit.
-- **Commit rule**: every STATUS.md update must be committed with message `docs(refactoringDB): update STATUS.md`.
-- **Note:** `issues.md` is gitignored (local only) — temporary choice, may be revisited.
-- **Validate before any data commit**: `python3 scripts/validate.py` must pass.
+- **A inizio sessione**: se in testa esiste una sezione «Ripartenza», eseguirla per prima; poi leggere «Dove siamo» e «Prossimi lavori» e rimisurare lo stato con i comandi della sezione «Come si misura lo stato». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
+- **A inizio sessione, controllare anche `inbox/`** (ignorata da git, solo locale): se contiene file, leggerli e proporre dove spostarli (cartella o documento giusto), così che `inbox/` finisca vuota. Non spostare né cancellare nulla prima dell'ok.
+- **A fine sessione** (o dopo un progresso importante): aggiornare questo file (riscrivendo, non aggiungendo) e committare. Messaggio: `docs(refactoringDB): update STATUS.md`.
+- **Prima di ogni commit sui dati**: `python3 scripts/validate.py` deve passare. `issues.md` è ignorato da git (solo locale; scelta provvisoria).
 
----
+## Project goal
 
-## ⚠️ PRIORITÀ 1 — analizzare il transcript della call
+Build a graph database integrating three data universes:
 
-Arriveranno aggiornamenti presi dal transcript di una call, relativi a tutto il lavoro in corso (DB, dati SEC su `v.2026-c`, demo `tmp/sec-test/`, EU Funding map). **Primo compito**: analizzare il transcript e valutare gli action points (fattibilità, impatto, ordine) prima di toccare altro. Stato: transcript arrivato (file del 2026-10-23 in `inbox/`), da analizzare.
+1. **iShares ETF holdings** — Mining (GICS 151040), Tech (GICS 45), Comm Services (GICS 50), Aerospace & Defense (GICS 201010)
+2. **EDF (European Defence Fund) beneficiaries** — from `rawdata/edf_calls.json`
+3. **Companies/startups** — migrated from `../refactoring/data/database.json` (old DB, read-only)
 
----
+The old DB (`../refactoring/`) is **read-only** — never modify it. All work is inside this repo (root `Manintheloop/`) only.
 
-## ⚠️ PRIORITÀ — da cercare (EU Funding map)
+## Schema
 
-La mappa EU Funding (`docs/index.html`, modalità EU Funding) oggi copre solo **EDF**. Gli altri strumenti di finanziamento europeo compaiono nei selettori come «work in progress»: **dobbiamo cercare i dati** (beneficiari, importi per paese ed entità) per ciascuno.
+Regole e campi stanno in [`reference/SCHEMA.md`](reference/SCHEMA.md) (versione 3.0, aggiornata con B1) e in [`reference/UPDATE_PROTOCOL.md`](reference/UPDATE_PROTOCOL.md): ID permanenti, `history[]` solo in aggiunta, `sources.wikidata` gestito dagli script, tipi di relazione e blocchi `sources.*`. Non ricopiarle qui.
 
-| Strumento | Stato nella mappa |
+## Struttura del repo
+
+- `docs/` — il sito pubblicato (GitHub Pages da `main` `/docs`): pagine, `web/`, `data/` (`database.json`, `edf_orgs.json`, `mitl-index.json`, ecc.)
+- `reference/` — manuali e documenti di progetto (schema, protocolli, piano, log, storia, convenzioni)
+- `work/` — lavoro interno, **non pubblicato** (Crunchbase, `qid_candidates.json`, pilota B3, controlli Release 1, report)
+- `rawdata/` — dati grezzi, non si modificano (`edf_calls.json`, CSV iShares, `sec-edgar/`)
+- `scripts/` — script, da lanciare **dalla radice**; elenco e uso in [`reference/SCRIPTS.md`](reference/SCRIPTS.md)
+- `tmp/sec-test/` — banco di prova con il modello vecchio, non è il modello di B5
+- radice: `STATUS.md`, `WORKFLOW.md` (come si lavora, di Andrea), `ROADMAP.md`
+
+## Esperimenti (cartelle locali)
+
+Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Servono per provare cose senza toccare `docs/data/database.json`.
+
+| Cartella | Contenuto |
 |---|---|
-| EDF | attivo |
-| HORIZON | work in progress → **da cercare** |
-| PESCO | work in progress → **da cercare** |
-| EDIP | work in progress → **da cercare** |
-| EUDIS | work in progress → **da cercare** |
-| EIF | work in progress → **da cercare** |
-| DIANA | work in progress → **da cercare** |
-| NIF | work in progress → **da cercare** |
-
-**Search keywords** (per filtrare i bandi/progetti HORIZON che interessano):
-
-autonomous weapons, unmanned, UAV, UAS, drone, FPV, VTOL, UGV, USV, UUV, AUV, robotic combat vehicle, unmanned ground vehicle, unmanned surface vessel, loitering munition, kamikaze drone, collaborative autonomy, MUM-T, automatic target recognition, ATR, target acquisition, targeting, kill chain, sensor-to-shooter, terminal guidance, autonomous navigation, GPS-denied, GNSS-denied, visual navigation, last-mile autonomy, fire control, weapon system, engagement, counter-UAS, C-UAS, counter-drone, interceptor, artificial intelligence, AI, machine learning, deep learning, neural network, computer vision, object detection, object recognition, image recognition, edge AI, edge computing, sensor fusion, data fusion, multi-sensor, decision support, decision advantage, surveillance, defense, defence, military, warfighter, battlefield, combat, tactical, lethality, command and control, C2, C4ISR, C5ISR, ISR, intelligence surveillance reconnaissance, situational awareness, battle management, common operating picture, mission planning, reconnaissance, persistent surveillance, wide-area, border security, border control, electronic warfare, EW, jamming, signal intelligence, SIGINT, dual-use, dual use
-
-Testo di presentazione della mappa (così com'è oggi, da tenere allineato quando i selettori si attivano):
-
-> This map shows the European funding for weapons development granted to individual EU States and, in detail, to which of their companies, universities or other public and private entities. The diameter of each circle is proportional to the total funding received by the State. Clicking on the circle for a country opens the list of all the individual entities that have received European funding, with the amount each one received. You can click on the name of any entity to open its detail page, containing all the information we have been able to collect. Using the selectors, you can choose to view all types of European public funding (EDF, Horizon, PESCO, etc.) or only the one(s) you are interested in.
-
----
-
-## Scripts reference
-
-> Run `python3 scripts/validate.py` after any script that modifies `database.json`.
-> All paths are relative to `refactoringDB/`.
-
-### Playwright screenshots
-
-All screenshots taken during Playwright sessions must be saved to `tmp/playwright/` (create the folder if it doesn't exist). The entire `tmp/` directory is in `.gitignore` — never commit screenshots.
-
-### Always-safe commands
-
-| Command | What it does | Safe to re-run? |
-|---|---|---|
-| `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
-| `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
-| `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
-| `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |
-
-### Wikidata enrichment
-
-```bash
-# Populate sources.wikidata for all entities with a wikidata_id (skips already-enriched)
-#   Reads: docs/data/database.json  |  API: wbgetentities (batches of 50, 2s delay)
-#   Writes: docs/data/database.json (sources.wikidata + history[] + validation[wikidata_enriched])
-python3 scripts/enrich_wikidata.py [--dry-run]
-
-# Force re-enrichment of ALL entities (including already-enriched) — use after bulk QID updates
-python3 scripts/enrich_wikidata.py --force [--dry-run]
-
-# Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: without `--force`, skips entities that already have `sources.wikidata` → safe to re-run after new QIDs are applied.
-
-### Data quality audit
-
-```bash
-# Run audit (adds reconciliation_documented and field_conflict validation entries)
-#   Audit B: documents cross-dataset reconciliation basis for 165 multi-source entities
-#   Audit C: flags field-level conflicts across sources (country, headquarters)
-#   Safe to re-run: skips entities that already have the relevant validation status
-python3 scripts/audit_quality.py [--dry-run]
-
-# Validate
-python3 scripts/validate.py
-```
-
-### Website enrichment pipeline
-
-Run once per enrichment cycle in this order:
-
-```bash
-# 1. Import EDF web_link field → sources.infonodes.website
-#    Reads: docs/data/edf_orgs.json, docs/data/database.json
-#    Writes: docs/data/database.json (sources.infonodes.website + history[])
-#    Skip: entities that already have crunchbase.website
-python3 scripts/import_edf_websites.py [--dry-run]
-
-# 2. Fetch official website (P856) from Wikidata for companies with wikidata_id but no website
-#    Reads: docs/data/database.json  |  API: SPARQL (batches of 50, 2s delay)
-#    Writes: docs/data/database.json (sources.infonodes.website + history[])
-python3 scripts/fetch_wikidata_websites.py [--dry-run]
-
-# 3. Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: both scripts skip entities that already have a website set → safe to re-run.
-
-### QID enrichment pipeline
-
-```bash
-# Phase 1 — Wikidata Search API (resumes from checkpoint if qid_candidates.json exists)
-#    Reads: docs/data/database.json  |  Writes: work/qid_candidates.json (status=proposed/skipped)
-#    API: wbsearchentities REST, 1.5s delay
-python3 scripts/search_missing_qids.py --search
-
-# Phase 1b — SPARQL label lookup + Reconciliation API for Phase 1 skipped entries
-#    Reads: work/qid_candidates.json  |  Writes: work/qid_candidates.json (in-place)
-#    Never overwrites accepted/rejected entries
-python3 scripts/sparql_search_qids.py
-
-# Phase 2 — Human review
-# Open work/qid_candidates.json
-# Change each "proposed" entry to "accepted" or "rejected"
-
-# Phase 3 — Apply accepted QIDs to database.json
-#    Reads: work/qid_candidates.json (accepted only)
-#    Writes: docs/data/database.json (wikidata_id + history[] + validation[])
-#    Zero API calls
-python3 scripts/search_missing_qids.py --apply
-
-# Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: `--search` resumes from checkpoint. `--apply` skips entities that already have a wikidata_id.
-
-### QID second-pass pipeline (`reprocess_skipped_qids.py`)
-
-Run after the main QID pipeline to recover skipped entries via four strategies:
-
-```bash
-# Runs all 4 phases in sequence — safe to re-run (skips already-proposed/accepted/rejected)
-#    Phase A: fix disqualify false positives (0 API calls, in-memory re-evaluation)
-#    Phase B: P856 website reverse SPARQL lookup (2s delay, batch=10 entities)
-#    Phase C: P31 type confirmation for no-description entries (SPARQL)
-#    Phase D: results[1-4] re-search for wrong-top-result entries (Wikidata API, 1.5s delay)
-#    Writes: work/qid_candidates.json only — never touches database.json
-python3 scripts/reprocess_skipped_qids.py
-
-# Then review qid_candidates.json (proposed → accepted/rejected), then apply:
-python3 scripts/search_missing_qids.py --apply
-python3 scripts/validate.py
-```
-
-### EDF participation pipeline (2026-04-23)
-
-```bash
-# Create EDF-NNNN project entities + edf_participation relationships
-#   Reads: rawdata/edf_calls.json, docs/data/edf_orgs.json, docs/data/database.json
-#   Writes: docs/data/database.json (+78 EDF-NNNN entities, +1657 edf_participation rels)
-python3 scripts/import_edf_projects.py [--dry-run]
-
-# Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: skips existing EDF-NNNN entities (matched by project_id) and duplicate relationships.
-
-### Investor pipeline (new — 2026-04-22)
-
-```bash
-# Step 1 — Create IV-NNNN entities + investment relationships from crunchbase.top_investors
-#   Reads: docs/data/database.json
-#   Writes: docs/data/database.json (+IV entities, +relationships)
-#   Flags: --dry-run (no writes), --wikidata (SPARQL country lookup per investor, ~2s each)
-python3 scripts/import_investors_crunchbase.py [--dry-run] [--wikidata]
-
-# Step 2 — Assign known countries to well-known investors (curated lookup table)
-#   ~90 entries covering major VC firms, EU institutions, US agencies, large banks
-#   Writes: sources.infonodes.country on matching IV-* entities
-python3 scripts/patch_investor_countries.py [--dry-run]
-
-# Validate
-python3 scripts/validate.py
-```
-
-Re-run safety: both scripts are idempotent — no duplicate entities or relationships created.
-To get more investor countries: either extend `KNOWN` dict in `patch_investor_countries.py`,
-or run `import_investors_crunchbase.py --wikidata` (slow: ~610 SPARQL queries × 2s each).
-
-### Crunchbase enrichment pipeline
-
-> **Full process documentation:** `work/crunchbase/CRUNCHBASE.md`
-
-```
-work/crunchbase/
-  companies_export.csv                        ← full list (1149 rows: name + website)
-  matches.csv                                 ← 812 rows — uploaded to Crunchbase (Cycle 1)
-  non_matches.csv                             ← 337 rows — Crunchbase could not match
-  crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows returned by Crunchbase (Cycle 1)
-  unresolved_2026-04-13.csv                   ← 21 rows CB returned but not matched to DB
-  CRUNCHBASE.md                               ← process + reconciliation log
-```
-
-```bash
-# Regenerate export (run at start of each new cycle)
-python3 scripts/regenerate_export.py
-
-# Import (dry-run first — always)
-python3 scripts/import_crunchbase_csv.py \
-    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv \
-    --dry-run
-
-# Apply
-python3 scripts/import_crunchbase_csv.py \
-    work/crunchbase/crunchbase-export-<label>-MM-DD-YYYY.csv
-
-# Validate
-python3 scripts/validate.py
-```
-
-**Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `work/crunchbase/CRUNCHBASE.md`.
-
-### One-time build scripts (do not re-run — they regenerate IDs from scratch)
-
-| Script | Purpose | Status |
-|---|---|---|
-| `scripts/build_database.py` | Initial iShares ETF import → database.json | Done 2026-04-01 |
-| `scripts/build_edf_entities.py` | EDF org import → 792 new entities | Done 2026-04-01 |
-| `scripts/import_startups.py` | Migrates 17 startups from old DB | Done 2026-04-01 |
-| `scripts/import_by_wikidata.py` | Migrates 107 companies from old DB via QID match | Done 2026-04-01 |
-
-> **Warning:** Re-running any of these scripts will attempt to create duplicate entities. Never re-run without modifying them to skip existing IDs first.
-
----
+| `tmp/` | Esperimenti generici e screenshot Playwright (`tmp/playwright/`) |
+| `IRPI-test/` | Indagine IRPI sugli appalti EU (xlsx e output) |
+| `SEC/` | Workspace del branch di sicurezza |
+| `Jon_Tassonomia/` | Classificazione dei tipi di investitore di Jon: CSV di partenza, `investors_taxonomy.json` (entità clonate dal DB + blocco `investor-type`) e `readme_jon.md` con i dettagli |
 
 ## Reference docs (read before modifying the DB)
 
@@ -392,722 +176,11 @@ python3 scripts/validate.py
 | `status-graph.md` | Graph visualization design analysis — ego graph cases, global network scale problem, library options, open questions. **Not committed** (in .gitignore). |
 | `status-map.md` | Map visualization analysis — architecture, data coverage, Playwright observations, 2 bugs, 10 UX problems, improvement backlog. **Not committed** (in .gitignore). |
 | `status-search.md` | Search/profile visualization analysis — architecture (REGISTRY, REL_MAP, scoring), data coverage, Playwright observations, 2 bugs, 4 search quality gaps, 8 UX problems, improvement backlog. **Not committed** (in .gitignore). |
-| `reference/design-system.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from `refactoringDB/` root. |
+| `reference/design-system.html` | **Design system reference** — complete typography rules for all pages. Any new page or component must conform to this. Covers: font families, size scale (fs-xs→fs-stat), weights, line heights, text colors, grey palette, entity color palette, nav chrome, badges, sidebar tokens, stat cards, tables, search hero, networks page specifics, light theme rules, and 10 hard constraints. Open in browser from the repo root. |
+| `reference/SCRIPTS.md` | Pipeline e comandi degli script (ex «Scripts reference» di questo file) |
+| `reference/STORIA-LAVORI.md` | Cronologia dei lavori su database e sito fino a ottobre 2026 (ex «Completed work» e «Pending work») |
+| `reference/CONVENZIONI-SITO.md` | Convenzione di routing delle pagine e decisioni chiave |
+| `reference/B3-METODO.md` | B3: tabella dei 10 casi del pilota, metodo vincolante, regola sulle classi di azioni |
+| `reference/PIANO-RIORGANIZZAZIONE.md`, `reference/LOG-RIORGANIZZAZIONE.md` | Piano operativo e diario di ogni task |
+| `ROADMAP.md` | Backlog (anche «Da fare — Dati aperti» e «EU Funding map: da cercare») |
 
----
-
-## Project goal
-
-Build a graph database integrating three data universes:
-
-1. **iShares ETF holdings** — Mining (GICS 151040), Tech (GICS 45), Comm Services (GICS 50), Aerospace & Defense (GICS 201010)
-2. **EDF (European Defence Fund) beneficiaries** — from `rawdata/edf_calls.json`
-3. **Companies/startups** — migrated from `../refactoring/data/database.json` (old DB, read-only)
-
-The old DB (`../refactoring/`) is **read-only** — never modify it. All work is inside `refactoringDB/` only.
-
----
-
-## Schema v3.0 — key rules
-
-- Entity IDs: `IN-NNNN` (company), `IV-NNNN` (investor), `PER-NNNN` (person), `REL-NNNN` (relationship)
-- IDs are permanent, zero-padded to 4 digits, assigned alphabetically within each batch
-- `sources.ishares` is an **array** (one element per ETF appearance)
-- `history[]` is append-only — never delete or edit existing entries
-- `wikidata_id` format: `Q\d+` or `null`
-- Relationship types allowed: `investment`, `board_membership`, `edf_participation`
-- `sources.wikidata` is script-managed — never edit manually
-- See `reference/SCHEMA.md` for full spec, `reference/UPDATE_PROTOCOL.md` for update rules
-
----
-
-## Folder structure
-
-```
-manintheloop/
-├── docs/                          ← IL SITO (GitHub Pages serve questa cartella)
-│   ├── CNAME                      ← dominio mitl.infonodes.org
-│   ├── index.html                 ← Map page (D3 SVG world map + investor arcs)
-│   ├── search.html                ← Org search + profile viewer
-│   ├── networks.html, key-figures.html, publications.html, about.html
-│   ├── web/                       ← app.js, router.js, theme.js, i18n.js, graph.js, countries.js, css (single source of truth)
-│   ├── reports/countries/index.html
-│   └── data/
-│       ├── database.json          ← main DB (schema v3.0) — primary artifact
-│       ├── edf_orgs.json          ← PIC-keyed index of 794 EDF orgs with db_id crosswalk
-│       ├── edf_calls.json         ← copia di rawdata/edf_calls.json (tenerla allineata con scripts/sync_site_data.py)
-│       ├── glossary.json, glossary_terms.json, about_why.json, publications.json, last_update.json, defence_criteria.json
-│       └── mitl-index.json        ← indice del chatbot MARLA (generato da scripts/build_chat_index.py)
-├── work/                          ← lavoro interno, NON pubblicato dal sito
-│   ├── qid_candidates.json        ← QID review file (1003 entries: 566 accepted, 65 rejected, 372 skipped)
-│   ├── crunchbase/
-│   │   ├── CRUNCHBASE.md         ← process + reconciliation log (read before touching anything here)
-│   │   ├── companies_export.csv  ← full export (1149 rows: name + website)
-│   │   ├── matches.csv           ← 812 rows uploaded to Crunchbase (Cycle 1)
-│   │   ├── non_matches.csv       ← 337 rows excluded from Crunchbase upload
-│   │   ├── crunchbase-export-matches-csv-4-13-2026.csv ← 724 rows from Crunchbase (Cycle 1)
-│   │   └── unresolved_2026-04-13.csv ← 21 CB rows not matched to DB entity
-│   ├── reports/                   ← report Italia, grafici e PDF
-│   ├── sintesi/                   ← sintesi, traduzione EN, OpenTender
-│   └── testi/                     ← testi della piattaforma
-├── rawdata/
-│   ├── edf_calls.json         ← EDF raw data (source of truth for EDF beneficiaries)
-│   ├── ISHARES.md             ← metadata registry for all 4 iShares ETFs (ETF name, ticker, GICS, date)
-│   ├── ishares_metals_mining_gics151040.csv
-│   ├── ishares_tech_gics45.csv
-│   ├── ishares_comm_services_gics50.csv
-│   ├── ishare_aerospace_defense_GICS201010.csv        ← original Italian-locale file
-│   └── ishare_aerospace_defense_GICS201010_en.csv     ← normalised (dot decimal) version used for import
-├── scripts/
-│   ├── parse_ishares.py       ← parses iShares CSVs → normalized dicts
-│   ├── build_database.py      ← builds DB from iShares CSVs (dedup by name_key)
-│   ├── build_edf_entities.py  ← imports EDF orgs, writes edf_orgs.json
-│   ├── import_startups.py     ← migrates startups from old DB
-│   ├── import_by_wikidata.py  ← migrates companies from old DB by wikidata_id
-│   ├── search_missing_qids.py ← QID Phase 1 (Wikidata API) + --apply
-│   ├── sparql_search_qids.py  ← QID Phase 1b (SPARQL + Reconciliation API fallback)
-│   ├── enrich_wikidata.py     ← populates sources.wikidata for all QID-bearing entities
-│   ├── import_crunchbase_csv.py ← imports Crunchbase export → sources.crunchbase (4-tier matching)
-│   ├── regenerate_export.py   ← regenerates work/crunchbase/companies_export.csv from DB
-│   ├── import_investors_crunchbase.py ← creates IV-NNNN entities + relationships from top_investors
-│   ├── patch_investor_countries.py    ← assigns known countries to well-known IV-* investors (~90 curated)
-│   ├── patch_iv_countries_p159.py     ← SPARQL P159/P17 fallback for QID-bearing IV with no country
-│   ├── migrate_old_db_investors.py    ← migrates funds/banks from legacy refactoring/ DB
-│   ├── import_edf_projects.py         ← creates EDF-NNNN project entities + edf_participation rels
-│   └── validate.py            ← 10-check validation (always run before committing)
-├── reference/
-│   ├── SCHEMA.md
-│   ├── UPDATE_PROTOCOL.md
-│   ├── QID_LOOKUP_PROCESS.md
-│   ├── NETWORKS_LAYOUT.md
-│   └── design-system.html         ← Design system reference (open in browser)
-└── STATUS.md                  ← this file
-```
-
-> **Serving the web UI locally:** `cd docs && python3 -m http.server 8001`, then open `http://localhost:8001/`. Run scripts always from the repo root.
-
----
-
-## Esperimenti (cartelle locali)
-
-Cartelle di lavoro locali, tutte in `.gitignore`: **non vanno committate**. Servono per provare cose senza toccare `docs/data/database.json`.
-
-| Cartella | Contenuto |
-|---|---|
-| `tmp/` | Esperimenti generici e screenshot Playwright (`tmp/playwright/`) |
-| `IRPI-test/` | Indagine IRPI sugli appalti EU (xlsx e output) |
-| `SEC/` | Workspace del branch di sicurezza |
-| `Jon_Tassonomia/` | Classificazione dei tipi di investitore di Jon: CSV di partenza, `investors_taxonomy.json` (entità clonate dal DB + blocco `investor-type`) e `readme_jon.md` con i dettagli |
-
----
-
-## Current DB state
-
-> Exact counts change as data evolves — run `python3 scripts/validate.py` and the enrichment analysis script for live figures.
-
-| Aspect | Status |
-|---|---|
-| Schema | 3.0 |
-| Entity prefixes | `IN-NNNN` (companies, institutions, gov agencies) · `IV-NNNN` (investors, funds) · `EDF-NNNN` (projects) · `PER-NNNN` (persons — not yet built) |
-| Relationships | `investment` (Crunchbase + old DB) · `edf_participation` |
-| Last validate.py | PASSED (2026-10-24) — 2582 entities, 3490 rels (unchanged since the 2026-10-19 EDF refresh) |
-| iShares coverage | 4 ETFs: Tech (45) · Comm Services (50) · Mining (151040) · Aerospace & Defence (201010) |
-| EDF coverage | All EDF calls from `rawdata/edf_calls.json`; all participants matched via PIC crosswalk |
-| Crunchbase coverage | Cycle 2 complete; some entities still unmatched — see `work/crunchbase/CYCLE2.md` |
-| Wikidata coverage | IN entities: partial (many EDF SMEs absent from Wikidata) · IV entities: fully enriched for all QID-bearing |
-| QID pipeline | All proposals reviewed; remaining skipped entries are EDF SMEs genuinely absent from Wikidata |
-| validation: cb_wrong_entity | 5 remaining — Fortescue, Telia, Tecnobit Sl, Nexa Technologies, United Aircraft |
-| validation: cb_hq_mismatch_subsidiary | Several — CB matched regional subsidiary, not parent (Nintendo, Canon USA, Dentsu Americas, Thales USA, etc.) |
-| validation: wikidata_country_corrected | 4 entities where WD P17 was wrong and nulled (Airbus Helicopters, STmicro Grenoble 2, Comec, RIO Tinto) |
-| retired entities | IN-1282 Fortescue Metals Group — duplicate of IN-0133 |
-
----
-
-## Completed work
-
-### Session 2026-10-19 — EDF refresh (merged raw data, no old data lost)
-
-- [x] `fetch_edf_bulk.py` run twice: the API now returns **40 fewer older projects** (calls 2022–2024, e.g. MARTE, ARCHYTAS, SCEPTER, JAMIE, AIDA) and **45 new 2025 projects** (fetch 1: 88 projects, fetch 2: 85; the two fetches disagree on 2 projects). Cause of the missing projects unknown — not verified on the EU portal.
-- [x] **Rule: old data is never lost.** `rawdata/edf_calls_2026-06-17.json` = untouched archive of the June file (212 calls, 82 projects). `rawdata/edf_calls.json` is now a **merge**: June file + only what is missing from the new fetches (3 new calls, 45 new projects → **127 projects**). Old projects are byte-identical; where the new fetch differs on an old project the old value is kept (real differences: 3 `end_date`, 2 `status` Ongoing→Ended — Propellant Prod, E.P.I.C. — not applied).
-- [x] **Do not run `fetch_edf_bulk.py` straight over `edf_calls.json` again**: it overwrites the file and would drop the 40 projects the API no longer returns. Procedure: archive the current file, fetch, then `python3 scripts/merge_edf_calls.py rawdata/edf_calls_<date>.json [--write]` (usage in the script docstring), then the pipeline in `docs/UPDATE_PROTOCOL.md`.
-- [x] **`build_edf_entities.py` fixed**: existing PIC→`db_id` mappings in `edf_orgs.json` are no longer recomputed (the old name matching would have changed 5 mappings and created duplicates); new PICs match on exact normalised name only, fuzzy hits are listed and not applied; `match_method`/`match_confidence` preserved; PICs no longer returned by the API are kept.
-- [x] Result: +226 `IN-NNNN` org entities, +45 `EDF-NNNN` project entities, +505 `edf_participation` rels; 817 existing PIC mappings unchanged (0 `db_id` changed). `validate.py` PASSED — **2582 entities, 3490 relationships**.
-- [ ] **To review**: 7 new entities that may be subsidiaries of existing ones (not matched): Sopra Steria Belgium (~IN-1078), E4 Defense Systems SL (~IN-1242, probably wrong), Central Space Agency (~IV-0572, probably wrong), Rolls-Royce Solutions GmbH (~IN-1328), Kongsberg Maritime Sweden AB (~IN-0828), Decent Cybersecurity Ireland (~IN-0614), Dassault Systèmes UAB (~IN-0105).
-- [ ] New org entities still need QID / Crunchbase / website enrichment (pipelines above).
-- [ ] Not checked: that the EU Funding map in `docs/index.html` shows the new projects.
-
-### Session 2026-09-03 — Branch sync
-
-- [x] `git fetch --all --prune` — refreshed all remote-tracking refs (`origin/main`, `origin/graph`, `origin/eu-funding`)
-- [x] `main`: already up to date with `origin/main` (`7d5f83a` "deploy(beta): bilingual overview page")
-- [x] `graph` (local): confirmed strictly ahead of `origin/graph` (contains all remote commits + more) — no pull needed
-- [x] `eu-funding`: existed only as `origin/eu-funding`, no local branch — created local tracking branch (`git branch --track eu-funding origin/eu-funding`, at `0eabaf8`)
-- [x] Local-only branches with no remote counterpart, left untouched: `ai-assistant`, `data-analysis`, `datacleaning`, `designfix`, `map`, `search`
-
-**Note — STATUS.md staleness:** this file's "Completed work" log stops at 2026-06-18, but `main` has moved on since (recent commits include `deploy(beta): about team single list`, EDF colour unification, English/bilingual overview page, etc. — titled "deploy(beta): ..." rather than the `docs(refactoringDB):`/`feat(...)`/`fix(...)` convention used throughout this log, suggesting a workflow shift not yet reflected here). Next session should backfill the missing 2026-06-18 → 2026-09-03 history from `git log` (out of scope for today).
-
-### Session 2026-09-03 — Map ↔ country report links, eu-funding merged to main
-
-- [x] **`docs/web/countries.js`**: `WD_TO_ISO`/`ISO_TO_NAME` moved here from `docs/index.html` as `MITL.WD_TO_ISO`/`MITL.ISO_TO_NAME` — single source of truth, now shared with `docs/reports/countries/index.html`
-- [x] **`docs/index.html`**: "Go to country report →" button added to `showMapCountry()` only (Global Investments mode; deliberately absent from `showEdfCountry()`/EU Funding mode) — links to `docs/reports/countries/index.html?country=<name>`. New i18n key `map.go_to_country_report` (4 languages)
-- [x] **`docs/reports/countries/index.html`**: translated entirely to English (`lang="en"`, en-US number formatting) — matches `docs/search.html`'s convention of keeping data-driven pages in one fixed language rather than a 4x-template approach. "Go to map →" button under the country title (`?country=<name>` → `docs/index.html?country=<ISO>&countryname=<name>`), hidden when the country has no ISO mapping (3 DB countries affected: Hong Kong, Jersey, Qatar). All organization names (EDF beneficiaries table, EDF coordinators table, "Organizations with the most investors", "Full list by type") now link to their `docs/search.html` profile via new `entityLink()` helper, styled to match the existing `.investor-name` look (`color: var(--text-secondary)`, not `inherit` — avoids the mismatched brightness a first pass had across different containers)
-- [x] Verified live with Playwright (local server): full round-trip map→report→map on Israel, `showEdfCountry` confirmed button-free, Qatar confirmed button hidden, 167 `entityLink`s generated on Italy, Baidu Class A link resolves to the exact target URL requested
-- [x] Committed on `eu-funding` (`07fd41e`), merged into `main` (36 commits, no conflicts), `validate.py` PASSED, pushed to `origin/main` (`f73364d..7f4652b`)
-- [x] **Branch cleanup** (post-merge, all content verified as ancestor of `main` before deletion): removed local+remote `eu-funding`, local `data-analysis`, local+remote `graph`, local `datacleaning`/`designfix`/`map`/`search` — all fully merged, nothing lost. **`ai-assistant` deleted with 4 unmerged commits** (Ask AI widget prototype in `docs/search.html` — `757e5ec`, `5665506`, `ec2210c`, `94a8bb4`) at explicit user request; not recoverable via a normal branch, would need `git reflog` on this machine before it expires
-- [x] **Reminder still open** (from ROADMAP.md, now more urgent since `eu-funding` is live on `main`): update `MITL_INDEX_URL` on Vercel (marlamag project) from the `eu-funding` branch URL to the `main` one + Redeploy — otherwise MARLA silently keeps answering from stale data
-
-### DB construction
-- [x] iShares ETF import: 434 companies from 3 CSVs (deduplicated by `name_key`)
-- [x] EDF beneficiaries: 794 orgs imported (2 matched to existing, 792 new entities)
-- [x] Startups migrated from old DB (`import_startups.py`): 17 entities
-- [x] Companies migrated from old DB with wikidata_id match (`import_by_wikidata.py`): 107 entities
-- [x] Companies migrated from old DB without wikidata_id: 6 entities (needs_review)
-- [x] 2 known QIDs applied manually (AVICOPTER → Q312094, Sichuan Yahua → Q56404682)
-
-### Website enrichment
-- [x] `import_edf_websites.py`: 726 websites from EDF `web_link` field → `sources.infonodes.website`
-- [x] `fetch_wikidata_websites.py`: 220 websites from Wikidata P856 → `sources.infonodes.website`
-- [x] Web research (batches): 258 additional websites via manual web search → `sources.infonodes.website`
-- [x] Final coverage: 1126 / 1149 companies (98.0%) have a website
-- [x] `work/crunchbase/companies_export.csv` regenerated with `name` + `website` columns (1149 rows)
-
-### QID enrichment
-- [x] Phase 1 — Wikidata Search API (`search_missing_qids.py --search`): 245 proposed
-- [x] Phase 1b — SPARQL label lookup (`sparql_search_qids.py`): +34 found
-- [x] Phase 1b — Reconciliation API (`sparql_search_qids.py`): +46 found
-- [x] Human review: 309 accepted, 16 rejected (of 325 proposed)
-- [x] `--apply` run: 309 QIDs written to database.json
-- [x] validate.py passed after apply
-
-### Phase E — Wikipedia API search (2026-04-13)
-- [x] Added `phase_e()` to `reprocess_skipped_qids.py`: searches English Wikipedia → resolves to Wikidata QID via `prop=pageprops` → standard label+description filter
-- [x] Also fixed `normalize_label()` to treat `&` as `and` (fixes "Hill And Smith" vs "Hill & Smith")
-- [x] Ran on 346 "no results from Wikidata search" entries; 9 proposed, 2 rejected (Pegasus spyware, Pixii product), 7 applied
-- [x] Yield low for iShares (Chinese/Russian abbreviations don't map to WP titles); better for EDF European companies
-- [x] validate.py PASSED
-
-### P31 no-org-keyword pass (2026-04-13)
-- [x] Run SPARQL P31 check on 22 "no org keyword in description" entries
-- [x] 3 accepted (Mishra Dhatu Nigam Q6875625, Damen Schelde Naval Shipbuilding Q1158347, Royal Huisman Q2803924); 19 rejected (wrong entities: continents, languages, insects, family names, etc.)
-
-### Diacritic/alias fixes (manual patch, 2026-04-13)
-- [x] 8 skipped entries re-proposed with correct QIDs and applied: América Móvil, Fox Corporation (Class B), Grupa Kęty, Foxconn (Hon Hai), Metalúrgica Gerdau, Sensonor (Safran Sensing Norway), Thalès Alenia Space Italia, Thalès Dms France
-
-### QID second pass (`scripts/reprocess_skipped_qids.py`)
-- [x] Script written: 4-phase recovery for previously skipped entries
-- [x] Phase A (disqualify false-positive fix): 53 proposals — fixed substring bug where `"nation"` matched `"multinational"`, `"state"` matched `"United States"`, `"sea"` matched `"research"`, `"actor"` matched `"contractor"`, `"video game"` blocked EA/Konami/Take-Two
-- [x] Phase B (P856 website reverse lookup via SPARQL): 132 proposals — matched 672 company websites against Wikidata `wdt:P856`; batch size 10 entities (~80 URL variants per query)
-- [x] Phase C (P31 type confirmation for no-description entries): 60 proposals — confirmed company type via `wdt:P31` for 64 entries that had QID+label match but no English description
-- [x] Phase D (results[1–4] re-search): 20 proposals — re-searched with original entity name (not pre-stripped `search_name`) and checked all 5 results with fixed filter
-- [x] **Human review complete**: 239 accepted, 28 rejected (of 267 proposals)
-  - Rejected: AMD Singapore, ASM Japan, AutoTrader.co.za, BT Retail, Hexagon crystal system, NEXON Korea, Nokia Canada, NTT Docomo Business, ThyssenKrupp Nirosta (≠ Outokumpu), PTC Canada, WBD Netherlands, Airbus SE (parent for Airbus Heli DE), BAE Systems Inc. (≠ Hägglunds), Electromecanica (≠ Romarm), Elecnor Deimos (uncertain), Eight Bells (Egypt hill), Hensoldt AG (parent), John Cockerill (parent for JC Defense France), Kongsberg Våpenfabrikk (≠ Discovery), Chemo (≠ Laboratorios Liconsa), Nammo US (≠ Nammo Sweden), Naval Group (parent for Naval Belgium), Philips China, Safran Brazil (≠ Safran Electrical Power), Nortal (≠ Talgen), Telefónica (parent for subsidiary), Thales D&S (≠ Thales Cryogenics), MSM Group (≠ Vop Novaky)
-- [x] After review: `--apply` run (239 QIDs written), `validate.py` PASSED (2026-04-13)
-
-### Data quality audit (2026-04-13)
-- [x] `scripts/audit_quality.py` written and run — covers Audit B (reconciliation) and Audit C (field conflicts)
-- [x] **Audit B — Reconciliation documentation**: 165 `reconciliation_documented` validation entries added
-  - 2 entities: edf+ishares cross-dataset match (STMicroelectronics, Telenor) — name_key normalisation via `build_edf_entities.py`
-  - 130 entities: crunchbase migration from `refactoring/` legacy DB — name identity match (investments.json v1)
-  - 33 entities: wikidata_id resolved from legacy DB via normalised name comparison — iShares entities enriched cross-DB
-- [x] **Audit C — Field conflict detection**: 44 `field_conflict` validation entries added
-  - 3 real country conflicts (sources.wikidata vs sources.infonodes disagree): Destinus (CH/NL), Chemring Group (DE/UK), Umicore (US/BE)
-  - 15 country normalisation gaps ("People's Republic of China" vs "China") — same country, different form; not real conflicts
-  - 30 real HQ conflicts (sources.wikidata.headquarters city vs sources.crunchbase.headquarters city+region+country when city differs)
-  - 58 HQ granularity differences (city vs city+region+country, same city) — not flagged, not real conflicts
-- [x] validate.py PASSED after audit
-
-### Wikidata enrichment (2026-04-13)
-- [x] `scripts/enrich_wikidata.py` written — populates `sources.wikidata` for all entities with `wikidata_id`
-  - Flags: `--dry-run` (no DB writes), `--force` (re-enrich already-enriched entities)
-  - Properties: P31 instance_of, P17 country, P571 inception, P159 headquarters, P856 website, P946 ISIN, P1128 employees, sitelinks.enwiki
-  - Rate: batches of 50, 2s delay, backoff [5, 10, 20]s on 429
-- [x] Fixed 2 wrong QIDs re-applied at migration: AVICOPTER (Q312094 → null), Sichuan Yahua (Q56404682 → null) — both confirmed wrong by Playwright verification in prior DB
-- [x] Full enrichment run: 710 entities enriched (599 new + 111 force-refreshed from old DB migration data)
-- [x] validate.py PASSED
-
-### Crunchbase enrichment (2026-04-14)
-- [x] `scripts/import_crunchbase_csv.py` real import run — 601 new + 121 updated = 731 entities with `sources.crunchbase`
-- [x] `validate.py` PASSED after import
-
-### Web UI — `docs/index.html` (2026-04-14)
-- [x] Organisation search UI built from `docs/data/database.json` (adapted from refactoring/tmp/new_index.html)
-- [x] Autocomplete with source flag pills (CB / EDF / iShares / WD / INF) + type badge
-- [x] URL routing: `?organization=IN-XXXX&organizationName=...` — deep-linkable, browser back/forward aware (`docs/web/router.js`)
-- [x] Profile header: name, type badge, source flags, EU status line, description, external links, stat bar
-- [x] Single-column collapsible source cards (all expanded by default, independently closable):
-  - Infonodes → Wikidata → iShares (ETF table) → Crunchbase (grouped: Identity/Industry/Funding/Team) → EDF (org details + lazy project load) → Change History → Validation
-- [x] EDF projects: lazy-loaded on demand, with participant expand/collapse; clicking a participant navigates to their profile
-- [x] CSS/JS internal dependencies moved to `web/` folder (base.css, components.css, companysearch.css, router.js)
-
-### Multi-page frontend — branch `new-frontend` (2026-04-22)
-
-> Branch forked from `nuovoDB`. Serve from `refactoringDB/` root: `python3 -m http.server 8001`.
-
-- [x] **`docs/index.html`** — D3 SVG world map (ported from `../refactoring/js/tabs/map.js`)
-  - Country-level aggregation: one circle per country, sized by arc degree
-  - Side panel: country detail (companies list + investor badge `↓N` per company)
-  - Company detail panel: HQ, funding, stage, rounds, founded year, CB description, investors list
-  - Investment flow arcs: investor country (faint) → company country (bright), toggle on/off
-  - **Arc directional coloring (2026-04-22):** on country click, arcs colored by direction — blue=outgoing (country invests abroad), red=incoming (foreign investor → local company), purple=bidirectional. Legend updates dynamically. Resets to teal gradient on deselect.
-  - **Node stroke removed (2026-04-23):** `.map-node` stroke set to `none`/0 in all states (default, `:hover`, `.node-focus`); zoom handler no longer scales stroke-width.
-  - **EU Funded filter (2026-04-23):** checkbox in toolbar (default off) dims all countries/nodes/arcs whose company-side has no EDF data. Covers 794 EDF companies across 28 countries. Composes with entity-click filter.
-  - **Map fixes & features (2026-05-04):**
-    - **GICS sector tags:** company list in side panel shows ETF-derived tags (GICS 45→Tech, 50→Comm, 151040→Mining, 201010→Defence) + Startup if set; fallback to `sector` field for non-iShares entities. New `badge-Comm` CSS class added.
-    - **EU Funded toggle:** checkbox replaced with two-label toggle switch (All Entities ↔ EU Funded Only). Side panel companies list now filters on toggle (shows/hides items + updates count). Arc filter combined with country selection — no more spurious arcs when EU Funded + country open together.
-    - **Arc toggle hidden:** "Show investment flow arcs" checkbox commented out (code preserved); arcs always visible when a country is selected; arc direction legend restored to toolbar.
-    - **Alphabetical sort A-Z:** all lists in side panel (entities, capital flowing in/out, investors, portfolio companies) sorted via `localeCompare`.
-    - **Dropdown arrows:** section toggle buttons changed from "on/off" to ▼/▶; `updateArcVis` and `arcDimForCountry` updated to check list visibility instead of `.active` class.
-    - **Live investor count:** `↓N` badge computed from `relationships` at build time (`mapState.liveInvCount`), not from stored `cb.top_investors.length` — fixes 79 mismatches (e.g. Destinus 5→7, Tesla 5→22).
-    - **EDF country fallback:** `getCountry(e)` helper (`infonodes → wikidata → edf.country`) used in all country lookups — recovers 549 EDF-only entities missing from map (incl. Politecnico di Milano, Polimi Torino).
-    - **Label:** "Companies" → "Entities" in country side panel section header.
-  - **Entity-level connection view (2026-04-23):** clicking an entity in the country side panel now updates the map — the country node label changes to the entity name, and only arcs connecting that specific entity to other countries are shown (investor→company for IN-; investor→portfolio countries for IV-). Clicking the entity-labeled node restores the country view. `restoreCountryLabels()` helper added; `activePairs` Set tracks entity-specific src→tgt arc pairs; entity ISO now included in `activeISOs` for IV entities (fixes investor country node being incorrectly dimmed).
-  - **Clickable investors in company detail (2026-04-23):** resolved IV-* investors in the entity detail panel are now clickable — fires `filterMapByEntity` for the investor, showing investor profile + map connections. `restoreCountryLabels()` called at top of `filterMapByEntity` to clear stale entity label on entity→entity navigation.
-  - **Clickable portfolio companies in investor detail (2026-04-23):** portfolio companies (IN-*) in IV entity detail panel are now clickable — same pattern as investor click, reuses existing `[data-action="filterMapByEntity"]` wiring.
-  - **Map label font size +25% (2026-04-23):** `baseFs` constant raised from 11 to 13.75; applies uniformly to all country labels at all zoom levels.
-  - **URL routing (2026-04-23):** `pushState`/`popstate` routing on all map interactions:
-    - `docs/index.html` → default panel
-    - `docs/index.html?country=840&countryname=United+States` → country selected
-    - `docs/index.html?country=840&countryname=United+States&entity=IN-0004&entityname=Adobe` → entity detail panel
-    - Entity name click in country panel → entity detail URL (not direct docs/search.html navigation)
-    - Entity detail panel has "Open profile →" link to `docs/search.html`
-    - Browser back from `docs/search.html` restores entity detail panel via URL params read in `init()`
-  - Filter bar: click a company/investor to highlight connected countries on map
-  - Data loaded from `docs/data/database.json` (no AppState/SPA — standalone fetch)
-  - Libraries: D3 v7, topojson-client@3, world-atlas@2 (CDN)
-- [x] **`docs/search.html`** — org search (ported from old `docs/index.html`, navbar added)
-  - **Relationships card (2026-04-22):** entity profile now shows a Relationships card with clickable portfolio companies (for IV entities) and investors (for IN entities) — data from `REL_MAP`
-  - **infCardBody enhanced (2026-04-22):** shows `roles`, `tags`, `wikidata_id` from entity root alongside sources.infonodes fields
-  - **Back-nav fix (2026-04-23):** `Router.replace(item)` added to `docs/web/router.js`; initial URL-based load uses `replaceState` instead of `pushState` to avoid duplicate history entry (was causing double Back click to leave the page)
-- [x] **`docs/networks.html`**, **`docs/publications.html`**, **`docs/about.html`** — placeholder pages (TBD content)
-- [x] **`docs/web/theme.js`** — shared dark/light theme toggle across all pages
-- [x] **`docs/web/base.css`** — added `a.tnav-btn` rule for `<a>` tag navbar links
-
-### Investor pipeline (2026-04-22)
-- [x] `scripts/import_investors_crunchbase.py`: 610 IV-NNNN entities + 897 relationships created from `crunchbase.top_investors`
-- [x] `scripts/patch_investor_countries.py`: 59 investors assigned country via curated lookup (major VC firms, EU/US institutions, banks)
-- [x] Map arcs: **60 cross-border investor connections** now visible (USA largest hub)
-- [x] **SPARQL Wikidata enrichment complete (2026-04-22):** `import_investors_crunchbase.py --wikidata --force-wikidata` — 194/610 matched (32%). IV with country: 59→182. Cross-border arcs: 60→106. validate.py PASSED.
-- [x] **P159/P17 fallback enrichment (2026-04-22):** `patch_iv_countries_p159.py` — 23/40 remaining QID-bearing investors resolved via headquarters location → country. IV with country: 182→205. Arcs: 106→115.
-- [x] **validate.py fixes (2026-04-22):** check 2 adapted for relationships without `id` field (uses `(source,target,type)` key); `VALID_ENTITY_TYPES` extended with `investor` and `public_fund`.
-- [x] **Old DB migration (2026-04-22):** `scripts/migrate_old_db_investors.py` — +57 IV entities (IV-0611–IV-0667), +95 relationships from legacy `../refactoring/data/database.json`. Total: 2023 entities, 992 relationships. validate.py PASSED.
-- [x] **KNOWN dict extension (2026-04-22):** `patch_investor_countries.py` — +62 entries covering UK, France, Germany, USA (banks/VC/gov), Canada, South Africa, Spain, China, South Korea, Sweden, Australia, Brazil, Belgium, Japan, Finland, Chile. IV with country: 205→275/667. Cross-border arcs: 115→129.
-- [x] **Wikidata false positive audit (2026-04-22):** 9 IV QIDs nulled — label-only SPARQL match hit non-investor entities. Pattern and fix documented below.
-- [x] **HQ conflict resolution (2026-04-23):** `scripts/patch_hq_conflicts.py` — 26 field_conflict(headquarters) entries resolved: 6 compatible_sources, 19 field_conflict_resolved (canonical source documented), 1 manual override (AMD→Santa Clara CA). validate.py PASSED.
-- [x] **IV country coverage (2026-04-23):** 275→456/667 IVs with country. Pipelines: SPARQL P159 (+1), QID-bearing manual (+15), batch curated no-QID (+171), USA→United States normalisation (54). SEK QID Q23045321 nulled (Finnish ad agency false positive). Cross-border arcs: 129→130. validate.py PASSED.
-
-#### Wikidata false positive pattern (IV investor enrichment)
-
-**Root cause:** `import_investors_crunchbase.py --wikidata` matches investor names to Wikidata using a label search (SPARQL `rdfs:label` / `skos:altLabel`) without filtering by entity type (`wdt:P31`). Investor names like "Chapter One", "Greylock", "Bond", "Canary" are common English words/phrases, producing hits on unrelated entities.
-
-**False positive categories observed:**
-- Geographic entities: hamlet (Greylock → Q122567544, Massachusetts), city (Noordwijk → Q455464, Netherlands), parish (Canary → Q63519398, New South Wales)
-- Cultural entities: restaurant (Chapter One → Q2129707, Dublin), band (Inc. → Q17484173, NASA → Q24876045), record label (GSR → Q59677963)
-- Unrelated companies: motorcycle manufacturer (Bond → Q2866747), legal entity in Latvia (IQ Capital → Q104427238)
-
-**Nulled in this pass (2026-04-22):** IV-0083 Bond, IV-0100 Canary, IV-0114 Chapter One, IV-0247 Greylock, IV-0249 GSR, IV-0279 Inc., IV-0308 IQ Capital, IV-0398 NASA, IV-0415 Noordwijk.
-
-**Fix implemented (2026-04-22):** `_NON_INVESTOR_SIGNALS` frozenset added to `import_investors_crunchbase.py`. After each SPARQL match, the description is checked against known non-investor patterns (`restaurant`, `hamlet`, `municipality`, `parish`, ` band`, `record label`, `legal entity`). Any hit causes the match to be rejected and `None` returned — the entity stays with `wikidata_id = null`. Note: the P31 filter `wdt:P31/wdt:P279* wd:Q43229` was already in the query but is ineffective alone because Wikidata's "organisation" class includes restaurants, bands, etc. One edge case not covered: "UK historical motorcycle manufacturer" (Bond) — "manufacturer" is also used by legitimate corporate investors; Bond's QID remains null.
-
-### Session 2026-05-10 — Graph visualization (branch `graph`)
-
-- [x] **Ego graph card** in `docs/search.html` — Cytoscape.js 3.30.2 (local `docs/web/cytoscape.min.js`)
-  - `docs/web/graph.js` module: `buildElements()`, `initEgoGraph()`, `destroyActive()`
-  - 1-hop bipartite view: center entity + direct neighbors only
-  - Concentric layout (≤40 nodes) / cose spring (>40 EDF nodes)
-  - Adaptive spacingFactor by node count (3.5 for tiny → 1.0 for large)
-  - Collapsed by default; lazy-rendered on first expand
-  - Click-to-navigate: tap any neighbor node → full profile + URL routing
-  - Card added to both `renderCards()` (IN entities) and `renderInvestorProfile()` (IV entities)
-  - Tested: Tesla (22 investors), Leonardo (37 EDF projects), Sequoia (10 portfolio)
-- [x] **Branch `graph` created** from `main`
-- [x] **`docs/networks.html` v1** — EDF collaboration network, country-filtered bipartite Cytoscape cose graph. France default (124 entities, 60 projects). Entity click → docs/search.html profile. Project click → detail panel (call, EU contribution, participants, portal link).
-- [x] **`docs/networks.html` v2 — Defence Network** — expanded to include investment relationships (992 rels). Country index covers all `IN-*` entities. Sidebar checkboxes independently toggle EDF participation (solid blue) and Investment (dashed orange). Orange investor nodes (IV-*) sized by portfolio count. Stats panel shows EDF vs investment counts separately. France: 140 entities, 74 investors, 279 participations, 86 investments.
-- [x] **`docs/networks.html` v3 — node interaction (2026-05-11)**
-  - **Focus/dim on click**: click any node → `closedNeighborhood()` stays at full opacity (`.focused`), all other elements fade to `opacity: 0.07` (`.dimmed`). Click background → reset.
-  - **Unified `#detail-panel`**: replaces separate `#proj-panel`. Project click → project details (call, period, EU contrib, portal link). Entity/investor click → entity details (type, country, Wikidata description, EDF proj count, investor/portfolio count, website, profile link). No longer navigates away on entity click.
-  - **`selected`/`selectedName` URL params**: every node click pushes `?selected=ID&selectedName=Name` (entity name or project acronym). Close/background click pushes without `selected`. Deep link restores focus + panel after layout. `selectedName` is readable in URL (no lookup needed).
-  - **Same-tab profile navigation**: "Open full profile →" uses same tab — Back restores networks state. Intentional: routing is complete, new tab was a workaround.
-  - **URL param schema decision**: `selected`/`selectedName` kept distinct from `docs/search.html`'s `organization`/`organizationName` and `docs/index.html`'s `entity`/`entityname` — each page's params describe its own state. Cross-page links from networks to search already use the correct `?organization=ID&organizationName=Name` format.
-- [x] **`docs/networks.html` — zoom on interaction (2026-05-11)**
-  - Node click → `cy.animate({ fit: { eles: hood, padding: 60 }, duration: 350 })` — zooms to closed neighborhood (node + its connections)
-  - Panel [x] or background click → `cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 350 })` — restores full fit
-  - Guard in `clearFocus()`: animation only fires if elements are actually dimmed — prevents spurious animation when `renderNetwork()` calls `closeDetailSilent()` before `cy.destroy()`
-### Session 2026-06-18 — MINTL import (+23 new entities)
-
-**Source:** `rawdata/mintl-update-companies-20260618-foglio1-csv6-18-2026.csv` (25 CB rows)
-**Script:** `scripts/import_mintl_companies.py` (new, one-shot creation script)
-
-#### Reconciliation
-
-| Status | Count | Detail |
-|---|---|---|
-| Already in DB | 2 | see below |
-| False positives (name substring match, different entity) | 2 | see below |
-| New entities created | 23 | IN-1449–IN-1471 |
-
-**Already in DB (skipped):**
-- `IN-0356` Taiwan Semiconductor Manufacturing — name in CSV: "Taiwan Semiconductor Manufacturing Company"; already has CB + WD + iShares data
-- `IN-1236` Intelic — exact match; CB data from April 2026 (minor staleness, not updated this cycle)
-
-**False positives found during pre-import search (these are NEW and were correctly imported):**
-- "xAI" → matched `IN-0672/0673/1401` "Exail*" (French robotics company — different entity)
-- "Scale" → matched `IV-0489` "Scale Venture Partners", `IV-0490` "Scale-Up Ventures", `IN-1406` "Astroscale" (all different entities; Scale AI is new as `IN-1465`)
-
-**New entities (IN-1449–IN-1471, alphabetical):**
-Anthropic, Castelion, DeepSeek, Enveil, Epirus, Expert.ai, Hadean, Hadrian, Hypersonica, Latent AI, Mistral AI, Nominal, PhysicsX, Plural.com, Red Hat, Saronic, Scale, Shield AI, Shin-Etsu Chemical, State Street, SUMCO, xAI, ZeroMark
-
-- All created with `sources.crunchbase` fully populated from CSV
-- `sector: 'Startup'` set for VC-backed companies (Early/Late Stage Venture, Seed)
-- `type: 'bank'` set for State Street; `company` for all others
-- `roles: ['manufacturer']` for all — **review needed**: some are pure software/AI (no manufacturing)
-- `wikidata_id: null` for all — QID pipeline can be run to enrich
-
-- [x] validate.py PASSED (2026-06-18) — 2221 entities, 2798 relationships
-- [x] `import_investors_crunchbase.py` — +90 IV entities, +192 investment relationships from `top_investors` of new companies
-- [x] `IN-1468 State Street` — `roles` corrected from `['manufacturer']` to `['investor']` (bank/asset manager, not a manufacturer)
-- [x] validate.py PASSED (2026-06-18) — **2311 entities, 2990 relationships**
-- [x] QID Phase 1 (`search_missing_qids.py --search`): 5 proposals from MINTL (Anthropic, DeepSeek, Mistral AI, Shin-Etsu Chemical, SUMCO) + 37 from prior aerospace/defense batch
-- [x] QID Phase 1b (`sparql_search_qids.py`): +5 additional (Arafura Resources, LIG Nex1, Standardaero, ST Engineering, PTC Industries)
-- [x] Review: 43 accepted, 4 rejected — IN-1282 (retired entity), IN-1300 KGHM International (parent QID ≠ Canadian subsidiary; Canadian subsidiary confirmed absent from Wikidata), IN-1404 Cadre (QID = English word "cadre", not the company; Cadre confirmed absent from Wikidata), IN-1409 Mildef (Q105806178 = Malaysian entity; Swedish Mildef Group AB confirmed absent from Wikidata)
-- [x] `search_missing_qids.py --apply`: 85 QIDs written
-- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
-- [x] `enrich_wikidata.py` — 42 entities enriched (Anthropic, DeepSeek, Mistral AI, Shin-Etsu, SUMCO + 37 aerospace/defense batch)
-- [x] `patch_investor_countries.py` — 58 IV entities assigned country (mostly USA; British Business Bank → UK, Siemens → Germany)
-- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
-
-#### Note: script design
-`import_mintl_companies.py` is the creation counterpart to `import_crunchbase_csv.py`:
-- `import_crunchbase_csv.py` — matches CB rows to EXISTING entities (unresolved rows are not created)
-- `import_mintl_companies.py` — creates NEW entities from a curated CB CSV; skips known existing entities via hardcoded `ALREADY_IN_DB` dict
-
----
-
-### Session 2026-06-17 — EDF refresh + Wikidata (no-op)
-
-- [x] **EDF re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 212 calls, 79→82 projects
-  - Fixed `RemoteDisconnected` crash: added `OSError` retry with backoff (3 attempts, 5s/10s) to `http_get`/`http_post`
-- [x] **`build_edf_entities.py`**: +2 new IN-NNNN participant org entities (815 matched to existing)
-- [x] **`import_edf_projects.py`**: +7 `edf_participation` rels (0 new project entities — all 82 already exist)
-- [x] **`patch_edf_objectives.py`**: 0 updates needed (68 already have objectives; 16 remain N/A from API — unchanged)
-- [x] **Wikidata enrichment**: nothing to do — 868 QID-bearing entities already enriched; 2 new orgs have no QID
-- [x] validate.py PASSED. Total DB: **2198 entities, 2798 relationships**
-
-### Session 2026-06-03 — EDF full update + Network button
-
-- [x] **`docs/search.html` — Network ↗ button** on EDF project profiles (`renderEdfProjectProfile`)
-  - Links to `docs/networks.html?edf=1&inv=0&selected=EDF-NNNN` (no country param)
-  - `docs/networks.html`: `resolveEntityCountry()` for EDF-* now prefers coordinator's country (sorts coordinator rel first, falls back to first participant)
-  - `docs/networks.html` init: resolves country from `selected` entity when `country` param absent
-  - No impact on org/investor profiles
-
-### Session 2026-06-03 — EDF full update
-
-- [x] **Full re-fetch** `rawdata/edf_calls.json` via `scripts/fetch_edf_bulk.py`: 207 → 212 calls, 76 → 79 projects
-- [x] **`import_edf_projects.py`**: +6 EDF project entities (EDF-0079–EDF-0084), +78 `edf_participation` rels
-- [x] **`patch_edf_objectives.py`**: objectives added to EDF-0079–0084 (68/84 total have objectives; 16 genuinely N/A from API). Fixed false-positive bug in `is_valid_objective()` — "restricted" substring in long text was filtering out EDF-0081 S.W.I.F.T
-- [x] **Objective logic merged** into `import_edf_projects.py` — future imports write objective at creation time
-- [x] **`build_edf_entities.py`**: +33 new IN-NNNN org entities (26 missing participants from new projects + 7 from other new calls). Zero name-match merges — all genuinely new
-- [x] **`import_edf_projects.py`** re-run: +66 `edf_participation` rels (0 missing PICs). All 6 new projects fully connected
-- [x] **`reference/UPDATE_PROTOCOL.md`**: EDF data refresh pipeline documented (5-step process, constraints, commit format)
-- [x] **Fixed SyntaxError** in `build_edf_entities.py` docstring (triple-quote clash)
-- [x] validate.py PASSED. Total DB: **2196 entities, 2791 relationships**
-
-### Session 2026-05-27 — Networks layout spacing
-
-- [x] **`docs/networks.html` — cose layout retuned**: raised `idealEdgeLength` (60→120 medium), `nodeRepulsion` (2500→9000), dropped `gravity` (0.25→0.03), added `nodeOverlap:20`, widened `componentSpacing` (40→80), loosened `edgeElasticity` (→70), increased `numIter`. Nodes no longer cluster at the centre.
-- [x] **`reference/NETWORKS_LAYOUT.md`** — parameter reference: all cose params explained, current values, tuning guide, node size constants. Indexed in STATUS.md.
-
-### Session 2026-05-21 — Statistical indicators report
-
-- [x] **`reports/`** — new folder for analytical reports
-  - `reports/report1.md` — 3 editorial angles (Chi controlla la difesa EU · Dove va il soldo pubblico · Chi sono i nuovi player), 10 statistical indicators, research questions per angle
-  - `reports/generate_charts.py` — reproducible chart generation via matplotlib (10 charts in `reports/charts/`)
-  - `reports/generate_pdf.py` — markdown → HTML (base64 images) → PDF via Chromium headless; output: `reports/report1.pdf`
-  - Charts and PDF in `.gitignore` (generated artifacts); scripts and MD committed
-
-### Session 2026-05-14 (about page)
-
-- [x] **`docs/about.html`** — added GitHub repo link + indexed `data/` files (database.json, edf_orgs.json, glossary.json, qid_candidates.json) with one-line descriptions
-
-### Session 2026-05-14 — Arc click bilateral panel + map panel UX
-
-- [x] **`docs/index.html` — arc click → bilateral investment panel**
-  - Click any visible arc between two countries opens a bilateral panel in the side panel
-  - Hit area: invisible 12px transparent `stroke` path overlaid on each arc (scaled with zoom) — makes 1.5px SVG paths reliably clickable
-  - `showArcDetail(srcIso, tgtIso)`: dims all other arcs + nodes; highlights active arc in purple; fits map to the two endpoints
-  - Panel content: grouped by investor (deduplicated), portfolio companies as indented sub-items; both investor and company rows are clickable → `filterMapByEntity`
-  - Directions labeled `{srcName} → {tgtName}` and `{tgtName} → {srcName}` (no ↑↓ arrows — no selected-country reference in bilateral context)
-  - URL routing: `?arc={srcISO}-{tgtISO}` — deep-linkable, back-button aware, restored on page load
-  - `mapState.selectedArc` added; cleared by `closeMapPanel()` and `showMapCountry()`
-  - `restoreMapState()` and `init()` extended to parse and restore `arc` param
-- [x] **`docs/index.html` — country panel reorder**: Capital Flowing In → Capital Flowing Out → Organizations (was: Organizations first)
-- [x] **`docs/index.html` — label rename**: "Entities" → "Organizations" in country panel
-- [x] **`docs/index.html` — org list badge order**: `↓N investor badge` before sector badge (was after)
-- [x] **`docs/index.html` — bilateral arc panel table redesign**:
-  - FROM/TO two-column CSS grid; investor appears once, portfolio companies as `<ul><li>` in TO cell
-  - Row height auto-spans the full `<ul>` (no overflow/clipping)
-  - Header `th`: bg `#d3d8d8`, font `#1a1a1a`, bold uppercase
-  - All table borders `1px solid #d3d8d8`
-  - TO list marker: `➜` (U+279C) via `list-style-type:'➜ '` (single quotes required inside `style=""`)
-  - Investor IDs hidden from panel; section arrows (↑↓) removed — direction expressed by `A → B` label only
-  - Sections grouped: `relsAB` (src→tgt) and `relsBA` (tgt→src), each showing investor count + connection count
-
-- [x] **Dual-role entity fix (map, networks, search)** — `IN-*` entities that are also investment sources (after IV→IN merges) now render correctly on all three pages. `docs/index.html`: arcs and detail panel cover both directions. `docs/networks.html`: `kind='entity'` assigned consistently regardless of country scope. `docs/web/app.js`: Portfolio card + stat shown in entity profile. Affected: IN-0053 BHP, IN-0233 Microsoft, IN-1307 Ma'aden, IN-1336 Tianqi Lithium.
-- [x] **Ma'aden dedup** — IV-0377 merged into IN-1307. IN-0178 Ivanhoe Electric country set to United States.
-- [x] **Retired entities hidden from UI** — entities with `history[].action === 'entity_retired'` stripped from `DB.entities` and `DB.relationships` at load time in all three pages. Currently: IN-1282 Fortescue Metals Group. DB record preserved.
-- [x] **`docs/networks.html` — search autocomplete A-Z** — results always sorted `localeCompare` instead of match-position heuristic.
-- [x] **`docs/networks.html` — search dropdown limit 14 → 30**.
-- [x] **`docs/networks.html` — IV-* search navigates to portfolio country** — `resolveEntityCountry()` now prefers a portfolio company's country for IV-* investors (guarantees visible connection in graph). Previously used investor's home country, which often had no connected entities.
-- [x] **`docs/networks.html` — outbound investments rendered** — `buildElements()` now collects investment rels where the source is a local investor (country match) and target is foreign. Outbound investor shown as orange node, foreign target as green node. Fixes countries like Indonesia (local investors, no inbound).
-- [x] **`docs/networks.html` — no-data fallback** — when `connectedIds` is empty, falls back to showing all `entityIds` instead of blank "No data" screen.
-
-- [x] **`docs/networks.html` — cross-country neighbor expansion on node click (2026-05-11)**
-  - `addExtraNeighbors(nodeId)`: scans all `edfRels` + `investmentRels` for the clicked node; for each neighbor not already in `cy`, adds node + edge via `cy.add()`
-  - New nodes positioned in a circle around the clicked node (`radius = max(130, count × 11)`)
-  - EDF project nodes carry full `sources.edf_project` data so `showProjDetail` works on extras too
-  - `removeExtraElements()`: called from `clearFocus()` (panel close / background click) and at top of each `addExtraNeighbors()` call (node→node navigation)
-  - No routing change needed: `country` param describes base graph scope; extras are derived state from `selected` — deep-link restore works automatically via `restoreSelected` → `applyFocus`
-
-### Session 2026-05-07
-
-- [x] **map: sector badge fallback removed** — `companyBadges()` in `docs/index.html` no longer shows old-DB `sector` field (Mining, Defence, etc.) for non-iShares entities. Only `Startup` tag preserved. ~46 entities affected.
-- [x] **IV/fund/public_fund Wikidata enrichment** — `enrich_wikidata.py --force --types investor,fund,public_fund` run: 196/196 entities enriched (0 missing). Full `wbgetentities` data now present: `instance_of`, `country`, `headquarters`, `inception`, `official_website`, `wikipedia_url`.
-- [x] **`enrich_wikidata.py` --types flag** — new `--types TYPE,...` argument allows scoping enrichment to specific entity types without touching already-correct IN entities.
-- [x] **issues.md** — both open TODOs closed as FIXED.
-
-### Data quality pass (2026-04-24)
-- [x] **IV-0064 BDT & MSD Partners**: sources.wikidata.country='United Kingdom' nulled — Wikidata P17 error; HQ=NYC confirms United States
-- [x] **audit_quality.py** run (not dry-run): +566 reconciliation_documented (CB legacy migrations) + 163 field_conflict (1 country + 188 HQ real conflicts, minus already-flagged)
-- [x] **4 WD country errors fixed** (sources.wikidata.country nulled): Airbus Helicopters (DE→null, Marignane is FR), STmicro Grenoble 2 (NL→null, Plan-les-Ouates is CH), Comec (CN→null, Italian EDF participant), RIO Tinto (UK→null, Melbourne AU operational HQ)
-- [x] **Chemring re-flag resolved**: audit_quality.py re-flagged IN-1262 (already resolved 2026-04-23); upgraded to field_conflict_resolved
-- [x] **65 cross-country CB HQ mismatches classified** via `scripts/patch_hq_conflicts2.py`:
-  - 14 `compatible_sources`: Anglo American, Logitech SA, Southern Copper, STmicro (dual HQ), Valterra Platinum, Airbus Operations ×2, Telespazio France, UMS ×2, AMD, KGHM Int'l, TSMC Arizona, Indra
-  - 15 `cb_hq_mismatch_severe`: BCE, CDW, Commercial Metals, Fortescue, Informa, Lasertec, Nintendo, Telia, Baltic Workboats, Naval, Patria, Tecnobit, Ubitech, Nexa Technologies, United Aircraft — CB data for completely different entity; manual review needed to decide whether to null CB block
-  - 31 `cb_hq_mismatch_subsidiary`: Canon USA, Apple Japan, Dentsu Americas, Thales USA, Omron Germany, NEC Brazil, etc. — CB matched a regional subsidiary
-- [x] validate.py PASSED (2026-04-24)
-
-### CB wrong-entity cleanup (2026-04-24)
-- [x] **3 downgraded** from `cb_hq_mismatch_severe` → `cb_hq_mismatch_subsidiary`: Nintendo (CB desc correct, HQ=LA wrong), Baltic Workboats (CB desc correct, HQ=Coral Gables FL wrong), Commercial Metals (user confirmed ok)
-- [x] **12 CB blocks nulled** (`cb_wrong_entity`): BCE (door automation IT≠Bell Canada), CDW (football club≠IT company), Fortescue (CB matched Fortescue Zero spinoff≠parent), Informa (German digital marketing≠Informa plc), Lasertec (Polish laser toner≠Japanese semiconductor), Telia (Greek CMS≠Swedish telecom), Naval (Brazilian valve maker≠Naval Group France), Patria IN-0951 (Bratislava trading≠Finnish defence; IN-0952/0953/0954 unaffected), Tecnobit (Italian CAD≠Spanish defence), Ubitech (Chinese entity≠Greek cybersecurity), Nexa Technologies (US trading tech≠French IoT), United Aircraft (Chinese drones≠Russian aerospace UAC)
-- [x] **IN-1282 Fortescue Metals Group retired** — duplicate of IN-0133, 0 relationships, wikidata_id already nulled as qid_nulled_duplicate
-- [x] **Naval Group (IN-0899) confirmed**: WD Q1227511 + EDF pic=998381522 both confirm French naval defence company. CB was naval valve manufacturer (Brazil) — nulled.
-- [x] validate.py PASSED (2026-04-24)
-
-### EDF frontend (2026-04-23)
-- [x] `docs/web/app.js` — REL_MAP extended for `edf_participation` (edf_participant/edf_member roles)
-- [x] Entity profile EDF card: immediate project list from REL_MAP (no lazy-load), with role, share, dates, EU Portal link
-- [x] Co-participant expand: clickable list of co-participants with role, country, EU contribution — navigates to their profile
-- [x] `renderEdfProjectProfile`: full profile for EDF-NNNN project entities — stats bar (participants, EU contribution, dates, status), Project details card, Participants card (sorted coordinator-first, all clickable)
-- [x] `buildRegistry`: EDF project entities indexed by acronym, call_id, call_title (searchable as "ENGRT II", "AI-WASP", etc.)
-- [x] `docs/search.html`: `thirdParty` role badge styled (grey, distinct from coordinator/participant)
-
-### EDF participation relationships (2026-04-23)
-- [x] `scripts/import_edf_projects.py` — creates 78 `EDF-NNNN` project entities + 1657 `edf_participation` relationships
-  - All 1657 participant slots matched via PIC→db_id crosswalk in `docs/data/edf_orgs.json` (0 missing)
-  - Each relationship: `source`=entity db_id, `target`=EDF-NNNN, `role` (coordinator/participant), `eu_contribution`
-  - Entity sources: `sources.edf_project` with project_id, acronym, call_id, call_title, status, dates, budget, url, type_of_action
-  - `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
-  - validate.py PASSED
-
-### Infrastructure
-- [x] Schema v3.0 (`reference/SCHEMA.md`)
-- [x] Update protocol (`reference/UPDATE_PROTOCOL.md`)
-- [x] QID lookup process (`reference/QID_LOOKUP_PROCESS.md`)
-- [x] validate.py (10 checks including PER-NNNN, rel types, edf date format)
-- [x] .gitignore (excludes `__pycache__/`, `*.pyc`, `*.bak`)
-- [x] Initial commit on branch `nuovoDB`
-- [x] `scripts/reprocess_skipped_qids.py` — 4-phase QID second-pass recovery script
-- [x] `scripts/audit_quality.py` — data quality audit (reconciliation + field conflicts)
-- [x] `scripts/enrich_wikidata.py` — Wikidata enrichment script (`sources.wikidata`)
-- [x] `scripts/import_crunchbase_csv.py` — Crunchbase import (4-tier matching, field-level diff, re-run safe)
-- [x] `scripts/regenerate_export.py` — regenerates companies_export.csv from DB
-- [x] `work/crunchbase/CRUNCHBASE.md` — Crunchbase process + reconciliation log
-
----
-
-## Pending work (priority order)
-
-### Session 2026-06-18 — CB HQ country patch (Networks bug fix)
-
-**Bug:** 18/23 MINTL entities (and ~74 other IN-* entities) invisible in Networks — no country in infonodes/wikidata/edf sources.
-**Root cause:** `getCountry()` in docs/networks.html doesn't check `sources.crunchbase.headquarters`; entities added via MINTL import had only CB data.
-**Fix:** `scripts/patch_country_from_cb_hq.py` — extracts country from last segment of CB headquarters string.
-
-- [x] 92 IN entities patched: `sources.infonodes.country` ← last segment of `sources.crunchbase.headquarters`
-- [x] 32 IN entities normalised: `sources.wikidata.country` "People's Republic of China" → "China"
-- [x] Filters: skips entities with `wikidata_id` set, `cb_hq_mismatch_*` validation flags, and 8 SKIP_IDS (known CB subsidiary mismatches)
-- [x] validate.py PASSED (2026-06-18) — 2311 entities, 2990 relationships
-
-**SKIP_IDS (known wrong CB HQ — CB matched a regional subsidiary):**
-IN-0138 Fujifilm (JP, CB=Korea), IN-0167 IGO (AU, CB=Colombia), IN-0252 Nexon (KR, CB=UAE), IN-0269 NTT (JP, CB=UK), IN-0321 Screen (JP, CB=Norway), IN-0334 Sims (AU, CB=US), IN-1354 Comec (IT EDF, WD country wrong), IN-1361 Safran SA (FR, CB=US)
-
----
-
-### TODO — `patch_iv_countries_p159.py` (2026-06-18)
-
-23 IV entities have QID but no country. `patch_iv_countries_p159.py --dry-run` confirmed all 23 resolvable via SPARQL P159/P17, but the apply run failed due to Wikidata SPARQL endpoint outage (HTTP 429). Re-run when the endpoint is stable:
-
-```bash
-python3 scripts/patch_iv_countries_p159.py
-python3 scripts/validate.py
-```
-
-Confirmed candidates (from dry-run): Affinity Partners (USA), Balderton Capital (UK), Barclays Investment Bank (UK), Bharti Enterprises (India), General Atlantic (USA), IDG Capital (China), Index Ventures (Switzerland), Partech (France), Sekunjalo Group (South Africa), + 14 others (all USA).
-
----
-
-### ~~OPEN BUG~~ FIXED — dual-role entity frontend rendering (2026-05-14)
-
-**Status:** Fixed in branch `datacleaning` (2026-05-14). Affected entities: `IN-0053` BHP, `IN-0233` Microsoft, `IN-1307` Ma'aden, `IN-1336` Tianqi Lithium.
-
-**Fix applied per page:**
-- `docs/index.html`: arc computation now processes both incoming and outgoing investment rels for any entity; detail panel shows portfolio section alongside investors section for dual-role IN-* entities
-- `docs/networks.html`: `buildElements()` assigns `kind='entity'` (not `'investor'`) when investment source is an IN-* entity — consistent styling regardless of which country is selected
-- `docs/web/app.js` (search): `renderCards()` adds a "Portfolio" card and `renderProfile()` stats show portfolio count for dual-role IN-* entities
-
-**Root cause (for reference):** ID prefix used as proxy for role. Fixed by checking `ivId.startsWith('IV-')` before assigning `kind`, and by processing both relationship directions regardless of entity prefix.
-
----
-
-### 6. iShares Aerospace & Defense (GICS 201010) — COMPLETE (2026-04-24)
-
-**ETF:** iShares Global Aerospace & Defence UCITS ETF (DFND), GICS 201010
-**File:** `rawdata/ishare_aerospace_defense_GICS201010_en.csv` (converted from Italian locale original)
-**Script:** `scripts/import_ishares_aerospace.py`
-**Result:** 77 equity rows imported — all matched to existing entities (73 by name_key, 4 via MANUAL_ALIASES: Thales SA→IN-1132, Dassault Aviation SA→IN-1276, Leonardo Finmeccanica→IN-0841, SAAB Class B→IN-1329). Zero new entities created.
-
-### 0. Data quality — resolve flagged conflicts
-
-From `audit_quality.py` (Audit C), 44 entities originally had `field_conflict` validation entries:
-
-- **3 real country conflicts** — RESOLVED (2026-04-23, `patch_country_quality.py`):
-  - `IN-1234` Destinus: infonodes.country set to Switzerland (was Netherlands); wikidata confirmed correct
-  - `IN-1262` Chemring Group: UK confirmed (wikidata P17=Germany is Wikidata error); field_conflict→confirmed
-  - `IN-1340` Umicore: Belgium confirmed; QID replaced Q107518759→Q902769 (Belgian parent "Umicore", founded 1904) during duplicate audit (2026-04-23); sources.wikidata re-enriched with correct entity — RESOLVED
-- **15 country normalisation gaps** — RESOLVED (2026-04-23): all 40 entities with `sources.wikidata.country="People's Republic of China"` normalised to "China"; 15 field_conflicts resolved
-- **30 real HQ conflicts** — RESOLVED (2026-04-23, `patch_hq_conflicts.py`):
-  - 6 `compatible_sources`: Baykar, Czechoslovak Group, Dassault Aviation, Rafael, Wacker Chemie (München=Munich), (Recylex moved to wikidata_canonical)
-  - 14 `field_conflict_resolved` (crunchbase canonical): AeroVironment, Albemarle, HII Mission Technologies, KGHM International, KoBold Metals, Newmont, Palantir, Raytheon Missile Systems, TKMS, TSMC Arizona, and others
-  - 10 `field_conflict_resolved` (wikidata canonical): BAE Systems, DAQO, General Dynamics, Indra, Nexa Technologies, QinetiQ, Safran, United Shipbuilding, Uralvagonzavod, Recylex
-  - 1 manual override (AMD): both sources wrong — WD=Sunnyvale (outdated), CB=Cologne Germany (EU office); `sources.infonodes.headquarters` = "Santa Clara, California, United States"
-  - 4 confirmed already resolved from earlier work (STATUS said 30, DB had 26 remaining)
-- **55 duplicate wikidata_ids** — RESOLVED (2026-04-23):
-  - 9 groups: `accepted_duplicate` — share classes / different exchange listings (no QID change)
-  - 8 groups: `expected_iv_in_duplicate` — company also acts as investor (no QID change)
-  - 1 merge: IV-0240 Government of Canada retired → IV-0617 Canadian Government (relationship migrated)
-  - 8 QIDs nulled: same entity under old/ticker name (IBM, PLS, VALE DO RIO DOCE, TKMS, Saab Aktiebolag, Telecom Italia S.p.a, Fortescue Metals Group, Meta for Developers)
-  - 8 QIDs nulled: national sibling subsidiaries with parent QID misapplied (Integrasys×2, UMS×2, Airbus Ops×2, Arianegroup×2)
-  - 35 QIDs nulled: parent QID misapplied to subsidiaries (Phase F — 24 groups)
-  - 19 groups remain: all intentional (share classes + IV+IN, all tagged)
-  - 12 relationships migrated to canonical entities (IN-1253→IN-0035 ×4, IN-1298→IN-0753 ×8)
-  - ~~IN-0723 Helsing: 5 relationships remain on nulled entity — flagged `needs_review` (UK vs German entity ambiguity)~~ RESOLVED (2026-04-23): EDF PICs confirmed both German — IN-0723→Helsing GmbH (PIC 890415866, Q127380521, main entity, 5 CB rels restored, EDF thirdParty); IN-0724→Helsing Germany GmbH (PIC 892984620, subsidiary, EDF participant)
-
-### 1. Phase 2: Crunchbase enrichment — Cycle 2 COMPLETE (2026-04-24)
-
-**Cycle 2 status:** Import complete (2026-04-24). 969 entities now have `sources.crunchbase`.
-- Upload file: `work/crunchbase/companies_no_cb_2026-04-24.csv` (430 rows)
-- CB returned: `companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv` (252 rows)
-- Non-matches: `companies_no_cb_2026-04-24-non-matches.csv` (121 rows)
-- Result: 192 new + 46 updated; 5 re-nulled as cb_wrong_entity
-- See `work/crunchbase/CYCLE2.md` for full process doc
-
-**38 unresolved from Cycle 2:** See `work/crunchbase/unresolved_2026-04-24.csv`
-
-**Next cycle (Cycle 3):** Run `python3 scripts/regenerate_export.py`, re-upload for remaining ~237 companies still without CB data.
-
-### 3. Phase 3: Investment graph — COMPLETE (Crunchbase + old DB migration)
-
-**Status (2026-04-22):** 667 IV entities + 992 relationships. 275 IV have country data → 129 cross-border map arcs.
-
-**To increase arc coverage further:**
-- Run `patch_iv_countries_p159.py` again if new QIDs are applied to IV entities
-- Extend `KNOWN` dict in `patch_investor_countries.py` for any new investor names
-- Run Crunchbase Cycle 2 to pick up new `top_investors` data
-- **Known gap — QID found but P17 missing:** 0 remaining (all 16 QID-bearing no-country IVs resolved — 1 via SPARQL, 15 manually). 211 IV still lack country, all have no QID.
-- **Remaining 211 no-country IV:** obscure/regional VCs, individuals (person-named), and small funds not identifiable from name alone. Crunchbase Cycle 2 may resolve some via CB profile data.
-
-### 4. Phase 4: EDF participation relationships — COMPLETE (2026-04-23)
-
-- **78 EDF project entities** (type: `edf_project`, prefix `EDF-NNNN`) created from 64 calls with projects
-- **1657 `edf_participation` relationships** (source=IN-*/IV-*/etc, target=EDF-NNNN)
-- Each relationship carries: `role` (coordinator/participant), `eu_contribution`
-- `validate.py` extended: `edf_project` added to `VALID_ENTITY_TYPES`
-- Script: `scripts/import_edf_projects.py` (re-run safe, `--dry-run` flag)
-- validate.py PASSED after import
-
-### 5. QID lookup — second pass (complete)
-- **455 companies** still without wikidata_id — 694/1149 (60.4%) now have QIDs
-- All 267 proposals reviewed and applied (2026-04-13)
-- 411 skipped entries remain — mostly EDF SMEs genuinely absent from Wikidata, or iShares truncated names (~35 chars)
-- Optional: run `reprocess_skipped_qids.py` again for any remaining matches
-
----
-
-## Branch convention
-
-> Rule: **never commit directly to `main`**. All work happens on the page branch, then merges to `main` when done.
-
-**Remote policy (2026-05-11):** only `main` is pushed to `origin`. Feature branches are local only. `origin/graph` deleted — remote is now `origin/main` only.
-
-| Branch | Scope |
-|---|---|
-| `map` | `docs/index.html` (D3 map) |
-| `search` | `docs/search.html` + `docs/web/app.js`, `docs/web/router.js` |
-| `graph` | `docs/networks.html` + `docs/web/graph.js` |
-| `designfix` | `docs/web/base.css`, `docs/web/components.css`, `docs/web/companysearch.css`, `tmp/typography.html` |
-| `datacleaning` | DB data quality work (scripts, database.json patches) |
-| `main` | Merge target only — receives merges from all branches |
-
-**Workflow:** checkout the relevant branch → make changes → commit → merge to `main` → push `main` only.
-
----
-
-## Routing convention (all pages)
-
-> Rule: **every user-driven state change uses `pushState`; initial page load uses `replaceState`.**
-
-| Action | Method | Reason |
-|---|---|---|
-| User changes any filter or selection | `pushState` | Back must always restore the previous state |
-| Page load / URL canonicalization | `replaceState` | Avoids a duplicate history entry on first load |
-
-**Do not use `replaceState` for user interactions**, even if the change feels like a "view setting". The browser Back button is the user's primary undo mechanism — any state that can be set by the user must be undoable.
-
-### Implementation per page
-
-| Page | Routing module | URL scheme |
-|---|---|---|
-| `docs/search.html` | `docs/web/router.js` (ES module) | `?organization=IN-XXXX&organizationName=Name[&theme=light]` |
-| `docs/index.html` | Inline | `?country=840&countryname=United+States&entity=IN-XXXX&entityname=Name&type=EUfunded[&theme=light]` |
-| `docs/networks.html` | Inline | `?country=France&edf=1&inv=1[&selected=EDF-0001&selectedName=ENGRT+II][&theme=light]` |
-
-**Theme param (2026-05-11):** `theme=light` added to all pages. Dark is default (no param). Managed by `docs/web/theme.js`:
-- `initTheme()`: reads URL param > localStorage > dark; `replaceState` to canonicalize
-- `toggleTheme()`: `pushState` with updated param (back button undoes theme change)
-- `popstate` listener: applies theme from URL on back/forward
-- `updateNavLinks()`: keeps all `a.tnav-btn` and `a.brand` hrefs in sync
-- `themeParam()`: returns `&theme=light` or `''` — used in dynamic cross-page link builders
-- FOUC prevention: all 3 pages read URL param before DOMContentLoaded (inline `<script>` in `<head>`)
-
-**`docs/web/router.js`** handles entity-based routing (registry lookup, compare mode). Map and Networks use inline routing because their state models (filter params) are incompatible with the entity-registry API. **Do not merge them** — the schemas are structurally different. The shared rule is the `pushState`/`replaceState` convention above.
-
----
-
-## Key decisions (do not revisit without strong reason)
-
-| Decision | Rationale |
-|---|---|
-| `wikidata_id` as primary bridge identifier across sources | Entity resolution: same company appears as "Leonardo" / "Leonardo SPA" / "Leonardo Società per azioni" |
-| Deduplication by `name_key` (strip legal suffixes, uppercase, collapse whitespace) | Prevents duplicate entities from same company listed on different exchanges |
-| EDF matching: conservative (2 auto-matched, 792 new entities) | False positives in entity matching must not happen |
-| `sources.ishares` is array, not object | Same company can appear in multiple ETFs |
-| ISIN not used | iShares CSVs do not contain ISIN column |
-| QID false positives: must never happen | Strict label + description keyword filtering enforced in all search scripts |
-| HTTP 429: must never happen | 1.5s delay (Phase 1), 2s delay (Phase 1b), backoff [4, 8, 16]s |
-| SPARQL `skos:altLabel` batch queries: avoided | Too expensive on public endpoint, consistently times out |
-| Disqualify keywords: word-boundary for `nation/state/sea/actor/region` | Substring match causes false positives (`"multinational"` → disqualified by `"nation"`) |
-| `"video game"` removed from disqualify list | "video game **company**" is a valid org type; EA/Konami/Take-Two all have "company" in description |
-| P856 SPARQL batch size: 10 entities (≤80 URL variants) | Larger batches cause HTTP 414/431 on Wikidata SPARQL endpoint |
-| P856 false positives: accepted as review items | URL match is high-precision but some subsidiaries share parent's website; human reviewer corrects QID |
-| `Taiwan` mapped to ISO 158 in `WD_TO_ISO` | Taiwan appears as Wikidata `P17` country for TSMC and others; ISO 158 is the standard numeric code (ISO 3166-1). Deliberate inclusion despite geopolitical ambiguity — data reflects Wikidata, not a political stance. |
-| `'Internationality'` not mapped in `WD_TO_ISO` | Wikidata assigns `P17 = 'Internationality'` to supranational entities (EU, UN, etc.) — not a country, has no geographic coordinates. Mapping it to a proxy country (e.g. Belgium) would misrepresent the arc origin. Excluded: EU-as-investor arcs do not appear on the map. |
