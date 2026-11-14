@@ -42,6 +42,11 @@ CASI = [
  ("nome scheda sbagliato", lambda r: r.update(entity_name="Altra"), "FAIL"),
  ("scheda inesistente", lambda r: r.update(entity_id="IN-9999"), "FAIL"),
  ("keep_qid con nome diverso dall'etichetta: persona", lambda r: r.update(verdict="keep_qid"), "NEEDS_HUMAN"),
+ ("frase troppo corta e non identificativo", lambda r: r["evidence"][1].update(phrase="Damen Naval"), "FAIL"),
+ ("frase corta ma e l'identificativo dichiarato", lambda r: (r["evidence"][0].update(phrase="89106253"),
+        r["identifiers"][0].update(value="KvK 89106253")), "PASS"),
+ ("remove_qid con sole prove secondarie", lambda r: r["evidence"][1].update(source_kind="secondary"), "NEEDS_HUMAN"),
+ ("frase corta che non e un identificativo (5+ caratteri)", lambda r: r["evidence"][0].update(phrase="Foo. "), "FAIL"),
 ]
 bad = 0
 for nome, mut, atteso in CASI:

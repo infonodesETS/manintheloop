@@ -25,6 +25,7 @@ KINDS = {"primary", "secondary"}
 REQUIRED = ["entity_id", "entity_name", "qid", "wikidata_label", "verdict", "verdict_reason",
             "identifiers", "evidence", "notes"]
 QID_RE = re.compile(r"^Q\d+$")
+MIN_PHRASE = 25  # caratteri: sotto, la frase non prova niente, salvo che sia un identificativo dichiarato
 
 
 def norm(s):
@@ -44,6 +45,18 @@ def norm_name(s):
     while parole and parole[-1] in LEGAL:
         parole.pop()
     return " ".join(parole)
+
+
+def _is_identifier(phrase, identifiers):
+    """Una frase breve e ammessa solo se e (parte di) un identificativo dichiarato, per esempio un KvK o un NIF."""
+    p = norm(phrase)
+    if len(p) < 5:
+        return False
+    for ident in identifiers:
+        v = norm(str(ident.get("value", "")))
+        if len(v) >= 5 and (p in v or v in p):
+            return True
+    return False
 
 
 # --- accesso alla rete (sostituibili nei test) ---------------------------------
@@ -129,6 +142,10 @@ def check(result, db_entities, label_fn=get_wikidata_label, text_fn=get_page_tex
             fails.append("evidence[%d]: source_kind non ammesso %r" % (i, ev.get("source_kind")))
         if not ev.get("url") or not ev.get("phrase"):
             continue
+        if len(norm(ev["phrase"])) < MIN_PHRASE and not _is_identifier(ev["phrase"], result["identifiers"]):
+            fails.append("evidence[%d]: frase troppo corta (%d caratteri, minimo %d) e non e un identificativo dichiarato: %r"
+                         % (i, len(norm(ev["phrase"])), MIN_PHRASE, ev["phrase"]))
+            continue
         try:
             text = text_fn(ev["url"])
         except Exception as ex:
@@ -150,6 +167,8 @@ def check(result, db_entities, label_fn=get_wikidata_label, text_fn=get_page_tex
             fails.append("remove_qid senza identificativi ne frasi di prova verificate")
         elif not verified:
             human.append("remove_qid con identificativi ma nessuna frase di prova verificata")
+        elif not any(ev.get("source_kind") == "primary" for ev in verified):
+            human.append("remove_qid con sole prove secondarie (nessuna fonte primaria verificata): lo guarda una persona")
         if result["wikidata_label"] == "" and not verified:
             human.append("etichetta Wikidata vuota e nessuna prova verificata")
     elif v == "keep_qid":
