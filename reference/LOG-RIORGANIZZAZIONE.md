@@ -502,3 +502,14 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 ### 2026-11-14 — Risposta di Andrea sul numero di PR
 
 - Andrea risponde via mail il 2026-11-14 (riferito da Nelson). Chiude la domanda (e) del prompt di ripartenza: il testo era stato inviato.
+
+### 2026-11-14 (sera) — Verifica web con Exa: test, valutazione dei 41 QID, bozza del metodo ◐ (branch `docs/stato-ripartenza-eseguita`, non pushato)
+
+- **Regola:** Nelson, «ricerche web sempre con Exa»; in `STATUS.md`. Regola «Proposte» (ogni proposta con motivazione e costo) in `~/.claude/CLAUDE.md`, fuori dal repo.
+- **Valutazione dei 41 QID rimessi** (sola lettura, API di Wikidata, nessuna scrittura): 20 sospetti forti (controllate con il QID della casa madre), 1 errore chiaro (`IN-0863` MBDA España con il QID di «MBDA Italia SpA»), 6 probabilmente a posto, 14 con più schede per lo stesso QID. Classificazione a mano, **non verificata**; tabella completa in `work/verifica-web-test-2026-11-14.md`.
+- **Test 1 (6 domande sì/no con l'ipotesi dentro):** 6 su 6 come atteso, ma su Damen Naval la motivazione di Exa era falsa (la pagina citata non dice «divisione»). Alcoa Warrick: questa volta giusto (cessione a Kaiser il 2021-03-31, 8-K riaperto); nel pilota B3 Exa aveva sbagliato. **Test 2 (3 domande descrittive):** MBDA España e Safran.AI coerenti, con NIF e SIREN (da aggregatori); Damen Naval risulta una B.V. a sé, controllata da Damen Naval Schelde Holding B.V.
+- **Fonti riaperte con Exa `/contents`:** BOE (conferma «MBDA ESPAÑA, SL» e il NIF, nulla su Wikidata), 8-K di Alcoa (cessione di Alcoa Warrick LLC), registreringsbevis di Saab (org. nr 556036-0793; «Saab Group» non nel documento), pagina Damen Naval (non conferma la frase attribuita). Altre fonti dei test **non riaperte**.
+- **Lezioni:** domande descrittive e neutre; riaprire le fonti su cui si agisce; i registri passano da aggregatori (secondari); l'assenza di risultato non è prova. Campione piccolo: **non dimostra affidabilità**.
+- **Bozza provvisoria del metodo:** `reference/METODO-VERIFICA-WEB.md`, marcata «da confermare definitivamente». Decisione di Nelson: i test del metodo su casi reali in una fase successiva. Risposte di Exa del primo test in `work/verifica-web-test-2026-11-14-risposte.csv`.
+- **Non fatto:** nessuna modifica ai dati; profilo Crunchbase `alcoa-warrick-operations` non aperto (lo apre Nelson); foglio B3-11 da aggiornare (Alcoa Warrick LLC è di Kaiser dal 2021, fonte non ancora riletta oltre l'8-K); nessuna PR aperta per questo lavoro (la sola PR del giorno è la #43).
+- **Ripartenza:** Nelson interrompe la sessione; la sezione «Ripartenza» di `STATUS.md` dice cosa leggere, cosa misurare, cosa chiedere e il prossimo passo proposto (`IN-0863`).
