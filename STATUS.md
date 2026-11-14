@@ -1,17 +1,7 @@
 # refactoringDB — Project Status
 
 > Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
-> Ultimo aggiornamento: 2026-11-14 (sera, prima di interrompere la sessione). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). **Ripartire dalla sezione «Ripartenza» qui sotto** (da cancellare dopo l'esecuzione), poi «Dove siamo» e «Prossimi lavori».
-
-## ⚠️ Ripartenza dopo la sessione del 2026-11-14 (cancellare questa sezione dopo l'esecuzione)
-
-Nelson interrompe la sessione e azzera il contesto: chi legge parte da zero. **Fare, nell'ordine:**
-
-1. Leggere `~/.claude/CLAUDE.md` e questo file per intero; `reference/PIANO-RIORGANIZZAZIONE.md` e `reference/LOG-RIORGANIZZAZIONE.md` per intero (`allow_large`; il log ha le voci del 2026-11-14 in fondo); `reference/METODO-VERIFICA-WEB.md` (**bozza provvisoria**) e `work/verifica-web-test-2026-11-14.md`.
-2. Rimisurare in sola lettura i comandi di «Come si misura lo stato». Atteso, **da verificare**: il branch locale **`docs/stato-ripartenza-eseguita`** ha commit di sola documentazione **non pushati** (`git log --oneline origin/main..HEAD`): ristrutturazione di `STATUS.md`, regola Exa, bozza del metodo, esiti del 2026-11-14. Branch locali da non toccare: `main`, `v.2026-c`, `archivio/locale-2026-11-10`, `docs/stato-pre-ripartenza`; `stash@{0}` non toccare. L'hook di avvio può dire «Pull non riuscito» se il branch non ha remoto: normale. Controllare anche `inbox/` (se contiene file, leggerli e proporre dove spostarli; nulla prima dell'ok). Rileggere il foglio B3 in sola lettura: `get_values` su `Controlli!A1:P13` (id nella sezione «Dove siamo»; lo strumento si carica con ToolSearch). Per **scrivere** nel foglio (testo B3-11 da correggere): skill `anthropic-skills:google-workspace` (e il suo file `references/sheets.md`, interno alla skill, non del repo), `update_values` cella per cella, riletto dopo, con ok di Nelson.
-3. **Fatto il 2026-11-14:** PR #43 fusa (`IN-1352`: tolto il `tax_id` senza fonte; **è l'unica PR di dati aperta quel giorno**); `STATUS.md` ristrutturato; risposta di Andrea sul numero di PR registrata; regola «Ricerche web sempre con Exa»; regola «Proposte» in `~/.claude/CLAUDE.md` (ogni proposta con motivazione e costo); due test di verifica web e valutazione dei 41 QID (sola lettura, in `work/verifica-web-test-2026-11-14.md`); bozza provvisoria del metodo.
-4. **Chiedere a Nelson** (non assumere; risposte non ancora date): (a) la PR #42 l'ha fusa con «Create a merge commit»? (b) qualcuno ha cambiato il foglio B3 dopo il 2026-11-13 (confrontare la rilettura con il backup `foglio-controlli-b3.json` nella cartella indicata in «Dove siamo»)? il link «chiunque ha il link» (Lettore) va bene? (c) i 4 controlli a mano della Release 1 sono compilati? (d) il DB deve rappresentare l'acquisizione di Wsense da parte di Fincantieri (B3-09)? (f) la ristrutturazione di `STATUS.md` (blocchi spostati in `reference/`, backlog e EU Funding in `ROADMAP.md`) gli sembra completa, o manca qualcosa che si aspettava di trovare? (g) vuole che si scriva `scripts/check_docs.py` (**file non ancora scritto**; specifica nel log del 2026-11-14: controlli su percorsi, script, branch, sezioni, divieto di SHA; solo avvisi; perimetro `STATUS.md` e `reference/SCRIPTS.md`; tetto 400 righe)? (La domanda (e) sul testo per Andrea è chiusa: ha risposto via mail il 2026-11-14.) (h) ha aperto nel browser il profilo Crunchbase `alcoa-warrick-operations` (ragione sociale, stato, `acquired_by`)? Porre le domande tutte insieme in un solo messaggio e fermarsi.
-5. Riassumere in 5-8 righe **con i file letti e le righe, e cosa NON è stato letto**, e **fermarsi in attesa dell'ok**. Dopo l'ok: cancellare questa sezione, aggiornare la riga «Ultimo aggiornamento» in testa (togliere il rimando alla sezione «Ripartenza»; la «Sequenza proposta» sta già in «Prossimi lavori») e committare con `docs(refactoringDB): update STATUS.md` **sul branch `docs/stato-ripartenza-eseguita`** (mai su `main`). **Se quel branch non esiste più o è già stato fuso** (Nelson può averlo pushato o fuso prima di interrompere: dopo `git fetch --prune` lo dicono `git branch --list`, `git ls-remote --heads origin` e `git log --merges --oneline -4 origin/main`), non forzare: allineare `main` locale con `--ff-only`, creare un branch nuovo da `origin/main` e dirlo a Nelson.
+> Ultimo aggiornamento: 2026-11-14 (ripartenza eseguita). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
 
 ## Dove siamo
 
@@ -66,7 +56,7 @@ Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu
 
 ## Non verificato
 
-**Non verificato al momento della scrittura:** tipo di merge delle PR #39, #40, #41, #42, #43 («Create a merge commit»?) e se la nota O1 era nelle PR; ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; profilo Crunchbase di `IN-1352` (403); profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
+**Non verificato al momento della scrittura:** se la nota O1 era nelle PR #39-#43 (il tipo di merge è misurabile: `git log --merges` mostra «Merge pull request #N» per #40-#43); ruolo della condivisione del foglio; menu a tendina, colori e link cliccabili del foglio dopo le mie scritture; profilo Crunchbase di `IN-1352` (403); profilo Crunchbase `business-machines` di `IN-0062` (403); data del cambio di nome IDV; conversione delle azioni di risparmio TIM del 2026-05-21; cartella `.playwright-mcp/` (circa 358 file, ignorata da git, creata dall'agente).
 
 ## ⚠️ Letture obbligatorie (per tipo di lavoro)
 
@@ -120,7 +110,7 @@ Gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dr
 
 ## Session protocol
 
-- **A inizio sessione**: se esiste la sezione «Ripartenza» (in testa), eseguirla per prima; poi leggere «Dove siamo» e «Prossimi lavori» e rimisurare lo stato con i comandi della sezione «Come si misura lo stato». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
+- **A inizio sessione**: se in testa esiste una sezione «Ripartenza», eseguirla per prima; poi leggere «Dove siamo» e «Prossimi lavori» e rimisurare lo stato con i comandi della sezione «Come si misura lo stato». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
 - **A inizio sessione, controllare anche `inbox/`** (ignorata da git, solo locale): se contiene file, leggerli e proporre dove spostarli (cartella o documento giusto), così che `inbox/` finisca vuota. Non spostare né cancellare nulla prima dell'ok.
 - **A fine sessione** (o dopo un progresso importante): aggiornare questo file (riscrivendo, non aggiungendo) e committare. Messaggio: `docs(refactoringDB): update STATUS.md`.
 - **Prima di ogni commit sui dati**: `python3 scripts/validate.py` deve passare. `issues.md` è ignorato da git (solo locale; scelta provvisoria).
