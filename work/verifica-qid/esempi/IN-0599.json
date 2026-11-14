@@ -1,0 +1,26 @@
+{
+  "entity_id": "IN-0599",
+  "entity_name": "Damen Naval",
+  "qid": "Q950580",
+  "wikidata_label": "Damen Group",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "shipbuilding company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q950580 is the Damen Shipyards Group (corporate group, Gorinchem); the entity is Damen Naval B.V., a legal entity within the group.",
+  "entity_is": "Damen Naval B.V., private limited company, Vlissingen, KvK 89106253, part of the Damen Shipyards Group.",
+  "identifiers": [
+    {"type": "KvK", "value": "89106253", "source_url": "https://www.transfirm.nl/nl/organisatie/89106253-000054916437-damen-naval-b.v."}
+  ],
+  "evidence": [
+    {"claim": "Damen Naval B.V. is a registered Dutch company with KvK 89106253 in Vlissingen",
+     "url": "https://www.transfirm.nl/nl/organisatie/89106253-000054916437-damen-naval-b.v.",
+     "phrase": "geregistreerd bij de Kamer van Koophandel (KvK) onder nummer 89106253",
+     "source_kind": "secondary"},
+    {"claim": "Damen Naval is part of the Damen Shipyards Group",
+     "url": "https://www.damen.com/companies/damen-schelde-naval-shipbuilding",
+     "phrase": "Damen Naval is the dedicated naval shipbuilding division of the Damen Shipyards Group",
+     "source_kind": "primary"}
+  ],
+  "other_entities_with_same_qid": ["IN-0600"],
+  "notes": "Fixture rebuilt by hand from the 2026-11-14 research (not produced by an agent). KvK comes from a registry aggregator, not the official registry."
+}
