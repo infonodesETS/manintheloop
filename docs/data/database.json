@@ -86632,6 +86632,13 @@
           "old": null,
           "new": "Q583268",
           "description": "wikidata_id set via search: label='Vale', description='multinational diversified metals and mining corporation'. Search name used: 'VALE DO RIO DOCE'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1344 (Vale). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: Vale press release and SEC Form 6-K (April 2009) record the change of the legal name from Companhia Vale do Rio Doce to Vale S.A. approved by the extraordinary shareholders' meeting; CNPJ 33.592.510/0001-54 is VALE S.A. (Portal da Transparencia). Decided by hand on 2026-04-23 (IN-1344 canonical) but never merged; QID Q583268 re-applied to IN-0401 on 2026-06-18. IN-0401 had no relationships. History and validation of both read before merging.",
+          "canonical": "IN-1344",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -86677,6 +86684,13 @@
           "description": "wikidata_id Q583268 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1344 (Vale). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: Vale press release and SEC Form 6-K (April 2009) record the change of the legal name from Companhia Vale do Rio Doce to Vale S.A. approved by the extraordinary shareholders' meeting; CNPJ 33.592.510/0001-54 is VALE S.A. (Portal da Transparencia). Decided by hand on 2026-04-23 (IN-1344 canonical) but never merged; QID Q583268 re-applied to IN-0401 on 2026-06-18. IN-0401 had no relationships. History and validation of both read before merging.",
+          "canonical": "IN-1344",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -253854,7 +253868,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "Germany",
-          "tax_id": "DE811124479",
+          "tax_id": null,
           "main_focus": "Submarines (TKMS)",
           "wikipedia_url": "https://en.wikipedia.org/wiki/TKMS"
         },
@@ -253977,6 +253991,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q551068)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q551068)"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "DE811124479",
+          "new": null,
+          "description": "DE811124479 is not the VAT number of TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, Kiel, HRB 6960 KI), which is DE 221174497 per its imprint, nor of thyssenkrupp AG (DE 812 656 084); its owner was not identified. Card not merged with IN-1150: identity of the entity (company or group) still to be decided."
         }
       ],
       "validation": [
@@ -254039,6 +254062,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q551068). label='TKMS'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "tax_id"
+          ],
+          "description": "DE811124479 is not the VAT number of TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, Kiel, HRB 6960 KI), which is DE 221174497 per its imprint, nor of thyssenkrupp AG (DE 812 656 084); its owner was not identified. Card not merged with IN-1150: identity of the entity (company or group) still to be decided.",
+          "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -256186,7 +256218,21 @@
       "sector": "Mining",
       "wikidata_id": "Q583268",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "VALE3",
+            "stock_sector": "Materials",
+            "weight_pct": 3.81,
+            "location": "Brazil",
+            "exchange": "XBSP",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -256248,7 +256294,8 @@
           "country": "Brazil",
           "tax_id": "33.592.510/0001-54 (CNPJ)",
           "main_focus": "World's largest Iron Ore & Nickel producer.",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Vale_S.A."
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Vale_S.A.",
+          "website": "https://www.vale.com"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -256363,6 +256410,118 @@
           "old": null,
           "new": "sources.wikidata populated (Q583268)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q583268)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.vale.com",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q583268",
+          "description": "wikidata_id set via search: label='Vale', description='multinational diversified metals and mining corporation'. Search name used: 'VALE DO RIO DOCE'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q583268)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q583268)",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q583268)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q583268)",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q583268",
+          "new": null,
+          "note": "Old company name (VALE DO RIO DOCE). IN-1344 Vale is canonical (current name, CB data, 6 relationships). QID nulled here.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q583268",
+          "description": "wikidata_id set via search: label='Vale', description='multinational diversified metals and mining corporation'. Search name used: 'VALE DO RIO DOCE'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0401"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0401",
+          "note": "Unita IN-0401 (VALE DO RIO DOCE) in questa entita. Motivo: Same legal entity: Vale press release and SEC Form 6-K (April 2009) record the change of the legal name from Companhia Vale do Rio Doce to Vale S.A. approved by the extraordinary shareholders' meeting; CNPJ 33.592.510/0001-54 is VALE S.A. (Portal da Transparencia). Decided by hand on 2026-04-23 (IN-1344 canonical) but never merged; QID Q583268 re-applied to IN-0401 on 2026-06-18. IN-0401 had no relationships. History and validation of both read before merging.",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/VALE3)",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)"
+          ],
+          "loser_name": "VALE DO RIO DOCE",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "Vale",
+              "description": "multinational diversified metals and mining corporation",
+              "aliases": [
+                "Vale S.A.",
+                "CVRD",
+                "Doce River Valley Company"
+              ],
+              "instance_of": [
+                "business",
+                "enterprise",
+                "public company"
+              ],
+              "country": "Brazil",
+              "inception": "1942-01-01",
+              "headquarters": "Rio de Janeiro",
+              "official_website": "http://www.vale.com",
+              "isin": "BRVALEACNOR0",
+              "employees": null,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Vale%20S.A."
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -256407,6 +256566,27 @@
           "description": "sources.wikidata populated from Wikidata API (Q583268). label='Vale'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0401"
+        },
+        {
+          "status": "qid_nulled_duplicate",
+          "wikidata_id_removed": "Q583268",
+          "note": "Old company name (VALE DO RIO DOCE). IN-1344 Vale is canonical (current name, CB data, 6 relationships). QID nulled here.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-0401"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0401 (VALE DO RIO DOCE) unita in questa il 2026-11-15 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []

@@ -267,7 +267,7 @@ Append-only log of changes. Every data modification appends one entry.
 |-------|-------------|
 | `date` | YYYY-MM-DD |
 | `source` | `"ishares"`, `"crunchbase"`, `"infonodes"`, `"manual"`, `"migration"` (more values exist in practice) |
-| `action` | Optional. `"entity_retired"` marks a tombstone: **the site and `build_chat_index.py` hide any entity with a history entry whose `action` is `entity_retired`** (`app.js`, `networks.html`, `key-figures.html`) |
+| `action` | Optional. `"entity_retired"` marks a retired entity: **the site and `build_chat_index.py` hide any entity with a history entry whose `action` is `entity_retired`** (`app.js`, `networks.html`, `key-figures.html`) |
 | `author` | Script name or user handle |
 | `field` | Field name changed (`"*"` for full record creation/import) |
 | `old` | Previous value (null on creation) |
@@ -296,7 +296,7 @@ Append-only log of changes. Every data modification appends one entry.
 
 The authoritative list of statuses with their meaning and when to use them is in `reference/UPDATE_PROTOCOL.md` (*Updating an existing entity field*). Statuses found in the database at 2026-11-12 (count of entries): `needs_review` 3331, `wikidata_enriched` 3283, `website_enriched` 1202, `crunchbase_enriched` 960, `reconciliation_documented` 731, `field_conflict` 188, `cb_hq_mismatch_subsidiary` 42, `duplicate_wikidata_id` 40, `qid_nulled_subsidiary` 35, `confirmed` 27, `accepted_duplicate` 22, `field_conflict_resolved` 22, `compatible_sources` 19, `cb_wrong_entity` 18, `expected_iv_in_duplicate` 16, `wikidata_false_positive` 9, `qid_nulled_duplicate` 8, `qid_nulled_sibling_subsidiary` 8, `retired` 5, `wikidata_country_corrected` 4, `resolved` 4, `merged_duplicate` 4, `confirmed_no_entry` 2, `qid_removed` 1, `merged_from` 1, `wikidata_stale` 1, `uncertain_match` 1, `country_confirmed` 1. Documented but never used so far: `share_class_variant` (S3 will use it). Statuses without a definition in `UPDATE_PROTOCOL.md` are listed here for completeness only.
 
-**Tombstones (retired entities).** A retired entity keeps all its content. It has (a) a `history[]` entry with `action: "entity_retired"` (read by the site) and (b) a `validation[]` entry with `status: "retired"` and a pointer to the winner (`canonical` or `merged_into`; `null` if there is none). Never delete the entity.
+**Retired entities.** A retired entity keeps all its content. It has (a) a `history[]` entry with `action: "entity_retired"` (read by the site) and (b) a `validation[]` entry with `status: "retired"` and a pointer to the winner (`canonical` or `merged_into`; `null` if there is none). Never delete the entity.
 
 ---
 

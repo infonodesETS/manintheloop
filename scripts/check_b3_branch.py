@@ -4,15 +4,15 @@ check_b3_branch.py - controllo UNICO, in sola lettura, delle unioni/pulizie di B
 
 Confronta docs/data/database.json del working tree con quello di un riferimento git (default origin/main)
 e verifica che il branch abbia fatto SOLO quello che deve:
-  1. nessuna entita aggiunta o rimossa (le lapidi restano nel database);
-  2. ogni entita cambiata e o una lapide nuova, o un suo canonico, o una con qid_removed;
+  1. nessuna entita aggiunta o rimossa (le schede ritirate restano nel database);
+  2. ogni entita cambiata e o una scheda ritirata nuova, o un suo canonico, o una con qid_removed;
   3. per ogni entita cambiata, la history e la validation di prima sono un PREFISSO di quelle di ora (append-only);
-  4. ogni lapide nuova: contenuto originale (nome, wikidata_id, sources) invariato; canonical esistente, attivo e non lapide;
-  5. nessuna relazione punta a una lapide;
+  4. ogni scheda ritirata nuova: contenuto originale (nome, wikidata_id, sources) invariato; canonical esistente, attivo e non scheda ritirata;
+  5. nessuna relazione punta a una scheda ritirata;
   6. relazioni tolte: ognuna ha una equivalente rimasta (stessi source/target/type dopo il reindirizzamento);
   7. nessun wikidata_id condiviso tra entita ATTIVE che non fosse gia condiviso prima;
-  8. edf_orgs.json: nessun db_id punta a una lapide;
-  9. conteggi: entita totali uguali, attive calano del numero di lapidi nuove, relazioni calano del numero di tolte.
+  8. edf_orgs.json: nessun db_id punta a una scheda ritirata;
+  9. conteggi: entita totali uguali, attive calano del numero di schede ritirate nuove, relazioni calano del numero di tolte.
 Exit 0 se tutto ok, 1 altrimenti. Non scrive nulla.
 
 Uso (dalla radice): python3 -I scripts/check_b3_branch.py [--base origin/main]
@@ -61,7 +61,7 @@ def main():
     changed = sorted(i for i in E1 if i in E0 and E1[i] != E0[i])
     for i in changed:
         if i not in expected:
-            errs.append("%s e cambiata ma non e lapide, canonico o qid_removed" % i)
+            errs.append("%s e cambiata ma non e scheda ritirata, canonico o qid_removed" % i)
     for i in expected:
         if i in E1 and i not in changed:
             errs.append("%s e attesa cambiata ma e identica a prima" % i)
@@ -76,21 +76,21 @@ def main():
         o, n = E0[i], E1[i]
         for k in ("name", "wikidata_id", "sources", "type", "roles"):
             if o.get(k) != n.get(k):
-                errs.append("lapide %s: campo %s modificato" % (i, k))
+                errs.append("scheda ritirata %s: campo %s modificato" % (i, k))
         c = canonical(n)
         if c not in E1:
-            errs.append("lapide %s: canonical %s non esiste" % (i, c))
+            errs.append("scheda ritirata %s: canonical %s non esiste" % (i, c))
         elif retired(E1[c]):
-            errs.append("lapide %s: canonical %s e a sua volta una lapide" % (i, c))
+            errs.append("scheda ritirata %s: canonical %s e a sua volta una scheda ritirata" % (i, c))
         elif c == i:
-            errs.append("lapide %s punta a se stessa" % i)
+            errs.append("scheda ritirata %s punta a se stessa" % i)
 
     R = lambda r: (r["source"], r["target"], r["type"], r.get("classe"), r.get("role_code"))
     ret_all = {i for i, e in E1.items() if retired(e)}
     for r in new["relationships"]:
         for end in (r["source"], r["target"]):
             if end in ret_all:
-                errs.append("relazione %s -> %s punta alla lapide %s" % (r["source"], r["target"], end))
+                errs.append("relazione %s -> %s punta alla scheda ritirata %s" % (r["source"], r["target"], end))
     redirect = {i: canonical(E1[i]) for i in new_ret}
     mp = lambda x: redirect.get(x, x)
     keys_new = defaultdict(int)
@@ -128,16 +128,16 @@ def main():
     eo = json.load(open(a.edf_orgs, encoding="utf-8"))
     for pic, o in eo["orgs"].items():
         if o.get("db_id") in ret_all:
-            errs.append("edf_orgs PIC %s punta alla lapide %s" % (pic, o["db_id"]))
+            errs.append("edf_orgs PIC %s punta alla scheda ritirata %s" % (pic, o["db_id"]))
 
     act0 = sum(1 for e in E0.values() if not retired(e))
     act1 = sum(1 for e in E1.values() if not retired(e))
     if act0 - act1 != len(new_ret):
-        errs.append("attive: %d -> %d, lapidi nuove %d" % (act0, act1, len(new_ret)))
+        errs.append("attive: %d -> %d, schede ritirate nuove %d" % (act0, act1, len(new_ret)))
 
     print("Base: %s | entita %d -> %d | attive %d -> %d | relazioni %d -> %d"
           % (a.base, len(E0), len(E1), act0, act1, len(old["relationships"]), len(new["relationships"])))
-    print("Lapidi nuove (%d): %s" % (len(new_ret), ", ".join("%s->%s" % (i, redirect[i]) for i in new_ret)))
+    print("Schede ritirate nuove (%d): %s" % (len(new_ret), ", ".join("%s->%s" % (i, redirect[i]) for i in new_ret)))
     print("Canonici (%d): %s | qid_removed (%d): %s" % (len(winners), ", ".join(winners), len(qid_rem), ", ".join(qid_rem)))
     print("Entita cambiate: %d (attese %d)" % (len(changed), len(expected)))
     for n in notes:

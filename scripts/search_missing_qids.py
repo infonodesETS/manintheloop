@@ -432,7 +432,7 @@ def phase_apply():
             print(f"  SKIP: {eid} already has wikidata_id={entity['wikidata_id']}")
             continue
         if is_retired(entity):
-            print(f"  SKIP: {eid} is a retired entity (tombstone): QID not applied")
+            print(f"  SKIP: {eid} is a retired entity: QID not applied")
             continue
         if qid_is_blocked(entity, qid):
             print(f"  BLOCKED: {eid} had {qid} removed (see its history/validation): not re-applied. "

@@ -61,7 +61,7 @@ R2. **La relazione `ownership` porta sempre `classe`** (testo come nel filing) p
 R3. **Tabella ticker + classe → ID entità**, scritta a mano e rivista da una persona, in un file versionato (es. `reference/` o `work/`). Dove la classe manca nel DB, la tabella dice «nuova entità» oppure «attaccare alla madre/entità esistente».
 R4. **Ogni cambio sull'entità va in `history[]`** (voce nuova, append-only): per esempio «classificata come variante di classe di IN-xxxx, nessun dato spostato».
 R5. **Marcare le coppie con la validazione che già esiste**: `share_class_variant` (documentata ma oggi mai usata) oppure `accepted_duplicate` (già su Palantir Class A), con in `description` gli ID fratelli.
-R6. **Se un domani si unisce (B3)**: prima si corregge lo script (blocchi `crunchbase`/`edf` in conflitto da conservare in una voce di history con il contenuto, `ishares` deduplicato per ticker + ETF + file, chiave delle relazioni con la classe), e il perdente non si cancella: diventa **lapide** con `entity_retired` e un puntatore al vincitore. Precedente già nel DB: 4 entità `entity_retired` (IN-1282, IV-0388, IV-0391, IV-0487); il sito le nasconde già (`app.js:90`, `key-figures.html:200`).
+R6. **Se un domani si unisce (B3)**: prima si corregge lo script (blocchi `crunchbase`/`edf` in conflitto da conservare in una voce di history con il contenuto, `ishares` deduplicato per ticker + ETF + file, chiave delle relazioni con la classe), e il perdente non si cancella: diventa **scheda ritirata** con `entity_retired` e un puntatore al vincitore. Precedente già nel DB: 4 entità `entity_retired` (IN-1282, IV-0388, IV-0391, IV-0487); il sito le nasconde già (`app.js:90`, `key-figures.html:200`).
 
 ## Esempi (mermaid)
 
@@ -108,7 +108,7 @@ flowchart TD
   end
   subgraph DOPO
     W2["IN-1318\n+ history del perdente con prefisso '[from IN-0282]'\n+ voce di merge (cosa assorbito e perché)\n+ iShares del perdente (ticker + ETF + file)\n+ nome 'Palantir Technologies Class A' come alias"]
-    L2["IN-0282 LAPIDE\nentity_retired · merged_into: IN-1318\ncontenuto originale intatto"]
+    L2["IN-0282 SCHEDA RITIRATA\nentity_retired · merged_into: IN-1318\ncontenuto originale intatto"]
     L2 -. redirect .-> W2
   end
   PRIMA --> DOPO
