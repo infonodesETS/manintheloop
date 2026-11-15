@@ -14,6 +14,10 @@ Differenze rispetto a dedup_entities.py:
 
 Per default e un DRY-RUN: non scrive nulla. Per applicare serve --apply e --why.
 
+Relazioni doppie con contenuto diverso: lo script si ferma, salvo che per ogni coppia sia indicato
+--prefer-winner o --prefer-loser SORGENTE:DESTINAZIONE (ID del vincitore; ripetibili). Il contenuto scartato
+resta in 'preserved' nella voce dedup_decision. Una coppia indicata che non e in conflitto e un errore.
+
 Uso (dalla radice del repo):
     python3 scripts/merge_entities.py WINNER LOSER --why "motivo"            # dry-run
     python3 scripts/merge_entities.py WINNER LOSER --why "motivo" --apply    # scrive
@@ -65,6 +69,10 @@ def main():
     ap.add_argument("--why", default="")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--rename", default="", help="nuovo nome del vincitore (la correzione e tracciata in history)")
+    ap.add_argument("--prefer-winner", action="append", default=[], metavar="SORGENTE:DESTINAZIONE",
+                    help="per una relazione doppia con contenuto diverso: tiene quella del vincitore e conserva quella del perdente in history (ripetibile; ID finali, cioe del vincitore)")
+    ap.add_argument("--prefer-loser", action="append", default=[], metavar="SORGENTE:DESTINAZIONE",
+                    help="per una relazione doppia con contenuto diverso: sostituisce il contenuto di quella del vincitore con quello del perdente, e conserva il vecchio in history (ripetibile)")
     ap.add_argument("--history-letta", action="store_true",
                     help="conferma che la history di entrambe le entita e stata letta (obbligatoria con --apply)")
     ap.add_argument("--db", default="docs/data/database.json")
@@ -154,6 +162,11 @@ def main():
         if a.winner in (r["source"], r["target"]):
             w_rels.setdefault(rel_key(r), []).append(r)
     redirected, dropped, conflicts = [], [], []
+    pref_w, pref_l = set(a.prefer_winner), set(a.prefer_loser)
+    if pref_w & pref_l:
+        sys.exit("ERRORE: la stessa coppia e indicata sia con --prefer-winner sia con --prefer-loser: %s" % sorted(pref_w & pref_l))
+    used = set()
+    kept_winner, replaced = [], []   # kept_winner: relazioni del perdente scartate; replaced: (relazione del vincitore, relazione del perdente)
     for r in rels:
         if a.loser not in (r["source"], r["target"]):
             continue
@@ -169,11 +182,19 @@ def main():
         if twins:
             if any(rel_payload(t) == rel_payload(new) for t in twins):
                 dropped.append(r)
+            elif "%s:%s" % (new["source"], new["target"]) in pref_w and len(twins) == 1:
+                used.add("%s:%s" % (new["source"], new["target"]))
+                kept_winner.append(r)
+            elif "%s:%s" % (new["source"], new["target"]) in pref_l and len(twins) == 1:
+                used.add("%s:%s" % (new["source"], new["target"]))
+                replaced.append((twins[0], r))
             else:
                 conflicts.append("relazione doppia %s -> %s (%s) con contenuto diverso: %s contro %s" % (
                     new["source"], new["target"], new["type"], rel_payload(twins[0]), rel_payload(new)))
         else:
             redirected.append(r)
+    if (pref_w | pref_l) - used and not conflicts:
+        sys.exit("ERRORE: coppie indicate in --prefer-winner/--prefer-loser che non sono relazioni doppie con contenuto diverso: %s" % sorted((pref_w | pref_l) - used))
     if conflicts:
         print("OPERAZIONE FERMATA, conflitti da risolvere a mano:")
         for c in conflicts:
@@ -184,6 +205,12 @@ def main():
         absorbed.append("relazioni: %d identiche a quelle del vincitore, tolte e conservate in history" % len(dropped))
     if redirected:
         absorbed.append("relazioni: %d spostate sul vincitore" % len(redirected))
+    if kept_winner:
+        preserved["relationships_conflicting_dropped"] = copy.deepcopy(kept_winner)
+        absorbed.append("relazioni doppie con contenuto diverso: %d tenuta quella del vincitore (--prefer-winner), quella del perdente conservata in history" % len(kept_winner))
+    if replaced:
+        preserved["relationships_conflicting_replaced"] = [{"source": t["source"], "target": t["target"], "winner_version_before": rel_payload(t), "loser_version_used": rel_payload(l_)} for t, l_ in replaced]
+        absorbed.append("relazioni doppie con contenuto diverso: %d con il contenuto del perdente (--prefer-loser), il vecchio conservato in history" % len(replaced))
 
     # --- history e validation del vincitore ---
     why = a.why.strip() or "(motivo non indicato: dry-run)"
@@ -233,8 +260,16 @@ def main():
         return
 
     # --- applicazione ---
-    for r in dropped:
+    for r in dropped + kept_winner:
         rels.remove(r)
+    for t, l_ in replaced:
+        for k in list(rel_payload(t)):
+            del t[k]
+        t.update(rel_payload(l_))
+        t.setdefault("history", []).append({"date": TODAY, "author": AUTHOR,
+                                            "description": "Content replaced with the version of %s (merge, --prefer-loser); previous content kept in history of %s" % (a.loser, a.winner)})
+    for r in replaced:
+        rels.remove(r[1])
     for r in redirected:
         if r["source"] == a.loser:
             r["source"] = a.winner
