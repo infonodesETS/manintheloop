@@ -4,7 +4,7 @@ merge_entities.py - unisce un'entita duplicata (perdente) in una canonica (vinci
 
 Sostituisce dedup_entities.py --merge per i casi di B3 (regole R6 di reference/S3-CLASSI-AZIONI.md).
 Differenze rispetto a dedup_entities.py:
-  - il perdente NON viene cancellato: diventa una LAPIDE (history 'entity_retired' + validation 'retired',
+  - il perdente NON viene cancellato: diventa una SCHEDA RITIRATA (history 'entity_retired' + validation 'retired',
     con 'canonical' = vincitore), il suo contenuto originale resta intatto;
   - ogni dato del perdente che non puo entrare nel vincitore (blocchi crunchbase/edf/wikidata diversi,
     campi infonodes diversi, relazioni doppie) viene conservato in 'preserved' nella voce di history del vincitore;
@@ -92,7 +92,7 @@ def main():
         if i not in ents:
             sys.exit("ERRORE: %s non esiste." % i)
         if is_retired(ents[i]):
-            sys.exit("ERRORE: %s e gia una lapide (entity_retired): nulla da fare." % i)
+            sys.exit("ERRORE: %s e gia una scheda ritirata (entity_retired): nulla da fare." % i)
     w, l = ents[a.winner], ents[a.loser]
 
     wq, lq = w.get("wikidata_id"), l.get("wikidata_id")
@@ -254,7 +254,7 @@ def main():
         print("  -", x)
     print("  history del perdente copiate sul vincitore: %d | validation: %d" % (len(w_hist_add), len(w_val_add)))
     print("  edf_orgs.json: %d PIC da riassegnare %s" % (len(eo_hits), eo_hits))
-    print("  il perdente resta nel database come LAPIDE (canonical = %s)" % a.winner)
+    print("  il perdente resta nel database come SCHEDA RITIRATA (canonical = %s)" % a.winner)
     if not a.apply:
         print("\nDRY-RUN: nessuna modifica scritta.")
         return
@@ -283,7 +283,7 @@ def main():
         w["history"].append(rename_entry)
     w["history"].append(decision)
     w.setdefault("validation", []).extend(w_val_add)
-    w["validation"].append({"status": "merged_from", "description": "Entita %s (%s) unita in questa il %s e lasciata come lapide." % (a.loser, l.get("name"), TODAY),
+    w["validation"].append({"status": "merged_from", "description": "Entity %s (%s) merged into this one on %s and left as a retired entity." % (a.loser, l.get("name"), TODAY),
                             "author": AUTHOR, "datestamp": TODAY})
     note = "Duplicato di %s (%s). Unita il %s: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: %s" % (a.winner, w.get("name"), TODAY, why)
     l.setdefault("history", []).append({"action": "entity_retired", "note": note, "canonical": a.winner, "author": AUTHOR, "datestamp": TODAY})

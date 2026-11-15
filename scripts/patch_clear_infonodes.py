@@ -39,7 +39,7 @@ def main():
     if not e:
         sys.exit("ERRORE: %s non esiste." % a.entity)
     if any(h.get("action") == "entity_retired" for h in e.get("history", [])):
-        sys.exit("ERRORE: %s e una lapide." % a.entity)
+        sys.exit("ERRORE: %s e una scheda ritirata." % a.entity)
     inf = (e.get("sources") or {}).get("infonodes")
     if not isinstance(inf, dict):
         sys.exit("ERRORE: %s non ha sources.infonodes." % a.entity)

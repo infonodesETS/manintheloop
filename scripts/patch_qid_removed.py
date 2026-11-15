@@ -60,7 +60,7 @@ def main():
         sys.exit("ERRORE: %s non esiste." % a.entity)
     e = ents[a.entity]
     if any(h.get("action") == "entity_retired" for h in e.get("history", [])):
-        sys.exit("ERRORE: %s e una lapide." % a.entity)
+        sys.exit("ERRORE: %s e una scheda ritirata." % a.entity)
     if e.get("wikidata_id") != a.qid:
         sys.exit("ERRORE: %s ha wikidata_id %r, non %s." % (a.entity, e.get("wikidata_id"), a.qid))
     others = [(x["id"], x["name"]) for x in db["entities"] if x.get("wikidata_id") == a.qid and x["id"] != a.entity]
