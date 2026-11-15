@@ -220135,7 +220135,7 @@
       ],
       "name": "Valneva Austria",
       "sector": null,
-      "wikidata_id": "Q20663010",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -220165,22 +220165,7 @@
           "wikipedia_url": null,
           "website": "https://Valneva.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Valneva SE",
-          "description": "French vaccine producer",
-          "aliases": [],
-          "instance_of": [
-            "organization"
-          ],
-          "country": "France",
-          "inception": "2013-01-01",
-          "headquarters": "Saint-Herblain",
-          "official_website": "http://www.valneva.com/",
-          "isin": "FR0004056851",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Valneva%20SE"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -220262,6 +220247,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 949830209, 1 projects, €0 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q20663010",
+          "new": null,
+          "description": "QID Q20663010 removed: on Wikidata it is 'Valneva SE'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Valneva Austria' to the item of the French parent; removed before by manual patch on 2026-04-23. The QID stays on IN-1193 (Valneva). The entity is: Valneva Austria GmbH, a Vienna limited liability company (Firmenbuch FN 389960x, UID ATU67792855), 100% owned by Valneva SE; not the parent. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Valneva SE",
+            "description": "French vaccine producer",
+            "aliases": [],
+            "instance_of": [
+              "organization"
+            ],
+            "country": "France",
+            "inception": "2013-01-01",
+            "headquarters": "Saint-Herblain",
+            "official_website": "http://www.valneva.com/",
+            "isin": "FR0004056851",
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Valneva%20SE"
+          }
         }
       ],
       "validation": [
@@ -220307,6 +220317,14 @@
           "description": "wikidata_id Q20663010 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q20663010",
+          "wikidata_label": "Valneva SE",
+          "description": "QID Q20663010 removed: on Wikidata it is 'Valneva SE'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Valneva Austria' to the item of the French parent; removed before by manual patch on 2026-04-23. The QID stays on IN-1193 (Valneva). The entity is: Valneva Austria GmbH, a Vienna limited liability company (Firmenbuch FN 389960x, UID ATU67792855), 100% owned by Valneva SE; not the parent. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
