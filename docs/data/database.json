@@ -248867,7 +248867,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Mining",
           "country": "Australia",
-          "tax_id": "44 675 885 515 (ABN)",
+          "tax_id": null,
           "main_focus": "Lithium",
           "wikipedia_url": "https://en.wikipedia.org/wiki/PLS_(company)",
           "website": "https://www.pilbaraminerals.com.au"
@@ -249174,6 +249174,15 @@
               "extracted_at": "2026-04-12"
             }
           }
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "44 675 885 515 (ABN)",
+          "new": null,
+          "description": "tax_id 44 675 885 515 is the ABN of PILBARA MINERALS PTY LTD, a different private company (ABR); the entity is PLS Group Limited, ABN 95 112 425 788 (ABR, formerly Pilbara Minerals Limited). Correct value to be added once a tool to set values exists."
         }
       ],
       "validation": [
@@ -249244,6 +249253,15 @@
           "status": "merged_from",
           "description": "Entita IN-0287 (PLS) unita in questa il 2026-11-15 e lasciata come lapide.",
           "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "tax_id"
+          ],
+          "description": "tax_id 44 675 885 515 is the ABN of PILBARA MINERALS PTY LTD, a different private company (ABR); the entity is PLS Group Limited, ABN 95 112 425 788 (ABR, formerly Pilbara Minerals Limited). Correct value to be added once a tool to set values exists.",
+          "author": "patch_clear_infonodes.py",
           "datestamp": "2026-11-15"
         }
       ],
