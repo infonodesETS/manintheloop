@@ -6171,54 +6171,7 @@
             "source_file": "ishares_tech_gics45.csv"
           }
         ],
-        "crunchbase": {
-          "extracted_at": "2026-04-13",
-          "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
-          "profile_url": "https://www.crunchbase.com/organization/apple-cbcd",
-          "stage": "",
-          "description": "Apple is a rental brokerage company that offers a variety of services and products related to rental properties and apartments.",
-          "description_full": "Apple is a rental brokerage company that offers a variety of services and products related to rental properties and apartments.",
-          "website": "https://www.apple-apaman.co.jp/",
-          "cb_rank": 24713,
-          "headquarters": "Saitama, Saitama, Japan",
-          "headquarters_regions": "Asia-Pacific (APAC)",
-          "operating_status": "Active",
-          "founded_date": "1990-11-30",
-          "company_type": "For Profit",
-          "investment_stage": null,
-          "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Professional Services",
-            "Real Estate",
-            "Travel and Tourism"
-          ],
-          "industries": [
-            "Building Maintenance",
-            "Consulting",
-            "Hospitality",
-            "Real Estate",
-            "Rental Property"
-          ],
-          "founders": [],
-          "num_funding_rounds": null,
-          "funding_status": null,
-          "last_funding_date": null,
-          "last_funding_amount_usd": null,
-          "last_funding_type": null,
-          "total_equity_funding_usd": null,
-          "total_funding_usd": null,
-          "total_funding_native": null,
-          "top_investors": [],
-          "num_investors": null,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
-        },
+        "crunchbase": null,
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -6385,6 +6338,62 @@
               "extracted_at": "2026-04-22"
             }
           }
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-13",
+            "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+            "profile_url": "https://www.crunchbase.com/organization/apple-cbcd",
+            "stage": "",
+            "description": "Apple is a rental brokerage company that offers a variety of services and products related to rental properties and apartments.",
+            "description_full": "Apple is a rental brokerage company that offers a variety of services and products related to rental properties and apartments.",
+            "website": "https://www.apple-apaman.co.jp/",
+            "cb_rank": 24713,
+            "headquarters": "Saitama, Saitama, Japan",
+            "headquarters_regions": "Asia-Pacific (APAC)",
+            "operating_status": "Active",
+            "founded_date": "1990-11-30",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Professional Services",
+              "Real Estate",
+              "Travel and Tourism"
+            ],
+            "industries": [
+              "Building Maintenance",
+              "Consulting",
+              "Hospitality",
+              "Real Estate",
+              "Rental Property"
+            ],
+            "founders": [],
+            "num_funding_rounds": null,
+            "funding_status": null,
+            "last_funding_date": null,
+            "last_funding_amount_usd": null,
+            "last_funding_type": null,
+            "total_equity_funding_usd": null,
+            "total_funding_usd": null,
+            "total_funding_native": null,
+            "top_investors": [],
+            "num_investors": null,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "Crunchbase block of another entity: profile apple-cbcd is a Japanese rental brokerage (website apple-apaman.co.jp, Saitama, founded 1990), not Apple Inc. (Cupertino, NASDAQ:AAPL; the Crunchbase profile of Apple Inc. is https://www.crunchbase.com/organization/apple, checked by hand by Nelson on 2026-11-15). The whole block is kept in the old field of this history entry; the correct profile is not imported here."
         }
       ],
       "validation": [
@@ -6452,6 +6461,13 @@
           "status": "merged_from",
           "description": "Entity IV-0031 (Apple) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/apple-cbcd",
+          "description": "Crunchbase block of another entity: profile apple-cbcd is a Japanese rental brokerage (website apple-apaman.co.jp, Saitama, founded 1990), not Apple Inc. (Cupertino, NASDAQ:AAPL; the Crunchbase profile of Apple Inc. is https://www.crunchbase.com/organization/apple, checked by hand by Nelson on 2026-11-15). The whole block is kept in the old field of this history entry; the correct profile is not imported here.",
+          "author": "patch_clear_crunchbase.py",
           "datestamp": "2026-11-15"
         }
       ],
