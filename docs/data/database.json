@@ -58277,6 +58277,7 @@
       "id": "IN-0271",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Nvidia",
@@ -58367,7 +58368,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -58466,6 +58467,67 @@
           "old": null,
           "new": "sources.wikidata populated (Q182477)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q182477)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0423",
+          "note": "Unita IV-0423 (NVIDIA) in questa entita. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 6 spostate sul vincitore"
+          ],
+          "loser_name": "NVIDIA",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -58516,6 +58578,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q182477). label='Nvidia'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0423 (NVIDIA) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -290195,6 +290263,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0271 (Nvidia). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0271",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -290203,6 +290278,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0271 (Nvidia). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0271",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -340753,11 +340835,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0175",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0081",
@@ -341089,11 +341178,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0215",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0207",
@@ -341467,11 +341563,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0263",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0416",
@@ -361768,11 +361871,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1461",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0744",
@@ -361901,11 +362011,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1465",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0221",
@@ -361999,11 +362116,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1470",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0500",
