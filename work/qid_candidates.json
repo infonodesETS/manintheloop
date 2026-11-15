@@ -3809,8 +3809,8 @@
       "entity_id": "IN-1019",
       "entity_name": "Safran Ai",
       "search_name": "Safran Ai",
-      "status": "accepted",
-      "reason": "label match + org keyword 'manufacturer'",
+      "status": "rejected",
+      "reason": "QID Q773875 tolto con qid_removed il 2026-11-15 (Safran.AI (formerly Preligens), a Paris SASU (SIREN 818 503 146), subsidiary of Safran Electronics & Defense; not Safran Aircraft Engines (identifier from an aggregator, not from the registry)): non riproporre ne applicare. Stato precedente: accepted (label match + org keyword 'manufacturer', qid Q773875).",
       "qid": "Q773875",
       "label": "Safran Aircraft Engines",
       "description": "aircraft and rocket engine manufacturer based in France"
