@@ -1,0 +1,65 @@
+{
+  "entity_id": "IN-1194",
+  "entity_name": "Valneva Austria",
+  "qid": "Q20663010",
+  "wikidata_label": "Valneva SE",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "French vaccine producer",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q20663010 is Valneva SE, the French (Lyon-registered) parent vaccine company, with seat in Saint-Herblain and ISIN FR0004056851. The card is Valneva Austria GmbH, a Vienna GmbH registered in the Firmenbuch (FN 389960x) and wholly owned by Valneva SE.",
+  "entity_is": "Valneva Austria GmbH, Gesellschaft mit beschraenkter Haftung, seat Wien (Campus Vienna Biocenter 3, 1030 Wien), Firmenbuch FN 389960x, registered 20.12.2012, share capital EUR 10,070,000; sole shareholder Valneva SE (100%).",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Firmenbuchnummer 389960x (FN 389960 x)",
+      "source_url": "https://www.evi.gv.at/f/389960x"
+    },
+    {
+      "type": "other",
+      "value": "UID ATU67792855",
+      "source_url": "https://www.firmenatlas.com/firma/389960x"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Valneva Austria GmbH is a GmbH registered in the Austrian Firmenbuch with number 389960x, seat Wien",
+      "url": "https://www.evi.gv.at/f/389960x",
+      "phrase": "Gesellschaft mit beschränkter Haftung",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Firmenbuch registration number of Valneva Austria GmbH",
+      "url": "https://www.evi.gv.at/f/389960x",
+      "phrase": "Firmenbuchnummer\n\n389960x",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Valneva SE is the sole shareholder of Valneva Austria GmbH (so the entity is a subsidiary, not the parent)",
+      "url": "https://www.evi.gv.at/f/389960x",
+      "phrase": "Gesellschafter/in 1 Person\n\n- Valneva SE",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Valneva's registered seat is Valneva SE in Lyon, France, while the Vienna site is operated by VALNEVA Austria GmbH",
+      "url": "https://valneva.com/contact/?lang=de",
+      "phrase": "VALNEVA Austria GmbH Campus Vienna Biocenter 3 1030 Wien, Österreich",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Austrian VAT ID of Valneva Austria GmbH",
+      "url": "https://www.firmenatlas.com/firma/389960x",
+      "phrase": "UID ATU67792855",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Valneva Austria GmbH is a distinct contracting party from the group",
+      "url": "https://www.sec.gov/Archives/edgar/data/1836564/000162828025039789/R7.htm",
+      "phrase": "Valneva Austria GmbH and Valneva Sweden AB entered into exclusive agreements with CSL Seqirus",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-1193"
+  ],
+  "notes": "Exa /answer cited the sources used; all four evidence URLs reopened with Exa /contents and phrases copied from the returned text. Whitespace in the two multi-line phrases follows the extracted text. History: QID set 2026-04-13, removed 2026-04-23 by manual patch (subsidiary; Q20663010 kept on IN-1193), set again 2026-06-18 by search_missing_qids.py from the same name search. sources.wikidata block on the card still holds Valneva SE data (label, FR ISIN, Saint-Herblain), a leftover of the re-applied QID. EDF PIC 949830209, city WIEN, country AT, website Valneva.com, consistent with the Austrian GmbH. Crunchbase block is null. Wikidata P159 is Q273922 (read as Saint-Herblain on the card), P17 France."
+}

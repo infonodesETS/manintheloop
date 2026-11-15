@@ -1,5 +1,7 @@
 # Update Protocol — database.json Reconciliation
 
+> **Rule (Nelson, 2026-11-15): this file must be read, in full, before any change to the data** (`database.json`, `edf_orgs.json`, `work/qid_candidates.json`), by people and by AI. A change that has not been checked against it is not ready to commit.
+
 ## Purpose
 
 This document defines the rules for updating `database.json` when new data is available, without corrupting existing IDs, history, or validation entries.
@@ -13,7 +15,7 @@ This document defines the rules for updating `database.json` when new data is av
 3. **Validation survives updates.** Existing `validation[]` entries are preserved; new ones may be appended.
 4. **IDs are assigned alphabetically.** New entities get the next available sequential ID in their class.
 5. **Full provenance is required.** Every history entry must be traceable back to its raw source. Specify the raw source file, the exact field/value, and — when correcting — both the original entry and the evidence used.
-6. **`sources.wikidata` is script-managed.** Never manually edit it; edits will be silently lost on the next `enrich_wikidata.py` run.
+6. **`sources.wikidata` is script-managed.** Never manually edit it; edits will be silently lost on the next `enrich_wikidata.py` run. The only exception is `scripts/patch_qid_removed.py --clear-wikidata-block`, which moves the whole block into the `history[]` entry (field `old`) and sets it to `null` when the `wikidata_id` is removed; nothing is lost and `enrich_wikidata.py` does not recreate a block for an entity without QID.
 7. **Every data change must produce a dedicated git commit.** A commit modifying `database.json` must be atomic (one logical change), include a descriptive message naming affected entities, and pass `validate.py` before pushing.
 8. **Text written into `history[]` and `validation[]` is in English** (decision of Nelson, 2026-11-14), with correct spelling; identifiers, QIDs, registry numbers and proper names stay as they are. Entries are append-only, so a wrong-language entry is not rewritten. Between 2026-11-12 and 2026-11-14 about 15 entries were written in Italian (cases `IN-0365`, `IN-0682`, `IN-0803`, `IN-0863`, `IN-1247`, `IN-1249`, `IN-1290`, `IN-1294`, `IN-1311`, `IN-1318`, `IN-1352`): they stay as they are. Notes, logs, documents and sheets outside `database.json` remain in Italian.
 
@@ -411,6 +413,7 @@ For `qid_removed` actions (subsidiaries with wrong parent QID), the `wikidata_id
 - Why the entity got it (CB name-match propagation, QID pipeline false positive, etc.)
 - What the entity actually is (national subsidiary, product division, etc.)
 - Whether a correct QID may exist (run QID pipeline to find it)
+- **Parent / group (rule of 2026-11-15):** when the entity is a subsidiary, the text names the legal parent as found in the source (name and registry number). The ID of a database card is written as the parent only if that card is the legal parent; if the card that keeps the QID is something else (a sibling, a division, another country), the text says only "the QID stays on IN-NNNN". Today the group link exists only in this text: the structured form (`parte_di` relationship, S6) is not in use yet and its model is still to be decided (see `STATUS.md`, «Prossimi lavori»). A subsidiary is **not** a duplicate: do not merge it into its parent.
 
 ---
 
@@ -421,6 +424,8 @@ Retired IDs must be documented below.
 ### Retired IDs
 
 Retired IDs are loser entities from merges. Their data was fully absorbed into the winner.
+
+> **Warning (measured 2026-11-15): this table is not a reliable list of retired entities.** The tombstone of a merge is a `history[]` entry with `action: entity_retired` on the loser card. On 2026-11-15 the database had 13 tombstones, and of the 34 IDs in the table below only 4 carry one (`IN-0366`, `IN-0062`, `IN-0282`, `IN-0242`); the other 30 are still active entities, so the merges recorded here were not applied (or were undone). Example: `IN-0897` Nammo Raufoss AS is active and, according to the 2026-11-15 agent check (primary sources, phrases re-found by `check_risultato.py`; org. no. 980 038 300), is a separate company wholly owned by Nammo AS, not "the same legal entity" as `IN-1312`. **Do not treat a row as a merge that happened: check the database.** Reconciling the table with the data is an open task (see `STATUS.md`); until then the table is history, not state. Findings of 2026-11-15 (batch 2): Saab, Indra, Arafura and PLS were real duplicates and have been merged; Airbus Operations, ArianeGroup, Integrasys and United Monolithic Semiconductors are listed here as duplicates but are separate national companies (the EDF participant legal names are GmbH/SAS or SARL/SA), so they must not be merged.
 
 | Retired ID | Merged into | Loser name | Winner name | Reason | Date |
 |---|---|---|---|---|---|

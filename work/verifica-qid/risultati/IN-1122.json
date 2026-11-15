@@ -1,0 +1,31 @@
+{
+  "entity_id": "IN-1122",
+  "entity_name": "Telefonica Moviles Espana",
+  "qid": "Q160229",
+  "wikidata_label": "Telefónica",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "telecommunications company based in Madrid, Spain",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q160229 is Telefónica (the listed parent company, P159 Madrid, website telefonica.com). The entity is Telefónica Móviles España, S.A.U., a separate Spanish single-shareholder company with its own tax ID A78923125.",
+  "entity_is": "Telefónica Móviles España, S.A.U. (Sociedad Anónima Unipersonal), CIF/NIF A78923125, registered in the Registro Mercantil de Madrid, registered office Ronda de la Comunicación s/n, Madrid; a Telefónica group company (parent Telefónica, S.A.).",
+  "identifiers": [
+    {"type": "NIF", "value": "A78923125", "source_url": "https://www.boe.es/boe/dias/2023/01/02/pdfs/BOE-B-2023-43.pdf"},
+    {"type": "other", "value": "Registro Mercantil de Madrid, tomo 8958, folio 92, H-85226", "source_url": "https://mobileconnect.telefonica.es/es/userportal/legal"}
+  ],
+  "evidence": [
+    {"claim": "Telefónica Móviles España, S.A.U. is a distinct legal entity with its own CIF and Madrid commercial registry entry",
+     "url": "https://mobileconnect.telefonica.es/es/userportal/legal",
+     "phrase": "La denominación social es Telefónica Móviles España, S.A.U., con CIF A78923125",
+     "source_kind": "primary"},
+    {"claim": "Official Spanish gazette (BOE) names TELEFONICA MOVILES ESPAÑA, SAU with its own tax ID A78923125",
+     "url": "https://www.boe.es/boe/dias/2023/01/02/pdfs/BOE-B-2023-43.pdf",
+     "phrase": "Nombre: TELEFONICA MOVILES ESPAÑA, SAU. 12.2) Número de identificación fiscal: A78923125",
+     "source_kind": "primary"},
+    {"claim": "The LEI record for the entity carries the same Spanish tax ID A78923125 as registration authority number",
+     "url": "https://nl.lei.report/LEI/5493007W2C0KXR7EHE04",
+     "phrase": "Authority Authority I D A78923125",
+     "source_kind": "secondary"}
+  ],
+  "other_entities_with_same_qid": ["IN-0369"],
+  "notes": "Parent relationship (Telefónica, S.A.) comes from the Exa answer and from a BOE collective agreement that treats Telefónica Móviles España, SAU as a group company; no exact phrase stating the 100% ownership was found in a reopened page, so it is not in evidence. The legal-notice page gives registry sheet H-85226 while the aggregator filings.es shows Hoja M27862 (aggregator discrepancy, not resolved). History shows the QID was already removed on 2026-04-23 (manual patch, 'subsidiary') and re-applied on 2026-06-18 by search_missing_qids.py; IN-0369 (Telefonica SA) also holds Q160229. EDF record: PIC 999946908, Madrid, Spain, no website."
+}
