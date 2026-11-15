@@ -6149,6 +6149,7 @@
       "id": "IN-0032",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Apple",
@@ -6221,7 +6222,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -6323,6 +6324,67 @@
           "old": null,
           "new": "sources.wikidata populated (Q312)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q312)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0031",
+          "note": "Unita IV-0031 (Apple) in questa entita. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 2 spostate sul vincitore"
+          ],
+          "loser_name": "Apple",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -6385,6 +6447,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q312). label='Apple Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0031 (Apple) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -261834,6 +261902,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0032 (Apple). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0032",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -261842,6 +261917,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0032 (Apple). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0032",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -339617,11 +339699,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0031",
+      "source": "IN-0032",
       "target": "IN-0004",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0031 -> IN-0032 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0310",
@@ -340366,11 +340455,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0031",
+      "source": "IN-0032",
       "target": "IN-0102",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0031 -> IN-0032 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0075",
