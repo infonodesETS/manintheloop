@@ -82167,6 +82167,7 @@
       "id": "IN-0375",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Tencent",
@@ -82379,6 +82380,116 @@
           "from": "People's Republic of China",
           "to": "China",
           "by": "patch_country_from_cb_hq.py"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q860580, country=People's Republic of China",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "normalise_country",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "note": "Normalised to short ISO 3166 form for map consistency.",
+          "script": "patch_country_quality.py",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0550",
+          "note": "Unita IV-0550 (Tencent) in questa entita. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "absorbed": [
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 5 spostate sul vincitore"
+          ],
+          "loser_name": "Tencent",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-06-03",
+              "label": "Tencent",
+              "description": "Chinese multinational investment holding conglomerate",
+              "aliases": [
+                "Téngxùn Kònggǔ Yǒuxiàn Gōngsī",
+                "AdvanceDataServices Limited",
+                "Tencent Holdings Limited",
+                "Tencent Holdings Ltd.",
+                "Tencent Group",
+                "Tencent Holdings",
+                "Shenzhen Tencent Computer Systems Company Limited",
+                "Tengxun",
+                "Téngxùn",
+                "Teng Xun (firma)",
+                "Teng Xun"
+              ],
+              "instance_of": [
+                "conglomerate",
+                "business"
+              ],
+              "country": "People's Republic of China",
+              "inception": "1998-11-12",
+              "headquarters": "Maling",
+              "official_website": "https://www.tencent.com/",
+              "isin": "KYG875721634",
+              "employees": 62885,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Tencent"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -82454,6 +82565,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q860580). label='Tencent'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0550 (Tencent) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -300652,6 +300769,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q860580)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q860580)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0375 (Tencent). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "canonical": "IN-0375",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -300691,6 +300815,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q860580). label='Tencent'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0375 (Tencent). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "canonical": "IN-0375",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -341915,11 +342046,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-0204",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0605",
@@ -343420,11 +343558,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-0397",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0551",
@@ -347579,14 +347724,21 @@
       }
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1334",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
       "details": {
         "lead": true
-      }
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0658",
@@ -362404,11 +362556,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1451",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0275",
@@ -362537,11 +362696,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1455",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0699",
