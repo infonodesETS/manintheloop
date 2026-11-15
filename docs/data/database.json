@@ -67923,6 +67923,7 @@
       "id": "IN-0312",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Samsung Electronics",
@@ -68124,6 +68125,109 @@
           "old": null,
           "new": "sources.wikidata populated (Q20718)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20718)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q20718, country=South Korea",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0483",
+          "note": "Unita IV-0483 (Samsung Electronics) in questa entita. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore",
+            "relazioni doppie con contenuto diverso: 2 con il contenuto del perdente (--prefer-loser), il vecchio conservato in history"
+          ],
+          "loser_name": "Samsung Electronics",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_replaced": [
+              {
+                "source": "IV-0329",
+                "target": "IN-0312",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0566",
+                "target": "IN-0312",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": true
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -68199,6 +68303,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0483 (Samsung Electronics) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -295671,6 +295781,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20718)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20718)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0312 (Samsung Electronics). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0312",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -295703,6 +295820,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0312 (Samsung Electronics). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0312",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -343258,16 +343382,36 @@
     {
       "source": "IV-0329",
       "target": "IN-0312",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0483 (merge, --prefer-loser); previous content kept in history of IN-0312"
+        }
+      ]
     },
     {
       "source": "IV-0566",
       "target": "IN-0312",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0483 (merge, --prefer-loser); previous content kept in history of IN-0312"
+        }
+      ]
     },
     {
       "source": "IV-0260",
@@ -343473,11 +343617,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0483",
+      "source": "IN-0312",
       "target": "IN-0339",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0483 -> IN-0312 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0396",
@@ -347852,26 +348003,6 @@
     {
       "source": "IV-0617",
       "target": "IN-0306",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
-      "source": "IV-0329",
-      "target": "IV-0483",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0566",
-      "target": "IV-0483",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
