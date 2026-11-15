@@ -580,3 +580,8 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Non sono duplicati** (nomi legali dei PIC): Airbus Operations GmbH/SAS, ArianeGroup GmbH/SAS, Integrasys SARL (LU)/SA (ES), UMS GmbH/SAS, Tekever UAS S.A. (NIF 515306452)/TEKEVER ASDS Lda (NIF 508345650; da einforma, secondaria). Non fusi; nota nel protocollo.
 - **Aperto:** TKMS (`IN-1335`/`IN-1150`: il prospetto dice «TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH)» e il PIC di `IN-1150` è «TKMS GMBH»; manca che la partita IVA DE811124479 sia della GmbH) e Vale (`IN-0401`/`IN-1344`: CNPJ 33.592.510/0001-54 = VALE S.A. sul Portal da Transparência; manca una fonte riaperta sul cambio di nome); le 11 coppie `IV-`/`IN-` senza nota.
 - **PR della giornata:** #43-#47 fuse; questa sarebbe la sesta (dati, con i documenti del branch `docs/protocollo-parentela`).
+
+
+### 2026-11-15 — Tolta la regola «dire quante PR già aperte oggi»
+
+- Nelson l'ha chiesto dopo che l'avevo applicata a ogni messaggio, anche quando non proponevo nessuna PR. Tolta da `STATUS.md` («Regole che valgono sempre» e «Sequenza proposta») e dal piano §0.3 (e). Restano le altre regole sul numero e sul tipo di PR (a)-(d). Le voci storiche del log che citano il conteggio non sono modificate.
