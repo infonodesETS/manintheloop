@@ -639,3 +639,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Esito, tutti «stessa persona»** (Nelson, 2026-11-15): C027 Durban `P0551` (Dell, TKO: stesso incarico di co-CEO di Silver Lake, età 52 in entrambi i proxy), C057 L. Murdoch `P1197` (Fox, News Corp: il proxy Fox dice «Director of News Corporation since 2013 … Chair since 2023»; il proxy News Corp lo dice Executive Chair di Fox), C077 Blitzer `P1464` (LUNR, USAR: «also Chairman of the Board of USA Rare Earth»), C089 Gundermann `P1690` (ATRO, MOG-A: «President, CEO and Chairman of Astronics» nel proxy Moog).
 - **Fonti non lette (0 caratteri o senza la persona):** pagina TKO di Durban, PDF del proxy Moog, pagina fintool, pagina consiglio di Intuitive Machines; nessuna serve alla prova. Le frasi e i link sono nella colonna `nota` del foglio.
 - **Limite:** la frase prova nome e ruolo, non esclude in assoluto un omonimo; con lo stesso ruolo e le aziende collegate in modo esplicito dai documenti è praticamente escluso.
+
+
+### 2026-11-15 (sera) — Import investitori: le 7 relazioni «mancanti» non mancavano ◐ (branch `scripts/fix-import-investors-2`, non pushato)
+
+- **Verifica (sola lettura):** le 7 relazioni residue della PR #52 (Export Development Canada, Canaccord Genuity, National Reconstruction Fund, Bell Potter verso `IN-1253` Arafura; European Investment Bank, JP Morgan Chase, Third Point verso `IN-1298` Indra) puntavano a **società ritirate** (lotto 2, PR #48), non a schede attive. Le stesse 7 relazioni esistono già sui vincitori `IN-0035` e `IN-0753`, che hanno anche lo stesso blocco `top_investors`. Non erano state tolte di proposito e non mancavano.
+- **Errore mio:** nel testo della PR #52 avevo scritto che «mancano nel database» e andavano verificate; la correzione della sorgente (schede `IV-` ritirate) non copriva il bersaglio (società `IN-` ritirate). Corretto: una `IN-` ritirata si risolve nella scheda vincitrice, come già per le `IV-`.
+- **Prova:** dry-run da 7 a 0 relazioni nuove; script compilato, non eseguito in scrittura; nessun dato cambia.

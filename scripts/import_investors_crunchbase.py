@@ -15,6 +15,7 @@ WHAT IT DOES
      (idempotent — skips if the pair already exists). If the IV-* entity has been
      retired by a merge (history action entity_retired), the relationship uses its
      canonical entity as source, so no relationship ever points to a retired entity.
+     The same applies to the target: a retired IN-* company is resolved to its winner.
      A relationship that would link an entity to itself is never created.
   4. Optionally runs a Wikidata SPARQL search to find the QID + HQ country for
      each new investor (--wikidata flag). Results are stored in sources.wikidata
@@ -295,7 +296,8 @@ def main():
 
     # Create relationships
     for co in companies_with_investors:
-        for name in co["sources"]["crunchbase"]["top_investors"]:
+        co = canonical_of(co, by_id)   # retired IN-* (merged duplicate) -> its winner, which carries the same block
+        for name in ((co["sources"].get("crunchbase") or {}).get("top_investors") or []):
             key    = name.strip().lower()
             iv_ent = name_to_iv.get(key)
             if not iv_ent:
