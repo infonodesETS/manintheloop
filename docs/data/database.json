@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-14",
+  "_updated": "2026-11-15",
   "entities": [
     {
       "id": "IN-0001",
@@ -132787,7 +132787,7 @@
       ],
       "name": "Eviden Austria",
       "sector": null,
-      "wikidata_id": "Q117442701",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -132862,22 +132862,7 @@
           "wikipedia_url": null,
           "website": "https://eviden.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Eviden",
-          "description": null,
-          "aliases": [],
-          "instance_of": [
-            "business"
-          ],
-          "country": "France",
-          "inception": null,
-          "headquarters": null,
-          "official_website": "https://eviden.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": null
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -132977,6 +132962,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 964110452, 1 projects, €348,422 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q117442701",
+          "new": null,
+          "description": "QID Q117442701 removed: on Wikidata it is 'Eviden'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Eviden Austria' to the Eviden brand/group item; removed before by manual patch on 2026-04-23. The QID stays on IN-0671. The entity is: Eviden Austria GmbH, a Vienna limited liability company (Firmenbuch FN 357865y, UID ATU66190855), formerly Atos IT Solutions and Services GmbH, 100% owned by Eviden Technologies Beteiligungen GmbH (Eviden group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Eviden",
+            "description": null,
+            "aliases": [],
+            "instance_of": [
+              "business"
+            ],
+            "country": "France",
+            "inception": null,
+            "headquarters": null,
+            "official_website": "https://eviden.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": null
+          }
         }
       ],
       "validation": [
@@ -133034,6 +133044,14 @@
           "description": "wikidata_id Q117442701 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q117442701",
+          "wikidata_label": "Eviden",
+          "description": "QID Q117442701 removed: on Wikidata it is 'Eviden'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Eviden Austria' to the Eviden brand/group item; removed before by manual patch on 2026-04-23. The QID stays on IN-0671. The entity is: Eviden Austria GmbH, a Vienna limited liability company (Firmenbuch FN 357865y, UID ATU66190855), formerly Atos IT Solutions and Services GmbH, 100% owned by Eviden Technologies Beteiligungen GmbH (Eviden group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
