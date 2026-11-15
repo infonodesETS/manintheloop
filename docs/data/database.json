@@ -60174,6 +60174,7 @@
       "id": "IN-0278",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Oracle",
@@ -60367,6 +60368,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q19900)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q19900)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0736"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0736",
+          "note": "Unita IV-0736 (Oracle) in questa entita. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Oracle",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -60417,6 +60448,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q19900). label='Oracle Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0736 (Oracle) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -325207,6 +325244,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0278 (Oracle). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0278",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -325215,6 +325259,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0278 (Oracle). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0278",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -362102,11 +362153,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0736",
+      "source": "IN-0278",
       "target": "IN-1463",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0736 -> IN-0278 (merge)"
+        }
+      ]
     },
     {
       "source": "IN-0175",
