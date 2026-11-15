@@ -6149,6 +6149,7 @@
       "id": "IN-0032",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Apple",
@@ -6221,7 +6222,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -6323,6 +6324,67 @@
           "old": null,
           "new": "sources.wikidata populated (Q312)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q312)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0031"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0031",
+          "note": "Unita IV-0031 (Apple) in questa entita. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 2 spostate sul vincitore"
+          ],
+          "loser_name": "Apple",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -6385,6 +6447,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q312). label='Apple Inc.'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0031 (Apple) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -31074,6 +31142,7 @@
       "id": "IN-0143",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Glencore",
@@ -31256,6 +31325,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q169339)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q169339)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0706"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0706",
+          "note": "Unita IV-0706 (Glencore) in questa entita. Motivo: Same company: Glencore appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Glencore",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -31306,6 +31405,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q169339). label='Glencore'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0706 (Glencore) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -37646,6 +37751,7 @@
       "id": "IN-0175",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Intel",
@@ -37841,6 +37947,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q248)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q248)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0718"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0718",
+          "note": "Unita IV-0718 (Intel) in questa entita. Motivo: Same company: Intel appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Intel",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -37891,6 +38027,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q248). label='Intel'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0718 (Intel) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -58277,6 +58419,7 @@
       "id": "IN-0271",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Nvidia",
@@ -58367,7 +58510,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -58466,6 +58609,67 @@
           "old": null,
           "new": "sources.wikidata populated (Q182477)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q182477)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0423"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0423",
+          "note": "Unita IV-0423 (NVIDIA) in questa entita. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 6 spostate sul vincitore"
+          ],
+          "loser_name": "NVIDIA",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -58516,6 +58720,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q182477). label='Nvidia'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0423 (NVIDIA) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -60001,6 +60211,7 @@
       "id": "IN-0278",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Oracle",
@@ -60194,6 +60405,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q19900)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q19900)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0736"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0736",
+          "note": "Unita IV-0736 (Oracle) in questa entita. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Oracle",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -60244,6 +60485,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q19900). label='Oracle Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0736 (Oracle) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -156254,6 +156501,7 @@
       "id": "IN-0812",
       "type": "government_agency",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Kaitseministeerium",
@@ -156261,7 +156509,7 @@
       "wikidata_id": null,
       "sources": {
         "edf": {
-          "extracted_at": "2026-04-01",
+          "extracted_at": "2026-10-19",
           "pic": "905124655",
           "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/905124655",
           "activity_type": "Other",
@@ -156308,6 +156556,85 @@
           "old": null,
           "new": "https://www.kaitseministeerium.ee",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0326",
+          "note": "Unita IV-0326 (Kaitseministeerium) in questa entita. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "absorbed": [
+            "sources.edf: tenuto il blocco piu recente del perdente (2026-10-19 contro 2026-04-01), il precedente conservato in history",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Kaitseministeerium",
+          "preserved": {
+            "sources.edf (versione precedente del vincitore)": {
+              "extracted_at": "2026-04-01",
+              "pic": "905124655",
+              "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/905124655",
+              "activity_type": "Other",
+              "type_code": "PUB",
+              "sme": false,
+              "country": "Estonia",
+              "country_code": "EE",
+              "city": "Tallinn",
+              "web_link": "www.kaitseministeerium.ee",
+              "total_eu_contribution": 8972920.0,
+              "project_count": 1,
+              "call_count": 1,
+              "coordinator_count": 0,
+              "source_file": "edf_calls.json"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IV-0326",
+                "target": "EDF-0076",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 8972920.0,
+                "created_at": "2026-06-17"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -156322,6 +156649,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0326 (Kaitseministeerium) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -228877,6 +229210,7 @@
       "id": "IN-1245",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Agnico-Eagle Mines Limited",
@@ -229050,6 +229384,46 @@
           "old": null,
           "new": "sources.wikidata populated (Q38676)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q38676)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0015"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "Canada",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0015"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0015",
+          "note": "Unita IV-0015 (Agnico-Eagle Mines Limited) in questa entita. Motivo: Same company: Agnico-Eagle Mines Limited appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 2 spostate sul vincitore"
+          ],
+          "loser_name": "Agnico-Eagle Mines Limited",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -229094,6 +229468,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q38676). label='Agnico Eagle Mines'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0015 (Agnico-Eagle Mines Limited) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -230197,6 +230577,54 @@
           "old": null,
           "new": "sources.wikidata populated (Q3884)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q3884)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0024"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "patch_iv_countries_batch2.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "United States",
+          "description": "Country curated: Amazon — Seattle WA",
+          "from_entity": "IV-0024"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0024",
+          "note": "Unita IV-0024 (Amazon) in questa entita. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 1 diventerebbero un anello su se stesse, tolte (--drop-self-loop) e conservate in history"
+          ],
+          "loser_name": "Amazon",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "self_loop_dropped": [
+              {
+                "source": "IV-0024",
+                "target": "IN-1248",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-04-22"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -230259,6 +230687,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q3884). label='Amazon'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0024 (Amazon) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -242096,6 +242530,7 @@
       "id": "IN-1294",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "IBM",
@@ -242480,6 +242915,36 @@
               "extracted_at": "2026-04-12"
             }
           }
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0714"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0714",
+          "note": "Unita IV-0714 (IBM) in questa entita. Motivo: Same company: IBM appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "IBM",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -242545,6 +243010,12 @@
           "description": "Entita IN-0062 (Business Machines) unita in questa il 2026-11-13 e lasciata come lapide.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-13"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0714 (IBM) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -245931,6 +246402,45 @@
           "old": null,
           "new": "sources.wikidata populated (Q6721006)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0730"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0730",
+          "note": "Unita IV-0730 (Ma’aden) in questa entita. Motivo: Same company: Ma'aden (Saudi Arabian Mining Company) appears as a Crunchbase top investor (IV-0730, created again by import_investors_crunchbase.py on 2026-06-18 after IV-0377 had been merged into this entity on 2026-05-14) and as the company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1307 already has the investor role. One of the two investment relationships of IV-0730 (to IN-0178) was already on the winner and is kept once; the other (to IN-1344 Vale) moves to the winner.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 1 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Ma’aden",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IV-0730",
+                "target": "IN-0178",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-06-18"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -245993,6 +246503,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q6721006). label='Maaden'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0730 (Ma’aden) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -257932,6 +258448,7 @@
       "id": "IN-1350",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Zijin Mining",
@@ -258132,6 +258649,36 @@
           "from": "People's Republic of China",
           "to": "China",
           "by": "patch_country_from_cb_hq.py"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0609"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0609",
+          "note": "Unita IV-0609 (Zijin Mining) in questa entita. Motivo: Same company: Zijin Mining appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Zijin Mining",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -258184,6 +258731,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q202841). label='Zijin Mining Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0609 (Zijin Mining) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -260547,6 +261100,13 @@
           "old": null,
           "new": "Canada",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1245 (Agnico-Eagle Mines Limited). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Agnico-Eagle Mines Limited appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1245",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -260555,6 +261115,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1245 (Agnico-Eagle Mines Limited). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Agnico-Eagle Mines Limited appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1245",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -261206,6 +261773,13 @@
           "old": null,
           "new": "United States",
           "description": "Country curated: Amazon — Seattle WA"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1248 (Amazon). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "canonical": "IN-1248",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -261214,6 +261788,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1248 (Amazon). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "canonical": "IN-1248",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -261766,6 +262347,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0032 (Apple). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0032",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -261774,6 +262362,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0032 (Apple). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Apple appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0032",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -283242,6 +283837,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0812 (Kaitseministeerium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "canonical": "IN-0812",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -283250,6 +283852,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0812 (Kaitseministeerium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "canonical": "IN-0812",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -290195,6 +290804,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0271 (Nvidia). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0271",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -290203,6 +290819,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0271 (Nvidia). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: NVIDIA appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0271",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -304036,6 +304659,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1350 (Zijin Mining). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Zijin Mining appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1350",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -304044,6 +304674,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1350 (Zijin Mining). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Zijin Mining appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1350",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -323624,6 +324261,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0143 (Glencore). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Glencore appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0143",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -323632,6 +324276,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0143 (Glencore). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Glencore appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0143",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -323984,6 +324635,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1294 (IBM). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: IBM appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -323992,6 +324650,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1294 (IBM). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: IBM appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-1294",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -324164,6 +324829,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0175 (Intel). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Intel appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0175",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -324172,6 +324844,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0175 (Intel). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Intel appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0175",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -324713,6 +325392,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Ma'aden (Saudi Arabian Mining Company) appears as a Crunchbase top investor (IV-0730, created again by import_investors_crunchbase.py on 2026-06-18 after IV-0377 had been merged into this entity on 2026-05-14) and as the company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1307 already has the investor role. One of the two investment relationships of IV-0730 (to IN-0178) was already on the winner and is kept once; the other (to IN-1344 Vale) moves to the winner.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -324721,6 +325407,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Ma'aden (Saudi Arabian Mining Company) appears as a Crunchbase top investor (IV-0730, created again by import_investors_crunchbase.py on 2026-06-18 after IV-0377 had been merged into this entity on 2026-05-14) and as the company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1307 already has the investor role. One of the two investment relationships of IV-0730 (to IN-0178) was already on the winner and is kept once; the other (to IN-1344 Vale) moves to the winner.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -324992,6 +325685,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0278 (Oracle). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0278",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -325000,6 +325700,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0278 (Oracle). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Oracle appears as a Crunchbase top investor (IV) and as an iShares holding (IN); dual-role entity (company and investor), name match, no QID conflict (IV has no QID). The winner now is the source of the investment relationships.",
+          "canonical": "IN-0278",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -339535,11 +340242,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0031",
+      "source": "IN-0032",
       "target": "IN-0004",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0031 -> IN-0032 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0310",
@@ -340221,11 +340935,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0015",
+      "source": "IN-1245",
       "target": "IN-0094",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0015 -> IN-1245 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0339",
@@ -340284,11 +341005,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0031",
+      "source": "IN-0032",
       "target": "IN-0102",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0031 -> IN-0032 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0075",
@@ -340578,11 +341306,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0015",
+      "source": "IN-1245",
       "target": "IN-0132",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0015 -> IN-1245 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0520",
@@ -340753,11 +341488,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0175",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0081",
@@ -341089,11 +341831,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0215",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0207",
@@ -341467,11 +342216,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-0263",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0416",
@@ -342083,11 +342839,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0609",
+      "source": "IN-1350",
       "target": "IN-0340",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0609 -> IN-1350 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0476",
@@ -344407,11 +345170,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0326",
+      "source": "IN-0812",
       "target": "IN-1212",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0326 -> IN-0812 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0194",
@@ -344968,13 +345738,6 @@
     },
     {
       "source": "IV-0338",
-      "target": "IN-1248",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0024",
       "target": "IN-1248",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
@@ -360737,14 +361500,6 @@
       "created_at": "2026-06-17"
     },
     {
-      "source": "IV-0326",
-      "target": "EDF-0076",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 8972920.0,
-      "created_at": "2026-06-17"
-    },
-    {
       "source": "IN-1448",
       "target": "EDF-0081",
       "type": "edf_participation",
@@ -360837,13 +361592,6 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0730",
-      "target": "IN-0178",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
-    },
-    {
       "source": "IV-0740",
       "target": "IN-0266",
       "type": "investment",
@@ -360914,11 +361662,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0706",
+      "source": "IN-0143",
       "target": "IN-0383",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0706 -> IN-0143 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0722",
@@ -361348,11 +362103,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0730",
+      "source": "IN-1307",
       "target": "IN-1344",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0730 -> IN-1307 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0748",
@@ -361768,11 +362530,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1461",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0744",
@@ -361838,25 +362607,46 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0714",
+      "source": "IN-1294",
       "target": "IN-1463",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0714 -> IN-1294 (merge)"
+        }
+      ]
     },
     {
-      "source": "IV-0736",
+      "source": "IN-0278",
       "target": "IN-1463",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0736 -> IN-0278 (merge)"
+        }
+      ]
     },
     {
-      "source": "IV-0718",
+      "source": "IN-0175",
       "target": "IN-1463",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0718 -> IN-0175 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0026",
@@ -361901,11 +362691,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1465",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0221",
@@ -361999,11 +362796,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0423",
+      "source": "IN-0271",
       "target": "IN-1470",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0423 -> IN-0271 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0500",

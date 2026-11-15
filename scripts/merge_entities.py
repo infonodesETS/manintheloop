@@ -18,6 +18,9 @@ Relazioni doppie con contenuto diverso: lo script si ferma, salvo che per ogni c
 --prefer-winner o --prefer-loser SORGENTE:DESTINAZIONE (ID del vincitore; ripetibili). Il contenuto scartato
 resta in 'preserved' nella voce dedup_decision. Una coppia indicata che non e in conflitto e un errore.
 
+Relazione del perdente verso il vincitore (diventerebbe un anello su se stessa): lo script si ferma, salvo
+--drop-self-loop SORGENTE:DESTINAZIONE (ID prima dell'unione): la relazione viene tolta e conservata in 'preserved'.
+
 Uso (dalla radice del repo):
     python3 scripts/merge_entities.py WINNER LOSER --why "motivo"            # dry-run
     python3 scripts/merge_entities.py WINNER LOSER --why "motivo" --apply    # scrive
@@ -73,6 +76,8 @@ def main():
                     help="per una relazione doppia con contenuto diverso: tiene quella del vincitore e conserva quella del perdente in history (ripetibile; ID finali, cioe del vincitore)")
     ap.add_argument("--prefer-loser", action="append", default=[], metavar="SORGENTE:DESTINAZIONE",
                     help="per una relazione doppia con contenuto diverso: sostituisce il contenuto di quella del vincitore con quello del perdente, e conserva il vecchio in history (ripetibile)")
+    ap.add_argument("--drop-self-loop", action="append", default=[], metavar="SORGENTE:DESTINAZIONE",
+                    help="relazione del perdente che diventerebbe un anello su se stessa: la toglie e la conserva in 'preserved' (ID prima dell'unione; ripetibile)")
     ap.add_argument("--history-letta", action="store_true",
                     help="conferma che la history di entrambe le entita e stata letta (obbligatoria con --apply)")
     ap.add_argument("--db", default="docs/data/database.json")
@@ -166,6 +171,7 @@ def main():
     if pref_w & pref_l:
         sys.exit("ERRORE: la stessa coppia e indicata sia con --prefer-winner sia con --prefer-loser: %s" % sorted(pref_w & pref_l))
     used = set()
+    drop_loops, loops = set(a.drop_self_loop), []
     kept_winner, replaced = [], []   # kept_winner: relazioni del perdente scartate; replaced: (relazione del vincitore, relazione del perdente)
     for r in rels:
         if a.loser not in (r["source"], r["target"]):
@@ -176,6 +182,9 @@ def main():
         if new["target"] == a.loser:
             new["target"] = a.winner
         if new["source"] == new["target"]:
+            if "%s:%s" % (r["source"], r["target"]) in drop_loops:
+                loops.append(r)
+                continue
             conflicts.append("relazione %s -> %s diventerebbe un anello su se stessa" % (r["source"], r["target"]))
             continue
         twins = w_rels.get(rel_key(new), [])
@@ -195,11 +204,17 @@ def main():
             redirected.append(r)
     if (pref_w | pref_l) - used and not conflicts:
         sys.exit("ERRORE: coppie indicate in --prefer-winner/--prefer-loser che non sono relazioni doppie con contenuto diverso: %s" % sorted((pref_w | pref_l) - used))
+    unused_loops = drop_loops - {"%s:%s" % (r["source"], r["target"]) for r in loops}
+    if unused_loops and not conflicts:
+        sys.exit("ERRORE: coppie indicate in --drop-self-loop che non diventerebbero un anello: %s" % sorted(unused_loops))
     if conflicts:
         print("OPERAZIONE FERMATA, conflitti da risolvere a mano:")
         for c in conflicts:
             print("  -", c)
         sys.exit(2)
+    if loops:
+        preserved["self_loop_dropped"] = copy.deepcopy(loops)
+        absorbed.append("relazioni: %d diventerebbero un anello su se stesse, tolte (--drop-self-loop) e conservate in history" % len(loops))
     if dropped:
         preserved["relationships_dropped"] = copy.deepcopy(dropped)
         absorbed.append("relazioni: %d identiche a quelle del vincitore, tolte e conservate in history" % len(dropped))
@@ -260,7 +275,7 @@ def main():
         return
 
     # --- applicazione ---
-    for r in dropped + kept_winner:
+    for r in dropped + kept_winner + loops:
         rels.remove(r)
     for t, l_ in replaced:
         for k in list(rel_payload(t)):

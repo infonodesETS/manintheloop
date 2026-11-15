@@ -599,3 +599,18 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - Cambiati solo testi in `scripts/` (`merge_entities.py`, `check_b3_branch.py`, `patch_qid_removed.py`, `patch_clear_infonodes.py`, `search_missing_qids.py`), `STATUS.md` e `reference/` (`B3-METODO`, `S3-CLASSI-AZIONI`, `SCHEMA`, `UPDATE_PROTOCOL`, `PIANO-RIORGANIZZAZIONE`). **Non toccati:** il database, i nomi dei campi (`entity_retired`, `retired`, `canonical`), le voci storiche di questo log e i testi delle PR già fuse.
 - Una conseguenza: il testo che `merge_entities.py` scrive nella `validation` alle prossime unioni ora è in inglese («merged into this one on … and left as a retired entity»), come richiede il principio 8 del protocollo (prima era in italiano).
 - Controlli: `py_compile` sui 5 script superato; `validate.py` PASSED (2582 entità, 3431 relazioni); `check_b3_branch.py` dà solo l'errore già noto su `IN-1335` (vedi voce del lotto 3).
+
+
+### 2026-11-15 (sera) — PR #49 fusa da Nelson ☑
+
+- PR #49 (B3 lotto 3: Vale unita, `tax_id` di `IN-1335` a `null`, «lapide» → «scheda ritirata») fusa in `main` (`bc94b79`); branch remoto cancellato da Nelson. `main` locale allineato. Nessuna modifica al sito; `mitl-index.json` non rigenerato.
+
+
+### 2026-11-15 (sera) — B3 lotto 4: undici coppie `IV-`/`IN-` omonime unite ☑ (branch `dati/b3-lotto4`, non pushato)
+
+- **Regola:** una società che compare sia come investitore (`IV-`, elenco Crunchbase `top_investors`) sia come società (`IN-`) è una scheda sola, vince la `IN-` (prassi del 2026-04-15, nota «dual-role» di `UPDATE_PROTOCOL.md`; il sito mostra già il portafoglio). Nessuna `IV-` aveva QID. Le 16 voci `expected_iv_in_duplicate` del database dicono «stessa entità giuridica», non «tenere separate».
+- **Applicate (un commit ciascuna, `validate.py` e `check_b3_branch.py` ogni volta):** `IN-0271` ← `IV-0423` NVIDIA (`251ef9f`), `IN-0032` ← `IV-0031` Apple (`7d1be26`), `IN-0175` ← `IV-0718` Intel (`591c888`), `IN-0278` ← `IV-0736` Oracle (`c549ec4`), `IN-0143` ← `IV-0706` Glencore (`0202180`), `IN-1294` ← `IV-0714` IBM (`b307aad`), `IN-1350` ← `IV-0609` Zijin (`61200e6`), `IN-1245` ← `IV-0015` Agnico-Eagle (`42223d8`), `IN-1248` ← `IV-0024` Amazon (`f8df2ed`), `IN-1307` ← `IV-0730` Ma'aden (`5ce205e`), `IN-0812` ← `IV-0326` Kaitseministeerium (`f0124bf`).
+- **Amazon:** l'unica relazione di `IV-0024` era verso `IN-1248` (Amazon → Amazon, lo stesso anello che Nelson aveva tolto a mano il 2026-03-28). Lo script si fermava: aggiunta l'opzione `--drop-self-loop` a `merge_entities.py` (`68256c1`; la relazione resta in `preserved.self_loop_dropped`) e il riconoscimento in `check_b3_branch.py` (`8111375`; senza la nota il controllo dà ancora errore, provato su una copia).
+- **Ma'aden e Kaitseministeerium:** `IV-0730` ricreata dall'import Crunchbase il 2026-06-18 dopo l'unione di `IV-0377` (2026-05-14); `IV-0326` ricreata dopo l'unione di `IV-0374` (2026-04-15). Per Kaitseministeerium il PIC 905124655 in `edf_orgs.json` ora punta a `IN-0812`; `EDF-0076` tenuta una volta.
+- **Non toccati:** Intel Capital `IV-0298` (fondo con QID, altra entità); `field_conflict` sulla sede di Apple e IBM (blocco Crunchbase di una controllata); ruolo `manufacturer` di Kaitseministeerium (dedotto solo da iShares).
+- **Misure finali:** `validate.py` PASSED, 2582 entità, 3428 relazioni (da 3431: 1 anello e 2 doppioni identici, tutti conservati in `history`); schede ritirate 29; anelli su se stessi 0; QID condivisi tra attive 35 (invariati).
