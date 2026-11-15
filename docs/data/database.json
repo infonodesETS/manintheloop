@@ -68309,6 +68309,12 @@
           "description": "Entity IV-0483 (Samsung Electronics) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: sources.wikidata.headquarters 'Suwon' matches the registered head office. KRX KIND filing of 2026-03-10 (https://kind.krx.co.kr/external/2026/03/10/001404/20260310003123/11011.htm): '본 점 소재 지 : 경기도 수원시 영통구 삼성로 129'; DART English filing: 'Entity Address : 129, Samsung-ro, Yeongtong-gu, Suwon, Gyeonggi-do, Korea'. sources.crunchbase.headquarters 'Seoul' appears in none of the documents read. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -73885,6 +73891,12 @@
           "status": "merged_from",
           "description": "Entity IV-0515 (SoftBank Group) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: same place at different levels of detail. Registered head office 1-7-1 Kaigan, Minato-ku, Tokyo (SoftBank Group annual report FY2026: 'Corporate headquarters 1-7-1, Kaigan, Minato-ku, Tokyo 105-7537, Japan'; gBizINFO corporate number 1010401056795: 本店所在地 東京都港区海岸１丁目７番１号). Minato is a ward of Tokyo: sources.wikidata 'Minato' and sources.crunchbase 'Tokyo' agree. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
           "datestamp": "2026-11-15"
         }
       ],
@@ -82874,6 +82886,12 @@
           "description": "Entity IV-0550 (Tencent) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: sources.crunchbase.headquarters 'Shenzhen, Guangdong, China' is confirmed. Tencent annual report (HKEXnews, 2026-04-09, https://www.hkexnews.hk/listedco/listconews/sehk/2026/0409/2026040901231.pdf): 'TENCENT GROUP HEAD OFFICE Tencent Binhai Towers No. 33 Haitian 2nd Road Nanshan District Shenzhen, 518054 The PRC'; registered office at Cricket Square, Grand Cayman; principal place of business in Hong Kong at Three Pacific Place. sources.wikidata.headquarters 'Maling' appears in none of the documents read; sources.wikidata is script-managed and was not edited. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -89344,6 +89362,12 @@
           "status": "merged_from",
           "description": "Entity IV-0595 (Vodafone) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: sources.crunchbase.headquarters 'Newbury, West Berkshire, United Kingdom' is confirmed. Companies House (company no. 01833679, https://find-and-update.company-information.service.gov.uk/company/01833679): 'Registered office address : Vodafone House, The Connection, Newbury, Berkshire, RG14 2FN'; the same address appears in the company's filing on SEC EDGAR. sources.wikidata.headquarters 'London' does not match the registered office; sources.wikidata is script-managed and was not edited. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
           "datestamp": "2026-11-15"
         }
       ],
@@ -243666,6 +243690,12 @@
           "status": "merged_from",
           "description": "Entity IV-0714 (IBM) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: stale. sources.crunchbase.headquarters is now 'Armonk, New York, United States' (Crunchbase import of 2026-04-13), the same place as sources.wikidata.headquarters 'Armonk'. The field_conflict entry of 2026-04-24 quotes the older Crunchbase value 'Bel Air, Maryland, United States'. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
           "datestamp": "2026-11-15"
         }
       ],
