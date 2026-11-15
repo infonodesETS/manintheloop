@@ -599,3 +599,8 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - Cambiati solo testi in `scripts/` (`merge_entities.py`, `check_b3_branch.py`, `patch_qid_removed.py`, `patch_clear_infonodes.py`, `search_missing_qids.py`), `STATUS.md` e `reference/` (`B3-METODO`, `S3-CLASSI-AZIONI`, `SCHEMA`, `UPDATE_PROTOCOL`, `PIANO-RIORGANIZZAZIONE`). **Non toccati:** il database, i nomi dei campi (`entity_retired`, `retired`, `canonical`), le voci storiche di questo log e i testi delle PR già fuse.
 - Una conseguenza: il testo che `merge_entities.py` scrive nella `validation` alle prossime unioni ora è in inglese («merged into this one on … and left as a retired entity»), come richiede il principio 8 del protocollo (prima era in italiano).
 - Controlli: `py_compile` sui 5 script superato; `validate.py` PASSED (2582 entità, 3431 relazioni); `check_b3_branch.py` dà solo l'errore già noto su `IN-1335` (vedi voce del lotto 3).
+
+
+### 2026-11-15 (sera) — PR #49 fusa da Nelson ☑
+
+- PR #49 (B3 lotto 3: Vale unita, `tax_id` di `IN-1335` a `null`, «lapide» → «scheda ritirata») fusa in `main` (`bc94b79`); branch remoto cancellato da Nelson. `main` locale allineato. Nessuna modifica al sito; `mitl-index.json` non rigenerato.
