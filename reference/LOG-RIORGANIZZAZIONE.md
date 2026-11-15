@@ -585,3 +585,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 ### 2026-11-15 — Tolta la regola «dire quante PR già aperte oggi»
 
 - Nelson l'ha chiesto dopo che l'avevo applicata a ogni messaggio, anche quando non proponevo nessuna PR. Tolta da `STATUS.md` («Regole che valgono sempre» e «Sequenza proposta») e dal piano §0.3 (e). Restano le altre regole sul numero e sul tipo di PR (a)-(d). Le voci storiche del log che citano il conteggio non sono modificate.
+
+
+### 2026-11-15 (sera) — B3 lotto 3: Vale unita, TKMS non unita ◐ (branch `dati/b3-lotto3`, non pushato)
+
+- **Vale** `IN-0401`→`IN-1344` (`76c2733`): comunicato di Vale e modulo 6-K dell'aprile 2009 (fonti riaperte) registrano il cambio del nome legale da Companhia Vale do Rio Doce a Vale S.A. approvato dall'assemblea straordinaria; CNPJ 33.592.510/0001-54 = VALE S.A. La data del 22 maggio 2009 viene solo da Exa e non è scritta nei dati. `validate.py` PASSED (3431 relazioni, controllo 12: 28 casi noti, 13 risolti), `check_b3_branch.py` superato (2 entità cambiate su 2 attese).
+- **TKMS** (`IN-1335`/`IN-1150`): il prospetto dice «TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH)», registro di Kiel HRB 6960 KI, IVA DE 221174497 (Impressum riaperto); il PIC di `IN-1150` è «TKMS GMBH». La partita IVA di `IN-1335` (DE811124479) non è né della GmbH né di thyssenkrupp AG (DE 812 656 084, risposta di Exa; le pagine thyssenkrupp riaperte non contenevano il numero): **titolare non identificato**. Unione non fatta (la scheda potrebbe essere il gruppo o la holding TKMS AG & Co. KGaA, quotata dal 2025-10-17, senza scheda); `tax_id` di `IN-1335` messo a `null` con `patch_clear_infonodes.py` (`697c095`), vecchio valore nella `history`. `validate.py` PASSED; **`check_b3_branch.py` dà errore su `IN-1335`** («cambiata ma non è lapide, canonico o `qid_removed`»): non conosce le modifiche ai campi di `sources.infonodes` (come per `IN-1352`); non modificato.
