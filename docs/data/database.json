@@ -6898,7 +6898,7 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Arafura RARE Earths",
+      "name": "Arafura Rare Earths",
       "sector": null,
       "wikidata_id": "Q16829889",
       "sources": {
@@ -6917,14 +6917,63 @@
             "source_file": "ishares_metals_mining_gics151040.csv"
           }
         ],
-        "crunchbase": null,
+        "crunchbase": {
+          "extracted_at": "2026-04-24",
+          "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+          "profile_url": "https://www.crunchbase.com/organization/arafura-resources",
+          "stage": "",
+          "description": "Arafura Resources is an Australian company with a world class rare earths resource in the Northern Territory of Australia.",
+          "description_full": null,
+          "website": "http://www.arultd.com",
+          "cb_rank": 163239,
+          "headquarters": "Perth, Western Australia, Australia",
+          "headquarters_regions": "Asia-Pacific (APAC), Australasia",
+          "operating_status": "Active",
+          "founded_date": "2003-01-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": "",
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [
+            "Other"
+          ],
+          "industries": [
+            "Association"
+          ],
+          "founders": [],
+          "num_funding_rounds": 7,
+          "funding_status": "IPO",
+          "last_funding_date": "2025-01-15",
+          "last_funding_amount_usd": 124687968,
+          "last_funding_type": "Grant",
+          "total_equity_funding_usd": 74528598,
+          "total_funding_usd": 499216566,
+          "total_funding_native": {
+            "amount": 499216566,
+            "currency": "USD"
+          },
+          "top_investors": [
+            "Export Development Canada",
+            "Canaccord Genuity Group",
+            "National Reconstruction Fund Corporation",
+            "Bell Potter"
+          ],
+          "num_investors": 4,
+          "revenue_range": "$500M to $1B",
+          "patents_granted": null,
+          "domain": null,
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": []
+        },
         "infonodes": {
           "extracted_at": "2026-04-12",
-          "sector": null,
-          "country": null,
-          "tax_id": null,
-          "main_focus": null,
-          "wikipedia_url": null,
+          "sector": "Mining",
+          "country": "Australia",
+          "tax_id": "22 080 933 455 (ABN)",
+          "main_focus": "Neodimio",
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Arafura_Rare_Earths",
           "website": "https://www.arultd.com"
         },
         "wikidata": {
@@ -7018,6 +7067,219 @@
           "old": null,
           "new": "sources.wikidata populated (Q16829889)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q16829889)"
+        },
+        {
+          "date": "2026-03-14",
+          "source": "migration",
+          "author": "migrate.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial migration from investments.json v1",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-03-14",
+          "source": "search_missing_qids.py",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q4783971",
+          "description": "wikidata_id found via Wikidata search API",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q4783971)",
+          "description": "sources.wikidata populated from Wikidata API (Q4783971)",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "playwright_qid_verification",
+          "author": "playwright_qid_verification",
+          "field": "wikidata_id",
+          "old": "Q4783971",
+          "new": "Q16829889",
+          "description": "Wrong QID corrected via Playwright browser verification",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-03-17",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16829889)",
+          "description": "sources.wikidata populated from Wikidata API (Q16829889)",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-03-28",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "Wikidata data retrieved (Q16829889)",
+          "description": "sources.wikidata populated from Wikidata API (Q16829889)",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "migration",
+          "author": "import_by_wikidata.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Imported from refactoring/data/database.json (old id: IN-0017, wikidata_id: Q16829889). Identity verified via wikidata_id — no name normalization inference used.",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q16829889)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q16829889)",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": "extracted_at=2026-03-07, source=unknown",
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase updated from crunchbase-export-matches-csv-4-13-2026.csv. Changed fields: description_full, cb_rank, headquarters_regions, operating_status, founded_date, company_type, num_funding_rounds, funding_status, last_funding_date, last_funding_amount_usd, last_funding_type, total_equity_funding_usd, top_investors, num_investors, board",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q16829889",
+          "new": null,
+          "note": "Old company name (Arafura Resources). Q16829889=Arafura Rare Earths current name kept on IN-0035.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "relationships_migrated",
+          "to": "IN-0035",
+          "note": "Arafura Resources → Arafura Rare Earths (same company, name change; canonical entity holds QID Q16829889)",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-04-24",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "new": "extracted_at=2026-04-24, source=companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+          "description": "sources.crunchbase updated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv. Changed fields: description_full, cb_rank",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q16829889",
+          "description": "wikidata_id set via search: label='Arafura Rare Earths', description='Australian mining company'. Search name used: 'Arafura Resources'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-1253"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Arafura RARE Earths",
+          "new_value": "Arafura Rare Earths",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-1253 (Arafura Resources)."
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1253",
+          "note": "Unita IN-1253 (Arafura Resources) in questa entita. Motivo: Same legal entity: ABR (ABN 22 080 933 455) shows ARAFURA RESOURCES LIMITED until 2023-02-10, then ARAFURA RARE EARTHS LTD. Decided by hand on 2026-04-23 (IN-0035 canonical, relationships already migrated) but never merged. History and validation of both read before merging.",
+          "absorbed": [
+            "sources.crunchbase copiato dal perdente",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.sector copiato dal perdente",
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes.tax_id copiato dal perdente",
+            "sources.infonodes.main_focus copiato dal perdente",
+            "sources.infonodes.wikipedia_url copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "nome del vincitore: 'Arafura RARE Earths' -> 'Arafura Rare Earths'",
+            "relazioni: 4 identiche a quelle del vincitore, tolte e conservate in history"
+          ],
+          "loser_name": "Arafura Resources",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "Arafura Rare Earths",
+              "description": "Australian mining company",
+              "aliases": [
+                "Arafura Resources Limited",
+                "Arafura Resources",
+                "Arafura Rare Earths Ltd"
+              ],
+              "instance_of": [
+                "public company"
+              ],
+              "country": "Australia",
+              "inception": "2006",
+              "headquarters": null,
+              "official_website": "https://www.arultd.com/",
+              "isin": "AU000000ARU5",
+              "employees": null,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Arafura%20Rare%20Earths"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-03-07"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IV-0207",
+                "target": "IN-1253",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-06-18"
+              },
+              {
+                "source": "IV-0097",
+                "target": "IN-1253",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-06-18"
+              },
+              {
+                "source": "IV-0400",
+                "target": "IN-1253",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-06-18"
+              },
+              {
+                "source": "IV-0065",
+                "target": "IN-1253",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-06-18"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -7062,6 +7324,41 @@
           "description": "sources.wikidata populated from Wikidata API (Q16829889). label='Arafura Rare Earths'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "reconciliation_documented",
+          "description": "Entity migrated from refactoring/ legacy DB (investments.json v1 → refactoring/data/database.json, old id: IN-0017). Match basis: name identity between legacy DB and new DB entity pool (startup name match, no universal ID available at migration time).",
+          "author": "audit_quality.py",
+          "datestamp": "2026-04-13",
+          "from_entity": "IN-1253"
+        },
+        {
+          "status": "crunchbase_enriched",
+          "description": "sources.crunchbase updated from crunchbase-export-matches-csv-4-13-2026.csv (2026-04-13). Changed: description_full, cb_rank, headquarters_regions, operating_status, founded_date, company_type, num_funding_rounds, funding_status, last_funding_date, last_funding_amount_usd, last_funding_type, total_equity_funding_usd, top_investors, num_investors, board",
+          "author": "import_crunchbase_csv.py",
+          "datestamp": "2026-04-13",
+          "from_entity": "IN-1253"
+        },
+        {
+          "status": "qid_nulled_subsidiary",
+          "wikidata_id_removed": "Q16829889",
+          "note": "Old company name (Arafura Resources). Q16829889=Arafura Rare Earths current name kept on IN-0035.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-1253"
+        },
+        {
+          "status": "crunchbase_enriched",
+          "description": "sources.crunchbase updated from companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv (2026-04-24). Changed: description_full, cb_rank",
+          "author": "import_crunchbase_csv.py",
+          "datestamp": "2026-04-24",
+          "from_entity": "IN-1253"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-1253 (Arafura Resources) unita in questa il 2026-11-15 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -230672,6 +230969,13 @@
           "old": null,
           "new": "Q16829889",
           "description": "wikidata_id set via search: label='Arafura Rare Earths', description='Australian mining company'. Search name used: 'Arafura Resources'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0035 (Arafura Rare Earths). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: ABR (ABN 22 080 933 455) shows ARAFURA RESOURCES LIMITED until 2023-02-10, then ARAFURA RARE EARTHS LTD. Decided by hand on 2026-04-23 (IN-0035 canonical, relationships already migrated) but never merged. History and validation of both read before merging.",
+          "canonical": "IN-0035",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -230735,6 +231039,13 @@
           "description": "wikidata_id Q16829889 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0035 (Arafura Rare Earths). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: ABR (ABN 22 080 933 455) shows ARAFURA RESOURCES LIMITED until 2023-02-10, then ARAFURA RARE EARTHS LTD. Decided by hand on 2026-04-23 (IN-0035 canonical, relationships already migrated) but never merged. History and validation of both read before merging.",
+          "canonical": "IN-0035",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -360262,34 +360573,6 @@
     {
       "source": "IV-0048",
       "target": "IN-1220",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
-    },
-    {
-      "source": "IV-0207",
-      "target": "IN-1253",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
-    },
-    {
-      "source": "IV-0097",
-      "target": "IN-1253",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
-    },
-    {
-      "source": "IV-0400",
-      "target": "IN-1253",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
-    },
-    {
-      "source": "IV-0065",
-      "target": "IN-1253",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
       "created_at": "2026-06-18"
