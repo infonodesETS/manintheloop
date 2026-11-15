@@ -82880,6 +82880,12 @@
           "description": "Entity IV-0550 (Tencent) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: sources.crunchbase.headquarters 'Shenzhen, Guangdong, China' is confirmed. Tencent annual report (HKEXnews, 2026-04-09, https://www.hkexnews.hk/listedco/listconews/sehk/2026/0409/2026040901231.pdf): 'TENCENT GROUP HEAD OFFICE Tencent Binhai Towers No. 33 Haitian 2nd Road Nanshan District Shenzhen, 518054 The PRC'; registered office at Cricket Square, Grand Cayman; principal place of business in Hong Kong at Three Pacific Place. sources.wikidata.headquarters 'Maling' appears in none of the documents read; sources.wikidata is script-managed and was not edited. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
