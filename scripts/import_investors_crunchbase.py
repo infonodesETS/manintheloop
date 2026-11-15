@@ -8,8 +8,14 @@ WHAT IT DOES
   1. Collects all unique investor names from sources.crunchbase.top_investors
      across all IN-* entities.
   2. For each unique name: creates an IV-NNNN entity (skips if already present).
+     If the name is that of an active IN-* entity (and no IV-* exists), the IV-*
+     is NOT created: the name is listed as "possible dual role" for a person to
+     review (merge rule: UPDATE_PROTOCOL.md, dual-role note).
   3. For each IN-* / investor pair: creates an "investment" relationship
-     (idempotent — skips if the pair already exists).
+     (idempotent — skips if the pair already exists). If the IV-* entity has been
+     retired by a merge (history action entity_retired), the relationship uses its
+     canonical entity as source, so no relationship ever points to a retired entity.
+     A relationship that would link an entity to itself is never created.
   4. Optionally runs a Wikidata SPARQL search to find the QID + HQ country for
      each new investor (--wikidata flag). Results are stored in sources.wikidata
      so the map can draw cross-border arcs.
@@ -217,6 +223,16 @@ def make_relationship(inv_id: str, co_id: str) -> dict:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
+def canonical_of(e: dict, by_id: dict) -> dict:
+    """Follow entity_retired -> canonical until an active entity is reached."""
+    for _ in range(10):
+        cano = next((h.get("canonical") for h in e.get("history", []) if h.get("action") == "entity_retired"), None)
+        if not cano or cano not in by_id:
+            return e
+        e = by_id[cano]
+    return e
+
+
 def main():
     with open(DATABASE_PATH, encoding="utf-8") as f:
         db = json.load(f)
@@ -229,6 +245,14 @@ def main():
     for e in entities:
         if e["id"].startswith("IV-"):
             name_to_iv[e["name"].lower()] = e
+
+    by_id = {e["id"]: e for e in entities}
+    # Active IN-* entities by lowercased name (to flag possible dual-role investors)
+    name_to_in: dict[str, dict] = {}
+    for e in entities:
+        if e["id"].startswith("IN-") and canonical_of(e, by_id) is e:
+            name_to_in.setdefault(e["name"].lower(), e)
+    possible_dual_role: list[tuple[str, str]] = []
 
     # Build lookup: (inv_id, co_id) → existing relationship
     rel_pairs: set[tuple[str, str]] = {(r["source"], r["target"]) for r in relationships}
@@ -258,6 +282,9 @@ def main():
     for key, name in sorted(seen_names.items()):
         if key in name_to_iv:
             continue  # already exists
+        if key in name_to_in:
+            possible_dual_role.append((name, name_to_in[key]["id"]))
+            continue  # same name as an active company: reviewed by a person, not created here
         iv_id  = next_iv_id(entities + new_entities)
         iv_ent = make_iv_entity(name, iv_id)
         new_entities.append(iv_ent)
@@ -273,6 +300,9 @@ def main():
             iv_ent = name_to_iv.get(key)
             if not iv_ent:
                 continue
+            iv_ent = canonical_of(iv_ent, by_id)   # retired IV-* -> its winner
+            if iv_ent["id"] == co["id"]:
+                continue                            # never a self-loop (Amazon -> Amazon)
             pair = (iv_ent["id"], co["id"])
             if pair in rel_pairs:
                 continue
@@ -280,6 +310,10 @@ def main():
             rel_pairs.add(pair)
 
     print(f"New relationships to create: {len(new_relationships)}")
+    if possible_dual_role:
+        print(f"Possible dual role (IV-* not created, same name as an active IN-*): {len(possible_dual_role)}")
+        for n, i in possible_dual_role:
+            print(f"  - {n!r} = {i}")
 
     # Wikidata enrichment
     if DO_WIKIDATA:
