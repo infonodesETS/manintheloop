@@ -230491,6 +230491,54 @@
           "old": null,
           "new": "sources.wikidata populated (Q3884)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q3884)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0024"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "patch_iv_countries_batch2.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "United States",
+          "description": "Country curated: Amazon — Seattle WA",
+          "from_entity": "IV-0024"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0024",
+          "note": "Unita IV-0024 (Amazon) in questa entita. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 1 diventerebbero un anello su se stesse, tolte (--drop-self-loop) e conservate in history"
+          ],
+          "loser_name": "Amazon",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "self_loop_dropped": [
+              {
+                "source": "IV-0024",
+                "target": "IN-1248",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-04-22"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -230553,6 +230601,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q3884). label='Amazon'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0024 (Amazon) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -261588,6 +261642,13 @@
           "old": null,
           "new": "United States",
           "description": "Country curated: Amazon — Seattle WA"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1248 (Amazon). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "canonical": "IN-1248",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -261596,6 +261657,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1248 (Amazon). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Amazon appears as a Crunchbase top investor (IV) and as an iShares/Crunchbase company (IN); dual-role entity, name match, no QID conflict (IV has no QID); IN-1248 already has the investor role. The only relationship of IV-0024 (investment IV-0024 -> IN-1248, from crunchbase_top_investors) would become Amazon -> Amazon: it is the same spurious self-reference already removed by hand on 2026-03-28, so it is dropped and kept in this entry (preserved.self_loop_dropped).",
+          "canonical": "IN-1248",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -345504,13 +345572,6 @@
     },
     {
       "source": "IV-0338",
-      "target": "IN-1248",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0024",
       "target": "IN-1248",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
