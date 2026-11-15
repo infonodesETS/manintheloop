@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-14",
+  "_updated": "2026-11-15",
   "entities": [
     {
       "id": "IN-0001",
@@ -132787,7 +132787,7 @@
       ],
       "name": "Eviden Austria",
       "sector": null,
-      "wikidata_id": "Q117442701",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -132862,22 +132862,7 @@
           "wikipedia_url": null,
           "website": "https://eviden.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Eviden",
-          "description": null,
-          "aliases": [],
-          "instance_of": [
-            "business"
-          ],
-          "country": "France",
-          "inception": null,
-          "headquarters": null,
-          "official_website": "https://eviden.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": null
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -132977,6 +132962,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 964110452, 1 projects, €348,422 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q117442701",
+          "new": null,
+          "description": "QID Q117442701 removed: on Wikidata it is 'Eviden'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Eviden Austria' to the Eviden brand/group item; removed before by manual patch on 2026-04-23. The QID stays on IN-0671. The entity is: Eviden Austria GmbH, a Vienna limited liability company (Firmenbuch FN 357865y, UID ATU66190855), formerly Atos IT Solutions and Services GmbH, 100% owned by Eviden Technologies Beteiligungen GmbH (Eviden group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Eviden",
+            "description": null,
+            "aliases": [],
+            "instance_of": [
+              "business"
+            ],
+            "country": "France",
+            "inception": null,
+            "headquarters": null,
+            "official_website": "https://eviden.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": null
+          }
         }
       ],
       "validation": [
@@ -133034,6 +133044,14 @@
           "description": "wikidata_id Q117442701 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q117442701",
+          "wikidata_label": "Eviden",
+          "description": "QID Q117442701 removed: on Wikidata it is 'Eviden'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Eviden Austria' to the Eviden brand/group item; removed before by manual patch on 2026-04-23. The QID stays on IN-0671. The entity is: Eviden Austria GmbH, a Vienna limited liability company (Firmenbuch FN 357865y, UID ATU66190855), formerly Atos IT Solutions and Services GmbH, 100% owned by Eviden Technologies Beteiligungen GmbH (Eviden group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -169072,7 +169090,7 @@
       ],
       "name": "Nammo Raufoss As",
       "sector": null,
-      "wikidata_id": "Q1964355",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -169102,26 +169120,7 @@
           "wikipedia_url": null,
           "website": "https://www.nammo.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Nammo",
-          "description": "Norwegian-Finnish defence company",
-          "aliases": [
-            "Nordic Ammunition Company",
-            "Nammo AS",
-            "Nordic Ammunition Group"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Norway",
-          "inception": "1998",
-          "headquarters": "Raufoss",
-          "official_website": "https://nammo.com",
-          "isin": null,
-          "employees": 2700,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Nammo"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -169212,6 +169211,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 986597186, 3 projects, €11,529,746 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q1964355",
+          "new": null,
+          "description": "QID Q1964355 removed: on Wikidata it is 'Nammo'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Nammo Raufoss' to the Nammo group item; removed before by manual patch on 2026-04-23. The QID stays on IN-1312 (Nammo). The entity is: Nammo Raufoss AS, a Norwegian limited company (org. no. 980 038 300), wholly owned by Nammo AS (the Nammo group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Nammo",
+            "description": "Norwegian-Finnish defence company",
+            "aliases": [
+              "Nordic Ammunition Company",
+              "Nammo AS",
+              "Nordic Ammunition Group"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Norway",
+            "inception": "1998",
+            "headquarters": "Raufoss",
+            "official_website": "https://nammo.com",
+            "isin": null,
+            "employees": 2700,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Nammo"
+          }
         }
       ],
       "validation": [
@@ -169257,6 +169285,14 @@
           "description": "wikidata_id Q1964355 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q1964355",
+          "wikidata_label": "Nammo",
+          "description": "QID Q1964355 removed: on Wikidata it is 'Nammo'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Nammo Raufoss' to the Nammo group item; removed before by manual patch on 2026-04-23. The QID stays on IN-1312 (Nammo). The entity is: Nammo Raufoss AS, a Norwegian limited company (org. no. 980 038 300), wholly owned by Nammo AS (the Nammo group); not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -182148,7 +182184,7 @@
       ],
       "name": "Renk Magnet Motor",
       "sector": null,
-      "wikidata_id": "Q2144015",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -182222,26 +182258,7 @@
           "wikipedia_url": null,
           "website": "https://www.magnet-motor.de/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Renk",
-          "description": "German defence company",
-          "aliases": [
-            "Renk AG",
-            "RENK AG",
-            "Mechanische Werkstatt von Johann Renk"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Germany",
-          "inception": "1873",
-          "headquarters": "Augsburg",
-          "official_website": "https://www.renk.com/",
-          "isin": "DE0007850000",
-          "employees": 3734,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Renk"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -182341,6 +182358,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 973065977, 1 projects, €106,862 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q2144015",
+          "new": null,
+          "description": "QID Q2144015 removed: on Wikidata it is 'Renk'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Renk Magnet Motor' to the item of the parent group; removed before by manual patch on 2026-04-23. The QID stays on IN-0979 (Renk). The entity is: RENK Magnet-Motor GmbH, Starnberg (Amtsgericht Muenchen HRB 52839), formerly L3 Magnet-Motor GmbH, subsidiary of RENK GmbH (RENK group) since 2021; not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Renk",
+            "description": "German defence company",
+            "aliases": [
+              "Renk AG",
+              "RENK AG",
+              "Mechanische Werkstatt von Johann Renk"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Germany",
+            "inception": "1873",
+            "headquarters": "Augsburg",
+            "official_website": "https://www.renk.com/",
+            "isin": "DE0007850000",
+            "employees": 3734,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Renk"
+          }
         }
       ],
       "validation": [
@@ -182392,6 +182438,14 @@
           "description": "wikidata_id Q2144015 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q2144015",
+          "wikidata_label": "Renk",
+          "description": "QID Q2144015 removed: on Wikidata it is 'Renk'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Renk Magnet Motor' to the item of the parent group; removed before by manual patch on 2026-04-23. The QID stays on IN-0979 (Renk). The entity is: RENK Magnet-Motor GmbH, Starnberg (Amtsgericht Muenchen HRB 52839), formerly L3 Magnet-Motor GmbH, subsidiary of RENK GmbH (RENK group) since 2021; not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -188361,7 +188415,7 @@
       ],
       "name": "Safran Ai",
       "sector": null,
-      "wikidata_id": "Q773875",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -188391,27 +188445,7 @@
           "wikipedia_url": null,
           "website": "https://www.safran-goup.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Safran Aircraft Engines",
-          "description": "aircraft and rocket engine manufacturer based in France",
-          "aliases": [
-            "Snecma S.A.",
-            "Société nationale d'études et de construction de moteurs d'aviation",
-            "National Aviation Engine Design and Construction Company"
-          ],
-          "instance_of": [
-            "organization",
-            "business"
-          ],
-          "country": "France",
-          "inception": "1945-05-29",
-          "headquarters": "Courcouronnes",
-          "official_website": "https://www.safran-group.com/companies/safran-aircraft-engines",
-          "isin": null,
-          "employees": 15700,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Safran%20Aircraft%20Engines"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -188502,6 +188536,36 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 913589360, 2 projects, €628,012 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q773875",
+          "new": null,
+          "description": "QID Q773875 removed: on Wikidata it is 'Safran Aircraft Engines'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Safran Ai' to the item of a different Safran company; removed before by manual patch on 2026-04-23. The QID stays on IN-1020. The entity is: Safran.AI (formerly Preligens), a Paris SASU (SIREN 818 503 146), subsidiary of Safran Electronics & Defense; not Safran Aircraft Engines (identifier from an aggregator, not from the registry). A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Safran Aircraft Engines",
+            "description": "aircraft and rocket engine manufacturer based in France",
+            "aliases": [
+              "Snecma S.A.",
+              "Société nationale d'études et de construction de moteurs d'aviation",
+              "National Aviation Engine Design and Construction Company"
+            ],
+            "instance_of": [
+              "organization",
+              "business"
+            ],
+            "country": "France",
+            "inception": "1945-05-29",
+            "headquarters": "Courcouronnes",
+            "official_website": "https://www.safran-group.com/companies/safran-aircraft-engines",
+            "isin": null,
+            "employees": 15700,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Safran%20Aircraft%20Engines"
+          }
         }
       ],
       "validation": [
@@ -188547,6 +188611,14 @@
           "description": "wikidata_id Q773875 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q773875",
+          "wikidata_label": "Safran Aircraft Engines",
+          "description": "QID Q773875 removed: on Wikidata it is 'Safran Aircraft Engines'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Safran Ai' to the item of a different Safran company; removed before by manual patch on 2026-04-23. The QID stays on IN-1020. The entity is: Safran.AI (formerly Preligens), a Paris SASU (SIREN 818 503 146), subsidiary of Safran Electronics & Defense; not Safran Aircraft Engines (identifier from an aggregator, not from the registry). A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -207008,7 +207080,7 @@
       ],
       "name": "Telefonica Moviles Espana",
       "sector": null,
-      "wikidata_id": "Q160229",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -207038,27 +207110,7 @@
           "wikipedia_url": null,
           "website": "https://www.telefonica.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Telefónica",
-          "description": "telecommunications company based in Madrid, Spain",
-          "aliases": [
-            "Telefonica",
-            "Telefónica c. 9",
-            "Telefonica S.A."
-          ],
-          "instance_of": [
-            "public company",
-            "business"
-          ],
-          "country": "Spain",
-          "inception": "1924-04-19",
-          "headquarters": "Telefónica Building",
-          "official_website": "https://www.telefonica.com/",
-          "isin": "ES0178430E18",
-          "employees": 121853,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Telef%C3%B3nica"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -207149,6 +207201,36 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999946908, 1 projects, €1,359,792 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q160229",
+          "new": null,
+          "description": "QID Q160229 removed: on Wikidata it is 'Telefónica'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telefonica Moviles Espana' to the item of the parent company; removed before by manual patch on 2026-04-23. The QID stays on IN-0369 (Telefonica SA). The entity is: Telefónica Móviles España, S.A.U., a Spanish single-shareholder company (NIF A78923125, Registro Mercantil de Madrid), a Telefónica group company; not the listed parent (parent relation not proven by a reopened source). A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Telefónica",
+            "description": "telecommunications company based in Madrid, Spain",
+            "aliases": [
+              "Telefonica",
+              "Telefónica c. 9",
+              "Telefonica S.A."
+            ],
+            "instance_of": [
+              "public company",
+              "business"
+            ],
+            "country": "Spain",
+            "inception": "1924-04-19",
+            "headquarters": "Telefónica Building",
+            "official_website": "https://www.telefonica.com/",
+            "isin": "ES0178430E18",
+            "employees": 121853,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Telef%C3%B3nica"
+          }
         }
       ],
       "validation": [
@@ -207194,6 +207276,14 @@
           "description": "wikidata_id Q160229 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q160229",
+          "wikidata_label": "Telefónica",
+          "description": "QID Q160229 removed: on Wikidata it is 'Telefónica'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telefonica Moviles Espana' to the item of the parent company; removed before by manual patch on 2026-04-23. The QID stays on IN-0369 (Telefonica SA). The entity is: Telefónica Móviles España, S.A.U., a Spanish single-shareholder company (NIF A78923125, Registro Mercantil de Madrid), a Telefónica group company; not the listed parent (parent relation not proven by a reopened source). A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -220045,7 +220135,7 @@
       ],
       "name": "Valneva Austria",
       "sector": null,
-      "wikidata_id": "Q20663010",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -220075,22 +220165,7 @@
           "wikipedia_url": null,
           "website": "https://Valneva.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Valneva SE",
-          "description": "French vaccine producer",
-          "aliases": [],
-          "instance_of": [
-            "organization"
-          ],
-          "country": "France",
-          "inception": "2013-01-01",
-          "headquarters": "Saint-Herblain",
-          "official_website": "http://www.valneva.com/",
-          "isin": "FR0004056851",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Valneva%20SE"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -220172,6 +220247,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 949830209, 1 projects, €0 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q20663010",
+          "new": null,
+          "description": "QID Q20663010 removed: on Wikidata it is 'Valneva SE'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Valneva Austria' to the item of the French parent; removed before by manual patch on 2026-04-23. The QID stays on IN-1193 (Valneva). The entity is: Valneva Austria GmbH, a Vienna limited liability company (Firmenbuch FN 389960x, UID ATU67792855), 100% owned by Valneva SE; not the parent. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Valneva SE",
+            "description": "French vaccine producer",
+            "aliases": [],
+            "instance_of": [
+              "organization"
+            ],
+            "country": "France",
+            "inception": "2013-01-01",
+            "headquarters": "Saint-Herblain",
+            "official_website": "http://www.valneva.com/",
+            "isin": "FR0004056851",
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Valneva%20SE"
+          }
         }
       ],
       "validation": [
@@ -220217,6 +220317,14 @@
           "description": "wikidata_id Q20663010 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q20663010",
+          "wikidata_label": "Valneva SE",
+          "description": "QID Q20663010 removed: on Wikidata it is 'Valneva SE'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Valneva Austria' to the item of the French parent; removed before by manual patch on 2026-04-23. The QID stays on IN-1193 (Valneva). The entity is: Valneva Austria GmbH, a Vienna limited liability company (Firmenbuch FN 389960x, UID ATU67792855), 100% owned by Valneva SE; not the parent. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
