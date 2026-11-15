@@ -89357,6 +89357,12 @@
           "description": "Entity IV-0595 (Vodafone) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: sources.crunchbase.headquarters 'Newbury, West Berkshire, United Kingdom' is confirmed. Companies House (company no. 01833679, https://find-and-update.company-information.service.gov.uk/company/01833679): 'Registered office address : Vodafone House, The Connection, Newbury, Berkshire, RG14 2FN'; the same address appears in the company's filing on SEC EDGAR. sources.wikidata.headquarters 'London' does not match the registered office; sources.wikidata is script-managed and was not edited. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
