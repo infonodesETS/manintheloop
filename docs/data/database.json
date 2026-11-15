@@ -243667,6 +243667,12 @@
           "description": "Entity IV-0714 (IBM) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: stale. sources.crunchbase.headquarters is now 'Armonk, New York, United States' (Crunchbase import of 2026-04-13), the same place as sources.wikidata.headquarters 'Armonk'. The field_conflict entry of 2026-04-24 quotes the older Crunchbase value 'Bel Air, Maryland, United States'. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
