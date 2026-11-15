@@ -182184,7 +182184,7 @@
       ],
       "name": "Renk Magnet Motor",
       "sector": null,
-      "wikidata_id": "Q2144015",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -182258,26 +182258,7 @@
           "wikipedia_url": null,
           "website": "https://www.magnet-motor.de/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Renk",
-          "description": "German defence company",
-          "aliases": [
-            "Renk AG",
-            "RENK AG",
-            "Mechanische Werkstatt von Johann Renk"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Germany",
-          "inception": "1873",
-          "headquarters": "Augsburg",
-          "official_website": "https://www.renk.com/",
-          "isin": "DE0007850000",
-          "employees": 3734,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Renk"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -182377,6 +182358,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 973065977, 1 projects, €106,862 EU contribution"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q2144015",
+          "new": null,
+          "description": "QID Q2144015 removed: on Wikidata it is 'Renk'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Renk Magnet Motor' to the item of the parent group; removed before by manual patch on 2026-04-23. The QID stays on IN-0979 (Renk). The entity is: RENK Magnet-Motor GmbH, Starnberg (Amtsgericht Muenchen HRB 52839), formerly L3 Magnet-Motor GmbH, subsidiary of RENK GmbH (RENK group) since 2021; not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Renk",
+            "description": "German defence company",
+            "aliases": [
+              "Renk AG",
+              "RENK AG",
+              "Mechanische Werkstatt von Johann Renk"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Germany",
+            "inception": "1873",
+            "headquarters": "Augsburg",
+            "official_website": "https://www.renk.com/",
+            "isin": "DE0007850000",
+            "employees": 3734,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Renk"
+          }
         }
       ],
       "validation": [
@@ -182428,6 +182438,14 @@
           "description": "wikidata_id Q2144015 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q2144015",
+          "wikidata_label": "Renk",
+          "description": "QID Q2144015 removed: on Wikidata it is 'Renk'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Renk Magnet Motor' to the item of the parent group; removed before by manual patch on 2026-04-23. The QID stays on IN-0979 (Renk). The entity is: RENK Magnet-Motor GmbH, Starnberg (Amtsgericht Muenchen HRB 52839), formerly L3 Magnet-Motor GmbH, subsidiary of RENK GmbH (RENK group) since 2021; not the group itself. A correct QID may not exist: to be searched with the QID pipeline.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
