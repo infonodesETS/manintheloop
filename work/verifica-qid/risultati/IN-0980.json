@@ -1,0 +1,48 @@
+{
+  "entity_id": "IN-0980",
+  "entity_name": "Renk Magnet Motor",
+  "qid": "Q2144015",
+  "wikidata_label": "Renk",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "German defence company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q2144015 is the parent group Renk (Augsburg, German defence company, ISIN DE0007850000, official site renk.com), not the Starnberg subsidiary. The entity is RENK Magnet-Motor GmbH, a separate legal entity registered at Amtsgericht Muenchen under HRB 52839, taken over by RENK GmbH in 2021.",
+  "entity_is": "RENK Magnet-Motor GmbH, GmbH registered in Starnberg (Amtsgericht Muenchen, HRB 52839), formerly L3 Magnet-Motor GmbH, subsidiary of RENK GmbH (RENK Group) since 2021.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "HRB 52839 (Amtsgericht Muenchen)",
+      "source_url": "https://www.online-handelsregister.de/handelsregisterauszug/by/Muenchen/HRB/52839/RENK-Magnet-Motor-GmbH"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Entity is a GmbH registered at Amtsgericht Muenchen under HRB 52839, seat Starnberg",
+      "url": "https://www.registercheck.de/companies/renk-magnet-motor-gmbh",
+      "phrase": "ist unter HRB 52839 im Handelsregister des Amtsgerichts München eingetragen",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Same HRB number and Starnberg address in a second register aggregator",
+      "url": "https://www.online-handelsregister.de/handelsregisterauszug/by/Muenchen/HRB/52839/RENK-Magnet-Motor-GmbH",
+      "phrase": "wird im Handelsregister beim Amtsgericht München in Bayern unter der Handelsregister-Nummer HRB 52839 geführt",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Entity was taken over by RENK GmbH in 2021 and is a group subsidiary (former Magnet-Motor)",
+      "url": "https://www.renk.com/en/company/about-renk/locations/starnberg",
+      "phrase": "In 2021 Magnet-Motor was taken over by RENK GmbH and incorporated into the group as RENK Magnet-Motor GmbH.",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Name history links the entity to the former L-3 Communications Magnet-Motor (matches the Crunchbase block)",
+      "url": "https://www.online-handelsregister.de/handelsregisterauszug/by/Muenchen/HRB/52839/RENK-Magnet-Motor-GmbH",
+      "phrase": "3. L-3 Communications Magnet-Motor GmbH (Starnberg) 4. L3 Magnet-Motor GmbH (Starnberg) 5. RENK Magnet-Motor GmbH (Starnberg)",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0979"
+  ],
+  "notes": "IN-0979 (Renk, parent, Augsburg) holds the same QID and is the right owner of it. History on IN-0980: QID removed 2026-04-23 by manual patch (subsidiary), re-applied 2026-06-18 by search_missing_qids.py (name search 'Renk Magnet Motor', described as human-reviewed). Wikidata P31 = Q4830453 (business), P17 = Germany, P159 = Q2749 (Augsburg), P856 = renk.com sites. The Crunchbase block describes the former name 'L-3 Communications Magnet-Motor' (acquired by RENK, funding_status M&A), consistent with the entity but not the parent. Registry sources are aggregators (secondary); the official Handelsregister was not queried directly. Starnberg site page is RENK's own website. Exa answer also cited a RENK PDF (non-consolidated companies 2022) that was not reopened, so it is not used as evidence."
+}

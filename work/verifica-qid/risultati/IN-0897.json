@@ -1,0 +1,47 @@
+{
+  "entity_id": "IN-0897",
+  "entity_name": "Nammo Raufoss As",
+  "qid": "Q1964355",
+  "wikidata_label": "Nammo",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Norwegian-Finnish defence company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q1964355 is the Nammo group (Norwegian-Finnish defence company, instance of business, HQ Raufoss). IN-0897 is Nammo Raufoss AS, a separate Norwegian limited company (org. no. 980 038 300) wholly owned by Nammo AS, the parent.",
+  "entity_is": "Nammo Raufoss AS, aksjeselskap (private limited company), org. no. 980 038 300, Raufoss, Vestre Toten, Norway; wholly-owned subsidiary of Nammo AS; part of a group.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Norwegian org. no. 980 038 300 (Bronnoysund Register Centre)",
+      "source_url": "https://virksomhet.brreg.no/nb/oppslag/enheter/980038300"
+    },
+    {
+      "type": "LEI",
+      "value": "5493003HKUCEM7MR7447",
+      "source_url": "https://regnskapsbasen.no/selskap/nammo-raufoss-as-980038300"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Registry entry for Nammo Raufoss AS: org. no. 980 038 300, legal form Aksjeselskap, part of a group",
+      "url": "https://virksomhet.brreg.no/nb/oppslag/enheter/980038300",
+      "phrase": "Organisasjonsform\n: Aksjeselskap",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Nammo Raufoss AS is a wholly-owned subsidiary of Nammo AS (the parent)",
+      "url": "https://www.nammo.com/wp-content/uploads/2023/06/Nammo-Raufoss-AS-Redegjorelse-etter-apenhetsloven-2022_FINAL_V2.cleaned.pdf",
+      "phrase": "Nammo Raufoss AS er et heleid datterselskap av Nammo AS",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Nammo AS is the corporate headquarters of the group, distinct from Nammo Raufoss AS",
+      "url": "https://www.nammo.com/locations/raufoss/",
+      "phrase": "Nammo Raufoss AS is located 120 km north of Oslo in Norway.",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-1312"
+  ],
+  "notes": "IN-0897 already had Q1964355 removed on 2026-04-23 by manual patch (subsidiary; parent kept on IN-1312) and it was re-applied on 2026-06-18 by search_missing_qids.py (same candidate, 'human-reviewed via qid_candidates.json'); history also has a duplicate set on 2026-04-12. IN-1312 (Nammo) has tax_id NO979512328, different from 980 038 300. LEI taken from the aggregator regnskapsbasen.no (secondary), not used as evidence phrase. Exa /answer cited 8 sources; I reopened 4 via /contents."
+}

@@ -1,0 +1,42 @@
+{
+  "entity_id": "IN-1019",
+  "entity_name": "Safran Ai",
+  "qid": "Q773875",
+  "wikidata_label": "Safran Aircraft Engines",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "aircraft and rocket engine manufacturer based in France",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q773875 is Safran Aircraft Engines (engine manufacturer, ex-Snecma, HQ Courcouronnes), a different entity. IN-1019 is Safran.AI (ex Preligens), a Paris SASU with SIREN 818 503 146, subsidiary of Safran Electronics & Defense.",
+  "entity_is": "Safran.AI (formerly Preligens), SASU registered in Paris, SIREN 818 503 146, 24 rue du Sentier 75002 Paris, subsidiary of Safran Electronics & Defense.",
+  "identifiers": [
+    {
+      "type": "SIREN",
+      "value": "818 503 146",
+      "source_url": "https://www.pappers.fr/entreprise/safranai-818503146"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Legal form of Safran.AI is SASU",
+      "url": "https://www.pappers.fr/entreprise/safranai-818503146",
+      "phrase": "SASU, société par actions simplifiée unipersonnelle",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "SIREN of Safran.AI",
+      "url": "https://www.pappers.fr/entreprise/safranai-818503146",
+      "phrase": "818 503 146",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Safran.AI is a subsidiary of Safran Electronics & Defense, not Safran Aircraft Engines",
+      "url": "https://www.safran-group.com/companies/safran-ai",
+      "phrase": "Safran.AI (Subsidiary of Safran Electronics & Defense)",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-1020"
+  ],
+  "notes": "Database history: QID Q773875 was set on 2026-04-12, nulled 2026-04-23 by manual patch (misassigned, SAE kept on IN-1020), and set again on 2026-06-18 via search_missing_qids.py (search name 'Safran Ai'). The registry identifier comes from an aggregator (Pappers, secondary); no primary registry page reopened. Pappers also lists commercial name Preligens for establishments. Other oddities: EDF web_link and sources.infonodes.website are 'safran-goup.com' (typo of safran-group.com); EDF PIC 913589360 flagged sme=true, city PARIS, consistent with Safran.AI; sector null; no Crunchbase block."
+}

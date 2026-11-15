@@ -1,0 +1,70 @@
+{
+  "entity_id": "IN-0670",
+  "entity_name": "Eviden Austria",
+  "qid": "Q117442701",
+  "wikidata_label": "Eviden",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q117442701 is the Eviden brand/group item (instance of Q4830453 business, multiple countries, Atos child brand in oc/ru descriptions), not a single Austrian company. IN-0670 is Eviden Austria GmbH, a Vienna limited liability company (FN 357865y) wholly owned by Eviden Technologies Beteiligungen GmbH.",
+  "entity_is": "Eviden Austria GmbH, Gesellschaft mit beschraenkter Haftung, seat Wien (Wagramer Strasse 19, 1220 Wien), Austrian Firmenbuch FN 357865y, UID ATU66190855, formerly Atos IT Solutions and Services GmbH (until 2023-07), 100% owned by Eviden Technologies Beteiligungen GmbH.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "FN 357865y (Austrian Firmenbuch number)",
+      "source_url": "https://www.evi.gv.at/f/357865y"
+    },
+    {
+      "type": "other",
+      "value": "UID ATU66190855 (VAT)",
+      "source_url": "https://www.firmenatlas.com/firma/357865y"
+    },
+    {
+      "type": "other",
+      "value": "EUID ATBRA.357865-000",
+      "source_url": "https://www.bizdata.at/companies/357865y"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Official Firmenbuch portal lists Eviden Austria GmbH in Wien with FN 357865y",
+      "url": "https://www.evi.gv.at/f/357865y",
+      "phrase": "evi.gv.at | Eviden Austria GmbH 1220 Wien | Firmenbuch",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Legal form is a GmbH (limited liability company)",
+      "url": "https://www.evi.gv.at/f/357865y",
+      "phrase": "Gesellschaft mit beschränkter Haftung",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Sole shareholder is Eviden Technologies Beteiligungen GmbH",
+      "url": "https://www.evi.gv.at/f/357865y",
+      "phrase": "Eviden Technologies Beteiligungen GmbH",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Aggregator of Firmenbuch data: the company has a single corporate shareholder",
+      "url": "https://firmensicht.at/unternehmen/357865y-eviden-austria-gmbh",
+      "phrase": "Gesellschafter ist ein Unternehmen",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "VAT number of the Austrian company",
+      "url": "https://www.firmenatlas.com/firma/357865y",
+      "phrase": "UID ATU66190855",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Shareholder is a renamed Atos holding, i.e. the Austrian entity sits under the group",
+      "url": "https://www.bizdata.at/companies/357865y",
+      "phrase": "Name von Atos Technologies Beteiligungen GmbH auf Eviden Technologies Beteiligungen GmbH geändert",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0671"
+  ],
+  "notes": "History: QID set 2026-04-13, removed 2026-04-23 by manual patch (Eviden Austria is national subsidiary; Q117442701 kept on IN-0671 Eviden Technologies, Romania), set again 2026-06-18 via search_missing_qids.py (human-reviewed via qid_candidates.json). Wikidata Q117442701: labels Eviden in en/fr/de/ru/oc/mul; descriptions only in oc ('marca comerciala d'Atos') and ru (brand of Atos group); no en description; P17 lists six countries; P159 empty; P856 https://eviden.com/; P749 parent Q757689. Crunchbase block on IN-0670 is the group profile (HQ Bezons, France), not the Austrian GmbH; website eviden.com is the group site. Atos group PDF (e713-eviden-austria-gmbh...) was reopened but I did not use it as evidence. Exa /answer was used once; all evidence sources were reopened via /contents."
+}
