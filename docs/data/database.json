@@ -187853,6 +187853,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999959615, 18 projects, €54,523,998 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1329 (Saab). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: Bolagsverket registration certificate (2025-06-18) shows 'SAAB Aktiebolag', org. no. 556036-0793, public company; IN-1014 PIC 999959615 is named SAAB AKTIEBOLAG; IN-1329 holds VAT SE556036079301. Decided by hand on 2026-04-23 (IN-1329 canonical) but never merged; QID Q219501 re-applied to IN-1014 on 2026-06-18. History and validation of both read before merging.",
+          "canonical": "IN-1329",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -187898,6 +187905,13 @@
           "description": "wikidata_id Q219501 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1329 (Saab). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: Bolagsverket registration certificate (2025-06-18) shows 'SAAB Aktiebolag', org. no. 556036-0793, public company; IN-1014 PIC 999959615 is named SAAB AKTIEBOLAG; IN-1329 holds VAT SE556036079301. Decided by hand on 2026-04-23 (IN-1329 canonical) but never merged; QID Q219501 re-applied to IN-1014 on 2026-06-18. History and validation of both read before merging.",
+          "canonical": "IN-1329",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -250798,7 +250812,23 @@
             "source_file": "ishare_aerospace_defense_GICS201010_en.csv"
           }
         ],
-        "edf": null,
+        "edf": {
+          "extracted_at": "2026-10-19",
+          "pic": "999959615",
+          "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/999959615",
+          "activity_type": "Private for profit organisation",
+          "type_code": "PRC",
+          "sme": false,
+          "country": "Sweden",
+          "country_code": "SE",
+          "city": "Linkoping",
+          "web_link": "www.saab.com",
+          "total_eu_contribution": 54523997.77,
+          "project_count": 18,
+          "call_count": 18,
+          "coordinator_count": 2,
+          "source_file": "edf_calls.json"
+        },
         "crunchbase": {
           "extracted_at": "2026-04-24",
           "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
@@ -250870,7 +250900,8 @@
           "country": "Sweden",
           "tax_id": "SE556036079301",
           "main_focus": "Air / Naval / Subs",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Saab_AB"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Saab_AB",
+          "website": "https://www.saab.com"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -251003,6 +251034,288 @@
           "old": null,
           "new": "sources.wikidata populated (Q219501)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q219501)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from EDF calls data: PIC 999959615, 17 projects, €48,865,372 EU contribution",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "edf",
+          "author": "import_edf_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.saab.com",
+          "description": "Website URL imported from edf_orgs.json web_link field",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q219501",
+          "description": "wikidata_id set via search: label='Saab Group', description='Swedish aerospace and defense company'. Search name used: 'Saab Aktiebolag'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q219501)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q219501)",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q219501)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q219501)",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q219501",
+          "new": null,
+          "note": "Saab Aktiebolag (legal name). IN-1329 Saab is canonical (common name, CB data, 5 relationships). QID nulled here.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 999959615, 17 projects, €48,865,372 EU contribution",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 999959615, 17 projects, €48,865,372 EU contribution",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q219501",
+          "description": "wikidata_id set via search: label='Saab Group', description='Swedish aerospace and defense company'. Search name used: 'Saab Aktiebolag'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 999959615, 18 projects, €54,523,998 EU contribution",
+          "from_entity": "IN-1014"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1014",
+          "note": "Unita IN-1014 (Saab Aktiebolag) in questa entita. Motivo: Same legal entity: Bolagsverket registration certificate (2025-06-18) shows 'SAAB Aktiebolag', org. no. 556036-0793, public company; IN-1014 PIC 999959615 is named SAAB AKTIEBOLAG; IN-1329 holds VAT SE556036079301. Decided by hand on 2026-04-23 (IN-1329 canonical) but never merged; QID Q219501 re-applied to IN-1014 on 2026-06-18. History and validation of both read before merging.",
+          "absorbed": [
+            "sources.edf copiato dal perdente",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 17 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Saab Aktiebolag",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "Saab Group",
+              "description": "Swedish aerospace and defense company",
+              "aliases": [
+                "Saab AB",
+                "Svenska Aeroplan AB",
+                "SAAB"
+              ],
+              "instance_of": [
+                "aerospace manufacturer",
+                "business",
+                "defense contractor"
+              ],
+              "country": "Sweden",
+              "inception": "1937-01-01",
+              "headquarters": "Stockholm",
+              "official_website": "https://www.saab.com/",
+              "isin": "SE0000112385",
+              "employees": 22000,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Saab%20AB"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IN-1014",
+                "target": "EDF-0002",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 4343889.06,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0003",
+                "type": "edf_participation",
+                "role": "coordinator",
+                "eu_contribution": 4141704.13,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0009",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 3899922.01,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0018",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 2041101.5,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0021",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 6000000.0,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0022",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1119057.8,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0023",
+                "type": "edf_participation",
+                "role": "coordinator",
+                "eu_contribution": 6570000.0,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0025",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1597268.41,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0029",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 941749.03,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0032",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1009313.96,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0033",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 2323226.63,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0034",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 879588.38,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0035",
+                "type": "edf_participation",
+                "role": "thirdParty",
+                "eu_contribution": 515521.87,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0042",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 5203874.73,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0046",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 4471434.31,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0056",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 868000.0,
+                "created_at": "2026-04-23"
+              },
+              {
+                "source": "IN-1014",
+                "target": "EDF-0058",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 2939720.0,
+                "created_at": "2026-04-23"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -251053,6 +251366,27 @@
           "description": "sources.wikidata populated from Wikidata API (Q219501). label='Saab Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from EDF edf_orgs.json web_link field",
+          "author": "import_edf_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-1014"
+        },
+        {
+          "status": "qid_nulled_duplicate",
+          "wikidata_id_removed": "Q219501",
+          "note": "Saab Aktiebolag (legal name). IN-1329 Saab is canonical (common name, CB data, 5 relationships). QID nulled here.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-1014"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-1014 (Saab Aktiebolag) unita in questa il 2026-11-15 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -345519,14 +345853,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0002",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 4343889.06,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-1047",
       "target": "EDF-0002",
       "type": "edf_participation",
@@ -345580,14 +345906,6 @@
       "type": "edf_participation",
       "role": "thirdParty",
       "eu_contribution": 376128.26,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0003",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 4141704.13,
       "created_at": "2026-04-23"
     },
     {
@@ -347004,14 +347322,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 3713694.26,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0009",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 3899922.01,
       "created_at": "2026-04-23"
     },
     {
@@ -348543,14 +348853,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0018",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 2041101.5,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-0841",
       "target": "EDF-0018",
       "type": "edf_participation",
@@ -349047,14 +349349,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0021",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 6000000.0,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-1135",
       "target": "EDF-0021",
       "type": "edf_participation",
@@ -349239,14 +349533,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0022",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1119057.8,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-1136",
       "target": "EDF-0022",
       "type": "edf_participation",
@@ -349300,14 +349586,6 @@
       "type": "edf_participation",
       "role": "thirdParty",
       "eu_contribution": 2725004.22,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0023",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 6570000.0,
       "created_at": "2026-04-23"
     },
     {
@@ -349652,14 +349930,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 1730914.9,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0025",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1597268.41,
       "created_at": "2026-04-23"
     },
     {
@@ -350196,14 +350466,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 1953754.56,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0029",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 941749.03,
       "created_at": "2026-04-23"
     },
     {
@@ -351119,14 +351381,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0032",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1009313.96,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-0690",
       "target": "EDF-0032",
       "type": "edf_participation",
@@ -351284,14 +351538,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 2163067.03,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0033",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 2323226.63,
       "created_at": "2026-04-23"
     },
     {
@@ -351775,14 +352021,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0034",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 879588.38,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-0752",
       "target": "EDF-0034",
       "type": "edf_participation",
@@ -352084,14 +352322,6 @@
       "type": "edf_participation",
       "role": "thirdParty",
       "eu_contribution": 275006.0,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0035",
-      "type": "edf_participation",
-      "role": "thirdParty",
-      "eu_contribution": 515521.87,
       "created_at": "2026-04-23"
     },
     {
@@ -353239,14 +353469,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0042",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 5203874.73,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-1139",
       "target": "EDF-0042",
       "type": "edf_participation",
@@ -353844,14 +354066,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 5605089.54,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0046",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 4471434.31,
       "created_at": "2026-04-23"
     },
     {
@@ -356655,14 +356869,6 @@
       "created_at": "2026-04-23"
     },
     {
-      "source": "IN-1014",
-      "target": "EDF-0056",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 868000.0,
-      "created_at": "2026-04-23"
-    },
-    {
       "source": "IN-0897",
       "target": "EDF-0056",
       "type": "edf_participation",
@@ -357172,14 +357378,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 350000.0,
-      "created_at": "2026-04-23"
-    },
-    {
-      "source": "IN-1014",
-      "target": "EDF-0058",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 2939720.0,
       "created_at": "2026-04-23"
     },
     {
@@ -360857,12 +361055,19 @@
       "created_at": "2026-10-19"
     },
     {
-      "source": "IN-1014",
+      "source": "IN-1329",
       "target": "EDF-0085",
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 5658625.95,
-      "created_at": "2026-10-19"
+      "created_at": "2026-10-19",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1014 -> IN-1329 (merge)"
+        }
+      ]
     },
     {
       "source": "IN-0841",
