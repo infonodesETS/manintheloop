@@ -50024,6 +50024,7 @@
       "id": "IN-0233",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Microsoft",
@@ -50118,7 +50119,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -50218,6 +50219,155 @@
           "old": null,
           "new": "sources.wikidata populated (Q2283)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2283)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q2283, country=United States",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0384",
+          "note": "Unita IV-0384 (Microsoft) in questa entita. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore",
+            "relazioni doppie con contenuto diverso: 3 con il contenuto del perdente (--prefer-loser), il vecchio conservato in history"
+          ],
+          "loser_name": "Microsoft",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_replaced": [
+              {
+                "source": "IV-0526",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0329",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0547",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": true
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -50281,6 +50431,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q2283). label='Microsoft'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0384 (Microsoft) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -67767,6 +67923,7 @@
       "id": "IN-0312",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Samsung Electronics",
@@ -67968,6 +68125,109 @@
           "old": null,
           "new": "sources.wikidata populated (Q20718)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20718)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q20718, country=South Korea",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20718)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20718)",
+          "from_entity": "IV-0483"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0483",
+          "note": "Unita IV-0483 (Samsung Electronics) in questa entita. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore",
+            "relazioni doppie con contenuto diverso: 2 con il contenuto del perdente (--prefer-loser), il vecchio conservato in history"
+          ],
+          "loser_name": "Samsung Electronics",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_replaced": [
+              {
+                "source": "IV-0329",
+                "target": "IN-0312",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0566",
+                "target": "IN-0312",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": true
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -68043,6 +68303,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0483 (Samsung Electronics) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -73281,6 +73547,7 @@
       "id": "IN-0339",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Softbank",
@@ -73468,6 +73735,76 @@
           "old": null,
           "new": "sources.wikidata populated (Q201653)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q201653)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0515"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q201653, country=Japan",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0515"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q201653)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q201653)",
+          "from_entity": "IV-0515"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q201653)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q201653)",
+          "from_entity": "IV-0515"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q201653)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q201653)",
+          "from_entity": "IV-0515"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0515",
+          "note": "Unita IV-0515 (SoftBank Group) in questa entita. Motivo: Same company: Softbank ← SoftBank Group appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 2 spostate sul vincitore"
+          ],
+          "loser_name": "SoftBank Group",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -73543,6 +73880,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q201653). label='SoftBank Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0515 (SoftBank Group) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -73704,6 +74047,7 @@
       "id": "IN-0341",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "South32",
@@ -73875,6 +74219,76 @@
           "old": null,
           "new": "sources.wikidata populated (Q20648697)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q20648697, country=Australia",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0517",
+          "note": "Unita IV-0517 (South32) in questa entita. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "South32",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -73944,6 +74358,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20648697). label='South32'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0517 (South32) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -80506,6 +80926,7 @@
       "id": "IN-0369",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Telefonica SA",
@@ -80677,6 +81098,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q160229)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q160229)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0747"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0747",
+          "note": "Unita IV-0747 (Telefonica) in questa entita. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Telefonica",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -80745,6 +81196,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q160229). label='Telefónica'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0747 (Telefonica) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -82013,6 +82470,7 @@
       "id": "IN-0375",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Tencent",
@@ -82225,6 +82683,116 @@
           "from": "People's Republic of China",
           "to": "China",
           "by": "patch_country_from_cb_hq.py"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q860580, country=People's Republic of China",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "normalise_country",
+          "field": "sources.wikidata.country",
+          "old": "People's Republic of China",
+          "new": "China",
+          "note": "Normalised to short ISO 3166 form for map consistency.",
+          "script": "patch_country_quality.py",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q860580)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q860580)",
+          "from_entity": "IV-0550"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0550",
+          "note": "Unita IV-0550 (Tencent) in questa entita. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "absorbed": [
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 5 spostate sul vincitore"
+          ],
+          "loser_name": "Tencent",
+          "preserved": {
+            "sources.wikidata": {
+              "retrieved_at": "2026-06-03",
+              "label": "Tencent",
+              "description": "Chinese multinational investment holding conglomerate",
+              "aliases": [
+                "Téngxùn Kònggǔ Yǒuxiàn Gōngsī",
+                "AdvanceDataServices Limited",
+                "Tencent Holdings Limited",
+                "Tencent Holdings Ltd.",
+                "Tencent Group",
+                "Tencent Holdings",
+                "Shenzhen Tencent Computer Systems Company Limited",
+                "Tengxun",
+                "Téngxùn",
+                "Teng Xun (firma)",
+                "Teng Xun"
+              ],
+              "instance_of": [
+                "conglomerate",
+                "business"
+              ],
+              "country": "People's Republic of China",
+              "inception": "1998-11-12",
+              "headquarters": "Maling",
+              "official_website": "https://www.tencent.com/",
+              "isin": "KYG875721634",
+              "employees": 62885,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Tencent"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -82300,6 +82868,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q860580). label='Tencent'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0550 (Tencent) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -88428,6 +89002,7 @@
       "id": "IN-0409",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Vodafone",
@@ -88619,6 +89194,76 @@
           "old": null,
           "new": "sources.wikidata populated (Q122141)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q122141)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0595"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q122141, country=United Kingdom",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0595"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q122141)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q122141)",
+          "from_entity": "IV-0595"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q122141)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q122141)",
+          "from_entity": "IV-0595"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q122141)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q122141)",
+          "from_entity": "IV-0595"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0595",
+          "note": "Unita IV-0595 (Vodafone) in questa entita. Motivo: Same company: Vodafone ← Vodafone appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Vodafone",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -88694,6 +89339,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q122141). label='Vodafone'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0595 (Vodafone) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -254865,6 +255516,94 @@
           "old": null,
           "new": "sources.wikidata populated (Q55635834)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q55635834, country=None",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "patch_iv_countries_manual.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "China",
+          "description": "Country curated manually: Tianqi Lithium — Chengdu, Sichuan, China",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0560",
+          "note": "Unita IV-0560 (Tianqi Lithium) in questa entita. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni doppie con contenuto diverso: 1 tenuta quella del vincitore (--prefer-winner), quella del perdente conservata in history"
+          ],
+          "loser_name": "Tianqi Lithium",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_dropped": [
+              {
+                "source": "IV-0560",
+                "target": "IN-1332",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-04-22"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -254934,6 +255673,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834). label='Tianqi Lithium'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0560 (Tianqi Lithium) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -287628,6 +288373,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0233 (Microsoft). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0233",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -287667,6 +288419,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q2283). label='Microsoft'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0233 (Microsoft). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0233",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -295116,6 +295875,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20718)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20718)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0312 (Samsung Electronics). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0312",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -295148,6 +295914,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0312 (Samsung Electronics). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Samsung Electronics ← Samsung Electronics appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Two relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0312",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -297699,6 +298472,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q201653)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q201653)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0339 (Softbank). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Softbank ← SoftBank Group appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0339",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -297738,6 +298518,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q201653). label='SoftBank Group'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0339 (Softbank). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Softbank ← SoftBank Group appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0339",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -297946,6 +298733,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20648697)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0341 (South32). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0341",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -297985,6 +298779,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20648697). label='South32'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0341 (South32). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0341",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -300470,6 +301271,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q860580)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q860580)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0375 (Tencent). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "canonical": "IN-0375",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -300509,6 +301317,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q860580). label='Tencent'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0375 (Tencent). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tencent ← Tencent appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The differing sources.wikidata block of the IV card is kept in history.",
+          "canonical": "IN-0375",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -301144,6 +301959,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q55635834)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1336 (Tianqi Lithium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-1336",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -301183,6 +302005,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834). label='Tianqi Lithium'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1336 (Tianqi Lithium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-1336",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -303781,6 +304610,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q122141)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q122141)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0409 (Vodafone). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Vodafone ← Vodafone appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0409",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -303820,6 +304656,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q122141). label='Vodafone'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0409 (Vodafone). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Vodafone ← Vodafone appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0409",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -326203,6 +327046,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0369 (Telefonica SA). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "canonical": "IN-0369",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -326211,6 +327061,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0369 (Telefonica SA). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "canonical": "IN-0369",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -341733,11 +342590,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-0204",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0605",
@@ -341980,23 +342844,53 @@
     {
       "source": "IV-0526",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0329",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0547",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0489",
@@ -342069,11 +342963,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0515",
+      "source": "IN-0339",
       "target": "IN-0248",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0515 -> IN-0339 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0260",
@@ -342589,16 +343490,36 @@
     {
       "source": "IV-0329",
       "target": "IN-0312",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0483 (merge, --prefer-loser); previous content kept in history of IN-0312"
+        }
+      ]
     },
     {
       "source": "IV-0566",
       "target": "IN-0312",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0483 (merge, --prefer-loser); previous content kept in history of IN-0312"
+        }
+      ]
     },
     {
       "source": "IV-0260",
@@ -342804,11 +343725,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0483",
+      "source": "IN-0312",
       "target": "IN-0339",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0483 -> IN-0312 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0396",
@@ -342944,11 +343872,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0595",
+      "source": "IN-0409",
       "target": "IN-0352",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0595 -> IN-0409 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0385",
@@ -343189,11 +344124,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0517",
+      "source": "IN-0341",
       "target": "IN-0389",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0517 -> IN-0341 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0556",
@@ -343224,11 +344166,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-0397",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0551",
@@ -343350,11 +344299,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0515",
+      "source": "IN-0339",
       "target": "IN-0405",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0515 -> IN-0339 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0424",
@@ -343875,11 +344831,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0384",
+      "source": "IN-0233",
       "target": "IN-0578",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0384 -> IN-0233 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0172",
@@ -346318,13 +347281,6 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0560",
-      "target": "IN-1332",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
       "source": "IV-0586",
       "target": "IN-1334",
       "type": "investment",
@@ -346916,36 +347872,6 @@
       }
     },
     {
-      "source": "IV-0526",
-      "target": "IV-0384",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0329",
-      "target": "IV-0384",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0547",
-      "target": "IV-0384",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
       "source": "IV-0645",
       "target": "IN-1311",
       "type": "investment",
@@ -347186,26 +348112,6 @@
       }
     },
     {
-      "source": "IV-0329",
-      "target": "IV-0483",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0566",
-      "target": "IV-0483",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
       "source": "IV-0122",
       "target": "IN-0333",
       "type": "investment",
@@ -347376,14 +348282,21 @@
       }
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1334",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
       "details": {
         "lead": true
-      }
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0658",
@@ -361886,11 +362799,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0747",
+      "source": "IN-0369",
       "target": "IN-1037",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0747 -> IN-0369 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0697",
@@ -362201,11 +363121,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1451",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0275",
@@ -362334,11 +363261,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0550",
+      "source": "IN-0375",
       "target": "IN-1455",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0550 -> IN-0375 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0699",
