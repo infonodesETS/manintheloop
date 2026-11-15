@@ -73886,6 +73886,12 @@
           "description": "Entity IV-0515 (SoftBank Group) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed 2026-11-15: same place at different levels of detail. Registered head office 1-7-1 Kaigan, Minato-ku, Tokyo (SoftBank Group annual report FY2026: 'Corporate headquarters 1-7-1, Kaigan, Minato-ku, Tokyo 105-7537, Japan'; gBizINFO corporate number 1010401056795: 本店所在地 東京都港区海岸１丁目７番１号). Minato is a ward of Tokyo: sources.wikidata 'Minato' and sources.crunchbase 'Tokyo' agree. No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
