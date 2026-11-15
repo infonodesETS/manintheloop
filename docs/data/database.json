@@ -255516,6 +255516,94 @@
           "old": null,
           "new": "sources.wikidata populated (Q55635834)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q55635834, country=None",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "patch_iv_countries_manual.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "China",
+          "description": "Country curated manually: Tianqi Lithium — Chengdu, Sichuan, China",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q55635834)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)",
+          "from_entity": "IV-0560"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0560",
+          "note": "Unita IV-0560 (Tianqi Lithium) in questa entita. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni doppie con contenuto diverso: 1 tenuta quella del vincitore (--prefer-winner), quella del perdente conservata in history"
+          ],
+          "loser_name": "Tianqi Lithium",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_dropped": [
+              {
+                "source": "IV-0560",
+                "target": "IN-1332",
+                "type": "investment",
+                "source_ref": "crunchbase_top_investors",
+                "created_at": "2026-04-22"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -255585,6 +255673,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834). label='Tianqi Lithium'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0560 (Tianqi Lithium) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -301865,6 +301959,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q55635834)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q55635834)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1336 (Tianqi Lithium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-1336",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -301904,6 +302005,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q55635834). label='Tianqi Lithium'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1336 (Tianqi Lithium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Tianqi Lithium ← Tianqi Lithium appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. One relationship existed on both cards with different content; the winner's version (legacy_db_migration, with the lead flag) is kept, the IV version (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-1336",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -347168,13 +347276,6 @@
     {
       "source": "IV-0077",
       "target": "IN-1330",
-      "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
-    },
-    {
-      "source": "IV-0560",
-      "target": "IN-1332",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
       "created_at": "2026-04-22"
