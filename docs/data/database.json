@@ -80660,6 +80660,7 @@
       "id": "IN-0369",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Telefonica SA",
@@ -80831,6 +80832,36 @@
           "old": null,
           "new": "sources.wikidata populated (Q160229)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q160229)"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0747"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0747",
+          "note": "Unita IV-0747 (Telefonica) in questa entita. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Telefonica",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-06-18"
+            }
+          }
         }
       ],
       "validation": [
@@ -80899,6 +80930,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q160229). label='Telefónica'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0747 (Telefonica) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -326607,6 +326644,13 @@
           "old": null,
           "new": null,
           "description": "Investor entity created from crunchbase.top_investors reference"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0369 (Telefonica SA). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "canonical": "IN-0369",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -326615,6 +326659,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0369 (Telefonica SA). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Telefonica SA ← Telefonica appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. The IV card has no Wikidata ID and the name lacks the legal suffix (Telefonica vs Telefonica SA).",
+          "canonical": "IN-0369",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -362339,11 +362390,18 @@
       "created_at": "2026-06-18"
     },
     {
-      "source": "IV-0747",
+      "source": "IN-0369",
       "target": "IN-1037",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-06-18"
+      "created_at": "2026-06-18",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0747 -> IN-0369 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0697",
