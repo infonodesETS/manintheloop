@@ -73781,6 +73781,7 @@
       "id": "IN-0341",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "South32",
@@ -73952,6 +73953,76 @@
           "old": null,
           "new": "sources.wikidata populated (Q20648697)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q20648697, country=Australia",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q20648697)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)",
+          "from_entity": "IV-0517"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0517",
+          "note": "Unita IV-0517 (South32) in questa entita. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "South32",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -74021,6 +74092,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20648697). label='South32'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0517 (South32) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -298037,6 +298114,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q20648697)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q20648697)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0341 (South32). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0341",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -298076,6 +298160,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q20648697). label='South32'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0341 (South32). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: South32 ← South32 appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); both cards carry the same Wikidata ID where present, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships.",
+          "canonical": "IN-0341",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -343287,11 +343378,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0517",
+      "source": "IN-0341",
       "target": "IN-0389",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0517 -> IN-0341 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0556",
