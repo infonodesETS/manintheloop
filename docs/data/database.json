@@ -62132,6 +62132,13 @@
           "old": null,
           "new": "Q56064089",
           "description": "wikidata_id set via search: label='Pilbara Minerals', description='Australian lithium mining company'. Search name used: 'PLS'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1320 (PLS Group Limited). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: ABR (ABN 95 112 425 788) shows PILBARA MINERALS LIMITED until 2025-11-28, then PLS GROUP LIMITED (ASX ticker PLS). Decided by hand on 2026-04-23 (IN-1320 canonical) but never merged; QID Q56064089 re-applied to IN-0287 on 2026-06-18. Two different Crunchbase profiles (pilbara-minerals, pls): the winner's is kept, the other is preserved in history. History and validation of both read before merging.",
+          "canonical": "IN-1320",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -62189,6 +62196,13 @@
           "description": "wikidata_id Q56064089 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1320 (PLS Group Limited). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: ABR (ABN 95 112 425 788) shows PILBARA MINERALS LIMITED until 2025-11-28, then PLS GROUP LIMITED (ASX ticker PLS). Decided by hand on 2026-04-23 (IN-1320 canonical) but never merged; QID Q56064089 re-applied to IN-0287 on 2026-06-18. Two different Crunchbase profiles (pilbara-minerals, pls): the winner's is kept, the other is preserved in history. History and validation of both read before merging.",
+          "canonical": "IN-1320",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -248779,11 +248793,25 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Pilbara Minerals",
+      "name": "PLS Group Limited",
       "sector": "Mining",
       "wikidata_id": "Q56064089",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "PLS",
+            "stock_sector": "Materials",
+            "weight_pct": 0.79,
+            "location": "Australia",
+            "exchange": "Asx - All Markets",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -248841,7 +248869,8 @@
           "country": "Australia",
           "tax_id": "44 675 885 515 (ABN)",
           "main_focus": "Lithium",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/PLS_(company)"
+          "wikipedia_url": "https://en.wikipedia.org/wiki/PLS_(company)",
+          "website": "https://www.pilbaraminerals.com.au"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -248962,6 +248991,189 @@
           "old": null,
           "new": "sources.wikidata populated (Q56064089)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q56064089)"
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "websearch",
+          "author": "manual_web_enrichment",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.pilbaraminerals.com.au",
+          "description": "Official website added via web research",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q56064089",
+          "description": "wikidata_id set via search: label='Pilbara Minerals', description='Australian lithium mining company'. Search name used: 'PLS'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q56064089)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q56064089)",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q56064089)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q56064089)",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-04-23",
+          "action": "null_wikidata_id",
+          "old": "Q56064089",
+          "new": null,
+          "note": "Duplicate of IN-1320 Pilbara Minerals (PLS is ASX ticker abbreviation). IN-1320 canonical. QID nulled here.",
+          "script": "manual patch 2026-04-23",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q56064089",
+          "description": "wikidata_id set via search: label='Pilbara Minerals', description='Australian lithium mining company'. Search name used: 'PLS'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0287"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Pilbara Minerals",
+          "new_value": "PLS Group Limited",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-0287 (PLS)."
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0287",
+          "note": "Unita IN-0287 (PLS) in questa entita. Motivo: Same legal entity: ABR (ABN 95 112 425 788) shows PILBARA MINERALS LIMITED until 2025-11-28, then PLS GROUP LIMITED (ASX ticker PLS). Decided by hand on 2026-04-23 (IN-1320 canonical) but never merged; QID Q56064089 re-applied to IN-0287 on 2026-06-18. Two different Crunchbase profiles (pilbara-minerals, pls): the winner's is kept, the other is preserved in history. History and validation of both read before merging.",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/PLS)",
+            "ATTENZIONE crunchbase: profili diversi (https://www.crunchbase.com/organization/pilbara-minerals contro https://www.crunchbase.com/organization/pls): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano",
+            "sources.crunchbase: blocco del perdente diverso, conservato in history",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "nome del vincitore: 'Pilbara Minerals' -> 'PLS Group Limited'"
+          ],
+          "loser_name": "PLS",
+          "preserved": {
+            "sources.crunchbase": {
+              "extracted_at": "2026-04-13",
+              "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+              "profile_url": "https://www.crunchbase.com/organization/pls",
+              "stage": "",
+              "description": "PLS is a petroleum listing service providing the oil and gas industry with news reports and multiple listing services.",
+              "description_full": "PLS is a petroleum listing service providing the oil and gas industry with news reports and multiple listing services.",
+              "website": "http://www.plsx.com",
+              "cb_rank": 52750,
+              "headquarters": "Houston, Texas, United States",
+              "headquarters_regions": "Greater Houston Area, Southern US",
+              "operating_status": "Active",
+              "founded_date": "1987-01-01",
+              "company_type": "For Profit",
+              "investment_stage": null,
+              "investor_type": "",
+              "primary_industry": null,
+              "primary_industry_url": null,
+              "industry_groups": [
+                "Energy",
+                "Natural Resources",
+                "Professional Services"
+              ],
+              "industries": [
+                "Consulting",
+                "Energy",
+                "Oil and Gas"
+              ],
+              "founders": [
+                "Ronyld Wise",
+                "Stephen Huey"
+              ],
+              "num_funding_rounds": 1,
+              "funding_status": null,
+              "last_funding_date": "2022-10-24",
+              "last_funding_amount_usd": 12098414,
+              "last_funding_type": "Venture - Series Unknown",
+              "total_equity_funding_usd": 12098414,
+              "total_funding_usd": 12098414,
+              "total_funding_native": {
+                "amount": 12098414,
+                "currency": "USD"
+              },
+              "top_investors": [],
+              "num_investors": null,
+              "revenue_range": null,
+              "patents_granted": null,
+              "domain": null,
+              "acquired_by": null,
+              "acquired_by_url": null,
+              "board": []
+            },
+            "sources.wikidata": {
+              "retrieved_at": "2026-04-13",
+              "label": "Pilbara Minerals",
+              "description": "Australian lithium mining company",
+              "aliases": [
+                "PILBARA MINERALS LIMITED"
+              ],
+              "instance_of": [
+                "mining company",
+                "public company"
+              ],
+              "country": "Australia",
+              "inception": null,
+              "headquarters": null,
+              "official_website": "http://www.pilbaraminerals.com.au/",
+              "isin": "AU000000PLS0",
+              "employees": null,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/PLS%20%28company%29"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -249012,6 +249224,27 @@
           "description": "sources.wikidata populated from Wikidata API (Q56064089). label='Pilbara Minerals'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added via web research (sources.infonodes.website)",
+          "author": "manual_web_enrichment",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0287"
+        },
+        {
+          "status": "qid_nulled_duplicate",
+          "wikidata_id_removed": "Q56064089",
+          "note": "Duplicate of IN-1320 Pilbara Minerals (PLS is ASX ticker abbreviation). IN-1320 canonical. QID nulled here.",
+          "author": "manual patch 2026-04-23",
+          "datestamp": "2026-04-23",
+          "from_entity": "IN-0287"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entita IN-0287 (PLS) unita in questa il 2026-11-15 e lasciata come lapide.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
