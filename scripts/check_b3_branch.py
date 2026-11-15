@@ -9,7 +9,8 @@ e verifica che il branch abbia fatto SOLO quello che deve:
   3. per ogni entita cambiata, la history e la validation di prima sono un PREFISSO di quelle di ora (append-only);
   4. ogni scheda ritirata nuova: contenuto originale (nome, wikidata_id, sources) invariato; canonical esistente, attivo e non scheda ritirata;
   5. nessuna relazione punta a una scheda ritirata;
-  6. relazioni tolte: ognuna ha una equivalente rimasta (stessi source/target/type dopo il reindirizzamento);
+  6. relazioni tolte: ognuna ha una equivalente rimasta (stessi source/target/type dopo il reindirizzamento),
+     oppure e un anello su se stesso tolto con --drop-self-loop e conservato nella history del vincitore;
   7. nessun wikidata_id condiviso tra entita ATTIVE che non fosse gia condiviso prima;
   8. edf_orgs.json: nessun db_id punta a una scheda ritirata;
   9. conteggi: entita totali uguali, attive calano del numero di schede ritirate nuove, relazioni calano del numero di tolte.
@@ -101,9 +102,19 @@ def main():
         k = R(r)
         keys_old[(mp(k[0]), mp(k[1])) + k[2:]] += 1
     removed = 0
+    # anelli su se stessi tolti di proposito (merge_entities.py --drop-self-loop): validi solo se conservati
+    # in 'preserved.self_loop_dropped' di una voce dedup_decision nuova del vincitore
+    loops_ok = defaultdict(int)
+    for i, e in E1.items():
+        vecchie = len(E0[i].get("history", [])) if i in E0 else 0
+        for h in e.get("history", [])[vecchie:]:
+            for r in (h.get("preserved") or {}).get("self_loop_dropped", []):
+                loops_ok[(mp(r["source"]), mp(r["target"]), r["type"], r.get("classe"), r.get("role_code"))] += 1
     for k, n0 in keys_old.items():
         n1 = keys_new.get(k, 0)
-        if n1 == 0:
+        if n1 == 0 and loops_ok.get(k, 0) >= n0:
+            pass
+        elif n1 == 0:
             errs.append("relazione sparita senza equivalente: %s" % (k,))
         if n1 < n0:
             removed += n0 - n1
