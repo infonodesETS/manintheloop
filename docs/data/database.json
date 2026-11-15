@@ -253868,7 +253868,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "Germany",
-          "tax_id": "DE811124479",
+          "tax_id": null,
           "main_focus": "Submarines (TKMS)",
           "wikipedia_url": "https://en.wikipedia.org/wiki/TKMS"
         },
@@ -253991,6 +253991,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q551068)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q551068)"
+        },
+        {
+          "date": "2026-11-15",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "DE811124479",
+          "new": null,
+          "description": "DE811124479 is not the VAT number of TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, Kiel, HRB 6960 KI), which is DE 221174497 per its imprint, nor of thyssenkrupp AG (DE 812 656 084); its owner was not identified. Card not merged with IN-1150: identity of the entity (company or group) still to be decided."
         }
       ],
       "validation": [
@@ -254053,6 +254062,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q551068). label='TKMS'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "tax_id"
+          ],
+          "description": "DE811124479 is not the VAT number of TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, Kiel, HRB 6960 KI), which is DE 221174497 per its imprint, nor of thyssenkrupp AG (DE 812 656 084); its owner was not identified. Card not merged with IN-1150: identity of the entity (company or group) still to be decided.",
+          "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
