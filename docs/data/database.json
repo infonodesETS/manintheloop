@@ -156501,6 +156501,7 @@
       "id": "IN-0812",
       "type": "government_agency",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Kaitseministeerium",
@@ -156508,7 +156509,7 @@
       "wikidata_id": null,
       "sources": {
         "edf": {
-          "extracted_at": "2026-04-01",
+          "extracted_at": "2026-10-19",
           "pic": "905124655",
           "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/905124655",
           "activity_type": "Other",
@@ -156555,6 +156556,85 @@
           "old": null,
           "new": "https://www.kaitseministeerium.ee",
           "description": "Website URL imported from edf_orgs.json web_link field"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution",
+          "from_entity": "IV-0326"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0326",
+          "note": "Unita IV-0326 (Kaitseministeerium) in questa entita. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "absorbed": [
+            "sources.edf: tenuto il blocco piu recente del perdente (2026-10-19 contro 2026-04-01), il precedente conservato in history",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 identiche a quelle del vincitore, tolte e conservate in history",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Kaitseministeerium",
+          "preserved": {
+            "sources.edf (versione precedente del vincitore)": {
+              "extracted_at": "2026-04-01",
+              "pic": "905124655",
+              "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/905124655",
+              "activity_type": "Other",
+              "type_code": "PUB",
+              "sme": false,
+              "country": "Estonia",
+              "country_code": "EE",
+              "city": "Tallinn",
+              "web_link": "www.kaitseministeerium.ee",
+              "total_eu_contribution": 8972920.0,
+              "project_count": 1,
+              "call_count": 1,
+              "coordinator_count": 0,
+              "source_file": "edf_calls.json"
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IV-0326",
+                "target": "EDF-0076",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 8972920.0,
+                "created_at": "2026-06-17"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -156569,6 +156649,12 @@
           "description": "Official website added from EDF edf_orgs.json web_link field",
           "author": "import_edf_websites.py",
           "datestamp": "2026-04-12"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0326 (Kaitseministeerium) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -283751,6 +283837,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 905124655, 1 projects, €8,972,920 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0812 (Kaitseministeerium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "canonical": "IN-0812",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -283759,6 +283852,13 @@
           "description": "Auto-created from Crunchbase top_investors list. Country/HQ pending Wikidata enrichment.",
           "author": "import_investors_crunchbase.py",
           "datestamp": "2026-04-22"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0812 (Kaitseministeerium). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same organisation: the Estonian Ministry of Defence (Kaitseministeerium, EDF PIC 905124655) appears as a Crunchbase top investor (IV-0326, created 2026-04-22 after IV-0374 had been merged into this entity on 2026-04-15) and as an EDF participant (IN); dual-role entity (government agency and investor), same PIC on both cards, no QID conflict (neither has one). The EDF participation EDF-0076 was on both cards and is kept once; the investment to IN-1212 moves to the winner; edf_orgs.json PIC 905124655 now points to the winner.",
+          "canonical": "IN-0812",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -345070,11 +345170,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0326",
+      "source": "IN-0812",
       "target": "IN-1212",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0326 -> IN-0812 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0194",
@@ -361390,14 +361497,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 439000.0,
-      "created_at": "2026-06-17"
-    },
-    {
-      "source": "IV-0326",
-      "target": "EDF-0076",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 8972920.0,
       "created_at": "2026-06-17"
     },
     {
