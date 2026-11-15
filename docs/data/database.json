@@ -50024,6 +50024,7 @@
       "id": "IN-0233",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Microsoft",
@@ -50118,7 +50119,7 @@
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
-          "country": null,
+          "country": "USA",
           "tax_id": null,
           "main_focus": null,
           "wikipedia_url": null,
@@ -50218,6 +50219,155 @@
           "old": null,
           "new": "sources.wikidata populated (Q2283)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q2283)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": null,
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q2283, country=United States",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-04-23",
+          "source": "infonodes",
+          "author": "normalize_country",
+          "field": "sources.infonodes.country",
+          "old": "USA",
+          "new": "United States",
+          "description": "Normalised USA→United States for consistency",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q2283)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q2283)",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "infonodes",
+          "author": "patch_investor_countries.py",
+          "field": "sources.infonodes.country",
+          "old": "United States",
+          "new": "USA",
+          "description": "Country assigned from curated known-investor lookup table",
+          "from_entity": "IV-0384"
+        },
+        {
+          "date": "2026-11-15",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0384",
+          "note": "Unita IV-0384 (Microsoft) in questa entita. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "absorbed": [
+            "sources.infonodes.country copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore",
+            "relazioni doppie con contenuto diverso: 3 con il contenuto del perdente (--prefer-loser), il vecchio conservato in history"
+          ],
+          "loser_name": "Microsoft",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            },
+            "relationships_conflicting_replaced": [
+              {
+                "source": "IV-0526",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0329",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": false
+                  }
+                }
+              },
+              {
+                "source": "IV-0547",
+                "target": "IN-0233",
+                "winner_version_before": {
+                  "type": "investment",
+                  "source_ref": "crunchbase_top_investors"
+                },
+                "loser_version_used": {
+                  "type": "investment",
+                  "source_ref": "legacy_db_migration",
+                  "details": {
+                    "lead": true
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -50281,6 +50431,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q2283). label='Microsoft'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0384 (Microsoft) merged into this one on 2026-11-15 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -288013,6 +288169,13 @@
           "old": "United States",
           "new": "USA",
           "description": "Country assigned from curated known-investor lookup table"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0233 (Microsoft). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0233",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "validation": [
@@ -288052,6 +288215,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q2283). label='Microsoft'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0233 (Microsoft). Unita il 2026-11-15: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same company: Microsoft ← Microsoft appears as a Crunchbase top investor (IV, created by import_investors_crunchbase.py) and as the company (IN); same Wikidata ID on both cards, name match, already flagged expected_iv_in_duplicate where applicable. Dual-role entity: the winner is now the source of the investment relationships. Three relationships existed on both cards with different content; the IV version (legacy_db_migration, with the lead flag) is kept, the winner's previous content (crunchbase_top_investors, no details) is kept in history.",
+          "canonical": "IN-0233",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-15"
         }
       ],
       "tags": []
@@ -342442,23 +342612,53 @@
     {
       "source": "IV-0526",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0329",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0547",
       "target": "IN-0233",
+      "created_at": "2026-04-22",
       "type": "investment",
-      "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "source_ref": "legacy_db_migration",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Content replaced with the version of IV-0384 (merge, --prefer-loser); previous content kept in history of IN-0233"
+        }
+      ]
     },
     {
       "source": "IV-0489",
@@ -344372,11 +344572,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0384",
+      "source": "IN-0233",
       "target": "IN-0578",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-15",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0384 -> IN-0233 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0172",
@@ -347405,36 +347612,6 @@
     {
       "source": "IV-0623",
       "target": "IN-1302",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
-      "source": "IV-0526",
-      "target": "IV-0384",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0329",
-      "target": "IV-0384",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0547",
-      "target": "IV-0384",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
