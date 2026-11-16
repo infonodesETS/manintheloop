@@ -724,3 +724,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **PR #62** (`d26cede`, un commit `42f7c2e`, +19/−1, un solo file `docs/data/database.json`) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main` con `git fetch origin main:main`.
 - **Controlli dopo il merge:** `validate.py` PASSED sul database fuso (2582 entità, 3423 relazioni); `IN-1312` ha `tax_id` `null` e QID Q1964355.
 - **Da fare:** scrivere il `tax_id` giusto di Nammo AS (979 984 731) quando ci sarà uno script; cancellare il branch locale `data/nammo-in-1312-taxid` (con ok di Nelson).
+
+
+### 2026-11-16 — PR #63 fusa ☑ (branch `docs/registro-pr63`, non pushato)
+
+- **PR #63** (`c90621c`, 4 commit, +392/−14, 11 file) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main` con `git fetch origin main:main`.
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); `check_b3_branch.py` e `check_parte_di_branch.py` superati; `check_docs.py` segnalava solo la #63 non citata (limite noto: una PR non cita se stessa).
+- **Stato della parentela:** modello, strumenti e documenti sono in `main`; nei dati `parte_di` = 0. **Prossimo passo, con ok di Nelson:** decidere come gestire il sito prima dei primi dati (aspettare l'adattamento, accettare per un po' la visualizzazione sbagliata, o un filtro minimo in `app.js`/`index.html`); poi il primo lotto HII `IN-1290`→`IN-1375`, Telefonica Moviles España `IN-1122`→`IN-0369`, IDV `IN-0803`→`IN-0841` (`diretta: false`), un legame per volta con `add_parte_di.py`.
+- **Branch locali da cancellare (con ok di Nelson):** `code/parte-di-modello`, `data/nammo-in-1312-taxid` (fusi); `docs/registro-pr61` (il suo commit è già in `main` con un altro hash).
