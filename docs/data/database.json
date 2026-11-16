@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-15",
+  "_updated": "2026-11-16",
   "entities": [
     {
       "id": "IN-0001",
@@ -6171,7 +6171,74 @@
             "source_file": "ishares_tech_gics45.csv"
           }
         ],
-        "crunchbase": null,
+        "crunchbase": {
+          "extracted_at": "2026-11-16",
+          "source_file": "manual: crunchbase.com/organization/apple page read in Chrome on 2026-11-16 (session of nelsonmau), values as shown by the page",
+          "profile_url": "https://www.crunchbase.com/organization/apple",
+          "stage": "",
+          "description": "Apple is a technology company that designs, manufactures, and markets consumer electronics, personal computers, and software.",
+          "description_full": "Apple is a corporation that designs, manufactures, and markets mobile communication and media devices, personal computers, portable digital music players, and sells a variety of related software, services, peripherals, networking solutions, and third-party digital content and applications. Apple provides many products and services, including",
+          "website": "https://www.apple.com",
+          "cb_rank": 7002,
+          "headquarters": "Cupertino, California, United States",
+          "headquarters_regions": null,
+          "operating_status": "Active",
+          "founded_date": "1976-04-01",
+          "company_type": "For Profit",
+          "investment_stage": null,
+          "investor_type": "",
+          "primary_industry": null,
+          "primary_industry_url": null,
+          "industry_groups": [],
+          "industries": [
+            "Apps",
+            "Audio",
+            "Broadcasting",
+            "Digital Entertainment",
+            "Foundational AI",
+            "Information Technology",
+            "Mobile Apps",
+            "Mobile Devices",
+            "Web Browsers",
+            "Wireless"
+          ],
+          "founders": [
+            "David Pakman",
+            "Ron Wayne",
+            "Steve Jobs",
+            "Steve Wozniak"
+          ],
+          "num_funding_rounds": 9,
+          "funding_status": null,
+          "last_funding_date": "2026-11-05",
+          "last_funding_amount_usd": 7500000000,
+          "last_funding_type": "Post-IPO Debt",
+          "total_equity_funding_usd": null,
+          "total_funding_usd": 18200000000,
+          "total_funding_native": null,
+          "top_investors": [
+            "KB Securities",
+            "Sam Shirazi Maqam",
+            "Berkshire Hathaway",
+            "Microsoft",
+            "Venrock",
+            "Sequoia Capital",
+            "Mike Markkula",
+            "Matrix"
+          ],
+          "num_investors": 8,
+          "revenue_range": null,
+          "patents_granted": 48467,
+          "domain": null,
+          "acquired_by": null,
+          "acquired_by_url": null,
+          "board": [
+            "Monica Lozano",
+            "Arthur Levinson",
+            "Andrea Jung",
+            "Sue Wagner"
+          ]
+        },
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -6394,6 +6461,82 @@
           },
           "new": null,
           "description": "Crunchbase block of another entity: profile apple-cbcd is a Japanese rental brokerage (website apple-apaman.co.jp, Saitama, founded 1990), not Apple Inc. (Cupertino, NASDAQ:AAPL; the Crunchbase profile of Apple Inc. is https://www.crunchbase.com/organization/apple, checked by hand by Nelson on 2026-11-15). The whole block is kept in the old field of this history entry; the correct profile is not imported here."
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_set_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": {
+            "extracted_at": "2026-11-16",
+            "source_file": "manual: crunchbase.com/organization/apple page read in Chrome on 2026-11-16 (session of nelsonmau), values as shown by the page",
+            "profile_url": "https://www.crunchbase.com/organization/apple",
+            "stage": "",
+            "description": "Apple is a technology company that designs, manufactures, and markets consumer electronics, personal computers, and software.",
+            "description_full": "Apple is a corporation that designs, manufactures, and markets mobile communication and media devices, personal computers, portable digital music players, and sells a variety of related software, services, peripherals, networking solutions, and third-party digital content and applications. Apple provides many products and services, including",
+            "website": "https://www.apple.com",
+            "cb_rank": 7002,
+            "headquarters": "Cupertino, California, United States",
+            "headquarters_regions": null,
+            "operating_status": "Active",
+            "founded_date": "1976-04-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [],
+            "industries": [
+              "Apps",
+              "Audio",
+              "Broadcasting",
+              "Digital Entertainment",
+              "Foundational AI",
+              "Information Technology",
+              "Mobile Apps",
+              "Mobile Devices",
+              "Web Browsers",
+              "Wireless"
+            ],
+            "founders": [
+              "David Pakman",
+              "Ron Wayne",
+              "Steve Jobs",
+              "Steve Wozniak"
+            ],
+            "num_funding_rounds": 9,
+            "funding_status": null,
+            "last_funding_date": "2026-11-05",
+            "last_funding_amount_usd": 7500000000,
+            "last_funding_type": "Post-IPO Debt",
+            "total_equity_funding_usd": null,
+            "total_funding_usd": 18200000000,
+            "total_funding_native": null,
+            "top_investors": [
+              "KB Securities",
+              "Sam Shirazi Maqam",
+              "Berkshire Hathaway",
+              "Microsoft",
+              "Venrock",
+              "Sequoia Capital",
+              "Mike Markkula",
+              "Matrix"
+            ],
+            "num_investors": 8,
+            "revenue_range": null,
+            "patents_granted": 48467,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": [
+              "Monica Lozano",
+              "Arthur Levinson",
+              "Andrea Jung",
+              "Sue Wagner"
+            ]
+          },
+          "description": "Correct Crunchbase profile (Apple Inc., Cupertino, NASDAQ:AAPL) entered after removal of the wrong block apple-cbcd; values as shown by the page, funding amounts rounded by the page"
         }
       ],
       "validation": [
@@ -6469,6 +6612,13 @@
           "description": "Crunchbase block of another entity: profile apple-cbcd is a Japanese rental brokerage (website apple-apaman.co.jp, Saitama, founded 1990), not Apple Inc. (Cupertino, NASDAQ:AAPL; the Crunchbase profile of Apple Inc. is https://www.crunchbase.com/organization/apple, checked by hand by Nelson on 2026-11-15). The whole block is kept in the old field of this history entry; the correct profile is not imported here.",
           "author": "patch_clear_crunchbase.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "crunchbase_enriched",
+          "cb_url": "https://www.crunchbase.com/organization/apple",
+          "description": "Correct Crunchbase profile (Apple Inc., Cupertino, NASDAQ:AAPL) entered after removal of the wrong block apple-cbcd; values as shown by the page, funding amounts rounded by the page",
+          "author": "patch_set_crunchbase.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
