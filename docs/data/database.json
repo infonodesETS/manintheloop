@@ -112132,7 +112132,7 @@
       ],
       "name": "Bittium Wireless",
       "sector": null,
-      "wikidata_id": "Q30302789",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -112215,25 +112215,7 @@
           "wikipedia_url": null,
           "website": "https://www.bittium.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Bittium",
-          "description": "company",
-          "aliases": [
-            "Bittium company",
-            "Bittium Corporation"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": null,
-          "inception": "1985-01-01",
-          "headquarters": "Oulu",
-          "official_website": "https://www.bittium.com/",
-          "isin": "FI0009007264",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Bittium%20%28company%29"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -112333,6 +112315,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999647372, 4 projects, €9,059,384 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q30302789",
+          "new": null,
+          "description": "QID Q30302789 removed: on Wikidata it is 'Bittium'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Bittium Wireless' to the item of the listed parent Bittium; removed before by manual patch on 2026-04-23. The sister card IN-0532 had the same QID. The entity is: Bittium Wireless Oy, a Finnish limited company (Oy), business ID (Y-tunnus) 1737565-0, Oulu, registered 2001; a legal entity distinct from Bittium Oyj (business ID 1004129-5). The note of the 2026-04-23 patch calling it only a product name was not correct. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: the official registry page YTJ (tietopalvelu.ytj.fi) gives business ID 1737565-0, and bittium.com invoicing page gives VAT codes different from those of Bittium Oyj. Weak point: none found; the ownership link to Bittium Oyj was not checked",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Bittium",
+            "description": "company",
+            "aliases": [
+              "Bittium company",
+              "Bittium Corporation"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": null,
+            "inception": "1985-01-01",
+            "headquarters": "Oulu",
+            "official_website": "https://www.bittium.com/",
+            "isin": "FI0009007264",
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Bittium%20%28company%29"
+          }
         }
       ],
       "validation": [
@@ -112384,6 +112394,14 @@
           "description": "wikidata_id Q30302789 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q30302789",
+          "wikidata_label": "Bittium",
+          "description": "QID Q30302789 removed: on Wikidata it is 'Bittium'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Bittium Wireless' to the item of the listed parent Bittium; removed before by manual patch on 2026-04-23. The sister card IN-0532 had the same QID. The entity is: Bittium Wireless Oy, a Finnish limited company (Oy), business ID (Y-tunnus) 1737565-0, Oulu, registered 2001; a legal entity distinct from Bittium Oyj (business ID 1004129-5). The note of the 2026-04-23 patch calling it only a product name was not correct. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: the official registry page YTJ (tietopalvelu.ytj.fi) gives business ID 1737565-0, and bittium.com invoicing page gives VAT codes different from those of Bittium Oyj. Weak point: none found; the ownership link to Bittium Oyj was not checked",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
