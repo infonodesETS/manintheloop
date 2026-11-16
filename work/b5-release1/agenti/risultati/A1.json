@@ -1,0 +1,485 @@
+{
+ "batch": "A1",
+ "cases": [
+  {
+   "ticker": "AIR",
+   "db_id": "IN-1388",
+   "db_name": "AAR",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1388",
+     "name": "AAR",
+     "outcome": "chosen",
+     "why": "iShares ticker AIR on NYSE, US, aerospace; name AAR matches AAR CORP. (company site: AAR CORP.)"
+    },
+    {
+     "id": "IN-0461",
+     "name": "Airbus",
+     "outcome": "rejected",
+     "why": "Also carries ticker AIR, but that is Euronext Paris (Airbus SE, ISIN NL0000235190), a different issuer"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000001750",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1750/000110465926085459/air-20260531x10k.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 1-6263; IRS EIN 36-2334820 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1750/000110465926085459/air-20260531x10k.htm"
+    },
+    {
+     "type": "website",
+     "value": "aarcorp.com",
+     "source_url": "https://www.aarcorp.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "AAR CORP. is the SEC registrant (file 1-6263) and describes its business as aviation services",
+     "url": "https://www.sec.gov/Archives/edgar/data/1750/000110465926085459/air-20260531x10k.htm",
+     "phrase": "AAR CORP. (the “Company”) is a diversified provider of services and products to the worldwide commercial aviation and government and defense markets.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "AAR's own site presents AAR as AAR CORP., an aviation services provider (card name AAR)",
+     "url": "https://www.aarcorp.com/",
+     "phrase": "AAR is an independent provider of aviation services worldwide | AAR CORP.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1388 has no website, wikidata or Crunchbase block: match rests on iShares ticker AIR / NYSE / US / aerospace plus name. Ticker AIR is shared with Airbus (IN-0461): false friend, rejected."
+  },
+  {
+   "ticker": "CDRE",
+   "db_id": "IN-1404",
+   "db_name": "Cadre",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1404",
+     "name": "Cadre",
+     "outcome": "chosen",
+     "why": "iShares ticker CDRE on NYSE, US; name matches Cadre Holdings, Inc."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001860543",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1860543/000110465926091143/cdre-20260805x8k.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-40698; IRS EIN 38-3873146 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1860543/000110465926091143/cdre-20260805x8k.htm"
+    },
+    {
+     "type": "website",
+     "value": "cadre-holdings.com",
+     "source_url": "https://www.cadre-holdings.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Cadre Holdings, Inc. is the SEC registrant (file 001-40698)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1860543/000110465926091143/cdre-20260805x8k.htm",
+     "phrase": "CADRE HOLDINGS, INC. (Exact name of registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company site ties the name Cadre to ticker CDRE",
+     "url": "https://www.cadre-holdings.com/",
+     "phrase": "Cadre Holdings, Inc. (CDRE)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1404 has no website, wikidata or Crunchbase block: match rests on iShares ticker CDRE / NYSE / US plus name. No other Cadre card found."
+  },
+  {
+   "ticker": "HCC",
+   "db_id": "IN-0416",
+   "db_name": "Warrior MET COAL",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0416",
+     "name": "Warrior MET COAL",
+     "outcome": "chosen",
+     "why": "Ticker HCC, website warriormetcoal.com, Wikidata Q137915779 label Warrior Met Coal"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001691303",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1691303/000119312526335017/hcc-20260805.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-38061; IRS EIN 81-0706839 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1691303/000119312526335017/hcc-20260805.htm"
+    },
+    {
+     "type": "website",
+     "value": "warriormetcoal.com",
+     "source_url": "https://www.warriormetcoal.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Warrior Met Coal, Inc. is the SEC registrant (file 001-38061)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1691303/000119312526335017/hcc-20260805.htm",
+     "phrase": "Warrior Met Coal, Inc. (Exact name of Registrant as Specified in Its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company site (warriormetcoal.com, the card website) shows ticker HCC",
+     "url": "https://www.warriormetcoal.com/",
+     "phrase": "Warrior Met Coal – Warrior is a U.S.-based, environmentally and socially minded supplier to the global steel industry - HCC",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Clean match; card name has odd capitalisation (MET COAL)."
+  },
+  {
+   "ticker": "KTOS",
+   "db_id": "IN-1304",
+   "db_name": "Kratos Defense and Security Solutions",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1304",
+     "name": "Kratos Defense and Security Solutions",
+     "outcome": "chosen",
+     "why": "Wikidata Q16858667, website kratosdefense.com, tax_id 13-3818604 equals the EIN on the 10-K cover; carries no iShares ticker"
+    },
+    {
+     "id": "IN-1377",
+     "name": "Kratos Defense AND Security Soluti",
+     "outcome": "rejected",
+     "why": "Same issuer (iShares ticker KTOS, NASDAQ, truncated name) but a bare import with no identifiers: apparent duplicate of IN-1304; not chosen only because one card must be named"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001069258",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-34460; IRS EIN 13-3818604 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm"
+    },
+    {
+     "type": "website",
+     "value": "kratosdefense.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Kratos Defense & Security Solutions, Inc. is the SEC registrant (file 001-34460)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm",
+     "phrase": "KRATOS DEFENSE & SECURITY SOLUTIONS, INC. (Exact name of Registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's own website is www.kratosdefense.com, the website on card IN-1304",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm",
+     "phrase": "Our website address is www.kratosdefense.com.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer is named Kratos Defense and Security Solutions, Inc. in its credit agreement exhibit",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069258/000106925826000013/ktos-20251228.htm",
+     "phrase": "among Kratos Defense and Security Solutions, Inc., as Borrower",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Possible duplicate: IN-1304 (Wikidata, no ticker) and IN-1377 (ticker KTOS, bare iShares import) are the same issuer. Which one carries the ownership relations is a decision for Nelson."
+  },
+  {
+   "ticker": "METC",
+   "db_id": "IN-0298",
+   "db_name": "Ramaco Resources Class A",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0298",
+     "name": "Ramaco Resources Class A",
+     "outcome": "chosen",
+     "why": "Ticker METC, website ramacoresources.com; Class A is a share class of the same issuer"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001687187",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026047772/ea0286044-01.htm"
+    },
+    {
+     "type": "website",
+     "value": "ramacoresources.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026047772/ea0286044-01.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Ramaco Resources, Inc. is the registrant of the proxy statement",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026047772/ea0286044-01.htm",
+     "phrase": "Ramaco Resources, Inc. (Name of Registrant as Specified In Its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's website is www.ramacoresources.com, the website on the card",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687187/000121390026047772/ea0286044-01.htm",
+     "phrase": "The Code of Conduct and Financial Code of Ethics are available on our Internet website, www.ramacoresources.com.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card Wikidata label is 'Ramaco Resources, LLC' (Q137915813), the pre-IPO LLC form, while the SEC registrant is Ramaco Resources, Inc.: worth a look but the issuer is the same business with ticker METC. Only one Ramaco card exists."
+  },
+  {
+   "ticker": "NB",
+   "db_id": "IN-0257",
+   "db_name": "Niocorp Developments",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0257",
+     "name": "Niocorp Developments",
+     "outcome": "chosen",
+     "why": "Ticker NB on NASDAQ, website niocorp.com, name matches"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001512228",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1512228/000153949726000784/n2574_x310-def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "niocorp.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1512228/000153949726000784/n2574_x310-def14a.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "NioCorp Developments Ltd. is the registrant of the proxy statement",
+     "url": "https://www.sec.gov/Archives/edgar/data/1512228/000153949726000784/n2574_x310-def14a.htm",
+     "phrase": "NIOCORP DEVELOPMENTS LTD. (Name of Registrant as Specified in its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's website is www.niocorp.com, the website on the card",
+     "url": "https://www.sec.gov/Archives/edgar/data/1512228/000153949726000784/n2574_x310-def14a.htm",
+     "phrase": "The Corporate Governance Guidelines are available on our website at www.niocorp.com.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Issuer is British Columbia-incorporated, Colorado HQ; card country United States (Crunchbase HQ Centennial, Colorado) is consistent."
+  },
+  {
+   "ticker": "Q",
+   "db_id": "IN-0295",
+   "db_name": "Qnity Electronics",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0295",
+     "name": "Qnity Electronics",
+     "outcome": "chosen",
+     "why": "Ticker Q, website qnityelectronics.com, Wikidata Q138685636"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002058873",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000010/q-20251231.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-42619; IRS EIN 33-3002745 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000010/q-20251231.htm"
+    },
+    {
+     "type": "website",
+     "value": "qnityelectronics.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000010/q-20251231.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Qnity Electronics, Inc. is the SEC registrant (file 001-42619)",
+     "url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000010/q-20251231.htm",
+     "phrase": "QNITY ELECTRONICS, INC. (Exact name of registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's website is ir.qnityelectronics.com, same domain as card website",
+     "url": "https://www.sec.gov/Archives/edgar/data/2058873/000205887326000010/q-20251231.htm",
+     "phrase": "the Company’s website at https://ir.qnityelectronics.com",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card Wikidata country says Taiwan while the issuer is a Delaware company (DuPont spin-off): odd field on the card, not an identity problem."
+  },
+  {
+   "ticker": "T",
+   "db_id": "IN-0042",
+   "db_name": "At&t",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0042",
+     "name": "At&t",
+     "outcome": "chosen",
+     "why": "Ticker T on NYSE, website att.com, Wikidata Q35476 AT&T, ISIN US00206R1023"
+    },
+    {
+     "id": "IN-0373",
+     "name": "Telus",
+     "outcome": "rejected",
+     "why": "Also has iShares ticker T, but on TSX (Telus Communications, Canada): different issuer"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000732717",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-8610; IRS EIN 43-1301883 (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm"
+    },
+    {
+     "type": "website",
+     "value": "att.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "AT&T Inc. is the SEC registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+     "phrase": "AT&T INC. (Exact name of registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's website is www.att.com, the website on the card",
+     "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+     "phrase": "We maintain an internet website at www.att.com.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Ticker T is shared with Telus (IN-0373, TSX): false friend, rejected."
+  },
+  {
+   "ticker": "TMQ",
+   "db_id": "IN-0389",
+   "db_name": "Trilogy Metals",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0389",
+     "name": "Trilogy Metals",
+     "outcome": "chosen",
+     "why": "Ticker TMQ, website trilogymetals.com"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001543418",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926015668/tmq-20251130x10k.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 1-35447; IRS EIN 98-1006991 (British Columbia)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926015668/tmq-20251130x10k.htm"
+    },
+    {
+     "type": "website",
+     "value": "trilogymetals.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926015668/tmq-20251130x10k.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Trilogy Metals Inc. is the SEC registrant (file 1-35447)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926015668/tmq-20251130x10k.htm",
+     "phrase": "TRILOGY METALS INC. (Exact Name of Registrant as Specified in Its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer's website is www.trilogymetals.com, the website on the card",
+     "url": "https://www.sec.gov/Archives/edgar/data/1543418/000110465926015668/tmq-20251130x10k.htm",
+     "phrase": "We make available, free of charge, on or through our website, at www.trilogymetals.com",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card iShares location says United States while the issuer is British Columbia/Vancouver (Crunchbase on the card says Vancouver): field inconsistency only."
+  },
+  {
+   "ticker": "VVX",
+   "db_id": "IN-1400",
+   "db_name": "V2x",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1400",
+     "name": "V2x",
+     "outcome": "chosen",
+     "why": "iShares ticker VVX on NYSE, US, aerospace/defense; name matches V2X, Inc."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001601548",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm"
+    },
+    {
+     "type": "registry",
+     "value": "SEC file 001-36341; IRS EIN 38-3924636 (Indiana)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm"
+    },
+    {
+     "type": "website",
+     "value": "goV2X.com",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "V2X, Inc. is the SEC registrant (file 001-36341)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm",
+     "phrase": "V2X, Inc. (Exact name of registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "V2X, Inc. describes itself as a defense mission-solutions provider",
+     "url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm",
+     "phrase": "V2X, Inc. (V2X or the Company) is a leading provider of critical mission solutions primarily to defense customers",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Common stock trades on the NYSE under VVX",
+     "url": "https://www.sec.gov/Archives/edgar/data/1601548/000160154826000015/vec-20251231.htm",
+     "phrase": "Our common stock is traded on the NYSE under the symbol",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1400 has no website/wikidata/Crunchbase: match rests on iShares ticker VVX / NYSE plus name. Warning: v2x.com is an unrelated EV-charging site; the issuer's site is goV2X.com. Formerly Vectrus, Inc."
+  }
+ ]
+}

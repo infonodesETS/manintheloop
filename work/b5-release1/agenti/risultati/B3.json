@@ -1,0 +1,321 @@
+{
+ "batch": "B3",
+ "cases": [
+  {
+   "entita_id": "E0011",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-0023",
+     "name": "Americas GOLD AND Silver",
+     "outcome": "rejected",
+     "why": "Canadian silver/gold miner incorporated under the CBCA in 1998 (formerly Scorpio Mining); Americas Mining Corporation is a Delaware holding company, parent of Southern Copper. Only the word 'Americas' is shared."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "registry",
+     "value": "Americas Mining Corporation (Delaware)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1001838/000155837025002017/scco-20241231xex21d1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "AMC is an American (Delaware) holding company with copper subsidiaries incl. Southern Copper",
+     "url": "https://www.americasmining.com/eng/",
+     "phrase": "Americas Mining Corporation (AMC), is an American holding company in charge of mining operations",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Americas Gold and Silver is a distinct company, incorporated under the Canada Business Corporations Act (formerly Scorpio Mining)",
+     "url": "https://americas-gold.com/site/assets/files/5956/2024aif.pdf",
+     "phrase": "articles of incorporation dated May 12, 1998, under the Canada Business Corporations Act",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "No card for Americas Mining Corporation found in the database (only name match is IN-0023, unrelated). Exa answer gave AMC registration 3308479 (Delaware) from an aggregator only."
+  },
+  {
+   "entita_id": "E0038",
+   "verdict": "related_group",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0556",
+     "name": "The Electrum Group",
+     "outcome": "rejected",
+     "why": "The Electrum Group LLC (CIK 1565641, Delaware) is the investment adviser/manager of the fund; the fund (CIK 1637981) is a separate Cayman limited partnership."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001637981",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1637981/0001140361-15-014251.txt"
+    },
+    {
+     "type": "CIK",
+     "value": "0001565641",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1637981/000149315219009827/0001493152-19-009827.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The fund is a separate SEC filer (CIK 1637981), a Cayman Islands limited partnership c/o The Electrum Group LLC",
+     "url": "https://www.sec.gov/Archives/edgar/data/1637981/0001140361-15-014251.txt",
+     "phrase": "COMPANY CONFORMED NAME: Electrum Strategic Opportunities Fund L.P.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "The Electrum Group LLC is a different SEC filer with its own CIK, incorporated in Delaware",
+     "url": "https://www.sec.gov/Archives/edgar/data/1637981/000149315219009827/0001493152-19-009827.txt",
+     "phrase": "COMPANY CONFORMED NAME: Electrum Group LLC CENTRAL INDEX KEY: 0001565641",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Same group (adviser and fund), different legal persons. Card IV-0556 is a bare card (no sources)."
+  },
+  {
+   "entita_id": "E0045",
+   "verdict": "related_group",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0703",
+     "name": "Franklin Templeton",
+     "outcome": "rejected",
+     "why": "Franklin Templeton is a brand of Franklin Resources, Inc. (holding company); Franklin Mutual Advisers, LLC is a Delaware LLC and wholly-owned subsidiary."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001023875",
+     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?CIK=0001023875"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "FMA is a Delaware LLC and a wholly-owned subsidiary of Franklin Resources",
+     "url": "https://www.franklintempleton.com/forms-literature/download/Brochure-FranklinMutualAdvisersLLCInvestmentAdviserRegistrationFormADVPart2AFirm-US-en-US",
+     "phrase": "FMA is a Delaware limited liability company formed on March 31, 1999",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Franklin Templeton is the brand name used by Franklin Resources subsidiaries",
+     "url": "https://www.franklintempleton.com/forms-literature/download/Brochure-FranklinMutualAdvisersLLCInvestmentAdviserRegistrationFormADVPart2AFirm-US-en-US",
+     "phrase": "The Advisers are wholly-owned subsidiaries (whether directly or indirectly) of Franklin Resources, a holding company",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IV-0703 is a bare card named after the brand; its legal entity is not identified in the database."
+  },
+  {
+   "entita_id": "E0061",
+   "verdict": "unclear",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-0841",
+     "name": "Leonardo Societa Per Azioni",
+     "outcome": "rejected",
+     "why": "Italian S.p.A., indirect parent of Leonardo US Holding; same entity as one of the two joint filers only."
+    },
+    {
+     "id": "IV-0349",
+     "name": "Leonardo Company",
+     "outcome": "rejected",
+     "why": "Bare card, no identifying data."
+    },
+    {
+     "id": "IN-1390",
+     "name": "Leonardo DRS",
+     "outcome": "rejected",
+     "why": "This is the issuer (Leonardo DRS, Inc.), not the holder."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001851267 (Leonardo S.p.A., per Exa answer, not reopened)",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1833756/000110465924013454/tm245816d1_sc13ga.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The depositor is a joint filing of two legal entities: Leonardo US Holding, LLC (Delaware) and Leonardo S.p.a. (Italy) as indirect parent",
+     "url": "https://www.sec.gov/Archives/edgar/data/1833756/000110465924013454/tm245816d1_sc13ga.htm",
+     "phrase": "Leonardo S.p.a., a company incorporated under the laws of Italy as a Societ",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "The SEC name covers two legal persons, so it is not a single entity. Shares are held by Leonardo US Holding, LLC; Leonardo S.p.A. is the indirect parent and probably matches IN-0841 as legal person. A human must decide whether to attach the stake to IN-0841. Phrase truncated before the accented character on purpose."
+  },
+  {
+   "entita_id": "E0071",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-1381",
+     "name": "MOOG Class A",
+     "outcome": "rejected",
+     "why": "Moog Inc. is the issuer; the Supplemental Retirement Plan Trust is a separate trust (CIK 1751828) that holds Moog shares."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001751828",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1751828/000175182818000002/exhibit101-moogincxserptru.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The Trust and its trustee file as reporting persons, distinct from the issuer Moog Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000175182818000002/serpsch13dfinal.htm",
+     "phrase": "This Statement is filed by the Moog Inc. Supplemental Retirement Plan Trust, as amended and restated effective January 1, 2015",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Moog Inc. is the issuer named on the same filing",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000175182818000002/serpsch13dfinal.htm",
+     "phrase": "MOOG INC. (Name of Issuer)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "The card is the issuer (a Class A share card). The trust is an employee benefit vehicle, not Moog Inc."
+  },
+  {
+   "entita_id": "E0083",
+   "verdict": "related_group",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-0312",
+     "name": "Samsung Electronics",
+     "outcome": "rejected",
+     "why": "Parent company; Samsung Display is a separate Korean company (est. 2012 via merger of S-LCD and Samsung Mobile Display)."
+    },
+    {
+     "id": "IN-0313",
+     "name": "Samsung Electronics NON Voting PRE",
+     "outcome": "rejected",
+     "why": "Preferred share class of the parent, not Samsung Display."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "website",
+     "value": "www.samsungdisplay.com",
+     "source_url": "https://www.samsungdisplay.com/eng/intro/company-overview.jsp"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Samsung Display is a separate company whose parent is Samsung Electronics",
+     "url": "https://en.wikipedia.org/wiki/Samsung_Display",
+     "phrase": "Parent | Samsung Electronics",
+     "source_kind": "secondary"
+    },
+    {
+     "claim": "Samsung Display was established on 1 April 2012 by merging S-LCD and Samsung Mobile Display",
+     "url": "https://en.wikipedia.org/wiki/Samsung_Display",
+     "phrase": "Samsung Display Corporation was established on April 1, 2012",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "Only secondary sources (Wikipedia) reopened for the parent link; primary company page does not state the parent. Corporation reg. no. 134511-0187812 came from Exa aggregators, not reopened."
+  },
+  {
+   "entita_id": "E0092",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-1468",
+     "name": "State Street",
+     "outcome": "rejected",
+     "why": "State Street Corporation is a Boston bank holding company; State Farm Mutual is an Illinois mutual insurer. Different names, sectors and registrants."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000315032",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/315032/000119312525338060/0001193125-25-338060.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "State Farm Mutual Automobile Insurance Co is an Illinois insurer, CIK 315032",
+     "url": "https://www.sec.gov/Archives/edgar/data/315032/000119312525338060/0001193125-25-338060.txt",
+     "phrase": "COMPANY CONFORMED NAME: STATE FARM MUTUAL AUTOMOBILE INSURANCE CO CENTRAL INDEX KEY: 0000315032",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "State Street Corporation is a Boston-based financial services and bank holding company",
+     "url": "https://en.wikipedia.org/wiki/State_Street_Corporation",
+     "phrase": "State Street Corporation is an American multinational",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "Surface similarity only ('State'). No State Farm card found in the database by name search."
+  },
+  {
+   "entita_id": "E0104",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0589",
+     "name": "Vanguard Ventures",
+     "outcome": "rejected",
+     "why": "Palo Alto venture capital firm (CRD 162436), unrelated to the Vanguard Group asset-management family."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002100121",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2100121/000210012126000386/0002100121-26-000386.txt"
+    },
+    {
+     "type": "LEI",
+     "value": "529900YN99W7NU4H6B84",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2100121/000210012126000386/0002100121-26-000386.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Vanguard Portfolio Management LLC is a Pennsylvania LLC filer, an investment adviser with Vanguard affiliates",
+     "url": "https://www.sec.gov/Archives/edgar/data/2100121/000210012126000386/0002100121-26-000386.txt",
+     "phrase": "COMPANY CONFORMED NAME: VANGUARD PORTFOLIO MANAGEMENT LLC CENTRAL INDEX KEY: 0002100121",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Vanguard Ventures is a Palo Alto venture firm",
+     "url": "https://www.sec.gov/Archives/edgar/data/1016730/000120919104053300/bsf03378_ex99vvi.htm",
+     "phrase": "Vanguard Ventures | | | 525 University Avenue, Suite 1200 | | | Palo Alto, CA 94301",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Vanguard Ventures is registered as a corporation (CRD 162436, SEC 802-75282)",
+     "url": "https://radientanalytics.com/firm/adv/vanguard-ventures-162436",
+     "phrase": "CRD No. 162436 Latest Filing 28 Mar 2018 SEC No. 802-75282 Form of Organization Corporation",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "No card for Vanguard Portfolio Management or The Vanguard Group was found among active cards by name. Likely needs a new card; the Vanguard Group family (S6) stays separate nodes."
+  }
+ ]
+}

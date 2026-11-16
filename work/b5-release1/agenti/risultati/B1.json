@@ -1,0 +1,392 @@
+{
+ "batch": "B1",
+ "cases": [
+  {
+   "entita_id": "E0003",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "related_group",
+   "candidates_considered": [
+    {
+     "id": "IV-0672",
+     "name": "Advent International",
+     "outcome": "rejected",
+     "why": "The card name matches Advent International, L.P., one of several members of the SEC 'Reporting Persons' group; the SEC label is a filing group, not one legal person."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001034196",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1034196/0001140361-26-001718.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC filer group is several separate legal entities (Advent International, L.P., Advent International GP, LLC, Galileo TopCo, Inc.), so it is not a single legal person.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1034196/0001140361-26-001718.txt",
+     "phrase": "This statement is filed by the entities listed below, all of whom together are referred to herein as the \"Reporting Persons\"",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Advent International, L.P. is a Delaware limited partnership (the entity the card most plausibly represents).",
+     "url": "https://www.sec.gov/Archives/edgar/data/1034196/000114036124001726/ef20018514_sc13da.htm",
+     "phrase": "ADVENT INTERNATIONAL, L.P. (“Advent”), a Delaware limited partnership",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "'Advent Reporting Persons' is a label for a group of filers on the LUNR Schedule 13G, not a legal entity. The card has no identifiers, so I cannot prove it is Advent International, L.P. rather than the manager brand; it is the same group at best. No phrase contains the literal label 'Advent Reporting Persons', so the automatic check may flag it."
+  },
+  {
+   "entita_id": "E0019",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "related_group",
+   "candidates_considered": [
+    {
+     "id": "IV-0077",
+     "name": "BlackRock",
+     "outcome": "rejected",
+     "why": "Card has wikidata website blackrock.com, i.e. BlackRock, Inc. (parent). BlackRock Advisors LLC is a Delaware subsidiary with its own CIK 1086364 and LEI."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001086364",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1086364/000102140824004489/0001021408-24-004489.txt"
+    },
+    {
+     "type": "LEI",
+     "value": "5493001LN9MRM6A35J74",
+     "source_url": "https://lei.bloomberg.com/leis/view/5493001LN9MRM6A35J74"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "BlackRock Advisors LLC is a distinct legal entity with its own CIK.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1086364/000102140824004489/0001021408-24-004489.txt",
+     "phrase": "COMPANY CONFORMED NAME: BLACKROCK ADVISORS LLC  CENTRAL INDEX KEY: 0001086364",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "BlackRock Advisors, LLC is listed as a subsidiary of BlackRock, Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526071966/blk-ex21_1.htm",
+     "phrase": "The following table lists the direct and indirect subsidiaries of BlackRock, Inc. as of December 31, 2025",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "BlackRock Advisors, LLC is a Delaware subsidiary in that list.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526071966/blk-ex21_1.htm",
+     "phrase": "BlackRock Advisors, LLC | Delaware",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Subsidiary of BlackRock, Inc.; same group, different legal entity (S6: separate nodes). Card IV-0077 has no identifiers beyond a wikidata website, assumed to be BlackRock, Inc."
+  },
+  {
+   "entita_id": "E0040",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "different_entity",
+   "candidates_considered": [
+    {
+     "id": "IV-0181",
+     "name": "Endeavor Catalyst",
+     "outcome": "rejected",
+     "why": "Endeavor Catalyst is a co-investment fund tied to the nonprofit Endeavor Global (Delaware LPs, GP Catalyst GP Inc.), unrelated to the listed media company Endeavor Group Holdings, Inc."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001766363",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1766363/000095017025028394/edr-20241231.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Endeavor Group Holdings, Inc. is the sports and entertainment company (UFC, WWE via TKO).",
+     "url": "https://www.sec.gov/Archives/edgar/data/1766363/000095017025028394/edr-20241231.htm",
+     "phrase": "Endeavor Group Holdings, Inc. is a global sports and entertainment company.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Endeavor Catalyst is the co-investment fund of the Endeavor entrepreneur network.",
+     "url": "https://endeavor.org/catalyst",
+     "phrase": "Endeavor Catalyst is the rules-based, co-investment fund of Endeavor, set up to invest exclusively in Endeavor Entrepreneur-led companies",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Endeavor Catalyst I L.P. is a Delaware limited partnership with general partner Catalyst GP Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1584338/000158433813000001/0001584338-13-000001.txt",
+     "phrase": "COMPANY CONFORMED NAME: ENDEAVOR CATALYST I L.P.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Shared word 'Endeavor' only; I found no link between the Endeavor Global nonprofit and Endeavor Group Holdings, Inc. Endeavor Group Holdings was reported taken private by Silver Lake in 2025 (not checked in a primary source)."
+  },
+  {
+   "entita_id": "E0053",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "unclear",
+   "candidates_considered": [
+    {
+     "id": "IV-0287",
+     "name": "Inflection Point Acquisition Corp. III",
+     "outcome": "rejected",
+     "why": "Cayman blank-check company (SPAC), a different legal entity from Inflection Point Fund I, LP (Delaware LP)."
+    },
+    {
+     "id": "IV-0286",
+     "name": "Inflection",
+     "outcome": "rejected",
+     "why": "Card has no identifiers; cannot tell whether it is the fund, the asset manager, or another Inflection entity."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002062187",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2062187/000121390026106590/xslSCHEDULE_13D_X02/primary_doc.xml"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Inflection Point Fund I, LP is the reporting person, a separate fund vehicle.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2062187/000121390026106590/xslSCHEDULE_13D_X02/primary_doc.xml",
+     "phrase": "This Schedule 13D is filed by Inflection Point Fund I, LP (the \"Reporting Person\").",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Inflection Point Acquisition Corp. III is a Cayman Islands blank check company, a different legal entity.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2012318/000121390026036616/ea0280622-10k_inflection3.htm",
+     "phrase": "Inflection Point Acquisition Corp. III is a blank check company incorporated as a Cayman Islands exempted company on January 31, 2024.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Fund I is certainly not Acquisition Corp. III (IV-0287). IV-0286 'Inflection' is too generic to decide. Same sponsor family (Michael Blitzer) per Exa, not verified in a primary source."
+  },
+  {
+   "entita_id": "E0069",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "different_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1381",
+     "name": "MOOG Class A",
+     "outcome": "rejected",
+     "why": "Issuer (Moog Inc.); the SEC filer is its employee retirement plan, a separate ERISA plan."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001698186",
+     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?CIK=0001698186"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The Moog Inc. Retirement Savings Plan is a defined contribution plan sponsored by Moog Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000006788725000021/retirementsavingsplanfy24.htm",
+     "phrase": "The Plan consists of two defined contribution options, the RSP and the RSP(+), sponsored by Moog Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "The plan and the issuer are named separately on the Form 11-K cover.",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000006788725000021/retirementsavingsplanfy24.htm",
+     "phrase": "Full title of the plan and the address of the plan, if different from that of the issuer named below:  MOOG INC. RETIREMENT SAVINGS PLAN",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Employee plan of the issuer holding Moog stock; not Moog Inc. itself. Whether it should be a node at all is a modelling choice for Nelson."
+  },
+  {
+   "entita_id": "E0075",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "different_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0264",
+     "name": "Nomura Research Institute",
+     "outcome": "rejected",
+     "why": "Listed Japanese IT/consulting company (nri.com), 20.14% held by Nomura Holdings; NAMI is a US asset manager that is a subsidiary of Nomura Holdings."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "LEI",
+     "value": "549300CFBL3U3T92TR65",
+     "source_url": "https://lei.report/LEI/549300CFBL3U3T92TR65/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Nomura Asset Management International Inc. is a subsidiary of Nomura Holdings (Delaware entity).",
+     "url": "https://lei.report/LEI/549300CFBL3U3T92TR65/",
+     "phrase": "Subsidiary · This entity NOMURA ASSET MANAGEMENT INTERNATIONAL INC. LEI 549300CFBL3U3T92TR65",
+     "source_kind": "secondary"
+    },
+    {
+     "claim": "NRI is a distinct listed company; Nomura Holdings is its largest shareholder at 20.14%.",
+     "url": "https://ir.nri.com/en/ir/stock/stock.html",
+     "phrase": "Nomura Holdings, Inc.  115,703  20.14",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "The NRI annual report names the company as Nomura Research Institute, Ltd. (NRI).",
+     "url": "https://ir.nri.com/en/ir/library/report/main/016/teaserItems1/02/link/ar2025_e_view.pdf",
+     "phrase": "not for the purpose of attracting investment in stocks issued by Nomura Research Institute, Ltd. (NRI)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Both are linked to Nomura Holdings (subsidiary vs 20% affiliate), so a looser 'Nomura group' link exists, but they are different legal entities with no common ownership by one another. The SEC filer for KALU is Nomura Asset Management International (US asset manager)."
+  },
+  {
+   "entita_id": "E0084",
+   "db_id": "IN-0319",
+   "db_name": "Saudi Arabian Mining",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0319",
+     "name": "Saudi Arabian Mining",
+     "outcome": "chosen",
+     "why": "Same company: Saudi Arabian Mining Company (Ma'aden), website maaden.com.sa."
+    },
+    {
+     "id": "IN-0320",
+     "name": "Saudi Steel PIPE",
+     "outcome": "rejected",
+     "why": "Saudi Steel Pipe Co., a different company (sspipe.com)."
+    },
+    {
+     "id": "IV-0485",
+     "name": "Saudi EXIM",
+     "outcome": "rejected",
+     "why": "Export credit agency, unrelated."
+    },
+    {
+     "id": "IV-0486",
+     "name": "Saudi Telecom Company",
+     "outcome": "rejected",
+     "why": "stc, telecom operator, unrelated."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "registry",
+     "value": "Commercial registration 1010164391",
+     "source_url": "https://www.saudiexchange.sa/Resources/fsPdf/370_0_2026-03-11_15-58-59_En.pdf"
+    },
+    {
+     "type": "website",
+     "value": "maaden.com.sa",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1879016/000187901623000010/ie-20230630xex1010.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SAUDI ARABIAN MINING COMPANY (MA'ADEN) is a Saudi joint stock company, party to the agreement filed with the SEC.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1879016/000187901623000010/ie-20230630xex1010.htm",
+     "phrase": "SAUDI ARABIAN MINING COMPANY (MA’ADEN), a joint stock company established pursuant to Royal Decree No. M/17",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Ma'aden's contact email uses the card's website domain maaden.com.sa.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1879016/000187901623000010/ie-20230630xex1010.htm",
+     "phrase": "Email: legaldeptnotices@maaden.com.sa",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Commercial registration number of the company, from its Saudi Exchange filing.",
+     "url": "https://www.saudiexchange.sa/Resources/fsPdf/370_0_2026-03-11_15-58-59_En.pdf",
+     "phrase": "Commercial registration number 1010164391",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "The card IN-0319 is an operating company with wikidata label Maaden and website maaden.com.sa. Registry number links the name to Saudi filings; the SEC link is the Ivanhoe Electric (IE) agreement."
+  },
+  {
+   "entita_id": "E0102",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "different_entity",
+   "candidates_considered": [
+    {
+     "id": "IV-0589",
+     "name": "Vanguard Ventures",
+     "outcome": "rejected",
+     "why": "Venture capital firm (CRD 162436, run by Vanguard Partners Management, Inc.), unrelated to The Vanguard Group's adviser Vanguard Capital Management, LLC."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "registry",
+     "value": "SEC CRD 338002",
+     "source_url": "https://reports.adviserinfo.sec.gov/reports/ADV/338002/PDF/338002.pdf"
+    },
+    {
+     "type": "CIK",
+     "value": "0002100119",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2100119/000210011926000179/0002100119-26-000179.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Vanguard Capital Management, LLC is a registered investment adviser with CRD 338002, related to The Vanguard Group, Inc.",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/338002/PDF/338002.pdf",
+     "phrase": "Primary Business Name: VANGUARD CAPITAL MANAGEMENT, LLC CRD Number: 338002",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Vanguard Capital Management lists The Vanguard Group, Inc. as related person.",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/338002/PDF/338002.pdf",
+     "phrase": "Legal Name of Related Person: THE VANGUARD GROUP, INC.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Vanguard Ventures is a trade name of Vanguard Partners Management, Inc. (CRD 162436).",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/162436/PDF/162436.pdf",
+     "phrase": "VANGUARD PARTNERS MANAGEMENT, INC.   B. (1) Name under which you primarily conduct your advisory business, if different from Item 1.A. VANGUARD VENTURES",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Vanguard Ventures is an older, inactive venture firm per PitchBook; I found no ownership link to The Vanguard Group."
+  },
+  {
+   "entita_id": "E0106",
+   "db_id": "",
+   "db_name": "",
+   "verdict": "unclear",
+   "candidates_considered": [
+    {
+     "id": "IV-0757",
+     "name": "Wellington Management",
+     "outcome": "rejected",
+     "why": "Card has no identifiers; it may stand for Wellington Management Company LLP (the adviser) or the group; cannot confirm Wellington Management Group LLP (CIK 902219, Massachusetts LLP)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000902219",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/902219/000090221924000490/SEC13G_Filing.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Wellington Management Group LLP is a Massachusetts LLP, separate from Wellington Management Company LLP (Delaware).",
+     "url": "https://www.sec.gov/Archives/edgar/data/902219/000090221924000490/SEC13G_Filing.htm",
+     "phrase": "Wellington Management Group LLP - Massachusetts Wellington Group Holdings LLP - Delaware Wellington Investment Advisors Holdings LLP - Delaware Wellington Management Company LLP - Delaware",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Four separate Wellington legal entities file together on a Schedule 13G. Without identifiers on IV-0757 I cannot say which one the card is; if it is the brand/adviser it is related_group, not same_entity."
+  }
+ ]
+}

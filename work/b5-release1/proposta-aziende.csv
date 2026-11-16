@@ -7,7 +7,7 @@ ACN,Accenture plc,0001467373,Class A Ordinary Shares (2),1,IN-0002,IN-0002,IN-00
 ADBE,Adobe Inc.,0000796343,Common Stock (2),1,IN-0004,IN-0004,IN-0004=Adobe,IN-0004,proposta (ticker iShares + nome),,
 ADI,"Analog Devices, Inc.",0000006281,Common Stock (2),1,IN-0027,IN-0027,IN-0027=Analog Devices,IN-0027,proposta (ticker iShares + nome),,
 ADSK,"Autodesk, Inc.",0000769397,Common Stock (2),1,IN-0045,IN-0045,IN-0045=Autodesk,IN-0045,proposta (ticker iShares + nome),,
-AIR,AAR CORP.,0000001750,Common Stock (6),1,IN-0461 IN-1388,IN-1388,IN-0461=Airbus | IN-1388=AAR,,da decidere: candidati multipli o in disaccordo,,
+AIR,AAR CORP.,0000001750,Common Stock (6),1,IN-0461 IN-1388,IN-1388,IN-0461=Airbus | IN-1388=AAR,IN-1388,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,AAR Corp (CIK 1750); Airbus IN-0461 e un falso amico (stesso ticker)
 AKAM,"Akamai Technologies, Inc.",0001086222,Common Stock (2),1,IN-0011,IN-0011,IN-0011=Akamai Technologies,IN-0011,proposta (ticker iShares + nome),,
 AMAT,"Applied Materials, Inc.",0000006951,Common Stock (2),1,IN-0033,,IN-0033=Applied Material,IN-0033,proposta (ticker iShares),,
 AMD,"Advanced Micro Devices, Inc.",0000002488,Common Stock (2),1,IN-1249,,IN-1249=AMD,IN-1249,proposta (ticker iShares),,
@@ -78,20 +78,20 @@ KALU,Kaiser Aluminum Corporation,0000811596,Common Stock (4),1,IN-0193,,IN-0193=
 KEYS,"Keysight Technologies, Inc.",0001601046,Common Stock (3),1,IN-0197,IN-0197,IN-0197=Keysight Technologies,IN-0197,proposta (ticker iShares + nome),,
 KLAC,KLA Corporation,0000319201,Common Stock (2),1,IN-0200,IN-0200,IN-0200=KLA,IN-0200,proposta (ticker iShares + nome),,
 KRMN,Karman Holdings Inc.,0002040127,Common Stock (1),1,IN-1385,IN-1385,IN-1385=Karman,IN-1385,proposta (ticker iShares + nome),,
-KTOS,"Kratos Defense & Security Solutions, Inc.",0001069258,Common Stock (1),1,IN-1377,,IN-1377=Kratos Defense AND Security Soluti,IN-1377,proposta (ticker iShares),,
+KTOS,"Kratos Defense & Security Solutions, Inc.",0001069258,Common Stock (1),1,IN-1377,,IN-1377=Kratos Defense AND Security Soluti,IN-1304,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,"Kratos (CIK 1069258): corretta da IN-1377 a IN-1304 (QID Q16858667, tax_id = EIN del 10-K). IN-1377 e un duplicato nudo (solo ticker iShares): da unire con B3 in una PR a parte"
 LAC,Lithium Americas Corp.,0001966983,Common Shares (1),1,IN-0212,IN-0212,IN-0212=Lithium Americas,IN-0212,proposta (ticker iShares + nome),,
 LHX,"L3Harris Technologies, Inc.",0000202058,Common Stock (3),1,IN-1305,IN-1305,IN-1305=L3Harris Technologies,IN-1305,proposta (ticker iShares + nome),,
 LITE,Lumentum Holdings Inc.,0001633978,Common Stock (2),1,IN-0215,IN-0215,IN-0215=Lumentum,IN-0215,proposta (ticker iShares + nome),,
 LMT,Lockheed Martin Corporation,0000936468,Common Stock (3),1,IN-1306,IN-1306,IN-1306=Lockheed Martin,IN-1306,proposta (ticker iShares + nome),,
 LOAR,Loar Holdings Inc.,0002000178,Common Stock (5),1,IN-1396,IN-1396,IN-1396=LOAR,IN-1396,proposta (ticker iShares + nome),,
-LOGI,Logitech International S.A.,0001032975,Shares (2),1,,,,,nessuna scheda trovata: nuova entita o da cercare a mano,,
+LOGI,Logitech International S.A.,0001032975,Shares (2),1,,,,IN-0214,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,"Logitech International (CIK 1032975): la scheda ha il ticker svizzero LOGN, la tabella diceva a torto nessuna scheda"
 LRCX,Lam Research Corporation,0000707549,common stock (2),1,IN-0208,IN-0208,IN-0208=LAM Research,IN-0208,proposta (ticker iShares + nome),,
 LUNR,"Intuitive Machines, Inc.",0001844452,Class A Common Stock (5); Class C Common Stock (3),2,IN-1397,IN-1397,IN-1397=Intuitive Machines Class A,IN-1397,proposta (ticker iShares + nome),,
 LYV,"Live Nation Entertainment, Inc.",0001335258,Common Stock (2),1,IN-0213,IN-0213,IN-0213=LIVE Nation Entertainment,IN-0213,proposta (ticker iShares + nome),,
 MCHP,Microchip Technology Incorporated,0000827054,Common Stock (4),1,IN-0231,IN-0231,IN-0231=Microchip Technology,IN-0231,proposta (ticker iShares + nome),,
 META,"Meta Platforms, Inc.",0001326801,Class A Common Stock (3); Class B Common Stock (1),2,IN-0228,IN-0228,IN-0228=META Platforms Class A,IN-0228,proposta (ticker iShares + nome),,
 METC,"Ramaco Resources, Inc.",0001687187,Class A Common Stock (9); Class B Common Stock (6),2,IN-0298,IN-0298,IN-0298=Ramaco Resources Class A,IN-0298,proposta (ticker iShares + nome),,
-MOG-A,Moog Inc.,0000067887,Class A Common Stock (5); Class B Common Stock (3),2,,IN-1381,IN-1381=MOOG Class A,IN-1381,proposta debole (solo nome): da confermare,,
+MOG-A,Moog Inc.,0000067887,Class A Common Stock (5); Class B Common Stock (3),2,,IN-1381,IN-1381=MOOG Class A,IN-1381,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,"confermata dall agente (era debole, solo nome)"
 MP,MP Materials Corp.,0001801368,Common Stock (4),1,IN-1311,IN-1311,IN-1311=MP Materials,IN-1311,proposta (ticker iShares + nome),,
 MPWR,"Monolithic Power Systems, Inc.",0001280452,Common Stock (3),1,IN-0240,IN-0240,IN-0240=Monolithic Power Systems,IN-0240,proposta (ticker iShares + nome),,
 MRCY,"Mercury Systems, Inc.",0001049521,Common Stock (4),1,IN-1389,IN-1389,IN-1389=Mercury Systems,IN-1389,proposta (ticker iShares + nome),,
@@ -133,12 +133,12 @@ STLD,"Steel Dynamics, Inc.",0001022671,Common Stock (2),1,IN-0346,IN-0346,IN-034
 STX,Seagate Technology Holdings plc,0001137789,Ordinary Shares (2),1,IN-0322,IN-0322,IN-0322=Seagate Technology,IN-0322,proposta (ticker iShares + nome),,
 SWKS,"Skyworks Solutions, Inc.",0000004127,Common Stock (3),1,IN-0338,IN-0338,IN-0338=Skyworks Solutions,IN-0338,proposta (ticker iShares + nome),,
 SXC,"SunCoke Energy, Inc.",0001514705,Common Stock (4),1,IN-0349,IN-0349,IN-0349=Suncoke Energy,IN-0349,proposta (ticker iShares + nome),,
-T,AT&T Inc.,0000732717,Common Stock (2),1,IN-0042 IN-0373,IN-0042,IN-0042=At&t | IN-0373=Telus,,da decidere: candidati multipli o in disaccordo,,
+T,AT&T Inc.,0000732717,Common Stock (2),1,IN-0042 IN-0373,IN-0042,IN-0042=At&t | IN-0373=Telus,IN-0042,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,AT&T Inc (CIK 732717); Telus IN-0373 e un falso amico (stesso ticker)
 TDG,TransDigm Group Incorporated,0001260221,Common Stock (4),1,IN-1362,IN-1362,IN-1362=Transdigm,IN-1362,proposta (ticker iShares + nome),,
 TDY,Teledyne Technologies Incorporated,0001094285,Common Stock (3),1,IN-0367,IN-0367,IN-0367=Teledyne Technologies,IN-0367,proposta (ticker iShares + nome),,
-TEL,TE Connectivity plc,0001385157,Shares (3),1,IN-0362 IN-0370,IN-0362,IN-0362=TE Connectivity | IN-0370=Telenor,,da decidere: candidati multipli o in disaccordo,,
+TEL,TE Connectivity plc,0001385157,Shares (3),1,IN-0362 IN-0370,IN-0362,IN-0362=TE Connectivity | IN-0370=Telenor,IN-0362,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,TE Connectivity plc (CIK 1385157); Telenor IN-0370 scartata. Il QID Q663452 della scheda descrive il predecessore svizzero: da rivedere dopo
 TER,"Teradyne, Inc.",0000097210,Common Stock (3),1,IN-0376,IN-0376,IN-0376=Teradyne,IN-0376,proposta (ticker iShares + nome),,
-TKO,"TKO Group Holdings, Inc.",0001973266,Class A Common Stock (7); Class B Common Stock (3),2,IN-0358 IN-0382,IN-0382,IN-0358=Taseko Mines | IN-0382=TKO Class A,,da decidere: candidati multipli o in disaccordo,,
+TKO,"TKO Group Holdings, Inc.",0001973266,Class A Common Stock (7); Class B Common Stock (3),2,IN-0358 IN-0382,IN-0382,IN-0358=Taseko Mines | IN-0382=TKO Class A,IN-0382,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,TKO Group Holdings (CIK 1973266); Taseko IN-0358 e un falso amico (stesso ticker)
 TMC,The Metals Company Inc.,0001798562,Common Shares (6),1,IN-0383,,IN-0383=TMC THE Metals,IN-0383,proposta (ticker iShares),,
 TMQ,Trilogy Metals Inc.,0001543418,Common Shares (3),1,IN-0389,IN-0389,IN-0389=Trilogy Metals,IN-0389,proposta (ticker iShares + nome),,
 TMUS,"T-Mobile US, Inc.",0001283699,Common Stock (1),1,IN-0354,IN-0354,IN-0354=T Mobile US,IN-0354,proposta (ticker iShares + nome),,
@@ -154,7 +154,7 @@ VRSN,"VeriSign, Inc.",0001014473,Common Stock (3),1,IN-0405,IN-0405,IN-0405=Veri
 VSEC,VSE Corporation,0000102752,Stock (3),1,IN-1387,IN-1387,IN-1387=VSE,IN-1387,proposta (ticker iShares + nome),,
 VVX,"V2X, Inc.",0001601548,Common Stock (3),1,IN-1400,IN-1400,IN-1400=V2x,IN-1400,proposta (ticker iShares + nome),,
 VZ,Verizon Communications Inc.,0000732712,Common Stock (3),1,IN-0406,IN-0406,IN-0406=Verizon Communications,IN-0406,proposta (ticker iShares + nome),,
-WBD,"Warner Bros. Discovery, Inc.",0001437107,Common Stock (3),1,IN-0415,,IN-0415=Warner Bros. Discovery Series,IN-0415,proposta (ticker iShares),,
+WBD,"Warner Bros. Discovery, Inc.",0001437107,Common Stock (3),1,IN-0415,,IN-0415=Warner Bros. Discovery Series,IN-0415,"confermata da agente indipendente (2026-11-16, approvata da Nelson)",,"identita confermata; il blocco Crunchbase della scheda e della controllata warner-bros (dato sporco, da trattare dopo)"
 WDAY,"Workday, Inc.",0001327811,Class A common stock (4); Class B common stock (2),2,IN-0422,IN-0422,IN-0422=Workday Class A,IN-0422,proposta (ticker iShares + nome),,
 WDC,Western Digital Corporation,0000106040,Common Stock (4),1,IN-0418,IN-0418,IN-0418=Western Digital,IN-0418,proposta (ticker iShares + nome),,
 WS,"Worthington Steel, Inc.",0001968487,Common Shares (3),1,IN-0423,IN-0423,IN-0423=Worthington Steel,IN-0423,proposta (ticker iShares + nome),,

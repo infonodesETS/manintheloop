@@ -1,0 +1,449 @@
+{
+ "batch": "A2",
+ "cases": [
+  {
+   "ticker": "AMR",
+   "db_id": "IN-0016",
+   "db_name": "Alpha Metallurgical Resource",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0016",
+     "name": "Alpha Metallurgical Resource",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001704715",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1704715/000114036126012338/ny20065179x1_def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "https://alphametresources.com",
+     "source_url": "https://alphametresources.com"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/1704715/000114036126012338/ny20065179x1_def14a.htm",
+     "phrase": "to attend the 2026 annual meeting of stockholders of Alpha Metallurgical Resources, Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website belongs to the issuer",
+     "url": "https://alphametresources.com",
+     "phrase": "© 2026 Alpha Metallurgical Resources",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card carries iShares ticker AMR and the issuer website; its Crunchbase block points to alpha-natural-resources (a predecessor-era profile), which looks mismatched."
+  },
+  {
+   "ticker": "CW",
+   "db_id": "IN-1366",
+   "db_name": "Curtiss Wright",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1366",
+     "name": "Curtiss Wright",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000026324",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/26324/000093041326000878/c115536_def14a-ixbrl.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/26324/000093041326000878/c115536_def14a-ixbrl.htm",
+     "phrase": "To the holders of the common stock of Curtiss-Wright Corporation",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer is listed on NYSE as CW; card ticker CW",
+     "url": "https://www.curtisswright.com",
+     "phrase": "About Curtiss-Wright\n\n### NYSE:CW",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has only the iShares DFND import (ticker CW, NYSE, US); no website or wikidata. Match rests on ticker plus name."
+  },
+  {
+   "ticker": "HXL",
+   "db_id": "IN-1384",
+   "db_name": "Hexcel",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1384",
+     "name": "Hexcel",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000717605",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/717605/000119312526135884/hxl-20260401.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/717605/000119312526135884/hxl-20260401.htm",
+     "phrase": "The Annual Meeting of Stockholders of Hexcel Corporation will be held on May 14, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer named with ticker HXL",
+     "url": "https://www.hexcel.com",
+     "phrase": "Hexcel Corporation (NYSE: HXL)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has only the iShares DFND import (ticker HXL, NYSE, US); no website or wikidata. Match rests on ticker plus name."
+  },
+  {
+   "ticker": "LITE",
+   "db_id": "IN-0215",
+   "db_name": "Lumentum",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0215",
+     "name": "Lumentum",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001633978",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1633978/000130817926000420/lite2026-def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "https://www.lumentum.com",
+     "source_url": "https://www.lumentum.com"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/1633978/000130817926000420/lite2026-def14a.htm",
+     "phrase": "Annual Meeting of Stockholders of Lumentum Holdings Inc., taking place virtually on November 18, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website is the issuer's own site",
+     "url": "https://www.lumentum.com",
+     "phrase": "Lumentum Announces First Quarter of Fiscal Year 2027 Financial Results",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "10-K cover: registrant, symbol, CIK",
+     "url": "https://www.sec.gov/Archives/edgar/data/1633978/000162828025040830/R1.htm",
+     "phrase": "Central Index Key | 0001633978",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has iShares ticker LITE, wikidata Q138786899 and website. Its Crunchbase block is 'Lumentum Operations LLC' (an operating subsidiary profile), mismatched at group level. Lumentum site headline mentions a planned combination with Marvell; not relevant to the match."
+  },
+  {
+   "ticker": "MOG-A",
+   "db_id": "IN-1381",
+   "db_name": "MOOG Class A",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1381",
+     "name": "MOOG Class A",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000067887",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/67887/000006788725000136/mog-20251218.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000006788725000136/mog-20251218.htm",
+     "phrase": "NOTICE IS HEREBY GIVEN that the Annual Meeting of Shareholders of Moog Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Class A trades as MOG.A; same registrant as Moog Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000162828025054103/mog-20250927.htm",
+     "phrase": "Class A common stock | MOG.A | New York Stock Exchange",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer own site",
+     "url": "https://www.moog.com",
+     "phrase": "Shaping the way our world moves™ | Moog Inc.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has only the iShares DFND import (ticker MOGA, NYSE). SEC lists Class A as MOG.A and Class B as MOG.B of the same registrant; share class is not a criterion. Card name has no website."
+  },
+  {
+   "ticker": "NFLX",
+   "db_id": "IN-0249",
+   "db_name": "Netflix",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0249",
+     "name": "Netflix",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001065280",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000119312526159286/d20613ddef14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "https://www.netflix.com/",
+     "source_url": "https://www.netflix.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/1065280/000119312526159286/d20613ddef14a.htm",
+     "phrase": "annual meeting of stockholders of Netflix, Inc., a Delaware corporation",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "10-K cover: registrant and CIK",
+     "url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/R1.htm",
+     "phrase": "Central Index Key | 0001065280",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website is the issuer site",
+     "url": "https://www.netflix.com",
+     "phrase": "Netflix - Watch TV Shows Online, Watch Movies Online",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has iShares ticker NFLX, wikidata Q907311 and website."
+  },
+  {
+   "ticker": "RTX",
+   "db_id": "IN-1357",
+   "db_name": "RTX",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1357",
+     "name": "RTX",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    },
+    {
+     "id": "IN-1324",
+     "name": "Raytheon Missile Systems",
+     "outcome": "rejected",
+     "why": "Named as a missile-systems subsidiary (Crunchbase Tucson); not the registrant. Its group-level wikidata/tax id data are RTX's, see notes."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000101829",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/101829/000130817926000036/rtx014050-def14a.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/101829/000130817926000036/rtx014050-def14a.htm",
+     "phrase": "RTX Corporation (Name of Registrant as Specified In Its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Registrant ticker RTX on NYSE",
+     "url": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000006/rtx-20251231.htm",
+     "phrase": "Common Stock ($1 par value) | RTX | New York Stock Exchange",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Issuer own site",
+     "url": "https://www.rtx.com",
+     "phrase": "RTX connects our world through the power of flight",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1357 holds the iShares DFND import with ticker RTX and no other data. Also exists IN-1324 'Raytheon Missile Systems' whose wikidata block is label RTX (Q89368734, isin US75513E1010), tax_id 06-0570975 and wikipedia RTX_Corporation, while its Crunchbase block and name are the Tucson missile subsidiary: the card mixes the group data with a subsidiary name. Not chosen; flag as possible mislabelled or duplicate card."
+  },
+  {
+   "ticker": "TEL",
+   "db_id": "IN-0362",
+   "db_name": "TE Connectivity",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0362",
+     "name": "TE Connectivity",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    },
+    {
+     "id": "IN-0370",
+     "name": "Telenor",
+     "outcome": "rejected",
+     "why": "Different issuer: Norwegian telecom, also uses ticker TEL on Oslo; same ticker string only."
+    },
+    {
+     "id": "IN-0364",
+     "name": "Tele2 B",
+     "outcome": "rejected",
+     "why": "Swedish telecom, ticker TEL2 B; similar name prefix only."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001385157",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926003934/tel-20260311xdef14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "http://www.te.com/",
+     "source_url": "http://www.te.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926003934/tel-20260311xdef14a.htm",
+     "phrase": "2026 Annual General Meeting of Shareholders of TE Connectivity plc, to be held on Wednesday, March 11, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Ordinary shares listed as TEL; registrant is TE Connectivity plc, Ireland",
+     "url": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926124497/tel-20260925x10k.htm",
+     "phrase": "Ordinary Shares, Par Value $0.01 | TEL | New York Stock Exchange",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website te.com is the issuer site",
+     "url": "https://www.te.com",
+     "phrase": "TE Connectivity maintains position on Dow Jones Best-In-Class Index",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has iShares ticker TEL (NYSE), wikidata Q663452 (describes Swiss-domiciled TE Connectivity Ltd). Per the SEC registrant details the issuer is now TE Connectivity plc (Ireland), successor by merger of the former Swiss parent in 2024 (reported by Exa answer; not verified by a reopened page), so the card wikidata block is outdated but the issuer is the same lineage."
+  },
+  {
+   "ticker": "UAMY",
+   "db_id": "IN-0396",
+   "db_name": "United States Antimony",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0396",
+     "name": "United States Antimony",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000101538",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/101538/000114036126015650/ny20066417x2_def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "https://www.usantimony.com",
+     "source_url": "https://www.usantimony.com"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/101538/000114036126015650/ny20066417x2_def14a.htm",
+     "phrase": "2026 annual meeting of shareholders of United States Antimony Corporation to be held on June 12, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website names issuer and ticker UAMY",
+     "url": "https://www.usantimony.com",
+     "phrase": "United States Antimony Corporation (NYSE: UAMY)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has iShares ticker UAMY and the issuer website."
+  },
+  {
+   "ticker": "WBD",
+   "db_id": "IN-0415",
+   "db_name": "Warner Bros. Discovery Series",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0415",
+     "name": "Warner Bros. Discovery Series",
+     "outcome": "chosen",
+     "why": "Same ticker and issuer name as the SEC registrant; card has no history entity_retired."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001437107",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000046/wbd-20260429.htm"
+    },
+    {
+     "type": "website",
+     "value": "https://wbd.com",
+     "source_url": "https://wbd.com"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "SEC proxy names the issuer with this CIK in the URL",
+     "url": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000046/wbd-20260429.htm",
+     "phrase": "Since we became Warner Bros. Discovery (WBD) in 2022",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "10-K cover: registrant, CIK, symbol WBD",
+     "url": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000020/R1.htm",
+     "phrase": "Entity Registrant Name | Warner Bros. Discovery, Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Card website wbd.com is the issuer site",
+     "url": "https://wbd.com",
+     "phrase": "Warner Bros. Discovery is a leading global media and entertainment company",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card name carries 'Series' (share-class wording, acceptable). Crunchbase block points to warner-bros (the studio subsidiary), mismatched. Issuer reported (Exa answer, not reopened) to have agreed in Feb 2026 to become a subsidiary of PSKY; irrelevant to the match today."
+  }
+ ]
+}

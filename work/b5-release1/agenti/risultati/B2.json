@@ -1,0 +1,311 @@
+{
+ "batch": "B2",
+ "cases": [
+  {
+   "entita_id": "E0010",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-0022",
+     "name": "American Battery Technology Compan",
+     "outcome": "rejected",
+     "why": "Nasdaq-listed battery recycling company (ABAT); the shared 'American' prefix is the only link to the Kansas City asset manager."
+    },
+    {
+     "id": "IN-1250",
+     "name": "American Elements",
+     "outcome": "rejected",
+     "why": "Privately held advanced materials manufacturer in Los Angeles, unrelated to asset management."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000052388",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1669811/000005238823000112/0000052388-23-000112.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC filer is American Century Investment Management Inc, CIK 52388 (Delaware registered investment adviser)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1669811/000005238823000112/0000052388-23-000112.txt",
+     "phrase": "COMPANY CONFORMED NAME: AMERICAN CENTURY INVESTMENT MANAGEMENT INC CENTRAL INDEX KEY: 0000052388",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "IN-0022 is a battery recycling startup",
+     "url": "https://en.wikipedia.org/wiki/American_Battery_Technology_Company",
+     "phrase": "American Battery Technology Company, formerly American Battery Metals Corporation, is a US-based battery recycling technology startup founded in 2011.",
+     "source_kind": "secondary"
+    },
+    {
+     "claim": "IN-1250 is a materials manufacturer",
+     "url": "https://en.wikipedia.org/wiki/American_Elements",
+     "phrase": "American Elements is a global manufacturer and distributor of advanced materials.",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "Both candidates are name-prefix false friends. No card for American Century found among candidates; I did not search the whole database for an American Century Investments card beyond a name search (none found)."
+  },
+  {
+   "entita_id": "E0026",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-0072",
+     "name": "Century Aluminum",
+     "outcome": "rejected",
+     "why": "US primary aluminum producer (CENX); unrelated to the BVI holding vehicle."
+    },
+    {
+     "id": "IN-0073",
+     "name": "Century IRON AND Steel Industrial",
+     "outcome": "rejected",
+     "why": "Taiwan-listed steel structures manufacturer (ticker 9958 in the database); no evidence of any link; page not reopened."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001936106",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1879016/000147083125000237/0001470831-25-000237.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Century Vision Holdings Ltd is a BVI-incorporated SEC reporting owner (CIK 1936106) filing as insider of Ivanhoe Electric, c/o Chow Tai Fook group address in Hong Kong",
+     "url": "https://www.sec.gov/Archives/edgar/data/1879016/000147083125000237/0001470831-25-000237.txt",
+     "phrase": "COMPANY CONFORMED NAME: Century Vision Holdings Ltd CENTRAL INDEX KEY: 0001936106",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "IN-0072 is a US aluminum producer",
+     "url": "https://en.wikipedia.org/wiki/Century_Aluminum",
+     "phrase": "Century Aluminum Company is a US-based producer of primary aluminum, with aluminum plants in Kentucky, South Carolina, and Iceland.",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "Century Vision Holdings is a holding vehicle of the Chow Tai Fook group (per Exa answer and filing addresses); the group is not in the candidates. Name overlap with 'Century' only."
+  },
+  {
+   "entita_id": "E0043",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0214",
+     "name": "Fidelity International",
+     "outcome": "rejected",
+     "why": "FIL Limited, Bermuda/UK; spun out of the Boston Fidelity group in 1980 and independent since; SEC filer FMR is a Delaware LLC in Boston."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000035368",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/35368/000087846725000114/0000878467-25-000114.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC filer is Fidelity Management & Research Co LLC, CIK 35368, Boston MA",
+     "url": "https://www.sec.gov/Archives/edgar/data/35368/000087846725000114/0000878467-25-000114.txt",
+     "phrase": "COMPANY CONFORMED NAME: Fidelity Management & Research Co LLC CENTRAL INDEX KEY: 0000035368",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Fidelity International was spun out as an independent business in 1980",
+     "url": "https://en.wikipedia.org/wiki/Fidelity_International",
+     "phrase": "Fidelity International was originally established in 1969 as the international investment subsidiary of Fidelity Investments in Boston before being spun out as an independent business in 1980.",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "Same brand and historical origin, different legal entities in different countries. Wikipedia is secondary; a primary FIL Limited registry page was not reopened. The FMR LLC group card (if any) is not in the candidates; FMR Co LLC is a subsidiary of FMR LLC per Exa (Form ADV not phrase-verified)."
+  },
+  {
+   "entita_id": "E0059",
+   "verdict": "unclear",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0339",
+     "name": "Koch",
+     "outcome": "rejected",
+     "why": "Card is a brand-level name created from a Crunchbase top-investors list (country note says 'Wichita KS USA (Koch Industries)'); no registry data, so cannot tell whether it means Koch Industries, Koch Investments Group or another Koch entity."
+    }
+   ],
+   "identifiers": [],
+   "evidence": [
+    {
+     "claim": "Koch Industries, Inc. is the Wichita parent and in 2022 set up Koch Investments Group, LLC as the group investing platform (a separate legal entity)",
+     "url": "https://www.kochinc.com/media-resources/koch-industries-announces-subsidiary-realignment",
+     "phrase": "Investments: Koch Investments Group, LLC (KIG), and its subsidiaries will become Koch's investing platform",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Koch restructured in 2024: Koch, Inc. is now the top-level holding with Koch Companies, LLC holding Koch Industries (kochinc.com 'continual transformation'). The card name 'Koch' does not say which entity. Possibly the same group (related_group) or an investing arm; not provable from the card."
+  },
+  {
+   "entita_id": "E0070",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IN-1381",
+     "name": "MOOG Class A",
+     "outcome": "rejected",
+     "why": "Moog Inc. share class (listed company, East Aurora NY); the SECT is a trust that holds Moog shares, not the issuer."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001664930",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1664930/000166493020000002/sectsch13da6.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SECT is an independent legal entity holding Moog shares for employee benefit plans",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000166493018000004/exhibit101-moogxsectx2014r.htm",
+     "phrase": "The parties intend that the Trust will be an independent legal entity with title to and power to convey all of its assets.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SECT was set up to acquire and hold shares of Moog",
+     "url": "https://www.sec.gov/Archives/edgar/data/67887/000166493018000004/exhibit101-moogxsectx2014r.htm",
+     "phrase": "was established in December 2003 to acquire and hold shares of Moog",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "CIK 1664930 comes from the Exa answer; the sectsch13da6.htm page was not reopened. The SECT is an owner of Moog, so it should never be merged with the issuer card."
+  },
+  {
+   "entita_id": "E0076",
+   "verdict": "unclear",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0437",
+     "name": "Orion Resource Partners",
+     "outcome": "rejected",
+     "why": "Brand-level card with no registry data; the SEC filer is the Delaware LP 'Orion Resource Partners (USA) LP' (CRD 161327), one of several group entities; unclear if the card means the LP or the group."
+    },
+    {
+     "id": "IV-0436",
+     "name": "Orion Mine Finance",
+     "outcome": "rejected",
+     "why": "Orion Mine Finance is the older mining-finance brand of the same group; the relying advisers carry the name but are distinct legal entities."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "registry",
+     "value": "CRD 161327 / SEC file 801-73641",
+     "source_url": "https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1036273"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The adviser has fourteen relying advisers including several Orion Mine Finance entities, so group members are separate legal entities",
+     "url": "https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1036273",
+     "phrase": "ORP USA has fourteen relying advisers",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "The adviser's own legal name and CRD number",
+     "url": "https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1036273",
+     "phrase": "This Brochure provides information about the qualifications and business practices of Orion Resource Partners (USA) LP",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Likely IV-0437 is the group brand and the SEC filer is its US adviser (same group, not proven the same legal entity). Left unclear to avoid assigning the filer to a brand card."
+  },
+  {
+   "entita_id": "E0086",
+   "verdict": "related_group",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0509",
+     "name": "Silver Lake",
+     "outcome": "rejected",
+     "why": "Silver Lake is the private equity firm (Silver Lake Group, L.L.C. / Silver Lake Technology Management, L.L.C.); the 'Equityholders' are two other Delaware LPs."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001868088",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312524254323/0001193125-24-254323.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Silver Lake Equityholders are two LPs whose general partner is managed by a Silver Lake co-CEO; Silver Lake funds do not hold TKO directly",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312524254323/0001193125-24-254323.txt",
+     "phrase": "Investment funds managed by Silver Lake do not directly hold any equity securities of the Issuer.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Silver Lake Equityholders' general partner and the link to Silver Lake Group",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312524254323/0001193125-24-254323.txt",
+     "phrase": "which is the general partner of each of the Silver Lake Equityholders",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Silver Lake the firm is an adviser",
+     "url": "https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1038393",
+     "phrase": "This brochure provides information about the qualifications and business practices of Silver Lake Technology Management, L.L.C.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Different legal entities (two Delaware LPs vs the Silver Lake management company), connected through Egon Durban and the Silver Lake name. related_group chosen because of the shared control/name; could also be read as different_entity. Not a proposal for a group link."
+  },
+  {
+   "entita_id": "E0103",
+   "verdict": "different_entity",
+   "db_id": "",
+   "db_name": "",
+   "candidates_considered": [
+    {
+     "id": "IV-0589",
+     "name": "Vanguard Ventures",
+     "outcome": "rejected",
+     "why": "Independent Palo Alto venture capital firm founded 1981 by Jack Gill, unrelated to the Pennsylvania asset manager."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000102909",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/102909/000010290925000304/0000102909-25-000304.txt"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC filer is Vanguard Group Inc, CIK 102909, Pennsylvania",
+     "url": "https://www.sec.gov/Archives/edgar/data/102909/000010290925000304/0000102909-25-000304.txt",
+     "phrase": "COMPANY CONFORMED NAME: VANGUARD GROUP INC CENTRAL INDEX KEY: 0000102909",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Vanguard Ventures is a Palo Alto venture firm founded by Jack Gill in 1981",
+     "url": "https://venturebeat.com/business/vc-veteran-jack-gill-joins-daughters-firm-maven",
+     "phrase": "Gill, in turn, founded Palo Alto's Vanguard Ventures, a venture firm that performed exceptionally after its debut in 1981",
+     "source_kind": "secondary"
+    }
+   ],
+   "notes": "The database has no card for The Vanguard Group among the candidates; I did not search the whole database for one. Vanguard Ventures is described as independent (Preqin) and has no stated link to the Vanguard Group."
+  }
+ ]
+}
