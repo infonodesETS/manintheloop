@@ -763,3 +763,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Scritto (solo documentazione):** in `STATUS.md` la sezione «Ripartenza» (registrare le PR non citate; regola di lavoro; pilota agentico come prossimo lavoro; `parte_di` in attesa del sito) e tolta la voce superata su `check_docs.py`; in `reference/METODO-AGENTICO.md` quattro lezioni della verifica dei legami (PASS non è prova; niente ipotesi nell'istruzione; GLEIF e Exhibit 21 non provano il legame diretto; dettaglio segnalato dall'agente da cercare prima nei documenti); registro del piano con la #67.
 - **Regola (Nelson, 2026-11-16):** prima di proporre lavoro su una scheda o su un caso, cercare l'ID in log, `ROADMAP.md`, `STATUS.md` e `git log`, e riferire cosa è già deciso. Motivo: `IN-1352` Alcoa Warrick era stato riproposto come caso aperto ma era già chiuso (PR #41, #43, #45, foglio B3-11, backlog in `ROADMAP.md`).
 - **Stato alla chiusura:** `validate.py` PASSED (controllo 12: 28 casi noti, 13 risolti); `main` = `origin/main`; `inbox/` vuota; `work/verifica-parentela/` non tracciata (istruzione, controllo e 6 risultati degli agenti).
+
+
+### 2026-11-16 — PR #68 fusa ☑ (branch `docs/registro-pr68`, non pushato)
+
+- **PR #68** (`2561c4a`, solo documentazione) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main`.
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni; controllo 12: 28 casi noti, 13 risolti, quindi 15 da trattare).
+- **Scritto (solo documentazione):** registro del piano e questa voce; tolta da `STATUS.md` la sezione «Ripartenza» (punto 1 eseguito; le regole dei punti 2-4 restano in «Prossimi lavori»).

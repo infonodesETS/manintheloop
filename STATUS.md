@@ -3,13 +3,6 @@
 > Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
 > Ultimo aggiornamento: 2026-11-16 (ripartenza per il pilota agentico; modello `parte_di` fissato e provato su copie). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
 
-## Ripartenza (eseguire per prima, poi cancellare quando fatta)
-
-1. **Rimettere in pari i documenti:** `python3 scripts/check_docs.py`; le PR fuse non citate (la #67 e la PR che ha scritto questa sezione: una PR non cita se stessa) si registrano nel registro del piano e nel log con una PR di sola documentazione. Poi togliere questa sezione.
-2. **Regola di lavoro (Nelson, 2026-11-16, dopo il caso Alcoa Warrick):** prima di proporre lavoro su una scheda o su un caso, cercare il suo ID in `reference/LOG-RIORGANIZZAZIONE.md`, `ROADMAP.md`, `STATUS.md` e con `git log -S"ID"`, e riferire cosa risulta già deciso. Non chiedere a Nelson ciò che i documenti già dicono. `IN-1352` Alcoa Warrick è chiuso (PR #41, #43, #45, foglio B3-11, riga di backlog in `ROADMAP.md`): non riaprirlo.
-3. **Prossimo lavoro: pilota agentico** sulle schede del gruppo A dei 41 QID rimessi non ancora trattate. Quante restano: `python3 scripts/validate.py`, controllo 12 (28 casi noti, 13 risolti al 2026-11-16). Procedura nella voce «Sequenza proposta dall'AI il 2026-11-14» qui sotto e in `reference/METODO-AGENTICO.md` (lezioni del 2026-11-16 nei «Limiti noti»); istruzione e controllo in `work/verifica-qid/` (non tracciata); chiave Exa in `~/.config/infonodes/exa.env` (da rigenerare a B3 finita). Agenti in sola lettura, controllo rilanciato da me, tabella a Nelson, patch solo con il suo ok.
-4. **Non scrivere i primi dati `parte_di`:** aspettano l'adattamento del sito (decisione di Nelson, 2026-11-16).
-
 ## Dove siamo
 
 - **B3 (pulizia duplicati):** pilota di 10 casi in `main`; **non chiuso** (casi aperti sotto). Controlli A/B sul foglio compilati con esiti approvati da Nelson; il foglio è chiuso (11 righe con esito; B3-04 verificata su GLEIF, B3-09 Wsense, B3-10 e B3-11 chiuse il 2026-11-16, vedi il log); i residui di B3 sono tra i casi aperti qui sotto. Metodo, tabella dei casi e regola sulle classi: [`reference/B3-METODO.md`](reference/B3-METODO.md).
@@ -54,6 +47,7 @@ Su 41 entità attive il QID era stato tolto con `qid_removed` il 2026-04-23 e fu
 ## Regole che valgono sempre
 
 - **Domande → rispondere e fermarsi.** «Voglio che… + domande» è una richiesta di proposta, non un via libera. Nel dubbio è una domanda.
+- **Prima di proporre lavoro su una scheda o un caso** (Nelson, 2026-11-16, dopo il caso Alcoa Warrick): cercare il suo ID in `reference/LOG-RIORGANIZZAZIONE.md`, `ROADMAP.md`, `STATUS.md` e con `git log -S"ID"`, e riferire cosa risulta già deciso; non chiedere a Nelson ciò che i documenti già dicono. `IN-1352` è chiuso (PR #41, #43, #45): non riaprirlo.
 - **Mai push né modifiche su `main`** (in `main` si entra solo da un branch con PR). Push e PR li fa Nelson dal web (`gh` non c'è). Titolo, descrizione e ogni testo da inviare: testo semplice (niente markdown) tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE».
 - **Quante PR (Nelson, 2026-11-13; Andrea ha risposto via mail il 2026-11-14; testo in piano §0.3):** documenti nella PR del lavoro a cui si riferiscono; PR di sola documentazione solo a fine giornata o se serve a un altro; dati una PR per caso o gruppo piccolo omogeneo.
 - **`reference/UPDATE_PROTOCOL.md` si legge per intero prima di qualunque modifica ai dati** (regola di Nelson, 2026-11-15), anche per una sola scheda. Nel riassunto iniziale si dice se è stato letto.
