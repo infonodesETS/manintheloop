@@ -1,0 +1,21 @@
+{
+  "entity_id": "IN-1021",
+  "entity_name": "Safran Data Systems",
+  "qid": "Q3461386",
+  "wikidata_label": "Safran Electronics & Defense",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "company in the Safran Group",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q3461386 is Safran Electronics & Defense (instance of business, HQ Paris, site safran-electronics-defense.com), the parent company. Safran Data Systems is a separate French SAS (SIREN 382360956), a subsidiary of Safran Electronics & Defense.",
+  "entity_is": "Safran Data Systems, a French SAS (SIREN 382360956, registered office Les Ulis), subsidiary of Safran Electronics & Defense, which belongs to the Safran group.",
+  "identifiers": [
+    {"type": "SIREN", "value": "382360956", "source_url": "https://auregistre.fr/entreprise/safran-data-systems-382360956"}
+  ],
+  "evidence": [
+    {"claim": "Safran Data Systems is a subsidiary of Safran Electronics & Defense (the entity of Q3461386)", "url": "https://www.safran-group.com/companies/safran-data-systems", "phrase": "Safran Data Systems (Subsidiary of Safran Electronics & Defense)", "source_kind": "primary"},
+    {"claim": "Safran Data Systems is a separate legal entity with its own SIREN and legal form SAS", "url": "https://auregistre.fr/entreprise/safran-data-systems-382360956", "phrase": "Son SIREN est 382360956, sa forme juridique est « SAS ».", "source_kind": "secondary"},
+    {"claim": "The SIREN 382360956 is a legal unit with its own establishments, as shown by the official company directory", "url": "https://annuaire-entreprises.data.gouv.fr/etablissement/38236095600132", "phrase": "Unité légale ‣ 382 360 956 en activité", "source_kind": "primary"}
+  ],
+  "other_entities_with_same_qid": ["IN-1024"],
+  "notes": "IN-1024 (Safran Electronics Defense, PIC 999954668) currently holds the same QID and is the right holder. History shows the QID was removed on 2026-04-23 and re-added on 2026-06-18 by search_missing_qids.py (search name 'Safran Data Systems'). The EDF block (PIC 934220290, Villejust) was not matched to the SIREN; the registered office in the registry is Les Ulis. The Crunchbase block (Safran Electronics & Defense, Grand Prairie, Texas) is wrong for this entity and was already flagged in validation as a mismatch. Wikidata label read in en and fr, identical."
+}

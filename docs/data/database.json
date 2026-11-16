@@ -110785,7 +110785,7 @@
       ],
       "name": "Beyond Gravity Austria",
       "sector": null,
-      "wikidata_id": "Q663885",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -110860,25 +110860,7 @@
           "wikipedia_url": null,
           "website": "https://www.beyondgravity.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Beyond Gravity",
-          "description": "Swiss aerospace business",
-          "aliases": [
-            "RUAG Schweiz AG",
-            "RUAG Space"
-          ],
-          "instance_of": [
-            "joint-stock company"
-          ],
-          "country": "Switzerland",
-          "inception": "2009",
-          "headquarters": "Zurich",
-          "official_website": "https://www.beyondgravity.com",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -110978,6 +110960,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 972664300, 1 projects, €151,999 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q663885",
+          "new": null,
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Austria' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0528 had the same QID. The entity is: Beyond Gravity Austria GmbH, a Vienna limited liability company registered in the Firmenbuch under 91260g (formerly RUAG Space GmbH); not the Swiss Beyond Gravity group (Firmenbuch extract read through a web page; the parent company is not named because the Firmenbuch and the GLEIF record give different ones). A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Beyond Gravity",
+            "description": "Swiss aerospace business",
+            "aliases": [
+              "RUAG Schweiz AG",
+              "RUAG Space"
+            ],
+            "instance_of": [
+              "joint-stock company"
+            ],
+            "country": "Switzerland",
+            "inception": "2009",
+            "headquarters": "Zurich",
+            "official_website": "https://www.beyondgravity.com",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
+          }
         }
       ],
       "validation": [
@@ -111041,6 +111051,14 @@
           "description": "wikidata_id Q663885 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q663885",
+          "wikidata_label": "Beyond Gravity",
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Austria' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0528 had the same QID. The entity is: Beyond Gravity Austria GmbH, a Vienna limited liability company registered in the Firmenbuch under 91260g (formerly RUAG Space GmbH); not the Swiss Beyond Gravity group (Firmenbuch extract read through a web page; the parent company is not named because the Firmenbuch and the GLEIF record give different ones). A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
@@ -111053,7 +111071,7 @@
       ],
       "name": "Beyond Gravity Sweden",
       "sector": null,
-      "wikidata_id": "Q663885",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -111128,25 +111146,7 @@
           "wikipedia_url": null,
           "website": "https://www.beyondgravity.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Beyond Gravity",
-          "description": "Swiss aerospace business",
-          "aliases": [
-            "RUAG Schweiz AG",
-            "RUAG Space"
-          ],
-          "instance_of": [
-            "joint-stock company"
-          ],
-          "country": "Switzerland",
-          "inception": "2009",
-          "headquarters": "Zurich",
-          "official_website": "https://www.beyondgravity.com",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -111246,6 +111246,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999653095, 1 projects, €81,944 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q663885",
+          "new": null,
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Sweden' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0527 had the same QID. The entity is: Beyond Gravity Sweden AB, a Swedish limited company (aktiebolag), organisation number 556134-2204, Gothenburg (formerly RUAG Space AB); not the Swiss Beyond Gravity group (number from an aggregator and a GLEIF mirror, not from Bolagsverket). A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Beyond Gravity",
+            "description": "Swiss aerospace business",
+            "aliases": [
+              "RUAG Schweiz AG",
+              "RUAG Space"
+            ],
+            "instance_of": [
+              "joint-stock company"
+            ],
+            "country": "Switzerland",
+            "inception": "2009",
+            "headquarters": "Zurich",
+            "official_website": "https://www.beyondgravity.com",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
+          }
         }
       ],
       "validation": [
@@ -111309,6 +111337,14 @@
           "description": "wikidata_id Q663885 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q663885",
+          "wikidata_label": "Beyond Gravity",
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Sweden' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0527 had the same QID. The entity is: Beyond Gravity Sweden AB, a Swedish limited company (aktiebolag), organisation number 556134-2204, Gothenburg (formerly RUAG Space AB); not the Swiss Beyond Gravity group (number from an aggregator and a GLEIF mirror, not from Bolagsverket). A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
@@ -158517,7 +158553,7 @@
       ],
       "name": "Knds Belgium",
       "sector": null,
-      "wikidata_id": "Q19966744",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -158547,26 +158583,7 @@
           "wikipedia_url": null,
           "website": "https://www.knds.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "KNDS",
-          "description": "European defence company",
-          "aliases": [
-            "KMW+Nexter Defense Systems",
-            "KNDS N.V."
-          ],
-          "instance_of": [
-            "business",
-            "enterprise"
-          ],
-          "country": "Netherlands",
-          "inception": "2015-10-02",
-          "headquarters": "Amsterdam",
-          "official_website": "https://www.knds.com",
-          "isin": null,
-          "employees": 9491,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/KNDS"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -158657,6 +158674,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 892829129, 1 projects, €92,500 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q19966744",
+          "new": null,
+          "description": "QID Q19966744 removed: on Wikidata it is 'KNDS'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Knds Belgium' to the item of the KNDS group; removed before by manual patch on 2026-04-23. The QID stays on IN-1301. The entity is: KNDS Belgium, a Belgian public limited company (SA), enterprise number BE 0466.712.134, registered office Seneffe (Petit-Roeulx-lez-Nivelles), formerly MECAR (renamed April 2024); not the KNDS group. A correct QID may not exist: to be searched with the QID pipeline. The enterprise number comes from aggregators and the National Bank of Belgium page proves only the address; the link to the group was not proven by a reopened page",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "KNDS",
+            "description": "European defence company",
+            "aliases": [
+              "KMW+Nexter Defense Systems",
+              "KNDS N.V."
+            ],
+            "instance_of": [
+              "business",
+              "enterprise"
+            ],
+            "country": "Netherlands",
+            "inception": "2015-10-02",
+            "headquarters": "Amsterdam",
+            "official_website": "https://www.knds.com",
+            "isin": null,
+            "employees": 9491,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/KNDS"
+          }
         }
       ],
       "validation": [
@@ -158702,6 +158748,14 @@
           "description": "wikidata_id Q19966744 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q19966744",
+          "wikidata_label": "KNDS",
+          "description": "QID Q19966744 removed: on Wikidata it is 'KNDS'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Knds Belgium' to the item of the KNDS group; removed before by manual patch on 2026-04-23. The QID stays on IN-1301. The entity is: KNDS Belgium, a Belgian public limited company (SA), enterprise number BE 0466.712.134, registered office Seneffe (Petit-Roeulx-lez-Nivelles), formerly MECAR (renamed April 2024); not the KNDS group. A correct QID may not exist: to be searched with the QID pipeline. The enterprise number comes from aggregators and the National Bank of Belgium page proves only the address; the link to the group was not proven by a reopened page",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
@@ -159211,7 +159265,7 @@
       ],
       "name": "Knds France Robotics",
       "sector": null,
-      "wikidata_id": "Q19966744",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -159241,26 +159295,7 @@
           "wikipedia_url": null,
           "website": "https://www.nexter-robotics.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "KNDS",
-          "description": "European defence company",
-          "aliases": [
-            "KMW+Nexter Defense Systems",
-            "KNDS N.V."
-          ],
-          "instance_of": [
-            "business",
-            "enterprise"
-          ],
-          "country": "Netherlands",
-          "inception": "2015-10-02",
-          "headquarters": "Amsterdam",
-          "official_website": "https://www.knds.com",
-          "isin": null,
-          "employees": 9491,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/KNDS"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -159351,6 +159386,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 940660023, 2 projects, €1,478,469 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q19966744",
+          "new": null,
+          "description": "QID Q19966744 removed: on Wikidata it is 'KNDS'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Knds France Robotics' to the item of the KNDS group; removed before by manual patch on 2026-04-23. The QID stays on IN-1301. The entity is: KNDS France Robotics (formerly Nexter Robotics), a French single-shareholder SAS (SASU), SIREN 538 115 684, RCS Versailles, wholly owned by KNDS France according to knds.com; not the KNDS group (SIREN and legal form from an aggregator, not from the registry). A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "KNDS",
+            "description": "European defence company",
+            "aliases": [
+              "KMW+Nexter Defense Systems",
+              "KNDS N.V."
+            ],
+            "instance_of": [
+              "business",
+              "enterprise"
+            ],
+            "country": "Netherlands",
+            "inception": "2015-10-02",
+            "headquarters": "Amsterdam",
+            "official_website": "https://www.knds.com",
+            "isin": null,
+            "employees": 9491,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/KNDS"
+          }
         }
       ],
       "validation": [
@@ -159396,6 +159460,14 @@
           "description": "wikidata_id Q19966744 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q19966744",
+          "wikidata_label": "KNDS",
+          "description": "QID Q19966744 removed: on Wikidata it is 'KNDS'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Knds France Robotics' to the item of the KNDS group; removed before by manual patch on 2026-04-23. The QID stays on IN-1301. The entity is: KNDS France Robotics (formerly Nexter Robotics), a French single-shareholder SAS (SASU), SIREN 538 115 684, RCS Versailles, wholly owned by KNDS France according to knds.com; not the KNDS group (SIREN and legal form from an aggregator, not from the registry). A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
@@ -191019,7 +191091,7 @@
       ],
       "name": "Safran Data Systems",
       "sector": null,
-      "wikidata_id": "Q3461386",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -191095,24 +191167,7 @@
           "wikipedia_url": null,
           "website": "https://www.safran-electronics-defense.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Safran Electronics & Defense",
-          "description": "company in the Safran Group",
-          "aliases": [
-            "Sagem Défense Sécurité"
-          ],
-          "instance_of": [
-            "organization"
-          ],
-          "country": "France",
-          "inception": "2005-05-10",
-          "headquarters": "Paris",
-          "official_website": "https://www.safran-electronics-defense.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Safran%20Electronics%20%26%20Defense"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -191212,6 +191267,33 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 934220290, 3 projects, €1,867,221 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q3461386",
+          "new": null,
+          "description": "QID Q3461386 removed: on Wikidata it is 'Safran Electronics & Defense'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Safran Data Systems' to the item of its parent company; removed before by manual patch on 2026-04-23. The QID stays on IN-1024. The entity is: Safran Data Systems, a French SAS, SIREN 382 360 956 (registry: annuaire-entreprises.data.gouv.fr), registered office Les Ulis, a subsidiary of Safran Electronics & Defense according to safran-group.com; not Safran Electronics & Defense itself. The EDF PIC 934220290 (Villejust) was not matched to this SIREN. A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Safran Electronics & Defense",
+            "description": "company in the Safran Group",
+            "aliases": [
+              "Sagem Défense Sécurité"
+            ],
+            "instance_of": [
+              "organization"
+            ],
+            "country": "France",
+            "inception": "2005-05-10",
+            "headquarters": "Paris",
+            "official_website": "https://www.safran-electronics-defense.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Safran%20Electronics%20%26%20Defense"
+          }
         }
       ],
       "validation": [
@@ -191281,6 +191363,14 @@
           "description": "wikidata_id Q3461386 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q3461386",
+          "wikidata_label": "Safran Electronics & Defense",
+          "description": "QID Q3461386 removed: on Wikidata it is 'Safran Electronics & Defense'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Safran Data Systems' to the item of its parent company; removed before by manual patch on 2026-04-23. The QID stays on IN-1024. The entity is: Safran Data Systems, a French SAS, SIREN 382 360 956 (registry: annuaire-entreprises.data.gouv.fr), registered office Les Ulis, a subsidiary of Safran Electronics & Defense according to safran-group.com; not Safran Electronics & Defense itself. The EDF PIC 934220290 (Villejust) was not matched to this SIREN. A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
@@ -210017,7 +210107,7 @@
       ],
       "name": "Telespazio France",
       "sector": null,
-      "wikidata_id": "Q662824",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -210091,24 +210181,7 @@
           "wikipedia_url": null,
           "website": "https://www.telespazio.com/fr"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Telespazio",
-          "description": "Italian company",
-          "aliases": [
-            "Telespazio Spa"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Italy",
-          "inception": "1961-10-18",
-          "headquarters": "Rome",
-          "official_website": "https://www.telespazio.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Telespazio"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -210208,6 +210281,33 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 997899044, 1 projects, €568,023 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q662824",
+          "new": null,
+          "description": "QID Q662824 removed: on Wikidata it is 'Telespazio'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telespazio France' to the item of the Italian Telespazio; removed before by manual patch on 2026-04-23. The QID stays on IN-1125. The entity is: Telespazio France, a French SAS with registered office in Toulouse, RCS Toulouse 439 969 569 (telespazio.fr legal notice), part of the Telespazio group, a joint venture of Leonardo (67%) and Thales (33%); not the Italian Telespazio. A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Telespazio",
+            "description": "Italian company",
+            "aliases": [
+              "Telespazio Spa"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Italy",
+            "inception": "1961-10-18",
+            "headquarters": "Rome",
+            "official_website": "https://www.telespazio.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Telespazio"
+          }
         }
       ],
       "validation": [
@@ -210277,6 +210377,14 @@
           "description": "wikidata_id Q662824 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q662824",
+          "wikidata_label": "Telespazio",
+          "description": "QID Q662824 removed: on Wikidata it is 'Telespazio'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telespazio France' to the item of the Italian Telespazio; removed before by manual patch on 2026-04-23. The QID stays on IN-1125. The entity is: Telespazio France, a French SAS with registered office in Toulouse, RCS Toulouse 439 969 569 (telespazio.fr legal notice), part of the Telespazio group, a joint venture of Leonardo (67%) and Thales (33%); not the Italian Telespazio. A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []

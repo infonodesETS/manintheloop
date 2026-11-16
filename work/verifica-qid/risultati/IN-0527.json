@@ -1,0 +1,53 @@
+{
+  "entity_id": "IN-0527",
+  "entity_name": "Beyond Gravity Austria",
+  "qid": "Q663885",
+  "wikidata_label": "Beyond Gravity",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Swiss aerospace business",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q663885 is Beyond Gravity (formerly RUAG Space), the Swiss aerospace group (country Switzerland, seat Zurich-area item Q72). IN-0527 is Beyond Gravity Austria GmbH, a Vienna limited liability company that is a subsidiary of Beyond Gravity Sweden AB, not the group parent.",
+  "entity_is": "Beyond Gravity Austria GmbH, GmbH registered in the Firmenbuch under 91260g (Wien), formerly RUAG Space GmbH; sole shareholder Beyond Gravity Sweden AB; LEI direct parent RUAG International Holding AG, ultimate parent Swiss Confederation.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Firmenbuch 91260g",
+      "source_url": "https://www.evi.gv.at/f/91260g"
+    },
+    {
+      "type": "LEI",
+      "value": "5299002BL21IQ3B45Q05",
+      "source_url": "https://lei.report/LEI/5299002BL21IQ3B45Q05/"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Entity is a GmbH in the Vienna commercial register with number 91260g",
+      "url": "https://www.evi.gv.at/f/91260g",
+      "phrase": "Gesellschaft mit beschränkter Haftung",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Sole shareholder is Beyond Gravity Sweden AB",
+      "url": "https://www.evi.gv.at/f/91260g",
+      "phrase": "Gesellschafter/in 1 Person\n\n- Beyond Gravity Sweden AB",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "LEI record shows registered entity ID 91260g, former name RUAG Space GmbH, and a Swiss ultimate parent",
+      "url": "https://lei.report/LEI/5299002BL21IQ3B45Q05/",
+      "phrase": "RUAG Space GmbH — PREVIOUS_LEGAL_NAME",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "LEI record: entity is a subsidiary of RUAG International Holding AG",
+      "url": "https://lei.report/LEI/5299002BL21IQ3B45Q05/",
+      "phrase": "Direct parent RUAG International Holding AG",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0528"
+  ],
+  "notes": "IN-0528 (Beyond Gravity Sweden, PIC 999653095) shares the same QID; not decided here. The Crunchbase block on IN-0527 describes the group (Bern, ground support equipment), not the Austrian GmbH. The QID was removed on 2026-04-23 and re-added on 2026-06-18 by search_missing_qids.py. evi.gv.at is the Austrian Firmenbuch extract portal but was accessed via Exa as a web page, so marked secondary. P856 on Q663885 lists the group sites; P749 parent is Q667060. Wikidata seat Q72 is Zurich. Exa answer was consistent with these sources."
+}

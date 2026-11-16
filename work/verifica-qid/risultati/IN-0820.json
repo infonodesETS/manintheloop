@@ -1,0 +1,49 @@
+{
+  "entity_id": "IN-0820",
+  "entity_name": "Knds Belgium",
+  "qid": "Q19966744",
+  "wikidata_label": "KNDS",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "European defence company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q19966744 is KNDS, the European defence group (instance of business/enterprise, country Netherlands, HQ Amsterdam, website knds.com). The card is KNDS Belgium, a Belgian public limited company (formerly MECAR) with enterprise number 0466.712.134, a separate legal entity from the group holding.",
+  "entity_is": "Belgian public limited company (societe anonyme), enterprise number 0466.712.134, registered office Rue Grinfaux 50, 7181 Seneffe (Petit-Roeulx-lez-Nivelles); formerly MECAR, renamed KNDS Belgium in April 2024; ammunition maker in the KNDS group.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "BE 0466.712.134 (Belgian enterprise number / VAT BE0466712134)",
+      "source_url": "https://www.belgium-search.be/en/0466.712.134/knds-belgium"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "KNDS Belgium is a Belgian public limited company with a separate enterprise number",
+      "url": "https://www.belgium-search.be/en/0466.712.134/knds-belgium",
+      "phrase": "The enterprise number of KNDS Belgium is BE 0466.712.134.",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Registered office of KNDS Belgium in the National Bank of Belgium consultation",
+      "url": "https://consult.cbso.nbb.be/consult-enterprise/0466712134",
+      "phrase": "Rue Grinfaux, 50 7181 Seneffe Belgique",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Company formerly MECAR, renamed KNDS Belgium, registered under number 0466.712.134",
+      "url": "https://www.companyweb.be/company/0466712134/free-pub/23572793",
+      "phrase": "L’assemblée décide de modifier la dénomination de la société en « KNDS Belgium ».",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Belgian company page on the group site",
+      "url": "https://knds.com/en/subsidiaries/knds-belgium",
+      "phrase": "Based in Belgium since 1938, KNDS Belgium has built a worldwide reputation in the design and production of a wide range of ammunition.",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0824",
+    "IN-1301"
+  ],
+  "notes": "History: QID set 2026-04-13, removed 2026-04-23 (manual patch, 'KNDS Belgium is subsidiary; Q19966744 kept on IN-1301'), set again 2026-06-18 by search_missing_qids.py (human-reviewed per its description). Other cards with same QID: IN-0824 (Knds France Robotics, Versailles) and IN-1301 (KNDS, the group). Parent-company link was not proven by a reopened page (the knds.com page URL under /subsidiaries/ is the group's own listing); the Exa answer cited the 2025 KNDS directors report PDF, not reopened. Company registry source (NBB) shows legal form only in the reopened text, enterprise number is in the URL; belgium-search.be and companyweb.be are secondary aggregators of BCE/Moniteur belge data. Exa answer had citations to ejustice.just.fgov.be not reopened."
+}

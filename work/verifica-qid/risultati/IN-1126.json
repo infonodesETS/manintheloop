@@ -1,0 +1,23 @@
+{
+  "entity_id": "IN-1126",
+  "entity_name": "Telespazio France",
+  "qid": "Q662824",
+  "wikidata_label": "Telespazio",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Italian company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q662824 is Telespazio, the Italian parent company (country Italy, headquarters Rome, website telespazio.com). IN-1126 is Telespazio France, a French SAS registered in Toulouse under SIREN 439969569.",
+  "entity_is": "Telespazio France, a French SAS (societe par actions simplifiee) with registered office in Toulouse, RCS Toulouse 439 969 569, a subsidiary of the Telespazio group (joint venture Leonardo 67% / Thales 33%).",
+  "identifiers": [
+    {"type": "SIREN", "value": "439969569", "source_url": "https://www.telespazio.fr/en/legal-notice"},
+    {"type": "LEI", "value": "9695004UB9J93LK74477", "source_url": "https://www.lei-lookup.com/record/9695004UB9J93LK74477/"}
+  ],
+  "evidence": [
+    {"claim": "Telespazio France is a French SAS registered in Toulouse with RCS number 439 969 569", "url": "https://www.telespazio.fr/en/legal-notice", "phrase": "Company Name: Telespazio France", "source_kind": "primary"},
+    {"claim": "Legal form and registry of Telespazio France", "url": "https://www.telespazio.fr/en/legal-notice", "phrase": "RCS Number: 439 969 569 R.C.S. Toulouse", "source_kind": "primary"},
+    {"claim": "Telespazio group is a joint venture of Leonardo and Thales (parent group, not the French entity itself)", "url": "https://www.telespazio.fr/en/our-identity", "phrase": "Telespazio Group is a joint venture between Leonardo (67%) and Thales (33%)", "source_kind": "primary"},
+    {"claim": "LEI record gives the same French registration number", "url": "https://www.lei-lookup.com/record/9695004UB9J93LK74477/", "phrase": "Registration authority entity ID | 439969569", "source_kind": "secondary"}
+  ],
+  "other_entities_with_same_qid": ["IN-1125"],
+  "notes": "Wikidata label/description read from wbgetentities without a languages filter: en label 'Telespazio', en description 'Italian company', P17 Italy, P159 Rome, P856 telespazio.com. The QID was set on 2026-04-13, removed on 2026-04-23 (manual patch, note: subsidiary, parent kept on IN-1125) and put back on 2026-06-18 by search_missing_qids.py (human-reviewed via qid_candidates.json). IN-1125 'Telespazio' shares the QID and is not decided here. The Crunchbase block and sources.wikidata on IN-1126 describe the group/parent in part (Wikidata headquarters Rome conflicts with Toulouse; already noted in validation). Exa's own citations were reopened with Exa /contents; the INSEE PDF and CNES PDF were not reopened."
+}
