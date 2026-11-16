@@ -208708,7 +208708,7 @@
       ],
       "name": "Tekever Uas",
       "sector": null,
-      "wikidata_id": "Q24293069",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -208738,22 +208738,7 @@
           "wikipedia_url": null,
           "website": "https://www.tekever.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Tekever",
-          "description": "communications and defense company based in Lisbon, Portugal",
-          "aliases": [],
-          "instance_of": [
-            "enterprise"
-          ],
-          "country": "Portugal",
-          "inception": "2001",
-          "headquarters": null,
-          "official_website": "http://www.tekever.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Tekever"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -208844,6 +208829,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 899397387, 2 projects, €2,096,726 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q24293069",
+          "new": null,
+          "description": "QID Q24293069 removed: on Wikidata it is 'Tekever'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Tekever Uas' to the item of the Tekever group; removed before by manual patch on 2026-04-23. The QID stays on IN-1241. The entity is: TEKEVER UAS, S.A., a Portuguese public limited company (sociedade anonima), NIF 515306452, seat in Caldas da Rainha; a separate legal entity, not a duplicate of the Tekever group card. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: Diario da Republica despacho naming 'TEKEVER UAS, S. A., pessoa coletiva n.o 515306452'. Weak point: the incorporation date (2019-02-18) comes from an aggregator (rigorbiz.pt); a former majority owner mentioned by the search answer was not confirmed by a reopened source and is not stated here",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Tekever",
+            "description": "communications and defense company based in Lisbon, Portugal",
+            "aliases": [],
+            "instance_of": [
+              "enterprise"
+            ],
+            "country": "Portugal",
+            "inception": "2001",
+            "headquarters": null,
+            "official_website": "http://www.tekever.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Tekever"
+          }
         }
       ],
       "validation": [
@@ -208889,6 +208899,14 @@
           "description": "wikidata_id Q24293069 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q24293069",
+          "wikidata_label": "Tekever",
+          "description": "QID Q24293069 removed: on Wikidata it is 'Tekever'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Tekever Uas' to the item of the Tekever group; removed before by manual patch on 2026-04-23. The QID stays on IN-1241. The entity is: TEKEVER UAS, S.A., a Portuguese public limited company (sociedade anonima), NIF 515306452, seat in Caldas da Rainha; a separate legal entity, not a duplicate of the Tekever group card. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: Diario da Republica despacho naming 'TEKEVER UAS, S. A., pessoa coletiva n.o 515306452'. Weak point: the incorporation date (2019-02-18) comes from an aggregator (rigorbiz.pt); a former majority owner mentioned by the search answer was not confirmed by a reopened source and is not stated here",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
