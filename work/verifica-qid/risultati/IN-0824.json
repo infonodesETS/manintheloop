@@ -1,0 +1,22 @@
+{
+  "entity_id": "IN-0824",
+  "entity_name": "Knds France Robotics",
+  "qid": "Q19966744",
+  "wikidata_label": "KNDS",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "European defence company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q19966744 is KNDS, the European defence holding (KNDS N.V., Amsterdam, Netherlands, website knds.com). The entity is KNDS France Robotics, a French SAS (SIREN 538 115 684, RCS Versailles) wholly owned by KNDS France, so a subsidiary two levels below the QID's entity.",
+  "entity_is": "KNDS France Robotics, formerly Nexter Robotics: French single-shareholder simplified joint-stock company (SASU), SIREN 538 115 684, registered at the Versailles RCS, wholly owned subsidiary of KNDS France, which belongs to KNDS N.V.",
+  "identifiers": [
+    {"type": "other", "value": "SIREN 538 115 684", "source_url": "https://www.pappers.fr/entreprise/knds-france-robotics-538115684"},
+    {"type": "other", "value": "VAT FR23538115684", "source_url": "https://www.societe.com/societe/knds-france-robotics-538115684.html"}
+  ],
+  "evidence": [
+    {"claim": "The entity is a wholly owned subsidiary of KNDS France, not the KNDS group holding", "url": "https://knds.com/en/subsidiaries/knds-france-robotics", "phrase": "KNDS France Robotics was established in October 2012 as a wholly owned subsidiary of KNDS France.", "source_kind": "primary"},
+    {"claim": "Legal form is a single-shareholder SAS", "url": "https://www.pappers.fr/entreprise/knds-france-robotics-538115684", "phrase": "SASU, société par actions simplifiée unipersonnelle", "source_kind": "secondary"},
+    {"claim": "Registered at the Versailles commercial registry under SIREN 538 115 684", "url": "https://www.pappers.fr/entreprise/knds-france-robotics-538115684", "phrase": "538 115 684 R.C.S. Versailles", "source_kind": "secondary"}
+  ],
+  "other_entities_with_same_qid": ["IN-0820", "IN-1301"],
+  "notes": "Registry data reached only through aggregators (pappers.fr, societe.com), marked secondary; no primary registry page (INPI/Infogreffe) reopened. Exa /answer also cites knds.com for the subsidiary status. Same QID is on IN-0820 (Knds Belgium) and IN-1301 (KNDS, the parent, which looks like the legitimate holder). History shows the QID was nulled on 2026-04-23 as subsidiary and re-applied on 2026-06-18 by search_missing_qids.py. The company was formerly Nexter Robotics (renamed 2024). EDF website nexter-robotics.com is the old name. No Crunchbase block."
+}

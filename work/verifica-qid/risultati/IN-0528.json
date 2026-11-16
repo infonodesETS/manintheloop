@@ -1,0 +1,23 @@
+{
+  "entity_id": "IN-0528",
+  "entity_name": "Beyond Gravity Sweden",
+  "qid": "Q663885",
+  "wikidata_label": "Beyond Gravity",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Swiss aerospace business",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q663885 is the Swiss group Beyond Gravity (formerly RUAG Space; instance of Q134161, country Switzerland, HQ Q72 Zurich, inception 2009). The entity is Beyond Gravity Sweden AB, a Swedish limited company (org. no. 556134-2204) in Gothenburg, a subsidiary within the group.",
+  "entity_is": "Beyond Gravity Sweden AB, Aktiebolag, org. no. 556134-2204, Solhusgatan 11, Goteborg, Sweden; part of Beyond Gravity Holding Sweden AB; GLEIF direct parent RUAG International Holding AG; formerly RUAG Space AB.",
+  "identifiers": [
+    {"type": "other", "value": "556134-2204 (Swedish organisationsnummer)", "source_url": "https://www.allabolag.se/foretag/beyond-gravity-sweden-ab/g%C3%B6teborg/datorer-och-kringutrustningar-tillverkning/2JZ2V3WI63ILT"},
+    {"type": "LEI", "value": "529900PALD6X674DCN42", "source_url": "https://lei.report/LEI/529900PALD6X674DCN42/"}
+  ],
+  "evidence": [
+    {"claim": "Legal entity is a Swedish Aktiebolag with org. no. 556134-2204, based in Goteborg, part of Beyond Gravity Holding Sweden AB", "url": "https://www.allabolag.se/foretag/beyond-gravity-sweden-ab/g%C3%B6teborg/datorer-och-kringutrustningar-tillverkning/2JZ2V3WI63ILT", "phrase": "Juridiskt namn Beyond Gravity Sweden AB Organisationsnummer 556134-2204 Registreringsdatum 1970-03-19 Bolagsform Aktiebolag", "source_kind": "secondary"},
+    {"claim": "Entity is a subsidiary of Beyond Gravity Holding Sweden AB", "url": "https://www.allabolag.se/foretag/beyond-gravity-sweden-ab/g%C3%B6teborg/datorer-och-kringutrustningar-tillverkning/2JZ2V3WI63ILT", "phrase": "Del av Beyond Gravity Holding Sweden AB", "source_kind": "secondary"},
+    {"claim": "GLEIF record: registered entity ID 556134-2204, former name RUAG Space AB", "url": "https://lei.report/LEI/529900PALD6X674DCN42/", "phrase": "Registered entity ID\n: 556134-2204", "source_kind": "secondary"},
+    {"claim": "Company's own site lists Beyond Gravity Sweden AB as a separate Gothenburg location", "url": "https://www.beyondgravity.com/en/our-locations", "phrase": "Beyond Gravity Sweden AB Solhusgatan 11 412 76 Göteborg", "source_kind": "primary"}
+  ],
+  "other_entities_with_same_qid": ["IN-0527"],
+  "notes": "Registry data reached via aggregators (allabolag.se, GLEIF mirror lei.report), not Bolagsverket directly. Same QID also on IN-0527 (Beyond Gravity Austria); not decided here. Crunchbase block on this card describes the group (HQ Bern), not the Swedish AB. The QID was previously removed on 2026-04-23 and re-added on 2026-06-18 via search_missing_qids.py."
+}
