@@ -6218,12 +6218,10 @@
           "total_funding_native": null,
           "top_investors": [
             "KB Securities",
-            "Sam Shirazi Maqam",
             "Berkshire Hathaway",
             "Microsoft",
             "Venrock",
             "Sequoia Capital",
-            "Mike Markkula",
             "Matrix"
           ],
           "num_investors": 8,
@@ -6537,6 +6535,31 @@
             ]
           },
           "description": "Correct Crunchbase profile (Apple Inc., Cupertino, NASDAQ:AAPL) entered after removal of the wrong block apple-cbcd; values as shown by the page, funding amounts rounded by the page"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_cb_remove_investors.py",
+          "field": "sources.crunchbase.top_investors",
+          "old": [
+            "KB Securities",
+            "Sam Shirazi Maqam",
+            "Berkshire Hathaway",
+            "Microsoft",
+            "Venrock",
+            "Sequoia Capital",
+            "Mike Markkula",
+            "Matrix"
+          ],
+          "new": [
+            "KB Securities",
+            "Berkshire Hathaway",
+            "Microsoft",
+            "Venrock",
+            "Sequoia Capital",
+            "Matrix"
+          ],
+          "description": "Two natural persons (Mike Markkula, Sam Shirazi Maqam) removed from top_investors on purpose: no IV- entity is created for them by import_investors_crunchbase.py (decision of Nelson, 2026-11-16). The Crunchbase page lists 8 investors; the other 6 are kept."
         }
       ],
       "validation": [
@@ -6624,6 +6647,17 @@
           "status": "confirmed",
           "description": "Headquarters conflict reviewed: the old conflict came from the wrong Crunchbase block apple-cbcd (Saitama), removed on 2026-11-15. The correct Crunchbase profile now gives Cupertino, California, like Wikidata (Cupertino). No field changed.",
           "author": "nelsonmau (proposed by Claude, approved 2026-11-16)",
+          "datestamp": "2026-11-16"
+        },
+        {
+          "status": "crunchbase_field_edited",
+          "field": "top_investors",
+          "removed": [
+            "Mike Markkula",
+            "Sam Shirazi Maqam"
+          ],
+          "description": "Two natural persons (Mike Markkula, Sam Shirazi Maqam) removed from top_investors on purpose: no IV- entity is created for them by import_investors_crunchbase.py (decision of Nelson, 2026-11-16). The Crunchbase page lists 8 investors; the other 6 are kept.",
+          "author": "patch_cb_remove_investors.py",
           "datestamp": "2026-11-16"
         }
       ],
