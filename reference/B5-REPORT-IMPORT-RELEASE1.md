@@ -35,7 +35,7 @@ The data set identifies companies by ticker and CIK, the database by its own ids
 
 **Independent check.** For the cases where the database gave no sure signal (a shared ticker, similar names), AI agents with read-only access gave a second opinion. Role A (39 tickers) was **blind**: the agent did not see the proposal and searched for the card alone. Role B (25 holders) judged whether a holder is the same legal entity as a candidate card. Every claimed quote was reopened by a script and had to appear in the cited page; the verdicts that were not plain `same_entity` were read by a person.
 - Role A: 33 of 39 agreed with the table; 5 tickers that had no proposal were resolved (AIR → AAR Corp, T → AT&T, TEL → TE Connectivity, TKO → TKO Group, LOGI → Logitech International, whose card carries the Swiss ticker LOGN); 1 disagreement (KTOS, see section 6).
-- Role B: 1 same entity (Saudi Arabian Mining Company, Ma'aden), 13 different, 6 same group but different legal entities, 5 unclear. The 11 unclear or group cases became new nodes.
+- Role B: 1 same entity (Saudi Arabian Mining Company, Ma'aden), 13 different, 6 same group but different legal entities, 5 unclear. The 13 different, 6 same-group and 5 unclear holders all became new nodes (no group link is written, S6).
 
 ## 4. Checks on the result
 
