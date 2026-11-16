@@ -179748,7 +179748,7 @@
       ],
       "name": "Patria Aerostructures",
       "sector": null,
-      "wikidata_id": "Q613116",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -179778,26 +179778,7 @@
           "wikipedia_url": null,
           "website": "https://www.patriagroup.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Patria",
-          "description": "Finnish defence and aviation company",
-          "aliases": [
-            "Patria Plc",
-            "Patria Oyj"
-          ],
-          "instance_of": [
-            "business",
-            "enterprise"
-          ],
-          "country": "Finland",
-          "inception": "1997",
-          "headquarters": "Kluuvi",
-          "official_website": "https://www.patriagroup.com",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Patria%20%28company%29"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -179888,6 +179869,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 881717100, 2 projects, €103,807 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q613116",
+          "new": null,
+          "description": "QID Q613116 removed: on Wikidata it is 'Patria'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Patria Aerostructures' to the item of the Patria group; removed before by manual patch on 2026-04-23. The QID stays on IN-0951. The entity is: Patria Aerostructures Oy, a Finnish limited company (Oy), business ID 1919227-6, Halli (Jamsa), wholly owned by Patria Aviation Oy according to the Patria group corporate-structure page; not the Patria group. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: patriagroup.com contacts page (Business ID FI19192276) and corporate-structure table (100% subsidiary). Weak point: the registry data was read through an aggregator (asiakastieto.fi), not the official registry",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Patria",
+            "description": "Finnish defence and aviation company",
+            "aliases": [
+              "Patria Plc",
+              "Patria Oyj"
+            ],
+            "instance_of": [
+              "business",
+              "enterprise"
+            ],
+            "country": "Finland",
+            "inception": "1997",
+            "headquarters": "Kluuvi",
+            "official_website": "https://www.patriagroup.com",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Patria%20%28company%29"
+          }
         }
       ],
       "validation": [
@@ -179933,6 +179943,14 @@
           "description": "wikidata_id Q613116 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q613116",
+          "wikidata_label": "Patria",
+          "description": "QID Q613116 removed: on Wikidata it is 'Patria'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Patria Aerostructures' to the item of the Patria group; removed before by manual patch on 2026-04-23. The QID stays on IN-0951. The entity is: Patria Aerostructures Oy, a Finnish limited company (Oy), business ID 1919227-6, Halli (Jamsa), wholly owned by Patria Aviation Oy according to the Patria group corporate-structure page; not the Patria group. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: patriagroup.com contacts page (Business ID FI19192276) and corporate-structure table (100% subsidiary). Weak point: the registry data was read through an aggregator (asiakastieto.fi), not the official registry",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
