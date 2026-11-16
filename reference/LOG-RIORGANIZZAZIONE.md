@@ -748,3 +748,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Caso `IN-1312` Nammo (ok di Nelson sul valore e sulla fonte):** riverificato il registro di Brønnøysund (API ufficiale: NAMMO AS, 979984731, Aksjeselskap, iscritta il 1998-07-24, iscritta all'IVA, né fallita né in liquidazione); nessun'altra scheda con lo stesso valore. `scripts/patch_set_infonodes.py` (dry-run, history letta, `--apply`): `tax_id` da `null` a `NO979984731`; una voce di `history` e una `validation` `infonodes_field_set` con la fonte. `validate.py` PASSED; `check_b3_branch.py` segnala solo che la scheda è cambiata fuori dai suoi casi B3 (previsto per una correzione di campo; diff letto a mano: un valore, una voce di `history`, una di `validation`).
 - **Non verificato:** che `NO979984731` sia anche un numero IVA riconosciuto (VIES); il registro dice solo che l'organizzazione è iscritta all'IVA.
 - **Da fare (con ok di Nelson):** cancellare il branch locale `code/patch-set-infonodes`.
+
+
+### 2026-11-16 — PR #66 fusa ☑ (branch `docs/registro-pr66`, non pushato)
+
+- **PR #66** (`977815c`, 2 commit, +30/−2, un solo file di dati) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main`.
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); `IN-1312` ha `tax_id` `NO979984731`.
+- **Da fare (con ok di Nelson):** cancellare i branch locali fusi `code/patch-set-infonodes` e `data/nammo-in-1312-taxid-set`.
