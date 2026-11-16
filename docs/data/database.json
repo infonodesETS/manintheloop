@@ -6619,6 +6619,12 @@
           "description": "Correct Crunchbase profile (Apple Inc., Cupertino, NASDAQ:AAPL) entered after removal of the wrong block apple-cbcd; values as shown by the page, funding amounts rounded by the page",
           "author": "patch_set_crunchbase.py",
           "datestamp": "2026-11-16"
+        },
+        {
+          "status": "confirmed",
+          "description": "Headquarters conflict reviewed: the old conflict came from the wrong Crunchbase block apple-cbcd (Saitama), removed on 2026-11-15. The correct Crunchbase profile now gives Cupertino, California, like Wikidata (Cupertino). No field changed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-16)",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
