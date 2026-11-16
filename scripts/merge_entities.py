@@ -48,6 +48,41 @@ def rel_payload(r):
     return {k: v for k, v in r.items() if k not in IGNORE_REL_KEYS and k not in ("source", "target")}
 
 
+NEW_REL_TYPES = {"ownership", "role", "parte_di"}
+
+
+def rel_hist(r, field, old, new, description):
+    """History entry of a relationship. For the new types (S5) it carries the keys validate.py requires
+    (date, release, source_ref, field, old, new); the older relationship types keep the plain form."""
+    e = {"date": TODAY, "author": AUTHOR, "description": description}
+    if r.get("type") in NEW_REL_TYPES:
+        e.update({"release": None, "source_ref": "scripts/merge_entities.py", "field": field, "old": old, "new": new})
+    return e
+
+
+def parte_di_cycle(rels, loser, winner, gone, replaced_current):
+    """First entity found on a cycle if, after the merge, the parte_di links marked current form one
+    (A part of B ... part of A); None if there is none."""
+    mp = lambda x: winner if x == loser else x
+    up = {}
+    for r in rels:
+        if r.get("type") != "parte_di" or id(r) in gone:
+            continue
+        if replaced_current.get(id(r), r.get("current")) is True:
+            up.setdefault(mp(r["source"]), set()).add(mp(r["target"]))
+    for start in up:
+        stack, seen = list(up[start]), set()
+        while stack:
+            x = stack.pop()
+            if x == start:
+                return start
+            if x in seen:
+                continue
+            seen.add(x)
+            stack.extend(up.get(x, ()))
+    return None
+
+
 def ishares_id(x):
     return (x.get("etf_ticker"), x.get("stock_ticker"), x.get("source_file"))
 
@@ -212,6 +247,11 @@ def main():
         for c in conflicts:
             print("  -", c)
         sys.exit(2)
+    gone = {id(x) for x in dropped + kept_winner + loops} | {id(l_) for _, l_ in replaced}
+    cyc = parte_di_cycle(rels, a.loser, a.winner, gone, {id(t): l_.get("current") for t, l_ in replaced})
+    if cyc:
+        print("OPERAZIONE FERMATA: dopo l'unione i legami parte_di correnti formerebbero un ciclo passante per %s. Risolvere a mano (chiudere uno dei legami prima dell'unione)." % cyc)
+        sys.exit(2)
     if loops:
         preserved["self_loop_dropped"] = copy.deepcopy(loops)
         absorbed.append("relazioni: %d diventerebbero un anello su se stesse, tolte (--drop-self-loop) e conservate in history" % len(loops))
@@ -278,20 +318,22 @@ def main():
     for r in dropped + kept_winner + loops:
         rels.remove(r)
     for t, l_ in replaced:
+        before = rel_payload(t)
         for k in list(rel_payload(t)):
             del t[k]
         t.update(rel_payload(l_))
-        t.setdefault("history", []).append({"date": TODAY, "author": AUTHOR,
-                                            "description": "Content replaced with the version of %s (merge, --prefer-loser); previous content kept in history of %s" % (a.loser, a.winner)})
+        t.setdefault("history", []).append(rel_hist(t, "content", before, rel_payload(l_),
+                                            "Content replaced with the version of %s (merge, --prefer-loser); previous content kept in history of %s" % (a.loser, a.winner)))
     for r in replaced:
         rels.remove(r[1])
     for r in redirected:
+        field = "source" if r["source"] == a.loser else "target"
         if r["source"] == a.loser:
             r["source"] = a.winner
         if r["target"] == a.loser:
             r["target"] = a.winner
-        r.setdefault("history", []).append({"date": TODAY, "author": AUTHOR,
-                                            "description": "Entity reference redirected: %s -> %s (merge)" % (a.loser, a.winner)})
+        r.setdefault("history", []).append(rel_hist(r, field, a.loser, a.winner,
+                                            "Entity reference redirected: %s -> %s (merge)" % (a.loser, a.winner)))
     w.setdefault("history", []).extend(w_hist_add)
     if rename_entry:
         w["name"] = rename_entry["new_value"]
