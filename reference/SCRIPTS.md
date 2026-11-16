@@ -17,6 +17,8 @@ All screenshots taken during Playwright sessions must be saved to `tmp/playwrigh
 |---|---|---|
 | `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
 | `python3 scripts/check_docs.py` | Confronta le PR fuse in `main` con quelle citate in piano, log e `STATUS.md`; segnala l'arretrato (exit 1) | Yes |
+| `python3 -I scripts/check_parte_di_branch.py` | Controlla in sola lettura che un branch abbia solo aggiunto legami `parte_di` (e le relative validation) rispetto a `origin/main` | Yes |
+| `python3 scripts/add_parte_di.py FIGLIA CAPOGRUPPO …` | Dry-run di default: aggiunge UN legame `parte_di` con `--author` (approvazione) e `--history-letta --apply` (vedi `UPDATE_PROTOCOL.md`, *Group links*) | Dry-run yes; `--apply` no (id nuovo) |
 | `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
 | `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
 | `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |

@@ -98,6 +98,16 @@ Rules in `reference/S3-CLASSI-AZIONI.md` … `S7-RUOLI-E-PERSONE.md`; fields and
 4. `rawdata/` is never modified; every imported or discarded row appears in the reconciliation report (S4).
 5. Run `python3 scripts/validate.py` before every commit, as for any other change.
 
+### Group links (`parte_di`)
+
+Model and rules: `reference/SCHEMA.md` and `reference/S6-GESTORI.md`. One link per case:
+
+1. A primary source (registry, filing, GLEIF is only a pointer: see `diretta` in the schema) has been **reopened** and the phrase that names both child and parent has been copied; the parent card is checked to be that legal entity (name, registry number or QID, country).
+2. `python3 scripts/add_parte_di.py CHILD PARENT --forma … --current … --diretta … --as-of … --source-ref … --why "text in English" --author "nelsonmau (proposed by Claude, approved YYYY-MM-DD)"` (dry-run: it prints `history[]` and `validation[]` of both cards, which must be read; then add `--history-letta --apply`). It writes the relationship and one `confirmed` validation on the child.
+3. `python3 scripts/validate.py`, then `python3 -I scripts/check_parte_di_branch.py` (**not** `check_b3_branch.py`, which only knows the B3 cases and flags any other change). One commit per link.
+4. Merging two cards that carry `parte_di` links is handled by `merge_entities.py` (links are redirected like the other relationships; the merge stops in its dry-run if the result would make a cycle).
+5. When real data enters: regenerate the chatbot index (`scripts/build_chat_index.py`, it exports `tipo: parte_di`) only after telling the people who use it, and check how the site shows the new relationships.
+
 ---
 
 ## Updating an existing entity field
@@ -413,7 +423,7 @@ For `qid_removed` actions (subsidiaries with wrong parent QID), the `wikidata_id
 - Why the entity got it (CB name-match propagation, QID pipeline false positive, etc.)
 - What the entity actually is (national subsidiary, product division, etc.)
 - Whether a correct QID may exist (run QID pipeline to find it)
-- **Parent / group (rule of 2026-11-15):** when the entity is a subsidiary, the text names the legal parent as found in the source (name and registry number). The ID of a database card is written as the parent only if that card is the legal parent; if the card that keeps the QID is something else (a sibling, a division, another country), the text says only "the QID stays on IN-NNNN". Today the group link exists only in this text: the structured form (`parte_di` relationship, S6) is not in use yet and its model is still to be decided (see `STATUS.md`, «Prossimi lavori»). A subsidiary is **not** a duplicate: do not merge it into its parent.
+- **Parent / group (rule of 2026-11-15):** when the entity is a subsidiary, the text names the legal parent as found in the source (name and registry number). The ID of a database card is written as the parent only if that card is the legal parent; if the card that keeps the QID is something else (a sibling, a division, another country), the text says only "the QID stays on IN-NNNN". The structured form (`parte_di` relationship, S6, model fixed on 2026-11-16) is added case by case with `scripts/add_parte_di.py` (see *Group links* above); until a link is written there, the group link exists only in this text. A subsidiary is **not** a duplicate: do not merge it into its parent.
 
 ---
 

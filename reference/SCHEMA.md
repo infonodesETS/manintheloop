@@ -335,7 +335,7 @@ These relationships have **no `id`**. Do not assume `REL-NNNN` exists for them.
 | `edf_participation` | IN-* → EDF-* | Company participated in EDF project |
 | `ownership` | IV-* / IN-* / PER-* → IN-* | **New (S2).** Stake of ≥5% of capital or of votes (threshold S4) |
 | `role` | PER-* → IN-* | **New (S2, S7).** A role of a person in a company; Release 2 |
-| `parte_di` | IV-*/IN-* → IV-*/IN-* | **New (S6).** Group link: the source is part of the target. Added only after a person has checked it; always with `source_ref` |
+| `parte_di` | IV-*/IN-* → IV-*/IN-* | **New (S6).** Group link: the source (child) is part of the target (its legal parent). Added only after a person has checked it against a primary source; always with `source_ref`. Model fixed 2026-11-16, see below |
 
 ### New types: `ownership`, `role`, `parte_di`
 
@@ -355,7 +355,7 @@ These carry their **own `id`** (`REL-NNNN`, four digits or more, unique) and are
 }
 ```
 
-**Common fields** (all three types): `id`, `type`, `source`, `target`, `source_ref` (non-empty), `created_at`, optional `current` (boolean), optional `history`.
+**Common fields** (all three types): `id`, `type`, `source`, `target`, `source_ref` (non-empty), `created_at`, `current` (boolean; optional, but required for `parte_di`), optional `history`.
 
 **`ownership`** (S3, S4, S5):
 
@@ -372,7 +372,18 @@ Unique key: `(source, target, type, classe)`.
 
 **`role`** (S7; imported with Release 2): `role_code` (controlled vocabulary, defined by the mapping table before Release 2; today only checked as non-empty) and `role_text` (original wording of the filing, unchanged). A string with several roles becomes **several relationships**, all with the same `role_text`. Unique key: `(source, target, type, role_code)`. `role_code` is deliberately not called `role`, to avoid confusion with the `role` of `edf_participation`.
 
-**`parte_di`** (S6): group link between two entities already in the database. `validate.py` checks the shape; that a person has verified the link is a process rule recorded in `source_ref`.
+**`parte_di`** (S6, model fixed by Nelson on 2026-11-16): group link between two cards already in the database. `source` is the company that is part of the group (the child); `target` is its **legal parent as named by the primary source**, which is not necessarily the card that holds the group's Wikidata QID. Both cards must exist and not be retired. Unique key: `(source, target, type)`. Example: `IN-1290` HII Mission Technologies → `IN-1375` Huntington Ingalls.
+
+| Field | Rule |
+|---|---|
+| `forma` | required: `controllata` (the source says controlled or owned company), `divisione` (the source says division or business unit), `non_chiaro` (the source does not say) |
+| `current` | required boolean: `true` while the link holds, `false` when it has ended (the link is never deleted) |
+| `as_of` | `YYYY-MM-DD`, date of the latest **primary** source that shows the link. Required (not `null`) when `current` is `true`, so that "current" always says as of when |
+| `fino_al` | `YYYY-MM-DD` or `null`: end date of the link; only with `current: false` |
+| `diretta` | required key: `true` the target is the immediate parent; `false` a company in between exists and has no card; `null` not established. Neither a GLEIF "direct parent" (an accounting-consolidation relation) nor an SEC Exhibit 21 (it lists direct and indirect subsidiaries) is enough for `true` |
+| `source_ref` | primary source (URL or reference to a document), not an aggregator |
+
+Rules: **no percentages** here (they stay in `ownership`); **no cycles** among the links with `current: true` (`validate.py`, and `merge_entities.py` already in its dry-run); no endpoint may be a retired card; a link is added **only by a person's decision after a primary source has been reopened**, with `scripts/add_parte_di.py`, never derived automatically (for example not from the `qid_removed` entries, which hold no parent ID). A link that has ended stays with `current: false` and `fino_al`; closing an existing link is not scripted yet and is a separate case. The site does not read this type yet (it shows every relation that is not `edf_participation` as an investment): first data waits for that decision.
 
 **`history[]` of the new types** (S5, append-only): each entry has `date`, `release`, `source_ref`, `field`, `old`, `new`. Old values are never lost.
 
