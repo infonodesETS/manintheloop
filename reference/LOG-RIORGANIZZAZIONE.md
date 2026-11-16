@@ -780,3 +780,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Non verificato:** le frasi decisive delle altre 5 schede non sono state riaperte da me una per una; per `IN-0820` e `IN-0528` le frasi primarie provano solo indirizzo e sede, il numero di registro passa da aggregatori. Il legame con la capogruppo non è provato per `IN-0820`. Non è un test cieco: la `history` cita la decisione del 2026-04-23.
 - **Dati (6 commit, uno per scheda, `patch_qid_removed.py --clear-wikidata-block --history-letta --apply`):** QID tolto, blocco `sources.wikidata` spostato nella `history`, `validation` `qid_removed`; `work/qid_candidates.json` aggiornato. `validate.py` PASSED (controllo 12: 22 casi noti, 19 risolti); `check_b3_branch.py` SUPERATO (6 schede cambiate, relazioni 3423 invariate, QID condivisi tra attive da 29 a 25).
 - **Fuori ambito, segnalato dagli agenti:** i blocchi Crunchbase di `IN-0527`, `IN-0528` e `IN-1021` descrivono il gruppo (Berna, Texas). Dopo le rimozioni `Q663885` non è su nessuna scheda (Beyond Gravity capogruppo senza scheda).
+
+
+### 2026-11-16 — PR #69 fusa ☑ (branch `docs/registro-pr69`, non pushato)
+
+- **PR #69** (`e19c5ee`, 9 commit, +451/−140) fusa da Nelson con merge commit; branch remoto cancellato. `main` locale allineato a `origin/main`. Chiude il «secondo giro» del pilota agentico (voce del 2026-11-16 qui sopra).
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); controllo 12: 22 casi noti, 19 risolti.
+- **Branch locali cancellati con ok di Nelson:** `dati/qid-gruppo-a-2`, `docs/registro-pr68`.
+- **Prossimo giro** (da decidere con Nelson, non iniziato): restano del gruppo A `IN-0657`, `IN-0752`, `IN-0952`, `IN-0532`, `IN-0533`, `IN-1118`; le più semplici sono Patria, Bittium e Tekever.
