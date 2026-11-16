@@ -25,6 +25,56 @@ DB = RAIZ / "docs/data/database.json"
 LAV = RAIZ / "work/b5-release1"
 OUT = LAV / "dry-run"
 ISO = re.compile(r"\d{4}-\d{2}-\d{2}")
+MESI = {m: i for i, m in enumerate("january february march april may june july august september october november december".split(), 1)}
+MESI.update({m: i for i, m in enumerate("gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre".split(), 1)})
+MESI.update({"aug": 8, "sept": 9, "sep": 9, "jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6, "jul": 7, "oct": 10, "nov": 11, "dec": 12})
+_M = "|".join(sorted(MESI, key=len, reverse=True))
+# «February 5, 2025» (inglese) oppure «31 dicembre 2024» (italiano)
+DATA_PROSA = re.compile(rf"(?:\b({_M})\.?\s+(\d{{1,2}})(?:st|nd|rd|th)?,?\s+(\d{{4}})\b)|(?:\b(\d{{1,2}})\s+({_M})\s+(\d{{4}})\b)", re.I)
+
+
+def date_prosa(testo):
+    """[(posizione, 'AAAA-MM-GG')] delle date scritte in prosa (inglese o italiano)."""
+    out = []
+    for m in DATA_PROSA.finditer(testo):
+        mese, g, y = (m.group(1), m.group(2), m.group(3)) if m.group(1) else (m.group(5), m.group(4), m.group(6))
+        out.append((m.start(), f"{int(y):04d}-{MESI[mese.lower()]:02d}-{int(g):02d}"))
+    return out
+
+
+def leggi_fonte(fonte):
+    """(filing_date, as_of, origine, da_controllare) dal testo della fonte; origine None se non c'e una data.
+    Regole S5: data ISO o «filed ...» = deposito; «dati al / as of ...» = testo. Con piu di due date distinte
+    la riga e segnata «da controllare» (la scelta resta la prima data dopo «filed»)."""
+    iso = ISO.findall(fonte)
+    if iso:   # regola gia in uso sulle date ISO (invariata)
+        if "dati al" in fonte and len(iso) >= 2:
+            return iso[0], iso[-1], "testo", False
+        return iso[0], iso[0], "deposito", False
+    date = date_prosa(fonte)
+    if not date:
+        return None, None, None, False
+    low = fonte.lower()
+    filing = None
+    ks = [low.find(w) for w in ("filed", "depositato il") if low.find(w) >= 0]
+    k = min(ks) if ks else -1
+    if k >= 0:
+        dopo = [d for pos, d in date if pos > k]
+        filing = dopo[0] if dopo else None
+    as_of = None
+    for chiave in ("dati al", "as of"):
+        k = low.find(chiave)
+        if k >= 0:
+            dopo = [d for pos, d in date if pos > k]
+            if dopo:
+                as_of = dopo[0]
+                break
+    multi = len({d for _, d in date}) > 2
+    if as_of:
+        return filing, as_of, "testo", multi
+    if filing is None:
+        filing = date[0][1]
+    return filing, filing, "deposito", multi
 
 
 def leggi(p):
@@ -66,6 +116,7 @@ def main():
 
     esito = []          # una voce per riga del file
     rels = []
+    da_controllare = []
     for n, r in enumerate(righe, start=2):   # n = numero di riga del file (intestazione = 1)
         pct, voti, az = num(r["percentuale"]), num(r["percentuale_voti"]), num(r["azioni"])
         ok_cap = pct is not None and pct >= 5
@@ -107,14 +158,12 @@ def main():
             esito.append({**base, "esito": "bloccata", "motivo": "; ".join(blocchi)})
             continue
         fonte = r["fonte_dichiarazione"]
-        m = ISO.findall(fonte)
         quote_al = (aziende.get(r["ticker"]) or {}).get("quote_al") or None
-        if "dati al" in fonte and len(m) >= 2:
-            filing, as_of, orig = m[0], m[-1], "testo"
-        elif m:
-            filing, as_of, orig = m[0], m[0], "deposito"
-        else:
+        filing, as_of, orig, controllare = leggi_fonte(fonte)
+        if orig is None:
             filing, as_of, orig = None, quote_al, ("proxy" if quote_al else None)
+        if controllare:
+            da_controllare.append((n, r["ticker"], r["nome"], fonte[:110], filing, as_of))
         rel = {"id": None, "type": "ownership", "source": source, "target": target, "classe": r["classe"],
                "holder_type": htype, "pct": pct, "pct_voti": voti, "shares": az, "filing_date": filing,
                "as_of": as_of, "as_of_origine": orig, "release": a.release, "current": True,
@@ -156,6 +205,11 @@ def main():
            f"Entita nuove (ID provvisori): PER {sum(1 for i in nuove if i.startswith('PER'))}, IV {sum(1 for i in nuove if i.startswith('IV'))}",
            f"Relazioni `ownership` da creare: {len(rels)} (da REL-{max_rel + 1:04d})", "", "## Righe bloccate (motivi)"]
     rep += [f"- {v:3} x {k}" for k, v in blocc.most_common()]
+    rep += ["", f"## Date da controllare a mano (piu di due date nella fonte): {len(da_controllare)}"]
+    rep += [f"- riga {n} {t} {nome}: «{f}» -> filing {fi}, as_of {ao}" for n, t, nome, f, fi, ao in da_controllare]
+    sen = [x["source_ref"] for x in rels if not x["as_of"]]
+    rep += ["", f"## Righe senza as_of: {len(sen)}"] + [f"- {x}" for x in sen]
+    rep += ["", "## Origine di as_of: " + ", ".join(f"{k}={v}" for k, v in sorted(collections.Counter(str(x['as_of_origine']) for x in rels).items()))]
     (OUT / "report.md").write_text("\n".join(rep) + "\n", encoding="utf-8")
     print("\n".join(rep))
     print(f"\nReport in {OUT.relative_to(RAIZ)}/ (riconciliazione.csv, entita-nuove.csv, relazioni-anteprima.json, report.md)")
