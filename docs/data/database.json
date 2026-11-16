@@ -210107,7 +210107,7 @@
       ],
       "name": "Telespazio France",
       "sector": null,
-      "wikidata_id": "Q662824",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -210181,24 +210181,7 @@
           "wikipedia_url": null,
           "website": "https://www.telespazio.com/fr"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Telespazio",
-          "description": "Italian company",
-          "aliases": [
-            "Telespazio Spa"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Italy",
-          "inception": "1961-10-18",
-          "headquarters": "Rome",
-          "official_website": "https://www.telespazio.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Telespazio"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -210298,6 +210281,33 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 997899044, 1 projects, €568,023 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q662824",
+          "new": null,
+          "description": "QID Q662824 removed: on Wikidata it is 'Telespazio'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telespazio France' to the item of the Italian Telespazio; removed before by manual patch on 2026-04-23. The QID stays on IN-1125. The entity is: Telespazio France, a French SAS with registered office in Toulouse, RCS Toulouse 439 969 569 (telespazio.fr legal notice), part of the Telespazio group, a joint venture of Leonardo (67%) and Thales (33%); not the Italian Telespazio. A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Telespazio",
+            "description": "Italian company",
+            "aliases": [
+              "Telespazio Spa"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Italy",
+            "inception": "1961-10-18",
+            "headquarters": "Rome",
+            "official_website": "https://www.telespazio.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Telespazio"
+          }
         }
       ],
       "validation": [
@@ -210367,6 +210377,14 @@
           "description": "wikidata_id Q662824 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q662824",
+          "wikidata_label": "Telespazio",
+          "description": "QID Q662824 removed: on Wikidata it is 'Telespazio'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Telespazio France' to the item of the Italian Telespazio; removed before by manual patch on 2026-04-23. The QID stays on IN-1125. The entity is: Telespazio France, a French SAS with registered office in Toulouse, RCS Toulouse 439 969 569 (telespazio.fr legal notice), part of the Telespazio group, a joint venture of Leonardo (67%) and Thales (33%); not the Italian Telespazio. A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
