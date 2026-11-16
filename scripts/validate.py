@@ -38,6 +38,7 @@ VALID_ROLES = {"manufacturer", "investor", "board_member"}
 VALID_REL_TYPES = {"investment", "board_membership", "edf_participation", "ownership", "role", "parte_di"}
 # Types introduced by B1 (S2, S6): they carry their own `id` and are checked in [11].
 NEW_REL_TYPES = {"ownership", "role", "parte_di"}
+PARTE_DI_FORME = {"controllata", "divisione", "non_chiaro"}   # reference/S6-GESTORI.md (parte_di.forma)
 HOLDER_TYPES = {"fund", "company", "person"}          # S2 (holder_type); to be confirmed with the first import
 AS_OF_ORIGINS = {"proxy", "testo", "deposito"}         # S5
 HISTORY_KEYS = {"date", "release", "source_ref", "field", "old", "new"}  # S5, new types only
@@ -332,6 +333,8 @@ def main():
     def prefix(eid):
         return str(eid).split("-")[0] if eid else ""
 
+    retired_ids = {e["id"] for e in entities if any(h.get("action") == "entity_retired" for h in e.get("history", []))}
+
     seen_rel_ids: set[str] = set()
     n_new = 0
     for r in relationships:
@@ -397,6 +400,39 @@ def main():
                 bad(r, "parte_di links two IV-/IN- entities")
             if r.get("source") == r.get("target"):
                 bad(r, "parte_di cannot link an entity to itself")
+            if not isinstance(r.get("current"), bool):
+                bad(r, "parte_di requires current (true or false)")
+            if r.get("forma") not in PARTE_DI_FORME:
+                bad(r, f"forma must be one of {sorted(PARTE_DI_FORME)}")
+            if "diretta" not in r or not (r["diretta"] is None or isinstance(r["diretta"], bool)):
+                bad(r, "diretta is required: true (immediate parent), false (a company in between has no card) or null (not established)")
+            for f in ("as_of", "fino_al"):
+                v = r.get(f)
+                if v is not None and not DATE_RE.match(str(v)):
+                    bad(r, f"{f} must be YYYY-MM-DD or null")
+            if r.get("current") is True and r.get("as_of") is None:
+                bad(r, "as_of (date of the latest primary source) is required when current is true")
+            if r.get("fino_al") is not None and r.get("current") is True:
+                bad(r, "fino_al is set but current is true")
+            for end in ("source", "target"):
+                if r.get(end) in retired_ids:
+                    bad(r, f"parte_di {end} {r.get(end)} is a retired entity")
+    # parte_di: no cycles among the links marked current (A part of B ... part of A)
+    parent_of: dict[str, set[str]] = {}
+    for r in relationships:
+        if r.get("type") == "parte_di" and r.get("current") is True:
+            parent_of.setdefault(r.get("source"), set()).add(r.get("target"))
+    for start in parent_of:
+        stack, seen = list(parent_of[start]), set()
+        while stack:
+            x = stack.pop()
+            if x == start:
+                bad({"type": "parte_di", "source": start, "target": start}, f"parte_di links marked current form a cycle through {start}")
+                break
+            if x in seen:
+                continue
+            seen.add(x)
+            stack.extend(parent_of.get(x, ()))
     if new_errors:
         for m in new_errors[:30]:
             err(m)
