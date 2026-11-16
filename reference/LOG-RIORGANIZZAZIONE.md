@@ -702,6 +702,13 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Correzione (stesso giorno):** avevo scritto gli esiti di B3-04 e B3-11 nelle colonne sbagliate: L è «Esito A», M è «Esito B» (non M e N come credevo). Risultato: L5 e L12 erano rimaste «Dubbia» e M5 era «Corretta» al posto di «Corretto». Corretto: L5 «Corretta», M5 «Corretto»; L12 «Corretta», M12 «Corretto con nota»; riga B3-10 (M11) era già giusta. Righe riscritte come sopra con colonne L-P.
 
 
+### 2026-11-16 — PR #61 fusa ☑ (branch `docs/registro-pr61`, non pushato)
+
+- **PR #61** (`f4aad84`, 7 commit, 6 file, +126/−9, solo documentazione e `scripts/check_docs.py`) fusa da Nelson; branch remoto cancellato. `main` locale allineato con `--ff-only`; su GitHub restano `main` e `v.2026-c`.
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni), `check_b3_branch.py` superato, `check_docs.py` segnala solo la #61 non citata (limite noto: una PR non cita il proprio numero), `STATUS.md` ultima PR citata #58 (solo avviso).
+- **Questa voce e la riga di registro** viaggiano con la prossima PR (regola (b)-(c) del piano). Branch locale `docs/piano-registro-pr60` cancellato con `git branch -d` su ok di Nelson (fuso).
+
+
 ### 2026-11-16 — Parentela societaria: modello `parte_di` fissato, verifica con agenti, strumenti ◐ (branch `code/parte-di-modello`, non pushato; il caso Nammo è sul branch `data/nammo-in-1312-taxid`)
 
 - **Decisioni di Nelson:** modello A-B-C (`parte_di` resta relazione, figlia → capogruppo legale, `forma`, `current`, `source_ref`, niente percentuali, solo tra schede esistenti e non ritirate, mai ricavato in automatico); su mia proposta dopo la verifica: campo `diretta` (`true`/`false`/`null`) e `as_of` obbligatorio con `current: true`; ok a procedere con PR di codice e con il caso Nammo; il sito resta fuori (decisione precedente).
