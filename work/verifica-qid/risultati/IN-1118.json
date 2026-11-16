@@ -1,0 +1,22 @@
+{
+  "entity_id": "IN-1118",
+  "entity_name": "Tekever Uas",
+  "qid": "Q24293069",
+  "wikidata_label": "Tekever",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "communications and defense company based in Lisbon, Portugal",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q24293069 is the Tekever group (communications and defense company, Lisbon, inception 2001). The card is TEKEVER UAS, S.A., a separate Portuguese sociedade anonima (NIF 515306452, incorporated 2019-02-18, seat in Caldas da Rainha), not the group entity.",
+  "entity_is": "TEKEVER UAS, S.A., Portuguese public limited company (Sociedade Anonima), NIF 515306452, seat Rua das Minas 2, Zona Industrial, 2500-750 Caldas da Rainha; subsidiary of the Tekever group (historical filings point to Tekever Holdings, S.A. as majority owner).",
+  "identifiers": [
+    {"type": "NIF", "value": "515306452", "source_url": "https://diariodarepublica.pt/dr/detalhe/despacho/7102-2022-184357005"},
+    {"type": "NIF", "value": "515306452", "source_url": "https://transparencia.gov.pt/pt/fundos-europeus/prr/beneficiarios-projetos/beneficiario/515306452/"}
+  ],
+  "evidence": [
+    {"claim": "TEKEVER UAS, S.A. is a distinct legal entity (sociedade anonima) with NIF 515306452 and seat in Caldas da Rainha", "url": "https://diariodarepublica.pt/dr/detalhe/despacho/7102-2022-184357005", "phrase": "A sociedade comercial anónima TEKEVER UAS, S. A., pessoa coletiva n.º 515306452, com sede em Rua das Minas, 2, Estrada da Foz do Arelho, Zona Industrial, 2500-750 Caldas da Rainha", "source_kind": "primary"},
+    {"claim": "The PRR beneficiary page for NIF 515306452 (page title shows TEKEVER UAS, S.A.) has a tax-ID field and seat in Caldas da Rainha", "url": "https://transparencia.gov.pt/pt/fundos-europeus/prr/beneficiarios-projetos/beneficiario/515306452/", "phrase": "Número de identificação fiscal", "source_kind": "primary"},
+    {"claim": "TEKEVER UAS, S.A. was incorporated in 2019, whereas the Wikidata item for Tekever gives inception 2001, so they are different entities", "url": "https://www.rigorbiz.pt/tekever-uas-s-a", "phrase": "Data Constituição 2019-02-18", "source_kind": "secondary"}
+  ],
+  "other_entities_with_same_qid": ["IN-1241"],
+  "notes": "Wikidata Q24293069 has labels in pt/en/zh/es, P31 enterprise, P17 Portugal, no P159, website tekever.com. The card history shows the QID was removed on 2026-04-23 (manual patch: 'Tekever Uas is a product/division', parent kept on IN-1241) and re-applied on 2026-06-18 by search_missing_qids.py (qid_candidates.json). IN-1241 (Tekever) also holds the same QID and is the better match. The Exa answer mentions Tekever Holdings, S.A. as former majority owner, based on a UK Companies House page that was not reopened, so it is not used as evidence. The EDF block of the card (PIC 899397387, Caldas da Rainha, tekever.com) is consistent with Tekever UAS. Rigorbiz is an aggregator (secondary)."
+}

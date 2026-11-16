@@ -1,0 +1,59 @@
+{
+  "entity_id": "IN-0533",
+  "entity_name": "Bittium Wireless",
+  "qid": "Q30302789",
+  "wikidata_label": "Bittium",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q30302789 is Bittium (the listed group parent; ISIN FI0009007264, headquarters Oulu, website bittium.com). IN-0533 is Bittium Wireless Oy, a separate Finnish limited company with its own business ID 1737565-0.",
+  "entity_is": "Bittium Wireless Oy, a Finnish limited company (Oy) registered in Oulu, Business ID (Y-tunnus) 1737565-0, VAT FI17375650, registered 2001, an invoicing entity distinct from Bittium Oyj (business ID 1004129-5 / OVT 003710041295), the group parent.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Y-tunnus 1737565-0",
+      "source_url": "https://tietopalvelu.ytj.fi/yritys/1737565-0"
+    },
+    {
+      "type": "other",
+      "value": "VAT FI17375650",
+      "source_url": "https://www.bittium.com/invoicing-addresses/"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Bittium Wireless Oy is a registered legal entity with Business ID 1737565-0 in the Finnish YTJ registry",
+      "url": "https://tietopalvelu.ytj.fi/yritys/1737565-0",
+      "phrase": "Bittium Wireless Oy - YTJ:n yritys- ja yhteisöhaku",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Business ID in the official registry",
+      "url": "https://tietopalvelu.ytj.fi/yritys/1737565-0",
+      "phrase": "Y-tunnus Y-tunnus | 1737565-0",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "The group lists Bittium Wireless Oy as a separate invoicing entity with its own VAT code, distinct from Bittium Oyj",
+      "url": "https://www.bittium.com/invoicing-addresses/",
+      "phrase": "Bittium Wireless Oy\n\nRitaharjuntie 1, 90590 Oulu OVT: 003717375650 VAT code: FI17375650",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Bittium Oyj, the parent, has a different VAT code",
+      "url": "https://www.bittium.com/invoicing-addresses/",
+      "phrase": "Bittium Oyj\n\nRitaharjuntie 1, 90590 Oulu OVT: 003710041295 VAT code: FI10041295",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Secondary registry aggregator confirms name and Business ID",
+      "url": "https://www.taloustutka.fi/company/1737565-0",
+      "phrase": "Bittium Wireless Oy | 1737565-0 | Yritystiedot | Taloustutka",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0532"
+  ],
+  "notes": "Wikidata read via wbgetentities (no languages filter): en label 'Bittium', description 'company', P31 business, P17 Finland, P159 Oulu, P856 bittium.com. History: QID set 2026-04-13 (search_missing_qids.py, human-reviewed), removed 2026-04-23 (manual patch: Bittium Wireless is a product name per that note, not legal entity; Q30302789 is the parent), put back 2026-06-18 by search_missing_qids.py. The earlier note calling it only a product name is not confirmed: a legal entity Bittium Wireless Oy exists, but it is still not the entity of Q30302789. IN-0532 'Bittium Safemove' shares the QID and is not decided here. The Crunchbase block on IN-0533 describes the group (profile bittium, founded 1985, IPO), not the subsidiary. The parent relationship (Bittium Oyj owns Bittium Wireless Oy) is not backed by a verbatim phrase in a reopened source; the 2019 annual report PDF was not reopened. Exa answer cited it, but it is not used as evidence. The Bittium Oyj business ID 1004129-5 is derived from the OVT/VAT code on the invoicing page, not from a registry phrase."
+}
