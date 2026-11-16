@@ -248639,7 +248639,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "Norway",
-          "tax_id": "NO979512328",
+          "tax_id": null,
           "main_focus": "Ammo / Rockets",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Nammo"
         },
@@ -248772,6 +248772,15 @@
           "old": null,
           "new": "sources.wikidata populated (Q1964355)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q1964355)"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_clear_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": "NO979512328",
+          "new": null,
+          "description": "tax_id NO979512328 does not exist in the Norwegian Business Register (Bronnoysund API returns 404 on 2026-11-16). The register holds NAMMO AS, org. no. 979 984 731 (registered 1998-07-24, Raufoss, VAT-registered), the legal entity this card describes (Crunchbase 'NAMMO AS'). Value cleared and kept in this entry; the correct number is to be written by a later patch. Wikidata Q1964355 stays on this card: the item lists the Norwegian state and Patria as owners, as Nammo AS does per nammo.com/about-us (50% each); the subsidiaries Nammo Raufoss AS (IN-0897) and Nammo Lapua (IN-0896) are separate cards."
         }
       ],
       "validation": [
@@ -248828,6 +248837,15 @@
           "description": "sources.wikidata populated from Wikidata API (Q1964355). label='Nammo'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "infonodes_field_removed",
+          "fields_removed": [
+            "tax_id"
+          ],
+          "description": "tax_id NO979512328 does not exist in the Norwegian Business Register (Bronnoysund API returns 404 on 2026-11-16). The register holds NAMMO AS, org. no. 979 984 731 (registered 1998-07-24, Raufoss, VAT-registered), the legal entity this card describes (Crunchbase 'NAMMO AS'). Value cleared and kept in this entry; the correct number is to be written by a later patch. Wikidata Q1964355 stays on this card: the item lists the Norwegian state and Patria as owners, as Nammo AS does per nammo.com/about-us (50% each); the subsidiaries Nammo Raufoss AS (IN-0897) and Nammo Lapua (IN-0896) are separate cards.",
+          "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
