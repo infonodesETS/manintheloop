@@ -111850,7 +111850,7 @@
       ],
       "name": "Bittium Safemove",
       "sector": null,
-      "wikidata_id": "Q30302789",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -111933,25 +111933,7 @@
           "wikipedia_url": null,
           "website": "https://www.bittium.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Bittium",
-          "description": "company",
-          "aliases": [
-            "Bittium company",
-            "Bittium Corporation"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": null,
-          "inception": "1985-01-01",
-          "headquarters": "Oulu",
-          "official_website": "https://www.bittium.com/",
-          "isin": "FI0009007264",
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Bittium%20%28company%29"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -112051,6 +112033,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 897241465, 1 projects, €171,756 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q30302789",
+          "new": null,
+          "description": "QID Q30302789 removed: on Wikidata it is 'Bittium'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Bittium Safemove' to the item of the listed parent Bittium; removed before by manual patch on 2026-04-23. The sister card IN-0533 had the same QID. The entity is: Bittium Safemove Oy, a Finnish limited company (osakeyhtio), business ID (Y-tunnus) 1855598-7, seat Espoo, formerly Safemove Oy (until 2015); a legal entity, not the listed company Bittium. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: bittium.com lists Bittium Safemove as a separate Ltd. company and gives it its own VAT code (FI18555987). Weak point: the registry data comes from aggregators (kauppalehti.fi, aluevahti.fi), the official registry was not reached; the parent-subsidiary link was not proven by a reopened source and is not stated here",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Bittium",
+            "description": "company",
+            "aliases": [
+              "Bittium company",
+              "Bittium Corporation"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": null,
+            "inception": "1985-01-01",
+            "headquarters": "Oulu",
+            "official_website": "https://www.bittium.com/",
+            "isin": "FI0009007264",
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Bittium%20%28company%29"
+          }
         }
       ],
       "validation": [
@@ -112102,6 +112112,14 @@
           "description": "wikidata_id Q30302789 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q30302789",
+          "wikidata_label": "Bittium",
+          "description": "QID Q30302789 removed: on Wikidata it is 'Bittium'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Bittium Safemove' to the item of the listed parent Bittium; removed before by manual patch on 2026-04-23. The sister card IN-0533 had the same QID. The entity is: Bittium Safemove Oy, a Finnish limited company (osakeyhtio), business ID (Y-tunnus) 1855598-7, seat Espoo, formerly Safemove Oy (until 2015); a legal entity, not the listed company Bittium. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: bittium.com lists Bittium Safemove as a separate Ltd. company and gives it its own VAT code (FI18555987). Weak point: the registry data comes from aggregators (kauppalehti.fi, aluevahti.fi), the official registry was not reached; the parent-subsidiary link was not proven by a reopened source and is not stated here",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
