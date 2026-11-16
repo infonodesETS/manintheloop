@@ -755,3 +755,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **PR #66** (`977815c`, 2 commit, +30/−2, un solo file di dati) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main`.
 - **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); `IN-1312` ha `tax_id` `NO979984731`.
 - **Da fare (con ok di Nelson):** cancellare i branch locali fusi `code/patch-set-infonodes` e `data/nammo-in-1312-taxid-set`.
+
+
+### 2026-11-16 — Chiusura sessione: ripartenza per il pilota agentico ◐ (branch `docs/ripartenza-pilota`, non pushato)
+
+- **PR #67** (`972dc6a`, solo documentazione) fusa da Nelson; `main` allineato; cancellati con ok i branch locali `code/patch-set-infonodes`, `data/nammo-in-1312-taxid-set`, `docs/registro-pr66`.
+- **Scritto (solo documentazione):** in `STATUS.md` la sezione «Ripartenza» (registrare le PR non citate; regola di lavoro; pilota agentico come prossimo lavoro; `parte_di` in attesa del sito) e tolta la voce superata su `check_docs.py`; in `reference/METODO-AGENTICO.md` quattro lezioni della verifica dei legami (PASS non è prova; niente ipotesi nell'istruzione; GLEIF e Exhibit 21 non provano il legame diretto; dettaglio segnalato dall'agente da cercare prima nei documenti); registro del piano con la #67.
+- **Regola (Nelson, 2026-11-16):** prima di proporre lavoro su una scheda o su un caso, cercare l'ID in log, `ROADMAP.md`, `STATUS.md` e `git log`, e riferire cosa è già deciso. Motivo: `IN-1352` Alcoa Warrick era stato riproposto come caso aperto ma era già chiuso (PR #41, #43, #45, foglio B3-11, backlog in `ROADMAP.md`).
+- **Stato alla chiusura:** `validate.py` PASSED (controllo 12: 28 casi noti, 13 risolti); `main` = `origin/main`; `inbox/` vuota; `work/verifica-parentela/` non tracciata (istruzione, controllo e 6 risultati degli agenti).
