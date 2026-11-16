@@ -29,6 +29,12 @@
 - Exa sbaglia anche con fonti dall'aspetto primario (vedi `METODO-VERIFICA-WEB.md`).
 - Costo: una chiamata di agente per scheda, circa 50.000 token ciascuna; il contesto del coordinatore cresce con i riepiloghi.
 
+**Lezioni dalla verifica dei legami di gruppo (2026-11-16, 5 agenti, 6 legami):**
+- **«PASS» non dice che la frase decisiva sia stata ritrovata:** il controllo dà PASS con almeno una prova `primary` ritrovata, che può essere un'altra rispetto a quella che regge l'affermazione (per esempio il dato GLEIF invece della tabella del capogruppo). La frase che regge l'affermazione la rilegge una persona (o il coordinatore) nella fonte.
+- **Nell'istruzione e nelle domande a Exa non va messa l'ipotesi del coordinatore** (regola già scritta in `work/verifica-parentela/ISTRUZIONE-PARENTELA.md`: domande descrittive e neutre, mai sì/no): rischio di conferma.
+- **«Genitore diretto» di GLEIF e Exhibit 21 non provano che il legame sia diretto:** GLEIF dà una relazione di consolidamento contabile (IDV: in mezzo c'era IDV Group S.r.l.), l'Exhibit 21 elenca controllate dirette e indirette. Il campo `diretta` di `parte_di` vale `true` solo con una fonte che nomina la controllante immediata.
+- **Un dettaglio che l'agente segnala può essere già noto al progetto:** prima di trattarlo come caso nuovo cercare l'ID in log, `ROADMAP.md`, `STATUS.md` e `git log` (caso `IN-1352`).
+
 ## Come riusarlo per altri dati
 
 Lo schema resta; cambiano tre cose.
