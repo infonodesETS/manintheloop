@@ -16,6 +16,7 @@ All screenshots taken during Playwright sessions must be saved to `tmp/playwrigh
 | Command | What it does | Safe to re-run? |
 |---|---|---|
 | `python3 scripts/validate.py` | 10-check validation — never modifies DB | Yes |
+| `python3 scripts/check_docs.py` | Confronta le PR fuse in `main` con quelle citate in piano, log e `STATUS.md`; segnala l'arretrato (exit 1) | Yes |
 | `python3 scripts/parse_ishares.py <csv>` | Prints normalised rows to stdout | Yes |
 | `python3 scripts/audit_quality.py --dry-run` | Audit B+C report only — never modifies DB | Yes |
 | `python3 scripts/enrich_wikidata.py --dry-run` | Fetch + print Wikidata data, no DB writes | Yes |

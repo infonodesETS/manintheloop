@@ -81,6 +81,8 @@ Nuove fonti (portale **SEC / EDGAR**) e nuovi tipi di dati. **Spec completa e sc
 
 | Voce | Note |
 |---|---|
+| Wsense (`IN-1220`): acquisizione da parte di Fincantieri | Decisione di Nelson 2026-11-16: **non scritta**. Criterio: rappresentata solo se Wsense si occupa di armi autonome ed è nella filiera difesa; verifica Exa del 2026-11-14: nessuna fonte su armi, filiera difesa sì; closing non trovato, 61,95% solo di startupbusiness.it. Resta la relazione `investment` da Crunchbase. **Riaprire solo se Fincantieri comunica il closing.** |
+| `IN-1352` Alcoa Warrick: perché è nell'elenco «Gallium» | La scheda è Alcoa Warrick LLC (di Kaiser Aluminum dal 2021-03-31 secondo l'8-K di Alcoa); `main_focus` «Gallium» è condiviso con altre 8 schede attive ed è un'etichetta di elenco della migrazione (ipotesi, non verificata). Da chiarire se l'elenco intendeva Alcoa (casa madre) o lo stabilimento; nessuna modifica ai dati. Il fatto che oggi sia di Kaiser va scritto con la relazione `parte_di` (vedi `STATUS.md`, parentela). |
 | `patch_iv_countries_p159.py` da rilanciare | 23 investitori con QID e senza paese (misurato 2026-11-14, come nel TODO del 2026-06-18). Script di rete: prima `--dry-run`, endpoint SPARQL stabile; poi `validate.py` |
 | Investitori senza paese | 319 investitori attivi senza paese (misurato 2026-11-14; il testo di aprile diceva 211). Quasi tutti senza QID: fondi regionali e persone |
 | Crunchbase Cycle 3 | `python3 scripts/regenerate_export.py`, poi riupload per le aziende ancora senza dati Crunchbase (circa 237 secondo il testo di aprile, da rimisurare); 38 non risolte del Cycle 2 in `work/crunchbase/unresolved_2026-04-24.csv`; processo in `work/crunchbase/CYCLE2.md` |
