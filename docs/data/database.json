@@ -147826,7 +147826,7 @@
       ],
       "name": "Indra Espacio Slu",
       "sector": null,
-      "wikidata_id": "Q1661823",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -147856,25 +147856,7 @@
           "wikipedia_url": null,
           "website": "https://www.indracompany.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Indra Sistemas",
-          "description": "Spanish defense and information tech company",
-          "aliases": [
-            "Indra Sistemas, S.A."
-          ],
-          "instance_of": [
-            "enterprise",
-            "public company"
-          ],
-          "country": "Spain",
-          "inception": "1993-01-01",
-          "headquarters": "Alcobendas",
-          "official_website": "https://www.indracompany.com/en/",
-          "isin": "ES0118594417",
-          "employees": 60907,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Indra%20Sistemas"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -147965,6 +147947,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 877159943, 6 projects, €13,251,702 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q1661823",
+          "new": null,
+          "description": "QID Q1661823 removed: on Wikidata it is 'Indra Sistemas'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Indra Espacio Slu' to the item of the Indra Sistemas group; removed before by manual patch on 2026-04-23. The QID stays on IN-0753. The entity is: Indra Espacio, S.L.U., a Spanish sociedad limitada unipersonal created in 2024 as the beneficiary of the segregation of the space business of Indra Sistemas, S.A.; wholly owned by Indra Sistemas, S.A.; a separate legal entity, not the parent group card. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: BORME announcement BORME-C-2024-4032 (reopened), phrases: 'una sociedad de responsabilidad limitada de nueva creación íntegramente participada por la Sociedad Segregada denominada Indra Espacio, S.L.U.' and 'INDRA SISTEMAS, S.A. (SOCIEDAD SEGREGADA) INDRA ESPACIO, S.L.U. (SOCIEDAD BENEFICIARIA DE NUEVA CREACIÓN)'. Weak point: The NIF B55437891 comes only from an aggregator (einforma.com); the BORME notice does not state it and no LEI was found. The verdict does not depend on the NIF.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Indra Sistemas",
+            "description": "Spanish defense and information tech company",
+            "aliases": [
+              "Indra Sistemas, S.A."
+            ],
+            "instance_of": [
+              "enterprise",
+              "public company"
+            ],
+            "country": "Spain",
+            "inception": "1993-01-01",
+            "headquarters": "Alcobendas",
+            "official_website": "https://www.indracompany.com/en/",
+            "isin": "ES0118594417",
+            "employees": 60907,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Indra%20Sistemas"
+          }
         }
       ],
       "validation": [
@@ -148010,6 +148020,14 @@
           "description": "wikidata_id Q1661823 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q1661823",
+          "wikidata_label": "Indra Sistemas",
+          "description": "QID Q1661823 removed: on Wikidata it is 'Indra Sistemas'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Indra Espacio Slu' to the item of the Indra Sistemas group; removed before by manual patch on 2026-04-23. The QID stays on IN-0753. The entity is: Indra Espacio, S.L.U., a Spanish sociedad limitada unipersonal created in 2024 as the beneficiary of the segregation of the space business of Indra Sistemas, S.A.; wholly owned by Indra Sistemas, S.A.; a separate legal entity, not the parent group card. A correct QID may not exist: to be searched with the QID pipeline. Decisive evidence: BORME announcement BORME-C-2024-4032 (reopened), phrases: 'una sociedad de responsabilidad limitada de nueva creación íntegramente participada por la Sociedad Segregada denominada Indra Espacio, S.L.U.' and 'INDRA SISTEMAS, S.A. (SOCIEDAD SEGREGADA) INDRA ESPACIO, S.L.U. (SOCIEDAD BENEFICIARIA DE NUEVA CREACIÓN)'. Weak point: The NIF B55437891 comes only from an aggregator (einforma.com); the BORME notice does not state it and no LEI was found. The verdict does not depend on the NIF.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
