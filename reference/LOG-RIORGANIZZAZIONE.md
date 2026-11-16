@@ -717,3 +717,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Scritto (branch `code/parte-di-modello`):** `validate.py` (regole di `parte_di`, cicli, schede ritirate), `merge_entities.py` (history completa per i tipi nuovi, controllo dei cicli nel dry-run), `scripts/add_parte_di.py`, `scripts/check_parte_di_branch.py`, aggiornati `SCHEMA.md`, `S6-GESTORI.md`, `UPDATE_PROTOCOL.md`, `SCRIPTS.md`, `STATUS.md`. **Prove su copie:** 4 casi validi e 14 errori inseriti apposta per `validate.py` (tutti come previsto); 8 scenari di merge (relazioni spostate, gemella identica, gemella diversa con `--prefer-loser`, ciclo, anello); 3 inserimenti con `add_parte_di.py` e 10 violazioni per `check_parte_di_branch.py`. `validate.py` PASSED sul database reale (nessun dato cambiato in questo branch).
 - **Caso `IN-1312` Nammo (branch `data/nammo-in-1312-taxid`, un commit):** `tax_id` NO979512328 svuotato (vecchio valore in `history`), QID Q1964355 resta (Stato norvegese e Patria al 50%, nammo.com). `check_b3_branch.py` segnala solo che la scheda è cambiata fuori dai suoi casi.
 - **Non fatto:** nessun legame `parte_di` nei dati; sito; indice del chatbot; scrittura del `tax_id` giusto; chiusura di un legame esistente.
+
+
+### 2026-11-16 — PR #62 fusa ☑ (registrata sul branch `code/parte-di-modello`, non pushato)
+
+- **PR #62** (`d26cede`, un commit `42f7c2e`, +19/−1, un solo file `docs/data/database.json`) fusa da Nelson; branch remoto cancellato. `main` locale allineato a `origin/main` con `git fetch origin main:main`.
+- **Controlli dopo il merge:** `validate.py` PASSED sul database fuso (2582 entità, 3423 relazioni); `IN-1312` ha `tax_id` `null` e QID Q1964355.
+- **Da fare:** scrivere il `tax_id` giusto di Nammo AS (979 984 731) quando ci sarà uno script; cancellare il branch locale `data/nammo-in-1312-taxid` (con ok di Nelson).
