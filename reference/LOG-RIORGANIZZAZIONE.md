@@ -667,10 +667,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Dry-run dell'import (per errore eseguito in scrittura con `--help`, annullato con `git checkout`, nessun dato è rimasto):** 2 `IV-` nuove (Mike Markkula, Sam Shirazi Maqam) e 3 relazioni verso `IN-0032`. Decisione di Nelson: applicare solo KB Securities (`IV-0329`, già esistente), niente schede per le due persone. `import_investors_crunchbase.py` non conosce `--help` e un argomento sconosciuto lo fa scrivere; per non scrivere serve `--dry-run`.
 
 
-### 2026-11-16 — Apple `IN-0032`: investitori, solo KB Securities ◐ (branch `dati/apple-investitori-2`, non pushato)
+### 2026-11-16 — Apple `IN-0032`: investitori, solo KB Securities ● (PR #58 fusa in `main`, `0297252`)
 
 - **Decisione di Nelson:** relazione solo per KB Securities, niente schede per Mike Markkula e Sam Shirazi Maqam (persone fisiche); tra due strade scelta quella di togliere i due nomi da `top_investors` e poi lanciare l'import.
 - **Scritto:** `scripts/patch_cb_remove_investors.py` (nuovo; lista di prima in `history.old`, validation `crunchbase_field_edited`): `top_investors` di Apple da 8 a 6 nomi (`18375b1`); poi `import_investors_crunchbase.py`: dry-run 0 `IV-` e 1 relazione, applicato (`d8dc5b5`): `IV-0329` KB Securities → `IN-0032` Apple, tipo `investment` (3422 → 3423 relazioni).
 - **Prova:** `validate.py` PASSED; confronto prima/dopo: nessuna entità cambiata o aggiunta dall'import, una sola relazione nuova.
 - **Nota:** il blocco Crunchbase di Apple ha ora 6 investitori su 8 della pagina (`num_investors` resta 8): è voluto.
-
+- **Esito PR #58 (Nelson, 2026-11-16):** fusa, 3 commit (`18375b1`, `d8dc5b5`, `c9bea0b`), branch cancellato su GitHub; `main` locale allineato a `0297252`. Il testo della PR corrisponde ai dati fusi. Con questa chiusura Apple `IN-0032` ha profilo Crunchbase corretto, conflitto sede chiuso e una relazione investitore (KB Securities); restano 6 nomi su 8 in `top_investors` per scelta.
