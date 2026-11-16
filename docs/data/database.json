@@ -110785,7 +110785,7 @@
       ],
       "name": "Beyond Gravity Austria",
       "sector": null,
-      "wikidata_id": "Q663885",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -110860,25 +110860,7 @@
           "wikipedia_url": null,
           "website": "https://www.beyondgravity.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Beyond Gravity",
-          "description": "Swiss aerospace business",
-          "aliases": [
-            "RUAG Schweiz AG",
-            "RUAG Space"
-          ],
-          "instance_of": [
-            "joint-stock company"
-          ],
-          "country": "Switzerland",
-          "inception": "2009",
-          "headquarters": "Zurich",
-          "official_website": "https://www.beyondgravity.com",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -110978,6 +110960,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 972664300, 1 projects, €151,999 EU contribution"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q663885",
+          "new": null,
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Austria' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0528 had the same QID. The entity is: Beyond Gravity Austria GmbH, a Vienna limited liability company registered in the Firmenbuch under 91260g (formerly RUAG Space GmbH); not the Swiss Beyond Gravity group (Firmenbuch extract read through a web page; the parent company is not named because the Firmenbuch and the GLEIF record give different ones). A correct QID may not exist: to be searched with the QID pipeline",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Beyond Gravity",
+            "description": "Swiss aerospace business",
+            "aliases": [
+              "RUAG Schweiz AG",
+              "RUAG Space"
+            ],
+            "instance_of": [
+              "joint-stock company"
+            ],
+            "country": "Switzerland",
+            "inception": "2009",
+            "headquarters": "Zurich",
+            "official_website": "https://www.beyondgravity.com",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Beyond%20Gravity"
+          }
         }
       ],
       "validation": [
@@ -111041,6 +111051,14 @@
           "description": "wikidata_id Q663885 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q663885",
+          "wikidata_label": "Beyond Gravity",
+          "description": "QID Q663885 removed: on Wikidata it is 'Beyond Gravity'. Why the entity had it: Re-applied on 2026-06-18 by search_missing_qids.py from the name 'Beyond Gravity Austria' to the item of the Swiss group; removed before by manual patch on 2026-04-23. The sister card IN-0528 had the same QID. The entity is: Beyond Gravity Austria GmbH, a Vienna limited liability company registered in the Firmenbuch under 91260g (formerly RUAG Space GmbH); not the Swiss Beyond Gravity group (Firmenbuch extract read through a web page; the parent company is not named because the Firmenbuch and the GLEIF record give different ones). A correct QID may not exist: to be searched with the QID pipeline",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-16"
         }
       ],
       "tags": []
