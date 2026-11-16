@@ -799,3 +799,12 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Metodo (decisione di Nelson, 2026-11-16):** «prova decisiva» e «punto debole» diventano regola in `reference/METODO-AGENTICO.md` e nella riga `qid_removed` di `UPDATE_PROTOCOL.md`; `patch_qid_removed.py` ha le opzioni `--evidence` e `--weak-point` (senza, avvisa). Le 10 schede dei primi due giri non le hanno.
 - **Fuori ambito:** il blocco Crunchbase di `IN-0532` descrive la capogruppo (Oulu, IPO).
 - **Restano del gruppo A:** `IN-0657` Ericsson Magyarország (QID su 4 schede, caso aperto Ericsson B `IN-0123`) e `IN-0752` Indra Espacio (coppia con `IN-0753`).
+
+
+### 2026-11-16 — PR #70 fusa e chiusura sessione ☑ (branch `docs/registro-pr70`, non pushato)
+
+- **PR #70** (`d9e0be2`, 9 commit, +382/−89) fusa da Nelson con merge commit; branch remoto cancellato. `main` locale allineato a `origin/main`. Chiude il terzo giro del pilota agentico (voce qui sopra).
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); controllo 12: 18 casi noti, 23 risolti.
+- **Stato alla chiusura:** `inbox/` vuota; `work/verifica-parentela/` non tracciata; branch locali fusi ancora presenti, da cancellare con ok di Nelson: `dati/qid-gruppo-a-3`, `docs/registro-pr69`. Il commit di registrazione della #70 (questo) non è pushato: parte con la prossima PR di dati.
+- **Bilancio del pilota (3 giri, 16 schede, 16 `remove_qid`, nessun `keep_qid` né `unclear`):** i verdetti sono sempre stati uguali alla decisione manuale del 2026-04-23, ma gli agenti la leggevano nella `history`: l'accordo non prova l'indipendenza. Un test cieco (scheda senza quella voce, o `history` nascosta all'agente) non è stato fatto; è la prova che manca per confermare il metodo.
+- **Prossimo lavoro:** nel gruppo A restano `IN-0657` Ericsson (QID su 4 schede con `IN-0123`, `IN-0655`, `IN-0831`) e `IN-0752` Indra (coppia con `IN-0753`); poi i gruppi B-D di `work/verifica-web-test-2026-11-14.md`. Decisioni di Nelson ancora aperte: se il blocco Crunchbase sbagliato di `IN-0527`, `IN-0528`, `IN-0532` e `IN-1021` si tratta come lavoro separato; se dare la regola «prova decisiva / punto debole» anche alle 10 schede dei primi due giri (richiederebbe nuove voci).
