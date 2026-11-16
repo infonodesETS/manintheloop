@@ -1,52 +1,52 @@
 riga,ticker,titolare,tipo,classe,esito,motivo
 2,AA,"BlackRock, Inc.",entity,Common Stock,importabile,
-3,AA,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+3,AA,The Vanguard Group,entity,Common Stock,importabile,
 4,AA,"Eagle Capital Management, LLC",entity,Common Stock,importabile,
-5,AAPL,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+5,AAPL,The Vanguard Group,entity,Common Stock,importabile,
 6,AAPL,"BlackRock, Inc.",entity,Common Stock,importabile,
 7,ABAT,State Street Corporation,entity,Common Stock,importabile,
 8,ABAT,"BlackRock, Inc.",entity,Common Stock,importabile,
 9,ABAT,Ryan Melsert,person,Common Stock,importabile,
 10,ACHR,Stellantis N.V.,entity,Class A common stock,importabile,
 11,ACHR,"BlackRock, Inc.",entity,Class A common stock,importabile,
-12,ACN,The Vanguard Group,entity,Class A Ordinary Shares,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+12,ACN,The Vanguard Group,entity,Class A Ordinary Shares,importabile,
 13,ACN,"BlackRock, Inc.",entity,Class A Ordinary Shares,importabile,
-14,ADBE,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+14,ADBE,The Vanguard Group,entity,Common Stock,importabile,
 15,ADBE,"BlackRock, Inc.",entity,Common Stock,importabile,
-16,ADI,Vanguard Group Inc.,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+16,ADI,Vanguard Group Inc.,entity,Common Stock,importabile,
 17,ADI,BlackRock Inc.,entity,Common Stock,importabile,
-18,ADSK,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+18,ADSK,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 19,ADSK,"BlackRock, Inc.",entity,Common Stock,importabile,
 20,AIR,"BlackRock, Inc.",entity,Common Stock,importabile,
 21,AIR,State Street Corporation,entity,Common Stock,importabile,
-22,AIR,Vanguard Portfolio Management,entity,Common Stock,bloccata,"titolare E0104 senza decisione (da decidere: nome simile nel DB, verific)"
-23,AIR,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+22,AIR,Vanguard Portfolio Management,entity,Common Stock,importabile,
+23,AIR,Vanguard Capital Management,entity,Common Stock,importabile,
 24,AIR,Dimensional Fund Advisors LP,entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 25,AIR,"EARNEST Partners, LLC",entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
-26,AKAM,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+26,AKAM,The Vanguard Group,entity,Common Stock,importabile,
 27,AKAM,"BlackRock, Inc.",entity,Common Stock,importabile,
 28,AMAT,"BlackRock, Inc.",entity,Common Stock,importabile,
-29,AMAT,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-30,AMD,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+29,AMAT,The Vanguard Group,entity,Common Stock,importabile,
+30,AMD,The Vanguard Group,entity,Common Stock,importabile,
 31,AMD,"BlackRock, Inc.",entity,Common Stock,importabile,
 32,AMR,"Blackrock, Inc.",entity,Common Stock,importabile,
-33,AMR,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+33,AMR,The Vanguard Group,entity,Common Stock,importabile,
 34,AMR,State Street Corporation,entity,Common Stock,importabile,
 35,AMR,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
 36,AMR,Kenneth S. Courtis,person,Common Stock,importabile,
 37,AMR,Michael Gorzynski,person,Common Stock,importabile,
 38,ANET,The Bechtolsheim Family Trust,entity,Common Stock,importabile,
 39,ANET,"BlackRock, Inc.",entity,Common Stock,importabile,
-40,APH,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+40,APH,The Vanguard Group,entity,Common Stock,importabile,
 41,APH,"BlackRock, Inc.",entity,Common Stock,importabile,
 42,APH,FMR LLC,entity,Common Stock,importabile,
 43,APP,Adam Foroughi,person,Class A Common Stock,importabile,per voti >=5
 44,APP,Adam Foroughi,person,Class B Common Stock,importabile,
-45,APP,The Vanguard Group,entity,Class A Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+45,APP,The Vanguard Group,entity,Class A Common Stock,importabile,
 46,APP,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
 47,APP,Angel Pride Holdings Limited,entity,Class A Common Stock,importabile,
 48,ATI,Capital International Investors,entity,Common Stock,importabile,
-49,ATI,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+49,ATI,The Vanguard Group,entity,Common Stock,importabile,
 50,ATI,"BlackRock, Inc.",entity,Common Stock,importabile,
 51,ATI,Capital World Investors,entity,Common Stock,importabile,
 52,ATRO,Peter J. Gundermann,person,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
@@ -57,71 +57,71 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 57,ATRO,"Bares Capital Management, Inc.",entity,Common Stock,importabile,
 58,ATRO,Capital International Investors,entity,Common Stock,importabile,
 59,ATRO,State Street Corporation,entity,Common Stock,importabile,
-60,ATRO,"American Century Investment Management, Inc.",entity,Common Stock,bloccata,"titolare E0010 senza decisione (da decidere: nome simile nel DB, verific)"
+60,ATRO,"American Century Investment Management, Inc.",entity,Common Stock,importabile,
 61,AVAV,Entities Affiliated with Arlington Capital Partners,entity,Common Stock,importabile,
 62,AVAV,"BlackRock, Inc.",entity,Common Stock,importabile,
-63,AVGO,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+63,AVGO,The Vanguard Group,entity,Common Stock,importabile,
 64,AVGO,"BlackRock, Inc.",entity,Common Stock,importabile,
 65,AXON,"BlackRock, Inc.",entity,Common Stock,importabile,
-66,AXON,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-67,BA,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+66,AXON,The Vanguard Group,entity,Common Stock,importabile,
+67,BA,The Vanguard Group,entity,Common Stock,importabile,
 68,BA,FMR LLC,entity,Common Stock,importabile,
 69,BA,"BlackRock, Inc.",entity,Common Stock,importabile,
 70,BWXT,"BlackRock, Inc.",entity,Common Stock,importabile,
-71,BWXT,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+71,BWXT,The Vanguard Group,entity,Common Stock,importabile,
 72,BYRN,Pierre Lapeyre Jr.,person,Common Stock,importabile,
 73,BYRN,FMR LLC,entity,Common Stock,importabile,
 74,BYRN,Bryan Scott Ganz,person,Common Stock,importabile,
 75,CDNS,"BlackRock, Inc.",entity,Common Stock,importabile,
-76,CDNS,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+76,CDNS,The Vanguard Group,entity,Common Stock,importabile,
 77,CDRE,FMR LLC,entity,Common Stock,importabile,
 78,CDRE,Greenhouse Funds LLLP,entity,Common Stock,importabile,
 79,CDRE,"Blackrock, Inc",entity,Common Stock,importabile,
 80,CDRE,Capital International Investors,entity,Common Stock,importabile,
 81,CDRE,"Reinhart Partners, LLC",entity,Common Stock,importabile,
 82,CDRE,Warren B. Kanders,person,Common Stock,importabile,
-83,CDW,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+83,CDW,The Vanguard Group,entity,Common Stock,importabile,
 84,CDW,"BlackRock, Inc.",entity,Common Stock,importabile,
 85,CENX,Glencore AG,entity,Common Stock,importabile,
 86,CENX,"BlackRock, Inc.",entity,Common Stock,importabile,
 87,CHTR,Liberty Broadband Corporation,entity,Class A Common Stock,importabile,
 88,CHTR,Advance/Newhouse Partnership,entity,Class A Common Stock,importabile,
 89,CHTR,Dodge & Cox,entity,Class A Common Stock,importabile,
-90,CHTR,The Vanguard Group,entity,Class A Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+90,CHTR,The Vanguard Group,entity,Class A Common Stock,importabile,
 91,CHTR,State Street Corporation,entity,Class A Common Stock,importabile,
 92,CIEN,FMR LLC,entity,Common Stock,importabile,
-93,CIEN,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+93,CIEN,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 94,CIEN,"BlackRock, Inc.",entity,Common Stock,importabile,
 95,CIEN,JPMorgan Chase & Co.,entity,Common Stock,importabile,
 96,CLF,"BlackRock, Inc.",entity,Common Stock,importabile,
 97,CLS,FMR LLC,entity,Common Shares,importabile,
 98,CLS,"BlackRock, Inc.",entity,Common Shares,importabile,
 99,CMC,"BlackRock, Inc.",entity,Common Stock,importabile,
-100,CMC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+100,CMC,The Vanguard Group,entity,Common Stock,importabile,
 101,CMC,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
 102,CMC,State Street Corporation,entity,Common Stock,importabile,
-103,CMCSA,The Vanguard Group,entity,Class A common stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+103,CMCSA,The Vanguard Group,entity,Class A common stock,importabile,
 104,CMCSA,"BlackRock, Inc.",entity,Class A common stock,importabile,
 105,CMCSA,State Street Corporation,entity,Class A common stock,importabile,
 106,CMCSA,Brian L. Roberts,person,Class B common stock,importabile,
-107,CMP,"Koch Industries, Inc.",entity,Common Stock,bloccata,"titolare E0059 senza decisione (da decidere: nome simile nel DB, verific)"
+107,CMP,"Koch Industries, Inc.",entity,Common Stock,importabile,
 108,CMP,"BlackRock, Inc.",entity,Common Stock,importabile,
-109,CMP,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+109,CMP,The Vanguard Group,entity,Common Stock,importabile,
 110,CMP,SailingStone Capital Partners LLC,entity,Common Stock,importabile,
 111,CMP,State Street Corporation,entity,Common Stock,importabile,
 112,CMP,M Partners Fund LP,entity,Common Stock,importabile,
-113,COHR,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+113,COHR,Vanguard Capital Management,entity,Common Stock,importabile,
 114,COHR,"BlackRock, Inc.",entity,Common Stock,importabile,
 115,COHR,FMR LLC,entity,Common Stock,importabile,
-116,CRM,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+116,CRM,The Vanguard Group,entity,Common Stock,importabile,
 117,CRM,"BlackRock, Inc.",entity,Common Stock,importabile,
 118,CRM,State Street Corporation,entity,Common Stock,importabile,
 119,CRS,"BlackRock, Inc.",entity,Common Stock,importabile,
 120,CRS,FMR LLC,entity,Common Stock,importabile,
-121,CRS,Vanguard Capital Management LLC,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+121,CRS,Vanguard Capital Management LLC,entity,Common Stock,importabile,
 122,CRWD,"BlackRock, Inc.",entity,Class A common stock,importabile,
-123,CRWD,Vanguard Capital Management,entity,Class A common stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
-124,CSCO,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+123,CRWD,Vanguard Capital Management,entity,Class A common stock,importabile,
+124,CSCO,The Vanguard Group,entity,Common Stock,importabile,
 125,CSCO,"BlackRock, Inc.",entity,Common Stock,importabile,
 126,CSTM,"Caisse des Dépôts (f/k/a Caisse des Dépôts et Consignations), Bpifrance Participations S.A., Bpifrance S.A. (f/k/a BPI-Groupe), EPIC Bpifrance (f/k/a EPIC BPI-Groupe)",entity,Ordinary Shares,importabile,
 127,CSTM,"BlackRock, Inc.",entity,Ordinary Shares,importabile,
@@ -129,12 +129,12 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 129,CTSH,"BlackRock, Inc.",entity,Common Stock,importabile,
 130,CTSH,State Street Corporation,entity,Common Stock,importabile,
 131,CW,"BlackRock, Inc.",entity,Common Stock,importabile,
-132,CW,The Vanguard Group Inc.,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-133,DCO,BlackRock Advisors LLC,entity,Common Stock,bloccata,"titolare E0019 senza decisione (da decidere: nome simile nel DB, verific)"
+132,CW,The Vanguard Group Inc.,entity,Common Stock,importabile,
+133,DCO,BlackRock Advisors LLC,entity,Common Stock,importabile,
 134,DCO,"Paradigm Capital Management, Inc.",entity,Common Stock,importabile,
 135,DCO,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
-136,DCO,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-137,DDOG,The Vanguard Group,entity,Class A Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+136,DCO,The Vanguard Group,entity,Common Stock,importabile,
+137,DDOG,The Vanguard Group,entity,Class A Common Stock,importabile,
 138,DDOG,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
 139,DDOG,FMR LLC,entity,Class A Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 140,DDOG,Olivier Pomel,person,Class A Common Stock,importabile,per voti >=5
@@ -147,9 +147,9 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 147,DELL,SLD Trust,entity,Class C Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 148,DELL,SLP Stockholders,entity,Class B Common Stock,importabile,
 149,DELL,SLP Stockholders,entity,Class C Common Stock,importabile,
-150,DELL,Vanguard Capital Management,entity,Class C Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+150,DELL,Vanguard Capital Management,entity,Class C Common Stock,importabile,
 151,DELL,"BlackRock, Inc.",entity,Class C Common Stock,importabile,
-152,DIS,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+152,DIS,The Vanguard Group,entity,Common Stock,importabile,
 153,DIS,"Blackrock, Inc.",entity,Common Stock,importabile,
 154,DRS,Leonardo S.p.A. and Leonardo US Holding LLC,entity,Common Stock,bloccata,"titolare E0061 senza decisione (da decidere: nome simile nel DB, verific)"
 155,SATS,Charles W. Ergen,person,Class A Common Stock,importabile,
@@ -158,17 +158,17 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 158,SATS,Cantey M. Ergen,person,Class B Common Stock,importabile,
 159,SATS,State Street Corporation,entity,Class A Common Stock,importabile,
 160,SATS,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
-161,SATS,Vanguard Capital Management LLC,entity,Class A Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
-162,EPAM,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+161,SATS,Vanguard Capital Management LLC,entity,Class A Common Stock,importabile,
+162,EPAM,The Vanguard Group,entity,Common Stock,importabile,
 163,EPAM,"BlackRock, Inc.",entity,Common Stock,importabile,
 164,EPAM,Invesco Ltd.,entity,Common Stock,importabile,
 165,EPAM,Capital World Investors,entity,Common Stock,importabile,
 166,FCX,"BlackRock, Inc.",entity,Common Stock,importabile,
-167,FFIV,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+167,FFIV,The Vanguard Group,entity,Common Stock,importabile,
 168,FFIV,"BlackRock, Inc.",entity,Common Stock,importabile,
 169,FFIV,"Hotchkis & Wiley Capital Management, LLC",entity,Common Stock,importabile,
 170,FFIV,State Street Corporation,entity,Common Stock,importabile,
-171,FICO,"Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+171,FICO,"Vanguard Group, Inc.",entity,Common Stock,importabile,
 172,FICO,"BlackRock, Inc.",entity,Common Stock,importabile,
 173,FOX,"LGC Holdco, LLC",entity,Class A Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 174,FOX,"LGC Holdco, LLC",entity,Class B Common Stock,importabile,
@@ -178,7 +178,7 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 178,FOX,"BlackRock, Inc.",entity,Class B Common Stock,importabile,
 179,FOX,Lachlan K. Murdoch,person,Class A Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 180,FOX,Lachlan K. Murdoch,person,Class B Common Stock,importabile,
-181,FSLR,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+181,FSLR,The Vanguard Group,entity,Common Stock,importabile,
 182,FSLR,"BlackRock, Inc.",entity,Common Stock,importabile,
 183,FSLR,SIG,entity,Common Stock,importabile,
 184,FSLR,"FMR, LLC",entity,Common Stock,importabile,
@@ -187,28 +187,28 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 187,FTNT,Ken Xie,person,Common Stock,importabile,
 188,FTNT,Michael Xie,person,Common Stock,importabile,
 189,GD,"Longview Asset Management, LLC",entity,Common Stock,importabile,
-190,GD,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+190,GD,The Vanguard Group,entity,Common Stock,importabile,
 191,GD,"Newport Trust Company, LLC",entity,Common Stock,importabile,
 192,GD,"BlackRock, Inc.",entity,Common Stock,importabile,
 193,GDDY,Entities affiliated with Vanguard,entity,Class A Common Stock,importabile,
 194,GDDY,Entities affiliated with BlackRock,entity,Class A Common Stock,importabile,
-195,GE,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+195,GE,The Vanguard Group,entity,Common Stock,importabile,
 196,GE,"BlackRock, Inc.",entity,Common Stock,importabile,
-197,GE,Fidelity Management & Research,entity,Common Stock,bloccata,"titolare E0043 senza decisione (da decidere: nome simile nel DB, verific)"
+197,GE,Fidelity Management & Research,entity,Common Stock,importabile,
 198,GEN,"BlackRock, Inc.",entity,Common Stock,importabile,
-199,GEN,Vanguard Capital Management LLC,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+199,GEN,Vanguard Capital Management LLC,entity,Common Stock,importabile,
 200,GEN,FMR LLC,entity,Common Stock,importabile,
-201,GEN,Vanguard Portfolio Management LLC,entity,Common Stock,bloccata,"titolare E0104 senza decisione (da decidere: nome simile nel DB, verific)"
+201,GEN,Vanguard Portfolio Management LLC,entity,Common Stock,importabile,
 202,GEN,Pavel Baudis,person,Common Stock,importabile,
-203,GLW,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-204,GLW,"Samsung Display Co., Ltd.",entity,Common Stock,bloccata,"titolare E0083 senza decisione (da decidere: nome simile nel DB, verific)"
+203,GLW,The Vanguard Group,entity,Common Stock,importabile,
+204,GLW,"Samsung Display Co., Ltd.",entity,Common Stock,importabile,
 205,GLW,"BlackRock, Inc.",entity,Common Stock,importabile,
 206,GOOG,Larry Page,person,Class B Common Stock,importabile,
 207,GOOG,Sergey Brin,person,Class A Common Stock,importabile,per voti >=5
 208,GOOG,Sergey Brin,person,Class B Common Stock,importabile,
 209,GOOG,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
 210,HCC,"BlackRock, Inc.",entity,Common Stock,importabile,
-211,HCC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+211,HCC,The Vanguard Group,entity,Common Stock,importabile,
 212,HCC,State Street Corporation,entity,Common Stock,importabile,
 213,HCC,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
 214,HEI,Mendelson Reporting Group,entity,Common Stock,importabile,
@@ -219,20 +219,20 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 219,HEI,Herbert A. Wertheim,person,Class A Common Stock,importabile,
 220,HEI,"BlackRock, Inc.",entity,Common Stock,importabile,
 221,HEI,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
-222,HEI,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-223,HEI,"The Vanguard Group, Inc.",entity,Class A Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+222,HEI,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
+223,HEI,"The Vanguard Group, Inc.",entity,Class A Common Stock,importabile,
 224,HEI,"Principal Global Investors, LLC",entity,Class A Common Stock,importabile,
 225,HEI,FMR LLC,entity,Class A Common Stock,importabile,
 226,HEI,Capital World Investors,entity,Common Stock,importabile,
-227,HII,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+227,HII,The Vanguard Group,entity,Common Stock,importabile,
 228,HII,"BlackRock, Inc.",entity,Common Stock,importabile,
 229,HII,State Street Corporation,entity,Common Stock,importabile,
 230,HII,FMR LLC,entity,Common Stock,importabile,
 231,HII,Van Eck Associates Corporation,entity,Common Stock,importabile,
-232,HPE,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+232,HPE,The Vanguard Group,entity,Common Stock,importabile,
 233,HPE,BlackRock,entity,Common Stock,importabile,
 234,HPE,State Street Corporation,entity,Common Stock,importabile,
-235,HPQ,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+235,HPQ,The Vanguard Group,entity,Common Stock,importabile,
 236,HPQ,"BlackRock, Inc.",entity,Common Stock,importabile,
 237,HPQ,State Street Corporation,entity,Common Stock,importabile,
 238,HWM,"BlackRock, Inc.",entity,Common Stock,importabile,
@@ -242,45 +242,45 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 242,HXL,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
 243,HXL,AllianceBernstein L.P.,entity,Common Stock,importabile,
 244,HXL,State Street Corporation,entity,Common Stock,importabile,
-245,IBM,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+245,IBM,The Vanguard Group,entity,Common Stock,importabile,
 246,IBM,BlackRock Inc.,entity,Common Stock,importabile,
 247,IBM,State Street Corporation,entity,Common Stock,importabile,
 248,IE,Robert Friedland,person,Common Stock,importabile,
 249,IE,FMR LLC,entity,Common Stock,importabile,
 250,IE,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
-251,IE,Saudi Arabian Mining Company (Maaden),entity,Common Stock,bloccata,"titolare E0084 senza decisione (da decidere: nome simile nel DB, verific)"
-252,IE,Century Vision Holdings Ltd.,entity,Common Stock,bloccata,"titolare E0026 senza decisione (da decidere: nome simile nel DB, verific)"
+251,IE,Saudi Arabian Mining Company (Maaden),entity,Common Stock,importabile,
+252,IE,Century Vision Holdings Ltd.,entity,Common Stock,importabile,
 253,IE,"Blackrock, Inc.",entity,Common Stock,importabile,
 254,INTC,U.S. government,entity,Common Stock,importabile,
-255,INTC,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+255,INTC,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 256,INTC,"BlackRock, Inc.",entity,Common Stock,importabile,
-257,INTU,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+257,INTU,The Vanguard Group,entity,Common Stock,importabile,
 258,INTU,"BlackRock, Inc.",entity,Common Stock,importabile,
 259,IT,"BlackRock, Inc.",entity,Common Stock,importabile,
 260,IT,"Baron Capital Group, Inc.",entity,Common Stock,importabile,
 261,IT,Capital International Investors,entity,Common Stock,importabile,
-262,IT,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-263,JBL,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+262,IT,The Vanguard Group,entity,Common Stock,importabile,
+263,JBL,The Vanguard Group,entity,Common Stock,importabile,
 264,JBL,"BlackRock, Inc.",entity,Common Stock,importabile,
 265,KALU,"BlackRock, Inc.",entity,Common Stock,importabile,
 266,KALU,State Street Corporation,entity,Common Stock,importabile,
-267,KALU,"Nomura Asset Management International, Inc.",entity,Common Stock,bloccata,"titolare E0075 senza decisione (da decidere: nome simile nel DB, verific)"
+267,KALU,"Nomura Asset Management International, Inc.",entity,Common Stock,importabile,
 268,KALU,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
-269,KEYS,The Vanguard Group Inc.,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+269,KEYS,The Vanguard Group Inc.,entity,Common Stock,importabile,
 270,KEYS,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
 271,KEYS,"BlackRock, Inc.",entity,Common Stock,importabile,
 272,KLAC,"BlackRock, Inc.",entity,Common Stock,importabile,
-273,KLAC,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
-274,KRMN,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+273,KLAC,Vanguard Capital Management,entity,Common Stock,importabile,
+274,KRMN,The Vanguard Group,entity,Common Stock,importabile,
 275,KTOS,"BlackRock, Inc.",entity,Common Stock,importabile,
-276,LAC,Orion Resource Partners (USA) LP,entity,Common Shares,bloccata,"titolare E0076 senza decisione (da decidere: nome simile nel DB, verific)"
-277,LHX,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+276,LAC,Orion Resource Partners (USA) LP,entity,Common Shares,importabile,
+277,LHX,The Vanguard Group,entity,Common Stock,importabile,
 278,LHX,"BlackRock, Inc.",entity,Common Stock,importabile,
 279,LHX,Capital World Investors,entity,Common Stock,importabile,
-280,LITE,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+280,LITE,Vanguard Capital Management,entity,Common Stock,importabile,
 281,LITE,BlackRock Inc.,entity,Common Stock,importabile,
 282,LMT,State Street Corporation,entity,Common Stock,importabile,
-283,LMT,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+283,LMT,The Vanguard Group,entity,Common Stock,importabile,
 284,LMT,"BlackRock, Inc.",entity,Common Stock,importabile,
 285,LOAR,"Abrams Capital Management, L.P. and affiliates",entity,Common Stock,importabile,
 286,LOAR,GPV Loar LLC,entity,Common Stock,importabile,
@@ -290,9 +290,9 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 290,LOGI,"BlackRock, Inc.",entity,Shares,importabile,
 291,LOGI,"UBS Asset Management (Americas), Inc.",entity,Shares,importabile,
 292,LRCX,"BlackRock, Inc.",entity,common stock,importabile,
-293,LRCX,Vanguard Capital Management,entity,common stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+293,LRCX,Vanguard Capital Management,entity,common stock,importabile,
 294,LUNR,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
-295,LUNR,Advent Reporting Persons,entity,Class A Common Stock,bloccata,"titolare E0003 senza decisione (da decidere: nome simile nel DB, verific)"
+295,LUNR,Advent Reporting Persons,entity,Class A Common Stock,importabile,
 296,LUNR,Stephen Altemus,person,Class A Common Stock,importabile,per voti >=5
 297,LUNR,Stephen Altemus,person,Class C Common Stock,importabile,
 298,LUNR,Dr. Kamal Ghaffarian,person,Class A Common Stock,importabile,per voti >=5
@@ -302,8 +302,8 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 302,LYV,"Liberty Live Holdings, Inc.",entity,Common Stock,importabile,
 303,LYV,"BlackRock, Inc.",entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 304,MCHP,"BlackRock, Inc.",entity,Common Stock,importabile,
-305,MCHP,"Vanguard Capital Management, LLC",entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
-306,MCHP,"Vanguard Portfolio Management, LLC",entity,Common Stock,bloccata,"titolare E0104 senza decisione (da decidere: nome simile nel DB, verific)"
+305,MCHP,"Vanguard Capital Management, LLC",entity,Common Stock,importabile,
+306,MCHP,"Vanguard Portfolio Management, LLC",entity,Common Stock,importabile,
 307,MCHP,State Street Corporation,entity,Common Stock,importabile,
 308,META,Mark Zuckerberg,person,Class A Common Stock,importabile,per voti >=5
 309,META,Mark Zuckerberg,person,Class B Common Stock,importabile,
@@ -325,63 +325,63 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 325,METC,Peter Leidel,person,Class A Common Stock,importabile,
 326,METC,Peter Leidel,person,Class B Common Stock,importabile,
 327,MOG-A,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
-328,MOG-A,"The Vanguard Group, Inc.",entity,Class A Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+328,MOG-A,"The Vanguard Group, Inc.",entity,Class A Common Stock,importabile,
 329,MOG-A,Earnest Partners LLC,entity,Class A Common Stock,importabile,
 330,MOG-A,State Street Corp,entity,Class A Common Stock,importabile,
-331,MOG-A,Moog Inc. Retirement Savings Plan (RSP),entity,Class B Common Stock,bloccata,"titolare E0069 senza decisione (da decidere: nome simile nel DB, verific)"
+331,MOG-A,Moog Inc. Retirement Savings Plan (RSP),entity,Class B Common Stock,importabile,
 332,MOG-A,"Moog Inc. Stock Employee Compensation Trust, as amended (SECT)",entity,Class A Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
-333,MOG-A,"Moog Inc. Stock Employee Compensation Trust, as amended (SECT)",entity,Class B Common Stock,bloccata,"titolare E0070 senza decisione (da decidere: nome simile nel DB, verific)"
-334,MOG-A,"Moog Inc. Supplemental Retirement Plan Trust, as amended (Trust)",entity,Class B Common Stock,bloccata,"titolare E0071 senza decisione (da decidere: nome simile nel DB, verific)"
+333,MOG-A,"Moog Inc. Stock Employee Compensation Trust, as amended (SECT)",entity,Class B Common Stock,importabile,
+334,MOG-A,"Moog Inc. Supplemental Retirement Plan Trust, as amended (Trust)",entity,Class B Common Stock,importabile,
 335,MP,Hancock Prospecting Pty Limited,entity,Common Stock,importabile,
-336,MP,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+336,MP,The Vanguard Group,entity,Common Stock,importabile,
 337,MP,James H. Litinsky,person,Common Stock,importabile,
 338,MP,"BlackRock, Inc.",entity,Common Stock,importabile,
-339,MPWR,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+339,MPWR,The Vanguard Group,entity,Common Stock,importabile,
 340,MPWR,"BlackRock, Inc.",entity,Common Stock,importabile,
 341,MPWR,FMR LLC,entity,Common Stock,importabile,
 342,MRCY,"BlackRock, Inc.",entity,Common Stock,importabile,
 343,MRCY,"JANA Management Partners, LP",entity,Common Stock,importabile,
 344,MRCY,State Street Corporation,entity,Common Stock,importabile,
-345,MRCY,Vanguard Portfolio Management LLC,entity,Common Stock,bloccata,"titolare E0104 senza decisione (da decidere: nome simile nel DB, verific)"
-346,MSFT,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+345,MRCY,Vanguard Portfolio Management LLC,entity,Common Stock,importabile,
+346,MSFT,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 347,MSFT,"BlackRock, Inc.",entity,Common Stock,importabile,
-348,MSI,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+348,MSI,The Vanguard Group,entity,Common Stock,importabile,
 349,MSI,"BlackRock, Inc.",entity,Common Stock,importabile,
 350,MTRN,"BlackRock, Inc.",entity,Common Stock,importabile,
-351,MTRN,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+351,MTRN,The Vanguard Group,entity,Common Stock,importabile,
 352,MTRN,Capital Research Global Investors,entity,Common Stock,importabile,
 353,MTRN,State Street Corporation,entity,Common Stock,importabile,
 354,MTUS,"BlackRock, Inc.",entity,Common Stock,importabile,
 355,MTUS,"Ellwood Group, Inc.",entity,Common Stock,importabile,
-356,MTUS,The Vanguard Group Inc.,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+356,MTUS,The Vanguard Group Inc.,entity,Common Stock,importabile,
 357,MTUS,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
 358,MTUS,State Street Corporation,entity,Common Stock,importabile,
-359,MU,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+359,MU,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 360,MU,"BlackRock, Inc.",entity,Common Stock,importabile,
 361,MU,Capital World Investors,entity,Common Stock,importabile,
 362,NB,Entities affiliated with Citadel Advisors LLC,entity,Common Shares,importabile,
-363,NFLX,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+363,NFLX,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 364,NFLX,"BlackRock, Inc.",entity,Common Stock,importabile,
 365,NFLX,FMR LLC,entity,Common Stock,importabile,
 366,NOC,State Street Corporation,entity,Common Stock,importabile,
-367,NOC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+367,NOC,The Vanguard Group,entity,Common Stock,importabile,
 368,NOC,Capital International Investors,entity,Common Stock,importabile,
 369,NOC,"BlackRock, Inc.",entity,Common Stock,importabile,
 370,NOW,"BlackRock, Inc.",entity,Common Stock,importabile,
-371,NOW,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+371,NOW,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 372,NPK,Maryjo Cohen,person,Common Stock,importabile,
 373,NPK,"BlackRock, Inc.",entity,Common Stock,importabile,
 374,NPK,"Albion River Management, LLC",entity,Common Stock,importabile,
 375,NTAP,"BlackRock, Inc.",entity,Common Stock,importabile,
-376,NTAP,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
-377,NTAP,Vanguard Portfolio Management,entity,Common Stock,bloccata,"titolare E0104 senza decisione (da decidere: nome simile nel DB, verific)"
+376,NTAP,Vanguard Capital Management,entity,Common Stock,importabile,
+377,NTAP,Vanguard Portfolio Management,entity,Common Stock,importabile,
 378,NTAP,State Street Corporation,entity,Common Stock,importabile,
-379,NUE,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-380,NUE,State Farm Mutual Automobile Insurance Company and related entities,entity,Common Stock,bloccata,"titolare E0092 senza decisione (da decidere: nome simile nel DB, verific)"
+379,NUE,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
+380,NUE,State Farm Mutual Automobile Insurance Company and related entities,entity,Common Stock,importabile,
 381,NUE,"BlackRock, Inc.",entity,Common Stock,importabile,
 382,NUE,State Street Corporation,entity,Common Stock,importabile,
 383,NVDA,"BlackRock, Inc.",entity,Common Stock,importabile,
-384,NVDA,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+384,NVDA,Vanguard Capital Management,entity,Common Stock,importabile,
 385,NWS,Independent Franchise Partners,entity,Class A Common Stock,importabile,
 386,NWS,Independent Franchise Partners,entity,Class B Common Stock,importabile,
 387,NWS,"LGC Holdco, LLC",entity,Class A Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
@@ -392,15 +392,15 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 392,NXPI,FMR LLC,entity,Ordinary Shares,importabile,
 393,NXPI,JPMorgan Chase & Co.,entity,Ordinary Shares,importabile,
 394,NXPI,"BlackRock, Inc.",entity,Ordinary Shares,importabile,
-395,NXPI,The Vanguard Group,entity,Ordinary Shares,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-396,NXPI,Wellington Management Group LLP,entity,Ordinary Shares,bloccata,"titolare E0106 senza decisione (da decidere: nome simile nel DB, verific)"
+395,NXPI,The Vanguard Group,entity,Ordinary Shares,importabile,
+396,NXPI,Wellington Management Group LLP,entity,Ordinary Shares,importabile,
 397,OMC,State Street Corporation,entity,Common Stock,importabile,
-398,OMC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+398,OMC,The Vanguard Group,entity,Common Stock,importabile,
 399,OMC,"BlackRock, Inc.",entity,Common Stock,importabile,
 400,ON,FMR LLC,entity,Common Stock,importabile,
 401,ON,"BlackRock, Inc.",entity,Common Stock,importabile,
 402,ORCL,Lawrence J. Ellison,person,Common Stock,importabile,
-403,PANW,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+403,PANW,The Vanguard Group,entity,Common Stock,importabile,
 404,PANW,"BlackRock, Inc.",entity,Common Stock,importabile,
 405,PLTR,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
 406,PLTR,Alexander Karp,person,Class A Common Stock,importabile,per voti >=5
@@ -413,11 +413,11 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 413,PLTR,Peter Thiel,person,Class B Common Stock,importabile,
 414,PLTR,Peter Thiel,person,Class F Common Stock,importabile,
 415,PTC,"T. Rowe Price Investment Management, Inc.",entity,Common Stock,importabile,
-416,PTC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+416,PTC,The Vanguard Group,entity,Common Stock,importabile,
 417,PTC,"BlackRock, Inc.",entity,Common Stock,importabile,
-418,Q,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+418,Q,The Vanguard Group,entity,Common Stock,importabile,
 419,Q,"BlackRock, Inc.",entity,Common Stock,importabile,
-420,QCOM,Vanguard Group Inc.,entity,common stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+420,QCOM,Vanguard Group Inc.,entity,common stock,importabile,
 421,QCOM,"BlackRock, Inc.",entity,common stock,importabile,
 422,RDW,AE Industrial Partners and affiliates,entity,Common Stock,importabile,
 423,RDW,AE Industrial Partners and affiliates,entity,Preferred Stock,importabile,
@@ -425,63 +425,63 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 425,RKLB,Peter Beck,person,Common Stock,importabile,per voti >=5
 426,RKLB,Entities Affiliated with Khosla Ventures,entity,Common Stock,importabile,per voti >=5
 427,RKLB,"Entities Affiliated with BlackRock, Inc.",entity,Common Stock,importabile,per voti >=5
-428,ROP,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+428,ROP,The Vanguard Group,entity,Common Stock,importabile,
 429,ROP,"BlackRock, Inc.",entity,Common Stock,importabile,
 430,ROP,WindAcre Partnership LLC,entity,Common Stock,importabile,
-431,RS,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+431,RS,The Vanguard Group,entity,Common Stock,importabile,
 432,RS,"BlackRock, Inc.",entity,Common Stock,importabile,
 433,RS,State Street Corporation,entity,Common Stock,importabile,
-434,RTX,"Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+434,RTX,"Vanguard Group, Inc.",entity,Common Stock,importabile,
 435,RTX,"BlackRock, Inc.",entity,Common Stock,importabile,
 436,RTX,State Street Corporation,entity,Common Stock,importabile,
 437,RTX,Capital Research Global Investors,entity,Common Stock,importabile,
 438,RYZ,"Tom Gores, Platinum Equity, LLC and the other reporting persons identified in the applicable Schedule 13G/A",entity,Common Stock,importabile,
 439,RYZ,"BlackRock, Inc.",entity,Common Stock,importabile,
-440,RYZ,"Franklin Mutual Advisers, LLC",entity,Common Stock,bloccata,"titolare E0045 senza decisione (da decidere: nome simile nel DB, verific)"
+440,RYZ,"Franklin Mutual Advisers, LLC",entity,Common Stock,importabile,
 441,SARO,Investment funds affiliated with The Carlyle Group,entity,Common Stock,importabile,
 442,SARO,GIC,entity,Common Stock,importabile,
 443,SARO,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
 444,SARO,"BlackRock, Inc.",entity,Common Stock,importabile,
-445,SCCO,Americas Mining Corporation,entity,Common Stock,bloccata,"titolare E0011 senza decisione (da decidere: nome simile nel DB, verific)"
+445,SCCO,Americas Mining Corporation,entity,Common Stock,importabile,
 446,SMCI,Charles Liang,person,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 447,SMCI,"BlackRock, Inc.",entity,Common Stock,importabile,
-448,SMCI,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-449,SNDK,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+448,SMCI,The Vanguard Group,entity,Common Stock,importabile,
+449,SNDK,Vanguard Capital Management,entity,Common Stock,importabile,
 450,SNDK,"BlackRock, Inc.",entity,Common Stock,importabile,
 451,SNDK,FMR LLC,entity,Common Stock,importabile,
 452,SNDK,"Jane Street Group, LLC",entity,Common Stock,importabile,
-453,SNPS,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+453,SNPS,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 454,SNPS,"BlackRock, Inc.",entity,Common Stock,importabile,
-455,STLD,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+455,STLD,The Vanguard Group,entity,Common Stock,importabile,
 456,STLD,"BlackRock, Inc.",entity,Common Stock,importabile,
-457,STX,Vanguard Capital Management,entity,Ordinary Shares,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+457,STX,Vanguard Capital Management,entity,Ordinary Shares,importabile,
 458,STX,"BlackRock, Inc.",entity,Ordinary Shares,importabile,
-459,SWKS,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+459,SWKS,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 460,SWKS,Pzena Investment Management LLC,entity,Common Stock,importabile,
 461,SWKS,"BlackRock, Inc.",entity,Common Stock,importabile,
 462,SXC,"BlackRock, Inc.",entity,Common Stock,importabile,
-463,SXC,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+463,SXC,The Vanguard Group,entity,Common Stock,importabile,
 464,SXC,State Street Corporation,entity,Common Stock,importabile,
 465,SXC,Dimensional Fund Advisors LP,entity,Common Stock,importabile,
 466,T,"BlackRock, Inc.",entity,Common Stock,importabile,
-467,T,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-468,TDG,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+467,T,The Vanguard Group,entity,Common Stock,importabile,
+468,TDG,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 469,TDG,Capital International Investors,entity,Common Stock,importabile,
 470,TDG,Capital World Investors,entity,Common Stock,importabile,
 471,TDG,"BlackRock, Inc.",entity,Common Stock,importabile,
-472,TDY,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+472,TDY,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 473,TDY,"BlackRock, Inc.",entity,Common Stock,importabile,
 474,TDY,"T. Rowe Price Associates, Inc.",entity,Common Stock,importabile,
-475,TEL,The Vanguard Group,entity,Shares,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+475,TEL,The Vanguard Group,entity,Shares,importabile,
 476,TEL,"T. Rowe Price Associates, Inc.",entity,Shares,importabile,
 477,TEL,BlackRock Inc.,entity,Shares,importabile,
-478,TER,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+478,TER,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 479,TER,"BlackRock, Inc.",entity,Common Stock,importabile,
 480,TER,FMR LLC,entity,Common Stock,importabile,
-481,TKO,"Endeavor Group Holdings, Inc.",entity,Class A Common Stock,bloccata,"titolare E0040 senza decisione (da decidere: nome simile nel DB, verific)"
-482,TKO,"Endeavor Group Holdings, Inc.",entity,Class B Common Stock,bloccata,"titolare E0040 senza decisione (da decidere: nome simile nel DB, verific)"
-483,TKO,Silver Lake Equityholders,entity,Class A Common Stock,bloccata,"titolare E0086 senza decisione (da decidere: nome simile nel DB, verific)"
-484,TKO,Silver Lake Equityholders,entity,Class B Common Stock,bloccata,"titolare E0086 senza decisione (da decidere: nome simile nel DB, verific)"
+481,TKO,"Endeavor Group Holdings, Inc.",entity,Class A Common Stock,importabile,
+482,TKO,"Endeavor Group Holdings, Inc.",entity,Class B Common Stock,importabile,
+483,TKO,Silver Lake Equityholders,entity,Class A Common Stock,importabile,
+484,TKO,Silver Lake Equityholders,entity,Class B Common Stock,importabile,
 485,TKO,Vincent K. McMahon,person,Class A Common Stock,importabile,
 486,TKO,"BlackRock, Inc.",entity,Class A Common Stock,importabile,
 487,TKO,State Street Corporation,entity,Class A Common Stock,importabile,
@@ -494,29 +494,29 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 494,TMC,Allseas Group S.A,entity,Common Shares,importabile,
 495,TMC,William Brumder,person,Common Shares,importabile,
 496,TMC,"Korea Zinc Company, Ltd.",entity,Common Shares,importabile,
-497,TMQ,Electrum Strategic Opportunities Fund L.P.,entity,Common Shares,bloccata,"titolare E0038 senza decisione (da decidere: nome simile nel DB, verific)"
+497,TMQ,Electrum Strategic Opportunities Fund L.P.,entity,Common Shares,importabile,
 498,TMQ,South32 Limited,entity,Common Shares,importabile,
 499,TMQ,Tony Giardini,person,Common Shares,importabile,
 500,TMUS,Deutsche Telekom AG,entity,Common Stock,importabile,
-501,TRMB,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+501,TRMB,The Vanguard Group,entity,Common Stock,importabile,
 502,TRMB,Morgan Stanley,entity,Common Stock,importabile,
-503,TTD,"The Vanguard Group, Inc.",entity,Class A common stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+503,TTD,"The Vanguard Group, Inc.",entity,Class A common stock,importabile,
 504,TTD,"BlackRock, Inc.",entity,Class A common stock,importabile,
 505,TTD,State Street Corporation,entity,Class A common stock,importabile,
 506,TTD,Baillie Gifford & Co.,entity,Class A common stock,importabile,
 507,TTD,Jeff T. Green,person,Class A common stock,importabile,per voti >=5
 508,TTD,Jeff T. Green,person,Class B common stock,importabile,
-509,TTWO,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+509,TTWO,Vanguard Capital Management,entity,Common Stock,importabile,
 510,TTWO,"BlackRock, Inc.",entity,Common Stock,importabile,
 511,TTWO,State Street Corporation,entity,Common Stock,importabile,
 512,TTWO,Public Investment Fund,entity,Common Stock,importabile,
 513,TTWO,JPMorgan Chase & Co.,entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
-514,TXN,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+514,TXN,The Vanguard Group,entity,Common Stock,importabile,
 515,TXN,"BlackRock, Inc.",entity,Common Stock,importabile,
 516,TXT,"BlackRock, Inc.",entity,Common Stock,importabile,
 517,TXT,SSgA Funds Management Inc.,entity,Common Stock,importabile,
-518,TXT,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
-519,TYL,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+518,TXT,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
+519,TYL,The Vanguard Group,entity,Common Stock,importabile,
 520,TYL,"BlackRock, Inc.",entity,Common Stock,importabile,
 521,UAMY,State Street Corporation,entity,Common Stock,importabile,
 522,UAMY,"Creative Planning, LLC",entity,Common Stock,importabile,
@@ -527,7 +527,7 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 527,UAMY,Edward Robinson,person,Series C Preferred,importabile,
 528,USAR,"Alyeska Master Fund, L.P.",entity,Common Stock,importabile,
 529,USAR,"Inflection Point Fund I, LP",entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
-530,USAR,"Inflection Point Fund I, LP",entity,Series A Preferred Stock,bloccata,"titolare E0053 senza decisione (da decidere: nome simile nel DB, verific)"
+530,USAR,"Inflection Point Fund I, LP",entity,Series A Preferred Stock,importabile,
 531,USAR,"Bowon M&P Co., Ltd.",entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
 532,USAR,"Bowon M&P Co., Ltd.",entity,Series A Preferred Stock,importabile,
 533,USAR,"Alto Opportunity Master Fund, SPC – Segregated Master Portfolio B",entity,Common Stock,scartata,"sotto la soglia di S4 (capitale <5 o vuoto, voti <5 o assenti)"
@@ -546,7 +546,7 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 546,VVX,Vertex Aerospace Holdco LLC,entity,Common Stock,importabile,
 547,VVX,FMR LLC,entity,Common Stock,importabile,
 548,VVX,"BlackRock, Inc.",entity,Common Stock,importabile,
-549,VZ,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+549,VZ,The Vanguard Group,entity,Common Stock,importabile,
 550,VZ,"BlackRock, Inc.",entity,Common Stock,importabile,
 551,VZ,State Street Corporation,entity,Common Stock,importabile,
 552,WBD,"BlackRock, Inc.",entity,Common Stock,importabile,
@@ -557,16 +557,16 @@ riga,ticker,titolare,tipo,classe,esito,motivo
 557,WDAY,David A. Duffield,person,Class A common stock,importabile,per voti >=5
 558,WDAY,David A. Duffield,person,Class B common stock,importabile,
 559,WDAY,"BlackRock, Inc. and affiliates",entity,Class A common stock,importabile,
-560,WDAY,"The Vanguard Group, Inc. and affiliates",entity,Class A common stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+560,WDAY,"The Vanguard Group, Inc. and affiliates",entity,Class A common stock,importabile,
 561,WDC,"BlackRock, Inc.",entity,Common Stock,importabile,
 562,WDC,FMR LLC,entity,Common Stock,importabile,
-563,WDC,Vanguard Capital Management,entity,Common Stock,bloccata,"titolare E0102 senza decisione (da decidere: nome simile nel DB, verific)"
+563,WDC,Vanguard Capital Management,entity,Common Stock,importabile,
 564,WDC,JPMorgan Chase & Co.,entity,Common Stock,importabile,
 565,WS,John P. McConnell,person,Common Shares,importabile,
 566,WS,"BlackRock, Inc.",entity,Common Shares,importabile,
 567,WS,Dimensional Fund Advisors LP,entity,Common Shares,importabile,
 568,WWD,"BlackRock, Inc.",entity,Common Stock,importabile,
-569,WWD,The Vanguard Group,entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+569,WWD,The Vanguard Group,entity,Common Stock,importabile,
 570,WWD,"Eagle Capital Management, LLC",entity,Common Stock,importabile,
-571,ZBRA,"The Vanguard Group, Inc.",entity,Common Stock,bloccata,"titolare E0103 senza decisione (da decidere: nome simile nel DB, verific)"
+571,ZBRA,"The Vanguard Group, Inc.",entity,Common Stock,importabile,
 572,ZBRA,"BlackRock, Inc.",entity,Common Stock,importabile,
