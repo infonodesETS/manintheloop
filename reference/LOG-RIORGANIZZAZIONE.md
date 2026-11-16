@@ -674,3 +674,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Prova:** `validate.py` PASSED; confronto prima/dopo: nessuna entità cambiata o aggiunta dall'import, una sola relazione nuova.
 - **Nota:** il blocco Crunchbase di Apple ha ora 6 investitori su 8 della pagina (`num_investors` resta 8): è voluto.
 - **Esito PR #58 (Nelson, 2026-11-16):** fusa, 3 commit (`18375b1`, `d8dc5b5`, `c9bea0b`), branch cancellato su GitHub; `main` locale allineato a `0297252`. Il testo della PR corrisponde ai dati fusi. Con questa chiusura Apple `IN-0032` ha profilo Crunchbase corretto, conflitto sede chiuso e una relazione investitore (KB Securities); restano 6 nomi su 8 in `top_investors` per scelta.
+
+
+### 2026-11-16 — Piano rimesso in pari e checklist di chiusura ◐ (branch `docs/piano-allineato`, non pushato)
+
+- **Problema (segnalato da Nelson):** la tabella «Stato di avanzamento» e il «Registro» del piano erano fermi al 2026-11-14 (riga B3 al 2026-11-13); 14 PR fuse (#45-#59) erano solo nel log e in `STATUS.md`. La regola esisteva già (piano §0.2 punto 6, «Session protocol» di `STATUS.md`).
+- **Causa:** dopo la compattazione il mio ciclo di lavoro («dry-run, ok, apply, validate, commit, STATUS e log, push») non conteneva il passaggio (b) del piano; nessun controllo automatico (`check_docs.py`, concordato il 2026-11-14, non scritto).
+- **Scritto:** riga B3 e 8 righe di registro (PR #45-#59, ricostruite da `git log --merges` e dal log) nel piano; nuova §0.5 «Chiusura della sessione» (checklist da eseguire prima di `/clear`, prima di uscire, prima di cambiare lavoro); stessa regola nel «Session protocol» di `STATUS.md`; voce «da scrivere» per `check_docs.py` nei «Prossimi lavori».
+- **Non fatto:** `check_docs.py`; hook su `.claude/settings.json` (scartato: non obbliga, `Stop` scatta a ogni risposta).

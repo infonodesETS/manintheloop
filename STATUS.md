@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
-> Ultimo aggiornamento: 2026-11-15 (ripartenza eseguita). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
+> Ultimo aggiornamento: 2026-11-16 (piano rimesso in pari). Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
 
 ## Dove siamo
 
@@ -23,6 +23,8 @@ Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/S
 **Da confermare in B5:** nomi dei campi di `sources.sec` (`release`, `refs`, `person_ids`), valori di `holder_type` (`fund`, `company`, `person`), vocabolario di `role_code` (prima della Release 2).
 
 ## Prossimi lavori (ognuno con ok di Nelson, un passo alla volta)
+
+- **`scripts/check_docs.py` (da scrivere, concordato il 2026-11-16):** controllo in sola lettura che confronta l'ultima PR fusa (`git log --merges`) con l'ultima citata nel registro del piano e in questo file, e segnala l'arretrato; da lanciare a inizio e a fine sessione (poi, se serve, dal hook di avvio). Motivo: il piano era fermo al 2026-11-14 con 14 PR mancanti.
 
 - **Sequenza proposta dall'AI il 2026-11-14** (ogni passo con ok di Nelson, motivazione e costo): (i) PR di sola documentazione con i commit non pushati del branch di documentazione: **a fine giornata o insieme alla prossima PR di dati**; (ii) **pilota agentico** su 5-6 schede mai trattate del gruppo A dei 41 QID (`IN-0863`, `IN-0599`, `IN-0600` sono fatte: vedi il log del 2026-11-14), una PR per gruppo; per ogni scheda: `history` e `validation` lette, risultato dell'agente controllato con `work/verifica-qid/check_risultato.py`, dry-run di `scripts/patch_qid_removed.py`, ok di Nelson; **Pilota eseguito il 2026-11-15** su 6 schede (`IN-0670`, `IN-0897`, `IN-0980`, `IN-1019`, `IN-1122`, `IN-1194`): vedi il log del 2026-11-15; i risultati degli agenti sono in `work/verifica-qid/risultati/` (non tracciata). Procedura: lanciare gli agenti con `work/verifica-qid/ISTRUZIONE-AGENTE.md` (uno per scheda, sola lettura, non senza l'ok di Nelson), rilanciare **personalmente** `check_risultato.py`, verificare con `git status` che gli agenti non abbiano scritto altro, riferire a Nelson una tabella, e solo con il suo ok applicare le patch (dry-run, `--history-letta --apply`, un commit per scheda, una PR per gruppo; testi in inglese). (iii) la conferma definitiva dei metodi `reference/METODO-VERIFICA-WEB.md` e `reference/METODO-AGENTICO.md` dopo il pilota.
 - **Parentela come dato strutturato (decisione di Nelson, 2026-11-15, da fare):** oggi che una scheda sia controllata di un'altra sta solo nel testo di `history` e `validation` (stati `qid_nulled_subsidiary` e `qid_nulled_sibling_subsidiary`, 43 voci, più le patch di `patch_qid_removed.py`); relazioni `parte_di` nel database: 0. Da decidere il modello (`parte_di` di S6 o un campo sulla scheda), adattare il sito nella stessa PR (oggi `app.js` legge come investimento ogni relazione diversa da `edf_participation`) e ricavare i legami dalle `validation` esistenti. Attenzione: la scheda che tiene il QID non è sempre la proprietaria legale (`IN-0671` per `IN-0670`, `IN-1020` per `IN-1019`).
@@ -118,7 +120,7 @@ Gli script si lanciano **dalla radice** del repo; `import_crunchbase_csv.py --dr
 
 - **A inizio sessione**: se in testa esiste una sezione «Ripartenza», eseguirla per prima; poi leggere «Dove siamo» e «Prossimi lavori» e rimisurare lo stato con i comandi della sezione «Come si misura lo stato». Il `git pull` dell'hook funziona solo su un branch con remoto; negli altri casi non va forzato.
 - **A inizio sessione, controllare anche `inbox/`** (ignorata da git, solo locale): se contiene file, leggerli e proporre dove spostarli (cartella o documento giusto), così che `inbox/` finisca vuota. Non spostare né cancellare nulla prima dell'ok.
-- **A fine sessione** (o dopo un progresso importante): aggiornare questo file (riscrivendo, non aggiungendo) e committare. Messaggio: `docs(refactoringDB): update STATUS.md`.
+- **A fine sessione, prima di `/clear` o di uscire, e dopo un progresso importante:** eseguire la **checklist di chiusura** del piano (`reference/PIANO-RIORGANIZZAZIONE.md` §0.5: log, tabella e registro del piano, questo file, git pulito, aperti) e riferire a Nelson l'esito; riscrivere questo file (non aggiungere) e committare. Messaggio: `docs(refactoringDB): update STATUS.md`. **Il piano deve essere sempre aggiornato** (regola di Nelson, 2026-11-16).
 - **Prima di ogni commit sui dati**: `python3 scripts/validate.py` deve passare. `issues.md` è ignorato da git (solo locale; scelta provvisoria).
 
 ## Project goal
