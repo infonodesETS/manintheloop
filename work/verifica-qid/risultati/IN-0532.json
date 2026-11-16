@@ -1,0 +1,53 @@
+{
+  "entity_id": "IN-0532",
+  "entity_name": "Bittium Safemove",
+  "qid": "Q30302789",
+  "wikidata_label": "Bittium",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q30302789 is Bittium (the Finnish listed parent company, HQ Oulu, ISIN FI0009007264), not a separate entity. IN-0532 is Bittium Safemove Oy, a distinct Finnish limited company (Y-tunnus 1855598-7, Espoo), a subsidiary of Bittium.",
+  "entity_is": "Bittium Safemove Oy, Finnish osakeyhtiö (Y-tunnus 1855598-7), registered 2003, seat Espoo, formerly Safemove Oy (name until 13.7.2015), subsidiary of Bittium Corporation (Oulu).",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Y-tunnus (Finnish business ID) 1855598-7",
+      "source_url": "https://www.kauppalehti.fi/yritykset/yritys/18555987"
+    },
+    {
+      "type": "other",
+      "value": "VAT FI18555987 / OVT 003718555987",
+      "source_url": "https://www.bittium.com/fi/laskutusosoitteet/"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Bittium Safemove Oy has its own Finnish business ID and is a limited company",
+      "url": "https://www.kauppalehti.fi/yritykset/yritys/18555987",
+      "phrase": "Y-tunnus 1855598-7\n- Yhtiömuoto Osakeyhtiö",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Bittium Safemove is a limited company seated in Espoo, registered 2003",
+      "url": "https://aluevahti.fi/yritys/1855598-7-bittium-safemove-oy/",
+      "phrase": "Bittium Safemove Oy on osakeyhtiö, jonka kotikunta on Espoo, rekisteröity vuonna 2003.",
+      "source_kind": "secondary"
+    },
+    {
+      "claim": "Bittium Safemove is listed by Bittium as a separate Ltd. company at its own address",
+      "url": "https://www.bittium.com/about-bittium/facts-figures/bittium-locations/",
+      "phrase": "Bittium Safemove Ltd.\n\nHatsinanpuisto 8 FI-02600 Espoo, Finland",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Bittium Safemove Oy has its own VAT/OVT codes on the group's invoicing page",
+      "url": "https://www.bittium.com/fi/laskutusosoitteet/",
+      "phrase": "Bittium Safemove Oy\n\nRitaharjuntie 1, 90590 Oulu OVT: 003718555987 VAT code: FI18555987",
+      "source_kind": "primary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0533"
+  ],
+  "notes": "Parent-subsidiary relation stated by Exa answer (citing Bittium annual reports) but the annual-report PDFs were not reopened, so it is not backed by a quoted phrase; Bittium's own pages list Safemove as a separate Ltd. with its own VAT code. Registry data comes from aggregators (secondary); the official PRH/YTJ registry was not reached. History: QID set 2026-04-13, removed 2026-04-23 (manual patch, 'product name, not legal entity'), re-added 2026-06-18 by search_missing_qids.py. Crunchbase block (profile bittium, Oulu, IPO) describes the parent group, not this entity. IN-0533 (Bittium Wireless, PIC 999647372, Oulu) shares the same QID; not assessed here."
+}

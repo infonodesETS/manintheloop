@@ -780,3 +780,22 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Non verificato:** le frasi decisive delle altre 5 schede non sono state riaperte da me una per una; per `IN-0820` e `IN-0528` le frasi primarie provano solo indirizzo e sede, il numero di registro passa da aggregatori. Il legame con la capogruppo non è provato per `IN-0820`. Non è un test cieco: la `history` cita la decisione del 2026-04-23.
 - **Dati (6 commit, uno per scheda, `patch_qid_removed.py --clear-wikidata-block --history-letta --apply`):** QID tolto, blocco `sources.wikidata` spostato nella `history`, `validation` `qid_removed`; `work/qid_candidates.json` aggiornato. `validate.py` PASSED (controllo 12: 22 casi noti, 19 risolti); `check_b3_branch.py` SUPERATO (6 schede cambiate, relazioni 3423 invariate, QID condivisi tra attive da 29 a 25).
 - **Fuori ambito, segnalato dagli agenti:** i blocchi Crunchbase di `IN-0527`, `IN-0528` e `IN-1021` descrivono il gruppo (Berna, Texas). Dopo le rimozioni `Q663885` non è su nessuna scheda (Beyond Gravity capogruppo senza scheda).
+
+
+### 2026-11-16 — PR #69 fusa ☑ (branch `docs/registro-pr69`, non pushato)
+
+- **PR #69** (`e19c5ee`, 9 commit, +451/−140) fusa da Nelson con merge commit; branch remoto cancellato. `main` locale allineato a `origin/main`. Chiude il «secondo giro» del pilota agentico (voce del 2026-11-16 qui sopra).
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); controllo 12: 22 casi noti, 19 risolti.
+- **Branch locali cancellati con ok di Nelson:** `dati/qid-gruppo-a-2`, `docs/registro-pr68`.
+- **Prossimo giro** (da decidere con Nelson, non iniziato): restano del gruppo A `IN-0657`, `IN-0752`, `IN-0952`, `IN-0532`, `IN-0533`, `IN-1118`; le più semplici sono Patria, Bittium e Tekever.
+
+
+### 2026-11-16 — Pilota agentico, terzo giro: 4 QID del gruppo A tolti, e la provenienza entra nella scheda ◐ (branch `dati/qid-gruppo-a-3`, non pushato)
+
+- **Schede:** `IN-0952` Patria Aerostructures, `IN-0532` Bittium Safemove, `IN-0533` Bittium Wireless, `IN-1118` Tekever UAS (le più semplici dopo il secondo giro; lasciate `IN-0657` Ericsson e `IN-0752` Indra per i vincoli già scritti). Cercate in log, `ROADMAP.md`, `STATUS.md`, `git log`: nessuna decisione precedente; `IN-1118` era la riga «Tekever Uas → TEKEVER» della tabella «Retired IDs» di `UPDATE_PROTOCOL.md` (unione mai applicata): ora provato con il *Diário da República* che è una S.A. a sé (NIF 515306452), non un duplicato.
+- **Agenti:** 4 in parallelo, sola lettura, circa 51-55.000 token e 3-5 minuti ciascuno. `check_risultato.py` rilanciato da me: 4 PASS; `git status`: gli agenti hanno scritto solo i loro file. Le frasi decisive non sono state riaperte da me una per una (come nel secondo giro); non è un test cieco.
+- **Scoperta:** la nota del 2026-04-23 su `IN-0533` («nome di prodotto, non entità giuridica») era sbagliata: `Bittium Wireless Oy` esiste nel registro YTJ (Y-tunnus 1737565-0). Il QID resta comunque quello della capogruppo. La `history` è in sola aggiunta: nuova voce, vecchia nota non riscritta.
+- **Dati (4 commit, `patch_qid_removed.py --clear-wikidata-block --history-letta --apply`):** testo con «Decisive evidence» e «Weak point» in inglese, su richiesta di Nelson. `validate.py` PASSED (controllo 12: 18 casi noti, 23 risolti); `check_b3_branch.py` SUPERATO (4 schede cambiate, relazioni 3423 invariate, QID condivisi tra attive da 25 a 22). Nessuna controllante nominata dove la fonte non è stata riaperta (Bittium Safemove, Tekever UAS); per `IN-0952` Patria Aviation Oy dalla tabella della struttura societaria del gruppo.
+- **Metodo (decisione di Nelson, 2026-11-16):** «prova decisiva» e «punto debole» diventano regola in `reference/METODO-AGENTICO.md` e nella riga `qid_removed` di `UPDATE_PROTOCOL.md`; `patch_qid_removed.py` ha le opzioni `--evidence` e `--weak-point` (senza, avvisa). Le 10 schede dei primi due giri non le hanno.
+- **Fuori ambito:** il blocco Crunchbase di `IN-0532` descrive la capogruppo (Oulu, IPO).
+- **Restano del gruppo A:** `IN-0657` Ericsson Magyarország (QID su 4 schede, caso aperto Ericsson B `IN-0123`) e `IN-0752` Indra Espacio (coppia con `IN-0753`).

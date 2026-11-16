@@ -1,0 +1,47 @@
+{
+  "entity_id": "IN-0952",
+  "entity_name": "Patria Aerostructures",
+  "qid": "Q613116",
+  "wikidata_label": "Patria",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Finnish defence and aviation company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q613116 is Patria, the Finnish defence and aviation group (parent, headquartered in Kluuvi, Helsinki). IN-0952 is Patria Aerostructures Oy, a wholly owned subsidiary (Business ID 1919227-6), a separate legal entity.",
+  "entity_is": "Patria Aerostructures Oy, Finnish limited company (Oy), Business ID 1919227-6, Halli/Jamsa, Finland; 100% owned by Patria Aviation Oy, itself 100% owned within the Patria group.",
+  "identifiers": [
+    {
+      "type": "other",
+      "value": "Finnish Business ID 1919227-6 (FI19192276)",
+      "source_url": "https://www.patriagroup.com/contacts/aerostructures"
+    },
+    {
+      "type": "other",
+      "value": "Finnish Business ID 1919227-6",
+      "source_url": "https://www.asiakastieto.fi/yritykset/fi/patria-aerostructures-oy/19192276/rekisteritiedot"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Patria Aerostructures Oy has its own Finnish Business ID",
+      "url": "https://www.patriagroup.com/contacts/aerostructures",
+      "phrase": "Patria Aerostructures Oy\n\nHatanpään valtatie 30\n\nCall: +358 20 4691 \n\n+358 20 469 3595\n\nBusiness ID: FI19192276",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Patria Aerostructures Oy is a 100% subsidiary under Patria Aviation Oy in the group structure",
+      "url": "https://www.patriagroup.com/governance/corporate-structure-and-shareholder-voting-rights",
+      "phrase": "| - Patria Aerostructures Oy | Jämsä, Finland | 100 |",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Registered company with own Business ID 1919227-6 (aggregator)",
+      "url": "https://www.asiakastieto.fi/yritykset/fi/patria-aerostructures-oy/19192276/rekisteritiedot",
+      "phrase": "Yrityksen Patria Aerostructures Oy (1919227-6)",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0951"
+  ],
+  "notes": "History: QID was set 2026-04-13, removed 2026-04-23 (manual patch, subsidiary; Q613116 kept on IN-0951), then re-added 2026-06-18 by search_missing_qids.py via qid_candidates.json. Exa /answer returned the Business ID and parent; sources reopened with /contents. odata.fi page reopened but the ownership claim relies on the Patria group page. EDF record lists city Halli, group table lists Jamsa (Halli is in Jamsa). Crunchbase block is null; no wrong block seen."
+}

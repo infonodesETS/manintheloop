@@ -25,7 +25,8 @@ Non tocca altre entita, relazioni, edf_orgs.json.
 
 Uso (dalla radice del repo):
     python3 scripts/patch_qid_removed.py ID QID --label "etichetta Wikidata" --is "cosa e davvero" \\
-        --why "perche aveva il QID" [--new-qid-note "..."] [--clear-wikidata-block]
+        --why "perche aveva il QID" [--new-qid-note "..."] \\
+        [--evidence "frase primaria riaperta"] [--weak-point "limite della prova"] [--clear-wikidata-block]
     aggiungere --history-letta --apply per scrivere
 Dopo: python3 scripts/validate.py
 """
@@ -45,6 +46,10 @@ def main():
     ap.add_argument("--why", required=True, help="perche l'entita aveva quel QID")
     ap.add_argument("--new-qid-note", default="A correct QID may not exist: to be searched with the QID pipeline.",
                     help="se puo esistere un QID corretto")
+    ap.add_argument("--evidence", default=None,
+                    help="prova decisiva (inglese): la fonte primaria riaperta e la frase che regge l'affermazione")
+    ap.add_argument("--weak-point", dest="weak_point", default=None,
+                    help="punto debole (inglese): cosa non e provato o viene solo da fonti secondarie")
     ap.add_argument("--clear-wikidata-block", action="store_true")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--history-letta", action="store_true")
@@ -68,6 +73,13 @@ def main():
     old_block = (e.get("sources") or {}).get("wikidata")
     desc = ("QID %s removed: on Wikidata it is '%s'. Why the entity had it: %s. The entity is: %s. %s"
             % (a.qid, a.label, a.why, a.what, a.new_qid_note))
+    # Metodo agentico (2026-11-16): prova decisiva e punto debole stanno nella scheda, in inglese.
+    for tag, val in (("Decisive evidence", a.evidence), ("Weak point", a.weak_point)):
+        if val:
+            desc += " %s: %s%s" % (tag, val.rstrip("."), ".")
+        else:
+            print("  AVVISO: manca %s (--%s): la provenienza della rimozione resta solo nei file di lavoro"
+                  % (tag, "evidence" if tag.startswith("Dec") else "weak-point"))
     h = {"date": TODAY, "source": "manual", "author": AUTHOR, "field": "wikidata_id",
          "old": a.qid, "new": None, "description": desc}
     if a.clear_wikidata_block and old_block:
