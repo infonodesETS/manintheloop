@@ -35,6 +35,14 @@
 - **«Genitore diretto» di GLEIF e Exhibit 21 non provano che il legame sia diretto:** GLEIF dà una relazione di consolidamento contabile (IDV: in mezzo c'era IDV Group S.r.l.), l'Exhibit 21 elenca controllate dirette e indirette. Il campo `diretta` di `parte_di` vale `true` solo con una fonte che nomina la controllante immediata.
 - **Un dettaglio che l'agente segnala può essere già noto al progetto:** prima di trattarlo come caso nuovo cercare l'ID in log, `ROADMAP.md`, `STATUS.md` e `git log` (caso `IN-1352`).
 
+## Provenienza scritta nella scheda (regola del 2026-11-16, proposta di Nelson)
+
+Ogni correzione fatta dopo una verifica agentica scrive nel testo della `history` e della `validation` (in inglese) due frasi: **«Decisive evidence»** e **«Weak point»**. Con `patch_qid_removed.py` si passano con `--evidence` e `--weak-point`; senza, lo script avvisa.
+- **Prova decisiva:** la fonte primaria **riaperta** e la frase che regge l'affermazione (per un QID tolto: dove si vede che la scheda è un'altra entità giuridica). Non conta l'accordo con una decisione precedente letta nella `history`.
+- **Punto debole:** cosa non è provato o viene solo da fonti secondarie (aggregatori, mirror GLEIF), e ogni legame con la capogruppo non provato da una pagina riaperta, che in quel caso non si scrive.
+- **Le scrive chi coordina dopo aver letto il risultato**, non l'agente da solo; il controllo automatico non sa quale frase sia decisiva e non le genera.
+- Le `history` sono in sola aggiunta: se il punto debole viene superato, si aggiunge una voce nuova. La regola vale dal terzo giro del pilota (2026-11-16); le 10 schede dei primi due giri non hanno le due frasi.
+
 ## Come riusarlo per altri dati
 
 Lo schema resta; cambiano tre cose.
