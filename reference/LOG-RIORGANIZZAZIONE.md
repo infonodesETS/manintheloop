@@ -740,3 +740,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Decisione di Nelson:** sito, strada 1: i primi dati `parte_di` aspettano l'adattamento del sito. Misura: sette punti di `index.html` e uno di `app.js` leggerebbero `parte_di` come investimento (la figlia come investitore nella capogruppo); `networks.html` e `key-figures.html` non sono toccate. Il filtro minimo di due righe è stato proposto e non scelto.
 - **Scritto:** `scripts/patch_set_infonodes.py` (gemello di `patch_clear_infonodes.py`): scrive `tax_id` solo in un campo vuoto, con `--source` primaria; rifiuta campo già pieno, valore già presente su un'altra scheda attiva, scheda ritirata o inesistente, `--apply` senza `--history-letta`; `history` con `old: null` e valore nuovo, `validation` `infonodes_field_set`. **Prove su copie:** 10 scenari come previsto, `validate.py` PASSED, nel caso valido cambia solo `IN-1312` e `history`/`validation` di prima sono prefisso. `UPDATE_PROTOCOL.md`: aggiunti gli stati `infonodes_field_removed` e `infonodes_field_set`. `SCRIPTS.md` e `STATUS.md` aggiornati.
 - **Da fare (dato):** `IN-1312` `tax_id` = `NO979984731` con questo script, dopo il merge del codice (una PR di dati a parte).
+
+
+### 2026-11-16 — PR #65 fusa; `tax_id` di Nammo scritto ◐ (branch `data/nammo-in-1312-taxid-set`, non pushato)
+
+- **PR #65** (`7ae61ab`, 2 commit, +99/−1) fusa da Nelson; `main` locale allineato; branch remoto cancellato.
+- **Caso `IN-1312` Nammo (ok di Nelson sul valore e sulla fonte):** riverificato il registro di Brønnøysund (API ufficiale: NAMMO AS, 979984731, Aksjeselskap, iscritta il 1998-07-24, iscritta all'IVA, né fallita né in liquidazione); nessun'altra scheda con lo stesso valore. `scripts/patch_set_infonodes.py` (dry-run, history letta, `--apply`): `tax_id` da `null` a `NO979984731`; una voce di `history` e una `validation` `infonodes_field_set` con la fonte. `validate.py` PASSED; `check_b3_branch.py` segnala solo che la scheda è cambiata fuori dai suoi casi B3 (previsto per una correzione di campo; diff letto a mano: un valore, una voce di `history`, una di `validation`).
+- **Non verificato:** che `NO979984731` sia anche un numero IVA riconosciuto (VIES); il registro dice solo che l'organizzazione è iscritta all'IVA.
+- **Da fare (con ok di Nelson):** cancellare il branch locale `code/patch-set-infonodes`.
