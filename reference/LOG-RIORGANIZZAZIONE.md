@@ -682,3 +682,10 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Causa:** dopo la compattazione il mio ciclo di lavoro («dry-run, ok, apply, validate, commit, STATUS e log, push») non conteneva il passaggio (b) del piano; nessun controllo automatico (`check_docs.py`, concordato il 2026-11-14, non scritto).
 - **Scritto:** riga B3 e 8 righe di registro (PR #45-#59, ricostruite da `git log --merges` e dal log) nel piano; nuova §0.5 «Chiusura della sessione» (checklist da eseguire prima di `/clear`, prima di uscire, prima di cambiare lavoro); stessa regola nel «Session protocol» di `STATUS.md`; voce «da scrivere» per `check_docs.py` nei «Prossimi lavori».
 - **Non fatto:** `check_docs.py`; hook su `.claude/settings.json` (scartato: non obbliga, `Stop` scatta a ogni risposta).
+
+
+### 2026-11-16 — Piano: registro della PR #60 e intestazione aggiornata ◐ (branch `docs/piano-registro-pr60`, non pushato)
+
+- **Ripartenza:** letti `STATUS.md`, piano e log per intero; misurato `main` = `origin/main` = `820a156`, `validate.py` PASSED 2582/3423 (controllo 12: 28 casi noti, 13 risolti), `check_b3_branch.py` superato, `inbox/` vuota.
+- **Piano:** il registro non citava la PR #60 (`820a156`) e l'intestazione diceva ancora «Nessuna fase è ancora iniziata». Aggiunta la riga di registro (la voce «Piano rimesso in pari» ora rimanda a `a178ec4` → `820a156`), intestazione con lo stato vero, riga B3 con «ultima PR fusa #60».
+- **Non fatto:** `check_docs.py`.
