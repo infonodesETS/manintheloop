@@ -799,3 +799,23 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Metodo (decisione di Nelson, 2026-11-16):** «prova decisiva» e «punto debole» diventano regola in `reference/METODO-AGENTICO.md` e nella riga `qid_removed` di `UPDATE_PROTOCOL.md`; `patch_qid_removed.py` ha le opzioni `--evidence` e `--weak-point` (senza, avvisa). Le 10 schede dei primi due giri non le hanno.
 - **Fuori ambito:** il blocco Crunchbase di `IN-0532` descrive la capogruppo (Oulu, IPO).
 - **Restano del gruppo A:** `IN-0657` Ericsson Magyarország (QID su 4 schede, caso aperto Ericsson B `IN-0123`) e `IN-0752` Indra Espacio (coppia con `IN-0753`).
+
+
+### 2026-11-16 — PR #70 fusa e chiusura sessione ☑ (branch `docs/registro-pr70`, non pushato)
+
+- **PR #70** (`d9e0be2`, 9 commit, +382/−89) fusa da Nelson con merge commit; branch remoto cancellato. `main` locale allineato a `origin/main`. Chiude il terzo giro del pilota agentico (voce qui sopra).
+- **Controlli dopo il merge:** `validate.py` PASSED (2582 entità, 3423 relazioni); controllo 12: 18 casi noti, 23 risolti.
+- **Stato alla chiusura:** `inbox/` vuota; `work/verifica-parentela/` non tracciata; branch locali fusi ancora presenti, da cancellare con ok di Nelson: `dati/qid-gruppo-a-3`, `docs/registro-pr69`. Il commit di registrazione della #70 (questo) non è pushato: parte con la prossima PR di dati.
+- **Bilancio del pilota (3 giri, 16 schede, 16 `remove_qid`, nessun `keep_qid` né `unclear`):** i verdetti sono sempre stati uguali alla decisione manuale del 2026-04-23, ma gli agenti la leggevano nella `history`: l'accordo non prova l'indipendenza. Un test cieco (scheda senza quella voce, o `history` nascosta all'agente) non è stato fatto; è la prova che manca per confermare il metodo.
+- **Prossimo lavoro:** nel gruppo A restano `IN-0657` Ericsson (QID su 4 schede con `IN-0123`, `IN-0655`, `IN-0831`) e `IN-0752` Indra (coppia con `IN-0753`); poi i gruppi B-D di `work/verifica-web-test-2026-11-14.md`. Decisioni di Nelson ancora aperte: se il blocco Crunchbase sbagliato di `IN-0527`, `IN-0528`, `IN-0532` e `IN-1021` si tratta come lavoro separato; se dare la regola «prova decisiva / punto debole» anche alle 10 schede dei primi due giri (richiederebbe nuove voci).
+
+
+### 2026-11-16 — PR #71 fusa: pilota agentico, quarto giro, QID tolto da `IN-0752` ☑ (branch `docs/registro-pr71`, non pushato)
+
+- **Scheda:** `IN-0752` Indra Espacio S.L.U. (PIC 877159943). Cercata in log, `ROADMAP.md`, `STATUS.md` e `git log`: nessuna decisione precedente oltre al QID tolto a mano il 2026-04-23 e rimesso il 2026-06-18 da `search_missing_qids.py` (lasciata fuori dal terzo giro per la coppia con `IN-0753`, già unita con `IN-1298`). `UPDATE_PROTOCOL.md` letto per intero prima del dry-run.
+- **Agente:** uno, sola lettura. `check_risultato.py` rilanciato da me: PASS (3 frasi verificate); `git status`: l'agente ha scritto solo `work/verifica-qid/risultati/IN-0752.json` (non tracciato). Verdetto `remove_qid`, uguale alla decisione manuale di aprile: l'agente la leggeva nella `history`, quindi l'accordo non prova l'indipendenza.
+- **Prova decisiva:** annuncio BORME-C-2024-4032 riaperto: Indra Espacio, S.L.U. è «sociedad de responsabilidad limitada de nueva creación íntegramente participada» dalla società segregata Indra Sistemas, S.A. **Punto debole:** il NIF B55437891 viene solo dall'aggregatore einforma.com; il BORME non lo riporta, LEI non trovato; il verdetto non ne dipende.
+- **Dati (1 commit, `patch_qid_removed.py --clear-wikidata-block --history-letta --apply`):** QID tolto, blocco `sources.wikidata` spostato nella `history`, `validation` `qid_removed`; `work/qid_candidates.json` aggiornato. `validate.py` PASSED (controllo 12: 17 casi noti, 24 risolti); `check_b3_branch.py` SUPERATO (1 scheda cambiata, relazioni 3423 invariate, QID condivisi tra attive da 22 a 21). Il legame `parte_di` verso `IN-0753` non è scritto: aspetta l'adattamento del sito.
+- **PR #71** (`1d211cc`, un commit `253e212`, +40/−22) fusa da Nelson; il branch remoto `dati/qid-gruppo-a-4` è stato cancellato da GitHub. Da questa sessione il push dei branch lo fa l'AI (decisione di Nelson, 2026-11-16); la PR la apre Nelson; mai push su `main`.
+- **Gruppo A:** resta solo `IN-0657` Ericsson Magyarország (QID su 4 schede con `IN-0123`, `IN-0655`, `IN-0831`; caso aperto Ericsson B).
+- **Branch locali fusi, da cancellare con ok di Nelson:** `dati/qid-gruppo-a-3`, `dati/qid-gruppo-a-4`, `docs/registro-pr69`, `docs/registro-pr70` (il commit della #70 è stato portato con `cherry-pick` in questo branch).
