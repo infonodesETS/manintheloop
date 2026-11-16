@@ -248639,7 +248639,7 @@
           "extracted_at": "2026-03-07",
           "sector": "Defence",
           "country": "Norway",
-          "tax_id": null,
+          "tax_id": "NO979984731",
           "main_focus": "Ammo / Rockets",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Nammo"
         },
@@ -248781,6 +248781,15 @@
           "old": "NO979512328",
           "new": null,
           "description": "tax_id NO979512328 does not exist in the Norwegian Business Register (Bronnoysund API returns 404 on 2026-11-16). The register holds NAMMO AS, org. no. 979 984 731 (registered 1998-07-24, Raufoss, VAT-registered), the legal entity this card describes (Crunchbase 'NAMMO AS'). Value cleared and kept in this entry; the correct number is to be written by a later patch. Wikidata Q1964355 stays on this card: the item lists the Norwegian state and Patria as owners, as Nammo AS does per nammo.com/about-us (50% each); the subsidiaries Nammo Raufoss AS (IN-0897) and Nammo Lapua (IN-0896) are separate cards."
+        },
+        {
+          "date": "2026-11-16",
+          "source": "manual",
+          "author": "patch_set_infonodes.py",
+          "field": "sources.infonodes.tax_id",
+          "old": null,
+          "new": "NO979984731",
+          "description": "Nammo AS, organisation number 979 984 731, registered 1998-07-24 and VAT-registered in the Norwegian Business Register (Bronnoysund). The previous value NO979512328 was cleared on 2026-11-16 because it does not exist in the register (see the history entry of that date). Source: https://data.brreg.no/enhetsregisteret/api/enheter/979984731"
         }
       ],
       "validation": [
@@ -248845,6 +248854,16 @@
           ],
           "description": "tax_id NO979512328 does not exist in the Norwegian Business Register (Bronnoysund API returns 404 on 2026-11-16). The register holds NAMMO AS, org. no. 979 984 731 (registered 1998-07-24, Raufoss, VAT-registered), the legal entity this card describes (Crunchbase 'NAMMO AS'). Value cleared and kept in this entry; the correct number is to be written by a later patch. Wikidata Q1964355 stays on this card: the item lists the Norwegian state and Patria as owners, as Nammo AS does per nammo.com/about-us (50% each); the subsidiaries Nammo Raufoss AS (IN-0897) and Nammo Lapua (IN-0896) are separate cards.",
           "author": "patch_clear_infonodes.py",
+          "datestamp": "2026-11-16"
+        },
+        {
+          "status": "infonodes_field_set",
+          "fields_set": [
+            "tax_id"
+          ],
+          "description": "Nammo AS, organisation number 979 984 731, registered 1998-07-24 and VAT-registered in the Norwegian Business Register (Bronnoysund). The previous value NO979512328 was cleared on 2026-11-16 because it does not exist in the register (see the history entry of that date).",
+          "source_ref": "https://data.brreg.no/enhetsregisteret/api/enheter/979984731",
+          "author": "patch_set_infonodes.py",
           "datestamp": "2026-11-16"
         }
       ],
