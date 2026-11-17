@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 """
-proponi_ruoli.py - B5, proposta dei ruoli delle persone (SOLO PROPOSTA, non scrive nel database).
+proponi_ruoli.py - B5, proposta della tabella dei ruoli (NON scrive nel database).
 
-Legge consiglieri.csv, dirigenti.csv e comitati.csv della release SEC per le persone che l'import ha creato
-(riconosciute da `sources.sec.person_ids` in una COPIA del database, `--db`), applica la mappatura
-dicitura -> `role_code` e scrive due file da rivedere a mano:
-  - work/b5-release1/proposta-ruoli.csv       una riga per dicitura distinta: codici proposti, note, revisione_nelson
-  - work/b5-release1/dry-run/ruoli-anteprima.json   le relazioni `role` che ne risulterebbero (una per persona e scheda)
+Applica le regole dicitura -> `role_code` alle righe di dirigenti.csv, consiglieri.csv e comitati.csv delle persone
+che l'import ha creato (riconosciute da `sources.sec.person_ids` in una COPIA del database, `--db`) e scrive
+`work/b5-release1/proposta-ruoli.csv`: una riga per dicitura distinta, da rivedere a mano (colonna `revisione_nelson`).
+L'import (scripts/import_sec_ownership.py) legge poi QUELLA tabella, mai le regole di questo file, e si ferma se una
+riga non e rivista. Per non cancellare una revisione fatta, se la tabella esiste lo script si rifiuta di riscriverla
+senza `--riscrivi`.
 
-Modello (decisione di Nelson, 2026-11-17): UNA relazione `role` per (persona, scheda azienda); dentro, `roles` con
-solo i ruoli presenti (assente = false), ciascuno con i dettagli estratti. Nessuna eta (minimizzazione).
-Uso:  python3 work/b5-release1/proponi_ruoli.py --db COPIA.json [--release 2026-10-17]
+Modello (decisione di Nelson, 2026-11-17, reference/S7-RUOLI-E-PERSONE.md): una relazione `role` per (persona, scheda);
+`director` implicito quando una riga di consiglieri.csv non lo nomina; l'eta non si importa.
+Uso:  python3 work/b5-release1/proponi_ruoli.py --db COPIA.json [--release 2026-10-17] [--riscrivi]
 """
 import argparse, collections, csv, json, pathlib, re, sys
 
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 LAV = RAIZ / "work/b5-release1"
+sys.path.insert(0, str(RAIZ / "scripts"))
+import import_sec_ownership as imp   # noqa: E402  (stesso costruttore di relazioni dell'import)
 
-# (codice, espressione); ordine = ordine di ricerca. Ogni match viene cancellato dal testo prima del successivo.
+# (codice, espressione); ogni match viene cancellato dal testo prima della regola successiva
 REGOLE = [
     ("lead_independent_director", r"lead independent director"),
     ("executive_chair", r"executive chair(?:man|woman|person)?"),
@@ -31,183 +34,74 @@ REGOLE = [
     ("senior_advisor", r"senior advisor"),
     ("director", r"\bdirector\b"),
 ]
-# casi che la regola non puo giudicare da sola (rivisti a mano; vedi la colonna nota)
+# casi che la regola non puo giudicare da sola (rivisti a mano)
 MANUALI = {
     "Co-CEO of Silver Lake": (["other"], "ruolo in un'altra societa (Silver Lake): non e un ruolo nella scheda; resta in role_text"),
     "Director; Compensation; Nominating/Governance": (["director", "other"], "i due comitati sono scritti senza dire se membro o presidente: other, da guardare"),
 }
-
-
-def leggi(p):
-    with open(p, newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+# parole che non contano quando si cerca testo non coperto dalle regole
+NEUTRE = r"[\s;,\-()]|\band\b|\bof\b|\bthe\b|\bboard\b|\bdirectors\b|\bclass\b|\b[ivx]+\b|\bb\b|\bnominee\b|\bseries a preferred stock\b|\bstock\b|\bastronics corporation\b"
 
 
 def codici(testo):
-    """Codici trovati in una dicitura, senza ripetizioni, nell'ordine della regola."""
     if testo in MANUALI:
-        return MANUALI[testo][0], MANUALI[testo][1]
+        return list(MANUALI[testo][0]), MANUALI[testo][1]
     resto, trovati = testo.lower(), []
     for cod, rx in REGOLE:
         if re.search(rx, resto):
             trovati.append(cod)
             resto = re.sub(rx, " ", resto)
     nota = ""
-    avanzo = re.sub(r"[\s;,\-()]|\band\b|\bof\b|\bthe\b|\bboard\b|\bdirectors\b|\bclass\b|\b[ivx]+\b|\bb\b|\bnominee\b|\bseries a preferred stock\b|\bstock\b", "", resto)
+    avanzo = re.sub(NEUTRE, "", resto)
     if avanzo:
         nota = f"testo non coperto dalla regola: «{avanzo[:40]}»"
     return trovati or ["other"], nota
-
-
-def anno_mese(s):
-    m = re.fullmatch(r"(\d{4})(?:-(\d{1,2}))?", (s or "").strip())
-    return (int(m.group(1)), int(m.group(2)) if m.group(2) else None) if m else (None, None)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--db", required=True)
     ap.add_argument("--release", default="2026-10-17")
+    ap.add_argument("--riscrivi", action="store_true", help="riscrive anche se la tabella esiste (perde le revisioni)")
     a = ap.parse_args()
+    dest = LAV / "proposta-ruoli.csv"
+    if dest.exists() and not a.riscrivi:
+        sys.exit(f"{dest.name} esiste: per non perdere le revisioni serve --riscrivi")
     raw = RAIZ / "rawdata/sec-edgar" / a.release
     db = json.load(open(a.db, encoding="utf-8"))
-    per = {}
-    for e in db["entities"]:
-        for p in ((e.get("sources") or {}).get("sec") or {}).get("person_ids", []):
-            per[p] = e["id"]
-    own = [r for r in db["relationships"] if r.get("type") == "ownership"]
-    quote_per_scheda = collections.Counter(r["target"] for r in own)
-    aziende = {r["ticker"]: r for r in leggi(raw / "aziende.csv")}
-    t_az = {r["ticker"]: r["proposta_id"] for r in leggi(LAV / "proposta-aziende.csv")}
+    per = {p: e["id"] for e in db["entities"] for p in ((e.get("sources") or {}).get("sec") or {}).get("person_ids", [])}
+    quote = collections.Counter(r["target"] for r in db["relationships"] if r.get("type") == "ownership")
+    aziende = {r["ticker"]: r for r in imp.leggi(raw / "aziende.csv")}
+    t_az = {r["ticker"]: r["proposta_id"] for r in imp.leggi(LAV / "proposta-aziende.csv")}
     t_cl = collections.defaultdict(set)
-    for r in leggi(LAV / "proposta-classi.csv"):
+    for r in imp.leggi(LAV / "proposta-classi.csv"):
         t_cl[r["ticker"]].add(r["id_proposto"])
 
-    def scheda(ticker):
-        """Scheda su cui va il ruolo: quella con piu quote tra le schede di classe; altrimenti la scheda in tabella."""
-        c = sorted(t_cl.get(ticker, ()), key=lambda i: (-quote_per_scheda[i], i))
-        return c[0] if c else (t_az.get(ticker) or "")
+    def scheda(t):
+        c = sorted(t_cl.get(t, ()), key=lambda i: (-quote[i], i))
+        return c[0] if c else t_az.get(t, "")
 
-    # righe grezze (numero di riga = riga del file, intestazione = 1)
-    coppie = collections.OrderedDict()   # (PER, scheda) -> dati
-    dicit = collections.Counter()        # (ruolo_file, dettaglio) -> n
-    nota_dic, cod_dic, impl_dic = {}, {}, {}
-    senza_scheda = []
+    note = {}
 
-    def coppia(p, ticker):
-        t = scheda(ticker)
-        if not t:
-            senza_scheda.append((p, ticker))
-            return None
-        return coppie.setdefault((per[p], t), {"ticker": ticker, "roles": collections.OrderedDict(), "refs": []})
-
-    def aggiungi(c, cod, dett, ref):
-        d = c["roles"].setdefault(cod, {"role_text": dett["role_text"]})
-        d.setdefault("_testi", [])
-        if dett["role_text"] not in d["_testi"]:
-            d["_testi"].append(dett["role_text"])
-        for k, v in dett.items():
-            if k not in ("role_text", "committees"):
-                d.setdefault(k, v)
-        if "committees" in dett:
-            d.setdefault("committees", []).extend(dett["committees"])
-        if ref not in c["refs"]:
-            c["refs"].append(ref)
-
-    n_righe = collections.Counter()
-    # dirigenti prima: il loro testo e il piu pulito per i ruoli da dirigente
-    for n, r in enumerate(leggi(raw / "dirigenti.csv"), start=2):
-        if r["persona_id"] not in per:
-            continue
-        c = coppia(r["persona_id"], r["ticker"])
-        if c is None:
-            continue
-        cods, nota = codici(r["cariche"])
-        dicit[("dirigente", r["cariche"])] += 1
-        cod_dic[("dirigente", r["cariche"])] = cods
-        nota_dic[("dirigente", r["cariche"])] = nota
-        n_righe["dirigente"] += 1
-        for cod in cods:
-            aggiungi(c, cod, {"role_text": r["cariche"], "fonte": r["fonte"]}, f"{a.release}/dirigenti.csv#{n}")
-    for n, r in enumerate(leggi(raw / "consiglieri.csv"), start=2):
-        if r["persona_id"] not in per:
-            continue
-        c = coppia(r["persona_id"], r["ticker"])
-        if c is None:
-            continue
-        cods, nota = codici(r["cariche"])
-        implicito = "director" not in cods
+    def regola(ruolo, dett):
+        cods, nota = codici(dett) if ruolo not in ("membro di comitato", "presidente di comitato") else (["committee_member"], "")
+        if ruolo == "presidente di comitato":
+            nota = "il presidente e un dettaglio del comitato (chair: true), non un codice a parte"
+        implicito = ruolo == "consigliere" and "director" not in cods
         if implicito:
             cods = cods + ["director"]
-        chiave = ("consigliere", r["cariche"])
-        dicit[chiave] += 1
-        cod_dic[chiave] = cods
-        nota_dic[chiave] = nota
-        impl_dic[chiave] = implicito
-        n_righe["consigliere"] += 1
-        y, m = anno_mese(r["nel_consiglio_dal"])
-        ind = {"True": True, "False": False}.get(r["indipendente"])
-        for cod in cods:
-            det = {"role_text": r["cariche"]}
-            if cod == "director":
-                if y:
-                    det["since_year"] = y
-                if m:
-                    det["since_month"] = m
-                if ind is not None:
-                    det["independent"] = ind
-                if implicito:
-                    det["implied_by"] = "row listed as board member in consiglieri.csv"
-            aggiungi(c, cod, det, f"{a.release}/consiglieri.csv#{n}")
-    for n, r in enumerate(leggi(raw / "comitati.csv"), start=2):
-        if r["persona_id"] not in per:
-            continue
-        c = coppia(r["persona_id"], r["ticker"])
-        if c is None:
-            continue
-        pres = r["presidente"] == "True"
-        chiave = ("presidente di comitato" if pres else "membro di comitato", r["comitato"])
-        dicit[chiave] += 1
-        cod_dic[chiave] = ["committee_member"]
-        nota_dic[chiave] = "il presidente e un dettaglio del comitato (chair: true), non un codice a parte" if pres else ""
-        n_righe["comitato (presidente)" if pres else "comitato (membro)"] += 1
-        com = {"name": r["comitato"], "chair": pres}
-        if r["riunioni"]:
-            com["meetings"] = int(r["riunioni"])
-        if r["anno_riunioni"]:
-            com["year"] = int(r["anno_riunioni"])
-        aggiungi(c, "committee_member", {"role_text": r["comitato"], "committees": [com]}, f"{a.release}/comitati.csv#{n}")
+        note[(ruolo, dett)] = nota
+        return cods, implicito
 
-    # relazioni risultanti
-    rels = []
-    for (p, t), c in coppie.items():
-        roles = {}
-        for cod, d in c["roles"].items():
-            testi = d.pop("_testi")
-            if len(testi) > 1:
-                d["role_text_alt"] = [x for x in testi if x != d["role_text"]]
-            roles[cod] = d
-        quote_al = (aziende.get(c["ticker"]) or {}).get("quote_al") or None
-        rels.append({"id": None, "type": "role", "source": p, "target": t, "current": True,
-                     "as_of": quote_al, "as_of_origine": "proxy" if quote_al else None, "release": a.release,
-                     "roles": roles, "source_ref": c["refs"], "created_at": None, "history": []})
-    LAV.joinpath("dry-run").mkdir(exist_ok=True)
-    json.dump(rels, open(LAV / "dry-run/ruoli-anteprima.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
-    with open(LAV / "proposta-ruoli.csv", "w", newline="", encoding="utf-8") as f:
+    rels, usi, manc, lette = imp.costruisci_ruoli(raw, a.release, per, scheda,
+                                                  lambda t: (aziende.get(t) or {}).get("quote_al") or None, regola)
+    with open(dest, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["ruolo_nel_file", "dettaglio", "n_righe", "codici_proposti", "director_implicito", "nota", "revisione_nelson"])
-        for (ru, dett), n in sorted(dicit.items(), key=lambda kv: (kv[0][0], -kv[1], kv[0][1])):
-            note = nota_dic.get((ru, dett), "")
-            w.writerow([ru, dett, n, " + ".join(cod_dic[(ru, dett)]), "si" if impl_dic.get((ru, dett)) else "", note, ""])
-
-    tot = sum(n_righe.values())
-    cod_cont = collections.Counter(c for r in rels for c in r["roles"])
-    print(f"persone con una scheda SEC: {len(per)}; coppie persona-scheda con ruoli: {len(rels)}; persone con ruoli: {len({r['source'] for r in rels})}")
-    print(f"righe di ruolo lette: {tot} {dict(n_righe)}")
-    print("diciture distinte:", len(dicit), "| codici usati:", dict(cod_cont.most_common()))
-    print("righe senza scheda in tabella:", senza_scheda or "nessuna")
-    print("diciture con nota:", sum(1 for k in dicit if nota_dic.get(k)))
+        for (ru, dett), u in sorted(usi.items(), key=lambda kv: (kv[0][0], -kv[1]["n"], kv[0][1])):
+            w.writerow([ru, dett, u["n"], " + ".join(u["codici"]), "si" if u["implicito"] else "", note.get((ru, dett), ""), ""])
+    print(f"{lette} righe di ruolo, {len(usi)} diciture distinte, {len(rels)} relazioni persona-scheda; non risolte: {manc or 'nessuna'}")
+    print(f"scritta {dest.relative_to(RAIZ)} (colonna revisione_nelson vuota: da compilare prima dell'import)")
     return 0
 
 

@@ -18,6 +18,10 @@ SCHEMA.md (Relationships); UPDATE_PROTOCOL.md prima di qualunque scrittura sui d
   - re-import (S5): stessa chiave e stessi valori = 0 modifiche; valori diversi = voce in `history[]` della
     relazione con il valore vecchio; riga scomparsa = `current: false` con voce in `history[]`, mai cancellata.
 
+Ruoli (S7 rivisto il 2026-11-17): per le persone create dall'import, una relazione `role` per (persona, scheda azienda)
+con `roles` (solo i ruoli presenti), da consiglieri.csv, dirigenti.csv e comitati.csv. La mappatura dicitura -> codici
+sta nella tabella rivista a mano `work/b5-release1/proposta-ruoli.csv` (mai decisa dallo script); l'eta non si importa.
+
 Senza `--apply` NON scrive nel database: scrive solo i report (cartella `--out`, di default
 work/b5-release1/dry-run/). Con `--apply` scrive nel file indicato da `--db`; se `--db` e il database vero del repo
 serve anche `--database-reale` (decisione di Nelson). Si prova SEMPRE prima su una copia fuori dal repo.
@@ -94,10 +98,110 @@ def num(s):
     return float(s) if s else None
 
 
-def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi):
+def anno_mese(s):
+    m = re.fullmatch(r"(\d{4})(?:-(\d{1,2}))?", (s or "").strip())
+    return (int(m.group(1)), int(m.group(2)) if m.group(2) else None) if m else (None, None)
+
+
+def costruisci_ruoli(raw, release, per, scheda, quote_al, codici_fn):
+    """Relazioni `role` (una per persona e scheda) dalle righe di dirigenti, consiglieri e comitati delle persone in `per`
+    ({P#### -> PER-NNNN}). `codici_fn(ruolo_nel_file, dettaglio)` -> (codici, director_implicito) oppure None se la
+    dicitura non e in tabella. Ritorna (relazioni, usi, mancanti, righe_lette); un'eta non entra mai."""
+    coppie, usi, mancanti, lette = collections.OrderedDict(), collections.OrderedDict(), [], [0]
+
+    def coppia(p, ticker):
+        t = scheda(ticker)
+        if not t:
+            mancanti.append(f"{p} {ticker}: nessuna scheda azienda in tabella")
+            return None
+        return coppie.setdefault((per[p], t), {"ticker": ticker, "roles": collections.OrderedDict(), "refs": []})
+
+    def cod(ruolo, dett):
+        r = codici_fn(ruolo, dett)
+        if r is None:
+            mancanti.append(f"dicitura non in tabella: ({ruolo}) {dett}")
+            return None
+        u = usi.setdefault((ruolo, dett), {"n": 0, "codici": r[0], "implicito": r[1]})
+        u["n"] += 1
+        return r
+
+    def aggiungi(c, codice, det, ref):
+        d = c["roles"].setdefault(codice, {"role_text": det["role_text"], "_testi": []})
+        if det["role_text"] not in d["_testi"]:
+            d["_testi"].append(det["role_text"])
+        for k, v in det.items():
+            if k not in ("role_text", "committees"):
+                d.setdefault(k, v)
+        if "committees" in det:
+            d.setdefault("committees", []).extend(det["committees"])
+        if ref not in c["refs"]:
+            c["refs"].append(ref)
+
+    for n, r in enumerate(leggi(raw / "dirigenti.csv"), start=2):   # prima i dirigenti: testo piu pulito
+        if r["persona_id"] not in per:
+            continue
+        lette[0] += 1
+        c, res = coppia(r["persona_id"], r["ticker"]), cod("dirigente", r["cariche"])
+        if c is None or res is None:
+            continue
+        for k in res[0]:
+            aggiungi(c, k, {"role_text": r["cariche"], "fonte": r["fonte"]}, f"{release}/dirigenti.csv#{n}")
+    for n, r in enumerate(leggi(raw / "consiglieri.csv"), start=2):
+        if r["persona_id"] not in per:
+            continue
+        lette[0] += 1
+        c, res = coppia(r["persona_id"], r["ticker"]), cod("consigliere", r["cariche"])
+        if c is None or res is None:
+            continue
+        y, m = anno_mese(r["nel_consiglio_dal"])
+        ind = {"True": True, "False": False}.get(r["indipendente"])
+        for k in res[0]:
+            det = {"role_text": r["cariche"]}
+            if k == "director":
+                if y:
+                    det["since_year"] = y
+                if m:
+                    det["since_month"] = m
+                if ind is not None:
+                    det["independent"] = ind
+                if res[1]:
+                    det["implied_by"] = "row listed as board member in consiglieri.csv"
+            aggiungi(c, k, det, f"{release}/consiglieri.csv#{n}")
+    for n, r in enumerate(leggi(raw / "comitati.csv"), start=2):
+        if r["persona_id"] not in per:
+            continue
+        lette[0] += 1
+        pres = r["presidente"] == "True"
+        c, res = coppia(r["persona_id"], r["ticker"]), cod("presidente di comitato" if pres else "membro di comitato", r["comitato"])
+        if c is None or res is None:
+            continue
+        com = {"name": r["comitato"], "chair": pres}
+        if r["riunioni"]:
+            com["meetings"] = int(r["riunioni"])
+        if r["anno_riunioni"]:
+            com["year"] = int(r["anno_riunioni"])
+        for k in res[0]:
+            aggiungi(c, k, {"role_text": r["comitato"], "committees": [com]}, f"{release}/comitati.csv#{n}")
+    rels = []
+    for (p, t), c in coppie.items():
+        roles = {}
+        for k, d in c["roles"].items():
+            testi = d.pop("_testi")
+            if len(testi) > 1:
+                d["role_text_alt"] = [x for x in testi if x != d["role_text"]]
+            roles[k] = d
+        qa = quote_al(c["ticker"])
+        rels.append({"id": None, "type": "role", "source": p, "target": t, "current": True,
+                     "as_of": qa, "as_of_origine": "proxy" if qa else None, "release": release,
+                     "roles": roles, "source_ref": c["refs"], "created_at": None, "history": []})
+    return rels, usi, mancanti, lette[0]
+
+
+def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli):
     """Scrive nel database (solo con --apply). Si ferma prima di scrivere se qualcosa non torna."""
-    if tot != righe_tot or cont.get("bloccata", 0) or dup:
-        sys.exit(f"STOP: riconciliazione {tot}/{righe_tot}, bloccate {cont.get('bloccata', 0)}, chiavi duplicate {len(dup)}: non scrivo")
+    if tot != righe_tot or cont.get("bloccata", 0) or dup or ruoli["mancanti"]:
+        sys.exit(f"STOP: riconciliazione {tot}/{righe_tot}, bloccate {cont.get('bloccata', 0)}, chiavi duplicate {len(dup)}, "
+                 f"ruoli non risolti {len(ruoli['mancanti'])}: non scrivo")
     riga_di = lambda n: {"file": "detentori-oltre-5.csv", "row": n}
     nuove_schede = []
     for eid, e in sorted(nuove.items()):
@@ -132,14 +236,30 @@ def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, rig
                                             "field": "current", "old": True, "new": False})
         v["current"] = False
     db["entities"].extend(nuove_schede)
+    for vecchio, nuovo_ in ruoli["cambiate"]:     # S5 regola 2, anche per i ruoli
+        h = vecchio.setdefault("history", [])
+        for f in ("roles", "source_ref", "as_of", "as_of_origine"):
+            if vecchio.get(f) != nuovo_[f]:
+                h.append({"date": oggi, "release": a.release, "source_ref": nuovo_["source_ref"][0], "field": f, "old": vecchio.get(f), "new": nuovo_[f]})
+                vecchio[f] = nuovo_[f]
+        if vecchio.get("current") is not True:
+            h.append({"date": oggi, "release": a.release, "source_ref": nuovo_["source_ref"][0], "field": "current", "old": vecchio.get("current"), "new": True})
+            vecchio["current"] = True
+        vecchio["release"] = a.release
+    for v in ruoli["scomparse"]:
+        v.setdefault("history", []).append({"date": oggi, "release": a.release, "source_ref": (v.get("source_ref") or [None])[0],
+                                            "field": "current", "old": True, "new": False})
+        v["current"] = False
     db["relationships"].extend(rels)
-    if nuove_schede or rels or cambiate or scomparse:
+    db["relationships"].extend(ruoli["nuove"])
+    if nuove_schede or rels or cambiate or scomparse or ruoli["nuove"] or ruoli["cambiate"] or ruoli["scomparse"]:
         db["_updated"] = oggi
     with open(db_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(db, indent=2, ensure_ascii=False))
     riga = (f"apply {oggi}: {len(nuove_schede)} schede nuove ({sum(1 for e in nuove_schede if e['id'].startswith('PER'))} PER, "
             f"{sum(1 for e in nuove_schede if e['id'].startswith('IV'))} IV), {len(rels)} relazioni ownership, "
-            f"{len(cambiate)} cambiate, {len(scomparse)} scomparse -> {db_path}")
+            f"{len(cambiate)} cambiate, {len(scomparse)} scomparse; ruoli: {len(ruoli['nuove'])} relazioni role nuove, "
+            f"{len(ruoli['cambiate'])} cambiate, {len(ruoli['scomparse'])} scomparse -> {db_path}")
     (out / "apply-report.md").write_text(riga + "\n", encoding="utf-8")
     print("\n" + riga)
     return 0
@@ -273,10 +393,46 @@ def main():
     scomparse = [r for r in db["relationships"] if r.get("type") == "ownership" and r.get("current") is True
                  and (r["source"], r["target"], "ownership", r.get("classe")) not in viste]
 
+    # ---- ruoli (S7 rivisto): una relazione `role` per (persona, scheda) ----
+    per_final = {k[1]: v for k, v in indice.items() if k[0] == "P"}
+    per_final.update({k[1]: mappa[tmp] for k, tmp in nuovo_id.items() if k[0] == "P"})
+    quote_per_scheda = collections.Counter(r["target"] for r in db["relationships"] if r.get("type") == "ownership")
+    quote_per_scheda.update(x["target"] for x in rels)
+    t_az2 = {r["ticker"]: r.get("proposta_id", "") for r in leggi(LAV / "proposta-aziende.csv")}
+    t_cl2 = collections.defaultdict(set)
+    for r in leggi(LAV / "proposta-classi.csv"):
+        t_cl2[r["ticker"]].add(r["id_proposto"])
+
+    def scheda_ruolo(ticker):   # scheda di classe con piu quote; altrimenti la scheda in tabella (S7, punto 6)
+        c = sorted(t_cl2.get(ticker, ()), key=lambda i: (-quote_per_scheda[i], i))
+        return c[0] if c else t_az2.get(ticker, "")
+
+    tab_ruoli, non_appr = {}, 0
+    for r in leggi(LAV / "proposta-ruoli.csv"):
+        if not r["revisione_nelson"].strip():
+            non_appr += 1
+        tab_ruoli[(r["ruolo_nel_file"], r["dettaglio"])] = (r["codici_proposti"].split(" + "), r["director_implicito"] == "si")
+    if non_appr:
+        sys.exit(f"STOP: proposta-ruoli.csv ha {non_appr} righe senza revisione_nelson (tabella non approvata)")
+    ruoli_rel, ruoli_usi, ruoli_manc, ruoli_righe = costruisci_ruoli(
+        raw, a.release, per_final, scheda_ruolo,
+        lambda t: (aziende.get(t) or {}).get("quote_al") or None, lambda ru, d: tab_ruoli.get((ru, d)))
+    esistenti_r = {(r["source"], r["target"]): r for r in db["relationships"] if r.get("type") == "role"}
+    visti_r = {(x["source"], x["target"]) for x in ruoli_rel}
+    r_nuove = [x for x in ruoli_rel if (x["source"], x["target"]) not in esistenti_r]
+    r_cambiate = [(esistenti_r[(x["source"], x["target"])], x) for x in ruoli_rel if (x["source"], x["target"]) in esistenti_r
+                  and any(esistenti_r[(x["source"], x["target"])].get(f) != x[f] for f in ("roles", "source_ref", "as_of", "as_of_origine"))]
+    r_scomparse = [r for r in db["relationships"] if r.get("type") == "role" and r.get("current") is True
+                   and (r["source"], r["target"]) not in visti_r]
+    ruoli = {"nuove": r_nuove, "cambiate": r_cambiate, "scomparse": r_scomparse, "mancanti": ruoli_manc}
+
     # duplicati di chiave tra le relazioni da creare (atteso 0, S5)
     dup = [k for k, v in collections.Counter((x["source"], x["target"], x["classe"]) for x in rels).items() if v > 1]
     for i, x in enumerate(rels, start=1):
         x["id"] = f"REL-{max_rel + i:04d}"
+    for i, x in enumerate(r_nuove, start=1):
+        x["id"] = f"REL-{max_rel + len(rels) + i:04d}"
+        x["created_at"] = oggi
 
     # ---- report ----
     out.mkdir(parents=True, exist_ok=True)
@@ -289,6 +445,7 @@ def main():
         for e in nuove.values():
             w.writerow([e["id"], e["nome"], ",".join(e.get("person_ids", []) + e.get("entity_ids", []))])
     json.dump(rels, open(out / "relazioni-anteprima.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(ruoli_rel, open(out / "ruoli-anteprima.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     blocc = collections.Counter(e["motivo"] for e in esito if e["esito"] == "bloccata")
     righe_tot = len(righe)
     tot = sum(cont.values())
@@ -309,6 +466,12 @@ def main():
     (out / "report.md").write_text("\n".join(rep) + "\n", encoding="utf-8")
     print("\n".join(rep))
     print(f"\nReport in {out}/ (riconciliazione.csv, entita-nuove.csv, relazioni-anteprima.json, report.md)")
+    n_ref = sum(len(x["source_ref"]) for x in ruoli_rel)
+    print(f"\nRuoli: {ruoli_righe} righe lette per {len(per_final)} persone -> {len(ruoli_rel)} relazioni role "
+          f"({len({x['source'] for x in ruoli_rel})} persone), {n_ref} righe nei source_ref ({'torna' if n_ref == ruoli_righe else 'NON TORNA'}); "
+          f"nuove {len(r_nuove)}, cambiate {len(r_cambiate)}, scomparse {len(r_scomparse)}, non risolte {len(ruoli_manc)}")
+    for m in ruoli_manc[:10]:
+        print("  ruolo non risolto:", m)
     print(f"\nRe-import: relazioni cambiate {len(cambiate)}, scomparse dal file {len(scomparse)} (S5: report da guardare a mano)")
     for v, n_ in cambiate[:20]:
         print("  cambiata:", v["source"], v["target"], v.get("classe"), {f: (v.get(f), n_[f]) for f in CAMPI_VALORI if v.get(f) != n_[f]})
@@ -316,7 +479,7 @@ def main():
         print("  scomparsa:", v["source"], v["target"], v.get("classe"), v.get("source_ref"))
     if not a.apply:
         return 0
-    return applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi)
+    return applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli)
 
 
 if __name__ == "__main__":
