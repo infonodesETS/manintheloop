@@ -41,6 +41,7 @@ The data set identifies companies by ticker and CIK, the database by its own ids
 
 - `reconciliation`: 571 = 546 + 25, no duplicate key among the relationships to create.
 - `python3 scripts/validate.py` on a copy with the new entities and relationships added: all 12 checks pass; check 11 reports "546 ownership relationships checked, all valid".
+- Size: on a clean copy of the database the import (546 `ownership` + 47 `role` + 150 new cards) takes `database.json` from 13,488,915 to 14,030,780 bytes (+0.54 MB, +4.0%).
 - The four persons that Andrea's file flagged as possibly the same across companies (Durban, L. Murdoch, Blitzer, Gundermann) were reopened in primary sources and confirmed as the same person (2026-11-15).
 
 ## 5. Feedback on the data (for the maintainer)
