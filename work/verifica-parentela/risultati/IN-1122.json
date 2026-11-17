@@ -1,0 +1,33 @@
+{
+  "child_id": "IN-1122", "child_name": "Telefonica Moviles Espana",
+  "parent_id": "IN-0369", "parent_name": "Telefonica SA",
+  "legal_parent_per_source": "Telefónica, S.A. (GLEIF: TELEFONICA SA, Gran Via 28, Madrid)",
+  "parent_registry_id": "LEI 549300EEJH4FEPDBBR25; Spanish registration A28015865 (GLEIF registeredAs)",
+  "parent_card_matches": "yes",
+  "parent_card_check": "IN-0369 'Telefonica SA' has QID Q160229 (label Telefonica, Madrid, ISIN ES0178430E18), ticker TEF (Spain, Bolsa de Madrid), website telefonica.com. The GLEIF parent record is TELEFONICA SA, Madrid, ES (same listed holding). IN-0368 is Telefonica Brasil (Q20059505, Sao Paulo, ticker VIV, NYSE ADS), a different company, so it is not the parent. IN-0369 has no tax_id on the card, so the match rests on name, QID, ticker and country, not on a registry number printed on the card.",
+  "kind": "subsidiary",
+  "status": "current",
+  "start_or_end_date": "",
+  "ownership_pct_stated": "100",
+  "verdict": "confirmed",
+  "verdict_reason": "Telefonica's own consolidated accounts (SEC filing, 31 Dec 2024) list Telefonica Moviles Espana, S.A.U. as 100% held by Telefonica, S.A. The GLEIF relationship record (primary registry data) also says it is directly consolidated by TELEFONICA SA, and the parent card matches the listed Madrid company.",
+  "evidence": [
+    {"claim": "Telefonica, S.A. holds 100% of Telefonica Moviles Espana, S.A.U. (consolidated accounts, appendix of group companies, parent company Telefonica, S.A.)",
+     "url": "https://www.sec.gov/Archives/edgar/data/814052/000081405225000036/R78.htm",
+     "phrase": "Telefónica Móviles España, S.A.U. Wireless communications services provider Spain EUR 209 100 % Telefónica, S.A.",
+     "source_kind": "primary"},
+    {"claim": "Same listing in the other reopened SEC page (R39), under the heading 'Parent Company Telefónica,S.A.'",
+     "url": "https://www.sec.gov/Archives/edgar/data/814052/000081405225000036/R39.htm",
+     "phrase": "Telefónica Móviles España, S.A.U. Wireless communications services provider Spain EUR 209 100% Telefónica, S.A.",
+     "source_kind": "primary"},
+    {"claim": "GLEIF: child LEI 5493007W2C0KXR7EHE04 (TELEFONICA MOVILES ESPAÑA SA, registeredAs A78923125) has relationship IS_DIRECTLY_CONSOLIDATED_BY, status ACTIVE, end node 549300EEJH4FEPDBBR25 = TELEFONICA SA (A28015865, Madrid)",
+     "url": "https://api.gleif.org/api/v1/lei-records/5493007W2C0KXR7EHE04/direct-parent-relationship",
+     "phrase": "\"type\":\"IS_DIRECTLY_CONSOLIDATED_BY\",\"status\":\"ACTIVE\" (startNode 5493007W2C0KXR7EHE04, endNode 549300EEJH4FEPDBBR25)",
+     "source_kind": "primary"},
+    {"claim": "GLEIF parent record identity (name and Spanish registration number)",
+     "url": "https://api.gleif.org/api/v1/lei-records/5493007W2C0KXR7EHE04/direct-parent",
+     "phrase": "\"legalName\":{\"name\":\"TELEFONICA SA\" ... registeredAs A28015865",
+     "source_kind": "primary"}
+  ],
+  "notes": "The 100% figure is as of 31 Dec 2024 (FY2024 20-F data in the SEC filing); the FY2025 consolidated accounts PDF (telefonica.com) was reopened and names the company as a Telefonica Spain company, but the percentage was not copied from it. The R39 and R78 pages differ only in spacing ('100%' vs '100 %'). The GLEIF record for the child has registration status LAPSED (last update 2023-08-21, accounts filing 2019), so the GLEIF link is dated; the SEC filing is the stronger proof. The BOE collective agreements and the Movistar legal notice were reopened but do not state ownership. Exa /answer first cited filings.es and zavia.ai (secondary, not used). Other oddities: IN-0369 Crunchbase profile_url points to 'telefonica-panama' and its description ('the leading mobile operator in the country') does not fit the holding; IN-0369 has no tax_id. The child QID Q160229 was removed on 2026-11-15 (patch_qid_removed.py) after being re-applied on 2026-06-18; IN-0369 keeps it."
+}

@@ -1,0 +1,49 @@
+{
+  "child_id": "IN-1352",
+  "child_name": "Alcoa Warrick",
+  "parent_id": "IN-0193",
+  "parent_name": "Kaiser Aluminium",
+  "legal_parent_per_source": "Kaiser Aluminum Corporation",
+  "parent_registry_id": "SEC CIK 0000811596 (NASDAQ: KALU)",
+  "parent_card_matches": "yes",
+  "parent_card_check": "IN-0193 has wikidata_id Q6348410 (label 'Kaiser Aluminum', 'American metals manufacturer'), iShares ticker KALU on NASDAQ, website kaiseraluminum.com, Crunchbase 'Kaiser Aluminum Corporation' HQ Foothill Ranch CA. The press release names 'Kaiser Aluminum Corporation (NASDAQ:KALU)' in Foothill Ranch, Calif., filed under CIK 811596: same listed company. Card spelling 'Aluminium' is only a variant.",
+  "kind": "unclear",
+  "status": "current",
+  "start_or_end_date": "2021-03-31",
+  "ownership_pct_stated": "",
+  "verdict": "confirmed",
+  "verdict_reason": "Kaiser Aluminum Corporation's own 8-K exhibit says it completed the acquisition of Alcoa Warrick LLC, and the acquisition closed on March 31, 2021; the 2020-11-30 announcement and the closing are the same transaction (same purchase agreement, same $670 million price).",
+  "evidence": [
+    {
+      "claim": "Kaiser announced on 2020-11-30 a definitive agreement to buy Alcoa Warrick LLC from Alcoa Corporation for $670 million (8-K exhibit 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/811596/000119312520305767/d46303dex991.htm",
+      "phrase": "Kaiser Aluminum Corporation (NASDAQ:KALU), today announced that it has entered into a definitive agreement to purchase Alcoa Warrick LLC, containing all the assets of the Warrick Rolling Mill (“Warrick”), from Alcoa Corporation (“Alcoa”) for a purchase price of $670 million",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Kaiser completed the purchase of Alcoa Warrick LLC; closing date 2021-03-31 (8-K exhibit 99.1, press release dated April 1, 2021)",
+      "url": "https://www.sec.gov/Archives/edgar/data/811596/000119312521103329/d161812dex991.htm",
+      "phrase": "Kaiser Aluminum Corporation (NASDAQ:KALU), today announced that it has completed its acquisition of Alcoa Warrick LLC, containing all the assets of the Warrick Rolling Mill (“Warrick”), from Alcoa Corporation (“Alcoa”) for a purchase price of $670 million.",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Closing date",
+      "url": "https://www.sec.gov/Archives/edgar/data/811596/000119312521103329/d161812dex991.htm",
+      "phrase": "The acquisition closed on March 31, 2021 and the total purchase price was funded with a combination of existing cash on hand, and the assumption of other post-employment benefits (OPEB) liabilities",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Same transaction as the 2020-11-30 agreement, with Kaiser as acquirer of Alcoa Warrick LLC (Kaiser 8-K/A exhibit 99.2 pro forma)",
+      "url": "https://www.sec.gov/Archives/edgar/data/811596/000156459021025382/kalu-ex992_916.htm",
+      "phrase": "On March 31, 2021, Kaiser Aluminum Corporation (the “Company”) completed its acquisition of Alcoa Warrick LLC along with certain assets comprising the aluminum casting and rolling mill facility (“Warrick”) located in Warrick County, Indiana, pursuant to the terms of the Purchase Agreement between the Company and Alcoa Corporation (the “Purchase Agreement”) dated November 30, 2020",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Seller side confirms the same sale and closing date (Alcoa 10-Q Q1 2021)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1675149/000156459021024165/aa-10q_20210331.htm",
+      "phrase": "On March 31, 2021, Alcoa completed the sale of the Warrick Rolling Mill to Kaiser Aluminum Corporation for total consideration of $670",
+      "source_kind": "primary"
+    }
+  ],
+  "notes": "IN-1352 card: name 'Alcoa Warrick', wikidata_id null (Q131884343 removed 2026-11-13 because it is Alcoa Nederland), tax_id null (EIN removed 2026-11-14), Crunchbase funding_status 'M&A', acquired_by empty, website alcoa.com (stale, pre-sale), country United States; validation all needs_review/enrichment entries, no relation recorded. Child entity per sources: Alcoa Warrick LLC, Delaware; GLEIF LEI 549300H6C1PFPKJ15K62 (US-DE, registration LAPSED, entity ACTIVE; GLEIF has no parent record, 404 on direct-parent-reporting-exception). Crunchbase profile is 'alcoa-warrick-operations' (site-level description). Kind left 'unclear': the sources say Kaiser purchased the LLC and its assets, but none says 'subsidiary' or gives a percentage; wholly-owned is implied by purchase of the entity, not stated. Kaiser's later Exhibit 21.1 (https://investors.kaiseraluminum.com/sec-filings/all-sec-filings/content/0000950170-23-004215/kalu-ex21_1.htm) lists 'Kaiser Aluminum Warrick, LLC | Delaware' among subsidiaries: probably the renamed entity, but no source reopened says so (not asserted). Kaiser's own 8-K says 'containing all the assets of the Warrick Rolling Mill'; Alcoa kept the smelter, power plant and land (ground lease to Kaiser), so the card (Crunchbase profile 'Alcoa Warrick Operations', site-level description) mixes the LLC and the site. The 'Alcoa 8-K' date was not separately opened; the date 2021-03-31 rests on Kaiser's 8-K exhibits and Alcoa's 10-Q. Press release is dated 2021-04-01, closing 2021-03-31. Exa /answer cited the Kaiser press release page investors.kaiseraluminum.com but it was not reopened (the SEC copy was)."
+}

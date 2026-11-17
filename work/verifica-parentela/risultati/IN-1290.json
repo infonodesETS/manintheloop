@@ -1,0 +1,20 @@
+{
+  "child_id": "IN-1290", "child_name": "HII Mission Technologies",
+  "parent_id": "IN-1375", "parent_name": "Huntington Ingalls Industries",
+  "legal_parent_per_source": "Huntington Ingalls Industries, Inc.",
+  "parent_registry_id": "SEC CIK 1501585 (filer of the Exhibit 21.1); EIN 90-0607005 (from the 10-K cover, per card history)",
+  "parent_card_matches": "yes",
+  "parent_card_check": "Card IN-1375 has name 'Huntington Ingalls Industries', QID Q7257522 (Wikidata: American shipbuilding company, public company), ISIN US4464131063, ticker HII on NYSE, website hii.com, inception 2011-03-31. The Exhibit 21.1 is filed under SEC CIK 1501585 by 'Huntington Ingalls Industries, Inc.', the NYSE-listed holding. The card has no tax_id, so the match rests on name, QID, ticker/ISIN and listing, not on a registry number.",
+  "kind": "subsidiary",
+  "status": "current",
+  "start_or_end_date": "",
+  "ownership_pct_stated": "100",
+  "verdict": "confirmed",
+  "verdict_reason": "The SEC Exhibit 21.1 (list of subsidiaries of Huntington Ingalls Industries, Inc.) lists HII Mission Technologies Corp., Delaware, at 100%. The card IN-1375 is the listed parent company (QID, ISIN, ticker agree).",
+  "evidence": [
+    {"claim": "HII Mission Technologies Corp. (Delaware) is a 100% owned subsidiary of Huntington Ingalls Industries, Inc.", "url": "https://www.sec.gov/Archives/edgar/data/1501585/000150158524000007/hii-ex211202310xk.htm", "phrase": "SUBSIDIARIES OF HUNTINGTON INGALLS INDUSTRIES, INC.", "source_kind": "primary"},
+    {"claim": "Row for the child in the same Exhibit 21.1 table (columns: name, jurisdiction, ownership percentage).", "url": "https://www.sec.gov/Archives/edgar/data/1501585/000150158524000007/hii-ex211202310xk.htm", "phrase": "HII Mission Technologies Corp. | Delaware | 100%", "source_kind": "primary"},
+    {"claim": "Child legal entity exists in GLEIF: HII MISSION TECHNOLOGIES CORP., LEI 5493003ITP0M5GD4XN85, registered as 3444444, status ACTIVE (record has no direct/ultimate parent link, only reporting exceptions).", "url": "https://api.gleif.org/api/v1/lei-records/5493003ITP0M5GD4XN85", "phrase": "HII MISSION TECHNOLOGIES CORP.", "source_kind": "primary"}
+  ],
+  "notes": "Exhibit 21.1 reopened is the one attached to the FY2023 10-K (file hii-ex211202310xk.htm); the card history cites the 2025 10-K Exhibit 21.1, not reopened. GLEIF gives no parent relationship, so it is not evidence of the link. Date of the link not stated by the source. Card IN-1290: Crunchbase profile_url and website (tsd.huntingtoningalls.com) are of a former division name (HII Technical Solutions), founded_date 2011-03-31 equals the parent's inception on Wikidata, probably inherited; wikidata_id is null now (removed 2026-11-13); card has no relationships in the database. Card IN-1290 has no registry id (GLEIF LEI 5493003ITP0M5GD4XN85, Delaware file 3444444 could be added)."
+}
