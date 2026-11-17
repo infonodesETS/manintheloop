@@ -24,7 +24,7 @@
 1. Copia pulita del database fuori dal repo, `--apply` (comando sopra).
 2. Copia di `docs/` fuori dal repo con quel database; `git apply --check work/b5-release1/sito/patch-sito.diff` e poi applicazione **sulla copia**.
 3. Rifare i controlli della sezione 7 del piano (mappa, scheda investitore, scheda con classi, link `PER-`, contatore, Compare, Cifre chiave e Reti, tema chiaro, `validate.py`). **Novità rispetto al piano:** ora c'è anche il tipo `role` (47 relazioni, `PER-` → scheda): verificare che mappa, ricerca e conteggi lo ignorino come `ownership`.
-4. Riferire a Nelson una tabella ora/dopo. Poi aggiornare il piano per Davide (docx e pdf): ID provvisori (`PER-0004` ora è `PER-0001`, `REL-0041` ora `REL-0040`), la frase «`role` e `parte_di` oggi sono zero» (ora `role` = 47), la frase finale «il tuo ok sulle decisioni qui sopra» (superata).
+4. Riferire a Nelson una tabella ora/dopo. Il piano per Davide (docx e pdf) e il report per Andrea sono già stati corretti il 2026-11-17 (ID dalla copia: `PER-0004` è `PER-0001`; `REL-0041` resta `REL-0041`; `role` = 47; frase finale rifatta); le schermate hanno ancora gli ID provvisori, e le misure della sezione 4 del piano sono precedenti ai `role`.
 
 ## 5. Dopo, nell'ordine (ognuno con ok di Nelson)
 

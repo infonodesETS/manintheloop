@@ -1,6 +1,6 @@
 # SEC Release 1 import: report and feedback on the data
 
-> **DRAFT, written 2026-11-16, before the import.** Every number below comes from the dry-run of `scripts/import_sec_ownership.py` (it writes nothing to the database) and from the files of release 2026-10-17. After the import this file is rewritten with the real figures. The sections marked **Feedback** are meant for the maintainer of the SEC data set.
+> **DRAFT, written 2026-11-16, updated 2026-11-17, before the import on the real database.** Every number below comes from the dry-run of `scripts/import_sec_ownership.py` and from a trial of `--apply` on a clean copy of the database kept outside the repository (section 4); nothing has been written to `docs/data/database.json`. After the real import this file is rewritten with the final figures. The sections marked **Feedback** are meant for the maintainer of the SEC data set.
 
 ## 1. Summary
 
@@ -9,7 +9,7 @@
 - Dry-run result: **546 rows importable, 25 not imported, 0 blocked.** The reconciliation closes: 571 = 546 + 25.
 - Would create: **546 `ownership` relationships**, **47 `role` relationships** (the roles of the 57 persons, see below), **57 `PER-` persons** and **93 new `IV-` holders**. Everything else matches an existing card.
 - Not imported by design: addresses (S4) and age. Roles of board members, officers and committee members are imported **only for the 57 persons** (95 source rows from `consiglieri.csv`, `dirigenti.csv`, `comitati.csv`, one `role` relationship per person and company, 43 persons have at least one role); the roles of the other persons stay for Release 2.
-- Nothing was written to `docs/data/database.json` yet. The raw files are never modified.
+- Nothing was written to `docs/data/database.json` yet; `--apply` was tried only on a copy (section 4). The raw files are never modified.
 
 ## 2. What is imported, exactly
 
@@ -41,6 +41,7 @@ The data set identifies companies by ticker and CIK, the database by its own ids
 
 - `reconciliation`: 571 = 546 + 25, no duplicate key among the relationships to create.
 - `python3 scripts/validate.py` on a copy with the new entities and relationships added: all 12 checks pass; check 11 reports "546 ownership relationships checked, all valid".
+- `--apply` on a clean copy of the database (2026-11-17): **150 new cards** (57 `PER-0001`…`PER-0057`, 93 `IV-0758`…`IV-0850`, ids assigned in alphabetical order), **546 `ownership`** (`REL-0001`…`REL-0546`) and **47 `role`** (`REL-0547`…`REL-0593`); existing cards and relationships unchanged; a second run produces an identical file; `validate.py` passes (593 new relationships checked). A changed value and a disappeared row were tried on another copy (`history[]` entry, `current: false`). The ids are final only if the real import starts from the same input.
 - Size: on a clean copy of the database the import (546 `ownership` + 47 `role` + 150 new cards) takes `database.json` from 13,488,915 to 14,030,780 bytes (+0.54 MB, +4.0%).
 - The four persons that Andrea's file flagged as possibly the same across companies (Durban, L. Murdoch, Blitzer, Gundermann) were reopened in primary sources and confirmed as the same person (2026-11-15).
 
