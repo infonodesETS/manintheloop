@@ -222,8 +222,9 @@ Added in B1 (decisions S1, S4, S7 in `reference/S1…S7`). **Reference to the so
 | `release` | Release date of the SEC data set (`rawdata/sec-edgar/<release>/`) |
 | `refs` | One entry per source row used to create or update the entity: file and row |
 | `person_ids` | `PER-` entities only: the `P####` of Andrea's registry. If two `P####` turn out to be the same person, **both** are kept (S7) |
+| `entity_ids` | `IV-` entities created by the import only: the `E####` of the SEC release (`entita_id`). Used by `import_sec_ownership.py` to recognise its own cards on a re-run (never by name) |
 
-> The exact field names are a proposal of B1; they are confirmed when `scripts/import_sec_ownership.py` is written (B5). Not otherwise checked by `validate.py`.
+> Field names confirmed by `scripts/import_sec_ownership.py` (B5, 2026-11-17, tried on a copy of the database). Not otherwise checked by `validate.py`.
 
 ### `sources.infonodes`
 

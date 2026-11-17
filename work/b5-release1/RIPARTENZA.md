@@ -4,7 +4,8 @@
 
 ## Dove siamo
 
-- Branch locale `dati/b5-release1` (a inizio sessione 2026-11-17 non era indietro rispetto a `main`, PR #72). `database.json` e `docs/` **non toccati**. Non tracciati da trattare a parte: `work/verifica-parentela/`, `work/verifica-qid/risultati/IN-0752.json` (lavoro QID, non B5).
+- Branch `dati/b5-release1`, **pushato il 2026-11-17** (non era indietro rispetto a `main`, PR #72); nessuna PR aperta. `database.json` e `docs/` **non toccati**. File del lavoro QID/parentela committati a parte.
+- **`--apply` scritto e provato su una copia** (2026-11-17): `python3 scripts/import_sec_ownership.py --db COPIA.json --out DIR --apply`; sul database vero serve `--database-reale` (non lanciato). Esito: 150 schede nuove (57 `PER-0001..0057`, 93 `IV-0758..0850`, ID reali in ordine alfabetico), 546 `ownership` da `REL-0001` a `REL-0546`, le schede esistenti identiche; seconda esecuzione = file identico; valore cambiato → `history[]`, riga scomparsa → `current: false` (provato su un'altra copia); `validate.py` passa. Scelte da confermare: `roles: ["investor"]` sulle persone, `entity_ids` in `sources.sec` degli `IV-`.
 - **Dry-run chiuso:** `python3 scripts/import_sec_ownership.py` (solo anteprima): 571 righe = 546 importabili + 25 scartate, 0 bloccate; 57 `PER-`, 93 `IV-` nuovi, 546 relazioni. `validate.py` passa su una copia di prova.
 - **Tabelle riviste e firmate da Nelson** (`proposta-aziende/classi/gestori.csv`): controllo agenti fatto (A1-A4, B1-B3 in `agenti/risultati/`). Scelte: classi «una scheda sola» (13), Leonardo E0061 nodo `IV-` nuovo, KTOS su `IN-1304`.
 - **Report per Andrea** (bozza, inglese): `reference/B5-REPORT-IMPORT-RELEASE1.md`; va riscritto con i numeri veri dopo l'import.
@@ -20,13 +21,11 @@
 
 ## Prossimi passi, in ordine (ognuno con ok di Nelson)
 
-1. Commit e push del branch (mai di `main`): PDF del piano e due non tracciati del lavoro QID da decidere con Nelson.
-2. Aggiornare il piano per Davide (docx e pdf) con le decisioni e il chatbot.
-3. Leggere `S3`-`S7`, `SCHEMA.md` (*Relationships*), `validate.py` (controllo 11) e il codice dello script; scrivere `--apply` di `import_sec_ownership.py` e provarlo **su una copia fuori dal repo** (ID reali primo libero, `history`, `sources.sec` senza indirizzi, relazioni da `REL-0001`, report dei cambi, seconda esecuzione = 0 modifiche, `validate.py`).
-4. Patch del sito su una copia di `docs/` e controlli della sezione 7 del piano.
-5. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide, se cambia la soglia va riscritta S4. Si può fare in parallelo.
-6. Stessa PR: dati + patch del sito + controlli. La PR la apre Nelson dal web.
-7. A import fatto: riscrivere il report per Andrea con i numeri veri e rigenerare il PDF del piano.
+1. (fatto) Commit e push; piano per Davide aggiornato; `--apply` scritto e provato su copia.
+2. Patch del sito su una copia di `docs/` e controlli della sezione 7 del piano.
+3. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide, se cambia la soglia va riscritta S4. Si può fare in parallelo.
+4. Stessa PR: dati + patch del sito + controlli. La PR la apre Nelson dal web.
+5. A import fatto: riscrivere il report per Andrea con i numeri veri e rigenerare il PDF del piano.
 
 ## Da non dimenticare
 
