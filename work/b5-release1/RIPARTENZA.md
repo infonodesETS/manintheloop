@@ -22,13 +22,15 @@
 ## Prossimi passi, in ordine (ognuno con ok di Nelson)
 
 1. (fatto) Commit e push; piano per Davide aggiornato; `--apply` scritto e provato su copia.
-2. Patch del sito su una copia di `docs/` e controlli della sezione 7 del piano.
-3. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide, se cambia la soglia va riscritta S4. Si può fare in parallelo.
-4. Stessa PR: dati + patch del sito + controlli. La PR la apre Nelson dal web.
-5. A import fatto: riscrivere il report per Andrea con i numeri veri e rigenerare il PDF del piano.
+2. **Ruoli (modello deciso da Nelson il 2026-11-17, vedi S7):** Nelson rivede `work/b5-release1/proposta-ruoli.csv` (75 diciture → 13 codici, 8 con nota) e le risposte aperte qui sotto; poi si scrive l'import dei ruoli in `import_sec_ownership.py` (47 relazioni `role`, anteprima in `dry-run/ruoli-anteprima.json`, strumento `proponi_ruoli.py`), provato su copia. `validate.py` già aggiornato (controllo 11, ramo `role`) e provato.
+3. Patch del sito su una copia di `docs/` e controlli della sezione 7 del piano.
+4. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide, se cambia la soglia va riscritta S4. Si può fare in parallelo.
+5. Stessa PR: dati + patch del sito + controlli. La PR la apre Nelson dal web.
+6. A import fatto: riscrivere il report per Andrea con i numeri veri e rigenerare il PDF del piano.
 
 ## Da non dimenticare
 
+- **Aperto sui ruoli (da confermare con Nelson):** (a) `director` implicito per le 14 righe `consigliere` il cui testo non dice «Director» (marcato `implied_by`); (b) «Co-CEO of Silver Lake» → `other` e «Director; Compensation; Nominating/Governance» → `director` + `other`; (c) il `roles` dell'entità `PER-` resta `["investor"]`; (d) `merge_entities.py` e `check_b3_branch.py` usano ancora `role_code` nella chiave: per le relazioni `role` nuove è sempre `None`, quindi due `role` sulla stessa coppia fermano l'operazione (comportamento prudente, da rivedere quando serve unire schede con ruoli).
 - 4 righe senza `as_of` (SATS, Ergen): lasciate vuote. 3 righe con più date da guardare (CHTR 87, NWS 385 e 386).
 - `holder_type`: solo `company` e `person`. KTOS: `IN-1377` è un duplicato da unire con B3 in una PR a parte.
 - Schede sporche segnalate dagli agenti (RTX `IN-1324`, QID di TE e Standard Aero, Crunchbase di WBD, AMR, LITE, Materion): dopo l'import, caso per caso.

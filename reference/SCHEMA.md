@@ -88,7 +88,7 @@ IDs are zero-padded to 4 digits and assigned in alphabetical order by name withi
 
 An entity can have multiple roles.
 
-> **Not to be confused with** the `role` field of an `edf_participation` relationship (`participant`, `coordinator`, …) and with the relationship type `role` / field `role_code` introduced in B1 (see *Relationships* below).
+> **Not to be confused with** the `role` field of an `edf_participation` relationship (`participant`, `coordinator`, …) and with the relationship type `role` and its `roles` object (see *Relationships* below).
 
 ---
 
@@ -335,7 +335,7 @@ These relationships have **no `id`**. Do not assume `REL-NNNN` exists for them.
 | `board_membership` | PER-* → IN-* | Person on board of company (kept for compatibility; not used in the data yet) |
 | `edf_participation` | IN-* → EDF-* | Company participated in EDF project |
 | `ownership` | IV-* / IN-* / PER-* → IN-* | **New (S2).** Stake of ≥5% of capital or of votes (threshold S4) |
-| `role` | PER-* → IN-* | **New (S2, S7).** A role of a person in a company; Release 2 |
+| `role` | PER-* → IN-* | **New (S2, S7, revised 2026-11-17).** One relationship per (person, company); the person's roles in it live in `roles`. First data: the 57 persons of Release 1 |
 | `parte_di` | IV-*/IN-* → IV-*/IN-* | **New (S6).** Group link: the source (child) is part of the target (its legal parent). Added only after a person has checked it against a primary source; always with `source_ref`. Model fixed 2026-11-16, see below |
 
 ### New types: `ownership`, `role`, `parte_di`
@@ -371,7 +371,36 @@ These carry their **own `id`** (`REL-NNNN`, four digits or more, unique) and are
 
 Unique key: `(source, target, type, classe)`.
 
-**`role`** (S7; imported with Release 2): `role_code` (controlled vocabulary, defined by the mapping table before Release 2; today only checked as non-empty) and `role_text` (original wording of the filing, unchanged). A string with several roles becomes **several relationships**, all with the same `role_text`. Unique key: `(source, target, type, role_code)`. `role_code` is deliberately not called `role`, to avoid confusion with the `role` of `edf_participation`.
+**`role`** (S7, revised by Nelson on 2026-11-17): **one relationship per (person, company)**, however many roles the person has there; a person with a relationship to a company always has this connection, also when they are not a shareholder. Unique key: `(source, target, type)`. The roles are inside `roles`, an object `{role_code: details}` with **only the roles that are present** (absent means false; a table with `true`/`false` for every code is produced when exporting, not stored). Nothing in the source rows is dropped.
+
+```json
+{ "id": "REL-0601", "type": "role", "source": "PER-0001", "target": "IN-0034",
+  "current": true, "as_of": "2026-03-31", "as_of_origine": "proxy", "release": "2026-10-17",
+  "roles": {
+    "ceo":      { "role_text": "Chief Executive Officer and Co-Founder", "fonte": "DEF 14A",
+                  "role_text_alt": ["Chief Executive Officer and Co-Founder; Director"] },
+    "founder":  { "role_text": "Chief Executive Officer and Co-Founder", "fonte": "DEF 14A" },
+    "director": { "role_text": "Chief Executive Officer and Co-Founder; Director",
+                  "since_year": 2011, "since_month": 12, "independent": false }
+  },
+  "source_ref": ["2026-10-17/dirigenti.csv#94", "2026-10-17/consiglieri.csv#145"],
+  "created_at": "2026-11-17", "history": [] }
+```
+
+| Field | Rule |
+|---|---|
+| `roles` | required, non-empty object; each key is a `role_code` of the vocabulary below |
+| `roles.<code>.role_text` | required, the original wording of the source row, unchanged; `role_text_alt`: the other wordings when the same role comes from several rows |
+| `since_year`, `since_month` | integers (the source gives a year or a year and month, never a day: no invented date); month needs year; only on `director` today (`nel_consiglio_dal`) |
+| `independent` | `true`/`false`, board members only (`indipendente`) |
+| `fonte` | `DEF 14A` or `10-K`, for officers (`dirigenti.csv`) |
+| `committees` | on `committee_member`: list of `{name, chair, meetings, year}`; a committee chair is `chair: true`, not a separate code |
+| `implied_by` | on a `director` that the source row does not name but the file lists as board member (`consiglieri.csv`) |
+| `as_of`, `as_of_origine`, `release`, `current` | as in `ownership` (S5); `as_of` is the `quote_al` of the company's proxy |
+| `source_ref` | a non-empty string **or a non-empty list of strings** (one per source row) |
+| **never imported** | age (`eta`): minimisation, as for addresses; `validate.py` rejects `eta`/`age` |
+
+**Vocabulary of `role_code`** (provisional: built from the 95 role rows of Release 1, to be reviewed with Release 2; the original wording always stays in `role_text`): `director`, `chair`, `executive_chair`, `lead_independent_director`, `ceo`, `co_ceo`, `president`, `cto`, `founder`, `secretary`, `senior_advisor`, `committee_member`, `other` (anything that cannot be classified, for example a role in another company; listed in the report, never dropped). The mapping from wording to codes is `work/b5-release1/proposta-ruoli.csv`, reviewed by hand. `role_code` is not a field of the relationship any more; `roles` on the *entity* is unrelated (see *Roles* above).
 
 **`parte_di`** (S6, model fixed by Nelson on 2026-11-16): group link between two cards already in the database. `source` is the company that is part of the group (the child); `target` is its **legal parent as named by the primary source**, which is not necessarily the card that holds the group's Wikidata QID. Both cards must exist and not be retired. Unique key: `(source, target, type)`. Example: `IN-1290` HII Mission Technologies → `IN-1375` Huntington Ingalls.
 

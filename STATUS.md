@@ -16,11 +16,11 @@
   - **S4** dove vivono i dati: opzione (c), entità e relazioni nel DB, **indirizzi delle persone fuori dal DB**, **soglia «capitale o voti ≥5%», 5,0 incluso (546 righe su 571, 25 scartate con motivo)**, riconciliazione riga per riga, front-end adattato nella stessa PR → [`reference/S4-DATI-SEC.md`](reference/S4-DATI-SEC.md).
   - **S5** storicità: opzione (c), valori correnti + cambi in `history[]` della relazione, `as_of` con `as_of_origine`, righe scomparse `current: false` mai cancellate, report dei cambi prima di ogni re-import → [`reference/S5-STORICITA.md`](reference/S5-STORICITA.md).
   - **S6** gestori: opzione (c), un nodo per ogni depositante, legame di gruppo solo dopo verifica di una persona, abbinamenti con tabella rivista a mano, **State Street resta `IN-1468`**; FMR LLC non è Fidelity International `IV-0214` → [`reference/S6-GESTORI.md`](reference/S6-GESTORI.md).
-  - **S7** ruoli e persone: `role` controllato + `role_text` originale (una relazione per ruolo, nessuna riga scartata); persone con registro di Andrea e controllo a mano dei casi nei controlli manuali (4 in Release 1: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`) → [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md).
+  - **S7** ruoli e persone (ruoli rivisti il 2026-11-17): una relazione `role` per (persona, scheda) con `roles` dentro (solo i ruoli presenti, `role_text` originale, nessuna riga scartata), già per le 57 persone di Release 1; persone con registro di Andrea e controllo a mano dei casi nei controlli manuali (4 in Release 1: Durban `P0551`, L. Murdoch `P1197`, Blitzer `P1464`, Gundermann `P1690`) → [`reference/S7-RUOLI-E-PERSONE.md`](reference/S7-RUOLI-E-PERSONE.md).
 
 Memo delle scelte di schema di B1 (oltre a S1-S7; testo completo in `reference/SCHEMA.md` e nel log del 2026-11-12): relazioni reali **senza `id`**; `id` proprio (`REL-NNNN`, 4 cifre o più) solo per le nuove `ownership`, `role`, `parte_di`; campi di `ownership` al livello superiore, chiave `(source, target, type, classe)`; **`role_code`** (non `role`) + `role_text`; `sources.sec` senza indirizzi (`validate.py` lo impone); `validate.py [file]` con percorso opzionale.
 
-**Da confermare in B5:** valori di `holder_type` (oggi solo `company` e `person`), vocabolario di `role_code` (prima della Release 2). I campi di `sources.sec` sono confermati (`release`, `refs`, `person_ids`, `entity_ids`).
+**Da confermare in B5:** valori di `holder_type` (oggi solo `company` e `person`), vocabolario dei ruoli (13 codici provvisori, `proposta-ruoli.csv` da approvare). I campi di `sources.sec` sono confermati (`release`, `refs`, `person_ids`, `entity_ids`).
 
 ## Prossimi lavori (ognuno con ok di Nelson, un passo alla volta)
 

@@ -42,6 +42,11 @@ PARTE_DI_FORME = {"controllata", "divisione", "non_chiaro"}   # reference/S6-GES
 HOLDER_TYPES = {"fund", "company", "person"}          # S2 (holder_type); to be confirmed with the first import
 AS_OF_ORIGINS = {"proxy", "testo", "deposito"}         # S5
 HISTORY_KEYS = {"date", "release", "source_ref", "field", "old", "new"}  # S5, new types only
+# `role` relationships (S7, revised 2026-11-17): one relationship per (person, company), the roles inside `roles`.
+# Vocabulary provisional (built from the 95 role rows of Release 1; to be reviewed with Release 2).
+ROLE_CODES = {"director", "chair", "executive_chair", "lead_independent_director", "ceo", "co_ceo", "president",
+              "cto", "founder", "secretary", "senior_advisor", "committee_member", "other"}
+ROLE_FORBIDDEN_KEYS = {"eta", "age"}   # minimisation (S7): age is not imported
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WIKIDATA_RE = re.compile(r"^Q\d+$")
 PER_ID_RE = re.compile(r"^PER-\d{4,}$")   # S1: four digits or more
@@ -122,7 +127,7 @@ def main():
     entity_id_set = set(entity_ids)
 
     # ── Check 2: No duplicate relationships ───────────────────────────────────
-    # Key: (source, target, type); ownership adds `classe` (S3 R2), role adds `role_code` (S7).
+    # Key: (source, target, type); ownership adds `classe` (S3 R2). `role` has one relationship per (source, target).
     print("\n[2] Checking relationship uniqueness...")
     seen_r: set[tuple] = set()
     dup_rels = []
@@ -130,8 +135,6 @@ def main():
         key = (r.get("source"), r.get("target"), r.get("type"))
         if r.get("type") == "ownership":
             key += (r.get("classe"),)
-        elif r.get("type") == "role":
-            key += (r.get("role_code"),)
         if key in seen_r:
             dup_rels.append(key)
         seen_r.add(key)
@@ -349,7 +352,12 @@ def main():
             bad(r, f"duplicate relationship id '{rid}'")
         else:
             seen_rel_ids.add(rid)
-        if not isinstance(r.get("source_ref"), str) or not r.get("source_ref"):
+        sr = r.get("source_ref")
+        if t == "role":   # one relationship, several source rows: a non-empty string or a non-empty list of strings
+            lista = sr if isinstance(sr, list) else [sr]
+            if not lista or not all(isinstance(x, str) and x for x in lista):
+                bad(r, "source_ref is required (non-empty string or non-empty list of strings)")
+        elif not isinstance(sr, str) or not sr:
             bad(r, "source_ref is required (non-empty string)")
         if not DATE_RE.match(str(r.get("created_at"))):
             bad(r, "created_at is required (YYYY-MM-DD)")
@@ -392,9 +400,32 @@ def main():
         elif t == "role":
             if sp != "PER" or tp != "IN":
                 bad(r, "role goes from PER- (person) to IN- (company)")
-            for f in ("role_code", "role_text"):
-                if not isinstance(r.get(f), str) or not r.get(f):
-                    bad(r, f"{f} is required (non-empty string)")
+            if r.get("as_of") is not None and r.get("as_of_origine") not in AS_OF_ORIGINS:
+                bad(r, f"as_of_origine must be one of {sorted(AS_OF_ORIGINS)} when as_of is set")
+            roles = r.get("roles")
+            if not isinstance(roles, dict) or not roles:
+                bad(r, "roles is required: a non-empty object {role_code: details} with only the roles that are present")
+                roles = {}
+            for code, d in roles.items():
+                if code not in ROLE_CODES:
+                    bad(r, f"roles: '{code}' is not in the vocabulary {sorted(ROLE_CODES)}")
+                if not isinstance(d, dict):
+                    bad(r, f"roles.{code} must be an object")
+                    continue
+                if not isinstance(d.get("role_text"), str) or not d.get("role_text"):
+                    bad(r, f"roles.{code}.role_text is required (original wording, non-empty)")
+                if set(d) & ROLE_FORBIDDEN_KEYS:
+                    bad(r, f"roles.{code} contains a field that is not imported (age)")
+                y, m = d.get("since_year"), d.get("since_month")
+                if y is not None and (not isinstance(y, int) or isinstance(y, bool) or not 1900 <= y <= 2100):
+                    bad(r, f"roles.{code}.since_year must be an integer year")
+                if m is not None and (not isinstance(m, int) or isinstance(m, bool) or not 1 <= m <= 12 or y is None):
+                    bad(r, f"roles.{code}.since_month must be 1-12 and needs since_year")
+                if "independent" in d and not isinstance(d["independent"], bool):
+                    bad(r, f"roles.{code}.independent must be true or false")
+                for c in d.get("committees", []):
+                    if not isinstance(c, dict) or not isinstance(c.get("name"), str) or not c.get("name") or not isinstance(c.get("chair"), bool):
+                        bad(r, f"roles.{code}.committees: each entry needs name (text) and chair (true/false)")
         elif t == "parte_di":
             if sp not in ("IV", "IN") or tp not in ("IV", "IN"):
                 bad(r, "parte_di links two IV-/IN- entities")
