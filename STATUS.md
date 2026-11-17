@@ -1,7 +1,7 @@
 # refactoringDB — Project Status
 
 > Punto di ripartenza per il lavoro assistito da AI. Si **riscrive**, non si accumula: quando un lavoro finisce, una riga nel log e la voce sparisce da qui.
-> Ultimo aggiornamento: 2026-11-17 (chiusura sessione dopo la PR #73 e la prova della patch del sito su copia: B5 è il lavoro corrente, ripartenza in `work/b5-release1/RIPARTENZA.md`; il filone dei QID e il modello `parte_di` restano come prima). **Per ripartire: il branch `docs/b5-sito-copia` contiene l'aggiornamento di questi documenti e va fuso con una PR di sola documentazione (testo in fondo alla chat della sessione, da rigenerare se manca).** Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
+> Ultimo aggiornamento: 2026-11-17 (chiusura sessione dopo la PR #73 e la prova della patch del sito su copia: B5 è il lavoro corrente, ripartenza in `work/b5-release1/RIPARTENZA.md`; il filone dei QID e il modello `parte_di` restano come prima). **Per ripartire: il branch `docs/b5-sito-copia` contiene l'aggiornamento di questi documenti e va fuso con una PR di sola documentazione (la apre Nelson dal web; titolo e descrizione si riscrivono da `git log origin/main..docs/b5-sito-copia`).** Lo stato di git e del database **non è scritto qui**: si misura (sezione «Come si misura lo stato»). Ripartire da «Dove siamo» e «Prossimi lavori».
 
 ## Dove siamo
 
