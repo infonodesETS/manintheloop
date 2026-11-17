@@ -192,6 +192,17 @@ python3 scripts/validate.py
 
 **Cycle 1 state (2026-04-14):** real import complete — 601 new + 121 updated = **731 entities** now have `sources.crunchbase`. 21 unresolved documented in `work/crunchbase/CRUNCHBASE.md`.
 
+### SEC ownership import (B5, Release 1; reference/S3-S7, UPDATE_PROTOCOL.md *SEC relationships*)
+
+| Command | What it does | Safe to re-run? |
+|---|---|---|
+| `python3 scripts/import_sec_ownership.py [--out DIR]` | Dry-run (default): reads `rawdata/sec-edgar/<release>/`, the reviewed tables in `work/b5-release1/` (`proposta-aziende.csv`, `proposta-classi.csv`, `proposta-gestori.csv`, `proposta-ruoli.csv`) and prints the reconciliation (571 rows = 546 importable + 25 discarded), new `PER-`/`IV-` cards, `ownership` and `role` relationships, changed and vanished rows. Writes only the reports (`--out`, default `work/b5-release1/dry-run/`) | Yes |
+| `python3 scripts/import_sec_ownership.py --db COPY.json --out DIR --apply` | Writes into the database file given by `--db`: new cards (first free IDs, alphabetical), `ownership` and `role` relationships, `history[]` for changed values, `current: false` for vanished rows. Stops if a row is blocked, a key is duplicated or `proposta-ruoli.csv` has a row without `revisione_nelson`. **On the real database it needs `--database-reale` (decision of Nelson); always try on a copy outside the repo first** | Yes: the second run changes nothing |
+| `python3 work/b5-release1/proponi_ruoli.py --db COPY.json [--riscrivi]` | Proposes `proposta-ruoli.csv` (wording → role codes) for the persons already created; refuses to overwrite a reviewed table without `--riscrivi` | Yes (does not touch the database) |
+| `python3 work/b5-release1/verifica_tabelle.py` | Mechanical check of the three matching tables | Yes |
+
+State at 2026-11-17: tried on a clean copy of the database only (150 new cards, 546 `ownership`, 47 `role`), not run on the real one.
+
 ### One-time build scripts (do not re-run — they regenerate IDs from scratch)
 
 | Script | Purpose | Status |

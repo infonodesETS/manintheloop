@@ -1,0 +1,42 @@
+{
+  "entity_id": "IN-0752",
+  "entity_name": "Indra Espacio Slu",
+  "qid": "Q1661823",
+  "wikidata_label": "Indra Sistemas",
+  "wikidata_label_lang": "en",
+  "wikidata_description": "Spanish defense and information tech company",
+  "verdict": "remove_qid",
+  "verdict_reason": "Q1661823 is Indra Sistemas, the listed Spanish parent group (instance of public company, HQ Alcobendas). IN-0752 is Indra Espacio, S.L.U., a separate newly created limited company wholly owned by Indra Sistemas, S.A. through a 2024 segregation.",
+  "entity_is": "Indra Espacio, S.L.U., Spanish sociedad limitada unipersonal (NIF B55437891) created in 2024 as the beneficiary of the segregation of Indra Sistemas, S.A.'s space business; wholly owned by Indra Sistemas, S.A.; Madrid/Alcobendas.",
+  "identifiers": [
+    {
+      "type": "NIF",
+      "value": "B55437891",
+      "source_url": "https://www.einforma.com/informacion-empresa/indra-espacio-madrid"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Indra Espacio, S.L.U. is a newly created limited company wholly owned by Indra Sistemas, S.A. (segregation announcement in BORME)",
+      "url": "https://www.boe.es/diario_borme/txt.php?id=BORME-C-2024-4032",
+      "phrase": "una sociedad de responsabilidad limitada de nueva creación íntegramente participada por la Sociedad Segregada denominada Indra Espacio, S.L.U.",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Indra Sistemas, S.A. is the segregating company, Indra Espacio, S.L.U. the new beneficiary",
+      "url": "https://www.boe.es/diario_borme/txt.php?id=BORME-C-2024-4032",
+      "phrase": "INDRA SISTEMAS, S.A. (SOCIEDAD SEGREGADA) INDRA ESPACIO, S.L.U. (SOCIEDAD BENEFICIARIA DE NUEVA CREACIÓN)",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Tax ID (CIF/NIF) of Indra Espacio is B55437891",
+      "url": "https://www.einforma.com/informacion-empresa/indra-espacio-madrid",
+      "phrase": "El CIF de INDRA ESPACIO SL. es B55437891",
+      "source_kind": "secondary"
+    }
+  ],
+  "other_entities_with_same_qid": [
+    "IN-0753"
+  ],
+  "notes": "NIF comes only from the secondary aggregator einforma (Exa also cited it). The BORME notice and the Indra project of segregation (proyecto_segregacion.pdf, reopened, 202k chars) confirm the parent link but do not state the NIF. No LEI searched/found. Database IN-0753 (Indra Sistemas, NIF A-28599033) not re-verified here. Wikidata sitelinks not read. EDF block shows web_link www.indracompany.com, the group site. History shows the QID was removed on 2026-04-23 and re-applied on 2026-06-18 by search_missing_qids.py (name search 'Indra Espacio Slu')."
+}

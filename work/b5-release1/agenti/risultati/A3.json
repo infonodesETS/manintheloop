@@ -1,0 +1,484 @@
+{
+ "batch": "A3",
+ "cases": [
+  {
+   "ticker": "ATI",
+   "db_id": "IN-1369",
+   "db_name": "ATI",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1369",
+     "name": "ATI",
+     "outcome": "chosen",
+     "why": "iShares ticker ATI, NYSE, US; name ATI matches ATI Inc. (NYSE: ATI)"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001018963",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1018963/000119312526121340/d932857ddef14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "atimaterials.com",
+     "source_url": "https://ir.atimaterials.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC registrant ATI Inc. is the issuer named in its proxy",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018963/000119312526121340/d932857ddef14a.htm",
+     "phrase": "You are entitled to participate, vote and submit questions at ATI Inc.’s virtual 2026 Annual Meeting",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "ATI Inc. trades on the NYSE under ticker ATI (company investor relations page)",
+     "url": "https://ir.atimaterials.com/",
+     "phrase": "ATI (NYSE: ATI) is a global producer of high performance materials and solutions for the global aerospace & defense markets",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1369 'ATI' has only an iShares import (ticker ATI, NYSE, United States), no website or Wikidata, so identity rests on name plus ticker plus exchange. Other db names containing 'Technologies' (Akamai, Teledyne, etc.) were ignored as false friends (ticker ATI matched by substring only). Allegheny Technologies, the former name of ATI Inc., has no separate card."
+  },
+  {
+   "ticker": "DCO",
+   "db_id": "IN-1398",
+   "db_name": "Ducommun",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1398",
+     "name": "Ducommun",
+     "outcome": "chosen",
+     "why": "iShares ticker DCO, NYSE, US; same name"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000030305",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/30305/000130817926000067/dco014947-def14a.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Ducommun Incorporated is the issuer in the proxy",
+     "url": "https://www.sec.gov/Archives/edgar/data/30305/000130817926000067/dco014947-def14a.htm",
+     "phrase": "I am happy to invite you to the 2026 Ducommun Incorporated Annual Meeting of Shareholders",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Ducommun trades on the NYSE under DCO (company investor FAQ)",
+     "url": "https://investors.ducommun.com/shareholder-services/investor-faqs",
+     "phrase": "Ducommun went public in 1946 and is currently traded on the New York Stock Exchange under the symbol “DCO”.",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1398 'Ducommun' is iShares-only (ticker DCO, NYSE, US), no website or Wikidata. Name and ticker match the issuer. No other candidate."
+  },
+  {
+   "ticker": "IE",
+   "db_id": "IN-0178",
+   "db_name": "Ivanhoe Electric",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0178",
+     "name": "Ivanhoe Electric",
+     "outcome": "chosen",
+     "why": "iShares ticker IE, website ivanhoeelectric.com, same name"
+    },
+    {
+     "id": "IN-0179",
+     "name": "Ivanhoe Mines Class A",
+     "outcome": "rejected",
+     "why": "different issuer (Ivanhoe Mines, ISIN CA46579R1047)"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001879016",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1879016/000114036126015947/ny20062456x1_def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "ivanhoeelectric.com",
+     "source_url": "https://ivanhoeelectric.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Ivanhoe Electric Inc. is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/1879016/000114036126015947/ny20062456x1_def14a.htm",
+     "phrase": "of Ivanhoe Electric Inc. (“Ivanhoe Electric” or the “Company”) on June 4, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company site (ivanhoeelectric.com) describes Ivanhoe Electric as a US company",
+     "url": "https://ivanhoeelectric.com/",
+     "phrase": "Ivanhoe Electric is a U.S. company that combines advanced mineral exploration technologies with electric metals exploration projects",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: registrant Ivanhoe Electric Inc., ticker IE",
+     "url": "https://www.sec.gov/Archives/edgar/data/1879016/000187901626000005/R1.htm",
+     "phrase": "| Entity Registrant Name | Ivanhoe Electric Inc. |",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0178 has iShares ticker IE (NYSE American), Crunchbase block (Ivanhoe Electric, Vancouver) and website ivanhoeelectric.com. IN-0179 'Ivanhoe Mines Class A' is a different company (same founder Robert Friedland, separate issuer; ISIN CA46579R1047) and was rejected. Company site shows 'TSX: IE' (dual listing with NYSE American)."
+  },
+  {
+   "ticker": "LOAR",
+   "db_id": "IN-1396",
+   "db_name": "LOAR",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1396",
+     "name": "LOAR",
+     "outcome": "chosen",
+     "why": "iShares ticker LOAR, NYSE, US"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002000178",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2000178/000119312526153469/d71575ddef14a.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Loar Holdings Inc. is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/2000178/000119312526153469/d71575ddef14a.htm",
+     "phrase": "of Loar Holdings Inc., a Delaware corporation",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Proxy shows website loargroup.com and NYSE: LOAR",
+     "url": "https://www.sec.gov/Archives/edgar/data/2000178/000119312526153469/d71575ddef14a.htm",
+     "phrase": "www.loargroup.com info@loargroup.com NYSE: LOAR",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company IR page: Loar Holdings Inc. (LOAR)",
+     "url": "https://ir.loargroup.com/",
+     "phrase": "Loar Holdings Inc. (LOAR)\n\n# Investor Relations",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1396 'LOAR' is iShares-only (ticker LOAR, NYSE, US). Name and ticker match Loar Holdings Inc.; no other candidate. Card name is the ticker, not the company name (cosmetic)."
+  },
+  {
+   "ticker": "MTRN",
+   "db_id": "IN-0224",
+   "db_name": "Materion",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0224",
+     "name": "Materion",
+     "outcome": "chosen",
+     "why": "Wikidata label Materion with alias Materion Corporation, Mayfield Heights; iShares MTRN; website materion.com"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001104657",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000022/mtrn-20260326.htm"
+    },
+    {
+     "type": "website",
+     "value": "materion.com",
+     "source_url": "https://materion.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Materion Corporation is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000022/mtrn-20260326.htm",
+     "phrase": "The annual meeting of shareholders of Materion Corporation will be held at Asher Adams",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: Materion Corporation, trading symbol MTRN, NYSE",
+     "url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000011/R1.htm",
+     "phrase": "| Entity Registrant Name | MATERION CORPORATION |",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company site (materion.com)",
+     "url": "https://materion.com/",
+     "phrase": "With more than 3,000 employees in 30 locations worldwide, Materion has a team",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0224 has wikidata Q4979671 (Materion, aliases include Materion Corporation, Mayfield Heights), iShares ticker MTRN, website materion.com. PROBLEM on the card: its crunchbase block is 'Materio' (materio.co, a Nashville project-management app), a different organisation; not touched."
+  },
+  {
+   "ticker": "NPK",
+   "db_id": "IN-1405",
+   "db_name": "National Presto Industries",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1405",
+     "name": "National Presto Industries",
+     "outcome": "chosen",
+     "why": "Wikidata Q6975043 label equal; iShares ticker NPK"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000080172",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/80172/000143774926012242/npk20260403_def14a.htm"
+    },
+    {
+     "type": "website",
+     "value": "gopresto.com",
+     "source_url": "https://www.gopresto.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "National Presto Industries, Inc. is the proxy registrant and uses gopresto.com",
+     "url": "https://www.sec.gov/Archives/edgar/data/80172/000143774926012242/npk20260403_def14a.htm",
+     "phrase": "Annual Report on Form 10-K are available on the National Presto website at www.gopresto.com/proxy/",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: National Presto Industries, CIK 0000080172",
+     "url": "https://www.sec.gov/Archives/edgar/data/80172/000143774925007735/R1.htm",
+     "phrase": "| Entity Registrant Name | NATIONAL PRESTO INDUSTRIES INC |",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: CIK 0000080172 for National Presto Industries (trading symbol NPK on NYSE on the same page)",
+     "url": "https://www.sec.gov/Archives/edgar/data/80172/000143774925007735/R1.htm",
+     "phrase": "| Entity Central Index Key | 0000080172 |",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1405 has wikidata Q6975043 (National Presto Industries, Eau Claire), iShares ticker NPK, no website field on the card (company site is gopresto.com). Unique candidate."
+  },
+  {
+   "ticker": "RYZ",
+   "db_id": "IN-0309",
+   "db_name": "Ryerson",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0309",
+     "name": "Ryerson",
+     "outcome": "chosen",
+     "why": "iShares ticker RYZ, website ryerson.com, Wikidata Ryerson, Inc."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001481582",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1481582/000119312526114120/ryz-20260318.htm"
+    },
+    {
+     "type": "website",
+     "value": "ryerson.com",
+     "source_url": "https://ir.ryerson.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Ryerson Holding Corporation: NYSE ticker RYZ",
+     "url": "https://www.sec.gov/Archives/edgar/data/1481582/000119312526114120/ryz-20260318.htm",
+     "phrase": "Our common stock trades on the New York Stock Exchange (“NYSE”) under the ticker symbol ‘RYZ’.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Proxy gives website www.ryerson.com for the registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/1481582/000119312526114120/ryz-20260318.htm",
+     "phrase": "our website address is www.ryerson.com",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company IR site",
+     "url": "https://ir.ryerson.com/",
+     "phrase": "Ryerson is a leading value-added processor and distributor of industrial metals",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0309 'Ryerson' has wikidata Q7385029 (Ryerson, Inc., Chicago), website ryerson.com, iShares ticker RYZ, Crunchbase Ryerson (Chicago). The SEC registrant is the parent Ryerson Holding Corporation (CIK 1481582), which is the listed issuer (ticker was RYI in the 2024 10-K cover and is RYZ in the 2026 proxy, same CIK; the proxy mentions the combination with Olympic Steel). The card is the group's listed company, treated as the issuer; the operating subsidiary Joseph T. Ryerson & Son, Inc. is a different legal entity but the card is not it (listed on the ticker RYZ)."
+  },
+  {
+   "ticker": "TKO",
+   "db_id": "IN-0382",
+   "db_name": "TKO Class A",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0382",
+     "name": "TKO Class A",
+     "outcome": "chosen",
+     "why": "iShares ticker TKO, NYSE, US; Class A of TKO Group Holdings; website tkogroup.com"
+    },
+    {
+     "id": "IN-0358",
+     "name": "Taseko Mines",
+     "outcome": "rejected",
+     "why": "same iShares ticker string TKO but a Canadian copper miner"
+    },
+    {
+     "id": "IV-0181",
+     "name": "Endeavor Catalyst",
+     "outcome": "rejected",
+     "why": "investor card of the former parent group, not the issuer"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001973266",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526173833/d913980ddef14a.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "TKO Group Holdings, Inc. is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526173833/d913980ddef14a.htm",
+     "phrase": "of TKO Group Holdings, Inc., which will be held on Wednesday, June 10, 2026",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: TKO Group Holdings, Inc., Class A Common Stock",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000095017025027778/R1.htm",
+     "phrase": "| Entity Registrant Name | TKO GROUP HOLDINGS, INC. |",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: Class A Common Stock registered, symbol TKO on NYSE",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000095017025027778/R1.htm",
+     "phrase": "| Title of 12(b) Security | Class A Common Stock, par value $0.00001 per share |",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "TKO Group Holdings has a class of stock called TKO Class A common stock (card name)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526071651/tko-20251231.htm",
+     "phrase": "volume-weighted average sales price of TKO Class A common stock",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0382 has iShares ticker TKO (NYSE, US) and website tkogroup.com. Falsa amica: IN-0358 'Taseko Mines' also carries iShares ticker TKO (TSX/NYSE American, Canada, ISIN CA8765111064), a different issuer, rejected. IV-0181 'Endeavor Catalyst' is an investor card of the former parent group, not the issuer. The SEC cover shows the registered security is Class A Common Stock, symbol TKO, NYSE. tkogroup.com could not be reopened via Exa (empty text), so the website link is from the card only. Another oddity: the 10-K gives the investor relations site as investor.tkogrp.com, while the card website is tkogroup.com (not confirmed by any page I could open); worth a look."
+  },
+  {
+   "ticker": "USAR",
+   "db_id": "IN-0398",
+   "db_name": "USA RARE Earth Class A",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0398",
+     "name": "USA RARE Earth Class A",
+     "outcome": "chosen",
+     "why": "iShares ticker USAR, NASDAQ, US; Crunchbase USA Rare Earth"
+    },
+    {
+     "id": "IN-0035",
+     "name": "Arafura Rare Earths",
+     "outcome": "rejected",
+     "why": "Australian company"
+    },
+    {
+     "id": "IN-0218",
+     "name": "Lynas Rare Earths",
+     "outcome": "rejected",
+     "why": "Australian company"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001970622",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026047155/ea0287130-01.htm"
+    },
+    {
+     "type": "website",
+     "value": "usare.com",
+     "source_url": "https://usare.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "USA Rare Earth, Inc. (USAR) is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026047155/ea0287130-01.htm",
+     "phrase": "The Board of Directors (the “Board”) of USA Rare Earth, Inc. (“USAR,” the “Company,” “we” or “us”)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Proxy uses the investors.usare.com site",
+     "url": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026047155/ea0287130-01.htm",
+     "phrase": "Audit Committee Charter is available on the Company’s website at https://investors.usare.com/corporate-governance/documents-charters",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Company site usare.com",
+     "url": "https://usare.com/",
+     "phrase": "USA Rare Earth is quickly becoming a global leader in the supply of critical minerals and advanced materials",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0398 has iShares ticker USAR (NASDAQ, US), Crunchbase USA Rare Earth (Tampa, usare.com) and infonodes website usrareearth.com. The company's real site is usare.com (investors.usare.com in the proxy); usrareearth.com on the card looks wrong or a redirect (Exa returned no text). Other 'Rare Earth' cards (Arafura, Lynas, China Northern, Chinalco, Brazilian Rare Earths, Indian Rare Earths) are other issuers. The card name says 'Class A' while the SEC cover lists plain Common Stock; class is not a criterion."
+  },
+  {
+   "ticker": "WWD",
+   "db_id": "IN-1367",
+   "db_name": "Woodward",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1367",
+     "name": "Woodward",
+     "outcome": "chosen",
+     "why": "iShares ticker WWD, NASDAQ, US"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000108312",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/108312/000119312525317453/wwd-20251212.htm"
+    },
+    {
+     "type": "website",
+     "value": "woodward.com",
+     "source_url": "https://www.woodward.com/"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "Woodward, Inc. is the proxy registrant",
+     "url": "https://www.sec.gov/Archives/edgar/data/108312/000119312525317453/wwd-20251212.htm",
+     "phrase": "this year’s Annual Meeting of Stockholders of Woodward, Inc. (“Woodward” or the \"Company\") will be held virtually",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "Proxy: Woodward [NASDAQ: WWD] and www.woodward.com",
+     "url": "https://www.sec.gov/Archives/edgar/data/108312/000119312525317453/wwd-20251212.htm",
+     "phrase": "Woodward [NASDAQ: WWD] is the global leader in the design, manufacture, and service of energy conversion and control solutions",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover page: WOODWARD, INC., trading symbol WWD, NASDAQ",
+     "url": "https://www.sec.gov/Archives/edgar/data/108312/000119312526325790/R1.htm",
+     "phrase": "| Entity Registrant Name | WOODWARD, INC. |",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1367 'Woodward' is iShares-only (ticker WWD, NASDAQ, US), no website or Wikidata. Name and ticker match; no other candidate. The proxy URL is the FY2025 (December 2025) filing."
+  }
+ ]
+}

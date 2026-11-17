@@ -1,0 +1,43 @@
+{
+  "child_id": "IN-1352",
+  "child_name": "Alcoa Warrick",
+  "parent_id": "IN-0013",
+  "parent_name": "Alcoa",
+  "legal_parent_per_source": "Alcoa Corporation (registrant of the 10-K; Delaware, IRS no. 81-1789115, SEC CIK 1675149)",
+  "parent_registry_id": "SEC CIK 0001675149; IRS EIN 81-1789115 as printed on the 10-K cover",
+  "parent_card_matches": "yes",
+  "parent_card_check": "IN-0013 has wikidata_id Q135325, iShares ticker AA on NYSE, website alcoa.com, Crunchbase HQ Pittsburgh PA. The 10-K registrant 'ALCOA CORPORATION' (file no. 1-37816) is headquartered at 201 Isabella Street, Pittsburgh, trades as AA: same company. Caution: Q135325 aliases include 'Alcoa Inc.'/'Aluminum Company of America' and Crunchbase text (titanium, nickel, 60,000 people) describes the pre-2016 Alcoa Inc. (now Howmet); the card is the right listed company by ticker/website, but its Wikidata item merges the two.",
+  "kind": "subsidiary",
+  "status": "ended",
+  "start_or_end_date": "2021-03-31",
+  "ownership_pct_stated": "",
+  "verdict": "confirmed",
+  "verdict_reason": "Exhibit 21.1 'Subsidiaries of the registrant' of Alcoa Corporation's 10-Ks for FY2018 and FY2020 lists Alcoa Warrick LLC (Delaware); Alcoa's 10-Q says it sold the Warrick Rolling Mill to Kaiser on 2021-03-31 and Kaiser's 8-K says it bought Alcoa Warrick LLC from Alcoa, so the link ended at the sale.",
+  "evidence": [
+    {
+      "claim": "Alcoa Warrick LLC (Delaware) is a subsidiary of Alcoa Corporation, FY2018 10-K Exhibit 21.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1675149/000156459019004171/aa-ex211_45.htm",
+      "phrase": "Exhibit 21.1 SUBSIDIARIES OF THE REGISTRANT | Name | State or Country of Organization | ... | Alcoa Warrick LLC | Delaware",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Alcoa Warrick LLC (Delaware) is still a subsidiary in the FY2020 10-K Exhibit 21.1 (filed Feb 2021, before the sale)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1675149/000156459021008854/aa-ex211_10.htm",
+      "phrase": "| Alcoa USA Holding Company | Delaware | | Alcoa Warrick LLC | Delaware | | Alcoa Wolinbec Company | Canada |",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "Sale to Kaiser completed 2021-03-31 (end of the link)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1675149/000156459021024165/aa-10q_20210331.htm",
+      "phrase": "On March 31, 2021, Alcoa completed the sale of the Warrick Rolling Mill to Kaiser Aluminum Corporation for total consideration of $670",
+      "source_kind": "primary"
+    },
+    {
+      "claim": "The entity sold was Alcoa Warrick LLC, bought from Alcoa Corporation",
+      "url": "https://www.sec.gov/Archives/edgar/data/811596/000119312521103329/d161812dex991.htm",
+      "phrase": "today announced that it has completed its acquisition of Alcoa Warrick LLC, containing all the assets of the Warrick Rolling Mill (“Warrick”), from Alcoa Corporation (“Alcoa”) for a purchase price of $670 million.",
+      "source_kind": "primary"
+    }
+  ],
+  "notes": "IN-1352 card: name 'Alcoa Warrick', wikidata_id null (Q131884343 removed 2026-11-13 because it is Alcoa Nederland), tax_id null (EIN removed 2026-11-14), Crunchbase funding_status 'M&A', acquired_by empty, website alcoa.com (stale, pre-sale), country United States; validation all needs_review/enrichment entries, no relation recorded. Child entity per sources: Alcoa Warrick LLC, Delaware; GLEIF LEI 549300H6C1PFPKJ15K62 (US-DE, registration LAPSED, entity ACTIVE; GLEIF has no parent record, 404 on direct-parent-reporting-exception). Crunchbase profile is 'alcoa-warrick-operations' (site-level description). The FY2018 exhibit header says 'SUBSIDIARIES OF THE REGISTRANT' (the registrant is Alcoa Corporation, 10-K cover opened for FY2020: 'ALCOA CORPORATION ... Delaware | 81-1789115'); the E1 file name aa-ex211_45.htm belongs to accession 0001564590-19-004171 (FY2018 10-K, filing year inferred from the accession number and the listing, the cover page was not opened). No ownership percentage is shown in either exhibit; exhibit footnotes mark only other entities as 60% owned. Start date of the Alcoa link not established (entity existed in the FY2018 exhibit already). The FY2019 10-K was not opened. End date 2021-03-31 from Alcoa's 10-Q and Kaiser's 8-K exhibits; the 'Alcoa 8-K' itself was not separately opened. The 2021-03-31 sale also includes assets (casthouse, hot mill, cold mills, coating and slitting lines) while Alcoa kept smelter, power plant and land."
+}

@@ -84,6 +84,8 @@ Same as adding a company, but use the next `IV-NNNN` ID and set `roles: ["invest
 
 > **Note (B1, 2026-11-12):** the relationship example above shows `id`, `details.role`, `sources`, `added_at` and `author`. The relationships actually in the database have none of those fields: see `reference/SCHEMA.md`, section *Relationships*. For SEC data (persons, ownership, roles) follow `reference/S1…S7` and the checks in `validate.py` (check 11); persons from the SEC release are created only after the manual check required by S7.
 
+> **Persons from the SEC release (B5, 2026-11-17):** they are created by `scripts/import_sec_ownership.py`, not by hand. `roles` is `["investor"]` (a holder of 5% or more), **not** `board_member`; board seats, offices and committees are in one `role` relationship per (person, company) with `roles` inside (S7, `reference/SCHEMA.md`), never in `board_membership`. Age and addresses are never imported.
+
 > **Deduplication:** Before adding, search existing PER entities. Same person at multiple companies → one PER entity, multiple REL entries.
 
 ---
@@ -97,6 +99,7 @@ Rules in `reference/S3-CLASSI-AZIONI.md` … `S7-RUOLI-E-PERSONE.md`; fields and
 3. Before a re-import the script prints a report of new, changed and disappeared rows; a person looks at it the first time.
 4. `rawdata/` is never modified; every imported or discarded row appears in the reconciliation report (S4).
 5. Run `python3 scripts/validate.py` before every commit, as for any other change.
+6. **How the SEC import is run** (`scripts/import_sec_ownership.py`, see `reference/SCRIPTS.md`): dry-run first and read it; try `--apply` on a **copy** of the database outside the repo (`--db`), run it twice (the second run must change nothing) and run `validate.py` on the copy; only then, with Nelson's decision, `--apply --database-reale` on the real file. The matching tables and `proposta-ruoli.csv` are reviewed by hand and signed by Nelson; the script stops on a row that is not reviewed. The site changes in the same PR (S4 rule 4).
 
 ### Group links (`parte_di`)
 
@@ -341,6 +344,15 @@ Validation: all checks passed.
 data: correct <field> — IN-XXXX <company> (YYYY-MM-DD)
 
 <what was wrong, what source confirmed the correction>
+```
+
+**SEC import (B5):**
+```
+data: import SEC release YYYY-MM-DD — +N PER, +N IV, +N ownership, +N role (YYYY-MM-DD)
+
+Script: scripts/import_sec_ownership.py --apply [--database-reale]
+Reconciliation: 571 rows = 546 imported + 25 discarded (reasons in the report).
+Validation: all checks passed; second run: 0 changes.
 ```
 
 **Entity deduplication (merge):**

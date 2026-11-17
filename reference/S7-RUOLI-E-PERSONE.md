@@ -2,13 +2,18 @@
 
 **Decisione S7 (Nelson, 2026-11-11): ruoli = opzione (c); persone = opzione (b).** Una regola di questo file si cambia solo con una nuova decisione registrata nel log.
 
-## Ruoli (Release 2; la Release 1 usa solo `ownership`)
+## Ruoli (modello rivisto da Nelson il 2026-11-17; prime 57 persone con la Release 1)
 
-1. Ogni relazione `role` porta due campi: `role` (vocabolario controllato) e `role_text` (dicitura originale del filing, invariata).
-2. Se una stringa contiene più ruoli («President and Chief Executive Officer; Director»), si creano **più relazioni, una per ruolo**, tutte con lo stesso `role_text`.
-3. Il vocabolario si definisce con una **tabella di mappatura** (stringa → `role`) versionata nel repo. Ciò che non si riesce a classificare prende `role = other` ed è elencato nel report: **nessuna riga si scarta**.
-4. La proposta concreta di vocabolario la prepara l'AI leggendo i dati e la approva Nelson **prima** della Release 2 (nella bozza di Andrea: founder, chair, president, ceo, director, board_member… non definita). Fino ad allora il campo `role` non si importa.
-5. Campi data dei ruoli (`current`, `start_date`, `end_date` della bozza di Andrea) da decidere con la Release 2; vale S5 (storia in `history[]`, mai cancellare).
+**Revisione del 2026-11-17** (Nelson, nel corso del lavoro di B5): sostituisce le regole 1-2 e 4-5 della decisione dell'11 novembre. Le relazioni `role` entrano **già con la Release 1, per le 57 persone importate** (circa 95 righe di ruolo, 47 coppie persona-scheda); per le altre persone resta la Release 2.
+
+1. **Una sola relazione `role` per (persona, scheda azienda)**: se una persona ha un legame con un'organizzazione, la connessione c'è, e i suoi ruoli stanno dentro, non in relazioni separate. Campi e esempio in `reference/SCHEMA.md` (*Relationships*, `role`).
+2. Dentro la relazione, `roles` è un oggetto con **solo i ruoli presenti** (assente = falso; la tabella con vero/falso per ogni codice si produce all'esportazione). Ogni ruolo porta `role_text` (dicitura originale, invariata) e i dettagli estratti: `since_year`/`since_month`, `independent`, `fonte`, `committees`.
+3. Una stringa con più ruoli («President and Chief Executive Officer; Director») dà **più chiavi in `roles`**, tutte con lo stesso `role_text`. Nessuna riga si scarta: ciò che non si classifica prende `other` ed è elencato nel report.
+4. **Vocabolario provvisorio** (13 codici) ricavato dalle 95 righe, **da approvare da Nelson prima di scrivere il codice di import**: tabella di mappatura `work/b5-release1/proposta-ruoli.csv`. Si rivede con la Release 2 (2.298 persone): un cambio di vocabolario è una rimappatura, perché `role_text` resta.
+5. **Doppioni:** lo stesso ruolo in due righe (per esempio CEO in `consiglieri.csv` e in `dirigenti.csv`) è **una** chiave in `roles`; le altre diciture in `role_text_alt` e tutte le righe in `source_ref` (lista).
+6. **Su quale scheda:** per le società con più schede di classe (Fox, News Corp) il ruolo va sulla scheda di classe con più quote, e la scelta resta rivedibile da B3.
+7. **L'età non si importa** (minimizzazione, come gli indirizzi). `since_year`/`since_month` sono interi: la fonte dà anno o anno-mese, mai il giorno.
+8. Campi `current`, `as_of`: come `ownership` (S5), `as_of` = `quote_al` del proxy; storia in `history[]`, mai cancellare.
 
 ## Persone
 

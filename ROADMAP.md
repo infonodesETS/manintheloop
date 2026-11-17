@@ -71,6 +71,7 @@ Nuove fonti (portale **SEC / EDGAR**) e nuovi tipi di dati. **Spec completa e sc
 | 12 | **Aggiornamento database** | Prossimo refresh Crunchbase + nuovi EDF calls. | 🔴 |
 | 13 | **Aziende mancanti** | Lista "Assenti dal database" da valutare con il Senior Data Expert. | 🟡 |
 | 16 | **Correzioni qualità dati** | Emerse dall'analisi Italia: MBDA España ha country Wikidata errato (IN-0863), Idv Defence Vehicles Italia è duplicato di Iveco Defence Vehicles (IN-1431 / IN-0803, stesso PIC), Telecom Italia duplicata, Fincantieri presente sia come azienda sia come investitore. | 🔴 |
+| 19 | **Traduzioni delle carte SEC** (B5, decisione di Nelson 2026-11-17) | Le carte «Shareholders ≥5% (SEC)» e «Holdings ≥5% (SEC)» sono scritte in inglese direttamente nel codice (`docs/web/app.js`), come le altre carte delle schede. Da fare: chiavi nuove (circa 10) in `docs/web/i18n.js` per EN, IT, FR, ES e revisione delle stringhe. In sospeso. | 🟢 |
 | 14 | **Incrocio con OpenSanctions** | Segnalare se un'entità è sanzionata o "di interesse". Effort medio, manutenzione periodica leggera. | 🟢 |
 
 ---

@@ -1,0 +1,430 @@
+{
+ "batch": "A4",
+ "cases": [
+  {
+   "ticker": "BYRN",
+   "db_id": "IN-1413",
+   "db_name": "Byrna Technologies",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1413",
+     "name": "Byrna Technologies",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (Byrna Technologies Inc.)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001354866",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1354866/000143774926003206/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0001354866) is filed by the issuer Byrna Technologies Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1354866/000143774926029518/byrn20260828_def14a.htm",
+     "phrase": "BYRNA TECHNOLOGIES INC. (Name of Registrant as specified in its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1354866/000143774926003206/R1.htm",
+     "phrase": "Entity Registrant Name | Byrna Technologies Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1354866/000143774926003206/R1.htm",
+     "phrase": "Trading Symbol | BYRN | | | | Security Exchange Name | NASDAQ",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has no website or wikidata; the link rests on name plus iShares ticker BYRN / Nasdaq / United States matching the SEC cover. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "DRS",
+   "db_id": "IN-1390",
+   "db_name": "Leonardo DRS",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1390",
+     "name": "Leonardo DRS",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (Leonardo DRS, Inc.)."
+    },
+    {
+     "id": "IN-0841",
+     "name": "Leonardo Societa Per Azioni",
+     "outcome": "rejected",
+     "why": "Italian parent company (Leonardo S.p.A.), a different legal entity; the SEC proxy names Leonardo S.p.A. separately from the Company"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001833756",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1833756/000183375626000013/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0001833756) is filed by the issuer Leonardo DRS, Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1833756/000183375626000019/drs-20260403.htm",
+     "phrase": "Leonardo DRS, Inc. (the “Company,” “we,” “us” or “our”)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1833756/000183375626000013/R1.htm",
+     "phrase": "Entity Registrant Name | Leonardo DRS, Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1833756/000183375626000013/R1.htm",
+     "phrase": "Trading Symbol | DRS | | | | Security Exchange Name | NASDAQ",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-1390 is Leonardo DRS, Inc. (Nasdaq DRS), not the parent Leonardo S.p.A. (IN-0841). Card has no website or wikidata. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "KRMN",
+   "db_id": "IN-1385",
+   "db_name": "Karman",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1385",
+     "name": "Karman",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (Karman Holdings Inc.)."
+    },
+    {
+     "id": "IN-1206",
+     "name": "Von Karman Institute For Fluid Dynamics",
+     "outcome": "rejected",
+     "why": "Belgian research institute, unrelated name match"
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002040127",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2040127/000119312526392480/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0002040127) is filed by the issuer Karman Holdings Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2040127/000114036126013839/edge20063633x771_def14a.htm",
+     "phrase": "Karman Holdings Inc. (Name of Registrant as Specified in Its Charter) (Name of Person(s) Filing Prox",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/2040127/000119312526392480/R1.htm",
+     "phrase": "Entity Registrant Name | KARMAN HOLDINGS INC.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/2040127/000119312526392480/R1.htm",
+     "phrase": "Entity Central Index Key | 0002040127",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card name is only \"Karman\" (iShares ticker KRMN, NYSE); the exact ticker phrase was not found in the cover page text read, so the ticker link rests on the iShares record on the card and the proxy URL KRMN2026. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "LOGI",
+   "db_id": "IN-0214",
+   "db_name": "Logitech SA",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0214",
+     "name": "Logitech SA",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (Logitech International S.A.)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001032975",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000021/logi-20260331.htm"
+    },
+    {
+     "type": "ISIN",
+     "value": "CH0025751329",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000021/logi-20260331.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0001032975) is filed by the issuer Logitech International S.A.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000037/logi-20260723.htm",
+     "phrase": "LOGITECH INTERNATIONAL S.A. Invitation to the Annual General Meeting",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000021/logi-20260331.htm",
+     "phrase": "LOGITECH INTERNATIONAL S.A. (Exact name of registrant as specified in its charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1032975/000103297526000021/logi-20260331.htm",
+     "phrase": "Logitech International is a Swiss public company listed on the SIX Swiss Exchange (LOGN) and on the Nasdaq Global Select Market (LOGI)",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0214 carries iShares ticker LOGN (SIX Swiss Exchange), the Swiss listing of the same registrant; the 10-Q cover lists both LOGN and LOGI. Card has Wikidata Q223127 with ISIN CH0025751329 and website logitech.com. The evidence page is the 10-Q for Q3 FY2026, not the proxy. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "MTUS",
+   "db_id": "IN-0229",
+   "db_name": "Metallus",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0229",
+     "name": "Metallus",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (Metallus Inc.)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001598428",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526061042/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0001598428) is filed by the issuer Metallus Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526102544/d13614ddef14a.htm",
+     "phrase": "Metallus Inc. (Name of Registrant as Specified In Its Charter) (Name of Person(s) Filing Prox",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526061042/R1.htm",
+     "phrase": "Entity Registrant Name | METALLUS INC.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526061042/R1.htm",
+     "phrase": "Trading Symbol | MTUS | | | | Title of 12(b) Security | Common shares | | | | Security Exchange Name | NYSE",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1598428/000119312526061042/R1.htm",
+     "phrase": "Entity Central Index Key | 0001598428",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has Crunchbase website metallus.com and iShares ticker MTUS. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "PTC",
+   "db_id": "IN-0291",
+   "db_name": "PTC",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0291",
+     "name": "PTC",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (PTC)."
+    },
+    {
+     "id": "IN-0292",
+     "name": "PTC Industries",
+     "outcome": "rejected",
+     "why": "Indian company (website ptcil.com, Wikidata Q139552877), different from the US issuer PTC Inc."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000857005",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/857005/000119312525291326/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0000857005) is filed by the issuer PTC",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000110465925124170/tm2526581-1_def14a.htm",
+     "phrase": "PTC Inc. (Name of Registrant as Specified In Its Charter) (Name of Person(s) Filing Prox",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000119312525291326/R1.htm",
+     "phrase": "Entity Registrant Name PTC Inc.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000119312525291326/R1.htm",
+     "phrase": "Trading Symbol PTC Security Exchange Name NASDAQ",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000119312525291326/R1.htm",
+     "phrase": "Entity Central Index Key 0000857005",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card IN-0291 is US PTC (iShares ticker PTC, Nasdaq, Crunchbase parametric-technology); IN-0292 PTC Industries is an unrelated Indian company. The cover evidence is from the FY2025 10-K because the proxy URL is dated 2025. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "SARO",
+   "db_id": "IN-1386",
+   "db_name": "Standardaero",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1386",
+     "name": "Standardaero",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (StandardAero, Inc.)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0002025410",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2025410/000119312526072618/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0002025410) is filed by the issuer StandardAero, Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025410/000119312526194138/d317955ddef14a.htm",
+     "phrase": "StandardAero, Inc. (Name of Registrant as Specified in its Charter) (Name of Person(s) Filing Prox",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025410/000119312526072618/R1.htm",
+     "phrase": "Entity Registrant Name StandardAero, Inc. Entity Central Index Key 0002025410",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025410/000119312526072618/R1.htm",
+     "phrase": "Trading Symbol SARO Security Exchange Name NYSE",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has Wikidata Q25212746 labelled \"Standard Aero Corporation\" (inception 1937), which may be an older predecessor entity rather than StandardAero, Inc. (IPO 2024); not verified, worth a human check of the wikidata_id. Verdict rests on name plus iShares ticker SARO / NYSE. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "TMC",
+   "db_id": "IN-0383",
+   "db_name": "TMC THE Metals",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-0383",
+     "name": "TMC THE Metals",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (The Metals Company Inc.)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0001798562",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926037863/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0001798562) is filed by the issuer The Metals Company Inc.",
+     "url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926044955/tm261539-1_def14a.htm",
+     "phrase": "TMC THE METALS COMPANY INC. (Name of Registrant as Specified In Its Charter)",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926037863/R1.htm",
+     "phrase": "Entity Registrant Name | TMC THE METALS COMPANY INC.",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926037863/R1.htm",
+     "phrase": "Trading Symbol | TMC | | | | Security Exchange Name | NASDAQ",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/1798562/000110465926037863/R1.htm",
+     "phrase": "Entity Central Index Key | 0001798562",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card name \"TMC THE Metals\" is a garbled form of \"TMC the metals company Inc.\" (website metals.co / metals.com); Crunchbase profile is deepgreen-metals (former name). Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  },
+  {
+   "ticker": "VSEC",
+   "db_id": "IN-1387",
+   "db_name": "VSE",
+   "verdict": "same_entity",
+   "candidates_considered": [
+    {
+     "id": "IN-1387",
+     "name": "VSE",
+     "outcome": "chosen",
+     "why": "Same issuer: name and iShares ticker/exchange match the SEC registrant cover (VSE Corporation)."
+    }
+   ],
+   "identifiers": [
+    {
+     "type": "CIK",
+     "value": "0000102752",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000015/R1.htm"
+    }
+   ],
+   "evidence": [
+    {
+     "claim": "The SEC proxy statement at the given URL (CIK 0000102752) is filed by the issuer VSE Corporation",
+     "url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000023/vsec-20260324.htm",
+     "phrase": "The Annual Meeting of Stockholders of VSE Corporation, a Delaware corporation",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000015/R1.htm",
+     "phrase": "Entity Registrant Name | VSE CORPORATION",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000015/R1.htm",
+     "phrase": "Trading Symbol | VSEC | | | | Security Exchange Name | NASDAQ",
+     "source_kind": "primary"
+    },
+    {
+     "claim": "SEC cover data: registrant name, ticker, exchange or CIK of the issuer",
+     "url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000015/R1.htm",
+     "phrase": "Entity Central Index Key | 0000102752",
+     "source_kind": "primary"
+    }
+   ],
+   "notes": "Card has no website or wikidata; the link rests on name \"VSE\" plus iShares ticker VSEC / Nasdaq. Sources reopened via Exa /contents; Exa /answer used only to locate the cover pages."
+  }
+ ]
+}

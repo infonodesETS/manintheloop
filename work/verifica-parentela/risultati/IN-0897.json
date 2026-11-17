@@ -1,0 +1,22 @@
+{
+  "child_id": "IN-0897", "child_name": "Nammo Raufoss As",
+  "parent_id": "IN-1312", "parent_name": "Nammo",
+  "legal_parent_per_source": "NAMMO AS",
+  "parent_registry_id": "979 984 731 (org. no.); LEI 5493006X3NOVTJ09KM78",
+  "parent_card_matches": "unclear",
+  "parent_card_check": "The legal parent is NAMMO AS, org. no. 979 984 731 (Bronnoysund API and page; GLEIF LEI 5493006X3NOVTJ09KM78). Card IN-1312 'Nammo' is described as 'NAMMO AS is a developer and manufacturer of ammunition systems...' (Crunchbase), has aliases 'Nammo AS' and 'Nordic Ammunition Group', HQ Raufoss, website nammo.com, QID Q1964355 (a group-level item: 'Norwegian-Finnish defence company'). So it is probably meant to be Nammo AS / the group, but its tax_id NO979512328 does NOT match 979 984 731: that number returns 404 in the Bronnoysund API (enheter and underenheter). The card therefore has no verified legal identifier and cannot be tied to the legal entity with certainty. It is a company card (not a group-only entity), no registry number correct on it.",
+  "kind": "subsidiary",
+  "status": "current",
+  "start_or_end_date": "2018-01-17",
+  "ownership_pct_stated": "100",
+  "verdict": "unclear",
+  "verdict_reason": "Primary sources (GLEIF direct-parent relationship; Nammo's Norwegian-language statement) confirm Nammo Raufoss AS is a wholly owned subsidiary of NAMMO AS (979 984 731), with no intermediate company. But the parent card IN-1312 carries a wrong/unresolvable tax_id (NO979512328), so card-to-legal-entity match cannot be marked yes.",
+  "evidence": [
+    {"claim": "Nammo Raufoss AS is a wholly owned subsidiary of Nammo AS (child and parent named in the same sentence)", "url": "https://www.nammo.com/wp-content/uploads/2023/06/Nammo-Raufoss-AS-Redegjorelse-etter-apenhetsloven-2022_FINAL_V2.cleaned.pdf", "phrase": "Nammo Raufoss AS er et heleid datterselskap av Nammo AS", "source_kind": "primary"},
+    {"claim": "GLEIF direct-parent relationship: 5493003HKUCEM7MR7447 (NAMMO RAUFOSS AS, 980 038 300) IS_DIRECTLY_CONSOLIDATED_BY 5493006X3NOVTJ09KM78 (NAMMO AS, 979 984 731), ACTIVE, relationship period from 2018-01-17, no end date", "url": "https://api.gleif.org/api/v1/lei-records/5493003HKUCEM7MR7447/direct-parent-relationship", "phrase": "\"type\":\"IS_DIRECTLY_CONSOLIDATED_BY\",\"status\":\"ACTIVE\"", "source_kind": "primary"},
+    {"claim": "Parent legal entity NAMMO AS is registered with org. no. 979 984 731 as Aksjeselskap", "url": "https://virksomhet.brreg.no/nb/oppslag/enheter/979984731", "phrase": "# NAMMO AS\n\nOrganisasjonsnummer\n: 979 984 731", "source_kind": "primary"},
+    {"claim": "Child legal entity registered as NAMMO RAUFOSS AS, 980 038 300, Aksjeselskap, part of a group", "url": "https://virksomhet.brreg.no/nb/oppslag/enheter/980038300", "phrase": "# NAMMO RAUFOSS AS\n\nOrganisasjonsnummer\n: 980 038 300", "source_kind": "primary"},
+    {"claim": "Nammo AS is the parent company (holding), Nammo Raufoss AS is the operating company", "url": "https://www.nammo.com/wp-content/uploads/2023/06/Norwegian-Transparency-Act-Statement-%C2%A7-5_Eng-2022_23.pdf", "phrase": "Nammo AS, as the parent company not selling products or services, is not", "source_kind": "primary"}
+  ],
+  "notes": "Direct parent is Nammo AS itself: no intermediate company (GLEIF direct parent = Nammo AS; Exa answer also says none, not used as proof). Nammo AS is owned 50/50 by the Norwegian Ministry of Trade, Industry and Fisheries and Patria Oyj (nammo.com/about-us). Card IN-1312 problem: tax_id NO979512328 returns 404 in Bronnoysund API; the legal org. no. of Nammo AS is 979984731 (probably a typo in the tax_id). IN-1312 is likely the right card for Nammo AS (it is the parent holding that heads the group), but Nelson should fix or confirm the tax_id before accepting the link. The previous agent's claim that IN-1312 tax_id differs is confirmed; its claim that the wholly-owned phrase comes from the Redegjorelse PDF is confirmed by me (reopened, line present). Company-card check: IN-0897 has no tax_id, QID null (removed 2026-11-15), PIC 986597186 (EDF). Brreg page for 979512328 loaded via JS without data (empty). GLEIF 'Nammo AS' has a reporting exception for direct parent (NON_CONSOLIDATING), irrelevant for the link. Historical oddity: IN-0897 history shows the QID applied twice (2026-04-12, 2026-06-18) and removed twice (2026-04-23, 2026-11-15)."
+}

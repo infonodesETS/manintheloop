@@ -1,0 +1,1740 @@
+[
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0047",
+  "target": "IN-0022",
+  "current": true,
+  "as_of": "2026-09-14",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "CEO; CTO; Director",
+    "fonte": "DEF 14A"
+   },
+   "cto": {
+    "role_text": "CEO; CTO; Director",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "CEO; CTO; Director",
+    "fonte": "DEF 14A",
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#13",
+   "2026-10-17/consiglieri.csv#22"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0001",
+  "target": "IN-0034",
+  "current": true,
+  "as_of": "2026-03-31",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer and Co-Founder",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer and Co-Founder; Director"
+    ]
+   },
+   "founder": {
+    "role_text": "Chief Executive Officer and Co-Founder",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer and Co-Founder; Director"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Executive Officer and Co-Founder; Director",
+    "since_year": 2011,
+    "since_month": 12,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#94",
+   "2026-10-17/consiglieri.csv#145"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0039",
+  "target": "IN-1395",
+  "current": true,
+  "as_of": "2026-04-08",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "President, Chief Executive Officer and Director of Astronics Corporation",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman of the Board; Director; President and Chief Executive Officer"
+    ]
+   },
+   "president": {
+    "role_text": "President, Chief Executive Officer and Director of Astronics Corporation",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman of the Board; Director; President and Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "President, Chief Executive Officer and Director of Astronics Corporation",
+    "fonte": "10-K",
+    "since_year": 2001,
+    "independent": false,
+    "role_text_alt": [
+     "Chairman of the Board; Director; President and Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Chairman of the Board; Director; President and Chief Executive Officer"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#103",
+   "2026-10-17/consiglieri.csv#169"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0055",
+  "target": "IN-1404",
+  "current": true,
+  "as_of": "2026-04-07",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer; Director; Chairman",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer; Chairman; Director"
+    ]
+   },
+   "chair": {
+    "role_text": "Chief Executive Officer; Director; Chairman",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer; Chairman; Director"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Executive Officer; Director; Chairman",
+    "fonte": "DEF 14A",
+    "since_year": 2012,
+    "since_month": 4,
+    "independent": false,
+    "role_text_alt": [
+     "Chief Executive Officer; Chairman; Director"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#152",
+   "2026-10-17/consiglieri.csv#247"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0007",
+  "target": "IN-0095",
+  "current": true,
+  "as_of": "2026-01-23",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "co_ceo": {
+    "role_text": "Chairman and Co-Chief Executive Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman of the Board; Co-CEO"
+    ]
+   },
+   "chair": {
+    "role_text": "Chairman and Co-Chief Executive Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman of the Board; Co-CEO"
+    ]
+   },
+   "director": {
+    "role_text": "Chairman of the Board; Co-CEO",
+    "since_year": 1988,
+    "since_month": 3,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#196",
+   "2026-10-17/consiglieri.csv#322"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0035",
+  "target": "IN-0106",
+  "current": true,
+  "as_of": "2026-03-31",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer; Co-Founder; Director; Class I director (nominee)"
+    ]
+   },
+   "founder": {
+    "role_text": "Chief Executive Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer; Co-Founder; Director; Class I director (nominee)"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Executive Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "since_year": 2010,
+    "since_month": 6,
+    "independent": false,
+    "role_text_alt": [
+     "Chief Executive Officer; Co-Founder; Director; Class I director (nominee)"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#264",
+   "2026-10-17/consiglieri.csv#446"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0003",
+  "target": "IN-0106",
+  "current": true,
+  "as_of": "2026-03-31",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "cto": {
+    "role_text": "Chief Technology Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Technology Officer; Co-Founder; Director; Class II director"
+    ]
+   },
+   "founder": {
+    "role_text": "Chief Technology Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Technology Officer; Co-Founder; Director; Class II director"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Technology Officer; Co-Founder; Director",
+    "fonte": "DEF 14A",
+    "since_year": 2010,
+    "since_month": 6,
+    "independent": false,
+    "role_text_alt": [
+     "Chief Technology Officer; Co-Founder; Director; Class II director"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#265",
+   "2026-10-17/consiglieri.csv#451"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0032",
+  "target": "IN-0107",
+  "current": true,
+  "as_of": "2026-04-27",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer and Chairman",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman; Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Chief Executive Officer and Chairman",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chairman; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Chairman; Chief Executive Officer",
+    "since_year": 2013,
+    "since_month": 10,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#272",
+   "2026-10-17/consiglieri.csv#457"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0011",
+  "target": "IN-0116",
+  "current": true,
+  "as_of": null,
+  "as_of_origine": null,
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chairman, President and Chief Executive Officer",
+    "fonte": "10-K"
+   },
+   "chair": {
+    "role_text": "Chairman, President and Chief Executive Officer",
+    "fonte": "10-K"
+   },
+   "president": {
+    "role_text": "Chairman, President and Chief Executive Officer",
+    "fonte": "10-K"
+   },
+   "director": {
+    "role_text": "Chairman, President and Chief Executive Officer",
+    "since_year": 2007,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#290",
+   "2026-10-17/consiglieri.csv#485"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0025",
+  "target": "IN-0136",
+  "current": true,
+  "as_of": "2026-09-14",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "executive_chair": {
+    "role_text": "Executive Chair and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Director; Executive Chair; Chief Executive Officer"
+    ]
+   },
+   "ceo": {
+    "role_text": "Executive Chair and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Director; Executive Chair; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Director; Executive Chair; Chief Executive Officer",
+    "since_year": 2019,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#322",
+   "2026-10-17/consiglieri.csv#538"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0023",
+  "target": "IN-0134",
+  "current": true,
+  "as_of": "2026-03-31",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "fonte": "DEF 14A"
+   },
+   "chair": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "since_year": 2000,
+    "since_month": 10,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#336",
+   "2026-10-17/consiglieri.csv#554"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0033",
+  "target": "IN-0134",
+  "current": true,
+  "as_of": "2026-03-31",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "cto": {
+    "role_text": "President; Chief Technology Officer; Director",
+    "fonte": "DEF 14A"
+   },
+   "president": {
+    "role_text": "President; Chief Technology Officer; Director",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "President; Chief Technology Officer; Director",
+    "fonte": "DEF 14A",
+    "since_year": 2001,
+    "since_month": 2,
+    "independent": false
+   },
+   "committee_member": {
+    "role_text": "Cybersecurity Committee",
+    "committees": [
+     {
+      "name": "Cybersecurity Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#337",
+   "2026-10-17/consiglieri.csv#555",
+   "2026-10-17/comitati.csv#873"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0045",
+  "target": "IN-0178",
+  "current": true,
+  "as_of": "2026-03-19",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "executive_chair": {
+    "role_text": "Executive Chairman of the Board of Directors",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Executive Chairman of the Board of Directors",
+    "since_year": 2021,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#441",
+   "2026-10-17/consiglieri.csv#709"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0049",
+  "target": "IN-1397",
+  "current": true,
+  "as_of": "2026-04-10",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer and President",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer and President; Director"
+    ]
+   },
+   "president": {
+    "role_text": "Chief Executive Officer and President",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chief Executive Officer and President; Director"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Executive Officer and President; Director",
+    "since_year": 2023,
+    "since_month": 2,
+    "independent": false
+   },
+   "committee_member": {
+    "role_text": "Strategic Transactions Committee",
+    "committees": [
+     {
+      "name": "Strategic Transactions Committee",
+      "chair": false,
+      "meetings": 10,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#563",
+   "2026-10-17/consiglieri.csv#888",
+   "2026-10-17/comitati.csv#1371"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0028",
+  "target": "IN-0228",
+  "current": true,
+  "as_of": "2026-04-01",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Founder, Chairman and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Founder; Chairman of the board; Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Founder, Chairman and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Founder; Chairman of the board; Chief Executive Officer"
+    ]
+   },
+   "founder": {
+    "role_text": "Founder, Chairman and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Founder; Chairman of the board; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Founder; Chairman of the board; Chief Executive Officer",
+    "since_year": 2004,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#588",
+   "2026-10-17/consiglieri.csv#913"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0043",
+  "target": "IN-0298",
+  "current": true,
+  "as_of": "2026-04-20",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer; Director; Chairman of the Board",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Director; Chairman of the Board; Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Chief Executive Officer; Director; Chairman of the Board",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Director; Chairman of the Board; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Chief Executive Officer; Director; Chairman of the Board",
+    "fonte": "DEF 14A",
+    "since_year": 2015,
+    "since_month": 8,
+    "independent": false,
+    "role_text_alt": [
+     "Director; Chairman of the Board; Chief Executive Officer"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#595",
+   "2026-10-17/consiglieri.csv#927"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0020",
+  "target": "IN-1311",
+  "current": true,
+  "as_of": "2026-04-13",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chairman of the Board; Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Class I Director; Chairman of the Board; Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Chairman of the Board; Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Class I Director; Chairman of the Board; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Class I Director; Chairman of the Board; Chief Executive Officer",
+    "since_year": 2020,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#607",
+   "2026-10-17/consiglieri.csv#948"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0029",
+  "target": "IN-1405",
+  "current": true,
+  "as_of": "2026-03-24",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chair of the Board, President, and Chief Executive Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chair of the Board; President; Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Chair of the Board, President, and Chief Executive Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chair of the Board; President; Chief Executive Officer"
+    ]
+   },
+   "president": {
+    "role_text": "Chair of the Board, President, and Chief Executive Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Chair of the Board; President; Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Chair of the Board; President; Chief Executive Officer",
+    "since_year": 1988,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#676",
+   "2026-10-17/consiglieri.csv#1065"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0027",
+  "target": "IN-0278",
+  "current": true,
+  "as_of": "2026-09-21",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "executive_chair": {
+    "role_text": "Executive Chair of the Board of Directors; Chief Technology Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Executive Chair; Chief Technology Officer; Founder"
+    ]
+   },
+   "cto": {
+    "role_text": "Executive Chair of the Board of Directors; Chief Technology Officer",
+    "fonte": "10-K",
+    "role_text_alt": [
+     "Executive Chair; Chief Technology Officer; Founder"
+    ]
+   },
+   "founder": {
+    "role_text": "Executive Chair; Chief Technology Officer; Founder"
+   },
+   "director": {
+    "role_text": "Executive Chair; Chief Technology Officer; Founder",
+    "since_year": 1977,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#723",
+   "2026-10-17/consiglieri.csv#1141"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0002",
+  "target": "IN-1318",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Co-Founder; Chief Executive Officer; Director",
+    "fonte": "DEF 14A"
+   },
+   "founder": {
+    "role_text": "Co-Founder; Chief Executive Officer; Director",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Co-Founder; Chief Executive Officer; Director",
+    "fonte": "DEF 14A",
+    "since_year": 2003,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#737",
+   "2026-10-17/consiglieri.csv#1160"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0050",
+  "target": "IN-1318",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "president": {
+    "role_text": "Co-Founder; President; Secretary; Director",
+    "fonte": "DEF 14A"
+   },
+   "founder": {
+    "role_text": "Co-Founder; President; Secretary; Director",
+    "fonte": "DEF 14A"
+   },
+   "secretary": {
+    "role_text": "Co-Founder; President; Secretary; Director",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Co-Founder; President; Secretary; Director",
+    "fonte": "DEF 14A",
+    "since_year": 2005,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#738",
+   "2026-10-17/consiglieri.csv#1161"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0018",
+  "target": "IN-0383",
+  "current": true,
+  "as_of": "2026-04-02",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "fonte": "DEF 14A"
+   },
+   "chair": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Chief Executive Officer; Chairman of the Board of Directors",
+    "since_year": 2021,
+    "since_month": 9,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#872",
+   "2026-10-17/consiglieri.csv#1401"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0051",
+  "target": "IN-0389",
+  "current": true,
+  "as_of": "2026-03-01",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Director; President and Chief Executive Officer",
+    "fonte": "DEF 14A"
+   },
+   "president": {
+    "role_text": "Director; President and Chief Executive Officer",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "Director; President and Chief Executive Officer",
+    "fonte": "DEF 14A",
+    "since_year": 2012,
+    "since_month": 1,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#875",
+   "2026-10-17/consiglieri.csv#1411"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0021",
+  "target": "IN-0388",
+  "current": true,
+  "as_of": "2026-03-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "President and Chief Executive Officer; Chairman",
+    "fonte": "DEF 14A"
+   },
+   "chair": {
+    "role_text": "President and Chief Executive Officer; Chairman",
+    "fonte": "DEF 14A"
+   },
+   "president": {
+    "role_text": "President and Chief Executive Officer; Chairman",
+    "fonte": "DEF 14A"
+   },
+   "director": {
+    "role_text": "President and Chief Executive Officer; Chairman",
+    "since_year": 2009,
+    "since_month": 11,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#893",
+   "2026-10-17/consiglieri.csv#1441"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0005",
+  "target": "IN-0422",
+  "current": true,
+  "as_of": "2026-04-17",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Co-Founder, Chief Executive Officer, and Chair of the Board",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chair of the Board; Co-Founder and Chief Executive Officer"
+    ]
+   },
+   "chair": {
+    "role_text": "Co-Founder, Chief Executive Officer, and Chair of the Board",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chair of the Board; Co-Founder and Chief Executive Officer"
+    ]
+   },
+   "founder": {
+    "role_text": "Co-Founder, Chief Executive Officer, and Chair of the Board",
+    "fonte": "DEF 14A",
+    "role_text_alt": [
+     "Chair of the Board; Co-Founder and Chief Executive Officer"
+    ]
+   },
+   "director": {
+    "role_text": "Chair of the Board; Co-Founder and Chief Executive Officer",
+    "since_year": 2005,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/dirigenti.csv#961",
+   "2026-10-17/consiglieri.csv#1556"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0024",
+  "target": "IN-0016",
+  "current": true,
+  "as_of": "2026-03-10",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2021,
+    "since_month": 2,
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": false,
+      "meetings": 6,
+      "year": 2025
+     },
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     }
+    ],
+    "role_text_alt": [
+     "Nominating and Corporate Governance Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#122",
+   "2026-10-17/comitati.csv#184",
+   "2026-10-17/comitati.csv#187"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0031",
+  "target": "IN-0016",
+  "current": true,
+  "as_of": "2026-03-10",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "chair": {
+    "role_text": "Chair of the Board; Director"
+   },
+   "director": {
+    "role_text": "Chair of the Board; Director",
+    "since_year": 2023,
+    "since_month": 1,
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": false,
+      "meetings": 6,
+      "year": 2025
+     },
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": true,
+      "meetings": 4,
+      "year": 2025
+     }
+    ],
+    "role_text_alt": [
+     "Nominating and Corporate Governance Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#124",
+   "2026-10-17/comitati.csv#185",
+   "2026-10-17/comitati.csv#188"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0046",
+  "target": "IN-1395",
+  "current": true,
+  "as_of": "2026-04-08",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director; Compensation; Nominating/Governance",
+    "since_year": 2019,
+    "independent": true
+   },
+   "other": {
+    "role_text": "Director; Compensation; Nominating/Governance"
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     },
+     {
+      "name": "Nominating/Governance Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     }
+    ],
+    "role_text_alt": [
+     "Nominating/Governance Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#171",
+   "2026-10-17/comitati.csv#255",
+   "2026-10-17/comitati.csv#259"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0017",
+  "target": "IN-0107",
+  "current": true,
+  "as_of": "2026-04-27",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "other": {
+    "role_text": "Co-CEO of Silver Lake"
+   },
+   "director": {
+    "role_text": "Co-CEO of Silver Lake",
+    "since_year": 2013,
+    "since_month": 10,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#459"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0010",
+  "target": "IN-0116",
+  "current": true,
+  "as_of": null,
+  "as_of_origine": null,
+  "release": "2026-10-17",
+  "roles": {
+   "senior_advisor": {
+    "role_text": "Director; Senior Advisor"
+   },
+   "director": {
+    "role_text": "Director; Senior Advisor",
+    "since_year": 2023,
+    "since_month": 12,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#486"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0037",
+  "target": "IN-0141",
+  "current": true,
+  "as_of": "2026-07-14",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2022,
+    "independent": true
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#595"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0026",
+  "target": "IN-1247",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "founder": {
+    "role_text": "Co-Founder; Director"
+   },
+   "director": {
+    "role_text": "Co-Founder; Director",
+    "since_year": 1998,
+    "independent": false
+   },
+   "committee_member": {
+    "role_text": "Executive Committee",
+    "committees": [
+     {
+      "name": "Executive Committee",
+      "chair": true,
+      "meetings": 0,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#613",
+   "2026-10-17/comitati.csv#973"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0048",
+  "target": "IN-1247",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "founder": {
+    "role_text": "Co-Founder; Director"
+   },
+   "director": {
+    "role_text": "Co-Founder; Director",
+    "since_year": 1998,
+    "independent": false
+   },
+   "committee_member": {
+    "role_text": "Executive Committee",
+    "committees": [
+     {
+      "name": "Executive Committee",
+      "chair": false,
+      "meetings": 0,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#614",
+   "2026-10-17/comitati.csv#974"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0036",
+  "target": "IN-1396",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": false
+     },
+     {
+      "name": "Nominating and Governance Committee",
+      "chair": false
+     }
+    ],
+    "role_text_alt": [
+     "Nominating and Governance Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#858",
+   "2026-10-17/comitati.csv#1321",
+   "2026-10-17/comitati.csv#1324"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0013",
+  "target": "IN-1396",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "lead_independent_director": {
+    "role_text": "Director; Lead Independent Director"
+   },
+   "director": {
+    "role_text": "Director; Lead Independent Director",
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": false
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#863",
+   "2026-10-17/comitati.csv#1320"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0014",
+  "target": "IN-1397",
+  "current": true,
+  "as_of": "2026-04-10",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "chair": {
+    "role_text": "Chairman of the Board of Directors"
+   },
+   "director": {
+    "role_text": "Chairman of the Board of Directors",
+    "since_year": 2023,
+    "since_month": 2,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#889"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0030",
+  "target": "IN-1397",
+  "current": true,
+  "as_of": "2026-04-10",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2023,
+    "since_month": 2,
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Audit Committee",
+    "committees": [
+     {
+      "name": "Audit Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     },
+     {
+      "name": "Compensation Committee",
+      "chair": true,
+      "meetings": 3,
+      "year": 2025
+     },
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": false,
+      "meetings": 4,
+      "year": 2025
+     },
+     {
+      "name": "Conflicts Committee",
+      "chair": false,
+      "meetings": 7,
+      "year": 2025
+     },
+     {
+      "name": "Strategic Transactions Committee",
+      "chair": true,
+      "meetings": 10,
+      "year": 2025
+     }
+    ],
+    "role_text_alt": [
+     "Compensation Committee",
+     "Nominating and Corporate Governance Committee",
+     "Conflicts Committee",
+     "Strategic Transactions Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#890",
+   "2026-10-17/comitati.csv#1360",
+   "2026-10-17/comitati.csv#1363",
+   "2026-10-17/comitati.csv#1364",
+   "2026-10-17/comitati.csv#1367",
+   "2026-10-17/comitati.csv#1373"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0008",
+  "target": "IN-0298",
+  "current": true,
+  "as_of": "2026-04-20",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2016,
+    "since_month": 12,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#928"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0040",
+  "target": "IN-0298",
+  "current": true,
+  "as_of": "2026-04-20",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2019,
+    "since_month": 11,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#934"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0039",
+  "target": "IN-1381",
+  "current": true,
+  "as_of": "2025-12-12",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director - Class B",
+    "since_year": 2009,
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Nominating and Governance Committee",
+    "committees": [
+     {
+      "name": "Nominating and Governance Committee",
+      "chair": true,
+      "meetings": 2,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#943",
+   "2026-10-17/comitati.csv#1432"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0025",
+  "target": "IN-0251",
+  "current": true,
+  "as_of": "2026-08-28",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "chair": {
+    "role_text": "Chair"
+   },
+   "director": {
+    "role_text": "Chair",
+    "since_year": 2013,
+    "since_month": 6,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1098"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0041",
+  "target": "IN-1318",
+  "current": true,
+  "as_of": "2026-04-06",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "chair": {
+    "role_text": "Co-Founder; Chairman"
+   },
+   "founder": {
+    "role_text": "Co-Founder; Chairman"
+   },
+   "director": {
+    "role_text": "Co-Founder; Chairman",
+    "since_year": 2003,
+    "independent": false,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1162"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0038",
+  "target": "IN-1365",
+  "current": true,
+  "as_of": "2026-03-30",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "ceo": {
+    "role_text": "Founder; Chairman of the Board; Chief Executive Officer; Series A Preferred Stock Director (Class III)"
+   },
+   "chair": {
+    "role_text": "Founder; Chairman of the Board; Chief Executive Officer; Series A Preferred Stock Director (Class III)"
+   },
+   "founder": {
+    "role_text": "Founder; Chairman of the Board; Chief Executive Officer; Series A Preferred Stock Director (Class III)"
+   },
+   "director": {
+    "role_text": "Founder; Chairman of the Board; Chief Executive Officer; Series A Preferred Stock Director (Class III)",
+    "since_year": 2021,
+    "since_month": 8,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1210"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0017",
+  "target": "IN-0382",
+  "current": true,
+  "as_of": "2026-04-16",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2023,
+    "since_month": 9,
+    "independent": false
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1392"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0004",
+  "target": "IN-0383",
+  "current": true,
+  "as_of": "2026-04-02",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "since_year": 2021,
+    "since_month": 9,
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Compensation Committee",
+    "committees": [
+     {
+      "name": "Compensation Committee",
+      "chair": true,
+      "meetings": 1,
+      "year": 2025
+     },
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": false,
+      "meetings": 2,
+      "year": 2025
+     }
+    ],
+    "role_text_alt": [
+     "Nominating and Corporate Governance Committee"
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1406",
+   "2026-10-17/comitati.csv#2073",
+   "2026-10-17/comitati.csv#2077"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0030",
+  "target": "IN-0398",
+  "current": true,
+  "as_of": "2026-04-08",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "chair": {
+    "role_text": "Chairman of the Board"
+   },
+   "director": {
+    "role_text": "Chairman of the Board",
+    "since_year": 2023,
+    "since_month": 3,
+    "independent": true,
+    "implied_by": "row listed as board member in consiglieri.csv"
+   },
+   "committee_member": {
+    "role_text": "Nominating and Corporate Governance Committee",
+    "committees": [
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": false,
+      "meetings": 1,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1496",
+   "2026-10-17/comitati.csv#2220"
+  ],
+  "created_at": null,
+  "history": []
+ },
+ {
+  "id": null,
+  "type": "role",
+  "source": "PER-0034",
+  "target": "IN-0398",
+  "current": true,
+  "as_of": "2026-04-08",
+  "as_of_origine": "proxy",
+  "release": "2026-10-17",
+  "roles": {
+   "director": {
+    "role_text": "Director",
+    "independent": true
+   },
+   "committee_member": {
+    "role_text": "Nominating and Corporate Governance Committee",
+    "committees": [
+     {
+      "name": "Nominating and Corporate Governance Committee",
+      "chair": false,
+      "meetings": 1,
+      "year": 2025
+     }
+    ]
+   }
+  },
+  "source_ref": [
+   "2026-10-17/consiglieri.csv#1502",
+   "2026-10-17/comitati.csv#2222"
+  ],
+  "created_at": null,
+  "history": []
+ }
+]
