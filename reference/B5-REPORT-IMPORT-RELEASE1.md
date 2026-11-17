@@ -7,8 +7,8 @@
 - Input: `rawdata/sec-edgar/2026-10-17/detentori-oltre-5.csv`, **571 rows** (480 entities, 91 persons) from 161 companies.
 - Rule (decision S4): a row is imported if **capital ≥ 5% or votes ≥ 5%** (5.0 included).
 - Dry-run result: **546 rows importable, 25 not imported, 0 blocked.** The reconciliation closes: 571 = 546 + 25.
-- Would create: **546 `ownership` relationships**, **57 `PER-` persons** and **93 new `IV-` holders**. Everything else matches an existing card.
-- Not imported by design: addresses (S4), roles of board members and officers (Release 2).
+- Would create: **546 `ownership` relationships**, **47 `role` relationships** (the roles of the 57 persons, see below), **57 `PER-` persons** and **93 new `IV-` holders**. Everything else matches an existing card.
+- Not imported by design: addresses (S4) and age. Roles of board members, officers and committee members are imported **only for the 57 persons** (95 source rows from `consiglieri.csv`, `dirigenti.csv`, `comitati.csv`, one `role` relationship per person and company, 43 persons have at least one role); the roles of the other persons stay for Release 2.
 - Nothing was written to `docs/data/database.json` yet. The raw files are never modified.
 
 ## 2. What is imported, exactly
