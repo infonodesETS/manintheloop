@@ -453,6 +453,7 @@ const mapState = {
 
 // Data (loaded once)
 let entityMap = {};
+const NEW_REL_TYPES = new Set(['ownership', 'role', 'parte_di']);   // quote SEC e ruoli: non entrano nella mappa
 let relationships = [];
 
 // ── Routing ───────────────────────────────────────────────────────────────────
@@ -1551,7 +1552,7 @@ function buildMapView(db) {
   db.entities      = db.entities.filter(e => !retiredIds.has(e.id));
   db.relationships = (db.relationships || []).filter(r => !retiredIds.has(r.source) && !retiredIds.has(r.target));
   const companies = db.entities.filter(e => e.id?.startsWith('IN-'));
-  relationships   = db.relationships;
+  relationships   = db.relationships.filter(r => !NEW_REL_TYPES.has(r.type));
   entityMap       = {};
   for (const e of db.entities) entityMap[e.id] = e;
 
