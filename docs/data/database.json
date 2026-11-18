@@ -246427,7 +246427,21 @@
       "sector": "Defence",
       "wikidata_id": "Q16858667",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-03-30",
+            "etf_name": "iShares Global Aerospace & Defence UCITS ETF",
+            "etf_ticker": "DFND",
+            "gics_code": "201010",
+            "stock_ticker": "KTOS",
+            "stock_sector": "Industriali",
+            "weight_pct": 0.63,
+            "location": "United States",
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "source_file": "ishare_aerospace_defense_GICS201010_en.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -246617,6 +246631,29 @@
           "old": null,
           "new": "sources.wikidata populated (Q16858667)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q16858667)"
+        },
+        {
+          "date": "2026-04-24",
+          "source": "ishares",
+          "author": "import_ishares_aerospace.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)",
+          "from_entity": "IN-1377"
+        },
+        {
+          "date": "2026-11-18",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1377",
+          "note": "Unita IN-1377 (Kratos Defense AND Security Soluti) in questa entita. Motivo: Same issuer Kratos (KTOS); IN-1377 is a bare iShares DFND import with no QID, no relations, no Crunchbase; IN-1304 has QID Q16858667, tax id and Crunchbase. Histories of both read.",
+          "absorbed": [
+            "sources.ishares: +1 voci (DFND/KTOS)"
+          ],
+          "loser_name": "Kratos Defense AND Security Soluti"
         }
       ],
       "validation": [
@@ -246661,6 +246698,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q16858667). label='Kratos Defense & Security Solutions'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IN-1377 (Kratos Defense AND Security Soluti) merged into this one on 2026-11-18 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "tags": []
@@ -315482,6 +315525,13 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1304 (Kratos Defense and Security Solutions). Unita il 2026-11-18: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same issuer Kratos (KTOS); IN-1377 is a bare iShares DFND import with no QID, no relations, no Crunchbase; IN-1304 has QID Q16858667, tax id and Crunchbase. Histories of both read.",
+          "canonical": "IN-1304",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "validation": [
@@ -315490,6 +315540,13 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1304 (Kratos Defense and Security Solutions). Unita il 2026-11-18: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same issuer Kratos (KTOS); IN-1377 is a bare iShares DFND import with no QID, no relations, no Crunchbase; IN-1304 has QID Q16858667, tax id and Crunchbase. Histories of both read.",
+          "canonical": "IN-1304",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "tags": []
