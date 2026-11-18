@@ -1,11 +1,11 @@
-# B5 Release 1: ripartenza (riscritta il 2026-11-18, dopo import e patch del sito sul branch)
+# B5 Release 1: ripartenza (riscritta il 2026-11-18, dopo la PR #77: dati e sito in `main`)
 
 > Si riscrive, non si accumula. Questo file basta da solo per ripartire. Per iniziare, Nelson scrive «`@STATUS.md` e ripartenza». Riscritta il 2026-11-17 dopo la PR #73 e la prova della patch del sito su copia.
 
 ## 1. Come ripartire (in quest'ordine)
 
 1. **Leggi** `STATUS.md` (per intero), questo file, `reference/UPDATE_PROTOCOL.md` (per intero: serve prima di scrivere sui dati). Prima di toccare l'import o i ruoli leggi anche `reference/S3`-`S7`, `SCHEMA.md` (*Relationships*), `scripts/validate.py` (controllo 11).
-2. **Rimisura:** `git status`; `git log --oneline origin/main..HEAD`; `md5sum docs/data/database.json` (`459dfc004aaf8a8a15cc52eda51dcedd` su `main` finché la PR di B5 non è fusa; `6d548e001a181563f432c04a3786ea40` sul branch `dati/b5-release1-import`); `python3 scripts/validate.py`; `python3 scripts/import_sec_ownership.py --out /tmp/dry` (solo anteprima; atteso su `main`: 571 = 546 importabili + 25 scartate, 0 bloccate, 57 `PER-`, 93 `IV-`, 546 `ownership`, 47 `role`; sul branch con l'import già fatto: 0 nuove, 0 cambiate, 0 scomparse).
+2. **Rimisura:** `git status`; `git log --oneline origin/main..HEAD`; `md5sum docs/data/database.json` (ora `6d548e001a181563f432c04a3786ea40`; era `459dfc00…` prima della PR #77); `python3 scripts/validate.py`; `python3 scripts/import_sec_ownership.py --out /tmp/dry` (solo anteprima; atteso su `main`: 571 = 546 importabili + 25 scartate, 0 bloccate, 57 `PER-`, 93 `IV-`, 546 `ownership`, 47 `role`; sul branch con l'import già fatto: 0 nuove, 0 cambiate, 0 scomparse).
 3. **Riassumi** a Nelson in 5-8 righe cosa hai letto e **cosa non hai letto**, poi **fermati** e aspetta il suo via libera.
 
 ## 2. Dove siamo
@@ -44,8 +44,8 @@ Novità confermata: il tipo `role` (47) è ignorato dal sito con la patch (Ramac
 ## 5. Dopo, nell'ordine (ognuno con ok di Nelson)
 
 1. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide; se cambia la soglia va riscritta S4. Si può fare in parallelo. **Stato (2026-11-18): in attesa di Andrea.** Nelson ha deciso di non verificare Liang e di chiedere ad Andrea un controllo sulla fonte originale dei valori NULL; testo della issue e dettaglio in `work/b5-release1/DOMANDA-ANDREA-SOGLIA-E-NULL.md` (nuova scoperta: 4 righe RKLB già importate per i voti con capitale NULL). Documento fuso con la PR #75; **issue #76 aperta il 2026-11-18 e assegnata ad `aborruso`** (risposta attesa; quando arriva, correggere i valori e, se serve, re-import); l'import delle 546 righe non aspetta la risposta.
-2. **PR dei dati + sito** (stessa PR, regola S4): **import, patch e prove fatti sul branch `dati/b5-release1-import` (3 commit sopra `main`: registro, dati, sito) più un 4º commit con questi documenti**. Restano: push del branch (ok di Nelson, mai `main`), PR aperta da Nelson (titolo e descrizione in testo semplice tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE», con numeri, rischio e rollback = revert della PR; dichiarare le 4 righe RKLB con capitale NULL e la #76), merge, poi controllo del sito vivo (`database.json` con lo stesso md5 di `main`, pagine 200, `mitl-index.json` invariato `c83b0e43…`, 3-4 schede riaperte).
-3. A import fatto: riscrivere il report per Andrea con i numeri veri, rigenerare il PDF, avvisare chi gestisce MARLA (via Davide) prima di una futura rigenerazione dell'indice, riallineare il piano per Davide.
+2. **PR dei dati + sito: FATTA** (PR #77 fusa il 2026-11-18, `cc967f9`). Dopo il merge: `main` allineata, `validate.py` PASSED 2732/4016, sito vivo con `database.json` e `app.js` identici a `main`, `mitl-index.json` invariato, BlackRock 4 connessioni + 144 righe, AppLovin 5 + 5, `PER-0001` senza errori (solo `favicon.ico`).
+3. **Ora, a import fatto:** riscrivere il report per Andrea con i numeri veri, rigenerare il PDF, avvisare chi gestisce MARLA (via Davide) prima di una futura rigenerazione dell'indice, riallineare il piano per Davide.
 
 ## 6. Da non dimenticare
 
