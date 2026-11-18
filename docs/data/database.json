@@ -48385,52 +48385,7 @@
             "source_file": "ishares_metals_mining_gics151040.csv"
           }
         ],
-        "crunchbase": {
-          "extracted_at": "2026-04-13",
-          "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
-          "profile_url": "https://www.crunchbase.com/organization/materio-020f",
-          "stage": "",
-          "description": "Materio is a project management app for interior design and construction, streamlining processes and enhancing client satisfaction.",
-          "description_full": "Materio offers a project management system for interior design and construction projects. It helps users organize and expedite projects by tracking design selections, client decisions, to-dos, timelines, and financials.",
-          "website": "https://www.materio.co",
-          "cb_rank": 290929,
-          "headquarters": "Nashville, Tennessee, United States",
-          "headquarters_regions": "Southern US",
-          "operating_status": "Active",
-          "founded_date": "2020-01-01",
-          "company_type": "For Profit",
-          "investment_stage": null,
-          "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Apps",
-            "Information Technology",
-            "Software"
-          ],
-          "industries": [
-            "Apps",
-            "Information Technology",
-            "Software"
-          ],
-          "founders": [],
-          "num_funding_rounds": null,
-          "funding_status": null,
-          "last_funding_date": null,
-          "last_funding_amount_usd": null,
-          "last_funding_type": null,
-          "total_equity_funding_usd": null,
-          "total_funding_usd": null,
-          "total_funding_native": null,
-          "top_investors": [],
-          "num_investors": null,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
-        },
+        "crunchbase": null,
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -48536,6 +48491,60 @@
           "old": null,
           "new": "sources.wikidata populated (Q4979671)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q4979671)"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-13",
+            "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+            "profile_url": "https://www.crunchbase.com/organization/materio-020f",
+            "stage": "",
+            "description": "Materio is a project management app for interior design and construction, streamlining processes and enhancing client satisfaction.",
+            "description_full": "Materio offers a project management system for interior design and construction projects. It helps users organize and expedite projects by tracking design selections, client decisions, to-dos, timelines, and financials.",
+            "website": "https://www.materio.co",
+            "cb_rank": 290929,
+            "headquarters": "Nashville, Tennessee, United States",
+            "headquarters_regions": "Southern US",
+            "operating_status": "Active",
+            "founded_date": "2020-01-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Apps",
+              "Information Technology",
+              "Software"
+            ],
+            "industries": [
+              "Apps",
+              "Information Technology",
+              "Software"
+            ],
+            "founders": [],
+            "num_funding_rounds": null,
+            "funding_status": null,
+            "last_funding_date": null,
+            "last_funding_amount_usd": null,
+            "last_funding_type": null,
+            "total_equity_funding_usd": null,
+            "total_funding_usd": null,
+            "total_funding_native": null,
+            "top_investors": [],
+            "num_investors": null,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "Crunchbase block removed: profile materio-020f is Materio (project management app, materio.co, Nashville, founded 2020), not Materion Corporation (materion.com, Mayfield Heights, Ohio). Card website and Wikidata Q4979671 point to Materion. Old block kept in this history entry; correct profile not re-matched. History and validation read."
         }
       ],
       "validation": [
@@ -48598,6 +48607,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q4979671). label='Materion'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/materio-020f",
+          "description": "Crunchbase block removed: profile materio-020f is Materio (project management app, materio.co, Nashville, founded 2020), not Materion Corporation (materion.com, Mayfield Heights, Ohio). Card website and Wikidata Q4979671 point to Materion. Old block kept in this history entry; correct profile not re-matched. History and validation read.",
+          "author": "patch_clear_crunchbase.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "tags": []
