@@ -912,3 +912,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Lezione:** su 3 segnalazioni del lotto, 2 sbagliate; le diagnosi degli agenti sui Crunchbase vanno controllate sul profilo vivo prima di toccare la scheda.
 - **Non fatto:** profili di Materion e WBD non riaperti dal vivo (diagnosi dal contenuto del blocco); la pagina di LITE riporta un'acquisizione da parte di Marvell (2026-11-02), non verificata altrove e non registrata nella scheda (blocco del 2026-04-13).
 - **Aperti:** RTX `IN-1324` con `IN-1357` (probabile unione B3, history da leggere); QID di TE `IN-0362` e Standard Aero `IN-1386` (web e Exa); poi risposta di Andrea sull'issue #76, issue #78 MARLA.
+
+
+### 2026-11-18 — RTX `IN-1357` → `IN-1324` (B3) ◐ (branch `dati/b3-rtx`)
+
+- **Letti prima di scrivere:** history e validation di entrambe le schede (dry-run), relazioni di `IN-1357`. Non riletti per intero `SCHEMA.md`, S3, S5-S7.
+- **Esito:** `IN-1357` (import iShares DFND/RTX, 4 `ownership` SEC) ritirata con `canonical` = `IN-1324`; il vincitore, che portava l'identità del gruppo (QID `Q89368734`, ISIN, `tax_id` 06-0570975) sotto il nome «Raytheon Missile Systems», è rinominato «RTX». Blocco iShares e 4 relazioni passati su `IN-1324`. `validate.py` PASSED (2732 entità, 4016 relazioni); `check_b3_branch.py` superato (attive 2694 → 2693).
+- **Decisione di Nelson: il blocco Crunchbase della divisione di Tucson resta** (opzione b), il conflitto di sede già documentato il 2026-04-23 resta com'è. Cercato su Crunchbase (Claude in Chrome, nessun CAPTCHA): lo slug `rtx` è RTX A/S, azienda danese, **da non usare**; `raytheon-technologies` è «Raytheon» (già Raytheon Technologies, sede Arlington, «Sub-Organization of RTX», con Raytheon Missile Systems tra le controllate); il profilo del gruppo RTX non è stato trovato (`rtx-corporation` vuoto, la ricerca testuale senza risultati).
+- **Aperti:** QID di TE `IN-0362` e Standard Aero `IN-1386`; la scheda `IN-1324` resta mista (identità del gruppo, Crunchbase della divisione); risposta di Andrea sull'issue #76; issue #78 MARLA.
