@@ -42,7 +42,7 @@ Novità confermata: il tipo `role` (47) è ignorato dal sito con la patch (Ramac
 
 ## 5. Dopo, nell'ordine (ognuno con ok di Nelson)
 
-1. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide; se cambia la soglia va riscritta S4. Si può fare in parallelo.
+1. **Le 25 righe scartate** (sotto soglia S4): tabella riga per riga (titolare, percentuali, testo della fonte, motivo), divisa tra «capitale <5» e «capitale vuoto»; Nelson decide; se cambia la soglia va riscritta S4. Si può fare in parallelo. **Stato (2026-11-18): in attesa di Andrea.** Nelson ha deciso di non verificare Liang e di chiedere ad Andrea un controllo sulla fonte originale dei valori NULL; testo della issue e dettaglio in `work/b5-release1/DOMANDA-ANDREA-SOGLIA-E-NULL.md` (nuova scoperta: 4 righe RKLB già importate per i voti con capitale NULL). Dopo il merge del documento Nelson apre la issue e la assegna ad `aborruso`; l'import delle 546 righe non aspetta la risposta.
 2. **PR dei dati + sito** (stessa PR, regola S4), su un branch nuovo da `main`: `--apply --database-reale` sul database vero, `validate.py`, `git apply` di `patch-sito.diff` sul repo, controlli della sezione 7 del piano (già provati su copia), verifica a mano che il diff tocchi solo entità e relazioni nuove (`check_b3_branch.py` non vale per B5). La PR la apre Nelson. Testo in testo semplice tra «TESTO DA INCOLLARE» e «FINE TESTO DA INCOLLARE».
 3. A import fatto: riscrivere il report per Andrea con i numeri veri, rigenerare il PDF, avvisare chi gestisce MARLA (via Davide) prima di una futura rigenerazione dell'indice, riallineare il piano per Davide.
 
