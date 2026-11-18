@@ -182,7 +182,7 @@ function buildRegistry() {
   // 2. DB-only entities — exclude IV- investors
   for (const e of DB.entities) {
     if (seenDbIds.has(e.id)) continue;
-    if (e.id.startsWith('IV-')) continue;
+    if (e.id.startsWith('IV-') || e.id.startsWith('PER-')) continue;
     const edfProj = e.sources?.edf_project;
     REGISTRY.push({
       id:       e.id,
@@ -232,10 +232,15 @@ function buildRegistry() {
     if (r.type === 'edf_participation') {
       push(r.source, 'edf_participant', r.target);
       push(r.target, 'edf_member',      r.source);
-    } else {
+    } else if (r.type === 'ownership') {
+      // Quote >=5% (SEC): ruoli propri, non entrano ne' nel grafo ne' nel "Portfolio" degli investimenti
+      push(r.source, 'holding',     r.target);
+      push(r.target, 'shareholder', r.source);
+    } else if (r.type === 'investment') {
       push(r.source, 'investor', r.target);
       push(r.target, 'target',   r.source);
     }
+    // 'role' e 'parte_di': non ancora mostrati dal sito
   }
 
   // Build PIC lookup map
@@ -667,6 +672,7 @@ function buildProfileColHtml(item, colId) {
     }
   }
 
+  cards.push(...ownershipCards(REL_MAP[e?.id] || []));
   const hist = e?.history;
   if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
   const val = e?.validation;
@@ -848,7 +854,8 @@ function renderInvestorProfile(item) {
   const cards = [];
 
   const ivRels = (REL_MAP[e?.id] || []);
-  if (ivRels.length) cards.push(makeGraphCard(e.id, ivRels.length));
+  const ivGraph = ivRels.filter(r => GRAPH_ROLES.has(r.role));
+  if (ivGraph.length) cards.push(makeGraphCard(e.id, ivGraph.length));
 
   if (portfolio.length) {
     let h = `<ul class="cs-elist">`;
@@ -886,6 +893,7 @@ function renderInvestorProfile(item) {
 
   if (wd) cards.push(makeCard('wd', 'Wikidata', wdCardBody(wd)));
 
+  cards.push(...ownershipCards(REL_MAP[e?.id] || []));
   const hist = e?.history;
   if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
   const val = e?.validation;
@@ -1205,6 +1213,46 @@ function wireInvestorPills(container) {
   });
 }
 
+// ── Quote >=5% dai documenti SEC (relazioni `ownership`) ─────────────────────
+const GRAPH_ROLES = new Set(['investor', 'target', 'edf_participant', 'edf_member']);
+
+function fmtPct(v) {
+  return v == null ? null : Number(v).toLocaleString('en', { maximumFractionDigits: 2 }) + '%';
+}
+
+function ownershipBody(list, side) {
+  const sorted = [...list].sort((a, b) =>
+    ((b.rel.pct ?? b.rel.pct_voti ?? -1) - (a.rel.pct ?? a.rel.pct_voti ?? -1)) ||
+    (a.other?.name || '').localeCompare(b.other?.name || ''));
+  const ORIGIN = { deposito: 'filing date', testo: 'date in the text', proxy: 'proxy date' };
+  let h = `<ul class="cs-elist">`;
+  for (const { rel, other } of sorted) {
+    if (!other) continue;
+    const parts = [];
+    if (rel.classe) parts.push(esc(rel.classe));
+    if (rel.pct != null)      parts.push(`<strong>${esc(fmtPct(rel.pct))}</strong> of capital`);
+    if (rel.pct_voti != null) parts.push(`<strong>${esc(fmtPct(rel.pct_voti))}</strong> of votes`);
+    if (rel.as_of) parts.push(`as of ${esc(rel.as_of)}${rel.as_of_origine ? ` (${ORIGIN[rel.as_of_origine] || esc(rel.as_of_origine)})` : ''}`);
+    const name = other.id.startsWith('PER-')
+      ? `<span class="cs-portfolio-name">${esc(other.name)}</span>`
+      : `<button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>`;
+    h += `<li class="cs-portfolio-item"><div class="cs-elist-item-main">${name}
+      <div class="cs-elist-meta">${parts.join(' · ')}</div>
+      <div class="cs-portfolio-inds">SEC release ${esc(rel.release || '')} · ${esc(rel.source_ref || '')}</div>
+    </div></li>`;
+  }
+  return h + `</ul>`;
+}
+
+function ownershipCards(rels) {
+  const out = [];
+  const sh = rels.filter(r => r.role === 'shareholder');
+  const hd = rels.filter(r => r.role === 'holding');
+  if (sh.length) out.push(makeCard('own', 'Shareholders ≥5% (SEC)', ownershipBody(sh, 'shareholder'), sh.length));
+  if (hd.length) out.push(makeCard('own', 'Holdings ≥5% (SEC)', ownershipBody(hd, 'holding'), hd.length));
+  return out;
+}
+
 function renderCards(item) {
   const e   = item.dbEntity;
   const org = item.edfOrg;
@@ -1212,7 +1260,8 @@ function renderCards(item) {
 
   const entityId = e?.id;
   const rels = entityId ? (REL_MAP[entityId] || []) : [];
-  if (rels.length) cards.push(makeGraphCard(entityId, rels.length));
+  const graphRels = rels.filter(r => GRAPH_ROLES.has(r.role));
+  if (graphRels.length) cards.push(makeGraphCard(entityId, graphRels.length));
 
   // Portfolio card for dual-role IN-* entities that are also investment sources
   const portfolioRels = rels.filter(r => r.role === 'investor');
@@ -1264,6 +1313,7 @@ function renderCards(item) {
 
   if (org) cards.push(makeCard('edf', 'European Defence Fund', edfCardBody(item), `${org.project_count || 0} project${(org.project_count || 0) !== 1 ? 's' : ''}`, 'card-edf'));
 
+  cards.push(...ownershipCards(REL_MAP[e?.id] || []));
   const hist = e?.history;
   if (hist?.length) cards.push(makeCard('hist', 'Change History', histCardBody(hist), hist.length));
 
@@ -1644,7 +1694,7 @@ async function init() {
       });
     });
 
-    const totalOrgs   = DB.entities.length;
+    const totalOrgs   = DB.entities.filter(e => !e.id.startsWith('PER-')).length;   // le persone non sono organizzazioni
     const totalCo     = DB.entities.filter(e => e.type === 'company').length;
     const totalInv    = DB.entities.filter(e => e.id.startsWith('IV-')).length;
     document.querySelector('.cs-hero-prompt').textContent =
