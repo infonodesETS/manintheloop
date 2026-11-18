@@ -885,3 +885,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 
 - **Decisione di Nelson:** report per Andrea e piano per Davide inviati il 2026-11-17 e non più modificati (pending, descrivono la situazione prima dell'import); risposta di Andrea sull'issue #76 pending; issue per l'indice MARLA da assegnare a Davide (testo dato da me, apertura di Nelson).
 - **`work/b5-release1/RIPARTENZA.md` eliminato con `git rm`** (recuperabile dalla storia di git). Verificato prima che nessun altro file lo citasse oltre a `STATUS.md`. Contenuti spostati: sezione 6 («da non dimenticare») in `STATUS.md`, «Prossimi lavori» punto 1; decisioni di sito in `reference/CONVENZIONI-SITO.md` (4 righe nuove nella tabella delle decisioni); scelte sui punti aperti dei ruoli in `reference/S7-RUOLI-E-PERSONE.md` (punto 9); misure e passi sono già nel log e nella PR di import. `DOMANDA-ANDREA-SOGLIA-E-NULL.md` resta (è il dettaglio dell'issue #76). Rimandi in `STATUS.md` tolti.
+
+
+### 2026-11-18 — PR #79 fusa; chiusura sessione ☑ (branch `docs/registro-pr79`, non pushato)
+
+- **PR #79** (`da9cc94`, 2 commit, 6 file, +25/−63, solo documentazione) fusa da Nelson; branch remoto cancellato. Push del branch fatto da me con ok di Nelson. Dopo il merge: `main` allineata con `--ff-only`; `validate.py` PASSED (2732 entità, 4016 relazioni); `RIPARTENZA.md` assente da `main`.
+- **Checklist di chiusura (§0.5):** log e piano aggiornati con questa voce; `STATUS.md` riscritto nella #79 (non cita numeri di PR, per regola); git pulito; aperti in `STATUS.md`. Questo commit di registro della #79 non è pushato: parte con la prossima PR.
+- **Aperti:** risposta di Andrea sull'issue #76; issue per l'indice MARLA (assegnata a Davide da Nelson: numero da registrare); prossimo lavoro KTOS `IN-1377` → `IN-1304` (metodo B3), poi le schede sporche; branch locali fusi da cancellare con ok di Nelson (`dati/b5-release1-import`, `docs/b5-domanda-andrea`, `docs/registro-pr75-issue76`, `docs/registro-pr77`).
+- **Proposta registrata:** regola di lettura del log a inizio sessione (oggi «per intero», circa 80.000 token): valutare «piano per intero, log solo dalle ultime voci», decisione di Nelson.
