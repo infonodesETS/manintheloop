@@ -14,6 +14,7 @@
 6. **Su quale scheda:** per le società con più schede di classe (Fox, News Corp) il ruolo va sulla scheda di classe con più quote, e la scelta resta rivedibile da B3.
 7. **L'età non si importa** (minimizzazione, come gli indirizzi). `since_year`/`since_month` sono interi: la fonte dà anno o anno-mese, mai il giorno.
 8. Campi `current`, `as_of`: come `ownership` (S5), `as_of` = `quote_al` del proxy; storia in `history[]`, mai cancellare.
+9. **Scelte del 2026-11-17 sui punti aperti** (raccomandazioni di Claude, adottate con la delega di Nelson «ricontrolla tu, se modifiche proponi, sennò andiamo avanti»; Nelson può ancora correggerle): il ruolo di `director` implicito si registra (16 casi); il ruolo di Silver Lake è `other`; i comitati senza ruolo proprio sono `other`; `roles` dell'entità persona è `["investor"]`.
 
 ## Persone
 
