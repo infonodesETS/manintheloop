@@ -853,3 +853,12 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Limiti:** nessuno screenshot nuovo; Cifre chiave e Reti non aperte con «ingenuo»; Compare su una sola coppia; solo inglese; «ora» di Ramaco ricavato dal database (5 relazioni), non aperto nel browser; le misure di AppLovin «ingenuo» e `PER-0001` «ingenuo» sono quelle del 2026-11-16.
 - **Aperto:** 25 righe scartate; PR unica dati + sito con import vero (`--database-reale`, decisione di Nelson); piano per Davide da riallineare alle misure con `role`; report per Andrea con i numeri veri; documenti già inviati da Nelson ad Andrea e Davide (confermato a fine sessione); branch locale `dati/b5-release1` cancellato con `git branch -d` (ok di Nelson); restano `archivio/locale-2026-11-10` e `docs/stato-pre-ripartenza` (non fusi) e `v.2026-c` (non si tocca).
 
+
+
+### 2026-11-18 — B5: le 25 righe scartate, domanda ad Andrea (PR #75 fusa, issue #76) ◐ (branch `docs/registro-pr75-issue76`)
+
+- **PR #74** (`aee587a`, 2026-11-17, solo documentazione) fusa da Nelson: patch del sito provata su copia, STATUS e ripartenza aggiornati (registrata qui, era mancante).
+- **Tabella delle 25 righe scartate** (sola lettura, da `riconciliazione.csv` dell'anteprima e `detentori-oltre-5.csv`): 14 con capitale sotto il 5% e 11 con capitale vuoto. Ripartenza misurata prima: `main` = `origin/main`, `validate.py` PASSED 2582/3423, `check_b3_branch.py` superato, md5 del database `459dfc00…`, anteprima 150 schede, 546 `ownership`, 47 `role`.
+- **Dubbio:** il README della release legge la percentuale vuota in due modi («asterisco, meno dell'1%» e «dato non trovato dal modello»). Letta come «meno dell'1%», lo scarto è giusto; letta come NULL, potrebbe far sparire un azionista (Liang in SMCI: 81.398.640 azioni, percentuale vuota). Trovato anche che 4 righe di RKLB (Khosla, BlackRock, Beck ×2) sono già importate per i voti con capitale NULL.
+- **Decisione di Nelson:** non verificare Liang; chiedere ad Andrea un controllo sulla fonte originale, con issue breve e documento di dettaglio. **PR #75** (`5182342`, 1 commit, +85/−1, solo documentazione) fusa: `work/b5-release1/DOMANDA-ANDREA-SOGLIA-E-NULL.md` e nota in `RIPARTENZA.md`. **Issue #76** aperta da Nelson e assegnata ad `aborruso`.
+- **Aperto:** risposta di Andrea (il re-import aggiunge le righe nuove, S5); l'import delle altre 546 righe non aspetta; PR unica dati + sito con `--database-reale` (decisione di Nelson); report per Andrea e piano per Davide da riallineare.
