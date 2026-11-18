@@ -252339,11 +252339,25 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Raytheon Missile Systems",
+      "name": "RTX",
       "sector": "Defence",
       "wikidata_id": "Q89368734",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-03-30",
+            "etf_name": "iShares Global Aerospace & Defence UCITS ETF",
+            "etf_ticker": "DFND",
+            "gics_code": "201010",
+            "stock_ticker": "RTX",
+            "stock_sector": "Industriali",
+            "weight_pct": 7.59,
+            "location": "United States",
+            "exchange": "New York Stock Exchange Inc.",
+            "currency": "USD",
+            "source_file": "ishare_aerospace_defense_GICS201010_en.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -252515,6 +252529,40 @@
           "old": null,
           "new": "sources.wikidata populated (Q89368734)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q89368734)"
+        },
+        {
+          "date": "2026-04-24",
+          "source": "ishares",
+          "author": "import_ishares_aerospace.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)",
+          "from_entity": "IN-1357"
+        },
+        {
+          "date": "2026-11-18",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Raytheon Missile Systems",
+          "new_value": "RTX",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-1357 (RTX)."
+        },
+        {
+          "date": "2026-11-18",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1357",
+          "note": "Unita IN-1357 (RTX) in questa entita. Motivo: Same issuer RTX (ticker RTX). IN-1357 is a bare iShares DFND import (no QID, no Crunchbase, no EDF) holding 4 SEC ownership relations; IN-1324 carries the group identity (QID Q89368734 labelled RTX, ISIN US75513E1010, tax id 06-0570975, rtx.com) under the name Raytheon Missile Systems, with the Crunchbase block of that subsidiary (Tucson), documented on 2026-04-23 as a headquarters conflict. Winner renamed to RTX. The subsidiary Crunchbase block is left in place by decision; no group profile found on Crunchbase (slug rtx is the Danish RTX A/S, raytheon-technologies is Raytheon, a sub-organization of RTX). Histories of both read.",
+          "absorbed": [
+            "sources.ishares: +1 voci (DFND/RTX)",
+            "nome del vincitore: 'Raytheon Missile Systems' -> 'RTX'",
+            "relazioni: 4 spostate sul vincitore"
+          ],
+          "loser_name": "RTX"
         }
       ],
       "validation": [
@@ -252571,6 +252619,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q89368734). label='RTX'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IN-1357 (RTX) merged into this one on 2026-11-18 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "tags": []
@@ -313750,6 +313804,13 @@
           "old": null,
           "new": null,
           "description": "Initial import from iShares Aerospace & Defense ETF (GICS 201010, ishare_aerospace_defense_GICS201010_en.csv)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1324 (RTX). Unita il 2026-11-18: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same issuer RTX (ticker RTX). IN-1357 is a bare iShares DFND import (no QID, no Crunchbase, no EDF) holding 4 SEC ownership relations; IN-1324 carries the group identity (QID Q89368734 labelled RTX, ISIN US75513E1010, tax id 06-0570975, rtx.com) under the name Raytheon Missile Systems, with the Crunchbase block of that subsidiary (Tucson), documented on 2026-04-23 as a headquarters conflict. Winner renamed to RTX. The subsidiary Crunchbase block is left in place by decision; no group profile found on Crunchbase (slug rtx is the Danish RTX A/S, raytheon-technologies is Raytheon, a sub-organization of RTX). Histories of both read.",
+          "canonical": "IN-1324",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "validation": [
@@ -313758,6 +313819,13 @@
           "description": "Roles and sector inferred from iShares ETF import only. Confirm manufacturer status and enrich with Crunchbase.",
           "author": "import_ishares_aerospace.py",
           "datestamp": "2026-04-24"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1324 (RTX). Unita il 2026-11-18: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same issuer RTX (ticker RTX). IN-1357 is a bare iShares DFND import (no QID, no Crunchbase, no EDF) holding 4 SEC ownership relations; IN-1324 carries the group identity (QID Q89368734 labelled RTX, ISIN US75513E1010, tax id 06-0570975, rtx.com) under the name Raytheon Missile Systems, with the Crunchbase block of that subsidiary (Tucson), documented on 2026-04-23 as a headquarters conflict. Winner renamed to RTX. The subsidiary Crunchbase block is left in place by decision; no group profile found on Crunchbase (slug rtx is the Danish RTX A/S, raytheon-technologies is Raytheon, a sub-organization of RTX). Histories of both read.",
+          "canonical": "IN-1324",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-18"
         }
       ],
       "tags": []
@@ -384306,7 +384374,7 @@
       "id": "REL-0416",
       "type": "ownership",
       "source": "IV-0838",
-      "target": "IN-1357",
+      "target": "IN-1324",
       "classe": "Common Stock",
       "holder_type": "company",
       "pct": 9.3,
@@ -384319,13 +384387,24 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#434",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-18",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1357 -> IN-1324 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "target",
+          "old": "IN-1357",
+          "new": "IN-1324"
+        }
+      ]
     },
     {
       "id": "REL-0417",
       "type": "ownership",
       "source": "IV-0077",
-      "target": "IN-1357",
+      "target": "IN-1324",
       "classe": "Common Stock",
       "holder_type": "company",
       "pct": 7.8,
@@ -384338,13 +384417,24 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#435",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-18",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1357 -> IN-1324 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "target",
+          "old": "IN-1357",
+          "new": "IN-1324"
+        }
+      ]
     },
     {
       "id": "REL-0418",
       "type": "ownership",
       "source": "IN-1468",
-      "target": "IN-1357",
+      "target": "IN-1324",
       "classe": "Common Stock",
       "holder_type": "company",
       "pct": 6.8,
@@ -384357,13 +384447,24 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#436",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-18",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1357 -> IN-1324 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "target",
+          "old": "IN-1357",
+          "new": "IN-1324"
+        }
+      ]
     },
     {
       "id": "REL-0419",
       "type": "ownership",
       "source": "IV-0775",
-      "target": "IN-1357",
+      "target": "IN-1324",
       "classe": "Common Stock",
       "holder_type": "company",
       "pct": 5.7,
@@ -384376,7 +384477,18 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#437",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-18",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-1357 -> IN-1324 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "target",
+          "old": "IN-1357",
+          "new": "IN-1324"
+        }
+      ]
     },
     {
       "id": "REL-0420",
