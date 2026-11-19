@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-18",
+  "_updated": "2026-11-19",
   "entities": [
     {
       "id": "IN-0001",
@@ -132365,7 +132365,7 @@
       ],
       "name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
       "sector": null,
-      "wikidata_id": "Q52618",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -132395,34 +132395,7 @@
           "wikipedia_url": null,
           "website": "https://www.ericsson.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Ericsson",
-          "description": "Swedish provider of communications technology and services",
-          "aliases": [
-            "Telefonaktiebolaget L. M. Ericsson",
-            "L. M. Ericsson",
-            "LM Ericsson",
-            "Ericsson Co.",
-            "Ericson",
-            "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
-            "Fully Automation Company",
-            "Ericsson Telephone Manufacturing Company",
-            "Telefonaktiebolet LM Ericsson"
-          ],
-          "instance_of": [
-            "telecommunications equipment industry",
-            "public company",
-            "business"
-          ],
-          "country": "Sweden",
-          "inception": "1876",
-          "headquarters": "Stockholm",
-          "official_website": "https://www.ericsson.com/",
-          "isin": "SE0000108649",
-          "employees": 101322,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -132513,6 +132486,43 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999944289, 1 projects, €156,280 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q52618",
+          "new": null,
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-13 by name search ('Ericsson'), removed by hand on 2026-04-23 and set again by the same script on 2026-06-18. The entity is: Ericsson Magyarorszag Kommunikacios Rendszerek Kft, a Hungarian limited company (Kft, Budapest; company register no. 01-09-070937 per the Ericsson group entity list), a subsidiary of the Ericsson group; the parent is Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618. No separate Wikidata item for the Hungarian Kft was looked for Decisive evidence: Primary: Ericsson group entity list (ericsson.com) has the separate rows 'Ericsson Hungary Ltd. | Hungary | ... BUDAPEST | 01-09-070937' and 'Telefonaktiebolaget LM Ericsson | Sweden | 164 83 STOCKHOLM | 556016-0680'; the EU Participant Portal legal name of PIC 999944289 in rawdata/edf_calls.json is 'ERICSSON MAGYARORSZAG KOMMUNIKACIOS RENDSZEREK KFT' (Hungary, Budapest). Weak point: The link between PIC 999944289 and register no. 01-09-070937 rests on matching name and city; no source that shows both was reopened (EU portal returns no text). The direct Hungarian shareholders are not established (GLEIF says LM Ericsson, last renewed 2023-07-31).",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Ericsson",
+            "description": "Swedish provider of communications technology and services",
+            "aliases": [
+              "Telefonaktiebolaget L. M. Ericsson",
+              "L. M. Ericsson",
+              "LM Ericsson",
+              "Ericsson Co.",
+              "Ericson",
+              "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
+              "Fully Automation Company",
+              "Ericsson Telephone Manufacturing Company",
+              "Telefonaktiebolet LM Ericsson"
+            ],
+            "instance_of": [
+              "telecommunications equipment industry",
+              "public company",
+              "business"
+            ],
+            "country": "Sweden",
+            "inception": "1876",
+            "headquarters": "Stockholm",
+            "official_website": "https://www.ericsson.com/",
+            "isin": "SE0000108649",
+            "employees": 101322,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
+          }
         }
       ],
       "validation": [
@@ -132558,6 +132568,14 @@
           "description": "wikidata_id Q52618 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q52618",
+          "wikidata_label": "Ericsson",
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-13 by name search ('Ericsson'), removed by hand on 2026-04-23 and set again by the same script on 2026-06-18. The entity is: Ericsson Magyarorszag Kommunikacios Rendszerek Kft, a Hungarian limited company (Kft, Budapest; company register no. 01-09-070937 per the Ericsson group entity list), a subsidiary of the Ericsson group; the parent is Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618. No separate Wikidata item for the Hungarian Kft was looked for Decisive evidence: Primary: Ericsson group entity list (ericsson.com) has the separate rows 'Ericsson Hungary Ltd. | Hungary | ... BUDAPEST | 01-09-070937' and 'Telefonaktiebolaget LM Ericsson | Sweden | 164 83 STOCKHOLM | 556016-0680'; the EU Participant Portal legal name of PIC 999944289 in rawdata/edf_calls.json is 'ERICSSON MAGYARORSZAG KOMMUNIKACIOS RENDSZEREK KFT' (Hungary, Budapest). Weak point: The link between PIC 999944289 and register no. 01-09-070937 rests on matching name and city; no source that shows both was reopened (EU portal returns no text). The direct Hungarian shareholders are not established (GLEIF says LM Ericsson, last renewed 2023-07-31).",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
