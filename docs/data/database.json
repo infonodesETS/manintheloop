@@ -153931,6 +153931,48 @@
             "employees": null,
             "wikipedia_url": null
           }
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_remove_edf_duplicates.py",
+          "field": "relationships",
+          "old": [
+            {
+              "source": "IN-0784",
+              "target": "EDF-0013",
+              "type": "edf_participation",
+              "role": "participant",
+              "eu_contribution": 163319.0,
+              "created_at": "2026-06-03"
+            },
+            {
+              "source": "IN-0784",
+              "target": "EDF-0093",
+              "type": "edf_participation",
+              "role": "coordinator",
+              "eu_contribution": 2144518.23,
+              "created_at": "2026-10-19"
+            },
+            {
+              "source": "IN-0784",
+              "target": "EDF-0096",
+              "type": "edf_participation",
+              "role": "coordinator",
+              "eu_contribution": 1902229.16,
+              "created_at": "2026-10-19"
+            },
+            {
+              "source": "IN-0784",
+              "target": "EDF-0098",
+              "type": "edf_participation",
+              "role": "coordinator",
+              "eu_contribution": 1250733.5,
+              "created_at": "2026-10-19"
+            }
+          ],
+          "new": null,
+          "description": "4 edf_participation relationships removed: each is an identical copy (same project, role and EU contribution) of a relationship on another active card. PIC 884472579 (INTEGRASYS SARL) is a participant only of EDF-0016 (NINJA2) in rawdata/edf_calls.json; the other four relationships came from PIC 997636853 (INTEGRASYS SA, IN-0783), which edf_orgs.json pointed to IN-0784."
         }
       ],
       "validation": [
@@ -153995,6 +154037,12 @@
           "wikidata_label": "Integrasys (company in Madrid, Spain; P17 Spain, P159 Madrid, inception 1990, website integrasys-space.com)",
           "description": "QID Q30254805 removed: on Wikidata it is 'Integrasys (company in Madrid, Spain; P17 Spain, P159 Madrid, inception 1990, website integrasys-space.com)'. Why the entity had it: search_missing_qids.py matched the name 'Integrasys' to the Spanish company; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: INTEGRASYS S.à r.l., Luxembourg private limited company, 2 rue Edward Steichen, L-2540 Luxembourg (Kirchberg), RCS Luxembourg B268141 (secondary sources), founded in 2022 by the Spanish Integrasys (EDF PIC 884472579, legal name INTEGRASYS SARL). The QID stays on IN-0783 (INTEGRASYS SA). No Wikidata item for INTEGRASYS S.à r.l. was found; to be searched with the QID pipeline. Decisive evidence: Official Integrasys news post of 2022-05-24, reopened 2026-11-19: 'INTEGRASYS founded INTEGRASYS SARL and opens the new Luxembourg facility in Kirchberg ... The office is at 2 Rue Edward Steichen'. Wikidata Q30254805: P17 Spain, P159 Madrid, P571 1990. Weak point: RCS number B268141 and legal form only from secondary sources (Overit, Paperjam; lbr.lu returned HTTP 429); the registered shareholder is not confirmed. The link between PIC 884472579 and the SARL rests on legal name and city.",
           "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "relationships_removed",
+          "description": "4 duplicate edf_participation relationships removed (full copies in history). Kept: EDF-0016. PIC 884472579 (INTEGRASYS SARL) is a participant only of EDF-0016 (NINJA2) in rawdata/edf_calls.json; the other four relationships came from PIC 997636853 (INTEGRASYS SA, IN-0783), which edf_orgs.json pointed to IN-0784.",
+          "author": "patch_remove_edf_duplicates.py",
           "datestamp": "2026-11-19"
         }
       ],
@@ -371216,14 +371264,6 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-0784",
-      "target": "EDF-0013",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 163319.0,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1439",
       "target": "EDF-0015",
       "type": "edf_participation",
@@ -374179,14 +374219,6 @@
       "created_at": "2026-10-19"
     },
     {
-      "source": "IN-0784",
-      "target": "EDF-0093",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 2144518.23,
-      "created_at": "2026-10-19"
-    },
-    {
       "source": "IN-1486",
       "target": "EDF-0093",
       "type": "edf_participation",
@@ -374331,14 +374363,6 @@
       "created_at": "2026-10-19"
     },
     {
-      "source": "IN-0784",
-      "target": "EDF-0096",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 1902229.16,
-      "created_at": "2026-10-19"
-    },
-    {
       "source": "IN-1049",
       "target": "EDF-0096",
       "type": "edf_participation",
@@ -374416,14 +374440,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 526657.57,
-      "created_at": "2026-10-19"
-    },
-    {
-      "source": "IN-0784",
-      "target": "EDF-0098",
-      "type": "edf_participation",
-      "role": "coordinator",
-      "eu_contribution": 1250733.5,
       "created_at": "2026-10-19"
     },
     {
