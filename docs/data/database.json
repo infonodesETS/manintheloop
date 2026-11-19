@@ -100442,7 +100442,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": "Q15529123",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -100515,27 +100515,7 @@
           "wikipedia_url": null,
           "website": "https://www.securelandcommunications.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Airbus Defence and Space",
-          "description": "division of Airbus Group (SE) specialized in the defense and aerospace industry",
-          "aliases": [
-            "DS",
-            "ADS",
-            "Airbus Defence & Space",
-            "Airbus DS"
-          ],
-          "instance_of": [
-            "division"
-          ],
-          "country": "Spain",
-          "inception": "2014-01",
-          "headquarters": null,
-          "official_website": "https://www.airbus.com/en/products-services/defence",
-          "isin": null,
-          "employees": 33922,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20Defence%20and%20Space"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -100716,6 +100696,36 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 959580455, 1 projects, €315,492 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q15529123",
+          "new": null,
+          "description": "QID Q15529123 removed: on Wikidata it is 'Airbus Defence and Space'. Why the entity had it: QID put back by search_missing_qids.py on 2026-06-18 after the manual removal of 2026-04-23; the QID is the Airbus group division (Wikidata: instance of division), not a legal entity. The entity is: Airbus Defence and Space Oy, Finnish osakeyhtio (PIC 959580455, Helsinki), Y-tunnus 1971133-9, formerly Cassidian Finland Oy; a national company of the Airbus group, not the division. No own QID known; a national company may have none. Decisive evidence: YTJ company search reopened (tietopalvelu.ytj.fi/yritys/1971133-9): 'Toiminimi: Airbus Defence and Space Oy ... Yritysmuoto: Osakeyhtio ... Kotipaikka: HELSINKI ... Y-tunnus 1971133-9'. Weak point: The link between the EDF PIC and Y-tunnus 1971133-9 goes through the name and the Helsinki city; the earlier name Cassidian Finland Oy and the legal parent were not proved by a reopened phrase; the website on the card (securelandcommunications.com) comes from EDF and is not the company's own.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Airbus Defence and Space",
+            "description": "division of Airbus Group (SE) specialized in the defense and aerospace industry",
+            "aliases": [
+              "DS",
+              "ADS",
+              "Airbus Defence & Space",
+              "Airbus DS"
+            ],
+            "instance_of": [
+              "division"
+            ],
+            "country": "Spain",
+            "inception": "2014-01",
+            "headquarters": null,
+            "official_website": "https://www.airbus.com/en/products-services/defence",
+            "isin": null,
+            "employees": 33922,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20Defence%20and%20Space"
+          }
         }
       ],
       "validation": [
@@ -100773,6 +100783,14 @@
           "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q15529123",
+          "wikidata_label": "Airbus Defence and Space",
+          "description": "QID Q15529123 removed: on Wikidata it is 'Airbus Defence and Space'. Why the entity had it: QID put back by search_missing_qids.py on 2026-06-18 after the manual removal of 2026-04-23; the QID is the Airbus group division (Wikidata: instance of division), not a legal entity. The entity is: Airbus Defence and Space Oy, Finnish osakeyhtio (PIC 959580455, Helsinki), Y-tunnus 1971133-9, formerly Cassidian Finland Oy; a national company of the Airbus group, not the division. No own QID known; a national company may have none. Decisive evidence: YTJ company search reopened (tietopalvelu.ytj.fi/yritys/1971133-9): 'Toiminimi: Airbus Defence and Space Oy ... Yritysmuoto: Osakeyhtio ... Kotipaikka: HELSINKI ... Y-tunnus 1971133-9'. Weak point: The link between the EDF PIC and Y-tunnus 1971133-9 goes through the name and the Helsinki city; the earlier name Cassidian Finland Oy and the legal parent were not proved by a reopened phrase; the website on the card (securelandcommunications.com) comes from EDF and is not the company's own.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
