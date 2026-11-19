@@ -1,6 +1,6 @@
 {
   "_generated_at": "2026-06-18",
-  "_total": 590,
+  "_total": 591,
   "_proposed": 0,
   "_skipped": 434,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
@@ -2189,8 +2189,8 @@
       "entity_id": "IN-0657",
       "entity_name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
       "search_name": "Ericsson Magyarorszag Kommunikacios Rendszerek Kft",
-      "status": "accepted",
-      "reason": "P856 website match (https://www.ericsson.com) + org keyword 'provider'",
+      "status": "rejected",
+      "reason": "QID Q52618 tolto con qid_removed il 2026-11-19 (Ericsson Magyarorszag Kommunikacios Rendszerek Kft, a Hungarian limited company (Kft, Budapest; company register no. 01-09-070937 per the Ericsson group entity list), a subsidiary of the Ericsson group; the parent is Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618): non riproporre ne applicare. Stato precedente: accepted (P856 website match (https://www.ericsson.com) + org keyword 'provider', qid Q52618).",
       "qid": "Q52618",
       "label": "Ericsson",
       "description": "Swedish provider of communications technology and services"
@@ -2879,8 +2879,8 @@
       "entity_id": "IN-0831",
       "entity_name": "L M Ericsson",
       "search_name": "L M Ericsson",
-      "status": "accepted",
-      "reason": "found via reconciliation: wikidata_label='Ericsson', score=100.0",
+      "status": "rejected",
+      "reason": "QID Q52618 tolto con qid_removed il 2026-11-19 (Oy L M Ericsson Ab, a Finnish limited company (osakeyhtiö, Jorvas; Y-tunnus 0203114-2), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; not a duplicate of the parent): non riproporre ne applicare. Stato precedente: accepted (found via reconciliation: wikidata_label='Ericsson', score=100.0, qid Q52618).",
       "qid": "Q52618",
       "label": "Ericsson",
       "description": "Swedish provider of communications technology and services"
@@ -5903,6 +5903,16 @@
       "reason": "QID Q131884343 tolto con qid_removed il 2026-11-13 (controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp): non riproporre ne applicare.",
       "qid": "Q131884343",
       "label": "Alcoa Nederland",
+      "description": null
+    },
+    {
+      "entity_id": "IN-0655",
+      "entity_name": "Ericsson",
+      "search_name": "Ericsson",
+      "status": "rejected",
+      "reason": "QID Q52618 tolto con qid_removed il 2026-11-19 (Ericsson AB, a Swedish limited company (aktiebolag; org. no. 556056-6258; Stockholm/Kista), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; the card's Crunchbase block and website describe the group, not Ericsson AB): non riproporre ne applicare.",
+      "qid": "Q52618",
+      "label": "Ericsson",
       "description": null
     }
   ]
