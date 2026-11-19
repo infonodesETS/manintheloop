@@ -99936,7 +99936,7 @@
       ],
       "name": "Airbus Defence And Space",
       "sector": null,
-      "wikidata_id": "Q15529123",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -100009,27 +100009,7 @@
           "wikipedia_url": null,
           "website": "https://www.airbus.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Airbus Defence and Space",
-          "description": "division of Airbus Group (SE) specialized in the defense and aerospace industry",
-          "aliases": [
-            "DS",
-            "ADS",
-            "Airbus Defence & Space",
-            "Airbus DS"
-          ],
-          "instance_of": [
-            "division"
-          ],
-          "country": "Spain",
-          "inception": "2014-01",
-          "headquarters": null,
-          "official_website": "https://www.airbus.com/en/products-services/defence",
-          "isin": null,
-          "employees": 33922,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20Defence%20and%20Space"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -100102,6 +100082,36 @@
           "old": null,
           "new": "Q15529123",
           "description": "wikidata_id set via search: label='Airbus Defence and Space', description='division of Airbus Group (SE) specialized in the defense and aerospace industry. Search name used: 'Airbus Defence And Space'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q15529123",
+          "new": null,
+          "description": "QID Q15529123 removed: on Wikidata it is 'Airbus Defence and Space'. Why the entity had it: QID put back by search_missing_qids.py on 2026-06-18 after the manual removal of 2026-04-23; the QID is the Airbus group division (Wikidata: instance of division), not a legal entity. The entity is: Airbus Defence and Space SA (formerly EADS Construcciones Aeronauticas SA), Spanish Sociedad Anonima (PIC 999699558, Getafe), NIF A28006104; a national company of the Airbus group, not the division. No own QID known; a national company may have none. Decisive evidence: LEI record reopened (leiscan.com/lei/529900U1P1JEV71EBO44): 'Legal Name AIRBUS DEFENCE AND SPACE SA ... Legal Form Sociedad Anonima Registration # A28006104'; infonif.economia3.com: 'NIF A28006104 ... Denominacion anterior EADS CONSTRUCCIONES AERONAUTICAS SA'. Weak point: All evidence is secondary (LEI aggregators and a company directory); the Registro Mercantil was not opened; the PIC is linked to the NIF only by name and city; the direct parent (Airbus SE) comes from an LEI aggregator.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Airbus Defence and Space",
+            "description": "division of Airbus Group (SE) specialized in the defense and aerospace industry",
+            "aliases": [
+              "DS",
+              "ADS",
+              "Airbus Defence & Space",
+              "Airbus DS"
+            ],
+            "instance_of": [
+              "division"
+            ],
+            "country": "Spain",
+            "inception": "2014-01",
+            "headquarters": null,
+            "official_website": "https://www.airbus.com/en/products-services/defence",
+            "isin": null,
+            "employees": 33922,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20Defence%20and%20Space"
+          }
         }
       ],
       "validation": [
@@ -100159,6 +100169,14 @@
           "description": "wikidata_id Q15529123 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q15529123",
+          "wikidata_label": "Airbus Defence and Space",
+          "description": "QID Q15529123 removed: on Wikidata it is 'Airbus Defence and Space'. Why the entity had it: QID put back by search_missing_qids.py on 2026-06-18 after the manual removal of 2026-04-23; the QID is the Airbus group division (Wikidata: instance of division), not a legal entity. The entity is: Airbus Defence and Space SA (formerly EADS Construcciones Aeronauticas SA), Spanish Sociedad Anonima (PIC 999699558, Getafe), NIF A28006104; a national company of the Airbus group, not the division. No own QID known; a national company may have none. Decisive evidence: LEI record reopened (leiscan.com/lei/529900U1P1JEV71EBO44): 'Legal Name AIRBUS DEFENCE AND SPACE SA ... Legal Form Sociedad Anonima Registration # A28006104'; infonif.economia3.com: 'NIF A28006104 ... Denominacion anterior EADS CONSTRUCCIONES AERONAUTICAS SA'. Weak point: All evidence is secondary (LEI aggregators and a company directory); the Registro Mercantil was not opened; the PIC is linked to the NIF only by name and city; the direct parent (Airbus SE) comes from an LEI aggregator.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
