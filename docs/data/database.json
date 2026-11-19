@@ -160582,7 +160582,7 @@
       ],
       "name": "L M Ericsson",
       "sector": null,
-      "wikidata_id": "Q52618",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -160612,34 +160612,7 @@
           "wikipedia_url": null,
           "website": "https://www.ericsson.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Ericsson",
-          "description": "Swedish provider of communications technology and services",
-          "aliases": [
-            "Telefonaktiebolaget L. M. Ericsson",
-            "L. M. Ericsson",
-            "LM Ericsson",
-            "Ericsson Co.",
-            "Ericson",
-            "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
-            "Fully Automation Company",
-            "Ericsson Telephone Manufacturing Company",
-            "Telefonaktiebolet LM Ericsson"
-          ],
-          "instance_of": [
-            "telecommunications equipment industry",
-            "public company",
-            "business"
-          ],
-          "country": "Sweden",
-          "inception": "1876",
-          "headquarters": "Stockholm",
-          "official_website": "https://www.ericsson.com/",
-          "isin": "SE0000108649",
-          "employees": 101322,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -160730,6 +160703,43 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999942931, 1 projects, €281,849 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q52618",
+          "new": null,
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-12 by name search ('L M Ericsson'), removed by hand on 2026-04-23 with the note 'duplicate name for Ericsson' (that note is wrong: the card is the Finnish subsidiary) and set again by the same script on 2026-06-18. The entity is: Oy L M Ericsson Ab, a Finnish limited company (osakeyhtiö, Jorvas; Y-tunnus 0203114-2), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; not a duplicate of the parent. No separate Wikidata item for the Finnish Oy was looked for Decisive evidence: Primary: the EU Participant Portal legal name of PIC 999942931 in rawdata/edf_calls.json is 'OY L M ERICSSON AB' (Finland, Jorvas); the Ericsson Form 20-F 2024 (SEC EDGAR) lists 'Oy LM Ericsson Ab, Finland, 100' among the subsidiaries of the Parent Company, whose organization number is 556016-0680. Weak point: The Y-tunnus 0203114-2 comes from business.fi (YTJ data) by name and municipality, not from a page that also shows the PIC; PRH/YTJ and GLEIF were not opened directly and no LEI is stated.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Ericsson",
+            "description": "Swedish provider of communications technology and services",
+            "aliases": [
+              "Telefonaktiebolaget L. M. Ericsson",
+              "L. M. Ericsson",
+              "LM Ericsson",
+              "Ericsson Co.",
+              "Ericson",
+              "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
+              "Fully Automation Company",
+              "Ericsson Telephone Manufacturing Company",
+              "Telefonaktiebolet LM Ericsson"
+            ],
+            "instance_of": [
+              "telecommunications equipment industry",
+              "public company",
+              "business"
+            ],
+            "country": "Sweden",
+            "inception": "1876",
+            "headquarters": "Stockholm",
+            "official_website": "https://www.ericsson.com/",
+            "isin": "SE0000108649",
+            "employees": 101322,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
+          }
         }
       ],
       "validation": [
@@ -160775,6 +160785,14 @@
           "description": "wikidata_id Q52618 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q52618",
+          "wikidata_label": "Ericsson",
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-12 by name search ('L M Ericsson'), removed by hand on 2026-04-23 with the note 'duplicate name for Ericsson' (that note is wrong: the card is the Finnish subsidiary) and set again by the same script on 2026-06-18. The entity is: Oy L M Ericsson Ab, a Finnish limited company (osakeyhtiö, Jorvas; Y-tunnus 0203114-2), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; not a duplicate of the parent. No separate Wikidata item for the Finnish Oy was looked for Decisive evidence: Primary: the EU Participant Portal legal name of PIC 999942931 in rawdata/edf_calls.json is 'OY L M ERICSSON AB' (Finland, Jorvas); the Ericsson Form 20-F 2024 (SEC EDGAR) lists 'Oy LM Ericsson Ab, Finland, 100' among the subsidiaries of the Parent Company, whose organization number is 556016-0680. Weak point: The Y-tunnus 0203114-2 comes from business.fi (YTJ data) by name and municipality, not from a page that also shows the PIC; PRH/YTJ and GLEIF were not opened directly and no LEI is stated.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
