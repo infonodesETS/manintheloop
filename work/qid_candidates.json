@@ -1,6 +1,6 @@
 {
   "_generated_at": "2026-06-18",
-  "_total": 590,
+  "_total": 591,
   "_proposed": 0,
   "_skipped": 434,
   "_instructions": "Review each entry with status='proposed'. Change to 'accepted' to apply, 'rejected' to discard. Do not change 'skipped' entries. Then run: python3 scripts/search_missing_qids.py --apply",
@@ -5903,6 +5903,16 @@
       "reason": "QID Q131884343 tolto con qid_removed il 2026-11-13 (controllata Alcoa Warrick LLC (Delaware), Exhibit 21.1 del 10-K 2018 di Alcoa Corp): non riproporre ne applicare.",
       "qid": "Q131884343",
       "label": "Alcoa Nederland",
+      "description": null
+    },
+    {
+      "entity_id": "IN-0655",
+      "entity_name": "Ericsson",
+      "search_name": "Ericsson",
+      "status": "rejected",
+      "reason": "QID Q52618 tolto con qid_removed il 2026-11-19 (Ericsson AB, a Swedish limited company (aktiebolag; org. no. 556056-6258; Stockholm/Kista), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; the card's Crunchbase block and website describe the group, not Ericsson AB): non riproporre ne applicare.",
+      "qid": "Q52618",
+      "label": "Ericsson",
       "description": null
     }
   ]

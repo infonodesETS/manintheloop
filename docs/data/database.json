@@ -131866,7 +131866,7 @@
       ],
       "name": "Ericsson",
       "sector": null,
-      "wikidata_id": "Q52618",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -131955,34 +131955,7 @@
           "wikipedia_url": null,
           "website": "https://www.ericsson.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-06-03",
-          "label": "Ericsson",
-          "description": "Swedish provider of communications technology and services",
-          "aliases": [
-            "Telefonaktiebolaget L. M. Ericsson",
-            "L. M. Ericsson",
-            "LM Ericsson",
-            "Ericsson Co.",
-            "Ericson",
-            "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
-            "Fully Automation Company",
-            "Ericsson Telephone Manufacturing Company",
-            "Telefonaktiebolet LM Ericsson"
-          ],
-          "instance_of": [
-            "telecommunications equipment industry",
-            "public company",
-            "business"
-          ],
-          "country": "Sweden",
-          "inception": "1876",
-          "headquarters": "Stockholm",
-          "official_website": "https://www.ericsson.com/",
-          "isin": "SE0000108649",
-          "employees": 101322,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -132092,6 +132065,43 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999910921, 1 projects, €2,543,434 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q52618",
+          "new": null,
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-12 by name search ('Ericsson') and the card was kept as holder of the QID in the 2026-04-23 review, but the card is the subsidiary Ericsson AB; the parent's listing is on IN-0123 (ERIC B). The entity is: Ericsson AB, a Swedish limited company (aktiebolag; org. no. 556056-6258; Stockholm/Kista), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; the card's Crunchbase block and website describe the group, not Ericsson AB. No separate Wikidata item for Ericsson AB was looked for Decisive evidence: Primary: the EU Participant Portal legal name of PIC 999910921 in rawdata/edf_calls.json is 'ERICSSON AB' (Sweden, Stockholm); the Ericsson Form 20-F (SEC EDGAR) lists '| Ericsson AB | 556056-6258 | Sweden | 100 |' as a 100% owned shareholding of the Parent Company 'Telefonaktiebolaget LM Ericsson (publ)', organization number 556016-0680. Weak point: The org. no. 556056-6258 is tied to PIC 999910921 only by the matching name 'Ericsson AB' (aggregators euacc.ai and defencegatehub.com agree; the EU portal page returned HTTP 500). Bolagsverket and GLEIF were not opened directly.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-06-03",
+            "label": "Ericsson",
+            "description": "Swedish provider of communications technology and services",
+            "aliases": [
+              "Telefonaktiebolaget L. M. Ericsson",
+              "L. M. Ericsson",
+              "LM Ericsson",
+              "Ericsson Co.",
+              "Ericson",
+              "Telefonaktiebolaget LM Ericsson (publ) (Stockholm)",
+              "Fully Automation Company",
+              "Ericsson Telephone Manufacturing Company",
+              "Telefonaktiebolet LM Ericsson"
+            ],
+            "instance_of": [
+              "telecommunications equipment industry",
+              "public company",
+              "business"
+            ],
+            "country": "Sweden",
+            "inception": "1876",
+            "headquarters": "Stockholm",
+            "official_website": "https://www.ericsson.com/",
+            "isin": "SE0000108649",
+            "employees": 101322,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
+          }
         }
       ],
       "validation": [
@@ -132160,6 +132170,14 @@
           "description": "sources.wikidata populated from Wikidata API (Q52618). label='Ericsson'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q52618",
+          "wikidata_label": "Ericsson",
+          "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-12 by name search ('Ericsson') and the card was kept as holder of the QID in the 2026-04-23 review, but the card is the subsidiary Ericsson AB; the parent's listing is on IN-0123 (ERIC B). The entity is: Ericsson AB, a Swedish limited company (aktiebolag; org. no. 556056-6258; Stockholm/Kista), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; the card's Crunchbase block and website describe the group, not Ericsson AB. No separate Wikidata item for Ericsson AB was looked for Decisive evidence: Primary: the EU Participant Portal legal name of PIC 999910921 in rawdata/edf_calls.json is 'ERICSSON AB' (Sweden, Stockholm); the Ericsson Form 20-F (SEC EDGAR) lists '| Ericsson AB | 556056-6258 | Sweden | 100 |' as a 100% owned shareholding of the Parent Company 'Telefonaktiebolaget LM Ericsson (publ)', organization number 556016-0680. Weak point: The org. no. 556056-6258 is tied to PIC 999910921 only by the matching name 'Ericsson AB' (aggregators euacc.ai and defencegatehub.com agree; the EU portal page returned HTTP 500). Bolagsverket and GLEIF were not opened directly.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
