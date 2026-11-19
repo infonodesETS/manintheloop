@@ -106735,6 +106735,13 @@
           "description": "wikidata_id Q19951610 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q19951610 checked on 2026-11-19 and kept (it had been nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py). The entity is ArianeGroup SAS (EDF PIC 932228201, legal name ARIANEGROUP SAS), SIREN 519 032 247, RCS Versailles, 51-61 Route de Verneuil, 78130 Les Mureaux. Decisive evidence: on Wikidata Q19951610 carries P1616 SIREN 519032247, P1448 'ArianeGroup SAS', P1454 société par actions simplifiée, P159 Les Mureaux, LEI 969500PQFG3KKR3L7W58 (ARIANEGROUP SAS on GLEIF); INSEE SIRENE notice reopened 2026-11-19: 'Identifiant SIREN 519 032 247 ... Dénomination ARIANEGROUP SAS ... 5710 - SAS'; ariane.group legal notices: 'ArianeGroup SAS ... registered with the Versailles Trade and Companies Register under number 519 032 247'. Weak point: the Wikidata item also carries group-level data (P31 joint venture, P17 France and Germany, P127 Airbus and Safran); ArianeGroup Holding (50/50 Airbus and Safran) has no item of its own. The QID was removed from IN-0502 (ArianeGroup GmbH). The Crunchbase block (airbus-safran-launchers) describes the group and is not touched.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-19)",
+          "datestamp": "2026-11-19",
+          "wikidata_id": "Q19951610"
         }
       ],
       "tags": []
@@ -106747,7 +106754,7 @@
       ],
       "name": "Arianegroup",
       "sector": null,
-      "wikidata_id": "Q19951610",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -106818,23 +106825,7 @@
           "wikipedia_url": null,
           "website": "https://www.ariane.group"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "ArianeGroup",
-          "description": "European space company",
-          "aliases": [],
-          "instance_of": [
-            "organization",
-            "joint venture"
-          ],
-          "country": "France",
-          "inception": "2015-01",
-          "headquarters": "Les Mureaux",
-          "official_website": "https://www.ariane.group/fr/",
-          "isin": null,
-          "employees": 8000,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/ArianeGroup"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -106961,6 +106952,50 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 931927113, 2 projects, €558,712 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q19951610",
+          "new": null,
+          "description": "QID Q19951610 removed: on Wikidata it is 'ArianeGroup (European space company; identifiers of ArianeGroup SAS: P1616 SIREN 519032247, LEI 969500PQFG3KKR3L7W58, seat Les Mureaux)'. Why the entity had it: search_missing_qids.py matched the name 'Arianegroup' to the group item on 2026-04-13; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: ArianeGroup GmbH, German Gesellschaft mit beschränkter Haftung, registered office Robert-Koch-Str. 1, 82024 Taufkirchen, Amtsgericht München HRB 215178, VAT DE297722712 (EDF PIC 931927113, legal name ARIANEGROUP GMBH); one of the two operating subsidiaries of ArianeGroup Holding (50/50 Airbus and Safran), alongside ArianeGroup SAS in France. The QID stays on IN-0501 (ArianeGroup SAS), which is not the parent of the GmbH. No Wikidata item for ArianeGroup GmbH was found; to be searched with the QID pipeline. Decisive evidence: ArianeGroup GmbH environmental annex (ariane.group PDF, 2024), reopened 2026-11-19: 'Sitz der Gesellschaft: Robert-Koch-Str. 1, 82024 Taufkirchen, Deutschland Registergericht: Amtsgericht München, HRB Nr. 215178'. Wikidata Q19951610 carries P1616 519032247, P1448 'ArianeGroup SAS', P1454 société par actions simplifiée, P159 Les Mureaux: the French SAS (INSEE SIRENE: 'SIREN 519 032 247 ... ARIANEGROUP SAS'). Weak point: Q19951610 also carries group-level data (P31 joint venture, P17 France and Germany, P127 Airbus and Safran); the link between PIC 931927113 and HRB 215178 rests on legal name and city; no register extract reopened (former name Airbus - Safran Launchers GmbH from openregister.de, secondary). The Crunchbase block (airbus-safran-launchers) describes the group and is not touched.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "ArianeGroup",
+            "description": "European space company",
+            "aliases": [],
+            "instance_of": [
+              "organization",
+              "joint venture"
+            ],
+            "country": "France",
+            "inception": "2015-01",
+            "headquarters": "Les Mureaux",
+            "official_website": "https://www.ariane.group/fr/",
+            "isin": null,
+            "employees": 8000,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/ArianeGroup"
+          }
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_remove_edf_duplicates.py",
+          "field": "relationships",
+          "old": [
+            {
+              "source": "IN-0502",
+              "target": "EDF-0050",
+              "type": "edf_participation",
+              "role": "participant",
+              "eu_contribution": 1540000.0,
+              "created_at": "2026-06-03"
+            }
+          ],
+          "new": null,
+          "description": "1 edf_participation relationships removed: each is an identical copy (same project, role and EU contribution) of a relationship on another active card. PIC 931927113 (ARIANEGROUP GMBH) is not a participant of EDF-0050 (ODINS EYE II) in rawdata/edf_calls.json; the relationship came from PIC 932228201 (ARIANEGROUP SAS, IN-0501), which edf_orgs.json pointed to IN-0502."
         }
       ],
       "validation": [
@@ -107024,6 +107059,20 @@
           "description": "wikidata_id Q19951610 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q19951610",
+          "wikidata_label": "ArianeGroup (European space company; identifiers of ArianeGroup SAS: P1616 SIREN 519032247, LEI 969500PQFG3KKR3L7W58, seat Les Mureaux)",
+          "description": "QID Q19951610 removed: on Wikidata it is 'ArianeGroup (European space company; identifiers of ArianeGroup SAS: P1616 SIREN 519032247, LEI 969500PQFG3KKR3L7W58, seat Les Mureaux)'. Why the entity had it: search_missing_qids.py matched the name 'Arianegroup' to the group item on 2026-04-13; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: ArianeGroup GmbH, German Gesellschaft mit beschränkter Haftung, registered office Robert-Koch-Str. 1, 82024 Taufkirchen, Amtsgericht München HRB 215178, VAT DE297722712 (EDF PIC 931927113, legal name ARIANEGROUP GMBH); one of the two operating subsidiaries of ArianeGroup Holding (50/50 Airbus and Safran), alongside ArianeGroup SAS in France. The QID stays on IN-0501 (ArianeGroup SAS), which is not the parent of the GmbH. No Wikidata item for ArianeGroup GmbH was found; to be searched with the QID pipeline. Decisive evidence: ArianeGroup GmbH environmental annex (ariane.group PDF, 2024), reopened 2026-11-19: 'Sitz der Gesellschaft: Robert-Koch-Str. 1, 82024 Taufkirchen, Deutschland Registergericht: Amtsgericht München, HRB Nr. 215178'. Wikidata Q19951610 carries P1616 519032247, P1448 'ArianeGroup SAS', P1454 société par actions simplifiée, P159 Les Mureaux: the French SAS (INSEE SIRENE: 'SIREN 519 032 247 ... ARIANEGROUP SAS'). Weak point: Q19951610 also carries group-level data (P31 joint venture, P17 France and Germany, P127 Airbus and Safran); the link between PIC 931927113 and HRB 215178 rests on legal name and city; no register extract reopened (former name Airbus - Safran Launchers GmbH from openregister.de, secondary). The Crunchbase block (airbus-safran-launchers) describes the group and is not touched.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "relationships_removed",
+          "description": "1 duplicate edf_participation relationships removed (full copies in history). Kept: EDF-0034, EDF-0060. PIC 931927113 (ARIANEGROUP GMBH) is not a participant of EDF-0050 (ODINS EYE II) in rawdata/edf_calls.json; the relationship came from PIC 932228201 (ARIANEGROUP SAS, IN-0501), which edf_orgs.json pointed to IN-0502.",
+          "author": "patch_remove_edf_duplicates.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
@@ -371203,14 +371252,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 445000.0,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-0502",
-      "target": "EDF-0050",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1540000.0,
       "created_at": "2026-06-03"
     },
     {
