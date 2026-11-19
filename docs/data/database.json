@@ -131886,66 +131886,7 @@
           "source_file": "edf_calls.json"
         },
         "ishares": null,
-        "crunchbase": {
-          "extracted_at": "2026-04-24",
-          "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
-          "profile_url": "https://www.crunchbase.com/organization/ericsson",
-          "stage": "",
-          "description": "Ericsson is an information and communications technology company that offers network services.",
-          "description_full": null,
-          "website": "https://www.ericsson.com",
-          "cb_rank": 2135,
-          "headquarters": "Kista, Stockholms Lan, Sweden",
-          "headquarters_regions": "European Union (EU), Nordic Countries, Scandinavia",
-          "operating_status": "Active",
-          "founded_date": "1876-01-01",
-          "company_type": "For Profit",
-          "investment_stage": "Early Stage Venture",
-          "investor_type": "Hedge Fund, Micro VC",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Hardware",
-            "Information Technology",
-            "Internet Services",
-            "Mobile"
-          ],
-          "industries": [
-            "Information Technology",
-            "Internet",
-            "Mobile",
-            "Telecommunications"
-          ],
-          "founders": [
-            "Lars Magnus Ericsson",
-            "Peter Matthews"
-          ],
-          "num_funding_rounds": 8,
-          "funding_status": "IPO",
-          "last_funding_date": "2025-04-04",
-          "last_funding_amount_usd": 119989201,
-          "last_funding_type": "Post-IPO Equity",
-          "total_equity_funding_usd": 489989201,
-          "total_funding_usd": 1818990905,
-          "total_funding_native": {
-            "amount": 1818990905,
-            "currency": "USD"
-          },
-          "top_investors": [
-            "European Investment Bank",
-            "Nordic Investment Bank",
-            "SEK",
-            "Investor",
-            "Cevian Capital"
-          ],
-          "num_investors": 5,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
-        },
+        "crunchbase": null,
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -132102,6 +132043,74 @@
             "employees": 101322,
             "wikipedia_url": "https://en.wikipedia.org/wiki/Ericsson"
           }
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-24",
+            "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+            "profile_url": "https://www.crunchbase.com/organization/ericsson",
+            "stage": "",
+            "description": "Ericsson is an information and communications technology company that offers network services.",
+            "description_full": null,
+            "website": "https://www.ericsson.com",
+            "cb_rank": 2135,
+            "headquarters": "Kista, Stockholms Lan, Sweden",
+            "headquarters_regions": "European Union (EU), Nordic Countries, Scandinavia",
+            "operating_status": "Active",
+            "founded_date": "1876-01-01",
+            "company_type": "For Profit",
+            "investment_stage": "Early Stage Venture",
+            "investor_type": "Hedge Fund, Micro VC",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Hardware",
+              "Information Technology",
+              "Internet Services",
+              "Mobile"
+            ],
+            "industries": [
+              "Information Technology",
+              "Internet",
+              "Mobile",
+              "Telecommunications"
+            ],
+            "founders": [
+              "Lars Magnus Ericsson",
+              "Peter Matthews"
+            ],
+            "num_funding_rounds": 8,
+            "funding_status": "IPO",
+            "last_funding_date": "2025-04-04",
+            "last_funding_amount_usd": 119989201,
+            "last_funding_type": "Post-IPO Equity",
+            "total_equity_funding_usd": 489989201,
+            "total_funding_usd": 1818990905,
+            "total_funding_native": {
+              "amount": 1818990905,
+              "currency": "USD"
+            },
+            "top_investors": [
+              "European Investment Bank",
+              "Nordic Investment Bank",
+              "SEK",
+              "Investor",
+              "Cevian Capital"
+            ],
+            "num_investors": 5,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group."
         }
       ],
       "validation": [
@@ -132177,6 +132186,13 @@
           "wikidata_label": "Ericsson",
           "description": "QID Q52618 removed: on Wikidata it is 'Ericsson'. Why the entity had it: Q52618 is the Wikidata item of the Swedish listed parent; it was set by search_missing_qids.py on 2026-04-12 by name search ('Ericsson') and the card was kept as holder of the QID in the 2026-04-23 review, but the card is the subsidiary Ericsson AB; the parent's listing is on IN-0123 (ERIC B). The entity is: Ericsson AB, a Swedish limited company (aktiebolag; org. no. 556056-6258; Stockholm/Kista), a wholly owned subsidiary of Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680, which holds Q52618; the card's Crunchbase block and website describe the group, not Ericsson AB. No separate Wikidata item for Ericsson AB was looked for Decisive evidence: Primary: the EU Participant Portal legal name of PIC 999910921 in rawdata/edf_calls.json is 'ERICSSON AB' (Sweden, Stockholm); the Ericsson Form 20-F (SEC EDGAR) lists '| Ericsson AB | 556056-6258 | Sweden | 100 |' as a 100% owned shareholding of the Parent Company 'Telefonaktiebolaget LM Ericsson (publ)', organization number 556016-0680. Weak point: The org. no. 556056-6258 is tied to PIC 999910921 only by the matching name 'Ericsson AB' (aggregators euacc.ai and defencegatehub.com agree; the EU portal page returned HTTP 500). Bolagsverket and GLEIF were not opened directly.",
           "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/ericsson",
+          "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group.",
+          "author": "patch_clear_crunchbase.py",
           "datestamp": "2026-11-19"
         }
       ],
