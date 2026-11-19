@@ -153692,7 +153692,7 @@
       ],
       "name": "Integrasys",
       "sector": null,
-      "wikidata_id": "Q30254805",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -153772,22 +153772,7 @@
           "wikipedia_url": null,
           "website": "http://www.integrasys-space.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Integrasys",
-          "description": "company in Madrid, Spain",
-          "aliases": [],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Spain",
-          "inception": "1990-01-01",
-          "headquarters": "Madrid",
-          "official_website": "http://www.integrasys-space.com/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": null
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -153914,6 +153899,31 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 884472579, 1 projects, €953,439 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q30254805",
+          "new": null,
+          "description": "QID Q30254805 removed: on Wikidata it is 'Integrasys (company in Madrid, Spain; P17 Spain, P159 Madrid, inception 1990, website integrasys-space.com)'. Why the entity had it: search_missing_qids.py matched the name 'Integrasys' to the Spanish company; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: INTEGRASYS S.à r.l., Luxembourg private limited company, 2 rue Edward Steichen, L-2540 Luxembourg (Kirchberg), RCS Luxembourg B268141 (secondary sources), founded in 2022 by the Spanish Integrasys (EDF PIC 884472579, legal name INTEGRASYS SARL). The QID stays on IN-0783 (INTEGRASYS SA). No Wikidata item for INTEGRASYS S.à r.l. was found; to be searched with the QID pipeline. Decisive evidence: Official Integrasys news post of 2022-05-24, reopened 2026-11-19: 'INTEGRASYS founded INTEGRASYS SARL and opens the new Luxembourg facility in Kirchberg ... The office is at 2 Rue Edward Steichen'. Wikidata Q30254805: P17 Spain, P159 Madrid, P571 1990. Weak point: RCS number B268141 and legal form only from secondary sources (Overit, Paperjam; lbr.lu returned HTTP 429); the registered shareholder is not confirmed. The link between PIC 884472579 and the SARL rests on legal name and city.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Integrasys",
+            "description": "company in Madrid, Spain",
+            "aliases": [],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Spain",
+            "inception": "1990-01-01",
+            "headquarters": "Madrid",
+            "official_website": "http://www.integrasys-space.com/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": null
+          }
         }
       ],
       "validation": [
@@ -153971,6 +153981,14 @@
           "description": "wikidata_id Q30254805 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q30254805",
+          "wikidata_label": "Integrasys (company in Madrid, Spain; P17 Spain, P159 Madrid, inception 1990, website integrasys-space.com)",
+          "description": "QID Q30254805 removed: on Wikidata it is 'Integrasys (company in Madrid, Spain; P17 Spain, P159 Madrid, inception 1990, website integrasys-space.com)'. Why the entity had it: search_missing_qids.py matched the name 'Integrasys' to the Spanish company; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: INTEGRASYS S.à r.l., Luxembourg private limited company, 2 rue Edward Steichen, L-2540 Luxembourg (Kirchberg), RCS Luxembourg B268141 (secondary sources), founded in 2022 by the Spanish Integrasys (EDF PIC 884472579, legal name INTEGRASYS SARL). The QID stays on IN-0783 (INTEGRASYS SA). No Wikidata item for INTEGRASYS S.à r.l. was found; to be searched with the QID pipeline. Decisive evidence: Official Integrasys news post of 2022-05-24, reopened 2026-11-19: 'INTEGRASYS founded INTEGRASYS SARL and opens the new Luxembourg facility in Kirchberg ... The office is at 2 Rue Edward Steichen'. Wikidata Q30254805: P17 Spain, P159 Madrid, P571 1990. Weak point: RCS number B268141 and legal form only from secondary sources (Overit, Paperjam; lbr.lu returned HTTP 429); the registered shareholder is not confirmed. The link between PIC 884472579 and the SARL rests on legal name and city.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
