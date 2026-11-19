@@ -106735,6 +106735,13 @@
           "description": "wikidata_id Q19951610 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q19951610 checked on 2026-11-19 and kept (it had been nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py). The entity is ArianeGroup SAS (EDF PIC 932228201, legal name ARIANEGROUP SAS), SIREN 519 032 247, RCS Versailles, 51-61 Route de Verneuil, 78130 Les Mureaux. Decisive evidence: on Wikidata Q19951610 carries P1616 SIREN 519032247, P1448 'ArianeGroup SAS', P1454 société par actions simplifiée, P159 Les Mureaux, LEI 969500PQFG3KKR3L7W58 (ARIANEGROUP SAS on GLEIF); INSEE SIRENE notice reopened 2026-11-19: 'Identifiant SIREN 519 032 247 ... Dénomination ARIANEGROUP SAS ... 5710 - SAS'; ariane.group legal notices: 'ArianeGroup SAS ... registered with the Versailles Trade and Companies Register under number 519 032 247'. Weak point: the Wikidata item also carries group-level data (P31 joint venture, P17 France and Germany, P127 Airbus and Safran); ArianeGroup Holding (50/50 Airbus and Safran) has no item of its own. The QID was removed from IN-0502 (ArianeGroup GmbH). The Crunchbase block (airbus-safran-launchers) describes the group and is not touched.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-19)",
+          "datestamp": "2026-11-19",
+          "wikidata_id": "Q19951610"
         }
       ],
       "tags": []
