@@ -968,3 +968,9 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Limite dello script:** nessuna opzione per una sola scheda; `--force` cambierebbe 216 schede.
 - **Difetto trovato:** per Redwire `IN-1408` il dry-run scriverebbe `headquarters` = `Q16568` (codice, non etichetta) al posto di `Jacksonville`; da correggere prima di un futuro `--force`. Non indagato nel codice.
 - **File del dry-run:** nello scratchpad della sessione (fuori dal repo).
+
+
+### 2026-11-19 — Branch locali guardati; regola di lettura del log cambiata ☑ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Branch locali (sola lettura):** `docs/stato-pre-ripartenza` (un commit `9d7e245` del 2026-11-12, `git cherry` lo dà già in `main` con un altro hash): **cancellato** con `git branch -D` su ok di Nelson (recuperabile con `git branch <nome> 9d7e245`). `archivio/locale-2026-11-10` (`c69aa9a`, `9a76648`: vecchio piano a due repo, 547 righe, non in `main`): **tenuto**, è nel backup; cancellabile con ok dopo il 2026-12-10. `stash@{0}` «f03-modifiche-piano-status» non aperto. `docs/registro-risposta-andrea` fuso con la #86, da cancellare con ok.
+- **Regola di lettura (decisione di Nelson, 2026-11-19):** a inizio sessione piano per intero e **log solo dalle ultime voci** (ultime due o tre giornate, dal fondo), non più per intero (circa 100.000 token, misurati stamattina). Il resto del log si cerca per ID, tema o `git log -S`. Rischio accettato: una decisione vecchia non riassunta in `STATUS.md` o in `reference/` potrebbe non emergere; mitigazione: le decisioni durevoli stanno in S1-S7, `B3-METODO.md`, `UPDATE_PROTOCOL.md`. Modificati «Letture obbligatorie» punto 2 e «Regola per l'AI a inizio sessione» in `STATUS.md`; il piano (§0.1) non citava la lettura del log e non è stato toccato.
