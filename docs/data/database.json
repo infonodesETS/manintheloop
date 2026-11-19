@@ -27244,6 +27244,24 @@
             "board": []
           },
           "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group."
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_in",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0195",
+            "IV-0416",
+            "IV-0498",
+            "IV-0307",
+            "IV-0111"
+          ],
+          "other_entity": "IN-0655",
+          "description": "5 investment relationship(s) moved from IN-0655: The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
         }
       ],
       "validation": [
@@ -27307,6 +27325,12 @@
           "cb_url": "https://www.crunchbase.com/organization/ericsson",
           "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group.",
           "author": "patch_set_crunchbase.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_in): IV-0195, IV-0416, IV-0498, IV-0307, IV-0111. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group).",
+          "author": "patch_move_relationships.py",
           "datestamp": "2026-11-19"
         }
       ],
@@ -132245,6 +132269,24 @@
           },
           "new": null,
           "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group."
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_out",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0195",
+            "IV-0416",
+            "IV-0498",
+            "IV-0307",
+            "IV-0111"
+          ],
+          "other_entity": "IN-0123",
+          "description": "5 investment relationship(s) moved to IN-0123: The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
         }
       ],
       "validation": [
@@ -132327,6 +132369,12 @@
           "cb_url_removed": "https://www.crunchbase.com/organization/ericsson",
           "description": "Crunchbase profile 'ericsson' (Kista, founded 1876, IPO) describes the Ericsson group (Telefonaktiebolaget LM Ericsson, org. no. 556016-0680), not the Swedish subsidiary Ericsson AB (org. no. 556056-6258, PIC 999910921) that this card is. The whole block is kept in history and moved to IN-0123, the card of the group.",
           "author": "patch_clear_crunchbase.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_out): IV-0195, IV-0416, IV-0498, IV-0307, IV-0111. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group).",
+          "author": "patch_move_relationships.py",
           "datestamp": "2026-11-19"
         }
       ],
@@ -353934,38 +353982,73 @@
     },
     {
       "source": "IV-0195",
-      "target": "IN-0655",
+      "target": "IN-0123",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-19",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0655 -> IN-0123. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        }
+      ]
     },
     {
       "source": "IV-0416",
-      "target": "IN-0655",
+      "target": "IN-0123",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-19",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0655 -> IN-0123. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        }
+      ]
     },
     {
       "source": "IV-0498",
-      "target": "IN-0655",
+      "target": "IN-0123",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-19",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0655 -> IN-0123. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        }
+      ]
     },
     {
       "source": "IV-0307",
-      "target": "IN-0655",
+      "target": "IN-0123",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-19",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0655 -> IN-0123. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        }
+      ]
     },
     {
       "source": "IV-0111",
-      "target": "IN-0655",
+      "target": "IN-0123",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-19",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0655 -> IN-0123. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        }
+      ]
     },
     {
       "source": "IV-0195",
