@@ -58,3 +58,10 @@ Prima di estenderlo: provarlo su un gruppo di schede **mai trattate** (pilota), 
 - Dove registrare nel database la fonte (campi della `validation`; `history` e `validation` in inglese, `UPDATE_PROTOCOL.md` principio 8).
 - Se gli agenti possono usare un modello più economico per i casi semplici.
 - Persone fisiche (dati personali, Release 2): metodo non definito, vedi `METODO-VERIFICA-WEB.md`.
+
+## Lezioni del quinto giro (Ericsson, 2026-11-19)
+
+- **Il nome legale del PIC è già nei dati EDF.** `rawdata/edf_calls.json` e `docs/data/edf_orgs.json` portano `organization_name` del Participant Portal (per esempio `ERICSSON AB`, `OY L M ERICSSON AB`): è fonte primaria. Il portale UE non restituisce testo via Exa (HTTP 500 o pagina JavaScript) e gli agenti ripiegavano su aggregatori; conviene dare all'agente il nome legale del PIC già letto lì, e dire che il legame PIC–registro nazionale resta da provare con una fonte che citi entrambi.
+- **Più schede con lo stesso QID: guardare tutte e quattro insieme.** Con un solo agente per scheda emergono le differenze (qui: la scheda «canonica» era una controllata e la quotazione della capogruppo stava su un'altra). Il verdetto `unclear` con inclinazione a `remove_qid` è onesto quando la prova è solo secondaria.
+- **Le note manuali di aprile non sono prova.** Su tre schede, due erano giuste nella sostanza e una sbagliata (`IN-0831`, «nome doppio»).
+- **Indipendenza:** nei prompt, fonti esterne prima e `history`/`validation` dopo; non basta se il prompt contiene già la domanda («è la capogruppo?»).
