@@ -959,3 +959,12 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Rapporto con Andrea:** Andrea conta 22 gruppi, io 21; la differenza non è spiegata (può dipendere da una riga scartata sotto soglia o da un criterio diverso). Il problema lo ha già descritto lui (`percentuale_voti` è la quota totale di voto del titolare, ripetuta per classe), quindi **nessun messaggio a lui**: l'elenco serve a noi, per il re-import con la release corretta (issue #80) e per la decisione su posizione congiunta e Beck. Proposta di scrivergli un elenco ritirata su domanda di Nelson.
 - **Il sito:** `docs/web/app.js` mostra e ordina per `pct_voti` ma non la somma: lo stesso valore compare su più righe della stessa scheda, senza conteggio doppio.
 - **Aperto:** punti (b)-(f) di «Prossimi lavori» punto 0; al re-import confrontare le righe cambiate con questi 21 gruppi.
+
+
+### 2026-11-19 — Blocco Wikidata di TE `IN-0362`: punto chiuso senza modifiche ai dati ☑ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Dry-run** (`enrich_wikidata.py --dry-run --force --diff`, rete verso Wikidata, nessuna scrittura; `git status` pulito dopo): 932 schede da rielaborare, 216 con almeno un campo cambiato (`instance_of` 100, `country` 58, `description` 35, `official_website` 25, `employees` 22, `label` 22, `headquarters` 17, `inception` 11, `wikipedia_url` 11, `isin` 7).
+- **TE:** Wikidata per `Q663452` dà ancora country Switzerland e HQ Schaffhausen; il blocco della scheda è fedele a Wikidata. Il difetto (emittente TE Connectivity plc, Irlanda, dal 2024-09-30) è su Wikidata e non si corregge con lo script. Decisione di Nelson: chiudere senza toccare i dati; correggere Wikidata, se si vuole, è fuori dal repo.
+- **Limite dello script:** nessuna opzione per una sola scheda; `--force` cambierebbe 216 schede.
+- **Difetto trovato:** per Redwire `IN-1408` il dry-run scriverebbe `headquarters` = `Q16568` (codice, non etichetta) al posto di `Jacksonville`; da correggere prima di un futuro `--force`. Non indagato nel codice.
+- **File del dry-run:** nello scratchpad della sessione (fuori dal repo).
