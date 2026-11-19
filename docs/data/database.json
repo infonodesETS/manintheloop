@@ -132022,7 +132022,7 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Ericsson",
+      "name": "Ericsson AB",
       "sector": null,
       "wikidata_id": null,
       "sources": {
@@ -132287,6 +132287,15 @@
           ],
           "other_entity": "IN-0123",
           "description": "5 investment relationship(s) moved to IN-0123: The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        },
+        {
+          "date": "2026-11-19",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Ericsson",
+          "new_value": "Ericsson AB",
+          "author": "patch_rename_entity.py",
+          "note": "Legal name of PIC 999910921 in rawdata/edf_calls.json ('ERICSSON AB'); the card is the Swedish subsidiary (org. no. 556056-6258), not the group."
         }
       ],
       "validation": [
@@ -132375,6 +132384,12 @@
           "status": "confirmed",
           "description": "Relationships moved (relationships_moved_out): IV-0195, IV-0416, IV-0498, IV-0307, IV-0111. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group).",
           "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "confirmed",
+          "description": "Name corrected: 'Ericsson' -> 'Ericsson AB'. Legal name of PIC 999910921 in rawdata/edf_calls.json ('ERICSSON AB'); the card is the Swedish subsidiary (org. no. 556056-6258), not the group.",
+          "author": "patch_rename_entity.py",
           "datestamp": "2026-11-19"
         }
       ],
