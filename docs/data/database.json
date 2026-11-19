@@ -153680,6 +153680,13 @@
           "description": "wikidata_id Q30254805 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q30254805 checked on 2026-11-19 and kept (it had been nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py). The entity is INTEGRASYS SA (EDF PIC 997636853, legal name INTEGRASYS SA), Spanish sociedad anónima, CIF A79429171, Las Rozas de Madrid, the head of the Integrasys group. Decisive evidence: Wikidata Q30254805 is 'Integrasys, company in Madrid, Spain' (P159 Madrid, P571 1990, P856 integrasys-space.com); the privacy policy of integrasys-space.com, reopened 2026-11-19: 'INTEGRASYS SA, with the CIF: A79429171, uses and protects the data provided by users when accessing the website' (address Las Rozas, Madrid); BORME 2010: 'Integrasys, S.A. ... domicilio social, sito en Las Rozas de Madrid'. Weak point: the Wikidata item carries no registry identifier and has no sitelinks; the match rests on website, city and year (incorporation 27/04/1990 only from a secondary source); no other Madrid Integrasys company of 1990 and no holding above the SA was found, so the match is by exclusion. The QID was removed from IN-0784 (INTEGRASYS SARL, Luxembourg).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-19)",
+          "datestamp": "2026-11-19",
+          "wikidata_id": "Q30254805"
         }
       ],
       "tags": []
