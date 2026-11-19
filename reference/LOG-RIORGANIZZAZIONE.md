@@ -1003,3 +1003,11 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Trovato e corretto (commit `import_investors_crunchbase.py`):** lo script leggeva i flag a mano da `sys.argv` (`--dry-run` c'era, ma `--help` e i flag sbagliati erano ignorati): `--help` lo ha **eseguito** sul database vero (+0, il file è rimasto identico: md5 uguale). Ora usa `argparse`: `--help` stampa l'aiuto, un flag sconosciuto dà errore (exit 2), `--dry-run` non scrive (md5 prima e dopo uguale). Il comportamento senza flag non cambia (scrive). Il dry-run dopo lo spostamento dà 0 relazioni nuove.
 - **Non fatto:** pagine del sito per `IN-0123` e `IN-0655` non riguardate nel browser dopo i cambi; `mitl-index.json` non rigenerato (issue #78).
 - **Aperti:** vedi `STATUS.md` (B3: TKMS, gruppo D dei QID condivisi, `field_conflict` sulla sede).
+
+
+### 2026-11-19 — Chiusura sessione (checklist §0.5) ☑ (branch `docs/chiusura-sessione-2026-11-19b`)
+
+- **Fusi oggi (da PR di Nelson, push dei branch miei):** #87 (misura di `pct_voti`), #88 (quinto giro dei QID, Ericsson), #89 (scheda della capogruppo Ericsson, nuovi strumenti, correzione di `import_investors_crunchbase.py`). Dopo la #89: `main` = `origin/main` (`083a9fe`); `validate.py` PASSED 2732/4016 (controllo 12: 15 casi noti, 26 risolti); `check_b3_branch.py` superato.
+- **Checklist:** (1) log: c'è (voci del quinto giro, della capogruppo Ericsson e questa); (2) piano: registro con #88 e #89, riga B3 aggiornata (`check_docs.py` segnala ARRETRATO finché questo branch non è fuso: la sua stessa PR non può citarsi); (3) `STATUS.md`: nuova sezione «Ripartenza» (misura, pulizia con ok, prossimo lavoro B3 gruppo D con il metodo, costo in contesto, strumenti nuovi), intestazione e punto 0 aggiornati, Ericsson tolto dai casi aperti; (4) git: working tree pulito, a parte 4 file dei risultati degli agenti non tracciati (volutamente); branch locale `dati/ericsson-capogruppo` fuso, da cancellare con ok; (5) aperti: in `STATUS.md`.
+- **Lezioni del giro:** in `reference/METODO-AGENTICO.md` («Lezioni del quinto giro»).
+- **Non fatto:** pagine del sito di `IN-0123` e `IN-0655` non riviste nel browser; `mitl-index.json` non rigenerato; `enrich_wikidata.py` difetto Redwire non corretto.
