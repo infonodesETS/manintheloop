@@ -950,3 +950,33 @@ Tutto in sola lettura (nessuna modifica a repo, GitHub o servizi). Script e risu
 - **Regole nuove di oggi (STATUS):** profili Crunchbase da aprire con Claude in Chrome (con l'aiuto di Nelson se c'è un CAPTCHA); le diagnosi degli agenti sui Crunchbase si controllano sul profilo vivo (2 falsi positivi su 3); lo slug Crunchbase `rtx` è RTX A/S (Danimarca).
 - **Checklist:** (1) log: c'è; (2) piano: registro con #81-#85 e righe B3/B5 aggiornate (`check_docs.py` segnala ancora ritardo fino alla fusione di questo branch: la sua stessa PR non può citarsi); (3) `STATUS.md` riscritto («Prossimi lavori», regole); (4) git: working tree pulito, nessun commit non pushato; (5) aperti in `STATUS.md`.
 - **Non fatto in questa sessione:** misura dei gruppi di `percentuale_voti` ripetuta nel database (Andrea ne conta 22, io ne conosco uno: Beck); aggiornamento del blocco Wikidata di TE; le 4 righe senza `as_of` e le 3 con più date; esame dei branch locali `archivio/locale-2026-11-10` e `docs/stato-pre-ripartenza`; lettura per intero di S3, S5-S7 e `SCHEMA.md` (non necessaria oggi: nessuna scrittura di relazioni).
+
+
+### 2026-11-19 — Misura di `pct_voti` ripetuto nelle `ownership`, in relazione al lavoro di Andrea (issue #76 e #80) ◐ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Ripartenza:** `main` = `origin/main` (`3ab1972`); `validate.py` PASSED 2732/4016; `check_b3_branch.py` superato; `inbox/` vuota; piano e log letti per intero.
+- **Misura (sola lettura, nessun dato toccato):** su 546 `ownership`, 27 coppie (titolare, società) hanno più di una riga; in **21 gruppi (44 righe)** la `pct_voti` è identica su più righe di classe. Società: AppLovin (Foroughi 61,6), Datadog (Pomel 17,3; Lê-Quôc 15,5), EchoStar (Charles e Cantey Ergen 90,3), Meta (Zuckerberg 60,8), TKO (Endeavor, Silver Lake, Durban 63,9), Trade Desk (Green 49,7), Workday (Bhusri e Duffield 69,0), Alphabet (Brin 25,3), Palantir (Karp 11,4, Cohen 3,0, Thiel 7,9: tre righe ciascuno, classi A, B e F), Rocket Lab (Beck 7,5: `REL-0406` Series A Preferred e `REL-0407` Common, entrambe con `pct` vuota), Intuitive Machines (Altemus 11,6, Ghaffarian 33,5, Crain 8,2), Redwire (AE Industrial 23,1). Sulla stessa `pct_voti` con società diverse c'è solo BlackRock al 2,3% in AppLovin (`REL-0043`) e TKO (`REL-0467`): coincidenza, non errore.
+- **Rapporto con Andrea:** Andrea conta 22 gruppi, io 21; la differenza non è spiegata (può dipendere da una riga scartata sotto soglia o da un criterio diverso). Il problema lo ha già descritto lui (`percentuale_voti` è la quota totale di voto del titolare, ripetuta per classe), quindi **nessun messaggio a lui**: l'elenco serve a noi, per il re-import con la release corretta (issue #80) e per la decisione su posizione congiunta e Beck. Proposta di scrivergli un elenco ritirata su domanda di Nelson.
+- **Il sito:** `docs/web/app.js` mostra e ordina per `pct_voti` ma non la somma: lo stesso valore compare su più righe della stessa scheda, senza conteggio doppio.
+- **Aperto:** punti (b)-(f) di «Prossimi lavori» punto 0; al re-import confrontare le righe cambiate con questi 21 gruppi.
+
+
+### 2026-11-19 — Blocco Wikidata di TE `IN-0362`: punto chiuso senza modifiche ai dati ☑ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Dry-run** (`enrich_wikidata.py --dry-run --force --diff`, rete verso Wikidata, nessuna scrittura; `git status` pulito dopo): 932 schede da rielaborare, 216 con almeno un campo cambiato (`instance_of` 100, `country` 58, `description` 35, `official_website` 25, `employees` 22, `label` 22, `headquarters` 17, `inception` 11, `wikipedia_url` 11, `isin` 7).
+- **TE:** Wikidata per `Q663452` dà ancora country Switzerland e HQ Schaffhausen; il blocco della scheda è fedele a Wikidata. Il difetto (emittente TE Connectivity plc, Irlanda, dal 2024-09-30) è su Wikidata e non si corregge con lo script. Decisione di Nelson: chiudere senza toccare i dati; correggere Wikidata, se si vuole, è fuori dal repo.
+- **Limite dello script:** nessuna opzione per una sola scheda; `--force` cambierebbe 216 schede.
+- **Difetto trovato:** per Redwire `IN-1408` il dry-run scriverebbe `headquarters` = `Q16568` (codice, non etichetta) al posto di `Jacksonville`; da correggere prima di un futuro `--force`. Non indagato nel codice.
+- **File del dry-run:** nello scratchpad della sessione (fuori dal repo).
+
+
+### 2026-11-19 — Branch locali guardati; regola di lettura del log cambiata ☑ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Branch locali (sola lettura):** `docs/stato-pre-ripartenza` (un commit `9d7e245` del 2026-11-12, `git cherry` lo dà già in `main` con un altro hash): **cancellato** con `git branch -D` su ok di Nelson (recuperabile con `git branch <nome> 9d7e245`). `archivio/locale-2026-11-10` (`c69aa9a`, `9a76648`: vecchio piano a due repo, 547 righe, non in `main`): **tenuto**, è nel backup; cancellabile con ok dopo il 2026-12-10. `stash@{0}` «f03-modifiche-piano-status» non aperto. `docs/registro-risposta-andrea` fuso con la #86, da cancellare con ok.
+- **Regola di lettura (decisione di Nelson, 2026-11-19):** a inizio sessione piano per intero e **log solo dalle ultime voci** (ultime due o tre giornate, dal fondo), non più per intero (circa 100.000 token, misurati stamattina). Il resto del log si cerca per ID, tema o `git log -S`. Rischio accettato: una decisione vecchia non riassunta in `STATUS.md` o in `reference/` potrebbe non emergere; mitigazione: le decisioni durevoli stanno in S1-S7, `B3-METODO.md`, `UPDATE_PROTOCOL.md`. Modificati «Letture obbligatorie» punto 2 e «Regola per l'AI a inizio sessione» in `STATUS.md`; il piano (§0.1) non citava la lettura del log e non è stato toccato.
+
+
+### 2026-11-19 — Chiusura sessione (checklist §0.5) ☑ (branch `docs/misura-pct-voti-ripetuto`)
+
+- **Checklist:** (1) log: c'è; (2) piano: registro con #86 e con questa sessione (`check_docs.py` segnalava ARRETRATO per la #86 e per intervalli già noti; la PR di questa sessione non può citarsi); (3) `STATUS.md`: intestazione e punto 0 di «Prossimi lavori» riscritti, con la divisione tra ciò che aspetta Andrea (re-import di B5, Liang e Liu, Beck, righe senza `as_of`) e ciò che non lo aspetta (F5, residui di B3, F6; B6-B11 non prima della release); (4) git: working tree pulito; i commit del branch vanno pushati con ok di Nelson, la PR la apre lui; (5) aperti: in `STATUS.md`.
+- **Risposta alla domanda di Nelson sul piano:** la checklist con ☐ ◐ ☑ ✖ è la tabella «Stato di avanzamento» in fondo al piano; gli action point fini (sotto-attività di B3 e B5) stanno solo in `STATUS.md`. Proposta di scomporre B3 e B5 in sotto-righe nella tabella: non decisa.
