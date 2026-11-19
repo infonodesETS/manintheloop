@@ -37,6 +37,7 @@ RE-RUN SAFETY
   (use --force-wikidata to re-fetch all).
 """
 
+import argparse
 import json
 import os
 import re
@@ -52,9 +53,18 @@ DATABASE_PATH = os.path.join(BASE, "docs", "data", "database.json")
 
 TODAY = date.today().isoformat()
 
-DRY_RUN        = "--dry-run"        in sys.argv
-DO_WIKIDATA    = "--wikidata"       in sys.argv
-FORCE_WIKIDATA = "--force-wikidata" in sys.argv
+# Flags are parsed with argparse so that --help and any unknown flag stop the script before it touches the
+# database (until 2026-11-19 sys.argv was searched by hand: `--help` ran the import and wrote the file).
+_ap = argparse.ArgumentParser(description="Create IV-* entities and investment relationships from "
+                                          "sources.crunchbase.top_investors (writes docs/data/database.json "
+                                          "unless --dry-run).")
+_ap.add_argument("--dry-run", action="store_true", help="print what would be done; no DB changes")
+_ap.add_argument("--wikidata", action="store_true", help="search Wikidata (country/HQ) for the new investors (~2 s each)")
+_ap.add_argument("--force-wikidata", action="store_true", help="with --wikidata, re-fetch all investors, not only those without sources.wikidata")
+_args = _ap.parse_args()
+DRY_RUN        = _args.dry_run
+DO_WIKIDATA    = _args.wikidata
+FORCE_WIKIDATA = _args.force_wikidata
 
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 WD_API          = "https://www.wikidata.org/w/api.php"
