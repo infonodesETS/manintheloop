@@ -1419,8 +1419,8 @@
       "entity_id": "IN-0502",
       "entity_name": "Arianegroup",
       "search_name": "Arianegroup",
-      "status": "accepted",
-      "reason": "label match + org keyword 'company'",
+      "status": "rejected",
+      "reason": "QID Q19951610 tolto con qid_removed il 2026-11-19 (ArianeGroup GmbH, German Gesellschaft mit beschränkter Haftung, registered office Robert-Koch-Str. 1, 82024 Taufkirchen, Amtsgericht München HRB 215178, VAT DE297722712 (EDF PIC 931927113, legal name ARIANEGROUP GMBH); one of the two operating subsidiaries of ArianeGroup Holding (50/50 Airbus and Safran), alongside ArianeGroup SAS in France. The QID stays on IN-0501 (ArianeGroup SAS), which is not the parent of the GmbH): non riproporre ne applicare. Stato precedente: accepted (label match + org keyword 'company', qid Q19951610).",
       "qid": "Q19951610",
       "label": "ArianeGroup",
       "description": "European space company"
