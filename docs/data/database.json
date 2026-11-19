@@ -26996,7 +26996,7 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Ericsson B",
+      "name": "Ericsson",
       "sector": null,
       "wikidata_id": "Q52618",
       "sources": {
@@ -27262,6 +27262,15 @@
           ],
           "other_entity": "IN-0655",
           "description": "5 investment relationship(s) moved from IN-0655: The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group)."
+        },
+        {
+          "date": "2026-11-19",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Ericsson B",
+          "new_value": "Ericsson",
+          "author": "patch_rename_entity.py",
+          "note": "The card is the only one of the group Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680 (ERIC B is its Class B listing, kept in sources.ishares); the 2026-04-23 validation 'IN-0655 Ericsson is canonical' is superseded (IN-0655 is Ericsson AB, a subsidiary)."
         }
       ],
       "validation": [
@@ -27331,6 +27340,12 @@
           "status": "confirmed",
           "description": "Relationships moved (relationships_moved_in): IV-0195, IV-0416, IV-0498, IV-0307, IV-0111. The five investors come from top_investors of the Crunchbase profile 'ericsson', which moves from IN-0655 to IN-0123 (the group).",
           "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-19"
+        },
+        {
+          "status": "confirmed",
+          "description": "Name corrected: 'Ericsson B' -> 'Ericsson'. The card is the only one of the group Telefonaktiebolaget LM Ericsson (publ), org. no. 556016-0680 (ERIC B is its Class B listing, kept in sources.ishares); the 2026-04-23 validation 'IN-0655 Ericsson is canonical' is superseded (IN-0655 is Ericsson AB, a subsidiary).",
+          "author": "patch_rename_entity.py",
           "datestamp": "2026-11-19"
         }
       ],
