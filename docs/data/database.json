@@ -101826,7 +101826,7 @@
       ],
       "name": "Airbus Operations",
       "sector": null,
-      "wikidata_id": "Q4698478",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -101897,24 +101897,7 @@
           "wikipedia_url": null,
           "website": "https://www.airbus.com"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Airbus Operations Limited",
-          "description": "subsidiary of Airbus in United Kingdom",
-          "aliases": [
-            "Airbus UK"
-          ],
-          "instance_of": [
-            "business"
-          ],
-          "country": "United Kingdom",
-          "inception": "1997",
-          "headquarters": "Bristol",
-          "official_website": "http://www.airbus.com/company/worldwide-presence/airbus-in-uk/",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20UK"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -102041,6 +102024,33 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999964756, 1 projects, €152,000 EU contribution"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q4698478",
+          "new": null,
+          "description": "QID Q4698478 removed: on Wikidata it is 'Airbus Operations Limited (subsidiary of Airbus in United Kingdom; Bristol; UK company no. 03468788)'. Why the entity had it: search_missing_qids.py matched the name 'Airbus Operations' to the UK company on 2026-04-13; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: Airbus Operations GmbH, German Gesellschaft mit beschränkter Haftung, registered office Hamburg, Amtsgericht Hamburg HRB 43527 (EDF PIC 999964756, legal name AIRBUS OPERATIONS GMBH); part of the Airbus group, formerly Airbus Deutschland GmbH. It is a different legal entity from the UK company. The QID stays on no card. No reliable QID found for the GmbH: Q131651645 'Airbus Opérations Gmbh' has only a French label and P17 France; to be searched with the QID pipeline. Decisive evidence: Airbus application documents for Hamburg (airbus.com PDF, August 2024), reopened 2026-11-19: 'Airbus Operations GmbH, Standort Hamburg Finkenwerder', 'Sitz der Gesellschaft: Hamburg', 'Registergericht und /-nummer: Amtsgericht Hamburg HRB 43527'. Wikidata Q4698478: label 'Airbus Operations Limited', P17 United Kingdom, P159 Bristol, P2622 03468788. Weak point: No register extract was reopened: legal form and history (formerly Airbus Deutschland GmbH, profit transfer agreement with Airbus GmbH HRB 181379) come from online-handelsregister.de (secondary). The link between PIC 999964756 and HRB 43527 rests on legal name and city; the EU portal page was not reopened. The Crunchbase block describes the Hamburg Aviation cluster and is not touched.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Airbus Operations Limited",
+            "description": "subsidiary of Airbus in United Kingdom",
+            "aliases": [
+              "Airbus UK"
+            ],
+            "instance_of": [
+              "business"
+            ],
+            "country": "United Kingdom",
+            "inception": "1997",
+            "headquarters": "Bristol",
+            "official_website": "http://www.airbus.com/company/worldwide-presence/airbus-in-uk/",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Airbus%20UK"
+          }
         }
       ],
       "validation": [
@@ -102110,6 +102120,14 @@
           "description": "wikidata_id Q4698478 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q4698478",
+          "wikidata_label": "Airbus Operations Limited (subsidiary of Airbus in United Kingdom; Bristol; UK company no. 03468788)",
+          "description": "QID Q4698478 removed: on Wikidata it is 'Airbus Operations Limited (subsidiary of Airbus in United Kingdom; Bristol; UK company no. 03468788)'. Why the entity had it: search_missing_qids.py matched the name 'Airbus Operations' to the UK company on 2026-04-13; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: Airbus Operations GmbH, German Gesellschaft mit beschränkter Haftung, registered office Hamburg, Amtsgericht Hamburg HRB 43527 (EDF PIC 999964756, legal name AIRBUS OPERATIONS GMBH); part of the Airbus group, formerly Airbus Deutschland GmbH. It is a different legal entity from the UK company. The QID stays on no card. No reliable QID found for the GmbH: Q131651645 'Airbus Opérations Gmbh' has only a French label and P17 France; to be searched with the QID pipeline. Decisive evidence: Airbus application documents for Hamburg (airbus.com PDF, August 2024), reopened 2026-11-19: 'Airbus Operations GmbH, Standort Hamburg Finkenwerder', 'Sitz der Gesellschaft: Hamburg', 'Registergericht und /-nummer: Amtsgericht Hamburg HRB 43527'. Wikidata Q4698478: label 'Airbus Operations Limited', P17 United Kingdom, P159 Bristol, P2622 03468788. Weak point: No register extract was reopened: legal form and history (formerly Airbus Deutschland GmbH, profit transfer agreement with Airbus GmbH HRB 181379) come from online-handelsregister.de (secondary). The link between PIC 999964756 and HRB 43527 rests on legal name and city; the EU portal page was not reopened. The Crunchbase block describes the Hamburg Aviation cluster and is not touched.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-19"
         }
       ],
       "tags": []
