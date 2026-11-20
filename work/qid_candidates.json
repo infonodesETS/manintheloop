@@ -4449,8 +4449,8 @@
       "entity_id": "IN-1167",
       "entity_name": "United Monolithic Semiconductors",
       "search_name": "United Monolithic Semiconductors",
-      "status": "accepted",
-      "reason": "label match + org keyword 'company'",
+      "status": "rejected",
+      "reason": "QID Q30285570 tolto con qid_removed il 2026-11-20 (UNITED MONOLITHIC SEMICONDUCTORS SAS, French société par actions simplifiée, SIREN 383 144 102 (RCS Evry), 10 avenue du Québec, 91140 Villebon-sur-Yvette (EDF PIC 996281278, legal name UNITED MONOLITHIC SEMICONDUCTORS SAS). It is a sister company of United Monolithic Semiconductors GmbH (Ulm, HRB 3318); per the company's contract information notice both are wholly owned by United Monolithic Semiconductors Holding S.A.S. (not a card in the database). The QID stays on IN-1168 (United Monolithic Semiconductors GmbH). The 2026-04-23 note calling Q30285570 'the parent UMS entity' was wrong: it is the German company): non riproporre ne applicare. Stato precedente: accepted (label match + org keyword 'company', qid Q30285570).",
       "qid": "Q30285570",
       "label": "United Monolithic Semiconductors (Germany)",
       "description": "company in Ulm, Germany"
