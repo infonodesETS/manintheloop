@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-19",
+  "_updated": "2026-11-20",
   "entities": [
     {
       "id": "IN-0001",
@@ -219848,7 +219848,7 @@
       ],
       "name": "United Monolithic Semiconductors",
       "sector": null,
-      "wikidata_id": "Q30285570",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-04-01",
@@ -219926,22 +219926,7 @@
           "wikipedia_url": null,
           "website": "https://www.ums-rf.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "United Monolithic Semiconductors (Germany)",
-          "description": "company in Ulm, Germany",
-          "aliases": [],
-          "instance_of": [
-            "business"
-          ],
-          "country": "Germany",
-          "inception": null,
-          "headquarters": "Ulm",
-          "official_website": null,
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": null
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -220014,6 +219999,31 @@
           "old": null,
           "new": "Q30285570",
           "description": "wikidata_id set via search: label='United Monolithic Semiconductors (Germany)', description='company in Ulm, Germany'. Search name used: 'United Monolithic Semiconductors'. Human-reviewed via qid_candidates.json before applying."
+        },
+        {
+          "date": "2026-11-20",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q30285570",
+          "new": null,
+          "description": "QID Q30285570 removed: on Wikidata it is 'United Monolithic Semiconductors (Germany) (company in Ulm, Germany; P17 Germany, P159 Ulm and Villebon-sur-Yvette, ROR 035gava43, P749 Q30285571)'. Why the entity had it: search_missing_qids.py matched the name 'United Monolithic Semiconductors' to the German item; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: UNITED MONOLITHIC SEMICONDUCTORS SAS, French société par actions simplifiée, SIREN 383 144 102 (RCS Evry), 10 avenue du Québec, 91140 Villebon-sur-Yvette (EDF PIC 996281278, legal name UNITED MONOLITHIC SEMICONDUCTORS SAS). It is a sister company of United Monolithic Semiconductors GmbH (Ulm, HRB 3318); per the company's contract information notice both are wholly owned by United Monolithic Semiconductors Holding S.A.S. (not a card in the database). The QID stays on IN-1168 (United Monolithic Semiconductors GmbH). The 2026-04-23 note calling Q30285570 'the parent UMS entity' was wrong: it is the German company. Wikidata Q30285571 'United Monolithic Semiconductor (France)' (fr 'United Monolithic Semiconductors Sas') carries P1616 SIREN 383144102 and P1448 'UNITED MONOLITHIC SEMICONDUCTORS SAS': very likely the correct QID for this entity; not set here (separate step). Decisive evidence: Legal notice of ums-rf.com (official website, EDF web_link), reopened 2026-11-20: 'Société par actions simplifiée (SAS) au capital de 12 580 290€ 383 144 102 RCS Evry', publisher United Monolithic Semiconductors S.A.S., Villebon sur Yvette; Annuaire des Entreprises (data.gouv.fr), reopened 2026-11-20: 'UNITED MONOLITHIC SEMICONDUCTORS SAS ... Unité légale 383 144 102 en activité', head office in Villebon-sur-Yvette. Wikidata Q30285570: label 'United Monolithic Semiconductors (Germany)', P17 Germany. Weak point: The link between PIC 996281278 and SIREN 383 144 102 rests on legal name and city. The shared holding (United Monolithic Semiconductors Holding S.A.S.) comes from the company's contract notice only; no registry extract of the holding was reopened.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "United Monolithic Semiconductors (Germany)",
+            "description": "company in Ulm, Germany",
+            "aliases": [],
+            "instance_of": [
+              "business"
+            ],
+            "country": "Germany",
+            "inception": null,
+            "headquarters": "Ulm",
+            "official_website": null,
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": null
+          }
         }
       ],
       "validation": [
@@ -220083,6 +220093,14 @@
           "description": "wikidata_id Q30285570 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q30285570",
+          "wikidata_label": "United Monolithic Semiconductors (Germany) (company in Ulm, Germany; P17 Germany, P159 Ulm and Villebon-sur-Yvette, ROR 035gava43, P749 Q30285571)",
+          "description": "QID Q30285570 removed: on Wikidata it is 'United Monolithic Semiconductors (Germany) (company in Ulm, Germany; P17 Germany, P159 Ulm and Villebon-sur-Yvette, ROR 035gava43, P749 Q30285571)'. Why the entity had it: search_missing_qids.py matched the name 'United Monolithic Semiconductors' to the German item; the QID was nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py --apply from an old 'accepted' candidate. The entity is: UNITED MONOLITHIC SEMICONDUCTORS SAS, French société par actions simplifiée, SIREN 383 144 102 (RCS Evry), 10 avenue du Québec, 91140 Villebon-sur-Yvette (EDF PIC 996281278, legal name UNITED MONOLITHIC SEMICONDUCTORS SAS). It is a sister company of United Monolithic Semiconductors GmbH (Ulm, HRB 3318); per the company's contract information notice both are wholly owned by United Monolithic Semiconductors Holding S.A.S. (not a card in the database). The QID stays on IN-1168 (United Monolithic Semiconductors GmbH). The 2026-04-23 note calling Q30285570 'the parent UMS entity' was wrong: it is the German company. Wikidata Q30285571 'United Monolithic Semiconductor (France)' (fr 'United Monolithic Semiconductors Sas') carries P1616 SIREN 383144102 and P1448 'UNITED MONOLITHIC SEMICONDUCTORS SAS': very likely the correct QID for this entity; not set here (separate step). Decisive evidence: Legal notice of ums-rf.com (official website, EDF web_link), reopened 2026-11-20: 'Société par actions simplifiée (SAS) au capital de 12 580 290€ 383 144 102 RCS Evry', publisher United Monolithic Semiconductors S.A.S., Villebon sur Yvette; Annuaire des Entreprises (data.gouv.fr), reopened 2026-11-20: 'UNITED MONOLITHIC SEMICONDUCTORS SAS ... Unité légale 383 144 102 en activité', head office in Villebon-sur-Yvette. Wikidata Q30285570: label 'United Monolithic Semiconductors (Germany)', P17 Germany. Weak point: The link between PIC 996281278 and SIREN 383 144 102 rests on legal name and city. The shared holding (United Monolithic Semiconductors Holding S.A.S.) comes from the company's contract notice only; no registry extract of the holding was reopened.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-20"
         }
       ],
       "tags": []
