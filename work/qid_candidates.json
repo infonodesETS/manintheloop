@@ -4359,8 +4359,8 @@
       "entity_id": "IN-1150",
       "entity_name": "Tkms",
       "search_name": "Tkms",
-      "status": "accepted",
-      "reason": "label match + org keyword 'company'",
+      "status": "rejected",
+      "reason": "QID Q551068 tolto con qid_removed il 2026-11-20 (TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, originally Howaldtswerke-Deutsche Werft GmbH), Kiel, Amtsgericht Kiel HRB 6960 KI, VAT ID DE 221 174 497, LEI 5493003XNIESVWCMK748, the operating company of the TKMS group, whose listed ultimate parent is TKMS AG & Co. KGaA (Amtsgericht Essen, HRB 37039); the QID stays on IN-1335): non riproporre ne applicare. Stato precedente: accepted (label match + org keyword 'company', qid Q551068).",
       "qid": "Q551068",
       "label": "TKMS",
       "description": "German naval vessel company"

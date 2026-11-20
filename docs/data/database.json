@@ -216589,7 +216589,7 @@
       ],
       "name": "Tkms",
       "sector": null,
-      "wikidata_id": "Q551068",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -216679,25 +216679,7 @@
           "wikipedia_url": null,
           "website": "https://www.tkmsgroup.com/"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "TKMS",
-          "description": "German naval vessel company",
-          "aliases": [
-            "ThyssenKrupp Marine Systems"
-          ],
-          "instance_of": [
-            "business",
-            "public company"
-          ],
-          "country": "Germany",
-          "inception": "2005-01-05",
-          "headquarters": "Essen",
-          "official_website": "https://www.tkmsgroup.com/",
-          "isin": "DE000TKMS001",
-          "employees": 3700,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/TKMS"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -216797,6 +216779,34 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 950773049, 1 projects, €2,118,537 EU contribution"
+        },
+        {
+          "date": "2026-11-20",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q551068",
+          "new": null,
+          "description": "QID Q551068 removed: on Wikidata it is 'TKMS'. Why the entity had it: set by search_missing_qids.py on 2026-04-12, removed on 2026-04-23 (manual patch: IN-1335 canonical), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, originally Howaldtswerke-Deutsche Werft GmbH), Kiel, Amtsgericht Kiel HRB 6960 KI, VAT ID DE 221 174 497, LEI 5493003XNIESVWCMK748, the operating company of the TKMS group, whose listed ultimate parent is TKMS AG & Co. KGaA (Amtsgericht Essen, HRB 37039); the QID stays on IN-1335. No separate Wikidata item for TKMS GmbH was found (searches for 'TKMS GmbH' and 'thyssenkrupp Marine Systems GmbH'): a correct QID may not exist. Decisive evidence: GLEIF LEI 5493003XNIESVWCMK748 is 'TKMS GmbH', registeredAs 'HRB 6960 KI', Kiel, other names THYSSENKRUPP MARINE SYSTEMS GMBH and HOWALDTSWERKE-DEUTSCHE WERFT GMBH; the EDF PIC 950773049 legal name is 'TKMS GMBH' (Kiel). Q551068 carries P1448 'TKMS AG & Co. KGaA', LEI 529900W81B194B0E0078 (GLEIF: TKMS AG & Co. KGaA, HRB 37039, Essen) and ISIN DE000TKMS001, and its GmbH legal form is deprecated with end 2025. TKMS annual report 2024/25: 'the group with TKMS AG & Co. KGaA as the ultimate parent company'; imprint: 'Kiel District Court (\"Amtsgericht\") HRB 6960 KI VAT ID No.: DE 221 174 497'. Weak point: Q551068 is a mixed item: its inception (P571 2005-01-05) and old website come from the GmbH era and the Italian label is 'ThyssenKrupp Marine Systems'; the current stake of the KGaA in the GmbH was not verified (the annual report mentions the purchase of the remaining 10.1%).",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "TKMS",
+            "description": "German naval vessel company",
+            "aliases": [
+              "ThyssenKrupp Marine Systems"
+            ],
+            "instance_of": [
+              "business",
+              "public company"
+            ],
+            "country": "Germany",
+            "inception": "2005-01-05",
+            "headquarters": "Essen",
+            "official_website": "https://www.tkmsgroup.com/",
+            "isin": "DE000TKMS001",
+            "employees": 3700,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/TKMS"
+          }
         }
       ],
       "validation": [
@@ -216860,6 +216870,14 @@
           "description": "wikidata_id Q551068 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q551068",
+          "wikidata_label": "TKMS",
+          "description": "QID Q551068 removed: on Wikidata it is 'TKMS'. Why the entity had it: set by search_missing_qids.py on 2026-04-12, removed on 2026-04-23 (manual patch: IN-1335 canonical), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: TKMS GmbH (formerly thyssenkrupp Marine Systems GmbH, originally Howaldtswerke-Deutsche Werft GmbH), Kiel, Amtsgericht Kiel HRB 6960 KI, VAT ID DE 221 174 497, LEI 5493003XNIESVWCMK748, the operating company of the TKMS group, whose listed ultimate parent is TKMS AG & Co. KGaA (Amtsgericht Essen, HRB 37039); the QID stays on IN-1335. No separate Wikidata item for TKMS GmbH was found (searches for 'TKMS GmbH' and 'thyssenkrupp Marine Systems GmbH'): a correct QID may not exist. Decisive evidence: GLEIF LEI 5493003XNIESVWCMK748 is 'TKMS GmbH', registeredAs 'HRB 6960 KI', Kiel, other names THYSSENKRUPP MARINE SYSTEMS GMBH and HOWALDTSWERKE-DEUTSCHE WERFT GMBH; the EDF PIC 950773049 legal name is 'TKMS GMBH' (Kiel). Q551068 carries P1448 'TKMS AG & Co. KGaA', LEI 529900W81B194B0E0078 (GLEIF: TKMS AG & Co. KGaA, HRB 37039, Essen) and ISIN DE000TKMS001, and its GmbH legal form is deprecated with end 2025. TKMS annual report 2024/25: 'the group with TKMS AG & Co. KGaA as the ultimate parent company'; imprint: 'Kiel District Court (\"Amtsgericht\") HRB 6960 KI VAT ID No.: DE 221 174 497'. Weak point: Q551068 is a mixed item: its inception (P571 2005-01-05) and old website come from the GmbH era and the Italian label is 'ThyssenKrupp Marine Systems'; the current stake of the KGaA in the GmbH was not verified (the annual report mentions the purchase of the remaining 10.1%).",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-20"
         }
       ],
       "tags": []
