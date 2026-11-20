@@ -167541,6 +167541,13 @@
           "description": "wikidata_id Q131887361 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q131887361 checked on 2026-11-20 and kept (it had been nulled on 2026-04-23 with the note 'not found in Wikidata', which is not true today, and put back on 2026-06-18 by search_missing_qids.py; on 2026-11-14 it was removed from IN-0863 MBDA España, PR #44, so IN-0865 is now the only card with it). The entity is MBDA ITALIA S.P.A. (EDF PIC 990040007, legal name MBDA ITALIA SPA), Italian società per azioni, tax ID 06700621003, Via Monte Flavio 45, 00131 Roma. Decisive evidence: GLEIF record of LEI 213800YZJUHQN9VRVP41, reopened 2026-11-20: legal name 'MBDA ITALIA S.P.A.', registeredAs '06700621003', legal address 'VIA MONTE FLAVIO 45', Rome, status ACTIVE; Wikidata Q131887361 is 'MBDA Italia SpA' (label in mul only, P17 Italy, P856 mbda-systems.com) and carries P2657 EU Transparency Register ID 646563537295-46, which LobbyFacts (reopened 2026-11-20) shows as 'MBDA Italia SpA (MBDA IT)', 'Head Office Via Monte Flavio 45, 00131 Roma', the same address. Weak point: the official Transparency Register page could not be read (JavaScript page; the old URL returns 404), so the link between the Wikidata item and the register entry rests on LobbyFacts, a secondary copy, which also states the entry is 'No longer registered as of 15 Sep 2026'; the Wikidata item carries no tax ID or LEI. The sources.wikidata block on this card is stale (written on 2026-04-13, label null) and was not refreshed.",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-20)",
+          "datestamp": "2026-11-20",
+          "wikidata_id": "Q131887361"
         }
       ],
       "tags": []
