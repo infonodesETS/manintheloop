@@ -220402,6 +220402,13 @@
           "description": "wikidata_id Q30285570 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q30285570 checked on 2026-11-20 and kept (it had been nulled on 2026-04-23 and put back on 2026-06-18 by search_missing_qids.py). The entity is United Monolithic Semiconductors GmbH (EDF PIC 999485770, legal name UNITED MONOLITHIC SEMICONDUCTORS GMBH), German GmbH, Amtsgericht Ulm HRB 3318, Wilhelm-Runge-Straße 11, 89081 Ulm; per the company's contract information notice it is wholly owned by United Monolithic Semiconductors Holding S.A.S., like its French sister company. Decisive evidence: Wikidata Q30285570 is 'United Monolithic Semiconductors (Germany), company in Ulm, Germany' (P17 Germany, P159 Ulm, ROR 035gava43); the ROR record 035gava43 is 'United Monolithic Semiconductors (Germany)', Ulm, and points back to Q30285570; legal notice of ums-rf.com, reopened 2026-11-20: 'Gesellschaft mit beschränkter Haftung (GmbH) Sitz der Gesellschaft: Ulm Handelsregister: Amtsgericht Ulm HRB 3318'. Weak point: the Wikidata item carries no registry identifier (no HRB) and no sitelinks; the match rests on the label '(Germany)', country, city and ROR. The item also lists Villebon-sur-Yvette as a second headquarters and gives the French item Q30285571 as its parent, which the company notice does not support (sisters under the holding): Wikidata issues, not changed here. The QID was removed from IN-1167 (UNITED MONOLITHIC SEMICONDUCTORS SAS).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-20)",
+          "datestamp": "2026-11-20",
+          "wikidata_id": "Q30285570"
         }
       ],
       "tags": []
