@@ -14,6 +14,7 @@ Release del 21 novembre 2026. Sostituisce quella del 18 ottobre (tag `sec-2026-1
 - [Le persone e il loro ID](#persone)
 - [Fondi e società: le entità](#entita)
 - [Controlli manuali](#controlli)
+- [Le transazioni degli insider](#transazioni)
 - [Come si legge](#lettura)
 - [Limiti noti](#limiti)
 - [Costi](#costi)
@@ -27,6 +28,7 @@ Nasce dalle verifiche delle issue [#76](https://github.com/infonodesETS/maninthe
 - **Posizioni dichiarate insieme.** Quando il proxy dà una sola riga per più titolari, con una sola cifra di azioni e una sola percentuale, il modello poteva tenerne uno solo e perdere la percentuale. Il caso trovato è SMCI: il documento riporta «Charles Liang & Sara Liu», 82.084.339 azioni e 13,4%, e la release del 18 ottobre aveva «Charles Liang» con 81.398.640 azioni ricostruite dalle note e la percentuale vuota. Ora il prompt tiene la riga intera e ne elenca i titolari (`joint_holders` nel JSON), e nei CSV la riga diventa una per titolare: Charles Liang (`P0302`) e Sara Liu (`P1938`), ognuno con 82.084.339 azioni e 13,4%, e lo stesso `riga_documento`.
 - **`riga_documento`**, colonna nuova in fondo a `detentori-oltre-5.csv`, `quote-dirigenti-consiglieri.csv` e `totale-di-gruppo.csv`: lo stesso valore su tutte le righe che vengono dalla stessa riga della tabella del proxy. Come si usa è in [Come si legge](#lettura).
 - **`cik`**, colonna nuova in fondo a `persone.csv` (aggiunta il 21 novembre, issue [#33](https://github.com/infonodesETS/manintheloop/issues/33)): il CIK delle persone dai Form 3, 4 e 5, per 2.246 persone su 2.298. Come è stato ricavato è in [Le persone e il loro ID](#persone). Nei controlli manuali ci sono 5 casi nuovi: 4 coppie di ID con lo stesso CIK e una persona con due CIK.
+- **`transazioni-insider.csv`**, tabella nuova (issue [#25](https://github.com/infonodesETS/manintheloop/issues/25)): le transazioni su azioni di consiglieri, dirigenti e chi ha più del 10%, dai Form 4 e 5, dal quarto trimestre 2024 al terzo del 2026, con la legenda dei codici in `codici-transazione.csv`. Vedi [Le transazioni degli insider](#transazioni).
 - **`righe-cambiate.csv`**: le righe tolte e aggiunte rispetto al 18 ottobre, file per file. Sono 16: 11 di SMCI e i 5 controlli manuali nuovi. Il confronto usa solo le colonne del 18 ottobre, quindi `riga_documento` e `cik` non contano.
 - **Il README**: corretta la regola sulle percentuali vuote e spiegato il senso di `percentuale_voti`.
 
@@ -51,9 +53,10 @@ Per 161 aziende quotate negli Stati Uniti:
 - i dirigenti esecutivi (994);
 - gli azionisti oltre il 5% (572 righe: 480 fondi o società, 92 persone);
 - le azioni di dirigenti e consiglieri (2.315 righe) e il totale del gruppo;
-- un'anagrafica delle persone con un ID (2.298 persone, 121 in più di un'azienda).
+- un'anagrafica delle persone con un ID (2.298 persone, 121 in più di un'azienda), 2.246 con il CIK della SEC;
+- le transazioni su azioni di consiglieri, dirigenti e chi ha più del 10%, dai Form 4 e 5 (57.528 dal quarto trimestre 2024 al terzo del 2026).
 
-Gli stessi dati stanno in due forme: un JSON per azienda, e tabelle CSV piatte che si aprono in un foglio di calcolo.
+Gli stessi dati stanno in due forme: un JSON per azienda, e tabelle CSV piatte che si aprono in un foglio di calcolo. Le transazioni non vengono dai proxy e stanno solo in CSV.
 
 <a id="fonti"></a>
 ## Da dove vengono i dati
@@ -128,6 +131,8 @@ Tutti i CSV sono in UTF-8 con intestazione. Le stesse tabelle sono in un Google 
 | `perimetro.csv` | titolo degli ETF | i 515 titoli di partenza con l'esito (`sec_esito`) | [perimetro.csv](perimetro.csv) | [perimetro](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=599937531) |
 | `senza-proxy.csv` | azienda | le 32 registrate senza DEF 14A e il rapporto annuale che depositano | [senza-proxy.csv](senza-proxy.csv) | [senza-proxy](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=1413347377) |
 | `entita.csv` | fondo, società o trust oltre il 5% | ID, nome, altre grafie, nome normalizzato, aziende | [entita.csv](entita.csv) | [entita](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=717843922) |
+| `transazioni-insider.csv` | transazione su azioni e titolare | dai Form 4 e 5: data, operazione, azioni, prezzo, azioni possedute dopo, `persona_id` quando c'è; vedi [Le transazioni degli insider](#transazioni) | [transazioni-insider.csv](transazioni-insider.csv) | - |
+| `codici-transazione.csv` | codice di transazione | legenda dei codici dei Form 4 (P, S, A, M, F…), con il testo ufficiale | [codici-transazione.csv](codici-transazione.csv) | - |
 | `righe-cambiate.csv` | riga tolta o aggiunta | differenze rispetto alla release del 18 ottobre, vedi [Come si importa](#importare) | [righe-cambiate.csv](righe-cambiate.csv) | - |
 | `controlli-manuali.csv` | caso da controllare a mano | cosa controllare, verifica automatica, documenti, colonne vuote per esito e nota | [controlli-manuali.csv](controlli-manuali.csv) | [controlli-manuali](https://docs.google.com/spreadsheets/d/1-T0A9MwACJclPaZwmE-4Stro0HZ7ASarx1raZvPOvRY/edit#gid=575639502) |
 
@@ -147,7 +152,7 @@ Limiti: due omonimi nella stessa azienda, o in aziende che la regola non ha avvi
 
 **Il CIK delle persone.** Chi siede nel consiglio, i dirigenti e chi ha più del 10% depositano alla SEC i Form 3, 4 e 5 con un proprio CIK, il codice stabile che la SEC assegna anche alle persone. La colonna `cik` di `persone.csv` lo riporta, come testo con gli zeri iniziali: viene dagli Insider Transactions Data Sets della SEC (Form 3, 4 e 5 depositati dal quarto trimestre 2024 al terzo del 2026), abbinati alle persone per azienda e nome. I nomi nei Form hanno il cognome in testa e spesso il nome legale («Liu Liang Chiu-Chu Sara» per Sara Liu): la regola li riordina e accetta il nome del documento fra i nomi del Form. I casi incerti (diminutivi, nome legale, un solo insider con quel cognome nell'azienda, 91 in tutto) sono stati controllati a mano su nome, ruolo e titolo: 89 confermati, 2 persone diverse. Su 30 abbinamenti automatici estratti a caso non c'è nessun errore. Hanno un CIK 2.246 persone su 2.298: il 98% circa di consiglieri e dirigenti e l'82% dei detentori oltre il 5%, perché chi sta fra il 5% e il 10% non deposita. La colonna è vuota per chi non ha depositato nel periodo e per i casi aperti. Il CIK non cambia né unisce gli ID: quando due ID hanno lo stesso CIK, il caso è nei [controlli manuali](#controlli) come proposta di unione.
 
-**L'ID è stabile fra un'estrazione e l'altra.** Un registro ricorda quale ID ha avuto ogni nome normalizzato in ogni azienda: a ogni nuova estrazione una persona già vista riprende il suo ID, una persona nuova prende il primo numero mai usato, e un numero non viene mai riassegnato. Quando due ID si rivelano la stessa persona resta il più basso, e l'altro viene registrato come sostituito, così chi l'ha già usato può riconciliarlo. Si può quindi conservare `persona_id` come riferimento alla fonte.
+**L'ID è stabile fra un'estrazione e l'altra.** Un registro ricorda quale ID ha avuto ogni nome normalizzato in ogni azienda: a ogni nuova estrazione una persona già vista riprende il suo ID, una persona nuova prende il primo numero mai usato, e un numero non viene mai riassegnato. Quando due ID si rivelano la stessa persona resta il più basso, e l'altro viene registrato come sostituito, così chi l'ha già usato può riconciliarlo. Si può quindi conservare `persona_id` come riferimento alla fonte. Dalle estrazioni successive al 21 novembre 2026 l'ID resta lo stesso anche quando il nome cambia, se la persona ha un CIK: un nome mai visto che, nella stessa azienda, corrisponde con certezza al CIK di una persona già registrata riprende il suo ID. Non succede per chi non ha CIK, per un nome che corrisponde solo come diminutivo, e quando il nome vecchio e quello nuovo compaiono nella stessa estrazione: in quest'ultimo caso il nome nuovo prende un altro ID e finisce nei controlli manuali.
 
 <a id="entita"></a>
 ## Fondi e società: le entità
@@ -173,6 +178,25 @@ Società diverse dello stesso gruppo restano entità distinte: BlackRock Advisor
 Per le persone la colonna `verifica_automatica` riporta la risposta di Exa con la motivazione e le fonti: è il punto di partenza, e i proxy in `documenti` servono a confermare carica e azienda. Gli esiti si riportano nella scheda «controlli-manuali» del Google Sheet, che le rigenerazioni del foglio non sovrascrivono più da quando contiene un esito o una nota. Riportarli nel registro, così che un ID separato o unito a mano resti tale nelle estrazioni seguenti, oggi non è automatico: va fatto prima del giro successivo.
 
 Non sono nei controlli i casi che le regole non possono vedere: due persone omonime nella stessa azienda (avrebbero lo stesso ID) e i diminutivi che cambiano iniziale (Bill e William).
+
+<a id="transazioni"></a>
+## Le transazioni degli insider
+
+`transazioni-insider.csv` elenca le transazioni su azioni che consiglieri, dirigenti e chi ha più del 10% delle 161 aziende hanno dichiarato con i Form 4 e 5. Fonte: gli [Insider Transactions Data Sets](https://www.sec.gov/data-research/sec-markets-data/insider-transactions-data-sets) della SEC, depositi dal quarto trimestre 2024 al terzo del 2026. Sono 57.528 transazioni, in 77.940 righe.
+
+- **Una riga per transazione e titolare.** Un deposito può avere più titolari (una persona e il suo trust, o più fondi dello stesso gruppo): la stessa transazione compare allora una volta per titolare, con lo stesso `transazione_id`. Per contare transazioni o sommare azioni si prende una riga per `transazione_id`.
+- **Chi è il titolare.** `cik` e `nome` sono quelli del Form; `persona_id` c'è quando il CIK è di una persona del registro (65% delle righe). Le altre righe sono insider che non compaiono nei proxy, per esempio ex dirigenti, oppure fondi e società (`tipo_titolare` = `entita`). Se lo stesso CIK è di due `persona_id`, la riga porta il più basso e la `nota` dice l'altro.
+- **L'operazione.** `codice` è il codice del Form 4 e `operazione` la sua etichetta; la legenda, con il testo ufficiale delle istruzioni del Form 4 (sezione 8), è in `codici-transazione.csv`. I più frequenti: S vendita, M esercizio di opzioni, F azioni trattenute per le tasse, A assegnazione, P acquisto, G donazione. `acquisto_cessione` è A (acquisizione) o D (cessione). `piano_10b5_1` dice se il deposito dichiara un piano di vendita programmato.
+- **I numeri.** `azioni`, `prezzo` (vuoto in 2.607 transazioni, di solito assegnazioni ed esercizi, che non hanno un prezzo di mercato) e `azioni_dopo`, le azioni possedute dopo la transazione su quella linea di possesso (`possesso` diretto o indiretto, `natura_possesso` per esempio «By Spouse» o «By Trust»).
+- **`url`** apre il deposito su EDGAR.
+
+Limiti:
+
+- **il possesso non si ricava sommando le righe.** La stessa linea di possesso può avere etichette diverse da un deposito all'altro (per Charles Liang «diretto» e «diretto, By Joint Account w/ Spouse»): sommare l'ultimo `azioni_dopo` di ogni etichetta conta due volte. Confrontato con il proxy su cinque persone, il possesso torna quando le linee si contano una volta e si aggiungono le opzioni che il proxy include;
+- **`azioni_dopo` non sempre torna con la transazione precedente**: fra due giorni diversi succede nel 4% dei casi (movimenti che il Form 4 non riporta come transazioni su azioni, o errori del deposito); nello stesso giorno più spesso, perché le righe di un deposito non sono sempre in ordine cronologico. I valori sono quelli dei depositi, non corretti;
+- **emendamenti**: 103 transazioni di un emendamento (Form 4/A o 5/A) ripetono una transazione già dichiarata, e la `nota` dice di contarle una volta; altre 198 righe di emendamenti possono correggere una riga precedente;
+- **date**: 7 transazioni hanno una data successiva al deposito (errori di compilazione, per esempio un anno sbagliato) e 35 sono di oltre un anno prima del deposito, quasi tutte da Form 5 o emendamenti. Sono segnalate in `nota` e non corrette;
+- **perimetro**: solo transazioni su azioni. Opzioni e altri derivati, e le posizioni dichiarate senza transazione (Form 3), sono negli stessi dataset ma non in questa tabella.
 
 <a id="lettura"></a>
 ## Come si legge
@@ -221,5 +245,6 @@ Questa cartella è prodotta da script che stanno in un repository di lavoro sepa
 2. `bin/estrai-tutte`: estrazione, un JSON per azienda (opzione `--anno` per un anno passato; `bin/sec-extract --accession` rifà un'azienda sullo stesso proxy);
 3. `bin/persone-collegate`, `bin/verifica-persone`, `bin/persone`: le persone e il loro ID;
 4. `bin/senza-proxy`: le aziende registrate senza proxy;
-5. `bin/release`: questa cartella;
-6. `bin/righe-cambiate`: il confronto con la release precedente, in `righe-cambiate.csv`.
+5. `bin/insider` e `bin/abbina-cik`: i Form 3, 4 e 5 dagli Insider Transactions Data Sets della SEC, il CIK delle persone e le transazioni;
+6. `bin/release`: questa cartella;
+7. `bin/righe-cambiate`: il confronto con la release precedente, in `righe-cambiate.csv`.
