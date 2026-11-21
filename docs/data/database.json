@@ -144327,6 +144327,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q127380521). label='Helsing'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q127380521 checked and kept on IN-0723 Helsing GmbH. Decisive evidence: the item carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368', München; the legal name of EDF PIC 890415866 is 'HELSING GMBH'. It confirms the manual decision of 2026-04-23. The QID was removed from IN-0724 Helsing Germany GmbH (HRB 229885, subsidiary). Weak point: the item also describes the group (P31 includes group of companies; Wikipedia articles about the Helsing group), and since April 2026 Helsing GmbH is controlled by Helsing SE (HRB 135822, Frankfurt am Main, domination agreement per registercheck), which has no card in the database; no source places PIC 890415866 next to HRB 264368 (the link rests on the identical legal name).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21",
+          "wikidata_id": "Q127380521"
         }
       ],
       "tags": []
@@ -144339,7 +144346,7 @@
       ],
       "name": "Helsing Germany GmbH",
       "sector": null,
-      "wikidata_id": "Q127380521",
+      "wikidata_id": null,
       "sources": {
         "edf": {
           "extracted_at": "2026-10-19",
@@ -144413,26 +144420,7 @@
           "wikipedia_url": null,
           "website": "https://www.helsing.ai"
         },
-        "wikidata": {
-          "retrieved_at": "2026-04-13",
-          "label": "Helsing",
-          "description": "German company specializing in artificial intelligence for defense purposes",
-          "aliases": [
-            "Helsing GmbH"
-          ],
-          "instance_of": [
-            "software company",
-            "group of companies",
-            "company"
-          ],
-          "country": "Germany",
-          "inception": "2021",
-          "headquarters": "Munich",
-          "official_website": "https://helsing.ai/de",
-          "isin": null,
-          "employees": null,
-          "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing%20%28company%29"
-        }
+        "wikidata": null
       },
       "history": [
         {
@@ -144554,6 +144542,35 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 892984620, 1 projects, €137,738 EU contribution"
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_qid_removed.py",
+          "field": "wikidata_id",
+          "old": "Q127380521",
+          "new": null,
+          "description": "QID Q127380521 removed: on Wikidata it is 'Helsing'. Why the entity had it: set by search_missing_qids.py on 2026-04-12 (search name 'Helsing Germany'), removed by a manual patch on 2026-04-23 (QID moved to IN-0723 Helsing GmbH, IN-0724 is the subsidiary), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: Helsing Germany GmbH (formerly Hellsicht GmbH, renamed 2022), Amtsgericht München HRB 229885, Mühldorfstr. 8, 81671 München, EDF PIC 892984620; shareholder Helsing GmbH (HRB 264368, 100%), which is controlled by Helsing SE (Frankfurt am Main, HRB 135822); the QID stays on IN-0723. No Wikidata item for Helsing Germany GmbH was found: a correct QID may not exist. Decisive evidence: Q127380521 carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368' (München), the legal name of PIC 890415866 on IN-0723. Registercheck (Unternehmensregister data): 'Die Helsing Germany GmbH mit Sitz in München und Geschäftsanschrift Mühldorfstr. 8, 81671 München ist unter HRB 229885 im Handelsregister'; 'Firma geändert Hellsicht GmbH → Helsing Germany GmbH'; on Helsing GmbH: 'Helsing Germany GmbH HRB 229885 · München · aktiv 100 %'. Weak point: HRB 229885 and the 100% shareholding come only from registry aggregators (registercheck, northdata, online-handelsregister), not from the register itself; Helsing Germany GmbH has no LEI; both EDF PICs give Unterhaching as city while the registers give München.",
+          "old_sources_wikidata": {
+            "retrieved_at": "2026-04-13",
+            "label": "Helsing",
+            "description": "German company specializing in artificial intelligence for defense purposes",
+            "aliases": [
+              "Helsing GmbH"
+            ],
+            "instance_of": [
+              "software company",
+              "group of companies",
+              "company"
+            ],
+            "country": "Germany",
+            "inception": "2021",
+            "headquarters": "Munich",
+            "official_website": "https://helsing.ai/de",
+            "isin": null,
+            "employees": null,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing%20%28company%29"
+          }
         }
       ],
       "validation": [
@@ -144610,6 +144627,14 @@
           "description": "wikidata_id Q127380521 applied from qid_candidates.json (human-approved). Run enrich_wikidata.py to populate sources.wikidata block.",
           "author": "search_missing_qids.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "qid_removed",
+          "wikidata_id_removed": "Q127380521",
+          "wikidata_label": "Helsing",
+          "description": "QID Q127380521 removed: on Wikidata it is 'Helsing'. Why the entity had it: set by search_missing_qids.py on 2026-04-12 (search name 'Helsing Germany'), removed by a manual patch on 2026-04-23 (QID moved to IN-0723 Helsing GmbH, IN-0724 is the subsidiary), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: Helsing Germany GmbH (formerly Hellsicht GmbH, renamed 2022), Amtsgericht München HRB 229885, Mühldorfstr. 8, 81671 München, EDF PIC 892984620; shareholder Helsing GmbH (HRB 264368, 100%), which is controlled by Helsing SE (Frankfurt am Main, HRB 135822); the QID stays on IN-0723. No Wikidata item for Helsing Germany GmbH was found: a correct QID may not exist. Decisive evidence: Q127380521 carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368' (München), the legal name of PIC 890415866 on IN-0723. Registercheck (Unternehmensregister data): 'Die Helsing Germany GmbH mit Sitz in München und Geschäftsanschrift Mühldorfstr. 8, 81671 München ist unter HRB 229885 im Handelsregister'; 'Firma geändert Hellsicht GmbH → Helsing Germany GmbH'; on Helsing GmbH: 'Helsing Germany GmbH HRB 229885 · München · aktiv 100 %'. Weak point: HRB 229885 and the 100% shareholding come only from registry aggregators (registercheck, northdata, online-handelsregister), not from the register itself; Helsing Germany GmbH has no LEI; both EDF PICs give Unterhaching as city while the registers give München.",
+          "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
