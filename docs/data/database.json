@@ -144096,14 +144096,14 @@
         },
         "ishares": null,
         "crunchbase": {
-          "extracted_at": "2026-04-24",
-          "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
-          "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
+          "extracted_at": "2026-04-13",
+          "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+          "profile_url": "https://www.crunchbase.com/organization/helsing",
           "stage": "",
-          "description": "Helsing Munich is a an information technology company.",
-          "description_full": null,
+          "description": "Helsing develops AI-powered defense tech, focusing on drones and software, to enhance military capabilities for democratic nations.",
+          "description_full": "Helsing offers artificial intelligence solutions designed to support defence operations across land, air, naval, and subsurface domains. It provides software-driven platforms that integrate with existing military hardware to enable autonomous target detection, coordination, and engagement. Key offerings include a reconnaissance-and-strike system that fuses battlefield data, an AI‑enabled strike drone capable of operating in electronic warfare environments, underwater autonomous surveillance drones paired with an edge‑AI classifier, and AI “wingman” pilots for aircraft. Helsing collaborates with governments and industry to embed its AI-driven software into defense ecosystems while maintaining structured ethical oversight over technology use.",
           "website": "https://www.helsing.ai",
-          "cb_rank": 378156,
+          "cb_rank": 359,
           "headquarters": "Munich, Bayern, Germany",
           "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
           "operating_status": "Active",
@@ -144111,28 +144111,50 @@
           "company_type": "For Profit",
           "investment_stage": null,
           "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
+          "primary_industry": "Military",
+          "primary_industry_url": "https://www.crunchbase.com/category/military",
           "industry_groups": [
-            "Information Technology"
+            "Artificial Intelligence (AI)",
+            "Consumer Electronics",
+            "Consumer Goods",
+            "Data and Analytics",
+            "Government and Military",
+            "Hardware",
+            "Information Technology",
+            "Science and Engineering",
+            "Software"
           ],
           "industries": [
-            "Information Technology"
+            "Artificial Intelligence (AI)",
+            "Drones",
+            "Information Technology",
+            "Military",
+            "Software"
           ],
           "founders": [
+            "Gundbert Scherf",
             "Niklas Köhler",
             "Torsten Reil"
           ],
-          "num_funding_rounds": null,
-          "funding_status": null,
-          "last_funding_date": null,
-          "last_funding_amount_usd": null,
-          "last_funding_type": null,
-          "total_equity_funding_usd": null,
-          "total_funding_usd": null,
-          "total_funding_native": null,
-          "top_investors": [],
-          "num_investors": null,
+          "num_funding_rounds": 4,
+          "funding_status": "Late Stage Venture",
+          "last_funding_date": "2025-06-17",
+          "last_funding_amount_usd": 688936936,
+          "last_funding_type": "Series D",
+          "total_equity_funding_usd": 1519386783,
+          "total_funding_usd": 1519386783,
+          "total_funding_native": {
+            "amount": 1361500000,
+            "currency": "EUR"
+          },
+          "top_investors": [
+            "Accel",
+            "General Catalyst",
+            "Lightspeed Venture Partners",
+            "BDT & MSD Partners",
+            "Greenoaks"
+          ],
+          "num_investors": 10,
           "revenue_range": null,
           "patents_granted": null,
           "domain": null,
@@ -144324,6 +144346,148 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 890415866, 1 projects, €255,686 EU contribution"
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_in",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0642"
+          ],
+          "other_entity": "IN-0724",
+          "description": "1 investment relationship(s) moved from IN-0724: Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-24",
+            "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+            "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
+            "stage": "",
+            "description": "Helsing Munich is a an information technology company.",
+            "description_full": null,
+            "website": "https://www.helsing.ai",
+            "cb_rank": 378156,
+            "headquarters": "Munich, Bayern, Germany",
+            "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+            "operating_status": "Active",
+            "founded_date": "2021-01-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Information Technology"
+            ],
+            "industries": [
+              "Information Technology"
+            ],
+            "founders": [
+              "Niklas Köhler",
+              "Torsten Reil"
+            ],
+            "num_funding_rounds": null,
+            "funding_status": null,
+            "last_funding_date": null,
+            "last_funding_amount_usd": null,
+            "last_funding_type": null,
+            "total_equity_funding_usd": null,
+            "total_funding_usd": null,
+            "total_funding_native": null,
+            "top_investors": [],
+            "num_investors": null,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "The Crunchbase block of 2026-04-13 (profile helsing, CB rank 359, 4 funding rounds, total funding 1,361.5 M EUR) was overwritten on 2026-04-24 by the block of profile helsing-munich ('Helsing Munich', CB rank 378,156, no funding data), matched through the website helsing.ai for the input row 'Helsing Germany GmbH'. Removed here (full block in history) before restoring the 2026-04-13 block."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_set_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": {
+            "extracted_at": "2026-04-13",
+            "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+            "profile_url": "https://www.crunchbase.com/organization/helsing",
+            "stage": "",
+            "description": "Helsing develops AI-powered defense tech, focusing on drones and software, to enhance military capabilities for democratic nations.",
+            "description_full": "Helsing offers artificial intelligence solutions designed to support defence operations across land, air, naval, and subsurface domains. It provides software-driven platforms that integrate with existing military hardware to enable autonomous target detection, coordination, and engagement. Key offerings include a reconnaissance-and-strike system that fuses battlefield data, an AI‑enabled strike drone capable of operating in electronic warfare environments, underwater autonomous surveillance drones paired with an edge‑AI classifier, and AI “wingman” pilots for aircraft. Helsing collaborates with governments and industry to embed its AI-driven software into defense ecosystems while maintaining structured ethical oversight over technology use.",
+            "website": "https://www.helsing.ai",
+            "cb_rank": 359,
+            "headquarters": "Munich, Bayern, Germany",
+            "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+            "operating_status": "Active",
+            "founded_date": "2021-01-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": "Military",
+            "primary_industry_url": "https://www.crunchbase.com/category/military",
+            "industry_groups": [
+              "Artificial Intelligence (AI)",
+              "Consumer Electronics",
+              "Consumer Goods",
+              "Data and Analytics",
+              "Government and Military",
+              "Hardware",
+              "Information Technology",
+              "Science and Engineering",
+              "Software"
+            ],
+            "industries": [
+              "Artificial Intelligence (AI)",
+              "Drones",
+              "Information Technology",
+              "Military",
+              "Software"
+            ],
+            "founders": [
+              "Gundbert Scherf",
+              "Niklas Köhler",
+              "Torsten Reil"
+            ],
+            "num_funding_rounds": 4,
+            "funding_status": "Late Stage Venture",
+            "last_funding_date": "2025-06-17",
+            "last_funding_amount_usd": 688936936,
+            "last_funding_type": "Series D",
+            "total_equity_funding_usd": 1519386783,
+            "total_funding_usd": 1519386783,
+            "total_funding_native": {
+              "amount": 1361500000,
+              "currency": "EUR"
+            },
+            "top_investors": [
+              "Accel",
+              "General Catalyst",
+              "Lightspeed Venture Partners",
+              "BDT & MSD Partners",
+              "Greenoaks"
+            ],
+            "num_investors": 10,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "description": "Restores, unchanged, the Crunchbase block of 2026-04-13 (profile helsing, file crunchbase-export-matches-csv-4-13-2026.csv) from git commit d7f8a4e (refactoringDB/data/database.json), saved in work/verifica-crunchbase-helsing/helsing_cb_2026-04-13.json; the history entry of 2026-04-24 kept only a summary of it. On 2026-11-21 the live Crunchbase pages helsing and helsing-munich show the same organization, legal name Helsing GmbH. The data are as of 2026-04-13 (last round Series D, 2025-06-17) and will be refreshed by the next Crunchbase cycle."
         }
       ],
       "validation": [
@@ -144412,6 +144576,26 @@
           "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
           "datestamp": "2026-11-21",
           "wikidata_id": "Q127380521"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_in): IV-0642. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/helsing-munich",
+          "description": "The Crunchbase block of 2026-04-13 (profile helsing, CB rank 359, 4 funding rounds, total funding 1,361.5 M EUR) was overwritten on 2026-04-24 by the block of profile helsing-munich ('Helsing Munich', CB rank 378,156, no funding data), matched through the website helsing.ai for the input row 'Helsing Germany GmbH'. Removed here (full block in history) before restoring the 2026-04-13 block.",
+          "author": "patch_clear_crunchbase.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "crunchbase_enriched",
+          "cb_url": "https://www.crunchbase.com/organization/helsing",
+          "description": "Restores, unchanged, the Crunchbase block of 2026-04-13 (profile helsing, file crunchbase-export-matches-csv-4-13-2026.csv) from git commit d7f8a4e (refactoringDB/data/database.json), saved in work/verifica-crunchbase-helsing/helsing_cb_2026-04-13.json; the history entry of 2026-04-24 kept only a summary of it. On 2026-11-21 the live Crunchbase pages helsing and helsing-munich show the same organization, legal name Helsing GmbH. The data are as of 2026-04-13 (last round Series D, 2025-06-17) and will be refreshed by the next Crunchbase cycle.",
+          "author": "patch_set_crunchbase.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -144444,51 +144628,7 @@
           "source_file": "edf_calls.json"
         },
         "ishares": null,
-        "crunchbase": {
-          "extracted_at": "2026-04-24",
-          "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
-          "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
-          "stage": "",
-          "description": "Helsing Munich is a an information technology company.",
-          "description_full": null,
-          "website": "https://www.helsing.ai",
-          "cb_rank": 378156,
-          "headquarters": "Munich, Bayern, Germany",
-          "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
-          "operating_status": "Active",
-          "founded_date": "2021-01-01",
-          "company_type": "For Profit",
-          "investment_stage": null,
-          "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Information Technology"
-          ],
-          "industries": [
-            "Information Technology"
-          ],
-          "founders": [
-            "Niklas Köhler",
-            "Torsten Reil"
-          ],
-          "num_funding_rounds": null,
-          "funding_status": null,
-          "last_funding_date": null,
-          "last_funding_amount_usd": null,
-          "last_funding_type": null,
-          "total_equity_funding_usd": null,
-          "total_funding_usd": null,
-          "total_funding_native": null,
-          "top_investors": [],
-          "num_investors": null,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
-        },
+        "crunchbase": null,
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -144649,6 +144789,135 @@
             "employees": null,
             "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing%20%28company%29"
           }
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-24",
+            "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+            "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
+            "stage": "",
+            "description": "Helsing Munich is a an information technology company.",
+            "description_full": null,
+            "website": "https://www.helsing.ai",
+            "cb_rank": 378156,
+            "headquarters": "Munich, Bayern, Germany",
+            "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+            "operating_status": "Active",
+            "founded_date": "2021-01-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Information Technology"
+            ],
+            "industries": [
+              "Information Technology"
+            ],
+            "founders": [
+              "Niklas Köhler",
+              "Torsten Reil"
+            ],
+            "num_funding_rounds": null,
+            "funding_status": null,
+            "last_funding_date": null,
+            "last_funding_amount_usd": null,
+            "last_funding_type": null,
+            "total_equity_funding_usd": null,
+            "total_funding_usd": null,
+            "total_funding_native": null,
+            "top_investors": [],
+            "num_investors": null,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_removed",
+          "field": "relationships",
+          "old": [
+            {
+              "source": "IV-0006",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0064",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0228",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": true
+              }
+            },
+            {
+              "source": "IV-0246",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0354",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            }
+          ],
+          "new": null,
+          "other_entity": "IN-0723",
+          "description": "5 investment relationship(s) removed: each duplicates a relationship already on IN-0723 (same source, type investment); full copies in old, details not on IN-0723 copied there. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_out",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0642"
+          ],
+          "other_entity": "IN-0723",
+          "description": "1 investment relationship(s) moved to IN-0723: Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
         }
       ],
       "validation": [
@@ -144712,6 +144981,25 @@
           "wikidata_label": "Helsing",
           "description": "QID Q127380521 removed: on Wikidata it is 'Helsing'. Why the entity had it: set by search_missing_qids.py on 2026-04-12 (search name 'Helsing Germany'), removed by a manual patch on 2026-04-23 (QID moved to IN-0723 Helsing GmbH, IN-0724 is the subsidiary), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: Helsing Germany GmbH (formerly Hellsicht GmbH, renamed 2022), Amtsgericht München HRB 229885, Mühldorfstr. 8, 81671 München, EDF PIC 892984620; shareholder Helsing GmbH (HRB 264368, 100%), which is controlled by Helsing SE (Frankfurt am Main, HRB 135822); the QID stays on IN-0723. No Wikidata item for Helsing Germany GmbH was found: a correct QID may not exist. Decisive evidence: Q127380521 carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368' (München), the legal name of PIC 890415866 on IN-0723. Registercheck (Unternehmensregister data): 'Die Helsing Germany GmbH mit Sitz in München und Geschäftsanschrift Mühldorfstr. 8, 81671 München ist unter HRB 229885 im Handelsregister'; 'Firma geändert Hellsicht GmbH → Helsing Germany GmbH'; on Helsing GmbH: 'Helsing Germany GmbH HRB 229885 · München · aktiv 100 %'. Weak point: HRB 229885 and the 100% shareholding come only from registry aggregators (registercheck, northdata, online-handelsregister), not from the register itself; Helsing Germany GmbH has no LEI; both EDF PICs give Unterhaching as city while the registers give München.",
           "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/helsing-munich",
+          "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history.",
+          "author": "patch_clear_crunchbase.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "relationships_removed",
+          "description": "Duplicate investment relationships removed (full copies in history): IV-0006, IV-0064, IV-0228, IV-0246, IV-0354; kept on IN-0723. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_out): IV-0642. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
           "datestamp": "2026-11-21"
         }
       ],
@@ -357816,64 +358104,21 @@
       }
     },
     {
-      "source": "IV-0228",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
-      "source": "IV-0354",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0006",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0064",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0246",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
       "source": "IV-0642",
-      "target": "IN-0724",
+      "target": "IN-0723",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
       "details": {
         "lead": true
-      }
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0724 -> IN-0723. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0501",
@@ -371584,35 +371829,85 @@
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0006 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0228",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0228 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": true}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0354",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0354 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0064",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0064 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0246",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0246 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IN-1329",
