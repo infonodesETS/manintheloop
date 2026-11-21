@@ -68910,6 +68910,12 @@
           "description": "Headquarters conflict reviewed 2026-11-15: sources.wikidata.headquarters 'Suwon' matches the registered head office. KRX KIND filing of 2026-03-10 (https://kind.krx.co.kr/external/2026/03/10/001404/20260310003123/11011.htm): '본 점 소재 지 : 경기도 수원시 영통구 삼성로 129'; DART English filing: 'Entity Address : 129, Samsung-ro, Yeongtong-gu, Suwon, Gyeonggi-do, Korea'. sources.crunchbase.headquarters 'Seoul' appears in none of the documents read. No field changed.",
           "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Samsung Electronics Co., Ltd.: common shares, ticker 005930 on the Korea Exchange (iShares IXN). Sibling entity IN-0313 is the non-voting preferred shares (005935); same issuer and Wikidata ID Q20718, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -69099,6 +69105,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Samsung Electronics Co., Ltd.: non-voting preferred shares, ticker 005935 on the Korea Exchange (iShares IXN). Sibling entity IN-0312 is the common shares (005930); same issuer and Wikidata ID Q20718, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
