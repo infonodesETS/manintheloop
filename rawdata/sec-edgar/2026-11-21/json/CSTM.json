@@ -1,0 +1,521 @@
+{
+  "company": "Constellium SE",
+  "ticker": "CSTM",
+  "cik": "0001563411",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-10",
+    "accession": "0001563411-26-000142",
+    "meeting": "2026 Annual General Meeting, 2026-05-21",
+    "ownership_as_of": "2026-03-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1563411/000156341126000142/cstm-20260410.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "accession": "0001563411-26-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/1563411/000156341126000057/cstm-20251231.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Jean-Christophe Deslarzes",
+      "roles": [
+        "Chair"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Ingrid Joerg",
+      "roles": [
+        "Executive Director",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2026-01",
+      "independent": false
+    },
+    {
+      "name": "Emmanuel Blot",
+      "roles": [
+        "BPI Designated Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Isabelle Boccon-Gibod",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Martha Brooks",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "John Ormerod",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Jean-Philippe Puig",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Bradley Soultz",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Jean-François Verdier",
+      "roles": [
+        "Employee Director"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Lori A. Walker",
+      "roles": [
+        "Non-Executive Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Wiebke Weiler",
+      "roles": [
+        "Employee Director"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Michiel Brandjes",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lori A. Walker",
+        "Isabelle Boccon-Gibod",
+        "John Ormerod"
+      ],
+      "chair": "Lori A. Walker",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Resources Committee",
+      "members": [
+        "Martha Brooks",
+        "Jean-Christophe Deslarzes",
+        "Jean-Philippe Puig",
+        "Bradley Soultz"
+      ],
+      "chair": "Martha Brooks",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "John Ormerod",
+        "Isabelle Boccon-Gibod",
+        "Michiel Brandjes",
+        "Jean-Christophe Deslarzes",
+        "Lori A. Walker"
+      ],
+      "chair": "John Ormerod",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Safety and Sustainability Committee",
+      "members": [
+        "Michiel Brandjes",
+        "Emmanuel Blot",
+        "Martha Brooks",
+        "Jean-Philippe Puig"
+      ],
+      "chair": "Michiel Brandjes",
+      "meetings": 5,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Ingrid Joerg",
+      "age": 56,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Jack Guo",
+      "age": 47,
+      "positions": [
+        "Executive Vice President & Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Philippe Hoffmann",
+      "age": 60,
+      "positions": [
+        "President, A&T business unit"
+      ]
+    },
+    {
+      "name": "Matthew Perkins",
+      "age": 58,
+      "positions": [
+        "President, P&ARP business unit"
+      ]
+    },
+    {
+      "name": "Stephane Corre",
+      "age": 53,
+      "positions": [
+        "President, AS&I business unit"
+      ]
+    },
+    {
+      "name": "Ludovic Piquier",
+      "age": 52,
+      "positions": [
+        "Senior Vice President Manufacturing Excellence and Chief Technical Officer"
+      ]
+    },
+    {
+      "name": "Philip Ryan Jurkovic",
+      "age": 54,
+      "positions": [
+        "Senior Vice President & Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Nicolas Brun",
+      "age": 59,
+      "positions": [
+        "Senior Vice President, Public Affairs, Communications and Sustainability"
+      ]
+    },
+    {
+      "name": "Marcus Becker",
+      "age": 50,
+      "positions": [
+        "Senior Vice President & Chief Procurement Officer"
+      ]
+    },
+    {
+      "name": "Niklaus Schild",
+      "age": 47,
+      "positions": [
+        "Senior Vice President, Chief Information Officer and Chief Digital Officer"
+      ]
+    },
+    {
+      "name": "Stephen Walters",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, Group General Counsel, Board Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-17",
+    "note": "Percentuali calcolate su 136.351.778 ordinary shares in circolazione al 17/03/2026. * = meno dell'1%. Ogni persona ha potere di voto e di investimento esclusivo sulle azioni indicate, salvo quanto indicato nelle note. Il documento non indica una percentuale sui diritti di voto (pct_of_votes non disponibile).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Caisse des Dépôts (f/k/a Caisse des Dépôts et Consignations), Bpifrance Participations S.A., Bpifrance S.A. (f/k/a BPI-Groupe), EPIC Bpifrance (f/k/a EPIC BPI-Groupe)",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 12593903,
+            "pct": 9.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed 2024-06-06 (beneficial ownership al 2024-06-05)",
+        "address": "CDC: 56, rue de Lille, 75007 Paris, France; BPI, Bpifrance S.A., EPIC: 27-31 avenue du Général Leclerc, 94710 Maisons-Alfort Cedex, France"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 12439991,
+            "pct": 9.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-11-08 (beneficial ownership al 2024-09-30)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 10569283,
+            "pct": 7.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05 (beneficial ownership al 2025-12-31)",
+        "address": "245 Summer Street, Boston, MA 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jean-Christophe Deslarzes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 40700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Emmanuel Blot",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Isabelle Boccon-Gibod",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 23000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michiel Brandjes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 52000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martha Brooks",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 211741,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Ormerod",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 32873,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean-Philippe Puig",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 23600,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley Soultz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 12500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean-François Verdier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 41,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lori A. Walker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 36294,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wiebke Weiler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean-Marc Germain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 1986706,
+            "pct": 1.5
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jack Guo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 127301,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ingrid Joerg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 271352,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philippe Hoffmann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 139972,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ryan Jurkovic",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 175234,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 22,
+      "classes": [
+        {
+          "class": "Ordinary Shares",
+          "shares": 1568336,
+          "pct": 1.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente nel documento: executive_officers lasciato vuoto, non ricostruito da cariche citate nelle biografie. Probabilmente nel 10-K.",
+    "La sezione committees è assente come tabella dedicata: l'appartenenza ai comitati è stata letta dalla prosa nella sezione board (nessuna matrice presente).",
+    "Michiel Brandjes non compare nella tabella dei direttori: il documento indica che si ritira dal consiglio e non si ricandida, ma risulta ancora in carica alla data del 30/03/2026. Incluso in board_of_directors come uscente; director_since e ruolo non forniti nel documento (null). Indipendenza ricavata dalla dichiarazione del Board al 31/12/2025.",
+    "Jean-Marc Germain è cessato come CEO e direttore il 31/12/2025: escluso da board_of_directors. Figura come Named Executive Officer nella tabella ownership con 1.986.706 azioni.",
+    "Ingrid Joerg è stata nominata direttrice dal 01/01/2026 per il mandato residuo di Germain, con ratifica all'assemblea: director_since impostato a 2026-01. Nella tabella ownership compare solo tra i NEO, non nel blocco dei direttori.",
+    "Safety and Sustainability Committee: il documento dice 'held five meetings in 2026', anno incoerente con l'esercizio di riferimento. Registrato meetings 5 e meetings_year 2026 come scritto; possibile refuso per 2025.",
+    "Lori A. Walker: la tabella riporta 36.294 azioni, la nota (14) ne riporta 35.055 detenute in trust. Usato il valore della tabella.",
+    "Gruppo dirigenti e direttori: la tabella riporta 1.568.336 azioni, la nota (21) riporta 1.568.366. Usato il valore della tabella, da verificare.",
+    "Gruppo dirigenti e direttori: dichiarate 22 persone, ma le righe nominative nei blocchi sono 16 (11 direttori e 5 NEO). Le due liste non coincidono: il documento non elenca tutti i dirigenti individualmente.",
+    "Ownership: i dati dei detentori oltre il 5% si basano su depositi 2024 (Caisse des Dépôts/BPI, Schedule 13D/A del 2024-06-06; BlackRock, Schedule 13G del 2024-11-08) e su un deposito 2026 (FMR). Le date di riferimento sono quelle dichiarate nelle note.",
+    "Jack Guo, Ingrid Joerg, Philippe Hoffmann e Ryan Jurkovic detengono anche RSU e PSU non maturate, escluse dal conteggio come da note del documento. Le azioni riportate sono solo quelle detenute.",
+    "Martha Brooks: le 211.741 azioni includono 22.000 azioni indirette (conto del marito) e 92.000 azioni tramite una società di famiglia (di cui 63.600 disconosciute). Riportato il totale della tabella, senza scomporlo.",
+    "executive_officers presi dal Form 10-K del 2026-02-25: il DEF 14A non li elenca.",
+    "10-K: Il documento indica le età e le cariche 'as of the date of this Annual Report' senza riportare una data esplicita; la data di deposito è 2026-02-25, ma non è stata usata come as_of perché non dichiarata nel testo.",
+    "10-K: L'Item 10 contiene solo un rimando alla sezione 'Information about our Executive Officers' della Parte I: l'elenco è stato estratto dalla Parte I.",
+    "10-K: Ingrid Joerg è anche amministratrice (director) dal 1° gennaio 2026; è inclusa perché elencata come executive officer.",
+    "10-K: Nota (1) della tabella: Jean-Marc Germain si è ritirato da CEO con effetto dal 31 dicembre 2025; non è incluso perché non più executive officer alla data del documento.",
+    "10-K: Il nome 'Philip Ryan Jurkovic' è riportato con il secondo nome come nel documento."
+  ]
+}

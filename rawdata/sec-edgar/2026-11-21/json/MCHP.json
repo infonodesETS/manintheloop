@@ -1,0 +1,372 @@
+{
+  "company": "Microchip Technology Incorporated",
+  "ticker": "MCHP",
+  "cik": "0000827054",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-07-06",
+    "accession": "0000827054-26-000026",
+    "meeting": "Annual Meeting of Stockholders, August 18, 2026",
+    "ownership_as_of": "2026-06-22",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/827054/000082705426000026/mchp-20260701.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-05-21",
+      "accession": "0000827054-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/827054/000082705426000016/mchp-20260331.htm",
+      "as_of": "2026-04-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Steve Sanghi",
+      "roles": [
+        "Chair of the Board",
+        "Chief Executive Officer",
+        "President"
+      ],
+      "director_since": "1990-08",
+      "independent": false
+    },
+    {
+      "name": "Ellen L. Barker",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-02",
+      "independent": true
+    },
+    {
+      "name": "Rick Cassidy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-05",
+      "independent": true
+    },
+    {
+      "name": "Matthew W. Chapman",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "1997-05",
+      "independent": true
+    },
+    {
+      "name": "Mitch Little",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-06",
+      "independent": true
+    },
+    {
+      "name": "Victor Peng",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Karen M. Rapp",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-01",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Ellen L. Barker",
+        "Matthew W. Chapman",
+        "Karen M. Rapp"
+      ],
+      "chair": "Matthew W. Chapman",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Rick Cassidy",
+        "Victor Peng",
+        "Karen M. Rapp"
+      ],
+      "chair": "Karen M. Rapp",
+      "meetings": 13,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating, Governance and Sustainability Committee",
+      "members": [
+        "Ellen L. Barker",
+        "Rick Cassidy",
+        "Victor Peng"
+      ],
+      "chair": "Ellen L. Barker",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Steve Sanghi",
+      "age": 70,
+      "positions": [
+        "Chair of the Board",
+        "Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Richard J. Simoncic",
+      "age": 62,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "J. Eric Bjornholt",
+      "age": 55,
+      "positions": [
+        "Senior Corporate VP and CFO"
+      ]
+    },
+    {
+      "name": "Mathew B. Bunker",
+      "age": 56,
+      "positions": [
+        "Senior Corporate VP, Operations"
+      ]
+    },
+    {
+      "name": "Joseph R. Krawczyk II",
+      "age": 66,
+      "positions": [
+        "Senior Corporate VP, Worldwide Client Engagement"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-06-22",
+    "note": "Titolarità effettiva al 22 giugno 2026. Le azioni includono gli RSU che maturano entro 60 giorni dalla data. * = meno dell'1%. Azioni in circolazione al 22 giugno 2026: 543.008.370. Nel documento non è indicata una percentuale di voto (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54307425,
+            "pct": 10.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-06",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Vanguard Capital Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40620884,
+            "pct": 7.48
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-30",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "Vanguard Portfolio Management, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32469341,
+            "pct": 5.98
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-29",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27720233,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-05",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Steve Sanghi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9452437,
+            "pct": 1.74
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew W. Chapman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20755,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen M. Rapp",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14227,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellen L. Barker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Victor Peng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5416,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rick Cassidy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4348,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mitch Little",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard J. Simoncic",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 137728,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "J. Eric Bjornholt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35772,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mathew B. Bunker",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21340,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joseph R. Krawczyk II",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17621,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 9718089,
+          "pct": 1.79
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A (probabilmente nel 10-K): executive_officers lasciato vuoto, non ricostruito dalle biografie.",
+    "Karlton D. Johnson non è incluso in board_of_directors: si è dimesso dal consiglio il 20 maggio 2025, prima della data del documento. Nella matrice dei comitati compare senza segni di appartenenza; era Presidente del Nominating, Governance and Sustainability Committee e membro dell'Audit Committee fino a quella data, come da nota (2).",
+    "Mitch Little è incluso come direttore in carica, eletto il 1° giugno 2026 secondo la nota (3). Non compare in nessun comitato nella matrice e la sua biografia non elenca comitati.",
+    "Steve Sanghi è incluso come direttore ma non è indipendente: è anche CEO/Presidente. Nella matrice dei comitati non ha appartenenze, come da riga vuota.",
+    "Steve Sanghi detiene 9.452.437 azioni (1,74%) comprensive di 3.504.535 azioni del Sanghi Trust, 5.905.872 azioni della Sanghi Family Limited Partnership e 42.030 RSU. Il dato è riportato come dichiarato in holder_type person; il dato è in parte intestato a veicoli patrimoniali.",
+    "Nella nota (4) il Schedule 13G di Vanguard Portfolio Management, LLC attribuisce il potere di voto/disposizione a Vanguard Capital Management, LLC: probabile refuso nel documento. Il valore di azioni e percentuale è riportato dalla tabella.",
+    "La riga di gruppo dichiara 11 persone e il blocco named_executive_officers_and_directors contiene 11 persone: coerente.",
+    "Le percentuali dei detentori oltre il 5% sono calcolate dal documento sulle 543.008.370 azioni in circolazione al 22 giugno 2026, non sul dato della data di deposito dei 13G.",
+    "executive_officers presi dal Form 10-K del 2026-05-21: il DEF 14A non li elenca.",
+    "10-K: La finestra dell'Item 10 contiene solo un rimando alla Parte I (\"Information About Our Executive Officers\"), quindi l'elenco è stato estratto dalla sezione della Parte I."
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "company": "AppLovin Corporation",
+  "ticker": "APP",
+  "cik": "0001751008",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-21",
+    "accession": "0001751008-26-000028",
+    "meeting": null,
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000028/app-20260420.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Adam Foroughi",
+      "roles": [
+        "Chief Executive Officer and Co-Founder",
+        "Director"
+      ],
+      "director_since": "2011-12",
+      "independent": false
+    },
+    {
+      "name": "Craig Billings",
+      "roles": [
+        "Chairperson"
+      ],
+      "director_since": "2020-12",
+      "independent": true
+    },
+    {
+      "name": "Herald Chen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018-08",
+      "independent": false
+    },
+    {
+      "name": "Margaret Georgiadis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-01",
+      "independent": true
+    },
+    {
+      "name": "Alyssa Harvey Dawson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Barbara Messing",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-03",
+      "independent": true
+    },
+    {
+      "name": "Todd Morgenfeld",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Victoria Valenzuela",
+      "roles": [
+        "Chief Administrative & Legal Officer and Corporate Secretary",
+        "Director Nominee"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Eduardo Vivas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018-08",
+      "independent": true
+    },
+    {
+      "name": "Maynard Webb",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-04",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Todd Morgenfeld",
+        "Craig Billings",
+        "Margaret Georgiadis",
+        "Alyssa Harvey Dawson",
+        "Maynard Webb"
+      ],
+      "chair": "Todd Morgenfeld",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Craig Billings",
+        "Barbara Messing",
+        "Todd Morgenfeld"
+      ],
+      "chair": "Craig Billings",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Margaret Georgiadis",
+        "Alyssa Harvey Dawson",
+        "Barbara Messing",
+        "Eduardo Vivas",
+        "Maynard Webb"
+      ],
+      "chair": "Margaret Georgiadis",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Adam Foroughi",
+      "age": 45,
+      "positions": [
+        "Chief Executive Officer and Co-Founder"
+      ]
+    },
+    {
+      "name": "Matthew Stumpf",
+      "age": 42,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Vasily Shikin",
+      "age": 41,
+      "positions": [
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Victoria Valenzuela",
+      "age": 52,
+      "positions": [
+        "Chief Administrative & Legal Officer and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Percentuali calcolate su 306.086.916 azioni Class A e 30.207.521 azioni Class B, nessuna Class C, al 31 marzo 2026. Il simbolo * indica meno dell'1%. pct_of_votes è la quota del potere di voto complessivo. Le azioni includono opzioni ed RSU esercitabili o che maturano entro 60 giorni dal 31 marzo 2026.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Adam Foroughi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2420296,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 27936907,
+            "pct": 92.5
+          }
+        ],
+        "pct_of_votes": 61.6,
+        "source": null,
+        "address": "c/o AppLovin Corporation, 1100 Page Mill Road, Palo Alto, California 94304"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 24954427,
+            "pct": 8.2
+          }
+        ],
+        "pct_of_votes": 2.7,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Blvd. Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 21386458,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": 2.3,
+        "source": "Schedule 13G filed 2025-10-17",
+        "address": "50 Hudson Yards New York, NY 10001"
+      },
+      {
+        "name": "Angel Pride Holdings Limited",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 17244541,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": 1.9,
+        "source": "Schedule 13G/A filed 2025-01-30",
+        "address": "Vistra Corporate Services Centre, Wickhams Cay II, Road Town, Tortola, VG1110, British Virgin Islands"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Adam Foroughi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2420296,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 27936907,
+            "pct": 92.5
+          }
+        ],
+        "pct_of_votes": 61.6
+      },
+      {
+        "name": "Matthew Stumpf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 178681,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vasily Shikin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3805555,
+            "pct": 1.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Victoria Valenzuela",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 256529,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Craig Billings",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7174,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Herald Chen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 446209,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 697668,
+            "pct": 2.3
+          }
+        ],
+        "pct_of_votes": 1.6
+      },
+      {
+        "name": "Margaret Georgiadis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 189965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alyssa Harvey Dawson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2059,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barbara Messing",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7162,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Todd Morgenfeld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 12234,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eduardo Vivas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 6963289,
+            "pct": 2.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maynard Webb",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 148331,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 14437484,
+          "pct": 4.7
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 28634575,
+          "pct": 93.8
+        }
+      ],
+      "pct_of_votes": 64.0
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente in questo DEF 14A: l'appartenenza ai tre comitati è stata letta dalla finestra board (liste dopo le biografie e nella sezione Board Committees).",
+    "Alyssa Harvey Dawson compare come membro di Audit e NCG e come indipendente nella determinazione del consiglio, ma non ha una scheda biografica né data di prima nomina: director_since è null.",
+    "Victoria Valenzuela è indicata come Director Nominee alla sua prima candidatura: non siede ancora in consiglio alla data del documento. Inclusa con il ruolo 'Director Nominee' e independent false, da verificare.",
+    "Edward Oberwager, già indipendente e direttore nel 2025, non compare nei nominee: risulta uscito dal consiglio, la data di uscita non è indicata nel documento. Escluso da board_of_directors.",
+    "Adam Foroughi è stato Chairperson fino ad aprile 2026, quando Craig Billings è diventato Chairperson indipendente; Foroughi non è più Chairperson. Compare sia in named_executive_officers_and_directors sia in greater_than_5pct_stockholders, perché detiene il 92.5% della Class B.",
+    "Riga 'Shares subject to the Voting Agreement' esclusa dal blocco dei >5% perché è un aggregato di patto di voto: Class A 2.866.505 (*), Class B 30.537.722 (100%), potere di voto 66.9%.",
+    "La riga di gruppo nella colonna Class B (28.634.575) include 330.201 opzioni di Herald Chen scambiabili in Class B, mentre la colonna Class A le esclude; la nota 12 le elenca tra le componenti Class A.",
+    "Herald Chen: la nota 6 elenca anche 100.000 azioni Class A del Mei Chen 2026 GRAT, ma la riga della tabella (446.209 Class A) corrisponde alle sole voci (i)-(iii); la somma delle voci della nota darebbe 546.209. Usato il valore della tabella.",
+    "Eduardo Vivas è stato nominato nel Nominating and Corporate Governance Committee ad aprile 2026: la sua appartenenza è riportata come alla data del documento, mentre le 5 riunioni del 2025 si riferiscono al comitato nel suo complesso.",
+    "Angel Pride Holdings Limited: lo Schedule 13G/A indica Prominence Trust Limited come possibile beneficial owner delle stesse azioni. Prominence Trust non è inserito come riga separata.",
+    "The Vanguard Group: la quota deriva dallo Schedule 13G/A del 2025-10-30, ma il Vanguard ha successivamente comunicato una riorganizzazione interna e la disaggregazione della titolarità presso sussidiarie e divisioni. Il dato della tabella è quello del 13G/A originale.",
+    "Il dato per Matthew Stumpf, Vasily Shikin e Victoria Valenzuela è riportato in Class A con percentuali di classe marcate * o inferiori all'1%; pct_of_votes è null per le righe con *."
+  ]
+}

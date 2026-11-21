@@ -1,0 +1,534 @@
+{
+  "company": "Datadog, Inc.",
+  "ticker": "DDOG",
+  "cik": "0001561550",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-29",
+    "accession": "0001628280-26-028118",
+    "meeting": "Annual Meeting of Stockholders, 2026-06-15 (virtuale)",
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026028118/ddog-20260429.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Olivier Pomel",
+      "roles": [
+        "Chief Executive Officer",
+        "Co-Founder",
+        "Director",
+        "Class I director (nominee)"
+      ],
+      "director_since": "2010-06",
+      "independent": false
+    },
+    {
+      "name": "Dev Ittycheria",
+      "roles": [
+        "Director",
+        "Lead Independent Director",
+        "Class I director (nominee)"
+      ],
+      "director_since": "2014-02",
+      "independent": true
+    },
+    {
+      "name": "Shardul Shah",
+      "roles": [
+        "Director",
+        "Class I director (nominee)"
+      ],
+      "director_since": "2012-11",
+      "independent": true
+    },
+    {
+      "name": "Ami Vora",
+      "roles": [
+        "Director",
+        "Class I director (nominee)"
+      ],
+      "director_since": "2025-09",
+      "independent": true
+    },
+    {
+      "name": "Amit Agarwal",
+      "roles": [
+        "Director",
+        "Class II director"
+      ],
+      "director_since": "2025-01",
+      "independent": false
+    },
+    {
+      "name": "Alexis Lê-Quôc",
+      "roles": [
+        "Chief Technology Officer",
+        "Co-Founder",
+        "Director",
+        "Class II director"
+      ],
+      "director_since": "2010-06",
+      "independent": false
+    },
+    {
+      "name": "Michael Callahan",
+      "roles": [
+        "Director",
+        "Class II director"
+      ],
+      "director_since": "2011-06",
+      "independent": true
+    },
+    {
+      "name": "Dominic Phillips",
+      "roles": [
+        "Director",
+        "Class II director"
+      ],
+      "director_since": "2026-02",
+      "independent": true
+    },
+    {
+      "name": "Titi Cole",
+      "roles": [
+        "Director",
+        "Class III director"
+      ],
+      "director_since": "2022-06",
+      "independent": true
+    },
+    {
+      "name": "Matthew Jacobson",
+      "roles": [
+        "Director",
+        "Class III director"
+      ],
+      "director_since": "2019-07",
+      "independent": true
+    },
+    {
+      "name": "Julie G. Richardson",
+      "roles": [
+        "Director",
+        "Class III director"
+      ],
+      "director_since": "2019-05",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Julie G. Richardson",
+        "Michael Callahan",
+        "Matthew Jacobson",
+        "Shardul Shah"
+      ],
+      "chair": "Julie G. Richardson",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Michael Callahan",
+        "Dev Ittycheria",
+        "Titi Cole",
+        "Julie G. Richardson"
+      ],
+      "chair": "Michael Callahan",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Matthew Jacobson",
+        "Dev Ittycheria",
+        "Shardul Shah",
+        "Titi Cole"
+      ],
+      "chair": "Matthew Jacobson",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Olivier Pomel",
+      "age": 49,
+      "positions": [
+        "Chief Executive Officer",
+        "Co-Founder",
+        "Director"
+      ]
+    },
+    {
+      "name": "Alexis Lê-Quôc",
+      "age": 51,
+      "positions": [
+        "Chief Technology Officer",
+        "Co-Founder",
+        "Director"
+      ]
+    },
+    {
+      "name": "David Obstler",
+      "age": 66,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kerry Acocella",
+      "age": 45,
+      "positions": [
+        "General Counsel",
+        "Secretary"
+      ]
+    },
+    {
+      "name": "Adam Blitzer",
+      "age": 45,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "David Galloreese",
+      "age": 46,
+      "positions": [
+        "Chief People Officer"
+      ]
+    },
+    {
+      "name": "Yanbing Li",
+      "age": 56,
+      "positions": [
+        "Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Sean Walters",
+      "age": 54,
+      "positions": [
+        "Chief Revenue Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Percentuali calcolate su 330.573.793 azioni di Class A e 25.271.775 di Class B in circolazione al 31 marzo 2026; le azioni soggette a opzioni/RSU/PSU esercitabili o maturabili entro 60 giorni sono incluse nel calcolo del detentore. '*' = meno dell'1% (pct null); '—' = zero. pct_of_votes è la quota di voto complessiva delle due classi come un'unica classe; le azioni di Class B hanno dieci voti ciascuna, quelle di Class A uno.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 41902109,
+            "pct": 12.7
+          }
+        ],
+        "pct_of_votes": 7.2,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 26588343,
+            "pct": 8.0
+          }
+        ],
+        "pct_of_votes": 4.6,
+        "source": "Schedule 13G/A filed 2025-10-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 16347067,
+            "pct": 4.9
+          }
+        ],
+        "pct_of_votes": 2.8,
+        "source": "Schedule 13G/A filed 2025-11-05",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "Olivier Pomel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 288481,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 10259366,
+            "pct": 38.7
+          }
+        ],
+        "pct_of_votes": 17.3,
+        "source": null,
+        "address": "c/o Datadog, Inc., 620 8th Avenue, 45th Floor, New York, New York 10018"
+      },
+      {
+        "name": "Alexis Lê-Quôc",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 108685,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 9056319,
+            "pct": 35.5
+          }
+        ],
+        "pct_of_votes": 15.5,
+        "source": null,
+        "address": "c/o Datadog, Inc., 620 8th Avenue, 45th Floor, New York, New York 10018"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Olivier Pomel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 288481,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 10259366,
+            "pct": 38.7
+          }
+        ],
+        "pct_of_votes": 17.3
+      },
+      {
+        "name": "David Obstler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 220926,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 108000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alexis Lê-Quôc",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 108685,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 9056319,
+            "pct": 35.5
+          }
+        ],
+        "pct_of_votes": 15.5
+      },
+      {
+        "name": "Adam Blitzer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 680,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sean Walters",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 20269,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amit Agarwal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 36180,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 1186586,
+            "pct": 4.7
+          }
+        ],
+        "pct_of_votes": 2.0
+      },
+      {
+        "name": "Titi Cole",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4241,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Callahan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 29752,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 245724,
+            "pct": 1.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dev Ittycheria",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 128028,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 240000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew Jacobson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 675558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dominic Phillips",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Julie G. Richardson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 2564,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 28128,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shardul Shah",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 324869,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ami Vora",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 9325,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 1930950,
+          "pct": null
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 21124123,
+          "pct": 78.1
+        }
+      ],
+      "pct_of_votes": 35.5
+    }
+  },
+  "warnings": [
+    "Olivier Pomel e Alexis Lê-Quôc compaiono in due tabelle: nel blocco dei >5% perché detengono oltre il 5% della Class B (38,7% e 35,5%), e nel blocco dei direttori/NEO. Il campo source è null perché le note non rimandano a un deposito per questi insider; l'indirizzo è quello dichiarato nel documento (c/o Datadog).",
+    "Vanguard: la nota (1) riporta il deposito Schedule 13G/A del 30 ottobre 2025 e una successiva comunicazione di riallineamento interno per cui Vanguard non riporta più le azioni delle controllate/divisioni, che si segnalano separatamente (base disaggregata). Il dato 41.902.109 è quello della tabella e non è stato corretto.",
+    "La riga di gruppo dichiara 'persons: 17', mentre il blocco named_executive_officers_and_directors ne contiene 14. La differenza è dovuta agli executive officer non elencati singolarmente nella tabella (Kerry Acocella, David Galloreese, Yanbing Li). Mantenuti entrambi i valori come da documento.",
+    "Phillips: la tabella riporta '—' per tutte le classi, quindi shares 0 e classes vuoto; pct_of_votes 0.",
+    "Le azioni di Class B di Titi Cole... (non applicabile); per Julie G. Richardson le 28.128 azioni di Class B sono opzioni esercitabili entro 60 giorni dal 31 marzo 2026, non azioni in circolazione; lo stesso vale per le opzioni incluse nei totali di Ittycheria (240.000), Callahan (5.182), Pomel (1.264.751), Lê-Quôc (243.750), Obstler esclusi; il totale di gruppo include 1.781.811 azioni di Class B in opzioni.",
+    "Holder non separati nel documento: le azioni di Pomel e Obstler comprendono rispettivamente trust familiari (Obstler Children 2019 Trust, 92.397 Class B), Lê-Quôc comprende l'Alexis Lê-Quôc Revocable Trust (6.203.835 Class B e 169 Class A), Agarwal comprende due family trust e il coniuge (53.063 Class B), Callahan comprende il Callahan-Thernstrom Family Trust, Ittycheria comprende LIDI 11 21 LLC (90.899 Class A), Shah comprende il 2019 Shah Family Trust, Jacobson comprende trust di cui è trustee, Vora comprende trust di cui è trustee o il cui trustee è il coniuge. Non ho creato righe separate: i valori restano nella riga della persona fisica, con holder_type 'person'. Per LIDI 11 21 LLC il tipo entità è incerto; resta nel totale di Ittycheria.",
+    "Dominic Phillips è entrato nel consiglio a febbraio 2026 e non compare nella tabella dei comitati; è incluso come indipendente nel board, ma non è membro di alcun comitato.",
+    "Nessun direttore risulta in uscita o già uscito dal consiglio alla data del documento; tutti i nominati e i direttori di classe II e III sono inclusi.",
+    "Tabella dei comitati: la matrice appiattita è poco leggibile, ma le appartenenze coincidono con la prosa della sezione Board e sono state prese da quest'ultima. Le riunioni (4, 4, 3) sono quelle del solo esercizio 2025 per ciascun comitato, non cumulative.",
+    "Il nome Yanbing Li è riportato senza il titolo 'Dr.' come da regole di normalizzazione. Il nome Julie G. Richardson è nella forma completa usata nella biografia; la tabella la riporta come 'Julie Richardson'.",
+    "Il campo meeting non include un numero di proposta né la modalità di voto (solo 'virtuale' dalla convocazione), per coerenza con le informazioni di copertina."
+  ]
+}

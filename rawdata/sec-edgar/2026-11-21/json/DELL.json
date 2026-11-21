@@ -1,0 +1,463 @@
+{
+  "company": "Dell Technologies Inc.",
+  "ticker": "DELL",
+  "cik": "0001571996",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-05-15",
+    "accession": "0001193125-26-226734",
+    "meeting": "Annual Meeting of Stockholders, 25 giugno 2026",
+    "ownership_as_of": "2026-04-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1571996/000119312526226734/d132444ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-16",
+      "accession": "0001571996-26-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+      "as_of": "2026-03-09"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Michael S. Dell",
+      "roles": [
+        "Chairman",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2013-10",
+      "independent": false
+    },
+    {
+      "name": "David W. Dorman",
+      "roles": [
+        "Founding Partner of Centerview Capital Technology"
+      ],
+      "director_since": "2016-09",
+      "independent": true
+    },
+    {
+      "name": "Egon Durban",
+      "roles": [
+        "Co-CEO of Silver Lake"
+      ],
+      "director_since": "2013-10",
+      "independent": false
+    },
+    {
+      "name": "David Grain",
+      "roles": [
+        "Founder and Chief Executive Officer of Grain Management LLC"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "William D. Green",
+      "roles": [
+        "Former Chairman of Accenture plc"
+      ],
+      "director_since": "2016-09",
+      "independent": true
+    },
+    {
+      "name": "Ellen J. Kullman",
+      "roles": [
+        "Lead Independent Director",
+        "Executive Chair of Carbon, Inc."
+      ],
+      "director_since": "2016-09",
+      "independent": true
+    },
+    {
+      "name": "Steven M. Mollenkopf",
+      "roles": [
+        "Former Chief Executive Officer of Qualcomm Incorporated"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Lynn Vojvodich Radakovich",
+      "roles": [
+        "Former Executive Vice President and Chief Marketing Officer of Salesforce.com, Inc.",
+        "Group IV Director"
+      ],
+      "director_since": "2019-04",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "David Grain",
+        "William D. Green",
+        "Lynn Vojvodich Radakovich"
+      ],
+      "chair": "William D. Green",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Steven M. Mollenkopf",
+        "Lynn Vojvodich Radakovich"
+      ],
+      "chair": "Lynn Vojvodich Radakovich",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "David W. Dorman",
+        "Ellen J. Kullman"
+      ],
+      "chair": "Ellen J. Kullman",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Michael S. Dell",
+      "age": 61,
+      "positions": [
+        "Chief Executive Officer and Chairman"
+      ]
+    },
+    {
+      "name": "Jeffrey W. Clarke",
+      "age": 63,
+      "positions": [
+        "Vice Chairman and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "David Kennedy",
+      "age": 49,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Richard J. Rothberg",
+      "age": 62,
+      "positions": [
+        "General Counsel"
+      ]
+    },
+    {
+      "name": "Jennifer D. Saavedra",
+      "age": 56,
+      "positions": [
+        "Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "William F. Scannell",
+      "age": 63,
+      "positions": [
+        "President and Chief Customer Officer"
+      ]
+    },
+    {
+      "name": "Geraldine Tunnell",
+      "age": 50,
+      "positions": [
+        "Chief Marketing Officer"
+      ]
+    },
+    {
+      "name": "Peter Trizzino",
+      "age": 53,
+      "positions": [
+        "President, Global Sales"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-27",
+    "note": "Dati al 27 aprile 2026 salvo diversa indicazione. * = meno dell'1%. — = nessuna azione. L'ultima colonna del documento, 'Percentage Ownership of All Outstanding Dell Technologies Common Stock', non corrisponde a una percentuale di voto ed è quindi lasciata a null in pct_of_votes (vedi warnings).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Michael S. Dell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 246834081,
+            "pct": 89.2
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 18840608,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Dell Technologies Inc., One Dell Way, Round Rock, Texas 78682"
+      },
+      {
+        "name": "SLD Trust",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 29890896,
+            "pct": 10.8
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 1380000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "60 Penhallow Street, Suite 400, Portsmouth, New Hampshire 03801"
+      },
+      {
+        "name": "SLP Stockholders",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class B Common Stock",
+            "shares": 47789758,
+            "pct": 100
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 134596,
+            "pct": 7.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D/A filed 2026-03-19 e successivi Form 4",
+        "address": "2775 Sand Hill Road, Suite 100, Menlo Park, California 94025"
+      },
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 22512097,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-29",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 22819963,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-11-08",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Michael S. Dell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 246834081,
+            "pct": 89.2
+          },
+          {
+            "class": "Class C Common Stock",
+            "shares": 18840608,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Kennedy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 143896,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey W. Clarke",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 1826802,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David W. Dorman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 119516,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Egon Durban",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 1360242,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Grain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 24884,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William D. Green",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 47619,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellen J. Kullman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 108246,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven M. Mollenkopf",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 9942,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynn Vojvodich Radakovich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 100765,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard J. Rothberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 147691,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William F. Scannell",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yvonne McGill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class C Common Stock",
+            "shares": 183687,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 246834081,
+          "pct": 89.2
+        },
+        {
+          "class": "Class C Common Stock",
+          "shares": 23108352,
+          "pct": 7.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione committees assente nel DEF 14A: l'appartenenza ai comitati è ricavata dalla colonna 'Current Committee Membership' della tabella dei nominee nella sezione board. Le riunioni dei comitati non risultano nelle finestre estratte: meetings e meetings_year sono null per tutti.",
+    "Sezione executives assente nel DEF 14A: executive_officers è lasciata vuota come da istruzioni. Compaiono nella tabella di proprietà come executive officer (non come direttori) David Kennedy, Jeffrey W. Clarke, Richard J. Rothberg, William F. Scannell e Yvonne McGill (dimessa da CFO l'8/9 settembre 2025 come da nota 11); non sono stati ricostruiti dal testo.",
+    "Michael S. Dell compare sia in board_of_directors sia nei blocchi named_executive_officers_and_directors e greater_than_5pct_stockholders, perché detiene oltre il 5% della Class A Common Stock (89,2%).",
+    "Simon Patterson, descritto come amministratore non indipendente, è indicato come 'departure' nel testo sulla composizione del consiglio, ma il documento non dà la data di uscita: non è incluso in board_of_directors.",
+    "Il documento è esplicito sulla forma dei comitati: 'Nominating and Governance Committee' e 'Audit Committee' sono riportati con il nome completo; il Compensation Committee è presidiato da Lynn Vojvodich Radakovich, che è anche membro dell'Audit Committee.",
+    "Le righe di SLD Trust sono basate su una Schedule 13G/A del 13 febbraio 2024 con dati al 31 dicembre 2023, e le azioni del SLD Trust non sono incluse nella riga di Michael S. Dell (nota 2). Il dato può essere datato.",
+    "La riga dei SLP Stockholders è un aggregato di più soggetti giuridici (SL SPV-2, L.P., Silver Lake Partners IV, L.P., Silver Lake Technology Investors IV, L.P., Silver Lake Partners V DE (AIV), L.P., Silver Lake Technology Investors V, L.P., più le quote di Silver Lake Group, L.L.C.). È stato trattato come un unico detentore 'entity' come riportato nella tabella.",
+    "L'ultima colonna della tabella di proprietà, 'Percentage Ownership of All Outstanding Dell Technologies Common Stock', non è una percentuale di voto e non è mappata in pct_of_votes. Valori riportati solo qui: Michael S. Dell 40,9%; SLD Trust 4,8% (Class C); SLP Stockholders 7,4% (Class C); Vanguard Capital Management 3,5%; BlackRock, Inc. 3,5%; riga di gruppo 41,5%.",
+    "Nota 16 del documento: BlackRock 'No one person's interest ... is more than five percent of the total outstanding shares of Class C common stock', ma la tabella riporta 7,0% della Class C per BlackRock, con 22.819.963 azioni. Il dato numerico è stato mantenuto; la discrepanza è segnalata.",
+    "Per Scannell: la riga riporta '—' in tutte le colonne di classe e '*' solo nella colonna totale; classes è quindi vuoto.",
+    "Riga di gruppo: il documento dichiara 15 persone ('15 persons'), ma la tabella dei direttori e NEO elenca 13 nomi. La differenza di 2 persone non è identificata nel testo estratto.",
+    "Il documento riporta due tipi di classi con voto distinto: la Class C elegge il Group IV director (Lynn Vojvodich Radakovich), mentre i Group I directors sono eletti da tutte le classi insieme.",
+    "executive_officers presi dal Form 10-K del 2026-03-16: il DEF 14A non li elenca.",
+    "10-K: La finestra dell'Item 10 non elenca gli executive officer: rimanda alla Parte I, quindi l'elenco è stato estratto dalla sezione 'Information about our Executive Officers' della Parte I.",
+    "10-K: Nella tabella della Parte I, la riga di David Kennedy è spezzata su due righe; l'età 49 è stata attribuita a lui, ma va verificata sul documento originale.",
+    "10-K: Per Richard J. Rothberg la tabella riporta solo 'General Counsel', mentre la biografia indica 'General Counsel and Secretary'; è stata usata la carica della tabella.",
+    "10-K: Il titolo 'Ph.D.' di Jennifer D. Saavedra è stato omesso dal nome, come previsto dalle regole."
+  ]
+}

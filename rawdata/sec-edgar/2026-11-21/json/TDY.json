@@ -1,0 +1,470 @@
+{
+  "company": "Teledyne Technologies Incorporated",
+  "ticker": "TDY",
+  "cik": "0001094285",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-12",
+    "accession": "0001193125-26-104187",
+    "meeting": null,
+    "ownership_as_of": "2026-02-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1094285/000119312526104187/d70991ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Michelle A. Kumbier",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Chair, Personnel and Compensation Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Malone",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Personnel and Compensation Committee"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Simon M. Lorne",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee",
+        "Member, Nominating and Governance Committee"
+      ],
+      "director_since": "2004",
+      "independent": true
+    },
+    {
+      "name": "Vincent J. Morales",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Personnel and Compensation Committee"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Wesley W. von Schack",
+      "roles": [
+        "Director",
+        "Member, Nominating and Governance Committee",
+        "Member, Personnel and Compensation Committee"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Laura A. Black",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Nominating and Governance Committee"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Robert Mehrabian",
+      "roles": [
+        "Director",
+        "Executive Chairman"
+      ],
+      "director_since": "1999",
+      "independent": false
+    },
+    {
+      "name": "Jane C. Sherburne",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Personnel and Compensation Committee"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Michael T. Smith",
+      "roles": [
+        "Director",
+        "Lead Director",
+        "Chair, Nominating and Governance Committee",
+        "Member, Audit Committee"
+      ],
+      "director_since": "2001",
+      "independent": true
+    },
+    {
+      "name": "George C. Bobb III",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2025-10",
+      "independent": false
+    },
+    {
+      "name": "Kenneth C. Dahlberg",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Personnel and Compensation Committee"
+      ],
+      "director_since": "2006",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Simon M. Lorne",
+        "Laura A. Black",
+        "Kenneth C. Dahlberg",
+        "Michelle A. Kumbier",
+        "Robert A. Malone",
+        "Vincent J. Morales",
+        "Jane C. Sherburne",
+        "Michael T. Smith"
+      ],
+      "chair": "Simon M. Lorne",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Michael T. Smith",
+        "Laura A. Black",
+        "Simon M. Lorne",
+        "Wesley W. von Schack"
+      ],
+      "chair": "Michael T. Smith",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Personnel and Compensation Committee",
+      "members": [
+        "Michelle A. Kumbier",
+        "Kenneth C. Dahlberg",
+        "Robert A. Malone",
+        "Vincent J. Morales",
+        "Jane C. Sherburne",
+        "Wesley W. von Schack"
+      ],
+      "chair": "Michelle A. Kumbier",
+      "meetings": 6,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Robert Mehrabian",
+      "age": 84,
+      "positions": [
+        "Executive Chairman"
+      ]
+    },
+    {
+      "name": "George C. Bobb III",
+      "age": 51,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Stephen F. Blackwood",
+      "age": 63,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jason VanWees",
+      "age": 54,
+      "positions": [
+        "Vice Chairman"
+      ]
+    },
+    {
+      "name": "Melanie S. Cibik",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, General Counsel, Chief Compliance Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Cynthia Belak",
+      "age": 69,
+      "positions": [
+        "Senior Vice President and Controller"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-17",
+    "note": "Quote calcolate su 46.310.264 azioni in circolazione al 17 febbraio 2026. Il simbolo * indica una quota inferiore all'1%. Il trattino (—) indica zero. La tabella dei direttori e dei dirigenti include azioni con diritto di acquisto entro 60 giorni (opzioni esercitabili) secondo la regola 13d-3(d)(1).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5977777,
+            "pct": 12.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-30",
+        "address": "100 Vanguard Blvd, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4126878,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3126015,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-08-14",
+        "address": "100 E. Pratt Street, Baltimore, MD 21202"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "George C. Bobb III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26572,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edwin Roks",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 66579,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen F. Blackwood",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32326,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Mehrabian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 200722,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason VanWees",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 95391,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melanie S. Cibik",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 45897,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura A. Black",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth C. Dahlberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19203,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle A. Kumbier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2101,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Simon M. Lorne",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61445,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Malone",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5392,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vincent J. Morales",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 939,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jane C. Sherburne",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3969,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael T. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46860,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wesley W. von Schack",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10583,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 627721,
+          "pct": 1.3
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della assemblea annuale 2026 non indicata nella finestra fornita: meeting impostato a null.",
+    "Kenneth C. Dahlberg ha comunicato che si ritirerà dal consiglio immediatamente prima dell'assemblea annuale 2026: incluso fra i direttori attuali perché in carica alla data del documento.",
+    "Vincent J. Morales ha annunciato il ritiro da PPG Industries con effetto da luglio 2026; non risulta un'uscita dal consiglio alla data del documento.",
+    "Denise R. Singleton non compare fra i direttori attuali: era membro di Audit Committee e Nominating and Governance Committee fino al ritiro del 1° gennaio 2026, e non è stata inclusa in board_of_directors né nei comitati.",
+    "Edwin Roks non compare fra i direttori né fra i dirigenti attuali: è stato CEO fino al 28 aprile 2025. È incluso nella tabella dei NEO e dei direttori perché presente nella tabella di proprietà, con dati riferiti al 28 aprile 2025.",
+    "Robert Mehrabian e George C. Bobb III sono sia direttori sia executive officer: sono inseriti in entrambi i blocchi, con le biografie tratte dalla sezione dei direttori.",
+    "Il numero di esecutivi con età e cariche non è esplicito per Robert Mehrabian e George C. Bobb III nella tabella dei dirigenti: età e cariche sono tratte dalle loro biografie fra i direttori.",
+    "La tabella dei direttori e dei dirigenti elenca 15 righe, mentre la riga di gruppo dichiara 16 persone. La sedicesima è un dirigente Section 16 non nominato nella tabella perché non è un named executive officer (verosimilmente Cynthia Belak, non verificabile dal testo): dato coerente con la nota ma non esplicitato.",
+    "La riga di gruppo dichiara 16 persone e 627.721 azioni, comprensive di 8.827 RSU vested e 234.808 opzioni esercitabili entro 60 giorni.",
+    "La quota di BlackRock, Inc. è riferita a un Schedule 13G/A datato 25 gennaio 2024, più vecchio degli altri depositi citati: il dato va considerato alla data del deposito indicato.",
+    "Nessun detentore né direttore o dirigente della tabella di gestione supera il 5% delle azioni ordinarie; il blocco greater_than_5pct_stockholders include solo i tre grandi azionisti istituzionali.",
+    "Il comitato Personnel and Compensation Committee ha tenuto sei riunioni e ha anche agito una volta per consenso unanime scritto nel 2025; il campo meetings riporta solo le sei riunioni.",
+    "La percentuale delle righe individuali della tabella di gestione è indicata come * (inferiore all'1%), quindi pct è null per ogni direttore e dirigente.",
+    "Il nome del comitato Nominating and Governance Committee è riportato come nel documento, senza «Corporate».",
+    "Sanity check: tutti i membri dei comitati risultano indipendenti in board_of_directors; ogni holder_type è valorizzato."
+  ]
+}

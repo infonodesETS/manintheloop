@@ -1,0 +1,512 @@
+{
+  "company": "Intel Corporation",
+  "ticker": "INTC",
+  "cik": "0000050863",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-23",
+    "accession": "0000050863-26-000061",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-20",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000061/proxy2026.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-23",
+      "accession": "0000050863-26-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Craig H. Barratt",
+      "roles": [
+        "Director",
+        "Future Board Chair - May 2026"
+      ],
+      "director_since": "2025-11",
+      "independent": true
+    },
+    {
+      "name": "James J. Goetz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Andrea J. Goldsmith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Alyssa H. Henry",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Eric Meurice",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Barbara G. Novick",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Steve Sanghi",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Gregory D. Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Stacy J. Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Lip-Bu Tan",
+      "roles": [
+        "Director",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2022",
+      "independent": false
+    },
+    {
+      "name": "Dion J. Weisler",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Frank D. Yeary",
+      "roles": [
+        "Director",
+        "Board Chair"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit & Finance Committee",
+      "members": [
+        "Stacy J. Smith",
+        "Andrea J. Goldsmith",
+        "Eric Meurice",
+        "Gregory D. Smith"
+      ],
+      "chair": "Stacy J. Smith",
+      "meetings": 11,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Talent and Compensation Committee",
+      "members": [
+        "Dion J. Weisler",
+        "James J. Goetz",
+        "Alyssa H. Henry",
+        "Steve Sanghi"
+      ],
+      "chair": "Dion J. Weisler",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Barbara G. Novick",
+        "James J. Goetz",
+        "Andrea J. Goldsmith",
+        "Alyssa H. Henry"
+      ],
+      "chair": "Barbara G. Novick",
+      "meetings": 8,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lip-Bu Tan",
+      "age": 66,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Nagasubramaniyan Chandrasekaran",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and Chief Technology and Operations Officer",
+        "General Manager of Intel Foundry"
+      ]
+    },
+    {
+      "name": "April Miller Boise",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Legal Officer",
+        "Corporate Secretary"
+      ]
+    },
+    {
+      "name": "David Zinsner",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-20",
+    "note": "Tabella dei direttori e NEO al 20 marzo 2026, salvo Schell (data di uscita 30 giugno 2025) e Johnston Holthaus (data di uscita 1 marzo 2026). Ogni direttore/NEO e il gruppo possiedono non più dell'1% delle azioni in circolazione (quindi pct null). Il totale comprende azioni dirette, indirette, azioni con diritto entro 60 giorni e RSU differite. Tabella dei >5% al 20 marzo 2026 per il governo USA e al 31 dicembre 2025 per gli altri. La colonna Mobileye riporta azioni di Class A common stock di Mobileye Global Inc., controllata Intel.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "U.S. government",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 433323000,
+            "pct": 8.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Company stock registry",
+        "address": "1800 F Street NW, Washington, DC 20405"
+      },
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 404520480,
+            "pct": 8.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 30, 2026",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 341067967,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 25, 2024",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Craig H. Barratt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28751,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James J. Goetz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 246787,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 100000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrea J. Goldsmith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34728,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alyssa H. Henry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 69212,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric Meurice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17684,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barbara G. Novick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44206,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steve Sanghi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17684,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gregory D. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61269,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stacy J. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 66116,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dion J. Weisler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 65841,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank D. Yeary",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 153571,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 75128,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lip-Bu Tan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1226377,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 50000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David A. Zinsner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 364918,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 2500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Naga Chandrasekaran",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 207517,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "April Miller Boise",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 145333,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 2800,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michelle Johnston Holthaus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 517739,
+            "pct": null
+          },
+          {
+            "class": "Class A common stock of Mobileye Global Inc.",
+            "shares": 30000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christoph Schell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 93250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 2749994,
+          "pct": null
+        },
+        {
+          "class": "Class A common stock of Mobileye Global Inc.",
+          "shares": 230428,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel DEF 14A (rimandata al 10-K): executive_officers lasciato vuoto, nessuna ricostruzione dalle biografie.",
+    "Finestra committees assente: l'appartenenza ai comitati è stata letta dalla prosa della finestra board (Board Committees). I nomi dei comitati sono quelli delle intestazioni; nel testo compaiono anche forme abbreviate come 'Audit Committee' e 'Governance Committee'.",
+    "Consiglio attuale: 12 direttori alla data del documento; l'assemblea 2026 ne porterà il numero a 11. Frank D. Yeary, Board Chair, è in carica ma si ritirerà dopo l'assemblea 2026: incluso in board_of_directors con warning di uscita.",
+    "Frank D. Yeary: data di primo incarico (director_since) non riportata nell'estratto, quindi null. Indipendenza ricavata dalla descrizione del documento come independent Board Chair.",
+    "Craig H. Barratt è stato nominato consigliere a novembre 2025 e sarà Board Chair dopo l'uscita di Yeary (Future Board Chair - May 2026).",
+    "Lip-Bu Tan è CEO e non è indipendente: il documento dichiara che 10 dei 11 candidati sono indipendenti, coerente con la lista.",
+    "Riga di gruppo: 15 persone (11 direttori e 4 dirigenti). I valori 2.749.994 (Common Stock) e 230.428 (Class A Mobileye) sono stati attribuiti per colonna e verificati sommando le righe dei membri correnti; la somma della colonna Mobileye esclude Johnston Holthaus, già uscita.",
+    "named_executive_officers_and_directors contiene 17 righe contro 15 persone del gruppo: le due differenze sono Johnston Holthaus e Schell, ex-dirigenti usciti e quindi non nel gruppo, e sono entrambe mantenute.",
+    "Christoph Schell (uscita 30 giugno 2025) e Michelle Johnston Holthaus (uscita 1 marzo 2026) sono ex NEO, non risultano più nel consiglio né nel gruppo attuale; le loro quote sono riportate alle date di uscita.",
+    "La tabella dei >5% è separata da quella di management: il governo USA è riportato al 20 marzo 2026, Vanguard e BlackRock al 31 dicembre 2025 secondo la nota; BlackRock è citato con una 13G/A del 25 gennaio 2024, più datata rispetto alle altre.",
+    "U.S. government: la quota 433.323.000 presuppone il rilascio di 149.438.785 azioni in escrow (Secure Enclave) e non include warrant esercitabili legati alla quota del 51% di Intel Foundry (240.516.150 azioni se esercitati). Holder_type 'entity' attribuito in quanto soggetto istituzionale e non persona fisica.",
+    "Nessun direttore o dirigente individuale supera il 5% del Common Stock: non compaiono detentori aggiuntivi nel blocco dei >5%.",
+    "Il blocco di management indica solo il totale per detentore, senza ripartizione per categoria (diretta/indiretta/azioni con diritto/RSU differite): i totali sono riportati come shares in Common Stock. Mobileye Class A è stata trattata come classe separata, pur essendo titoli di una controllata.",
+    "pct_of_votes non dichiarato nel documento: null in tutti i blocchi. Le percentuali individuali sono sotto l'1% e quindi null.",
+    "Riunioni del Board: 17 nel 2025 (dato del consiglio, non di un comitato); non incluse in committees.",
+    "executive_officers presi dal Form 10-K del 2026-01-23: il DEF 14A non li elenca.",
+    "10-K: La finestra non indica una data di riferimento per l'elenco o per le età, quindi as_of è null.",
+    "10-K: La carica di Corporate Secretary per April Miller Boise è ricavata dalla biografia (in carica dall'agosto 2022), non dal titolo principale; è stata inclusa perché risulta attuale.",
+    "10-K: Lip-Bu Tan è anche membro del Consiglio di Amministrazione; la carica di consigliere non è stata inclusa tra le cariche da executive officer."
+  ]
+}

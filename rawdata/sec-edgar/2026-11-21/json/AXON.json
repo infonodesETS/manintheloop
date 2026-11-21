@@ -1,0 +1,463 @@
+{
+  "company": "Axon Enterprise, Inc.",
+  "ticker": "AXON",
+  "cik": "0001069183",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-16",
+    "accession": "0001628280-26-025521",
+    "meeting": null,
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026025521/axon-20260416.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Erika Ayers Badan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Adriane Brown",
+      "roles": [
+        "Chair, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Julie Cullivan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Michael Garnreiter",
+      "roles": [
+        "Chair of the Board"
+      ],
+      "director_since": "2006",
+      "independent": true
+    },
+    {
+      "name": "Caitlin Kalinowski",
+      "roles": [
+        "Chair, Enterprise Risk and Compliance Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Matthew McBrady",
+      "roles": [
+        "Chair, Mergers and Acquisitions and Capital Structure Committee"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Todd Morgenfeld",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Hadi Partovi",
+      "roles": [
+        "Chair, Compensation Committee"
+      ],
+      "director_since": "2010",
+      "independent": true
+    },
+    {
+      "name": "Graham Smith",
+      "roles": [
+        "Chair, Audit Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Patrick Smith",
+      "roles": [
+        "Chief Executive Officer",
+        "Co-founder"
+      ],
+      "director_since": "1993",
+      "independent": false
+    },
+    {
+      "name": "Jeri Williams",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Michael Garnreiter",
+        "Caitlin Kalinowski",
+        "Todd Morgenfeld",
+        "Graham Smith"
+      ],
+      "chair": "Graham Smith",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Erika Ayers Badan",
+        "Adriane Brown",
+        "Michael Garnreiter",
+        "Hadi Partovi",
+        "Graham Smith"
+      ],
+      "chair": "Hadi Partovi",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Erika Ayers Badan",
+        "Adriane Brown",
+        "Julie Cullivan",
+        "Michael Garnreiter",
+        "Jeri Williams"
+      ],
+      "chair": "Adriane Brown",
+      "meetings": 10,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Enterprise Risk and Compliance Committee",
+      "members": [
+        "Adriane Brown",
+        "Julie Cullivan",
+        "Caitlin Kalinowski",
+        "Matthew McBrady",
+        "Jeri Williams"
+      ],
+      "chair": "Caitlin Kalinowski",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Mergers and Acquisitions and Capital Structure Committee",
+      "members": [
+        "Matthew McBrady",
+        "Todd Morgenfeld",
+        "Hadi Partovi",
+        "Graham Smith"
+      ],
+      "chair": "Matthew McBrady",
+      "meetings": 10,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Patrick Smith",
+      "age": 55,
+      "positions": [
+        "Chief Executive Officer",
+        "Co-founder"
+      ]
+    },
+    {
+      "name": "Joshua Isner",
+      "age": 40,
+      "positions": [
+        "President"
+      ]
+    },
+    {
+      "name": "Brittany Bagley",
+      "age": 42,
+      "positions": [
+        "Chief Operating Officer",
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jeffrey Kunins",
+      "age": 51,
+      "positions": [
+        "Chief Product Officer",
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Cameron Brooks",
+      "age": 56,
+      "positions": [
+        "Chief Revenue Officer"
+      ]
+    },
+    {
+      "name": "Isaiah Fields",
+      "age": 49,
+      "positions": [
+        "Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Elizabeth Coughlin",
+      "age": 40,
+      "positions": [
+        "Chief Human Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Quote calcolate su 80.572.201 azioni in circolazione al 31/03/2026; il totale include le azioni acquisibili entro 60 giorni. '*' indica meno dell'1%; '—' indica zero. La colonna Total Beneficial Ownership è quella riportata in shares.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7486272,
+            "pct": 9.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9314070,
+            "pct": 11.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30; Schedule 13G/A filed 2026-03-26 (dopo riallineamento interno del 2026-01-12)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Patrick Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2810883,
+            "pct": 3.5
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hadi Partovi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 238038,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Garnreiter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17740,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julie Cullivan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2181,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Caitlin Kalinowski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3585,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew McBrady",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3938,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Adriane Brown",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7826,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Graham Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3018,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeri Williams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1159,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Todd Morgenfeld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Erika Ayers Badan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1599,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joshua Isner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 114531,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brittany Bagley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52229,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey Kunins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 117621,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cameron Brooks",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31805,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 3406153,
+          "pct": 4.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Julie Cullivan e Matthew McBrady non si ricandidano all'assemblea alla scadenza del mandato: restano in carica alla data del documento e sono inclusi tra i direttori.",
+    "Julie Cullivan è stata Chair dell'Enterprise Risk and Compliance Committee e membro dell'Audit Committee fino al 28/08/2025; i comitati indicati sono quelli attuali secondo la tabella e la biografia.",
+    "Matthew McBrady è dichiarato non indipendente dal Consiglio, ma risulta membro dell'Enterprise Risk and Compliance Committee e Chair del Mergers and Acquisitions and Capital Structure Committee. Il dato è mantenuto come riportato nel documento, ma confligge con il controllo che i membri dei comitati siano indipendenti.",
+    "Il numero di riunioni è dato per ciascun comitato nella tabella dell'esercizio 2025 ed è quindi riportato separatamente per ciascuno.",
+    "La tabella dei comitati è stata letta per allineamento alle biografie dei direttori; il testo appiattito non rende esplicito quale colonna corrisponda a ogni 'X' e '*'.",
+    "Nella finestra executives il nome è scritto 'Elizabeth Coughlin (Hart)' e la biografia usa 'Ms. Hart': il cognome Hart è indicato tra parentesi e non è stato incluso nel nome.",
+    "Per Patrick Smith, Hadi Partovi e Cameron Brooks il campo shares riporta il Total Beneficial Ownership, che include le azioni acquisibili entro 60 giorni; la colonna separata delle sole azioni possedute non è riportata.",
+    "Per Patrick Smith le azioni includono 6.193 azioni in conto comune con il coniuge, su cui ha potere di voto e di investimento condiviso.",
+    "Hadi Partovi ha 209.691 azioni impegnate in pegno a garanzia di debiti personali; il pegno è esente dalla limitazione della Insider Trading Policy perché anteriore alla sua entrata in vigore.",
+    "Il Vanguard Group ha comunicato con la Schedule 13G/A del 26/03/2026 che, per un riallineamento interno del 12/01/2026, non ha più la titolarità di alcune sue divisioni, che riporteranno separatamente; la riga riflette la Schedule 13G/A del 30/10/2025.",
+    "Todd Morgenfeld non possiede azioni (dato '—'): è riportato con 0 nel blocco dei direttori."
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "company": "L3Harris Technologies, Inc.",
+  "ticker": "LHX",
+  "cik": "0000202058",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-01",
+    "accession": "0001104659-26-038170",
+    "meeting": "Annual Meeting of Shareholders 2026-05-11",
+    "ownership_as_of": "2026-03-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/202058/000110465926038170/tmb-20260511xdef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-12",
+      "accession": "0000202058-26-000015",
+      "url": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/hrs-20260102.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Sallie Bailey",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Thomas Dattilo",
+      "roles": [
+        "Director",
+        "Nominating and Governance Committee Chair"
+      ],
+      "director_since": "2001",
+      "independent": true
+    },
+    {
+      "name": "Roger Fradin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Joanna Geraghty",
+      "roles": [
+        "Director",
+        "Compensation Committee Chair"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Kirk Hachigian",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Harry Harris, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Lewis Hay III",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2002",
+      "independent": true
+    },
+    {
+      "name": "Christopher Kubasik",
+      "roles": [
+        "Director",
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "David Regnery",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Edward Rice, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Christina Zamarro",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Robert Millard",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Rita Lane",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Sallie Bailey",
+        "Kirk Hachigian",
+        "Lewis Hay III",
+        "Edward Rice, Jr.",
+        "Christina Zamarro"
+      ],
+      "chair": "Sallie Bailey",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Joanna Geraghty",
+        "Roger Fradin",
+        "Lewis Hay III",
+        "Robert Millard",
+        "David Regnery"
+      ],
+      "chair": "Joanna Geraghty",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Thomas Dattilo",
+        "Harry Harris, Jr.",
+        "Lewis Hay III",
+        "Rita Lane"
+      ],
+      "chair": "Thomas Dattilo",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Kenneth Bedingfield",
+      "age": 53,
+      "positions": [
+        "Senior Vice President, Chief Financial Officer",
+        "President, Missile Solutions"
+      ]
+    },
+    {
+      "name": "John Cantillon",
+      "age": 59,
+      "positions": [
+        "Vice President, Principal Accounting Officer"
+      ]
+    },
+    {
+      "name": "Christoph Feddersen",
+      "age": 54,
+      "positions": [
+        "Senior Vice President, General Counsel & Secretary"
+      ]
+    },
+    {
+      "name": "Christopher Kubasik",
+      "age": 64,
+      "positions": [
+        "Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Samir Mehta",
+      "age": 53,
+      "positions": [
+        "President, Space & Mission Systems"
+      ]
+    },
+    {
+      "name": "Melanie Rakita",
+      "age": 48,
+      "positions": [
+        "Vice President & Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Jonathan Rambeau",
+      "age": 53,
+      "positions": [
+        "President, Communication & Spectrum Dominance"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-13",
+    "note": "Tabella dei direttori e dirigenti: azioni al 13 marzo 2026. '*' = meno dell'1%. Le azioni riportate sono il totale beneficiario (colonna 'Total Shares Beneficially Owned'), comprensivo delle opzioni esercitabili entro 60 giorni. Per i detentori oltre il 5% la percentuale è 'Percent of Class' della tabella principale.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22879768,
+            "pct": 12.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-12 (dati usati in tabella); Schedule 13G/A filed 2026-03-27 riporta 0 azioni al 13 marzo 2026",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13578793,
+            "pct": 7.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Capital World Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11289362,
+            "pct": 6.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-13",
+        "address": "333 South Hope Street, 55th Floor, Los Angeles, CA 90071"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Sallie Bailey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6693,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Dattilo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8601,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roger Fradin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6411,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanna Geraghty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2447,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kirk Hachigian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8141,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Harry Harris, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1894,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lewis Hay III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16394,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rita Lane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3130,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Millard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 285801,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Regnery",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 919,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward Rice, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1893,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christina Zamarro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1443,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher Kubasik",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 665481,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth Bedingfield",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19997,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Samir Mehta",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 47477,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward Zoiss",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 123325,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jonathan Rambeau",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40084,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 20,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1262031,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuota. Il CEO Christopher Kubasik compare fra i direttori e non è stato aggiunto come dirigente.",
+    "Robert Millard e Rita Lane non sono fra gli undici nominee: sono inclusi come direttori in carica perché indicati come membri di comitato 'until May 11, 2026', cioè in uscita alla data dell'assemblea. Per entrambi director_since è null perché non compare nelle finestre fornite; l'indipendenza è dedotta dalla dichiarazione che tutti i membri dei comitati sono indipendenti.",
+    "Christopher Kubasik: il documento indica 'Director since 2019' e tra parentesi '(2018 including L3 service)'. È stato usato 2019.",
+    "Le note delle tabelle indicano che Mr. Millard (fino al 11 maggio 2026) e Ms. Lane (fino al 11 maggio 2026) sono in uscita dai rispettivi comitati; il documento non specifica l'uscita dal consiglio oltre a questa data.",
+    "Vanguard Group: la percentuale e il numero di azioni in tabella derivano dallo Schedule 13G/A del 12 novembre 2024; lo Schedule 13G/A del 27 marzo 2026 riporta 0 azioni al 13 marzo 2026. Il dato è riportato come da tabella, ma il deposito più recente è in contrasto.",
+    "Nella sezione Regnery della finestra board compaiono le voci 'Audit' e 'Innovation and Cyber' dopo la biografia, ma la finestra committees non lo elenca nel Comitato Audit: non è stato aggiunto ai comitati.",
+    "La riga di gruppo dichiara '20 persons', mentre la tabella elenca 17 persone fra direttori e NEO (12 direttori e 5 NEO): i 3 dirigenti restanti non sono nominati nella tabella. Entrambi i numeri sono conservati.",
+    "Le azioni dei direttori e dei NEO sono il totale beneficiario (azioni detenute più opzioni esercitabili entro 60 giorni), non solo le azioni detenute; per Kubasik, ad esempio, 213.753 azioni + 451.728 opzioni = 665.481.",
+    "La riga di gruppo non ha valore percentuale esplicito diverso da '*' (meno dell'1%): pct è null.",
+    "executive_officers presi dal Form 10-K del 2026-02-12: il DEF 14A non li elenca.",
+    "10-K: Il documento non indica una data di riferimento per l'elenco o per le età: as_of impostato a null.",
+    "10-K: Le cariche di Bedingfield, Mehta e Rambeau sono contrassegnate con la nota (1), che rimanda alla riorganizzazione dei segmenti dell'esercizio fiscale 2026 (Nota 16, Subsequent Events). Le cariche sono riportate come scritte, senza il contrassegno.",
+    "10-K: La colonna 'Held Since' è ambigua per Bedingfield: la data 'December 2023' e il testo 'January 2026' sono adiacenti e non è chiaro a quale carica si riferiscano. Non è stato possibile attribuire una data specifica alle singole cariche.",
+    "10-K: Le sigle tra virgolette (\"VP\", \"CFO\", \"CS\", \"IMS\") sono state omesse dalle cariche, per coerenza con la forma estesa delle cariche."
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "company": "Workday, Inc.",
+  "ticker": "WDAY",
+  "cik": "0001327811",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-05-05",
+    "accession": "0001104659-26-055687",
+    "meeting": null,
+    "ownership_as_of": "2026-04-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000110465926055687/tm261347-2_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Wayne A.I. Frederick",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Mark J. Hawkins",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Rhonda J. Morris",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "George J. Still, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009",
+      "independent": true
+    },
+    {
+      "name": "Aneel Bhusri",
+      "roles": [
+        "Chair of the Board",
+        "Co-Founder and Chief Executive Officer"
+      ],
+      "director_since": "2005",
+      "independent": false
+    },
+    {
+      "name": "Thomas F. Bogan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Elizabeth Centoni",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Lynne M. Doughtie",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Michael M. McNamara",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Michael L. Speiser",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Jerry Yang",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lynne M. Doughtie",
+        "Thomas F. Bogan",
+        "Mark J. Hawkins",
+        "Michael M. McNamara"
+      ],
+      "chair": "Mark J. Hawkins",
+      "meetings": 9,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Elizabeth Centoni",
+        "Lynne M. Doughtie",
+        "Rhonda J. Morris",
+        "George J. Still, Jr."
+      ],
+      "chair": "George J. Still, Jr.",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Wayne A.I. Frederick",
+        "Mark J. Hawkins",
+        "Michael M. McNamara",
+        "Jerry Yang"
+      ],
+      "chair": "Michael M. McNamara",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Investment Committee",
+      "members": [
+        "Thomas F. Bogan",
+        "Michael L. Speiser",
+        "George J. Still, Jr.",
+        "Jerry Yang"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Aneel Bhusri",
+      "age": 60,
+      "positions": [
+        "Co-Founder, Chief Executive Officer, and Chair of the Board"
+      ]
+    },
+    {
+      "name": "Robert Enslin",
+      "age": 63,
+      "positions": [
+        "President, Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Mark Garfield",
+      "age": 55,
+      "positions": [
+        "Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Gerrit Kazmaier",
+      "age": 42,
+      "positions": [
+        "President, Product and Technology"
+      ]
+    },
+    {
+      "name": "Zane Rowe",
+      "age": 55,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Richard H. Sauer",
+      "age": 63,
+      "positions": [
+        "Chief Legal Officer, Head of Corporate Affairs, and Corporate Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-17",
+    "note": "Percentuali calcolate su 203.712.072 azioni Class A e 45.973.479 azioni Class B in circolazione al 17 aprile 2026; le RSU vestibili entro 60 giorni sono considerate in circolazione solo per il calcolo della relativa persona. * = meno dell'1%; — = zero. pct_of_votes = percentuale del potere di voto complessivo, con Class A e Class B come unica classe (Class B: 10 voti per azione; Class A: 1 voto per azione). Indirizzo c/o Workday, Inc., 6110 Stoneridge Mall Road, Pleasanton, California 94588, salvo diversa indicazione.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Aneel Bhusri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 447471,
+            "pct": null
+          },
+          {
+            "class": "Class B common stock",
+            "shares": 45660277,
+            "pct": 99
+          }
+        ],
+        "pct_of_votes": 69,
+        "source": null,
+        "address": "c/o Workday, Inc., 6110 Stoneridge Mall Road, Pleasanton, California 94588"
+      },
+      {
+        "name": "David A. Duffield",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 2451049,
+            "pct": 1
+          },
+          {
+            "class": "Class B common stock",
+            "shares": 45660277,
+            "pct": 99
+          }
+        ],
+        "pct_of_votes": 69,
+        "source": null,
+        "address": "c/o Workday, Inc., 6110 Stoneridge Mall Road, Pleasanton, California 94588"
+      },
+      {
+        "name": "BlackRock, Inc. and affiliates",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 17540102,
+            "pct": 9
+          }
+        ],
+        "pct_of_votes": 3,
+        "source": "Schedule 13G, Amendment 4, filed February 5, 2025",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group, Inc. and affiliates",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 25009288,
+            "pct": 12
+          }
+        ],
+        "pct_of_votes": 4,
+        "source": "Schedule 13G/A, Amendment 12, filed January 30, 2026; Amendment 13 filed March 27, 2026",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Aneel Bhusri",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 447471,
+            "pct": null
+          },
+          {
+            "class": "Class B common stock",
+            "shares": 45660277,
+            "pct": 99
+          }
+        ],
+        "pct_of_votes": 69
+      },
+      {
+        "name": "Carl M. Eschenbach",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 332217,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerrit Kazmaier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 9912,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Zane Rowe",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 70040,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard H. Sauer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 29822,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas F. Bogan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 48754,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth Centoni",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 2409,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynne M. Doughtie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 11675,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wayne A.I. Frederick",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 7853,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark J. Hawkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 8534,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael M. McNamara",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 25078,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rhonda J. Morris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 2227,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael L. Speiser",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 4409,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George J. Still, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 113277,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jerry Yang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A common stock",
+            "shares": 97724,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Class A common stock",
+          "shares": 890840,
+          "pct": null
+        },
+        {
+          "class": "Class B common stock",
+          "shares": 45660277,
+          "pct": 99
+        }
+      ],
+      "pct_of_votes": 69
+    }
+  },
+  "warnings": [
+    "Mark J. Hawkins è indicato come «Lead Independent Director» e non come «Independent Director»; l'indipendenza è stata ricavata da questa carica e dal testo del comitato di revisione, che lo definisce indipendente.",
+    "Aneel Bhusri compare sia in named_executive_officers_and_directors sia in greater_than_5pct_stockholders, perché detiene il 99% delle azioni Class B.",
+    "David A. Duffield compare in greater_than_5pct_stockholders, ma non è tra i nominee né tra i direttori continuanti né tra i dirigenti: il documento non dichiara la sua posizione attuale in consiglio.",
+    "Carl M. Eschenbach compare nella tabella dei NEO e dei direttori con 332.217 azioni Class A, ma non è tra i nominee, tra i direttori continuanti né tra i dirigenti elencati; non è stato incluso in board_of_directors né in executive_officers, e non è incluso nel gruppo dei dirigenti e direttori attuali.",
+    "Il numero di persone nella riga di gruppo (16) non coincide con il numero di righe nominate (15). La differenza è coerente con la nota 17, che include dirigenti non nominati nella tabella (Robert Enslin e Mark Garfield non compaiono nella tabella delle partecipazioni); le due cifre sono state mantenute entrambe.",
+    "Le 45.660.277 azioni Class B riportate per Aneel Bhusri, David A. Duffield e nella riga di gruppo includono le stesse 37.528.834 azioni del Duffield Trust soggette al Voting Agreement; sono conteggiate in più righe per effetto dell'accordo di voto, come indicato nelle note 2 e 18.",
+    "Il numero di riunioni dell'Audit Committee (9) si riferisce all'esercizio fiscale 2026, come dichiarato nel documento. Per Compensation Committee, Nominating and Governance Committee e Investment Committee il documento non riporta il numero di riunioni nelle finestre fornite: meetings è stato lasciato null.",
+    "Vanguard è segnalato con 25.009.288 azioni Class A secondo l'Amendment 12 del 30 gennaio 2026; l'Amendment 13 del 27 marzo 2026 riferisce di una riorganizzazione interna che ne riduce la titolarità riportata, senza fornire un nuovo dato numerico nella finestra.",
+    "La tabella con le note 19 e 20 riporta le fonti BlackRock e Vanguard; i valori sono stati copiati dalla tabella principale e non ricalcolati dalle note.",
+    "Il campo pct_of_votes per BlackRock e Vanguard è riportato come da tabella (3% e 4%) e misura il potere di voto complessivo, non la percentuale di Class A."
+  ]
+}

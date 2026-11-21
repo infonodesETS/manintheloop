@@ -1,0 +1,454 @@
+{
+  "company": "Autodesk, Inc.",
+  "ticker": "ADSK",
+  "cik": "0000769397",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-05-06",
+    "accession": "0000769397-26-000030",
+    "meeting": "2026 Annual Meeting of Stockholders, 17 giugno 2026",
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000030/adsk-20260429.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-03-03",
+      "accession": "0000769397-26-000015",
+      "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000015/adsk-20260131.htm",
+      "as_of": "2026-03-03"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Andrew Anagnost",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "Stacy J. Smith",
+      "roles": [
+        "Non-Executive Chair of the Board of Directors"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Omar Abbosh",
+      "roles": [
+        "Director nominee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Karen Blasing",
+      "roles": [
+        "Director",
+        "Chair, Compensation and Human Resources Committee"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "John T. Cahill",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Jeff Epstein",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Ayanna Howard",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Blake Irving",
+      "roles": [
+        "Director",
+        "Chair, Corporate Governance and Nominating Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Ram R. Krishnan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Stephen Milligan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Rami Rahim",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "A. Christine Simons",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "John T. Cahill",
+        "Jeff Epstein",
+        "A. Christine Simons"
+      ],
+      "chair": "John T. Cahill",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Human Resources Committee",
+      "members": [
+        "Karen Blasing",
+        "Ayanna Howard",
+        "Ram R. Krishnan"
+      ],
+      "chair": "Karen Blasing",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Stacy J. Smith",
+        "Blake Irving",
+        "Rami Rahim"
+      ],
+      "chair": "Blake Irving",
+      "meetings": 3,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Andrew Anagnost",
+      "age": 61,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Janesh Moorjani",
+      "age": 53,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Steven M. Blum",
+      "age": 61,
+      "positions": [
+        "Executive Vice President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Ruth Ann Keene",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, Corporate Affairs, Chief Legal Officer & Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Rebecca Pearce",
+      "age": 48,
+      "positions": [
+        "Executive Vice President, Chief People Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Percentuali calcolate su 211.325.324 azioni ordinarie in circolazione al 31 marzo 2026. * = meno dell'1%. Le quote dei direttori includono le azioni vested differite nei piani 2022 Equity Incentive Plan e 2012 Outside Directors' Stock Plan. Il titolo della colonna è 'Beneficially Owned', con diritti di voto e investimento esclusivi salvo diversa indicazione.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21413983,
+            "pct": 10.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-10-06 (data di riferimento 2025-09-30); 13G/A filed 2026-03-26 (riorganizzazione interna, reporting disaggregato)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19233480,
+            "pct": 9.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-01-25 (data di riferimento 2023-12-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Stacy J. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21627,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen Blasing",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6389,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John T. Cahill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2551,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeff Epstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ayanna Howard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Blake Irving",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9599,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ram R. Krishnan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 491,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen Milligan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rami Rahim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 959,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "A. Christine Simons",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 180,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Anagnost",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 115159,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janesh Moorjani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19176,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven M. Blum",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33742,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ruth Ann Keene",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 75613,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rebecca Pearce",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8466,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Omar Abbosh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 293952,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente nel documento: executive_officers è vuoto e non è stato ricostruito dalle biografie.",
+    "Stephen Milligan compare come direttore attuale (tabella comitati, dichiarazione di indipendenza, tabella proprietà) ma non ha biografia nella finestra board: director_since è null e le sue cariche sono sconosciute.",
+    "Nella matrice dei comitati, la riga di Stephen Milligan riporta due spunte senza intestazioni leggibili in modo univoco: non è stato assegnato a nessun comitato. Verificare.",
+    "Omar Abbosh è un nuovo candidato (nominee): director_since è null perché il documento non indica una data di ingresso in consiglio.",
+    "Mary T. McDowell, Lorrie M. Norrington e Reid French sono indicati come ex direttori dell'esercizio fiscale 2026, ma il documento non dà le date di uscita: non sono inclusi in board_of_directors.",
+    "Il numero di riunioni è dato per ciascun comitato nella tabella dell'esercizio fiscale 2026 (Audit 8, Compensation and Human Resources 6, Corporate Governance and Nominating 3): non sommato. Il totale di 17 riunioni dei comitati corrisponde alla somma; le 13 riunioni del consiglio non sono attribuite ad alcun comitato.",
+    "Compensation and Human Resources Committee: nell'esercizio fiscale 2026 hanno fatto parte del comitato anche Reid French, Blake Irving, Mary T. McDowell e Rami Rahim; i membri attuali sono Karen Blasing, Ayanna Howard e Ram R. Krishnan. Sono stati elencati solo i membri attuali.",
+    "La cella 'ü CB' di Stacy J. Smith nella matrice è interpretata come indipendenza più presidenza del consiglio (CB = Chair of the Board); l'appartenenza al Corporate Governance and Nominating Committee è confermata dalla biografia.",
+    "Nel blocco named_executive_officers_and_directors ci sono 16 persone, ma la riga di gruppo dichiara 15 individui: i due numeri non coincidono. Entrambi sono riportati come dichiarati.",
+    "Dr. Anagnost è amministratore e CEO, non indipendente; è l'unico non indipendente secondo la dichiarazione del consiglio.",
+    "Stephen Milligan è segnato come indipendente nella dichiarazione del consiglio, anche se la sua biografia non è presente.",
+    "Stacy J. Smith: il dato di possesso è marcato '*' (meno dell'1%), quindi pct è null.",
+    "Stephen Milligan, Jeff Epstein e Omar Abbosh: quote indicate con '—', convertite in 0 azioni.",
+    "Nella riga di Cahill (2.551 azioni) sono incluse 2.060 azioni detenute indirettamente tramite trust (nota 7); nella riga di Blum (33.742) sono incluse 32.993 azioni detenute indirettamente tramite trust (nota 8). I trust non sono scorporati.",
+    "I dati di BlackRock, Inc. sono riferiti al 31 dicembre 2023 (ultimo 13G citato dal documento), quindi non aggiornati alla data del 31 marzo 2026.",
+    "Vanguard Group: il documento segnala una riorganizzazione interna con reporting disaggregato dal 26 marzo 2026; la cifra riportata è quella della tabella principale, non verificata in base alle singole entità.",
+    "Holder_type: The Vanguard Group, Inc. e BlackRock, Inc. sono entity per il suffisso Inc. e per il deposito istituzionale 13G.",
+    "executive_officers presi dal Form 10-K del 2026-03-03: il DEF 14A non li elenca.",
+    "10-K: Per Steve M. Blum la tabella riporta \"Steve\" mentre la biografia riporta \"Steven\"; è stata usata la forma \"Steven M. Blum\" dalla biografia, ma va verificata."
+  ]
+}

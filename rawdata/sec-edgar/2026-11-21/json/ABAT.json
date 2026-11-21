@@ -1,0 +1,288 @@
+{
+  "company": "American Battery Technology Company",
+  "ticker": "ABAT",
+  "cik": "0001576873",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-22",
+    "accession": "0001493152-26-043609",
+    "meeting": null,
+    "ownership_as_of": "2026-09-14",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1576873/000149315226043609/formdef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Ryan Melsert",
+      "roles": [
+        "CEO",
+        "CTO",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": false
+    },
+    {
+      "name": "Susan Yun Lee",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Rick Fezell",
+      "roles": [
+        "Chairman",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Elizabeth Lowery",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Lavanya Balakrishnan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Rick Fezell",
+        "Elizabeth Lowery",
+        "Lavanya Balakrishnan"
+      ],
+      "chair": "Rick Fezell",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Susan Yun Lee",
+        "Rick Fezell",
+        "Lavanya Balakrishnan",
+        "Elizabeth Lowery"
+      ],
+      "chair": "Susan Yun Lee",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Elizabeth Lowery",
+        "Lavanya Balakrishnan",
+        "Susan Yun Lee"
+      ],
+      "chair": "Elizabeth Lowery",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Ryan Melsert",
+      "age": 44,
+      "positions": [
+        "CEO",
+        "CTO",
+        "Director"
+      ]
+    },
+    {
+      "name": "Alejandro Flores Arteaga",
+      "age": 51,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Steven Wu",
+      "age": 37,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-14",
+    "note": "Percentage of common stock based on 142,577,758 shares outstanding as of September 14, 2026, plus 5,769,995 shares issuable within 60 days of September 14, 2026. * = less than 1%. Unless otherwise indicated, the address of each beneficial owner is c/o American Battery Technology Company, 100 Washington Street, Suite 100, Reno, Nevada 89503.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9749801,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8700924,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      },
+      {
+        "name": "Ryan Melsert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7694665,
+            "pct": 5.19
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o American Battery Technology Company, 100 Washington Street, Suite 100, Reno, Nevada 89503"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Ryan Melsert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7694665,
+            "pct": 5.19
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Wu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1948932,
+            "pct": 1.31
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott Jolcover",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 959338,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alejandro Flores Arteaga",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4998,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rick Fezell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 382621,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elizabeth Lowery",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 74376,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan Yun Lee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 170840,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lavanya Balakrishnan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32433,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 7,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 11491704,
+          "pct": 7.75
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers è stato compilato dalla tabella 'Directors and Executive Officers' nella finestra board (nome, età, carica), non da cariche citate nelle biografie.",
+    "director_since non dichiarato nel documento per nessun direttore: campo impostato a null.",
+    "Nessun direttore in uscita dichiarato: il consiglio attuale è composto da cinque persone (Melsert, Lee, Fezell, Lowery, Balakrishnan).",
+    "Ryan Melsert compare in due blocchi (named_executive_officers_and_directors e greater_than_5pct_stockholders) perché detiene il 5,19% della classe Common Stock; è incluso anche nel blocco dei >5% come da regola.",
+    "Riga di gruppo: il documento dichiara '7 persons', mentre nella tabella NEO e direttori compaiono 8 persone (Scott Jolcover incluso). Jolcover non compare né fra i direttori né nel roster dei dirigenti, ed è probabilmente escluso dal conteggio di gruppo; le due cifre non sono riconciliate nel documento.",
+    "Scott Jolcover è indicato come NEO nella tabella di proprietà, ma non compare nel roster dei dirigenti né fra i direttori: età e carica non disponibili.",
+    "Per State Street Corporation e BlackRock, Inc. la finestra ownership non riporta fonte di deposito né indirizzo: source e address impostati a null.",
+    "Il documento indica 4 riunioni del consiglio nell'esercizio chiuso il 30 giugno 2026; il consiglio non è un comitato e non è incluso in committees.",
+    "Percentuali con '*' (meno dell'1%) impostate a null: Scott Jolcover, Alejandro Flores Arteaga, Rick Fezell, Elizabeth Lowery, Susan Yun Lee, Lavanya Balakrishnan.",
+    "pct_of_votes non dichiarato nel documento per nessuna riga: impostato a null."
+  ]
+}

@@ -1,0 +1,467 @@
+{
+  "company": "Hexcel Corporation",
+  "ticker": "HXL",
+  "cik": "0000717605",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-01",
+    "accession": "0001193125-26-135884",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-03-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/717605/000119312526135884/hxl-20260401.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Thomas C. Gentile III",
+      "roles": [
+        "Chairman of the Board",
+        "Chief Executive Officer",
+        "President"
+      ],
+      "director_since": "2024",
+      "independent": false
+    },
+    {
+      "name": "James J. Cannon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Cynthia M. Egnotovich",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Guy C. Hachey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Patricia A. Hubbard",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Neal J. Keating",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "David H. Li",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Nick L. Stanage",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": false
+    },
+    {
+      "name": "Catherine A. Suever",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey C. Campbell",
+      "roles": [
+        "Lead Director",
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Catherine A. Suever",
+        "Jeffrey C. Campbell",
+        "Cynthia M. Egnotovich",
+        "Neal J. Keating"
+      ],
+      "chair": "Catherine A. Suever",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Guy C. Hachey",
+        "James J. Cannon",
+        "David H. Li",
+        "Catherine A. Suever"
+      ],
+      "chair": "Guy C. Hachey",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating, Governance and Sustainability Committee",
+      "members": [
+        "Cynthia M. Egnotovich",
+        "Jeffrey C. Campbell",
+        "Guy C. Hachey",
+        "Patricia A. Hubbard"
+      ],
+      "chair": "Cynthia M. Egnotovich",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Thomas C. Gentile III",
+      "age": 61,
+      "positions": [
+        "Chairman, Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Michael C. Lenz",
+      "age": 62,
+      "positions": [
+        "Executive Vice President, Interim Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Gail E. Lehman",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Chief Legal and Sustainability Officer",
+        "Secretary"
+      ]
+    },
+    {
+      "name": "Gina Fitzsimons",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, Chief Human Resources and Communications Officer"
+      ]
+    },
+    {
+      "name": "Lilian Braylé",
+      "age": 58,
+      "positions": [
+        "President, Aerospace - Europe, MEA/AP & Industrial"
+      ]
+    },
+    {
+      "name": "Lyndon Smith",
+      "age": 66,
+      "positions": [
+        "President - Americas & Global Fibers"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-17",
+    "note": "Percentuali calcolate su 75.394.986 azioni di Common Stock in circolazione al 17 marzo 2026. Il simbolo * indica una quota inferiore all'1%. Le quote dei detentori includono, per i direttori e i dirigenti, RSU e NQO esercitabili entro 60 giorni.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8926898,
+            "pct": 11.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amendment to Schedule 13G filed 2024-01-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "EARNEST Partners, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5140542,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amendment to Schedule 13G filed 2025-08-14",
+        "address": "1180 Peachtree Street NE, Suite 2300, Atlanta, GA 30309"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5104153,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amendment to Schedule 13G filed 2026-02-17",
+        "address": "1307 Point Street, Baltimore, MD 21231"
+      },
+      {
+        "name": "AllianceBernstein L.P.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4849941,
+            "pct": 6.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-11-14",
+        "address": "501 Commerce Street, Nashville, TN 37203"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4064989,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-02-04",
+        "address": "1 Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Thomas C. Gentile III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 74871,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey C. Campbell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 76006,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James J. Cannon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5318,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cynthia M. Egnotovich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31173,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gina Fitzsimons",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28388,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Guy C. Hachey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35390,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patricia A. Hubbard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8406,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neal J. Keating",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 254,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gail E. Lehman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 104489,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael C. Lenz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David H. Li",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5565,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thierry P. Merlot",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 127515,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nick L. Stanage",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 983392,
+            "pct": 1.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Catherine A. Suever",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22803,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick J. Winterlich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 157387,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1405138,
+          "pct": 1.84
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della riunione non esplicita: il documento indica le modifiche ai comitati 'effective May 14, 2026' subordinatamente all'elezione all'Annual Meeting; la data è stata riportata come dedotta solo in forma generica.",
+    "Jeffrey C. Campbell non è ricandidato all'assemblea 2026 e resta in carica fino a quella data; la sua biografia non è nelle finestre fornite, quindi director_since è null. Il documento indica che è lead director dal 2018 e che gli indipendenti designeranno un nuovo lead director dopo l'assemblea.",
+    "Thomas C. Gentile III non è indipendente (Chairman, CEO e President). Compare nell'elenco dei dirigenti come CEO, anche se la finestra executives non lo elenca esplicitamente.",
+    "Nick L. Stanage non è indipendente: ex Executive Chairman, Chairman, CEO e President della società fino a novembre 2024; resta nominee e direttore in carica.",
+    "Neal J. Keating è stato nominato al consiglio il 3 marzo 2026 in base a un accordo di cooperazione con Vision One Fund, LP ed è nominee all'assemblea 2026.",
+    "James J. Cannon: il consiglio ha respinto le sue dimissioni del 5 marzo 2026 in seguito al cambio di datore di lavoro da AM General LLC a Micross Components, Inc.; resta nel consiglio.",
+    "Ruolo di Thomas C. Gentile III nella matrice comitati: non è membro di alcun comitato permanente.",
+    "Matrice dei comitati ambigua nella versione appiattita (Chair appare sotto Audit per Egnotovich e Suever); la composizione e la presidenza sono state ricavate dalle pagine dedicate a ciascun comitato, coerenti con le biografie (Suever: Audit Chair; Egnotovich: Nominating Chair; Hachey: Compensation Chair).",
+    "Meetings: il documento fornisce un numero per ciascun comitato nel 2025 (Audit 8, Compensation 8, Nominating 3; totale 19 riunioni dei tre comitati, coerente con i valori per comitato). Non sono stati sommati.",
+    "Gail E. Lehman, Michael C. Lenz, Gina Fitzsimons, Lilian Braylé e Lyndon Smith sono dirigenti in carica; Patrick J. Winterlich (dimissioni effettive 30 novembre 2025) e Thierry P. Merlot (pensionamento 30 gennaio 2026) sono ex dirigenti, inclusi nella tabella NEO e nella riga di gruppo solo come riferimento. Non sono inclusi tra i dirigenti attuali.",
+    "Michael C. Lenz: dal 1° maggio 2026 passerà a EVP, Senior Advisor; James Coogan è stato nominato EVP e CFO con effetto dal 1° maggio 2026 e non è incluso tra i dirigenti perché la nomina è successiva alla data di riferimento della sezione executives.",
+    "Riga di gruppo: il documento dichiara 15 persone, ma la tabella NEO elenca 15 righe che includono due ex dirigenti (Merlot, Winterlich). Il gruppo dei dirigenti e direttori attuali nella tabella ne conterebbe 13; le altre 2 presumibilmente sono Lilian Braylé e Lyndon Smith, non presenti nella tabella. Non verificabile dal testo fornito.",
+    "Stanage 983.392 azioni = 1,30%: pct di 1.30 riportato come nel documento; per gli altri il simbolo * è stato convertito in null.",
+    "Gentile: 74.871 azioni includono 15.000 azioni detenute dal The Thomas Charles Gentile III Revocable Trust, trust familiare di cui è trustee; la riga è stata mantenuta come holder person nella tabella dei direttori e non è stata inserita separatamente.",
+    "Nessun direttore o dirigente detiene oltre il 5% delle azioni: il blocco greater_than_5pct_stockholders contiene solo i cinque detentori istituzionali della tabella separata."
+  ]
+}

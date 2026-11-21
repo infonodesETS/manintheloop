@@ -1,0 +1,494 @@
+{
+  "company": "TE Connectivity plc",
+  "ticker": "TEL",
+  "cik": "0001385157",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-15",
+    "accession": "0001104659-26-003934",
+    "meeting": "2026 Annual General Meeting",
+    "ownership_as_of": "2026-01-08",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926003934/tel-20260311xdef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Jean-Pierre Clamadieu",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Terrence R. Curtin",
+      "roles": [
+        "Chief Executive Officer",
+        "Executive Director"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Carol A. Davidson",
+      "roles": [
+        "Chairman of the Board",
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Lynn A. Dugle",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Sam Eldessouky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "William A. Jeffrey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Syaru Shirley Lin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Heath A. Mitts",
+      "roles": [
+        "Executive Vice President and Chief Financial Officer",
+        "Executive Director"
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Abhijit Y. Talwalkar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Mark C. Trudeau",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Kenneth Washington",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Dawn C. Willoughby",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Laura H. Wright",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Carol A. Davidson",
+        "Lynn A. Dugle",
+        "Sam Eldessouky",
+        "Laura H. Wright"
+      ],
+      "chair": "Laura H. Wright",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Management Development and Compensation Committee",
+      "members": [
+        "Abhijit Y. Talwalkar",
+        "Mark C. Trudeau",
+        "Kenneth Washington",
+        "Dawn C. Willoughby"
+      ],
+      "chair": "Abhijit Y. Talwalkar",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating, Governance and Compliance Committee",
+      "members": [
+        "Jean-Pierre Clamadieu",
+        "William A. Jeffrey",
+        "Syaru Shirley Lin"
+      ],
+      "chair": "William A. Jeffrey",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Joint Committee on Cybersecurity",
+      "members": [
+        "Jean-Pierre Clamadieu",
+        "Carol A. Davidson",
+        "Lynn A. Dugle",
+        "Sam Eldessouky",
+        "William A. Jeffrey",
+        "Syaru Shirley Lin",
+        "Laura H. Wright"
+      ],
+      "chair": "Lynn A. Dugle (co-chair); William A. Jeffrey (co-chair)",
+      "meetings": 2,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Terrence R. Curtin",
+      "age": 57,
+      "positions": [
+        "Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "John S. Jenkins, Jr.",
+      "age": 60,
+      "positions": [
+        "Executive Vice President and General Counsel"
+      ]
+    },
+    {
+      "name": "Shadrak W. Kroeger",
+      "age": 57,
+      "positions": [
+        "President, Industrial Solutions"
+      ]
+    },
+    {
+      "name": "Heath A. Mitts",
+      "age": 54,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer and Director"
+      ]
+    },
+    {
+      "name": "Malavika Sagar",
+      "age": 44,
+      "positions": [
+        "Senior Vice President and Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "Reuben M. Shaffer",
+      "age": 47,
+      "positions": [
+        "Senior Vice President and Corporate Controller"
+      ]
+    },
+    {
+      "name": "Aaron K. Stucki",
+      "age": 52,
+      "positions": [
+        "President, Transportation Solutions"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-08",
+    "note": "Azioni beneficiarie al 8 gennaio 2026. Il numero include le azioni esercitabili entro 60 giorni tramite opzioni (dettagliate nelle note del documento). Nessun direttore, candidato o dirigente oltre l'1%. Il dato di gruppo (0,6%) è dalla nota di testo, non dalla tabella.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 37881410,
+            "pct": 12.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-09-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 18729181,
+            "pct": 6.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-14",
+        "address": "100 E. Pratt Street, Baltimore, MD 21202"
+      },
+      {
+        "name": "BlackRock Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 18450686,
+            "pct": 6.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-04-23",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Terrence R. Curtin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 972592,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John S. Jenkins, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 72514,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shadrak W. Kroeger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 188303,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Heath A. Mitts",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 227854,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aaron K. Stucki",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 91515,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean-Pierre Clamadieu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 4601,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carol A. Davidson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 17767,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lynn A. Dugle",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 6845,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sam Eldessouky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 1206,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William A. Jeffrey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 23896,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Syaru Shirley Lin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 4155,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Abhijit Y. Talwalkar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 6369,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark C. Trudeau",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 7123,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth Washington",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 433,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dawn C. Willoughby",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 6845,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura H. Wright",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Shares",
+            "shares": 17119,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Shares",
+          "shares": 1695476,
+          "pct": 0.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione 'committees' assente in questo DEF 14A: l'appartenenza ai comitati è ricavata dalla tabella 'Membership' nella finestra board e dal testo delle biografie.",
+    "Jean-Pierre Clamadieu: la scheda indica 'Director since 2023', ma la biografia dice che è stato nominato per la prima volta nel maggio 2018. Usato 2023 come dato della scheda; il dato va verificato.",
+    "Carol A. (\"John\") Davidson: il soprannome fra parentesi è stato rimosso dal nome.",
+    "Joint Committee on Cybersecurity: il documento indica due co-presidenti (Lynn A. Dugle e William A. Jeffrey), quindi il campo chair riporta entrambi.",
+    "Dal 11 marzo 2026 sono previsti cambi di comitato: Dugle passa dall'Audit Committee al NGCC e diventa unica presidente della JCC; Trudeau passa dalla MDCC all'Audit Committee e entra nella JCC; Clamadieu assume la presidenza del NGCC; Willoughby presiederà la MDCC. Le composizioni riportate sono quelle alla data del 8 gennaio 2026.",
+    "Nessun direttore risulta uscito dal consiglio alla data del documento: tutti e 13 i nominee sono in carica.",
+    "Le tabelle sulla proprietà non indicano il nome della classe di azioni: la classe è riportata come 'Shares' perché il documento non la specifica.",
+    "Riga di gruppo: il documento dichiara 18 persone, ma la tabella individuale elenca 16 nominativi. Mancano Malavika Sagar e Reuben M. Shaffer (dirigenti non in tabella). Sono stati mantenuti entrambi i dati senza modifiche.",
+    "Riga di gruppo: la percentuale 0,6% è tratta dalla nota di testo ('approximately 0.6% of the outstanding shares'), non dalla tabella.",
+    "Terrence R. Curtin: la sua riga include 40.000 azioni detenute da un trust familiare (nota 5 del documento).",
+    "Dirigenti e direttori con azioni in opzione: il numero di azioni include le opzioni esercitabili entro 60 giorni, come indicato in nota 4 (Curtin 853.650; Jenkins 44.550; Kroeger 155.762; Mitts 201.000; Stucki 65.098).",
+    "Kenneth Washington: la tabella dei detentori attribuisce il suo nome senza titoli; il titolo 'Dr.' è stato rimosso dal nome nel blocco dei direttori.",
+    "Shadrak W. Kroeger è indicato come 'Shad Kroeger' nella tabella sulla proprietà: usata la forma completa dalla sezione dirigenti.",
+    "Il dato sul comitato MDCC (Management Development and Compensation Committee) indica 8 riunioni nell'esercizio 2025 e il NGCC 4; ogni comitato riporta il proprio numero senza somme."
+  ]
+}

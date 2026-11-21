@@ -1,0 +1,391 @@
+{
+  "company": "Gen Digital Inc.",
+  "ticker": "GEN",
+  "cik": "0000849399",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-07-28",
+    "accession": "0001140361-26-029830",
+    "meeting": "Annual Meeting 2026-09-09",
+    "ownership_as_of": "2026-07-14",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/849399/000114036126029830/ny20070898x1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Susan P. Barsamian",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Pavel Baudis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Eric K. Brandt",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "John C. Chrystal",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Nora M. Denzel",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Emily Heath",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Vincent Pilette",
+      "roles": [
+        "CEO & Chair"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Sherrese M. Smith",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Ondrej Vlcek",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Eric K. Brandt",
+        "Emily Heath",
+        "John C. Chrystal"
+      ],
+      "chair": "Eric K. Brandt",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Leadership Development Committee",
+      "members": [
+        "Nora M. Denzel",
+        "Susan P. Barsamian",
+        "Emily Heath"
+      ],
+      "chair": "Nora M. Denzel",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Susan P. Barsamian",
+        "Sherrese M. Smith",
+        "Eric K. Brandt"
+      ],
+      "chair": "Susan P. Barsamian",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Technology and Cybersecurity Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Vincent Pilette",
+      "age": 54,
+      "positions": [
+        "Chief Executive Officer and President"
+      ]
+    },
+    {
+      "name": "Natalie M. Derse",
+      "age": 49,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Bryan S. Ko",
+      "age": 55,
+      "positions": [
+        "Chief Operating Officer, Chief Legal Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Travis Witteveen",
+      "age": 55,
+      "positions": [
+        "Head of Products and Portfolios"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-07-14",
+    "note": "Percentuali calcolate su 598.577.065 azioni di Common Stock in circolazione al 14 luglio 2026; le RSU che maturano entro 60 giorni (entro il 13 settembre 2026) sono considerate in circolazione solo per il calcolo della percentuale della persona interessata. * = meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50084299,
+            "pct": 8.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-04-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Vanguard Capital Management LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41153073,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-05-01",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 40438989,
+            "pct": 6.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-11-05",
+        "address": "245 Summer Street, Boston, MA 02210"
+      },
+      {
+        "name": "Vanguard Portfolio Management LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31458495,
+            "pct": 5.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-05-01",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      },
+      {
+        "name": "Pavel Baudis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49840928,
+            "pct": 8.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Pavel Baudis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49840928,
+            "pct": 8.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ondrej Vlcek",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4234724,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vincent Pilette",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2740551,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bryan S. Ko",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 560986,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Natalie M. Derse",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 441343,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan P. Barsamian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 99885,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric K. Brandt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 78930,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sherrese M. Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 73458,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Emily Heath",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 67202,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nora M. Denzel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34860,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John C. Chrystal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19173,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 58192040,
+          "pct": 9.7
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Frank E. Dangeard non incluso in board_of_directors: si è dimesso dal Consiglio (in relazione alla dimissione del 17 luglio 2026 citata nella nota 7 della tabella compensi), prima della data del documento.",
+    "Peter A. Feld non incluso in board_of_directors: si è dimesso dal Consiglio il 16 maggio 2025.",
+    "Il comitato Technology and Cybersecurity Committee è inserito in committees senza membri, presidente né riunioni: il documento dice che è stato sciolto nel giugno 2025.",
+    "Travis Witteveen compare nel roster dei dirigenti (nominato executive officer nel luglio 2026) ma non compare nella tabella di proprietà azionaria: il gruppo dichiara 11 persone, come le righe presenti in named_executive_officers_and_directors.",
+    "Pavel Baudis è incluso in greater_than_5pct_stockholders perché detiene l'8,3% (oltre il 5%) come dichiarato nella tabella dei dirigenti e direttori. Le azioni sono tenute tramite PaBa Software s.r.o. (49.816.185 azioni, di cui Baudis è unico proprietario): la nota non fornisce un deposito separato, quindi source e address sono null. Classificato come person, ma la quota è detenuta per il tramite di una società.",
+    "Il nome di Ondrej Vlcek compare come 'Vlcek' nella tabella e come 'Vlček' nella biografia: si usa la forma della tabella.",
+    "Il nome di Bryan S. Ko è riportato nella forma più completa presente nella tabella di proprietà azionaria; nel roster dei dirigenti compare come Bryan Ko.",
+    "Ondrej Vlcek è nel consiglio come non indipendente (ex President e CEO di Avast e Gen); non fa parte di alcun comitato."
+  ]
+}

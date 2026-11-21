@@ -1,0 +1,356 @@
+{
+  "company": "MP Materials Corp.",
+  "ticker": "MP",
+  "cik": "0001801368",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001801368-26-000020",
+    "meeting": "Annual Meeting 2026-06-09 (virtuale)",
+    "ownership_as_of": "2026-04-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000020/mp-20260423.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Arnold W. Donald",
+      "roles": [
+        "Class III Director (candidato)",
+        "Membro del Compensation Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Randall J. Weisenburger",
+      "roles": [
+        "Class III Director (candidato)",
+        "Presiding Director",
+        "Presidente dell'Audit Committee",
+        "Membro del Compensation Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "James H. Litinsky",
+      "roles": [
+        "Class I Director",
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Andrew A. McKnight",
+      "roles": [
+        "Class I Director",
+        "Presidente del Compensation Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Connie K. Duckworth",
+      "roles": [
+        "Class II Director",
+        "Presidente del Nominating and Corporate Governance Committee",
+        "Membro dell'Audit Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Maryanne R. Lavan",
+      "roles": [
+        "Class II Director",
+        "Membro dell'Audit Committee",
+        "Membro del Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Richard B. Myers",
+      "roles": [
+        "Class II Director",
+        "Membro del Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2020",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Randall J. Weisenburger",
+        "Connie K. Duckworth",
+        "Maryanne R. Lavan"
+      ],
+      "chair": "Randall J. Weisenburger",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Andrew A. McKnight",
+        "Arnold W. Donald",
+        "Randall J. Weisenburger"
+      ],
+      "chair": "Andrew A. McKnight",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Connie K. Duckworth",
+        "Richard B. Myers",
+        "Maryanne R. Lavan"
+      ],
+      "chair": "Connie K. Duckworth",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "James H. Litinsky",
+      "age": 48,
+      "positions": [
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Ryan Corbett",
+      "age": 36,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Michael Rosenthal",
+      "age": 47,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Elliot D. Hoops",
+      "age": 51,
+      "positions": [
+        "General Counsel and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-13",
+    "note": "Percentuali calcolate su 178.018.991 azioni ordinarie in circolazione al 13 aprile 2026. Le azioni opzionabili esercitabili entro 60 giorni sono considerate in circolazione solo per il calcolo della percentuale del detentore interessato. * indica meno dell'1%. Il documento non dichiara una percentuale di voti.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Hancock Prospecting Pty Limited",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13861212,
+            "pct": 7.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-13 (dati al 2024-09-30)",
+        "address": "Level 3 HPPL House, 28-42 Ventnor Avenue, West Perth, Western Australia 6005, Australia"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13635712,
+            "pct": 7.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13 (dati al 2023-12-29); Schedule 13G/A del 2026-03-27 riporta 0,0%",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "James H. Litinsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12809732,
+            "pct": 7.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o MP Materials Corp., 1700 S. Pavilion Center Drive, Suite 800, Las Vegas, Nevada 89135"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11930482,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-17 (dati al 2025-09-30)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "James H. Litinsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12809732,
+            "pct": 7.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew A. McKnight",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23056,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard B. Myers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33994,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Randall J. Weisenburger",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 177101,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maryanne R. Lavan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49955,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Connie K. Duckworth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 67352,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Arnold W. Donald",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22089,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ryan Corbett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38397,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Elliot D. Hoops",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7958,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Rosenthal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1346220,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 14575854,
+          "pct": 8.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Il documento non contiene una sezione committees separata: l'appartenenza ai comitati è stata letta dalla tabella 'Board Committees' nella finestra board; le riunioni sono riportate separatamente per ciascun comitato (Audit 5, Compensation 4, Nominating and Corporate Governance 3, tutte nel 2025).",
+    "Nessun direttore risulta uscito dal consiglio prima della data del documento; i sette direttori elencati sono tutti in carica.",
+    "James H. Litinsky compare sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors, con 12.809.732 azioni (7,2%); nella tabella della proprietà la nota (2) è richiamata per il suo nome ma la nota corrispondente è la (3), probabile refuso.",
+    "Litinsky: nel blocco dei >5% il campo address riporta l'indirizzo della società, perché il documento indica che, salvo diversa indicazione, l'indirizzo dei detentori è c/o la società; la fonte non è indicata in nota per la sua quota.",
+    "Hancock Prospecting Pty Limited: la nota 1 riporta che anche Georgina Hope Rinehart ha potere condiviso di voto e disposizione sulle stesse 13.861.212 azioni; la riga è stata mantenuta sull'entità e la Rinehart non è stata inserita come riga separata. Dati di fonte al 2024-09-30, quindi non aggiornati.",
+    "The Vanguard Group: la quota di 13.635.712 azioni deriva dalla Schedule 13G/A del 2024-02-13 (dati al 2023-12-29). La Schedule 13G/A del 2026-03-27 riporta 0,0% dopo una riorganizzazione interna con disaggregazione della proprietà; il dato è riportato come dichiarato nella tabella del proxy ma va considerato superato.",
+    "Il documento non dichiara quote di voto distinte per classe: l'unica classe di azioni è il Common Stock, e pct_of_votes è null per tutte le righe.",
+    "Riga di gruppo: 'All current executive officers and directors as a group (10 persons)' con 14.575.854 azioni e 8,2%; le righe di direttori e dirigenti in named_executive_officers_and_directors sono 10, quindi il conteggio è coerente.",
+    "Nessuna riga di aggregazione o subtotale è presente nella tabella dei detentori oltre il 5%.",
+    "Holder_type: Hancock Prospecting Pty Limited e The Vanguard Group classificate come entity per il deposito istituzionale e il suffisso societario; BlackRock, Inc. come entity; James H. Litinsky come person."
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "company": "Sandisk Corporation",
+  "ticker": "SNDK",
+  "cik": "0002023554",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-10-06",
+    "accession": "0001308179-26-000423",
+    "meeting": null,
+    "ownership_as_of": "2026-09-04",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2023554/000130817926000423/sndk-20261005.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Alexander Bradley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-12",
+      "independent": true
+    },
+    {
+      "name": "Richard B. Cassidy II",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Thomas Caulfield",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-01",
+      "independent": true
+    },
+    {
+      "name": "David V. Goeckeler",
+      "roles": [
+        "Director",
+        "Chief Executive Officer",
+        "Chair of the Board"
+      ],
+      "director_since": "2025-01",
+      "independent": false
+    },
+    {
+      "name": "Devinder Kumar",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Necip Sayiner",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Ellyn J. Shook",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Miyuki Suzuki",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-01",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Devinder Kumar",
+        "Alexander Bradley",
+        "Richard B. Cassidy II"
+      ],
+      "chair": null,
+      "meetings": 7,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Talent Committee",
+      "members": [
+        "Ellyn J. Shook",
+        "Thomas Caulfield",
+        "Necip Sayiner"
+      ],
+      "chair": null,
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Necip Sayiner",
+        "Ellyn J. Shook",
+        "Miyuki Suzuki"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Employee Awards Committee",
+      "members": [
+        "David V. Goeckeler"
+      ],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "David V. Goeckeler",
+      "age": 64,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Luis F. Visoso",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Alper Ilkbahar",
+      "age": 59,
+      "positions": [
+        "Executive Vice President and Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Bernard Shek",
+      "age": 53,
+      "positions": [
+        "Chief Legal Officer and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-04",
+    "note": "Percentuali calcolate su 145.327.682 azioni ordinarie in circolazione al 4 settembre 2026. Le azioni soggette a RSU con vesting entro 60 giorni e le unità differite sono considerate in circolazione solo per il calcolo della percentuale del detentore interessato. «*» indica meno dell'1%; «—» indica zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11000476,
+            "pct": 7.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-04-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8825007,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7861064,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13 filed 2026-08-06",
+        "address": "245 Summer Street, Boston, MA 02210"
+      },
+      {
+        "name": "Jane Street Group, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7409437,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-08-05",
+        "address": "250 Vesey Street 3rd Floor, New York, NY 10281"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Alexander Bradley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard B. Cassidy II",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3771,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Caulfield",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6167,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Devinder Kumar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3790,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Necip Sayiner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1921,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ellyn J. Shook",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3771,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Miyuki Suzuki",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8928,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David V. Goeckeler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 304184,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luis F. Visoso",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71030,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alper Ilkbahar",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10439,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bernard Shek",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9972,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 423973,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione committees assente: l'appartenenza ai comitati è stata letta dalla prosa della sezione board.",
+    "Presidenti dei comitati non indicati nel documento: chair impostato a null per tutti i comitati.",
+    "Riunioni del Employee Awards Committee non indicate nel documento: meetings impostato a null.",
+    "Employee Awards Committee: il solo membro, David V. Goeckeler, non è indipendente (CEO), in contrasto con la regola che i membri dei comitati siano indipendenti; il comitato è riportato come indicato dal documento.",
+    "Richard B. Cassidy II è indicato come Lead Independent Director; il ruolo è stato riportato in roles.",
+    "Kimberly E. Alexy e Matthew E. Massengill sono stati direttori indipendenti fino a novembre 2025 e non sono inclusi nel consiglio attuale.",
+    "Executive Committee sciolto a febbraio 2026: non incluso fra i comitati correnti.",
+    "Nessun direttore risulta non ricandidato: tutti gli otto nominee sono inclusi.",
+    "Jane Street Group, LLC: la nota 6 riporta dati «as of July 30, 2025» pur essendo lo schedule datato 2026-08-05; discrepanza nel documento, dato riportato come scritto.",
+    "Richard B. Cassidy II: il documento nella tabella lo indica come «Richard B. Cassidy»; il nome completo è stato ripreso dalla sezione nominee.",
+    "Thomas Caulfield: 6.167 azioni comprendono 4.834 azioni detenute nel conto trust del coniuge su cui ha potere di voto e/o investimento.",
+    "Bernard Shek: 9.972 azioni comprendono 884 azioni acquisibili entro 60 giorni tramite vesting di RSU.",
+    "Necip Sayiner: 1.921 azioni con percentuale indicata come «—» (zero), dato riportato come scritto.",
+    "Alexander Bradley: azioni «—» e percentuale «*», riportate come shares 0 e pct null.",
+    "Gruppo di direttori e dirigenti: 11 persone dichiarate, coerente con le 11 righe della tabella (7 direttori più 4 NEO/dirigenti, Goeckeler contato una volta)."
+  ]
+}

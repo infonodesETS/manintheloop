@@ -1,0 +1,382 @@
+{
+  "company": "Broadcom Inc.",
+  "ticker": "AVGO",
+  "cik": "0001730168",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-02",
+    "accession": "0001193125-26-085691",
+    "meeting": null,
+    "ownership_as_of": "2026-02-24",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1730168/000119312526085691/d49254ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-12-18",
+      "accession": "0001730168-25-000121",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "as_of": "2025-12-18"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Diane M. Bryant",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Gayla J. Delly",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Kenneth Y. Hao",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Eddy W. Hartenstein",
+      "roles": [
+        "Lead Independent Director",
+        "Director in uscita (non ricandidato)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Check Kian Low",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Justine F. Page",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Henry Samueli",
+      "roles": [
+        "Chairman of the Board"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Hock E. Tan",
+      "roles": [
+        "President & CEO",
+        "Director"
+      ],
+      "director_since": "2006",
+      "independent": false
+    },
+    {
+      "name": "Harry L. You",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Gayla J. Delly",
+        "Justine F. Page",
+        "Harry L. You"
+      ],
+      "chair": "Gayla J. Delly",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Harry L. You",
+        "Diane M. Bryant",
+        "Eddy W. Hartenstein",
+        "Check Kian Low"
+      ],
+      "chair": "Harry L. You",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Eddy W. Hartenstein",
+        "Gayla J. Delly",
+        "Check Kian Low"
+      ],
+      "chair": "Eddy W. Hartenstein",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Henry Samueli",
+        "Gayla J. Delly",
+        "Eddy W. Hartenstein",
+        "Hock E. Tan",
+        "Harry L. You"
+      ],
+      "chair": "Henry Samueli",
+      "meetings": 0,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Hock E. Tan",
+      "age": 74,
+      "positions": [
+        "President, Chief Executive Officer and Director"
+      ]
+    },
+    {
+      "name": "Kirsten M. Spears",
+      "age": 61,
+      "positions": [
+        "Chief Financial Officer and Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Mark D. Brazeal",
+      "age": 57,
+      "positions": [
+        "Chief Legal and Corporate Affairs Officer"
+      ]
+    },
+    {
+      "name": "Charlie B. Kawwas",
+      "age": 55,
+      "positions": [
+        "President, Semiconductor Solutions Group"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-24",
+    "note": "Percentuali calcolate su 4.735.602.612 azioni ordinarie in circolazione al 24 febbraio 2026. * = meno dell'1%. Le azioni derivanti da RSU che maturano entro 60 giorni sono incluse per il detentore di tali award. I dati delle righe sono riportati come nel documento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 468544898,
+            "pct": 9.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-10-04",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 347023720,
+            "pct": 7.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-26",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Diane M. Bryant",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8382,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gayla J. Delly",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 33352,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth Y. Hao",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1628042,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eddy W. Hartenstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49892,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Check Kian Low",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 114500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Justine F. Page",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20182,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Henry Samueli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 85559569,
+            "pct": 1.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hock E. Tan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 908474,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Harry L. You",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 36602,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark D. Brazeal",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 70573,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charlie B. Kawwas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 814716,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kirsten M. Spears",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 187237,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 13,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 89467014,
+          "pct": 1.9
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento: executive_officers lasciato vuoto. Il CEO Hock E. Tan compare solo tra i direttori.",
+    "Eddy W. Hartenstein non è tra i nominee: non si ricandida e resta in carica fino all'assemblea annuale. Incluso come direttore in carica con warning di uscita. Il consiglio passerà da nove a otto direttori. Data di assemblea non indicata nel testo fornito.",
+    "Hartenstein: indipendenza ricavata dal titolo 'Lead Independent Director' nella tabella dei comitati, la sua biografia non è nella finestra fornita. Data di prima nomina (director_since) non disponibile.",
+    "Comitato Executive: i membri Henry Samueli (Chairman) e Hock E. Tan (CEO) non sono indipendenti, quindi non rispettano il controllo 'comitati ⊆ indipendenti'. Mantenuti come da documento.",
+    "Nome del comitato: nel testo è 'NCG Committee' nella tabella e nel corpo, 'Nominating and Corporate Governance Committee' come intestazione di sezione. Usato il nome completo.",
+    "Riunioni dei comitati (8, 5, 4, 0 per Audit, Compensation, Nominating and Corporate Governance ed Executive) ricavate dalla colonna 'Meetings in Fiscal 2025' del testo appiattito: verificare l'allineamento. Per l'Executive Committee il valore 0 è letto così dal documento.",
+    "Riga di gruppo: dichiara 13 persone ('All 13 current directors and executive officers as a group'), ma le righe nominative in named_executive_officers_and_directors sono 12. Entrambi i dati mantenuti.",
+    "Trust e veicoli intestati a persone fisiche, mantenuti come holder_type 'person' per la persona indicata: Diane M. Bryant (Bryant Trust, 320 azioni), Kenneth Y. Hao (LLC 1.066.000, fondazione 504.180, partnership familiare 53.920), Henry Samueli (D95GT LLC, E95GT LLC, H&S Partnerships; 16.175.000 azioni impegnate in pegno), Hock E. Tan (trust familiare 775.638), Charlie B. Kawwas (trust familiare 797.184). Le quantità sono incluse nel totale della persona.",
+    "Nessun direttore o dirigente risulta oltre il 5% delle azioni ordinarie: Samueli è all'1.8%, quindi non compare nel blocco dei >5%.",
+    "Classe unica: tutti i dati riportano 'Common Stock'.",
+    "Nessuna riga di aggregazione o subtotale nella tabella dei detentori oltre il 5%.",
+    "executive_officers presi dal Form 10-K del 2025-12-18: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 contiene solo un rimando al proxy statement; i dati sono stati estratti dalla sezione 'Information About Our Executive Officers' della Parte I.",
+    "10-K: Il nome 'Charlie B. Kawwas, Ph.D.' è stato riportato senza il grado accademico 'Ph.D.', secondo le regole di estrazione."
+  ]
+}

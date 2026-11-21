@@ -1,0 +1,439 @@
+{
+  "company": "Seagate Technology Holdings plc",
+  "ticker": "STX",
+  "cik": "0001137789",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-08",
+    "accession": "0001137789-26-000207",
+    "meeting": "2026 Annual General Meeting of Shareholders, 24 ottobre 2026 (virtuale)",
+    "ownership_as_of": "2026-08-07",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1137789/000113778926000207/stx-20260908.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-08-04",
+      "accession": "0001137789-26-000159",
+      "url": "https://www.sec.gov/Archives/edgar/data/1137789/000113778926000159/stx-20260703.htm",
+      "as_of": "2026-08-04"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark W. Adams",
+      "roles": [
+        "Former President and Chief Executive Officer, Penguin Solutions Inc.",
+        "Lead Independent Director (effective following the 2026 AGM)"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Shankar Arumugavelu",
+      "roles": [
+        "Director (retiring at the end of the 2026 AGM)"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Prat S. Bhatt",
+      "roles": [
+        "Former Chief Accounting Officer, Cisco Systems, Inc."
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Michael R. Cannon",
+      "roles": [
+        "Lead Independent Director (retiring at the end of the 2026 AGM)"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Richard L. Clemmer",
+      "roles": [
+        "Founding General Partner, Socratic Partners"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Yolanda L. Conyers",
+      "roles": [
+        "Former Vice President of Global Human Resources and Chief Global Diversity Officer, Lenovo"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Jay L. Geldmacher",
+      "roles": [
+        "Former President and Chief Executive Officer, Resideo Technologies, Inc."
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Dylan G. Haggart",
+      "roles": [
+        "Managing Partner & Chief Investment Officer, Fivespan Partners"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "William D. Mosley",
+      "roles": [
+        "Board Chair",
+        "Chief Executive Officer, Seagate"
+      ],
+      "director_since": "2017",
+      "independent": false
+    },
+    {
+      "name": "Thomas A. Szlosek",
+      "roles": [
+        "Executive Vice President and Chief Financial Officer, AutoNation, Inc."
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Stephanie Tilenius",
+      "roles": [
+        "Chief Executive Officer and Founder, Peak Health",
+        "Venture Advisor, AI Fund"
+      ],
+      "director_since": "2014",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Finance Committee",
+      "members": [
+        "Prat S. Bhatt",
+        "Thomas A. Szlosek",
+        "Stephanie Tilenius"
+      ],
+      "chair": "Prat S. Bhatt",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation and People Committee",
+      "members": [
+        "Jay L. Geldmacher",
+        "Yolanda L. Conyers",
+        "Dylan G. Haggart",
+        "Mark W. Adams"
+      ],
+      "chair": "Jay L. Geldmacher",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Mark W. Adams",
+        "Prat S. Bhatt",
+        "Richard L. Clemmer",
+        "Jay L. Geldmacher"
+      ],
+      "chair": "Mark W. Adams",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "William D. Mosley",
+      "age": 59,
+      "positions": [
+        "Board Chair and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Gianluca Romano",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Ban Seng Teh",
+      "age": 60,
+      "positions": [
+        "Executive Vice President and Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "James C. Lee",
+      "age": 56,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "KianFatt Chong",
+      "age": 63,
+      "positions": [
+        "Executive Vice President, Global Operations"
+      ]
+    },
+    {
+      "name": "John C. Morris",
+      "age": 59,
+      "positions": [
+        "Executive Vice President and Chief Technology Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-08-07",
+    "note": "Percentuali calcolate su 227.070.689 ordinary shares in circolazione al 7 agosto 2026. Il totale per dirigenti e direttori include azioni, opzioni esercitabili entro 60 giorni e RSU in maturazione entro 60 giorni. '*' indica meno dell'1%. Ogni azione ordinaria dà un voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 16318822,
+            "pct": 7.19
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A depositato presso la SEC il 30 aprile 2026, dati al 31 marzo 2026",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 12954300,
+            "pct": 5.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A depositato presso la SEC il 23 aprile 2025, dati al 31 marzo 2025",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "William D. Mosley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 864472,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gianluca Romano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 93356,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ban Seng Teh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 33239,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John C. Morris",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 26144,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James C. Lee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 13635,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark W. Adams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 2046,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Shankar Arumugavelu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 6626,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Prat S. Bhatt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 12869,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael R. Cannon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 20324,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard L. Clemmer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 33571,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yolanda L. Conyers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 4101,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jay L. Geldmacher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 223,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dylan G. Haggart",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 14515,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas A. Szlosek",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 358,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephanie Tilenius",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Ordinary Shares",
+            "shares": 10664,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Ordinary Shares",
+          "shares": 1150552,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente in questo DEF 14A: executive_officers è vuoto. Il CEO William D. Mosley compare fra i direttori.",
+    "La sezione committees non è presente come tabella dedicata. L'appartenenza ai comitati è ricavata dalle voci 'Board Committees' delle biografie. Nella tabella dei nominee i segni di spunta sono appiattiti e non attribuibili con certezza a una colonna; per Arumugavelu e Cannon non esiste biografia, quindi la loro appartenenza ai comitati non è noto (la tabella indica spunte, ma senza intestazione leggibile).",
+    "Il numero dei membri dei comitati non è dichiarato: meetings è null per tutti i comitati, perché il documento non riporta il numero di riunioni.",
+    "Mark W. Adams: nelle biografie è Chair del Nominating and Corporate Governance Committee; diventerà membro del Compensation and People Committee e Lead Independent Director solo dopo la conclusione dell'AGM 2026. È incluso nel comitato Compensation and People come membro futuro.",
+    "Shankar Arumugavelu e Michael R. Cannon escono dal consiglio alla fine dell'AGM 2026 e non si ricandidano. Sono inclusi perché ancora in carica alla data del documento.",
+    "Dr. William D. Mosley: titolo 'Dr.' omesso nel nome. Mosley non è indipendente (nessuna spunta nella colonna Independent).",
+    "Nel blocco named_executive_officers_and_directors il campo shares riporta il totale della colonna 'Total' (azioni possedute più opzioni esercitabili entro 60 giorni più RSU in maturazione entro 60 giorni), non le sole azioni possedute.",
+    "Frazioni di azione nella tabella (20.663,25; 11.920,25; 346,75; 358,39 ecc.) sono arrotondate all'intero più vicino: Gianluca Romano 93.356,25 → 93356; John C. Morris 26.144,25 → 26144; James C. Lee 13.634,75 → 13635; Thomas A. Szlosek 358,39 → 358.",
+    "La riga di gruppo dichiara 16 persons, ma nel blocco named_executive_officers_and_directors compaiono 15 persone. Il numero non torna: nel documento non ci sono ulteriori nominativi visibili, quindi la discrepanza va verificata.",
+    "Le percentuali individuali sono '*' (meno dell'1%) e sono quindi null. La percentuale complessiva di gruppo è '*' e quindi null.",
+    "Le date dei dati dei detentori oltre il 5% differiscono: Vanguard è riportato al 31 marzo 2026 (13G/A del 30 aprile 2026), BlackRock al 31 marzo 2025 (13G/A del 23 aprile 2025). Il dato di BlackRock può essere superato da depositi più recenti non inclusi.",
+    "Il blocco ownership_5pct non è presente in forma separata; i due detentori oltre il 5% sono nella stessa sezione ownership.",
+    "executive_officers presi dal Form 10-K del 2026-08-04: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 rimanda alla sezione \"Executive Officers of the Registrant\" della Parte I: l'elenco è stato estratto da lì, poiché l'Item 10 stesso non contiene nomi.",
+    "10-K: Il nome \"KianFatt Chong\" è riportato come stampato nel documento, senza separazione tra le due parti del nome.",
+    "10-K: \"Ban Seng Teh\" è riportato nell'ordine con cui compare nel documento; l'ordine dei nomi potrebbe non corrispondere alla forma usata altrove."
+  ]
+}

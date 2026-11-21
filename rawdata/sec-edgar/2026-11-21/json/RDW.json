@@ -1,0 +1,336 @@
+{
+  "company": "Redwire Corporation",
+  "ticker": "RDW",
+  "cik": "0001819810",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-10",
+    "accession": "0001819810-26-000050",
+    "meeting": "2026-05-20",
+    "ownership_as_of": "2026-03-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1819810/000181981026000050/rdw-20260410.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Peter Cannito",
+      "roles": [
+        "Chairman",
+        "Chief Executive Officer",
+        "President"
+      ],
+      "director_since": "2021-09",
+      "independent": false
+    },
+    {
+      "name": "Joanne O. Isham",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-01",
+      "independent": true
+    },
+    {
+      "name": "Kirk Konert",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Reggie Brothers",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "Michael Greene",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-07",
+      "independent": false
+    },
+    {
+      "name": "Dorothy D. Hayes",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    },
+    {
+      "name": "Frank Calvelli",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-03",
+      "independent": true
+    },
+    {
+      "name": "James McConville",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Reggie Brothers",
+        "Dorothy D. Hayes",
+        "James McConville"
+      ],
+      "chair": "Dorothy D. Hayes",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Kirk Konert",
+        "Reggie Brothers",
+        "Joanne O. Isham"
+      ],
+      "chair": "Kirk Konert",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Joanne O. Isham",
+        "Kirk Konert"
+      ],
+      "chair": "Joanne O. Isham",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Peter Cannito",
+      "age": 53,
+      "positions": [
+        "Chairman",
+        "Chief Executive Officer",
+        "President"
+      ]
+    },
+    {
+      "name": "Steve Adlich",
+      "age": 63,
+      "positions": [
+        "President, Defense Tech"
+      ]
+    },
+    {
+      "name": "Chris Edmunds",
+      "age": 42,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Aaron Futch",
+      "age": 53,
+      "positions": [
+        "Executive Vice President, General Counsel and Secretary"
+      ]
+    },
+    {
+      "name": "Michael Gold",
+      "age": 52,
+      "positions": [
+        "President, Space"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-27",
+    "note": "Percentuali basate su 198.918.728 azioni Common e 46.505,1 azioni Preferred in circolazione alla record date (27 marzo 2026). * = meno dell'1%; — = zero. pct_of_votes misura il potere di voto complessivo, con le Preferred convertite su base as-converted (16.067.291 voti).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "AE Industrial Partners and affiliates",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 51693289,
+            "pct": 31.2
+          },
+          {
+            "class": "Preferred Stock",
+            "shares": 46505,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": 23.1,
+        "source": "Schedule 13D/A Amendment No. 16 filed 2026-03-26",
+        "address": "6700 Broken Sounds Pkwy NW, Boca Raton, Florida 33487"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Jonathan E. Baliff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1556524,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Reggie Brothers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 119271,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank Calvelli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter Cannito",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 905378,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chris Edmunds",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 184612,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aaron Futch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52992,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Greene",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dorothy D. Hayes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Joanne O. Isham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 95397,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kirk Konert",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James McConville",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1568952,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Les Daniels si è dimesso dal consiglio l'11 luglio 2025: non incluso in board_of_directors perché non siede più alla data del documento.",
+    "Jonathan E. Baliff, ex Chief Financial Officer, il cui rapporto di lavoro è terminato il 30 novembre 2025: non incluso né in board_of_directors né in executive_officers; compare solo nella tabella dei NEO e direttori come da documento, con holder_type 'person'.",
+    "Peter Cannito e Michael Greene non sono indicati come indipendenti dal documento (che elenca gli indipendenti per nome): independent impostato a false. Greene è Co-CEO di AE Industrial Partners, soggetto collegato al principale azionista.",
+    "Nella tabella dei comitati la matrice è stata letta dalla sezione board (non esiste una finestra committees dedicata): Audit, Compensation e Nominating and Corporate Governance Committee. Le riunioni (6, 4, 4) sono riferite al solo comitato, esercizio 2025; le 14 riunioni del Consiglio non sono state attribuite a nessun comitato.",
+    "Riga AE Industrial Partners: la somma delle componenti (33.635.167 Common + 2.000.000 warrant + 16.067.291 Preferred as-converted = 51.702.458) non coincide con il totale riportato in tabella (51.693.289). Valore riportato così com'è; differenza di 9.169 azioni.",
+    "Riga AE Industrial Partners: la percentuale 31,2% riportata in tabella è quella del documento e non è stata ricalcolata.",
+    "Kirk Konert: le 11.802 RSU del fondo AE sono detenute a titolo di registro da Konert per conto di AE Industrial Partners e sono escluse dalla sua riga; non è incluso nel blocco >5% perché non ha beneficial ownership individuale di oltre il 5%.",
+    "Riga 'All other executive officers' (211.302 azioni, di cui 72.000 opzioni): è un aggregato e non una persona, quindi non inserito in named_executive_officers_and_directors. Il documento non nomina individualmente Steve Adlich e Michael Gold in tabella.",
+    "Riga di gruppo: persons = 12, come dichiarato. Le righe nominative contano 11 persone, di cui Baliff non appartiene al gruppo perché ex dirigente. Il gruppo di 12 è coerente con 8 direttori attuali più 4 dirigenti non direttori (Adlich, Edmunds, Futch, Gold); la discrepanza è dovuta all'aggregato 'All other executive officers' e alla presenza di Baliff.",
+    "Riga di gruppo: i valori percentuali sono '*' nel documento, quindi pct null in classes e pct_of_votes null."
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "company": "Steel Dynamics, Inc.",
+  "ticker": "STLD",
+  "cik": "0001022671",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-27",
+    "accession": "0001104659-26-035826",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-16",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1022671/000110465926035826/stld-20260506xdef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark D. Millett",
+      "roles": [
+        "Co-Founder, Chairman and Chief Executive Officer"
+      ],
+      "director_since": "1993",
+      "independent": false
+    },
+    {
+      "name": "Sheree L. Bargabos",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Kenneth W. Cornew",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Traci M. Dolan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Jennifer L. Hamann",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Bradley S. Seaman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Luis M. Sierra",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Gabriel L. Shaheen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Richard P. Teets, Jr.",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Sheree L. Bargabos",
+        "Traci M. Dolan",
+        "Jennifer L. Hamann",
+        "Gabriel L. Shaheen",
+        "Luis M. Sierra"
+      ],
+      "chair": "Traci M. Dolan",
+      "meetings": 8,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Sheree L. Bargabos",
+        "Kenneth W. Cornew",
+        "Bradley S. Seaman",
+        "Gabriel L. Shaheen",
+        "Luis M. Sierra"
+      ],
+      "chair": "Luis M. Sierra",
+      "meetings": 5,
+      "meetings_year": null
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Kenneth W. Cornew",
+        "Traci M. Dolan",
+        "Jennifer L. Hamann",
+        "Bradley S. Seaman"
+      ],
+      "chair": "Bradley S. Seaman",
+      "meetings": 4,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Mark D. Millett",
+      "age": 66,
+      "positions": [
+        "Co-Founder, Chairman and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Theresa E. Wagler",
+      "age": 55,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Barry T. Schneider",
+      "age": 57,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Christopher A. Graham",
+      "age": 61,
+      "positions": [
+        "Senior Vice President, Flat Roll Steel Group"
+      ]
+    },
+    {
+      "name": "Glenn A. Pushis",
+      "age": 60,
+      "positions": [
+        "Former Senior Vice President, Special Projects (retired January 9, 2026)"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-16",
+    "note": "Quota calcolata secondo la Rule 13d-3; footnote: l'importo assume l'esercizio di tutte le opzioni esercitabili entro 60 giorni (nessuna). Il documento non indica la classe per nome nella tabella del management: la classe è riportata come 'Common Stock'.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19980395,
+            "pct": 13.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13, dati al 2023-12-29",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11907020,
+            "pct": 8.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-02-05, dati al 2024-12-31",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark D. Millett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3016701,
+            "pct": 2.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Theresa E. Wagler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 495038,
+            "pct": 0.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barry T. Schneider",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 246399,
+            "pct": 0.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher A. Graham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 77747,
+            "pct": 0.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sheree L. Bargabos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26134,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kenneth W. Cornew",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 36294,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Traci M. Dolan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58036,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer L. Hamann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4479,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley S. Seaman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 50650,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gabriel L. Shaheen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82363,
+            "pct": 0.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luis M. Sierra",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10792,
+            "pct": 0.0
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard P. Teets, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5146204,
+            "pct": 3.6
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 9547899,
+          "pct": 6.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Gabriel L. Shaheen non compare tra i sette nominee e non ha biografia nel documento; risulta membro di Audit e Compensation Committee e figura tra i direttori nella tabella di proprietà. Incluso come direttore in carica con uscita all'assemblea 2026 (non ricandidato); director_since non indicato nel documento.",
+    "Richard P. Teets, Jr. non compare tra i nominee né ha biografia; figura solo tra i direttori nella tabella di proprietà (il gruppo di 17 persone lo include). Incluso come direttore in carica con uscita all'assemblea 2026 (non ricandidato); director_since non indicato; indipendenza non dichiarata esplicitamente per lui (la dichiarazione del documento riguarda i nominee), valorizzata true con questo dubbio.",
+    "Le date di riferimento dei comitati non sono indicate: meetings_year lasciato null per tutti e tre i comitati.",
+    "La sezione executives è un elenco dei soli NEO del CD&A; il documento indica '5 other executive officers not listed above' nel gruppo, quindi il roster degli executive officer è incompleto.",
+    "Glenn A. Pushis è incluso fra gli executive officer come ex-NEO: è andato in pensione il 9 gennaio 2026, prima della data del documento. Non compare nella tabella di proprietà dei direttori e dei NEO.",
+    "La riga di gruppo dichiara 17 persone; le righe nominative in named_executive_officers_and_directors sono 12 (4 dirigenti e 8 direttori). La differenza di 5 corrisponde agli altri executive officer non elencati nel documento.",
+    "Nessun detentore è incluso in entrambi i blocchi di proprietà; Mark D. Millett compare solo nel blocco NEO e direttori. Richard P. Teets, Jr. è al 3,6%, sotto la soglia del 5%, quindi non è nel blocco dei >5%.",
+    "La tabella dei detentori >5% non riporta un totale di sottogruppo né righe di aggregazione: nessuna riga esclusa."
+  ]
+}

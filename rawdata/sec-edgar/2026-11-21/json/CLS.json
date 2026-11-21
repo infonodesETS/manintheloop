@@ -1,0 +1,350 @@
+{
+  "company": "Celestica Inc.",
+  "ticker": "CLS",
+  "cik": "0001030894",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-09",
+    "accession": "0001030894-26-000018",
+    "meeting": "Annual Meeting of Shareholders, 2026-05-19",
+    "ownership_as_of": "2026-03-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000018/cls-20260408.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Kulvinder Ahuja",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Cascella",
+      "roles": [
+        "Director",
+        "Chair of the Human Resources and Compensation Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Christopher W. Colpitts",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Françoise Colpron",
+      "roles": [
+        "Director",
+        "Chair of the Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Jill Kale",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Laurette T. Koellner",
+      "roles": [
+        "Director",
+        "Lead Independent Director (effective immediately prior to the Meeting)"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Amar Maletira",
+      "roles": [
+        "Director",
+        "Chair of the Audit Committee"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Mionis",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer",
+        "Chair of the Board (effective immediately prior to the Meeting)"
+      ],
+      "director_since": "2015",
+      "independent": false
+    },
+    {
+      "name": "David Reeder",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Michael M. Wilson",
+      "roles": [
+        "Chair of the Board (retiring effective immediately prior to the Meeting)"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Amar Maletira",
+        "Kulvinder Ahuja",
+        "Robert A. Cascella",
+        "Christopher W. Colpitts",
+        "Françoise Colpron",
+        "Jill Kale",
+        "Laurette T. Koellner",
+        "Michael M. Wilson",
+        "David Reeder"
+      ],
+      "chair": "Amar Maletira",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Human Resources and Compensation Committee",
+      "members": [
+        "Robert A. Cascella",
+        "Kulvinder Ahuja",
+        "Christopher W. Colpitts",
+        "Françoise Colpron",
+        "Jill Kale",
+        "Laurette T. Koellner",
+        "Amar Maletira",
+        "Michael M. Wilson",
+        "David Reeder"
+      ],
+      "chair": "Robert A. Cascella",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Françoise Colpron",
+        "Kulvinder Ahuja",
+        "Robert A. Cascella",
+        "Christopher W. Colpitts",
+        "Jill Kale",
+        "Laurette T. Koellner",
+        "Amar Maletira",
+        "Michael M. Wilson",
+        "David Reeder"
+      ],
+      "chair": "Françoise Colpron",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [],
+  "security_ownership": {
+    "as_of": "2026-03-27",
+    "note": "Percentuali riferite alla classe Common Shares. '*' indica meno dell'1%; '—' indica zero. Il documento non riporta percentuali sui voti.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 7409798,
+            "pct": 6.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 6319910,
+            "pct": 5.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-01-21",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Kulvinder Ahuja",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Cascella",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 156,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christopher W. Colpitts",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Françoise Colpron",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jill Kale",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 287,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laurette T. Koellner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 6000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amar Maletira",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Reeder",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael M. Wilson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 21746,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Mionis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 1010091,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mandeep Chawla",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 99444,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Todd C. Cooper",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 93370,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yann Etienvre",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason Phillips",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Shares",
+            "shares": 12584,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Shares",
+          "shares": 1260777,
+          "pct": 1.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, senza ricostruirlo da cariche citate in altre parti del documento.",
+    "Michael M. Wilson: non ricandidato e in uscita dal consiglio con effetto immediatamente prima dell'assemblea del 2026-05-19; incluso come consigliere attuale. La data di inizio mandato non è indicata nel documento e la sua indipendenza è desunta dalla dichiarazione del Board sui membri dei comitati, non da un'indicazione esplicita.",
+    "Luis A. Müller: dimissioni dal consiglio con effetto dal 2026-01-28, quindi prima della data del documento; escluso da board_of_directors. Ha presieduto l'Audit Committee dal 2025-01-31 al 2025-12-31 e ha fatto parte dell'HRCC e del NCGC per tutto il 2025.",
+    "David Reeder: nominato con effetto dal 2026-05-01, quindi dopo la data di deposito del documento; incluso come nominee. La sua presenza nei comitati dal 2026-05-01 è riportata nel documento.",
+    "Robert A. Mionis: diventerà Chair of the Board con effetto immediatamente prima dell'assemblea; attualmente è President and CEO e direttore non indipendente.",
+    "Laurette T. Koellner: 'Director since' riportato come 2025 nel documento; il testo indica che è rientrata nel consiglio il 2025-10-27 dopo un precedente mandato 2009-2025. Sarà Lead Independent Director con effetto immediatamente prima dell'assemblea.",
+    "Committee meetings: il documento non riporta il numero di riunioni dei tre comitati nella finestra fornita; meetings e meetings_year sono null per tutti i comitati.",
+    "Ownership: la riga di gruppo dichiara 17 persone, mentre la tabella named_executive_officers_and_directors contiene 14 righe; i due numeri sono entrambi riportati, la differenza non è spiegata nel documento.",
+    "Ownership: nessuna riga di aggregazione o subtotale nelle tabelle dei detentori oltre il 5%; nessun direttore o dirigente supera il 5% della classe Common Shares.",
+    "Holder_type: Chawla, Cooper, Etienvre e Phillips compaiono nella tabella del management senza una definizione di Named Executive Officer nella finestra fornita; sono stati inclusi nel blocco named_executive_officers_and_directors perché figurano nella tabella.",
+    "executive_officers: elenco formale dei dirigenti non disponibile, né nel DEF 14A né nel Form 10-K del 2026-02-27. I dirigenti con compensi dichiarati sono in named_executive_officers_and_directors.",
+    "10-K: La finestra contiene solo l'Item 10, che rimanda per incorporazione al proxy statement 2026. Non elenca alcun executive officer.",
+    "10-K: La sezione della Parte I sugli executive officer non è presente nel testo fornito, quindi l'elenco non è stato estratto. Per completarlo servono la sezione della Parte I o il proxy statement 2026.",
+    "10-K: Nessuna data di riferimento per l'elenco o le età è presente nel testo fornito; la data di deposito (2026-02-27) non è stata usata come as_of."
+  ]
+}

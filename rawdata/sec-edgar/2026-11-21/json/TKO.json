@@ -1,0 +1,506 @@
+{
+  "company": "TKO Group Holdings, Inc.",
+  "ticker": "TKO",
+  "cik": "0001973266",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-23",
+    "accession": "0001193125-26-173833",
+    "meeting": null,
+    "ownership_as_of": "2026-04-16",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526173833/d913980ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Ariel Emanuel",
+      "roles": [
+        "Executive Chair",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2023-09",
+      "independent": false
+    },
+    {
+      "name": "Mark Shapiro",
+      "roles": [
+        "Director",
+        "President",
+        "Chief Operating Officer"
+      ],
+      "director_since": "2023-09",
+      "independent": false
+    },
+    {
+      "name": "Peter C.B. Bynoe",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Egon P. Durban",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": false
+    },
+    {
+      "name": "Dwayne Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-01",
+      "independent": false
+    },
+    {
+      "name": "Bradley A. Keywell",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-01",
+      "independent": false
+    },
+    {
+      "name": "Nick Khan",
+      "roles": [
+        "Director",
+        "President, WWE"
+      ],
+      "director_since": "2023-09",
+      "independent": false
+    },
+    {
+      "name": "Steven R. Koonin",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Jonathan A. Kraft",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": false
+    },
+    {
+      "name": "Sonya E. Medina",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Nancy R. Tellem",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    },
+    {
+      "name": "Carrie Wheeler",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-09",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Nancy R. Tellem",
+        "Carrie Wheeler",
+        "Sonya E. Medina"
+      ],
+      "chair": "Carrie Wheeler",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Peter C.B. Bynoe",
+        "Steven R. Koonin",
+        "Sonya E. Medina"
+      ],
+      "chair": "Steven R. Koonin",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Ariel Emanuel",
+        "Nick Khan",
+        "Mark Shapiro"
+      ],
+      "chair": "Mark Shapiro",
+      "meetings": 0,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Ariel Emanuel",
+      "age": 65,
+      "positions": [
+        "Executive Chair and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Andrew Schleimer",
+      "age": 48,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Mark Shapiro",
+      "age": 56,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Seth Krauss",
+      "age": 55,
+      "positions": [
+        "Chief Administrative Officer & Senior Counsel to the Board of Directors and Senior Management"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-16",
+    "note": "Percentuali e azioni in circolazione alla data del 16 aprile 2026. * = meno dell'1%; — = zero. Combined Voting Power = percentuale di voto di Class A e Class B che votano come un'unica classe.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Endeavor Group Holdings, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 122142162,
+            "pct": 63.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 116158615,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": 63.9,
+        "source": "Schedule 13D/A filed 2026-01-02",
+        "address": "c/o Endeavor Group Holdings, Inc., 9601 Wilshire Boulevard, 3rd Floor, Beverly Hills, California 90210"
+      },
+      {
+        "name": "Silver Lake Equityholders",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 122142162,
+            "pct": 63.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 116158615,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": 63.9,
+        "source": "Schedule 13D/A filed 2025-06-04",
+        "address": "c/o Silver Lake, 2775 Sand Hill Road, Suite 100, Menlo Park, California 94025"
+      },
+      {
+        "name": "Vincent K. McMahon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 6442325,
+            "pct": 8.6
+          }
+        ],
+        "pct_of_votes": 3.4,
+        "source": "Schedule 13G/A filed 2025-08-01",
+        "address": "c/o McMahon Ventures, 1055 Washington Boulevard, Stamford, CT 06901"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4349551,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": 2.3,
+        "source": "Schedule 13G filed 2025-04-30",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 5031515,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": 2.6,
+        "source": "Schedule 13G filed 2025-05-13",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "Morgan Stanley",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4214167,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": 2.2,
+        "source": "Schedule 13G filed 2024-02-09",
+        "address": "1585 Broadway, New York, NY 10036"
+      },
+      {
+        "name": "Egon P. Durban",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 122142162,
+            "pct": 63.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 116158615,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": 63.9,
+        "source": "Schedule 13D/A filed 2026-01-02; Schedule 13D/A filed 2025-06-04",
+        "address": "c/o Silver Lake, 2775 Sand Hill Road, Suite 100, Menlo Park, California 94025"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Ariel Emanuel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 143850,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter C.B. Bynoe",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 6424,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Egon P. Durban",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 122142162,
+            "pct": 63.9
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 116158615,
+            "pct": 100
+          }
+        ],
+        "pct_of_votes": 63.9
+      },
+      {
+        "name": "Dwayne Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 386231,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bradley A. Keywell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4125,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nick Khan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 77625,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven R. Koonin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 11153,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jonathan A. Kraft",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 39469,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Seth Krauss",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sonya E. Medina",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4937,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrew Schleimer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 27544,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Shapiro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 118400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nancy R. Tellem",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 4704,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carrie Wheeler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 7836,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 122974460,
+          "pct": 64.3
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 116158615,
+          "pct": 100
+        }
+      ],
+      "pct_of_votes": 64.3
+    }
+  },
+  "warnings": [
+    "Data della riunione (meeting) non presente nelle finestre fornite: impostata a null.",
+    "Indipendenza dichiarata nel documento solo per Bynoe, Koonin, Medina, Tellem e Wheeler (determinazioni per i comitati e qualifica di Lead Independent Director). Per gli altri direttori (Emanuel, Shapiro, Durban, Johnson, Keywell, Khan, Kraft) il documento non dichiara l'indipendenza: valore impostato a false, da verificare.",
+    "Conflitto con il sanity check #1: il Nominating and Corporate Governance Committee ha come membri Emanuel, Khan e Shapiro, non dichiarati indipendenti. Il documento spiega che la società è 'controlled company' e si avvale dell'esenzione dal requisito di comitato interamente indipendente; i membri sono mantenuti come riportati.",
+    "Il Nominating and Corporate Governance Committee è chiamato 'Nominating Committee' nel testo; il nome completo è quello della matrice dei comitati.",
+    "Riunioni: il documento riporta 5 riunioni del Board nel 2025 (non previsto dallo schema, non inserito). Il Nominating Committee non si è riunito nel 2025: meetings = 0.",
+    "Sovrapposizione: le 122.142.162 azioni Class A attribuite a Endeavor Group Holdings, Inc., a Silver Lake Equityholders e a Egon P. Durban sono le stesse; non sono sommate. Il valore è riportato separatamente in ciascun blocco per la stessa quota.",
+    "Egon P. Durban compare sia tra i direttori/NEO sia nei detentori oltre il 5%, perché la sua proprietà beneficiaria dichiarata (63,9% Class A) supera la soglia; holder_type 'person' per nome proprio, pur essendo le quote detenute tramite Silver Lake e Endeavor.",
+    "Silver Lake Equityholders è una denominazione di gruppo (non un soggetto con suffisso societario): holder_type 'entity' attribuito in base al deposito Schedule 13D/A e alle entità Silver Lake West VoteCo, L.L.C. citate in nota.",
+    "Vincent K. McMahon: holder_type 'person' per nome proprio; il documento indica l'indirizzo c/o McMahon Ventures.",
+    "Morgan Stanley: la fonte dichiarata è uno Schedule 13G del 2024-02-09, più vecchio delle altre fonti; il dato è riportato come dichiarato.",
+    "Riga di gruppo: 14 persone dichiarate, 14 righe in named_executive_officers_and_directors, coerente. Le percentuali di gruppo (64,3% Class A e voto combinato) includono le azioni di Durban.",
+    "Seth Krauss: nella tabella Class A Common Stock Owned figura '—' (0 azioni) e pct '*' (meno dell'1%), quindi pct null e shares 0.",
+    "Le azioni dei direttori includono RSU che maturano entro 60 giorni dal 16 aprile 2026 (es. 1.237 per Bynoe, Keywell, Kraft, Medina, Tellem, Wheeler; 1.753 per Koonin). Il numero riportato è quello della tabella, comprensivo di tali RSU.",
+    "Kraft: 23.500 azioni Class A detenute direttamente da KPC US Equity LLC con potere condiviso di voto e disposizione; il numero riportato è quello della tabella e include tali azioni."
+  ]
+}

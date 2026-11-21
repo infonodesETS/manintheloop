@@ -1,0 +1,497 @@
+{
+  "company": "Oracle Corporation",
+  "ticker": "ORCL",
+  "cik": "0001341439",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-25",
+    "accession": "0001193125-26-402816",
+    "meeting": "2026 Annual Meeting of Stockholders",
+    "ownership_as_of": "2026-09-21",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526402816/orcl-20260925.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-06-22",
+      "accession": "0001193125-26-277521",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm",
+      "as_of": null
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Awo Ablo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey S. Berg",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1997",
+      "independent": true
+    },
+    {
+      "name": "Michael J. Boskin",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "1994",
+      "independent": true
+    },
+    {
+      "name": "Safra A. Catz",
+      "roles": [
+        "Executive Vice Chair"
+      ],
+      "director_since": "2001",
+      "independent": false
+    },
+    {
+      "name": "Bruce R. Chizen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2008",
+      "independent": true
+    },
+    {
+      "name": "Lawrence J. Ellison",
+      "roles": [
+        "Executive Chair",
+        "Chief Technology Officer",
+        "Founder"
+      ],
+      "director_since": "1977",
+      "independent": false
+    },
+    {
+      "name": "Rona A. Fairhead",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Jeffrey O. Henley",
+      "roles": [
+        "Executive Vice Chair"
+      ],
+      "director_since": "1995",
+      "independent": false
+    },
+    {
+      "name": "Clayton M. Magouyrk",
+      "roles": [
+        "Chief Executive Officer"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Tomislav Mihaljevic",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Charles W. Moorman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Stephen H. Rusckowski",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Michael D. Sicilia",
+      "roles": [
+        "Chief Executive Officer"
+      ],
+      "director_since": "2025",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Finance and Audit Committee",
+      "members": [
+        "Jeffrey S. Berg",
+        "Michael J. Boskin",
+        "Bruce R. Chizen",
+        "Rona A. Fairhead"
+      ],
+      "chair": "Michael J. Boskin",
+      "meetings": 11,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Awo Ablo",
+        "Charles W. Moorman",
+        "Stephen H. Rusckowski"
+      ],
+      "chair": "Charles W. Moorman",
+      "meetings": 11,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nomination and Governance Committee",
+      "members": [
+        "Awo Ablo",
+        "Jeffrey S. Berg",
+        "Bruce R. Chizen"
+      ],
+      "chair": "Bruce R. Chizen",
+      "meetings": 5,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Committee on Independence Issues",
+      "members": [
+        "Jeffrey S. Berg",
+        "Rona A. Fairhead",
+        "Charles W. Moorman"
+      ],
+      "chair": "Jeffrey S. Berg",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lawrence J. Ellison",
+      "age": 81,
+      "positions": [
+        "Executive Chair of the Board of Directors",
+        "Chief Technology Officer"
+      ]
+    },
+    {
+      "name": "Clayton M. Magouyrk",
+      "age": 39,
+      "positions": [
+        "Chief Executive Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Michael D. Sicilia",
+      "age": 55,
+      "positions": [
+        "Chief Executive Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Mark Hura",
+      "age": 52,
+      "positions": [
+        "President, Global Field Operations"
+      ]
+    },
+    {
+      "name": "Hilary Maxson",
+      "age": 48,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Safra A. Catz",
+      "age": 64,
+      "positions": [
+        "Executive Vice Chair of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Jeffrey O. Henley",
+      "age": 81,
+      "positions": [
+        "Executive Vice Chair of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Stuart Levey",
+      "age": 63,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer"
+      ]
+    },
+    {
+      "name": "Maria Smith",
+      "age": 60,
+      "positions": [
+        "Executive Vice President, Chief Accounting Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-21",
+    "note": "Beneficial ownership as of September 21, 2026, record date of the Annual Meeting. Percent of class is calculated on Common Stock. * = less than 1%. Unless otherwise indicated, each holder has sole voting and investment power. Footnotes disclose pledged shares, trust holdings, options and RSUs exercisable or vesting within 60 days.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Lawrence J. Ellison",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1158375174,
+            "pct": 38.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "2300 Oracle Way, Austin, Texas 78741"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Awo Ablo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13487,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey S. Berg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 155563,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael J. Boskin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 98558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Safra A. Catz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1126625,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce R. Chizen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 84225,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lawrence J. Ellison",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1158375174,
+            "pct": 38.2
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rona A. Fairhead",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24166,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jeffrey O. Henley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3005620,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Hura",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 395133,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Douglas Kehring",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 65272,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stuart Levey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 201385,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Clayton M. Magouyrk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 898530,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hilary Maxson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tomislav Mihaljevic",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles W. Moorman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 93643,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen H. Rusckowski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1243,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael D. Sicilia",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 467499,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1165082037,
+          "pct": 38.4
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel documento fornito: executive_officers lasciato vuoto come da regola; non ricostruito dalle biografie. Catz, Ellison, Henley, Magouyrk e Sicilia risultano dirigenti dalle biografie, ma non sono stati inseriti in executive_officers.",
+    "Sezione committees assente come finestra dedicata: l'appartenenza ai comitati è stata letta dalla tabella 'Committee Membership' nella finestra board, confermata dalle biografie dei singoli direttori. La tabella appiattita è ambigua per alcune colonne, quindi si è data priorità alle biografie.",
+    "Riunioni dei comitati: i numeri (Finance and Audit 11, Compensation 11, Governance 5, Independence 4, Board 6) derivano da un riepilogo frammentato nel testo; l'associazione con i comitati è per etichetta. Esercizio di riferimento: fiscal 2026. Il numero delle riunioni del Board (6) è confermato nel testo.",
+    "Direttori usciti prima della data del documento, esclusi da board_of_directors: George H. Conrades e Naomi O. Seligman, dimissionari/ritirati a gennaio 2026.",
+    "Mihaljevic e Rusckowski risultano nominati/aggiunti al consiglio dopo l'ultima assemblea; Mihaljevic non ha incarichi di comitato indicati nel documento.",
+    "Lawrence J. Ellison detiene il 38,2% del Common Stock ed è sia direttore sia detentore oltre il 5%: compare in entrambi i blocchi (greater_than_5pct_stockholders e named_executive_officers_and_directors). Nota: 413.000.000 azioni sono impegnate in pegno (pledged) a garanzia di indebitamento personale; incluse nelle 1.158.375.174 azioni dichiarate, di cui 142.821 sono opzioni esercitabili entro 60 giorni.",
+    "Nel blocco greater_than_5pct_stockholders non compaiono altri detentori oltre il 5%: la finestra ownership fornita riporta solo direttori e NEO, e la finestra ownership_5pct non è presente nell'input. Verificare se il documento completo contenga una tabella separata dei detentori terzi.",
+    "Hilary Maxson, Mark Hura, Douglas Kehring e Stuart Levey compaiono nella tabella di proprietà come NEO o dirigenti, ma non sono nei nominee del consiglio. Il loro ruolo non è verificabile dalla sezione executives (assente).",
+    "Riga di gruppo: il documento dichiara 18 persone; le righe nominative sono 17. La differenza è spiegata dalla nota 15: il gruppo include 66.988 azioni aggiuntive e 8.926 RSU detenute da un dirigente non nominato nella tabella.",
+    "Maxson, Mihaljevic: posizioni indicate con '—' nella tabella, quindi valore 0 e percentuale null.",
+    "executive_officers presi dal Form 10-K del 2026-06-22: il DEF 14A non li elenca.",
+    "10-K: La data di riferimento dell'elenco e delle età non è indicata nel documento; 'as_of' è null. La data di deposito (2026-06-22) non è stata usata come data di riferimento.",
+    "10-K: L'Item 10 contiene solo un rimando alla sezione 'Information About Our Executive Officers' della Parte I; i dati sono stati estratti da quella sezione.",
+    "10-K: Magouyrk e Sicilia risultano entrambi 'Chief Executive Officer' dal settembre 2025, senza indicazione di ruoli distinti per ciascuno: incoerenza da verificare nel documento originale.",
+    "10-K: Ellison, Catz e Henley compaiono anche come direttori; il documento indica solo le cariche di executive officer nella colonna 'Office(s)' e non elenca separatamente il ruolo di direttore per Ellison e Henley, salvo quanto riportato nelle biografie."
+  ]
+}

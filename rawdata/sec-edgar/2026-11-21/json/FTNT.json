@@ -1,0 +1,360 @@
+{
+  "company": "Fortinet, Inc.",
+  "ticker": "FTNT",
+  "cik": "0001262039",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-29",
+    "accession": "0002077096-26-000106",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2026-03-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1262039/000207709626000106/ea0287420-01.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Ken Xie",
+      "roles": [
+        "Chief Executive Officer",
+        "Chairman of the Board of Directors"
+      ],
+      "director_since": "2000-10",
+      "independent": false
+    },
+    {
+      "name": "Michael Xie",
+      "roles": [
+        "President",
+        "Chief Technology Officer",
+        "Director"
+      ],
+      "director_since": "2001-02",
+      "independent": false
+    },
+    {
+      "name": "Kenneth A. Goldman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020-10",
+      "independent": true
+    },
+    {
+      "name": "Ming Hsieh",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013-04",
+      "independent": true
+    },
+    {
+      "name": "Jean Hu",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-10",
+      "independent": true
+    },
+    {
+      "name": "Janet Napolitano",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-11",
+      "independent": true
+    },
+    {
+      "name": "Judith Sim",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2015-06",
+      "independent": true
+    },
+    {
+      "name": "James Stavridis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-10",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kenneth A. Goldman",
+        "Ming Hsieh",
+        "Jean Hu"
+      ],
+      "chair": "Kenneth A. Goldman",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Resources Committee",
+      "members": [
+        "Judith Sim",
+        "Janet Napolitano",
+        "Kenneth A. Goldman"
+      ],
+      "chair": "Judith Sim",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Social Responsibility Committee",
+      "members": [
+        "Ming Hsieh",
+        "James Stavridis",
+        "Judith Sim"
+      ],
+      "chair": "Ming Hsieh",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Cybersecurity Committee",
+      "members": [
+        "Michael Xie",
+        "James Stavridis",
+        "Janet Napolitano",
+        "Jean Hu"
+      ],
+      "chair": "James Stavridis",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Ken Xie",
+      "age": 63,
+      "positions": [
+        "Chief Executive Officer",
+        "Chairman of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Michael Xie",
+      "age": 57,
+      "positions": [
+        "President",
+        "Chief Technology Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Christiane Ohlgart",
+      "age": 58,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "John Whittle",
+      "age": 57,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-31",
+    "note": "Percentuale calcolata su 733.955.815 azioni di common stock in circolazione al 31 marzo 2026. Il beneficial ownership include le azioni che il soggetto può acquisire entro 60 giorni tramite opzioni o RSU. * = meno dell'1%. La colonna percentuale non è una percentuale di voti.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 54206558,
+            "pct": 7.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed with the SEC on January 26, 2024",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "Ken Xie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 72188518,
+            "pct": 9.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Fortinet, Inc., 909 Kifer Road, Sunnyvale, California 94086"
+      },
+      {
+        "name": "Michael Xie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 67975012,
+            "pct": 9.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Fortinet, Inc., 909 Kifer Road, Sunnyvale, California 94086"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Kenneth A. Goldman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 44569,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ming Hsieh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 62222,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean Hu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38399,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Judith Sim",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 128892,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James Stavridis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16539,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Janet Napolitano",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3624,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Derek Kan",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ken Xie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 72188518,
+            "pct": 9.8
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael Xie",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 67975012,
+            "pct": 9.3
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Christiane Ohlgart",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13150,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Whittle",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 299748,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 129288755,
+          "pct": 17.6
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Derek Kan è candidato alla nomina ma non è attualmente nel consiglio: è escluso da board_of_directors e compare solo nel blocco named_executive_officers_and_directors, senza azioni dichiarate (classes vuoto).",
+    "La sezione committees è assente: l'appartenenza ai comitati e il numero di riunioni sono stati letti dalla prosa della sezione board. Le riunioni (Audit 8; Human Resources 4; Governance and Social Responsibility 4; Cybersecurity 4) si riferiscono all'esercizio 2025.",
+    "Michael Xie è membro del Cybersecurity Committee ma non è indipendente (è dipendente della società). Il dato è mantenuto come riportato nel documento, ma confligge con il controllo Comitati ⊆ indipendenti.",
+    "Ken Xie e Michael Xie compaiono sia in greater_than_5pct_stockholders sia in named_executive_officers_and_directors, perché detengono oltre il 5% del common stock.",
+    "Per Ken Xie e Michael Xie il campo source è null: la tabella non indica un deposito separato, e l'indirizzo è quello generale c/o Fortinet indicato nella nota 1 della tabella.",
+    "Il dato di BlackRock deriva da uno Schedule 13G/A del 26 gennaio 2024, mentre la tabella è riferita al 31 marzo 2026: la quota potrebbe non essere aggiornata.",
+    "Il numero di riunioni del consiglio (quattro nel 2025, più tre decisioni per consenso unanime scritto) non è un comitato e non è incluso in committees.",
+    "La riga di gruppo riporta 10 persone; le righe nominative con dati in named_executive_officers_and_directors sono 10 più Derek Kan (senza azioni), quindi il conteggio è coerente. Le componenti del gruppo (127.047.483 azioni detenute, 2.212.400 opzioni e 28.872 RSU) sommano a 129.288.755.",
+    "Keith Jensen, ex CFO dimessosi nel maggio 2025, non è nel roster esecutivo del documento e non è incluso in executive_officers."
+  ]
+}

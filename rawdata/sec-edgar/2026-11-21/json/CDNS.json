@@ -1,0 +1,428 @@
+{
+  "company": "Cadence Design Systems, Inc.",
+  "ticker": "CDNS",
+  "cik": "0000813672",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-25",
+    "accession": "0001193125-26-124264",
+    "meeting": null,
+    "ownership_as_of": "2026-03-09",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/813672/000119312526124264/d932644ddef14a.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-19",
+      "accession": "0000813672-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000016/cdns-20251231.htm",
+      "as_of": "2026-02-18"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Mark W. Adams",
+      "roles": [
+        "Former President and Chief Executive Officer, Penguin Solutions, Inc."
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Ita Brennan",
+      "roles": [
+        "Former Senior Vice President and Chief Financial Officer, Arista Networks, Inc."
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Lewis Chew",
+      "roles": [
+        "Former Executive Vice President and Chief Financial Officer, Dolby Laboratories, Inc."
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Anirudh Devgan",
+      "roles": [
+        "President and Chief Executive Officer, Cadence Design Systems, Inc."
+      ],
+      "director_since": "2021",
+      "independent": false
+    },
+    {
+      "name": "Moshe Gavrielov",
+      "roles": [
+        "Former President and Chief Executive Officer, Xilinx, Inc."
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "ML Krakauer",
+      "roles": [
+        "Board Chair",
+        "Former Executive Vice President and Chief Information Officer, Dell Corporation"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Julia Liuson",
+      "roles": [
+        "President of the Developer Division, Microsoft Corporation"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "James D. Plummer",
+      "roles": [
+        "John M. Fluke Professor of Electrical Engineering, Stanford University"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Alberto Sangiovanni-Vincentelli",
+      "roles": [
+        "Edgar L. and Harold H. Buttner Professor of Electrical Engineering and Computer Sciences, University of California, Berkeley"
+      ],
+      "director_since": "1992",
+      "independent": true
+    },
+    {
+      "name": "Young K. Sohn",
+      "roles": [
+        "Managing Partner, Walden Catalyst Management LLC"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Luc Van den hove",
+      "roles": [
+        "President and Chief Executive Officer, imec"
+      ],
+      "director_since": "2026",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Ita Brennan",
+        "Lewis Chew",
+        "James D. Plummer",
+        "Alberto Sangiovanni-Vincentelli"
+      ],
+      "chair": "Lewis Chew",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Mark W. Adams",
+        "Moshe Gavrielov",
+        "Young K. Sohn"
+      ],
+      "chair": "Mark W. Adams",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Governance and Nominating Committee",
+      "members": [
+        "Ita Brennan",
+        "ML Krakauer",
+        "Julia Liuson"
+      ],
+      "chair": "Ita Brennan",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Anirudh Devgan",
+      "age": 56,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "John M. Wall",
+      "age": 55,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Paul Cunningham",
+      "age": 48,
+      "positions": [
+        "Senior Vice President and General Manager of the System Verification Group"
+      ]
+    },
+    {
+      "name": "Paul Scannell",
+      "age": 60,
+      "positions": [
+        "Senior Vice President, Customer Success Team"
+      ]
+    },
+    {
+      "name": "Marc Taxay",
+      "age": 57,
+      "positions": [
+        "Senior Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Chin-Chi Teng",
+      "age": 60,
+      "positions": [
+        "Senior Vice President and General Manager of the Digital and Signoff Group"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-09",
+    "note": "Data di riferimento (Record Date) 9 marzo 2026, salvo diversa indicazione. Percentuali calcolate su 276.092.068 azioni ordinarie in circolazione alla Record Date. * = meno dell'1%. Le quote dei >5% derivano dagli Schedule 13G alle date indicate nelle note. Le azioni di direttori e dirigenti includono opzioni e restricted stock esercitabili o maturabili entro 60 giorni.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21898161,
+            "pct": 7.93
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 18) filed 2025-04-24; dati al 31 marzo 2025",
+        "address": "55 East 52nd Street, New York, NY 10055"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27230987,
+            "pct": 9.86
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 14) filed 2026-01-07; dati al 31 dicembre 2025",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Mark W. Adams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12927,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ita Brennan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7650,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lewis Chew",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8417,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Cunningham",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 147168,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anirudh Devgan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 823017,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Moshe Gavrielov",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1105,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "ML Krakauer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4279,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Julia Liuson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5727,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James D. Plummer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27181,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alberto Sangiovanni-Vincentelli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41330,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul Scannell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28588,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Young K. Sohn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14610,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chin-Chi Teng",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 137185,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luc Van den hove",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 265,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Wall",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 83950,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1353998,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuoto e non è stato ricostruito dalle biografie. Anirudh Devgan, President e CEO, compare solo tra i direttori.",
+    "Comitato Corporate Governance and Nominating: il numero di riunioni non è riportato nella finestra disponibile; meetings impostato a null.",
+    "Dr. Luc Van den hove è entrato nel consiglio il 1° gennaio 2026; il consiglio non ha ancora determinato la sua assegnazione ai comitati, quindi non compare in nessun comitato.",
+    "La riga di gruppo dichiara 16 persone, ma le righe nominative in named_executive_officers_and_directors sono 15. Entrambi i valori sono stati mantenuti come da documento.",
+    "Il Finance Committee è stato sciolto a novembre 2024 e non è incluso tra i comitati attuali.",
+    "L'appartenenza ai comitati è stata ricavata dalle biografie dei direttori e dalla sezione dei comitati; i conteggi (Audit 4, Compensation 3, Corporate Governance and Nominating 3) coincidono con il testo, ma la matrice appiattita non era leggibile cella per cella.",
+    "Dal nome sono stati rimossi i titoli accademici 'Ph.D.' di Anirudh Devgan, James D. Plummer, Alberto Sangiovanni-Vincentelli e Luc Van den hove, come da regola sui nomi.",
+    "executive_officers presi dal Form 10-K del 2026-02-19: il DEF 14A non li elenca."
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "company": "Commercial Metals Company",
+  "ticker": "CMC",
+  "cik": "0000022444",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-11-25",
+    "accession": "0001193125-25-294507",
+    "meeting": null,
+    "ownership_as_of": "2025-11-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/22444/000119312525294507/cmc-20251125.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-10-16",
+      "accession": "0000022444-25-000138",
+      "url": "https://www.sec.gov/Archives/edgar/data/22444/000002244425000138/cmc-20250831.htm",
+      "as_of": "2025-10-16"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Dawne S. Hickton",
+      "roles": [
+        "Director (Class I, nominee)",
+        "Audit Committee member",
+        "Finance Committee member"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Peter R. Matt",
+      "roles": [
+        "Director (Class I, nominee)",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Robert S. Wetherbee",
+      "roles": [
+        "Director (Class I, nominee)",
+        "Chairman of the Board",
+        "Compensation Committee member",
+        "Nominating and Corporate Governance Committee member"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Dennis V. Arriola",
+      "roles": [
+        "Director (Class II)",
+        "Audit Committee member",
+        "Finance Committee member"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "John R. McPherson",
+      "roles": [
+        "Director (Class II)",
+        "Finance Committee Chair",
+        "Audit Committee member"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Tandra C. Perkins",
+      "roles": [
+        "Director (Class II)",
+        "Finance Committee member",
+        "Compensation Committee member"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Lisa M. Barton",
+      "roles": [
+        "Director (Class III)",
+        "Nominating and Corporate Governance Committee Chair",
+        "Compensation Committee member"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Gary E. McCullough",
+      "roles": [
+        "Director (Class III)",
+        "Compensation Committee Chair",
+        "Finance Committee member"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Charles L. Szews",
+      "roles": [
+        "Director (Class III)",
+        "Audit Committee Chair",
+        "Nominating and Corporate Governance Committee member"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Sarah E. Raiss",
+      "roles": [
+        "Director (Class I)",
+        "Audit Committee member",
+        "Nominating and Corporate Governance Committee member"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Charles L. Szews",
+        "Dennis V. Arriola",
+        "Dawne S. Hickton",
+        "John R. McPherson",
+        "Sarah E. Raiss"
+      ],
+      "chair": "Charles L. Szews",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Gary E. McCullough",
+        "Lisa M. Barton",
+        "Tandra C. Perkins",
+        "Robert S. Wetherbee"
+      ],
+      "chair": "Gary E. McCullough",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Lisa M. Barton",
+        "Sarah E. Raiss",
+        "Charles L. Szews",
+        "Robert S. Wetherbee"
+      ],
+      "chair": "Lisa M. Barton",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "John R. McPherson",
+        "Dennis V. Arriola",
+        "Dawne S. Hickton",
+        "Gary E. McCullough",
+        "Tandra C. Perkins"
+      ],
+      "chair": "John R. McPherson",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Peter R. Matt",
+      "age": 62,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Paul J. Lawrence",
+      "age": 55,
+      "positions": [
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Jody K. Absher",
+      "age": 48,
+      "positions": [
+        "Senior Vice President, Chief Legal Officer and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Jennifer J. Durbin",
+      "age": 44,
+      "positions": [
+        "Senior Vice President, Chief Human Resources and Communications Officer"
+      ]
+    },
+    {
+      "name": "Kekin M. Ghelani",
+      "age": 51,
+      "positions": [
+        "Senior Vice President, Chief Strategy Officer"
+      ]
+    },
+    {
+      "name": "Brian N. Halloran",
+      "age": 54,
+      "positions": [
+        "Senior Vice President, North America Steel Group"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-11-17",
+    "note": "Percentuali calcolate su 111.047.945 azioni di Common Stock in circolazione al 17 novembre 2025. * = meno dell'1%. La tabella dei detentori oltre il 5% indica le partecipazioni dichiarate nei depositi citati; i dati dei fondi si riferiscono a date diverse dal 17 novembre 2025.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 13705272,
+            "pct": 12.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12640764,
+            "pct": 11.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7611397,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-09",
+        "address": "6300 Bee Cave Road, Building One, Austin, TX 78746"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6037475,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-05-13",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Dennis V. Arriola",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5016,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa M. Barton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22640,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dawne S. Hickton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 539,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gary E. McCullough",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25468,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John R. McPherson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23267,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tandra C. Perkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3897,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sarah E. Raiss",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 100548,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles L. Szews",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 60620,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert S. Wetherbee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11057,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter R. Matt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 83423,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul J. Lawrence",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 190181,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kekin M. Ghelani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2818,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jody K. Absher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58411,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jennifer J. Durbin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 59357,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 692594,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sarah E. Raiss (Class I) non è tra i nominee e si ritira dal consiglio alla data dell'assemblea annuale: è inclusa come consigliere in carica alla data del documento, con uscita prevista all'assemblea. Le sue cariche nei comitati Audit e Nominating and Corporate Governance terminano anch'esse all'assemblea.",
+    "La data di nomina (director_since) di Sarah E. Raiss non è indicata nel documento (il testo parla di 15 anni di servizio): valore lasciato null.",
+    "Dawne S. Hickton è stata nominata con effetto dal 14 ottobre 2025; è entrata nei comitati Audit e Finance alla stessa data.",
+    "La sezione executives è assente da questo DEF 14A (probabilmente nel 10-K): executive_officers lasciato vuoto. Peter R. Matt, pur essendo CEO e compreso fra i direttori, non è stato inserito in executive_officers per la mancanza della sezione.",
+    "La riga di gruppo dichiara 15 persone, ma le righe nominative in named_executive_officers_and_directors sono 14 (9 direttori non dirigenti più 5 NEO/dirigenti): una persona del gruppo non è nominata nella tabella. Entrambi i dati sono mantenuti.",
+    "Il valore di Robert S. Wetherbee come indipendente deriva dalla dichiarazione del documento secondo cui tutti i membri dei comitati Compensation e Nominating sono indipendenti; il documento non classifica esplicitamente ogni direttore.",
+    "I valori di Vanguard (al 29 dicembre 2023), DFA (al 29 dicembre 2023) e State Street (al 9 maggio 2025) e di BlackRock (al 30 settembre 2025) si riferiscono a date diverse dal 17 novembre 2025, data di riferimento della tabella.",
+    "executive_officers presi dal Form 10-K del 2025-10-16: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 contiene solo un rimando alla sezione «Information About Our Executive Officers» della Parte I; l'elenco è stato estratto dalla Parte I."
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "company": "United States Antimony Corporation",
+  "ticker": "UAMY",
+  "cik": "0000101538",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-20",
+    "accession": "0001140361-26-015650",
+    "meeting": "2026 annual meeting",
+    "ownership_as_of": "2026-04-15",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/101538/000114036126015650/ny20066417x2_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Gary C. Evans",
+      "roles": [
+        "Chairman and Chief Executive Officer"
+      ],
+      "director_since": "2022-11",
+      "independent": false
+    },
+    {
+      "name": "Blaise Aguirre",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-08",
+      "independent": true
+    },
+    {
+      "name": "Lloyd Joseph Bardswich",
+      "roles": [
+        "Director",
+        "EVP, Chief Mining Engineer"
+      ],
+      "director_since": "2021-02",
+      "independent": false
+    },
+    {
+      "name": "Joseph A. Carrabba",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-02",
+      "independent": true
+    },
+    {
+      "name": "John M. Keane",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Jon R. Marinelli",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Michael A. McManus",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-08",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Michael A. McManus",
+        "Blaise Aguirre",
+        "Joseph A. Carrabba",
+        "Jon R. Marinelli"
+      ],
+      "chair": null,
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Joseph A. Carrabba",
+        "Blaise Aguirre",
+        "Michael A. McManus",
+        "Jon R. Marinelli"
+      ],
+      "chair": null,
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Joseph A. Carrabba",
+        "Blaise Aguirre",
+        "Michael A. McManus",
+        "John M. Keane"
+      ],
+      "chair": null,
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [],
+      "chair": null,
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Gary C. Evans",
+      "age": 68,
+      "positions": [
+        "Chairman and CEO (PEO)"
+      ]
+    },
+    {
+      "name": "Lloyd Joseph Bardswich",
+      "age": 81,
+      "positions": [
+        "Director and EVP, Chief Mining Engineer"
+      ]
+    },
+    {
+      "name": "Richard R. Isaak",
+      "age": 57,
+      "positions": [
+        "SVP, Chief Financial Officer (PFO)"
+      ]
+    },
+    {
+      "name": "Jeffrey Fink",
+      "age": null,
+      "positions": []
+    },
+    {
+      "name": "John C. Gustavsen",
+      "age": null,
+      "positions": []
+    },
+    {
+      "name": "Melissa M. Pagen",
+      "age": null,
+      "positions": []
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-15",
+    "note": "Percent of Class è calcolata su 143.078.275 azioni di Common Stock, 750.000 azioni di Series B Preferred e 177.904 azioni di Series C Preferred in circolazione al 15 aprile 2026. Percent of Voting Stock è calcolata su 143.256.179 azioni (tutto il Common Stock emesso più tutto il Series C Preferred). Le quote includono le azioni non emesse acquisibili entro 60 giorni dal 15 aprile 2026. Il simbolo '—' indica zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7669026,
+            "pct": 5.4
+          }
+        ],
+        "pct_of_votes": 5.4,
+        "source": null,
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "Creative Planning, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7435101,
+            "pct": 5.2
+          }
+        ],
+        "pct_of_votes": 5.2,
+        "source": null,
+        "address": "5454 W. 110th Street Overland Park, KS 66211"
+      },
+      {
+        "name": "Excel Mineral Company",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Series B Preferred",
+            "shares": 750000,
+            "pct": 100.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "P.O. Box 3800 Santa Barbara, CA 93130"
+      },
+      {
+        "name": "Walter Maquire, Sr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series C Preferred",
+            "shares": 49091,
+            "pct": 27.6
+          }
+        ],
+        "pct_of_votes": 0,
+        "source": null,
+        "address": "PO Box 129, Keller, VA 23401"
+      },
+      {
+        "name": "Richard A. Woods",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series C Preferred",
+            "shares": 48305,
+            "pct": 27.2
+          }
+        ],
+        "pct_of_votes": 0,
+        "source": null,
+        "address": "59 Penn Circle West Penn Plaza Apts. Pittsburgh, PA 15206"
+      },
+      {
+        "name": "Warren A. Evans",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series C Preferred",
+            "shares": 48305,
+            "pct": 27.2
+          }
+        ],
+        "pct_of_votes": 0,
+        "source": null,
+        "address": "69 Ponfret Landing Road Brooklyn, CT 06234"
+      },
+      {
+        "name": "Edward Robinson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Series C Preferred",
+            "shares": 32203,
+            "pct": 18.1
+          }
+        ],
+        "pct_of_votes": 0,
+        "source": null,
+        "address": "1007 Spruce Street, 1st floor Philadelphia, PA 19107"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Blaise Aguirre",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 879854,
+            "pct": 0.6
+          }
+        ],
+        "pct_of_votes": 0.6
+      },
+      {
+        "name": "Lloyd Joseph Bardswich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 982483,
+            "pct": 0.7
+          }
+        ],
+        "pct_of_votes": 0.7
+      },
+      {
+        "name": "Joseph A. Carrabba",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 355134,
+            "pct": 0.2
+          }
+        ],
+        "pct_of_votes": 0.2
+      },
+      {
+        "name": "Gary C. Evans",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3479565,
+            "pct": 2.4
+          }
+        ],
+        "pct_of_votes": 2.4
+      },
+      {
+        "name": "Jeffrey Fink",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 108656,
+            "pct": 0.1
+          }
+        ],
+        "pct_of_votes": 0.1
+      },
+      {
+        "name": "John C. Gustavsen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 707042,
+            "pct": 0.5
+          }
+        ],
+        "pct_of_votes": 0.5
+      },
+      {
+        "name": "Richard R. Isaak",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 453796,
+            "pct": 0.3
+          }
+        ],
+        "pct_of_votes": 0.3
+      },
+      {
+        "name": "John M. Keane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Jon R. Marinelli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": 0
+          }
+        ],
+        "pct_of_votes": 0
+      },
+      {
+        "name": "Michael A. McManus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 822701,
+            "pct": 0.6
+          }
+        ],
+        "pct_of_votes": 0.6
+      },
+      {
+        "name": "Melissa M. Pagen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 258158,
+            "pct": 0.2
+          }
+        ],
+        "pct_of_votes": 0.2
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": null,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 8047389,
+          "pct": 5.5
+        }
+      ],
+      "pct_of_votes": 5.5
+    }
+  },
+  "warnings": [
+    "Nome discordante: il consiglio e la tabella compensi riportano 'Jon R. Marinelli', la tabella della proprietà riporta 'John R. Marinelli'. Usato 'Jon R. Marinelli' come nel testo sul consiglio; verificare.",
+    "Director_since non indicato nel documento per John M. Keane e Jon R. Marinelli: campo impostato a null.",
+    "Nessun presidente (chair) indicato per Audit Committee, Compensation Committee e Nominating and Corporate Governance Committee nella finestra fornita: chair impostato a null.",
+    "Finance Committee: istituito nel 2025 e citato fra i comitati permanenti, ma membri, presidente e numero di riunioni non sono indicati nella finestra fornita. Membri lasciati vuoti e riunioni a null.",
+    "La tabella Executive Officers riporta solo i tre NEO (Evans, Bardswich, Isaak). Jeffrey Fink, John C. Gustavsen e Melissa M. Pagen sono qualificati come executive officers nella tabella della proprietà, ma età e cariche non sono indicate: inseriti con age null e positions vuoto. Il documento non dice se Gustavsen sia ancora in carica (era citato come Co-CEO fino a novembre 2024 e come NEO nel 2024).",
+    "Sezione committees assente nel documento: l'appartenenza ai comitati è stata letta dalla prosa nella finestra board.",
+    "Il numero di persone del gruppo (riga 'All Directors and Executive Officers as a Group') non è dichiarato: persons impostato a null. Le 11 persone elencate nei blocchi precedenti danno un totale di 8.047.389 azioni, coerente con la riga di gruppo.",
+    "La riga di gruppo compare due volte: 'Common Stock' e 'Common and Preferred Voting Stock', con lo stesso valore (8.047.389, 5,5%). Usata la riga Common Stock.",
+    "Il nome 'Walter Maquire, Sr.' è riportato così nel documento; la grafia potrebbe essere un errore di stampa, ma è mantenuta come scritta.",
+    "Nessun detentore oltre il 5% delle azioni ordinarie tra direttori o dirigenti: Gary C. Evans detiene il 2,4% del Common Stock. Nessuna riga di aggregazione o subtotale nella tabella dei detentori oltre il 5%.",
+    "Excel Mineral Company detiene il 100% del Series B Preferred; le sue azioni hanno diritto di voto solo in caso di mancato pagamento di dividendi dichiarati (nota 3). pct_of_votes impostato a null perché il documento indica 'N/A'.",
+    "Le percentuali di voto dei detentori di Series C Preferred sono dichiarate 0,0%: pct_of_votes impostato a 0 come nel documento.",
+    "Nessun 'source' (deposito 13G/13D) né data di deposito indicati per i detentori oltre il 5%: source impostato a null per tutti.",
+    "Nessun direttore risulta uscito dal consiglio prima della data del documento; nessun direttore in uscita all'assemblea 2026 è segnalato."
+  ]
+}

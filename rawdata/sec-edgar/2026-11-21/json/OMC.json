@@ -1,0 +1,522 @@
+{
+  "company": "Omnicom Group Inc.",
+  "ticker": "OMC",
+  "cik": "0000029989",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-26",
+    "accession": "0001213900-26-034811",
+    "meeting": null,
+    "ownership_as_of": "2026-03-09",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/29989/000121390026034811/ea0274271-02.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-02-20",
+      "accession": "0000029989-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/29989/000002998926000006/omc-20251231.htm",
+      "as_of": "2026-01-30"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "John D. Wren",
+      "roles": [
+        "Chairman and Chief Executive Officer"
+      ],
+      "director_since": "1993",
+      "independent": false
+    },
+    {
+      "name": "Mary C. Choksi",
+      "roles": [
+        "Lead Independent Director",
+        "Chair, Audit Committee",
+        "Member, Compensation Committee"
+      ],
+      "director_since": "2011",
+      "independent": true
+    },
+    {
+      "name": "Leonard S. Coleman, Jr.",
+      "roles": [
+        "Chair, Governance Committee",
+        "Member, Compensation Committee"
+      ],
+      "director_since": "1993",
+      "independent": true
+    },
+    {
+      "name": "Mark D. Gerstein",
+      "roles": [
+        "Member, Audit Committee",
+        "Member, Finance Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Ronnie S. Hawkins",
+      "roles": [
+        "Member, Compensation Committee",
+        "Member, Governance Committee"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Deborah J. Kissire",
+      "roles": [
+        "Chair, Finance Committee",
+        "Member, Audit Committee"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Philippe Krakowsky",
+      "roles": [
+        "Co-President and Co-Chief Operating Officer"
+      ],
+      "director_since": "2025",
+      "independent": false
+    },
+    {
+      "name": "Gracia C. Martore",
+      "roles": [
+        "Chair, Compensation Committee",
+        "Member, Audit Committee"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Patrick Q. Moore",
+      "roles": [],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Patricia Salas Pineda",
+      "roles": [
+        "Member, Governance Committee",
+        "Member, Finance Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Linda Johnson Rice",
+      "roles": [
+        "Member, Compensation Committee",
+        "Member, Governance Committee"
+      ],
+      "director_since": "2000",
+      "independent": true
+    },
+    {
+      "name": "Cassandra Santos",
+      "roles": [
+        "Member, Governance Committee",
+        "Member, Finance Committee"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Valerie M. Williams",
+      "roles": [
+        "Member, Audit Committee",
+        "Member, Finance Committee"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "E. Lee Wyatt Jr.",
+      "roles": [],
+      "director_since": "2025",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Mary C. Choksi",
+        "Mark D. Gerstein",
+        "Deborah J. Kissire",
+        "Gracia C. Martore",
+        "Valerie M. Williams"
+      ],
+      "chair": "Mary C. Choksi",
+      "meetings": 11,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Mary C. Choksi",
+        "Leonard S. Coleman, Jr.",
+        "Ronnie S. Hawkins",
+        "Gracia C. Martore",
+        "Linda Johnson Rice"
+      ],
+      "chair": "Gracia C. Martore",
+      "meetings": 12,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Leonard S. Coleman, Jr.",
+        "Ronnie S. Hawkins",
+        "Patricia Salas Pineda",
+        "Linda Johnson Rice",
+        "Cassandra Santos"
+      ],
+      "chair": "Leonard S. Coleman, Jr.",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Deborah J. Kissire",
+        "Mark D. Gerstein",
+        "Patricia Salas Pineda",
+        "Cassandra Santos",
+        "Valerie M. Williams"
+      ],
+      "chair": "Deborah J. Kissire",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Transaction Committee",
+      "members": [
+        "Mary C. Choksi",
+        "Leonard S. Coleman, Jr.",
+        "Deborah J. Kissire",
+        "Gracia C. Martore"
+      ],
+      "chair": "Mary C. Choksi",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "John D. Wren",
+      "age": 73,
+      "positions": [
+        "Chairman of the Board and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Daryl Simm",
+      "age": 64,
+      "positions": [
+        "Co-President and Co-Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Philippe Krakowsky",
+      "age": 63,
+      "positions": [
+        "Co-President and Co-Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Philip J. Angelastro",
+      "age": 61,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Louis F. Januzzi",
+      "age": 52,
+      "positions": [
+        "Senior Vice President, General Counsel and Secretary"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-09",
+    "note": "Percent of Shares Outstanding calcolata su 284.988.976 azioni di Common Stock al 9 marzo 2026. Il campo shares dei detentori individuali e del gruppo è il Total Beneficial Ownership (azioni possedute più opzioni esercitabili entro 60 giorni). '*' = meno dell'1%, riportato come null. Il documento non dichiara una percentuale di voto (pct_of_votes null).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23677784,
+            "pct": 8.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-01-08",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23239184,
+            "pct": 8.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18140257,
+            "pct": 6.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-24",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Philip J. Angelastro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 439478,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary C. Choksi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46053,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leonard S. Coleman, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48606,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark D. Gerstein",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14188,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ronnie S. Hawkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 20453,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Louis F. Januzzi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9231,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah J. Kissire",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26057,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Philippe Krakowsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 190299,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gracia C. Martore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26767,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patrick Q. Moore",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23116,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Patricia Salas Pineda",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9859,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Linda Johnson Rice",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12954,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cassandra Santos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5156,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daryl D. Simm",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 124214,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Valerie M. Williams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24728,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John D. Wren",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2391690,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "E. Lee Wyatt Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23116,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 17,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 3435965,
+          "pct": 1.2
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente in questo DEF 14A: executive_officers lasciato vuoto, come da istruzioni. Wren e Krakowsky compaiono solo come direttori.",
+    "Sezione committees assente come finestra dedicata: l'appartenenza ai comitati è ricavata dalle biografie dei direttori e dal paragrafo 'Compensation Committee Interlocks' (Compensation 2025: Choksi, Coleman, Hawkins, Martore, Rice). Le celle della tabella 'Board Committee membership' non contengono segni leggibili nel testo estratto.",
+    "Moore, Wyatt e Krakowsky: nessun comitato è dichiarato nelle biografie né nel testo; sono stati lasciati senza comitati. Verificare la tabella originale.",
+    "Transaction Committee: comitato ad hoc costituito a luglio 2024 per la fusione con IPG, composto dai quattro chair dei comitati permanenti (Choksi, Martore, Coleman, Kissire), presieduto da Choksi. Riunioni: nel 2024 'frequently' (numero non dichiarato), nel 2025 una volta. Incluso per completezza.",
+    "Il numero di riunioni dei comitati permanenti è dichiarato per singolo comitato nel 2025 (Audit 11, Compensation 12, Governance 6, Finance 7): nessuna somma effettuata.",
+    "Il campo shares dei detentori individuali e del gruppo usa il Total Beneficial Ownership (azioni più opzioni esercitabili entro 60 giorni), non solo le azioni possedute.",
+    "Philip J. Angelastro, Louis F. Januzzi e Daryl D. Simm compaiono nella tabella come NEO o dirigenti, ma il testo fornito non ne indica la carica; non sono direttori e figurano solo nel blocco named_executive_officers_and_directors.",
+    "Riga di gruppo presente: 'All directors and executive officers as a group (17 persons)'. Le righe nominative nel blocco named_executive_officers_and_directors sono 17, coerenti col dato dichiarato.",
+    "Nessun detentore individuale oltre il 5%. Nessuna riga di aggregazione o subtotale da escludere dai detentori oltre il 5%: i tre grandi azionisti sono tutti soggetti istituzionali.",
+    "executive_officers presi dal Form 10-K del 2026-02-20: il DEF 14A non li elenca.",
+    "10-K: La finestra dell'Item 10 contiene solo un rimando al proxy statement 2026 (incorporato per riferimento): l'elenco è stato estratto dalla sezione della Parte I."
+  ]
+}

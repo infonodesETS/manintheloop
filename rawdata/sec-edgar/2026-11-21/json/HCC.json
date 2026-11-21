@@ -1,0 +1,359 @@
+{
+  "company": "Warrior Met Coal, Inc.",
+  "ticker": "HCC",
+  "cik": "0001691303",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-10",
+    "accession": "0001691303-26-000007",
+    "meeting": null,
+    "ownership_as_of": "2026-03-03",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1691303/000169130326000007/hcc-20260310.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "J. Brett Harvey",
+      "roles": [
+        "Independent Chairman of the Board"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Kimberly Y. Chainey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Walter J. Scheller, III",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": false
+    },
+    {
+      "name": "Lisa M. Schnorr",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Alan H. Schumacher",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Stephen D. Williams",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Alan H. Schumacher",
+        "Kimberly Y. Chainey",
+        "Lisa M. Schnorr"
+      ],
+      "chair": "Alan H. Schumacher",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Human Resources and Compensation Committee",
+      "members": [
+        "J. Brett Harvey",
+        "Lisa M. Schnorr",
+        "Alan H. Schumacher"
+      ],
+      "chair": "J. Brett Harvey",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Lisa M. Schnorr",
+        "Kimberly Y. Chainey",
+        "J. Brett Harvey"
+      ],
+      "chair": "Lisa M. Schnorr",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Sustainability, Environmental, Health and Safety Committee",
+      "members": [
+        "Stephen D. Williams",
+        "Kimberly Y. Chainey",
+        "Walter J. Scheller, III"
+      ],
+      "chair": "Stephen D. Williams",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Walter J. Scheller, III",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Jack K. Richardson",
+      "age": 64,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Dale W. Boyles",
+      "age": 65,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Kelli K. Gant",
+      "age": 54,
+      "positions": [
+        "Chief Administrative Officer",
+        "Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Charles Lussier",
+      "age": 51,
+      "positions": [
+        "Chief Commercial Officer"
+      ]
+    },
+    {
+      "name": "Brian M. Chopin",
+      "age": 43,
+      "positions": [
+        "Senior Vice President, Chief Accounting Officer and Controller"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-03",
+    "note": "Percentuali calcolate su 52.799.430 azioni in circolazione al 3 marzo 2026. * indica meno dell'1%. Le azioni includono le RSU che maturano entro 60 giorni dal 3 marzo 2026.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7238303,
+            "pct": 13.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-23",
+        "address": "55 East 52nd Street, New York, New York 10055"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5937166,
+            "pct": 11.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "amended Schedule 13G filed 2024-11-12",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2903814,
+            "pct": 6.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-10-17",
+        "address": "One Congress St., Suite 1, Boston, Massachusetts 02114"
+      },
+      {
+        "name": "T. Rowe Price Associates, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2700036,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-17",
+        "address": "1307 Point Street, Baltimore, Maryland 21231"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Walter J. Scheller, III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 367793,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jack K. Richardson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 217667,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dale W. Boyles",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 187601,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kelli K. Gant",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87775,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Charles Lussier",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 85185,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kimberly Y. Chainey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2534,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "J. Brett Harvey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 43001,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa M. Schnorr",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11857,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alan H. Schumacher",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42054,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen D. Williams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 35103,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 11,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1104912,
+          "pct": 2.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Walter J. Scheller, III è nominato nel Sustainability, Environmental, Health and Safety Committee ma non è indicato come indipendente (è CEO): il vincolo 'comitati ⊆ indipendenti' non è rispettato. Il dato è riportato come documentato, con independent: false.",
+    "Il nome del comitato Human Resources and Compensation Committee compare nella biografia di J. Brett Harvey come 'Compensation (Chair)': è stato usato il nome completo della sezione comitati.",
+    "Nella tabella dei detentori, lo State Street Corporation è indicato con 2.903.814 azioni (6,5%), mentre la nota 3 riporta 3.404.237 azioni di beneficial ownership al 30/09/2024: è stato riportato il valore della tabella; la discrepanza va verificata.",
+    "Kimberly Y. Chainey: la tabella riporta 2.534 azioni, ma la nota (6) indica 3.041 azioni sottostanti RSU che maturano entro 60 giorni. La nota (5) non è agganciata ad alcuna riga della tabella. Il dato è riportato come nella tabella.",
+    "La riga di gruppo dichiara 11 persone, mentre la tabella dei NEO e direttori elenca 10 nominativi; il dirigente Brian M. Chopin non compare nella tabella e potrebbe essere il undicesimo. Le due informazioni sono riportate come nel documento.",
+    "Il documento non indica una data per l'assemblea annuale (riunione virtuale): il campo meeting è null.",
+    "Il consiglio attuale comprende i sei nominee della sezione board: nessun direttore risulta uscito o non ricandidato nel documento."
+  ]
+}

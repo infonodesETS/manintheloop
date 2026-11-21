@@ -1,0 +1,447 @@
+{
+  "company": "Amphenol Corporation",
+  "ticker": "APH",
+  "cik": "0000820313",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-08",
+    "accession": "0001104659-26-040688",
+    "meeting": null,
+    "ownership_as_of": "2026-03-23",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/820313/000110465926040688/tm261344-1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "David P. Falck",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Nancy A. Altobello",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Sanjiv Lamba",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Rita S. Lane",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Robert A. Livingston",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "R. Adam Norwitt",
+      "roles": [
+        "President",
+        "Chief Executive Officer",
+        "Chairman of the Board (effective as of the date of the Annual Meeting)"
+      ],
+      "director_since": "2009",
+      "independent": false
+    },
+    {
+      "name": "Prahlad Singh",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Anne Clarke Wolff",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Martin H. Loeffler",
+      "roles": [
+        "Chairman of the Board (until the Annual Meeting; not standing for re-election)"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Nancy A. Altobello",
+        "David P. Falck",
+        "Robert A. Livingston",
+        "Anne Clarke Wolff"
+      ],
+      "chair": "Nancy A. Altobello",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Robert A. Livingston",
+        "Nancy A. Altobello",
+        "David P. Falck",
+        "Prahlad Singh"
+      ],
+      "chair": "Robert A. Livingston",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Rita S. Lane",
+        "Nancy A. Altobello",
+        "Robert A. Livingston"
+      ],
+      "chair": "Rita S. Lane",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Finance Committee",
+      "members": [
+        "Rita S. Lane",
+        "Prahlad Singh",
+        "Anne Clarke Wolff"
+      ],
+      "chair": "Anne Clarke Wolff",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating/Corporate Governance Committee",
+      "members": [
+        "David P. Falck",
+        "Nancy A. Altobello",
+        "Rita S. Lane",
+        "Prahlad Singh",
+        "Anne Clarke Wolff"
+      ],
+      "chair": "David P. Falck",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "R. Adam Norwitt",
+      "age": 56,
+      "positions": [
+        "President",
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Lance E. D'Amico",
+      "age": 57,
+      "positions": [
+        "Executive Vice President",
+        "Secretary and General Counsel"
+      ]
+    },
+    {
+      "name": "William J. Doherty",
+      "age": 61,
+      "positions": [
+        "President, Communications Solutions Division"
+      ]
+    },
+    {
+      "name": "Michael R. Ivas",
+      "age": 55,
+      "positions": [
+        "Senior Vice President",
+        "Vice President, Corporate Controller"
+      ]
+    },
+    {
+      "name": "Craig A. Lampo",
+      "age": 56,
+      "positions": [
+        "Executive Vice President",
+        "Senior Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "David Silverman",
+      "age": 48,
+      "positions": [
+        "Executive Vice President",
+        "Senior Vice President, Human Resources"
+      ]
+    },
+    {
+      "name": "Peter J. Straub",
+      "age": 58,
+      "positions": [
+        "President, Interconnect and Sensor Systems Division"
+      ]
+    },
+    {
+      "name": "Luc Walter",
+      "age": 67,
+      "positions": [
+        "President, Harsh Environment Solutions Division"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-23",
+    "note": "Percentuali riferite alla classe Common Stock. '*' = meno dell'1%, riportato come null. Nessuna colonna di percentuale sui voti nel documento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 125227087,
+            "pct": 10.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 97700524,
+            "pct": 8.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 86361390,
+            "pct": 7.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05",
+        "address": "245 Summer Street, Boston, MA 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Nancy A. Altobello",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18842,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William J. Doherty",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 593010,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David P. Falck",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 94794,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sanjiv Lamba",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 548,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Craig A. Lampo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2633159,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rita S. Lane",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24846,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert A. Livingston",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 138080,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martin H. Loeffler",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1335506,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "R. Adam Norwitt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8219557,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Prahlad Singh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11376,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter J. Straub",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 506929,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Luc Walter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 741634,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anne Clarke Wolff",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41154,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 17469159,
+          "pct": 1.42
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data della riunione (meeting) non presente nelle finestre fornite: campo null.",
+    "Riunioni dei comitati non indicate nelle finestre fornite: meetings e meetings_year null per tutti i comitati.",
+    "Martin H. Loeffler non si ricandida ma resta Chairman fino all'Annual Meeting: incluso come direttore in carica, con warning di uscita. Data di prima nomina non presente nel testo: director_since null.",
+    "Indipendenza di Martin H. Loeffler dedotta dalla dichiarazione generale del documento secondo cui tutti i direttori sono indipendenti tranne Norwitt.",
+    "Edward G. Jepsen: sedeva nel consiglio nel 2025 ma non è più direttore alla data del documento; escluso dal board_of_directors. Data di uscita non indicata nel testo.",
+    "R. Adam Norwitt è incluso in executive_officers come CEO, anche se il roster dei dirigenti elenca solo chi non è direttore; età e cariche tratte dalla biografia fra i direttori.",
+    "R. Adam Norwitt diventerà Chairman of the Board alla data dell'Annual Meeting: ruolo riportato come futuro.",
+    "Comitati: la matrice 'Current Committee Memberships' è stata letta per colonna (Audit, Compensation, Executive, Finance, Nominating/Corporate Governance); le appartenenze coincidono con le biografie dei direttori.",
+    "Vanguard: il 2026-03-26 ha depositato un emendamento al Schedule 13G dichiarando di non essere più beneficial owner; la riga resta come riportata nella tabella (base: Schedule 13G/A del 2025-10-30). Dato storico, non attuale.",
+    "BlackRock: l'ultimo Schedule 13G/A citato è del 2024-01-25; la percentuale è quindi datata.",
+    "Tabella dei detentori: il gruppo dichiara 16 persone, ma le righe nominative elencate sono 13. Valori conservati come riportati; la differenza non è spiegata nel testo fornito.",
+    "Nella finestra ownership_5pct compaiono le stesse righe di direttori e dirigenti della finestra ownership (tabella ripetuta, troncata): non duplicate nell'output.",
+    "Nessuna riga di aggregazione o subtotale è presente nella tabella dei detentori oltre il 5%.",
+    "William Doherty compare come 'William Doherty' nella tabella di proprietà e come 'William J. Doherty' nel roster dei dirigenti: usata la forma completa.",
+    "Tabella di proprietà: tutte le percentuali individuali sono '*' (meno dell'1%), riportate come null. Nessun detentore individuale supera il 5%."
+  ]
+}

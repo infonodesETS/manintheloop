@@ -1,0 +1,496 @@
+{
+  "company": "INTUIT INC.",
+  "ticker": "INTU",
+  "cik": "0000896878",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-11-26",
+    "accession": "0000896878-25-000057",
+    "meeting": null,
+    "ownership_as_of": "2025-10-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000057/intu-20251126.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2025-09-03",
+      "accession": "0000896878-25-000035",
+      "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000035/intu-20250731.htm",
+      "as_of": "2025-08-01"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Eve Burton",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Scott D. Cook",
+      "roles": [
+        "Director",
+        "Founder"
+      ],
+      "director_since": "1984",
+      "independent": false
+    },
+    {
+      "name": "Richard L. Dalzell",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2015",
+      "independent": true
+    },
+    {
+      "name": "Sasan K. Goodarzi",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer",
+        "Board Chair (effective as of the Meeting date)"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Deborah Liu",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Tekedra Mawakana",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Forrest Norrod",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Vasant Prabhu",
+      "roles": [
+        "Director",
+        "Lead Independent Director (effective as of the Meeting date)"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Thomas Szkutak",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Raul Vazquez",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Eric S. Yuan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Suzanne Nora Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Ryan Roslansky",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Acquisition Committee",
+      "members": [
+        "Richard L. Dalzell",
+        "Eve Burton",
+        "Suzanne Nora Johnson",
+        "Vasant Prabhu",
+        "Ryan Roslansky",
+        "Raul Vazquez"
+      ],
+      "chair": "Richard L. Dalzell",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit and Risk Committee",
+      "members": [
+        "Thomas Szkutak",
+        "Eve Burton",
+        "Richard L. Dalzell",
+        "Suzanne Nora Johnson",
+        "Vasant Prabhu",
+        "Eric S. Yuan"
+      ],
+      "chair": "Thomas Szkutak",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Organizational Development Committee",
+      "members": [
+        "Raul Vazquez",
+        "Deborah Liu",
+        "Tekedra Mawakana",
+        "Forrest Norrod",
+        "Ryan Roslansky"
+      ],
+      "chair": "Raul Vazquez",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Deborah Liu",
+        "Tekedra Mawakana",
+        "Forrest Norrod",
+        "Thomas Szkutak",
+        "Eric S. Yuan"
+      ],
+      "chair": "Deborah Liu",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Sasan K. Goodarzi",
+      "age": 57,
+      "positions": [
+        "President, Chief Executive Officer, and Director"
+      ]
+    },
+    {
+      "name": "Sandeep S. Aujla",
+      "age": 49,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Anton Hanebrink",
+      "age": 49,
+      "positions": [
+        "Executive Vice President, Corporate Strategy"
+      ]
+    },
+    {
+      "name": "Caryl Hilliard",
+      "age": 59,
+      "positions": [
+        "Executive Vice President, Chief People & Places Officer"
+      ]
+    },
+    {
+      "name": "Kerry J. McLean",
+      "age": 61,
+      "positions": [
+        "Executive Vice President, General Counsel and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Lauren D. Hotz",
+      "age": 50,
+      "positions": [
+        "Senior Vice President and Chief Accounting Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-10-31",
+    "note": "Percentuale calcolata su 278.508.855 azioni ordinarie in circolazione al 31 ottobre 2025. Include azioni soggette a opzioni esercitabili e RSU vested non ancora rilasciate entro 60 giorni. * = 1% o meno.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28621457,
+            "pct": 10.28
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-06 (dati al 2025-09-30)",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23374934,
+            "pct": 8.39
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25 (dati al 2024-12-31)",
+        "address": "55 East 52nd Street, New York, New York 10055"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Scott D. Cook",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6162547,
+            "pct": 2.21
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sasan K. Goodarzi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 284112,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sandeep S. Aujla",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10861,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Alex Balazs",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14152,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Notarainni",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 39077,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marianna Tessel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 146393,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eve Burton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6668,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard L. Dalzell",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17940,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah Liu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9239,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tekedra Mawakana",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2989,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Suzanne Nora Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42296,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Forrest Norrod",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 335,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vasant Prabhu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 276,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ryan Roslansky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 825,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Szkutak",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8249,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Raul Vazquez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2479,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Eric S. Yuan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 825,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 21,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 6943198,
+          "pct": 2.49
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione executives assente nel DEF 14A: executive_officers lasciato vuoto; i dirigenti non sono stati ricostruiti dalle biografie o dalla tabella di proprietà.",
+    "Suzanne Nora Johnson e Ryan Roslansky non sono ricandidati all'assemblea ma risultano ancora in carica alla data del documento: inclusi in board_of_directors. Il testo non indica la data di primo insediamento (director_since null) e non li etichetta come indipendenti: il valore independent true è desunto dal fatto che il documento dichiara indipendenti tutti i membri dei comitati, di cui fanno parte.",
+    "Adena Friedman e Bill McDermott, nominati dal consiglio il 18 novembre 2025 con mandato dal 1 agosto 2026, non sono inclusi: non fanno parte del consiglio attuale (il documento dichiara 13 direttori, che corrispondono ai 13 elencati).",
+    "Scott D. Cook e Sasan K. Goodarzi sono indicati con independent false perché la loro biografia non riporta l'etichetta 'Independent' presente per gli altri direttori; Cook è fondatore ed ex CEO, Goodarzi è CEO in carica.",
+    "Sasan K. Goodarzi diventerà Board Chair e Vasant Prabhu Lead Independent Director alla data dell'assemblea: il ruolo è riportato in roles con questa precisazione.",
+    "Riga di gruppo: 'persons' dichiarato 21, mentre la tabella elenca 17 individui nominativi. La nota (18) spiega che le 4 persone in più sono altri dirigenti esecutivi non nominati; il numero di righe non torna con persons per questa ragione.",
+    "Data della Schedule 13G/A di BlackRock incoerente nel documento: indicata come depositata il 25 gennaio 2024 ma con dati riferiti al 31 dicembre 2024. Riportata così com'è in source.",
+    "Nessun detentore oltre il 5% di una classe tra direttori o dirigenti: nessun elemento aggiunto a greater_than_5pct_stockholders da questa categoria.",
+    "Nessuna riga di aggregazione o subtotale rilevata nella tabella dei detentori oltre il 5%.",
+    "Data dell'assemblea (meeting) non indicata nel testo fornito: campo lasciato null.",
+    "executive_officers presi dal Form 10-K del 2025-09-03: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 rimanda alla Parte I per i dirigenti; l'elenco è stato estratto dalla sezione «Information about our Executive Officers» della Parte I.",
+    "10-K: Per Anton Hanebrink, la tabella riporta «Executive Vice President, Corporate Strategy», mentre la biografia usa «Executive Vice President and Chief Corporate Strategy & Development Officer». Ho usato la dicitura della tabella."
+  ]
+}

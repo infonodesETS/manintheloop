@@ -1,0 +1,409 @@
+{
+  "company": "Freeport-McMoRan Inc.",
+  "ticker": "FCX",
+  "cik": "0000831259",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-23",
+    "accession": "0001193125-26-173666",
+    "meeting": "2026 annual meeting of stockholders (virtuale)",
+    "ownership_as_of": "2026-04-13",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/831259/000119312526173666/d30227ddef14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "David P. Abney",
+      "roles": [
+        "Director",
+        "Chair, Compensation Committee"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Richard C. Adkerson",
+      "roles": [
+        "Chairman of the Board",
+        "Executive officer"
+      ],
+      "director_since": "2006",
+      "independent": false
+    },
+    {
+      "name": "Marcela E. Donadio",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Robert W. Dudley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Hugh Grant",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Lydia H. Kennard",
+      "roles": [
+        "Director",
+        "Chair, Governance Committee"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "Ryan M. Lance",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Sara Grootwassink Lewis",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Dustan E. McCoy",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Kathleen L. Quirk",
+      "roles": [
+        "Director",
+        "President and Chief Executive Officer"
+      ],
+      "director_since": "2023",
+      "independent": false
+    },
+    {
+      "name": "John J. Stephens",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Frances Fragos Townsend",
+      "roles": [
+        "Director",
+        "Chair, Corporate Responsibility Committee"
+      ],
+      "director_since": "2013",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "John J. Stephens",
+        "Marcela E. Donadio",
+        "Sara Grootwassink Lewis"
+      ],
+      "chair": "John J. Stephens",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "David P. Abney",
+        "Hugh Grant",
+        "Dustan E. McCoy"
+      ],
+      "chair": "David P. Abney",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Lydia H. Kennard",
+        "Marcela E. Donadio",
+        "Robert W. Dudley",
+        "Ryan M. Lance"
+      ],
+      "chair": "Lydia H. Kennard",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Responsibility Committee",
+      "members": [
+        "Frances Fragos Townsend",
+        "Robert W. Dudley",
+        "Lydia H. Kennard",
+        "Ryan M. Lance"
+      ],
+      "chair": "Frances Fragos Townsend",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Richard C. Adkerson",
+      "age": 79,
+      "positions": [
+        "Chairman of the Board",
+        "Executive officer"
+      ]
+    },
+    {
+      "name": "Kathleen L. Quirk",
+      "age": 62,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-13",
+    "note": "Percentuali calcolate su 1.437.530.696 azioni di Common Stock in circolazione al 13 aprile 2026. (*) = meno dell'1%. Il totale include opzioni esercitabili e RSU con vesting entro 60 giorni dalla data di riferimento.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 89623089,
+            "pct": 6.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 15) filed 2025-04-17, dati al 2025-03-31",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "David P. Abney",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard C. Adkerson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6387897,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Douglas N. Currault II",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 254517,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Marcela E. Donadio",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert W. Dudley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 22400,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hugh Grant",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46514,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen T. Higgins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 94206,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lydia H. Kennard",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 123700,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ryan M. Lance",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52822,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sara Grootwassink Lewis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31200,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dustan E. McCoy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 152300,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen L. Quirk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2991077,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Maree E. Robertson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26207,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John J. Stephens",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 113377,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frances Fragos Townsend",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 124770,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 10465087,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è presente ma non contiene un roster dei dirigenti: executive_officers include solo Richard C. Adkerson e Kathleen L. Quirk, dichiarati executive officer nella sezione board. Stephen T. Higgins, Douglas N. Currault II e Maree E. Robertson compaiono nella tabella di proprietà come executive officer, ma senza età né carica dichiarata nel testo fornito, quindi non sono stati inseriti in executive_officers.",
+    "Robert W. Dudley compare nella lista dei comitati e nella tabella di proprietà, ma nella finestra board non ha una biografia: età, anno di primo ingresso in consiglio (director_since) e cariche non sono disponibili, quindi director_since e age risultano non dichiarati. L'indipendenza è desunta dalla dichiarazione che 10 dei 12 direttori sono indipendenti, escludendo Adkerson e Quirk.",
+    "Robert W. Dudley non sarà ricandidato all'assemblea 2026: resta in carica fino alla scadenza del mandato ed è quindi incluso in board_of_directors. Il consiglio è previsto ridursi da 12 a 11 direttori alla data dell'assemblea 2026.",
+    "La finestra committees è assente: l'appartenenza ai comitati è stata ricavata dalla sezione board (Board Committees), che riporta per ciascun comitato presidente, altri membri e numero di riunioni nel 2025. Le riunioni (4+4+2+4=14) coincidono con le 14 riunioni di comitato dichiarate nel documento.",
+    "La data di inizio del meeting 2026 è troncata nell'input: il campo meeting riporta solo la modalità virtuale senza data.",
+    "La tabella dei detentori oltre il 5% riporta solo BlackRock, Inc. (6,2%). La nota 1 descrive la riorganizzazione di The Vanguard Group, che al 26 marzo 2026 ha riportato zero azioni nell'Amendment No. 10 allo Schedule 13G: Vanguard non è inserito nel blocco dei >5% perché la tabella non lo riporta.",
+    "Il dato di BlackRock deriva da uno Schedule 13G/A con data di riferimento 31 marzo 2025, anteriore alla data di riferimento della tabella (13 aprile 2026).",
+    "Nessun direttore o dirigente detiene oltre il 5% delle azioni: il blocco greater_than_5pct_stockholders contiene quindi solo BlackRock. Il valore più alto del gruppo (Quirk, 2.991.077 azioni, circa lo 0,2%) è sotto soglia.",
+    "La riga di gruppo dichiara 15 persone e la tabella NEO/direttori contiene 15 righe: il dato è coerente.",
+    "Il documento dichiara un solo tipo di azione (common stock): tutti i valori di classes usano 'Common Stock'.",
+    "Nel testo della sezione board Adkerson e Quirk sono indicati come non indipendenti; Adkerson ha cariche esecutive come Chairman. L'appartenenza ai comitati non include nessuno dei due."
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "company": "Cadre Holdings, Inc.",
+  "ticker": "CDRE",
+  "cik": "0001860543",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001104659-26-048191",
+    "meeting": null,
+    "ownership_as_of": "2026-04-07",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1860543/000110465926048191/tm261494-1_def14a.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Warren B. Kanders",
+      "roles": [
+        "Chief Executive Officer",
+        "Chairman",
+        "Director"
+      ],
+      "director_since": "2012-04",
+      "independent": false
+    },
+    {
+      "name": "Gianmaria C. Delzanno",
+      "roles": [
+        "Lead Independent Director",
+        "Chairman of Nominating and Corporate Governance Committee",
+        "Member of Audit Committee",
+        "Member of Compensation Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Hamish Norton",
+      "roles": [
+        "Director",
+        "Chairman of Compensation Committee",
+        "Member of Audit Committee",
+        "Member of Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2012-10",
+      "independent": true
+    },
+    {
+      "name": "William Quigley",
+      "roles": [
+        "Director",
+        "Chairman of Audit Committee"
+      ],
+      "director_since": "2016-02",
+      "independent": true
+    },
+    {
+      "name": "Deborah A. DeCotis",
+      "roles": [
+        "Director",
+        "Member of Compensation Committee"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "William Quigley",
+        "Gianmaria C. Delzanno",
+        "Hamish Norton"
+      ],
+      "chair": "William Quigley",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Hamish Norton",
+        "Gianmaria C. Delzanno",
+        "Deborah A. DeCotis"
+      ],
+      "chair": "Hamish Norton",
+      "meetings": 2,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Gianmaria C. Delzanno",
+        "Hamish Norton"
+      ],
+      "chair": "Gianmaria C. Delzanno",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Warren B. Kanders",
+      "age": 68,
+      "positions": [
+        "Chief Executive Officer",
+        "Director",
+        "Chairman"
+      ]
+    },
+    {
+      "name": "Brad Williams",
+      "age": 52,
+      "positions": [
+        "President"
+      ]
+    },
+    {
+      "name": "Blaine Browers",
+      "age": 47,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-07",
+    "note": "Percentuali calcolate su 42.797.451 azioni di common stock in circolazione alla Table Date. Le opzioni esercitabili entro 60 giorni sono incluse nel numero di azioni del detentore ma non nel denominatore degli altri. '*' indica meno dell'1%. Il documento non riporta una percentuale di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3798655,
+            "pct": 8.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-05",
+        "address": "245 Summer Street, Boston, Massachusetts 02210"
+      },
+      {
+        "name": "Greenhouse Funds LLLP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2495955,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-02-14",
+        "address": "605 S. Eden St., Suite 250, Baltimore, MD 21231"
+      },
+      {
+        "name": "Blackrock, Inc",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2574288,
+            "pct": 6.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2024-11-08",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Capital International Investors",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2242308,
+            "pct": 5.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2025-05-13",
+        "address": "333 South Hope Street, 55th Fl, Los Angeles, CA 90071"
+      },
+      {
+        "name": "Reinhart Partners, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2170349,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-12",
+        "address": "11090 N Weston Drive, Mequon, WI 53092"
+      },
+      {
+        "name": "Warren B. Kanders",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11617928,
+            "pct": 27.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "c/o Cadre Holdings, Inc., 13386 International Pkwy, Jacksonville, FL 32218"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Warren B. Kanders",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11617928,
+            "pct": 27.1
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gianmaria C. Delzanno",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William Quigley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Hamish Norton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 87500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Deborah A. DeCotis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 64000,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Kissel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nicholas Sokolow",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 651145,
+            "pct": 1.5
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brad Williams",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 198355,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Blaine Browers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 172821,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 9,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 12895249,
+          "pct": 30.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Data di convocazione dell'assemblea (Meeting) non riportata nell'estratto: meeting impostato a null.",
+    "Director_since non indicato nel documento per Gianmaria C. Delzanno e Deborah A. DeCotis: impostato a null.",
+    "Gianmaria C. Delzanno e Deborah A. DeCotis sono attualmente in carica ma i loro mandati scadono all'assemblea e non sono candidati alla rielezione: inclusi in board_of_directors come consiglio attuale.",
+    "Nicholas Sokolow non incluso in board_of_directors: ha lasciato il consiglio a gennaio 2025, è candidato alla rielezione. Compare solo in named_executive_officers_and_directors come da tabella di proprietà.",
+    "Mary Kissel non incluso in board_of_directors: è candidata e entrerà in consiglio alla conclusione dell'assemblea. Compare solo nella tabella di proprietà con 0 azioni.",
+    "Incongruenza nel documento: il testo dice che 'four of the nominees are currently members of the Board', ma tra i cinque candidati solo Kanders, Norton e Quigley siedono attualmente in consiglio (Sokolow ha lasciato nel 2025, Kissel non è ancora entrata).",
+    "Nessuna finestra 'committees' dedicata: l'appartenenza ai comitati è stata letta dalla prosa della sezione board. Le riunioni sono quelle dell'esercizio fiscale 2025 per ciascun comitato (Audit 7, Compensation 2, Nominating and Corporate Governance 1); il documento non fornisce numeri cumulativi.",
+    "Warren B. Kanders detiene il 27,1% ed è quindi incluso anche in greater_than_5pct_stockholders, pur essendo elencato nella tabella di management. Non ha source (nessun deposito 13G/13D citato); l'indirizzo è quello c/o Cadre dichiarato nella tabella. Nel documento 3.750.000 sue azioni risultano impegnate come garanzia (pledged).",
+    "Nella tabella di proprietà il gruppo di direttori e dirigenti è dichiarato 'Nine Individuals' (persons: 9) e le righe nominative sono 9, coerenti. Il gruppo include Mary Kissel, candidata non ancora in carica.",
+    "Nessun subtotale o riga di aggregazione trovata nelle tabelle dei detentori; tutte le righe >5% sono detentori effettivi."
+  ]
+}

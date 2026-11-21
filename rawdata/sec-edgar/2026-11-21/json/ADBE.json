@@ -1,0 +1,452 @@
+{
+  "company": "Adobe Inc.",
+  "ticker": "ADBE",
+  "cik": "0000796343",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-02-27",
+    "accession": "0000796343-26-000043",
+    "meeting": "2026-04-15",
+    "ownership_as_of": "2026-02-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000043/adbe-20260227.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-15",
+      "accession": "0000796343-26-000003",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+      "as_of": "2026-01-15"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Cristiano Amon",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Amy Banse",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Melanie Boulden",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Frank Calderoni",
+      "roles": [
+        "Lead Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Laura Desmond",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "Shantanu Narayen",
+      "roles": [
+        "Chair",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2007",
+      "independent": false
+    },
+    {
+      "name": "Spencer Neumann",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Kathleen Oberg",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Dheeraj Pandey",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "David Ricks",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Daniel Rosensweig",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kathleen Oberg",
+        "Laura Desmond",
+        "Spencer Neumann",
+        "Dheeraj Pandey"
+      ],
+      "chair": "Kathleen Oberg",
+      "meetings": 8,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Executive Compensation Committee",
+      "members": [
+        "Amy Banse",
+        "Cristiano Amon",
+        "Melanie Boulden",
+        "David Ricks"
+      ],
+      "chair": "Amy Banse",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Sustainability Committee",
+      "members": [
+        "Frank Calderoni",
+        "Amy Banse",
+        "Kathleen Oberg",
+        "Daniel Rosensweig"
+      ],
+      "chair": "Frank Calderoni",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Shantanu Narayen",
+      "age": 62,
+      "positions": [
+        "Chair of the Board of Directors",
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Daniel Durn",
+      "age": 59,
+      "positions": [
+        "Chief Financial Officer",
+        "Executive Vice President, Finance, Technology, Security and Operations"
+      ]
+    },
+    {
+      "name": "Anil Chakravarthy",
+      "age": 58,
+      "positions": [
+        "President, Customer Experience Orchestration Business"
+      ]
+    },
+    {
+      "name": "David Wadhwani",
+      "age": 54,
+      "positions": [
+        "President, Creativity and Productivity Business"
+      ]
+    },
+    {
+      "name": "Lara Balazs",
+      "age": 56,
+      "positions": [
+        "Chief Marketing Officer",
+        "Executive Vice President, Global Marketing"
+      ]
+    },
+    {
+      "name": "Gloria Chen",
+      "age": 61,
+      "positions": [
+        "Chief People Officer",
+        "Executive Vice President, Employee Experience"
+      ]
+    },
+    {
+      "name": "Louise Pentland",
+      "age": 53,
+      "positions": [
+        "Chief Legal Officer",
+        "Executive Vice President, Legal and Government Relations"
+      ]
+    },
+    {
+      "name": "Jillian Forusz",
+      "age": 51,
+      "positions": [
+        "Senior Vice President, Chief Accounting Officer",
+        "Corporate Controller"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-02-17",
+    "note": "Percentuali calcolate su 407.636.918 azioni in circolazione al 2026-02-17. * = meno dell'1%. Le partecipazioni includono le azioni derivanti da RSU che maturano entro 60 giorni dal 2026-02-17 e i diritti azionari differiti nel Deferred Compensation Plan.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41472249,
+            "pct": 10.17
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-05 (dati al 2026-01-30)",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37969080,
+            "pct": 9.31
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-25 (dati al 2023-12-31)",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Shantanu Narayen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 438975,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Durn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 46553,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anil Chakravarthy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 61788,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Wadhwani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 43111,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Louise Pentland",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1652,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cristiano Amon",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1822,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Amy Banse",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34517,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Melanie Boulden",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Frank Calderoni",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32717,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Laura Desmond",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 32633,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Spencer Neumann",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3288,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kathleen Oberg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5250,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dheeraj Pandey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5920,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Ricks",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10430,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Daniel Rosensweig",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19934,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 18,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 803767,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione executives è assente da questo DEF 14A: executive_officers è vuoto. Dirigenti come Daniel Durn, Anil Chakravarthy, David Wadhwani e Louise Pentland compaiono solo nella tabella di proprietà, senza ruolo indicato.",
+    "Il consiglio attuale conta undici membri; tutti sono in carica con scadenza all'assemblea 2026. Nessun direttore risulta uscito prima della data del documento.",
+    "Laura Desmond: la biografia indica la partecipazione all'Executive Compensation Committee, ma il roster 'Current Members' di quel comitato non la elenca. È stata inserita solo nell'Audit Committee come da roster. Verificare.",
+    "Riga di gruppo: 'All directors and current executive officers as a group' dichiara 18 persone, mentre le righe nominative sono 15. Le tre persone mancanti non sono nominate nel documento (verosimilmente altri dirigenti esecutivi).",
+    "BlackRock, Inc.: il dato deriva dalla Schedule 13G/A del 2024-01-25 (dati al 2023-12-31), quindi potrebbe non essere aggiornato alla data del documento.",
+    "Le partecipazioni includono azioni in trust familiari (es. Narayen Family Trust, Rosensweig trusts, Ricks GRAT, Crummey Trust di Banse); sono stati conteggiati nel totale individuale come riportato dalla tabella.",
+    "Le percentuali individuali sono '*' (meno dell'1%) e quindi null; la percentuale del gruppo è indicata come '*' nella tabella e quindi null.",
+    "executive_officers presi dal Form 10-K del 2026-01-15: il DEF 14A non li elenca.",
+    "10-K: L'Item 10 contiene solo un rimando al proxy 2026 e alla sezione «Executive Officers» della Parte I; l'elenco è stato estratto dalla Parte I.",
+    "10-K: Le cariche combinate nel documento sono state separate in voci distinte (ad esempio «Chair of the Board of Directors and Chief Executive Officer» per Narayen e «Senior Vice President, Chief Accounting Officer and Corporate Controller» per Forusz)."
+  ]
+}
