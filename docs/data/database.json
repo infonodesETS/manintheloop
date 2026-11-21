@@ -316507,6 +316507,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of HEICO Corporation: Class A common stock, ticker HEIA in iShares DFND, New York Stock Exchange. Sibling entity IN-1378 is the common stock (HEI); same issuer and Wikidata ID Q5629432, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -317083,6 +317089,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of HEICO Corporation: common stock, ticker HEI in iShares DFND, New York Stock Exchange. Sibling entity IN-1372 is the Class A common stock (HEIA); same issuer and Wikidata ID Q5629432, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
