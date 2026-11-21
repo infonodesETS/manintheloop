@@ -17814,6 +17814,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5099785). label='CMOC Group Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of CMOC Group Limited (listed in iShares as China Molybdenum A): A shares, ticker 603993 on the Shanghai Stock Exchange (iShares PICK). Sibling entity IN-0091 is the Hong Kong-listed shares (ticker 3993); same issuer and Wikidata ID Q5099785, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -20016,6 +20022,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5099785). label='CMOC Group Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of CMOC Group Limited: Hong Kong-listed shares, ticker 3993 (iShares PICK). Sibling entity IN-0080 is the A shares (603993, Shanghai Stock Exchange, listed in iShares as China Molybdenum A); same issuer and Wikidata ID Q5099785, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -30135,6 +30147,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q60238941). label='Fox Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Fox Corporation: Class A common stock, ticker FOXA on Nasdaq (iShares IXP). Sibling entity IN-0136 is the Class B common stock (FOX); same issuer and Wikidata ID Q60238941, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -30316,6 +30334,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q60238941). label='Fox Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Fox Corporation: Class B common stock, ticker FOX on Nasdaq (iShares IXP). Sibling entity IN-0135 is the Class A common stock (FOXA); same issuer and Wikidata ID Q60238941, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -33506,6 +33530,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q623591). label='Grupo México'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Grupo Mexico S.A.B. de C.V.: Series B shares, ticker GMEXICOB on the Bolsa Mexicana de Valores (iShares PICK). Sibling entity IN-1286 is the company card (Crunchbase, no iShares listing); same issuer and Wikidata ID Q623591, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -40291,6 +40321,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1518015). label='Jiangxi Copper Company Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of Jiangxi Copper Company Limited: A shares, ticker 600362 on the Shanghai Stock Exchange (iShares PICK). Sibling entity IN-0184 is the Hong Kong-listed H shares (ticker 358); same issuer and Wikidata ID Q1518015, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -40563,6 +40599,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1518015). label='Jiangxi Copper Company Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of Jiangxi Copper Company Limited: Hong Kong-listed H shares, ticker 358 (iShares PICK). Sibling entity IN-0183 is the A shares (600362, Shanghai Stock Exchange); same issuer and Wikidata ID Q1518015, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -68874,6 +68916,12 @@
           "description": "Headquarters conflict reviewed 2026-11-15: sources.wikidata.headquarters 'Suwon' matches the registered head office. KRX KIND filing of 2026-03-10 (https://kind.krx.co.kr/external/2026/03/10/001404/20260310003123/11011.htm): '본 점 소재 지 : 경기도 수원시 영통구 삼성로 129'; DART English filing: 'Entity Address : 129, Samsung-ro, Yeongtong-gu, Suwon, Gyeonggi-do, Korea'. sources.crunchbase.headquarters 'Seoul' appears in none of the documents read. No field changed.",
           "author": "nelsonmau (proposed by Claude, approved 2026-11-15)",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Samsung Electronics Co., Ltd.: common shares, ticker 005930 on the Korea Exchange (iShares IXN). Sibling entity IN-0313 is the non-voting preferred shares (005935); same issuer and Wikidata ID Q20718, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -69063,6 +69111,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q20718). label='Samsung Electronics'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Samsung Electronics Co., Ltd.: non-voting preferred shares, ticker 005935 on the Korea Exchange (iShares IXN). Sibling entity IN-0312 is the common shares (005930); same issuer and Wikidata ID Q20718, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -75441,6 +75495,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q54075). label='SSAB'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of SSAB AB: A shares, ticker SSAB A on Nasdaq Stockholm (iShares PICK). Sibling entity IN-0344 is the B shares (SSAB B); same issuer and Wikidata ID Q54075, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -75698,6 +75758,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q54075). label='SSAB'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of SSAB AB: B shares, ticker SSAB B on Nasdaq Stockholm (iShares PICK). Sibling entity IN-0343 is the A shares (SSAB A); same issuer and Wikidata ID Q54075, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -79224,6 +79290,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q963101). label='Tata Steel'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Tata Steel Limited: ordinary shares, ticker TATASTEEL on the National Stock Exchange of India (iShares PICK). Sibling entity IN-0360 is the global depositary receipt (TTST, London Stock Exchange); same issuer and Wikidata ID Q963101, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -79488,6 +79560,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q963101). label='Tata Steel'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Tata Steel Limited: global depositary receipt, ticker TTST on the London Stock Exchange (iShares PICK). Sibling entity IN-0359 is the ordinary shares (TATASTEEL, National Stock Exchange of India); same issuer and Wikidata ID Q963101, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -242962,6 +243040,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q623591). label='Grupo México'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Company card of Grupo Mexico S.A.B. de C.V. (Crunchbase, no iShares listing). Sibling entity IN-0151 is its Series B shares, ticker GMEXICOB on the Bolsa Mexicana de Valores (iShares PICK); same issuer and Wikidata ID Q623591, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -316495,6 +316579,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of HEICO Corporation: Class A common stock, ticker HEIA in iShares DFND, New York Stock Exchange. Sibling entity IN-1378 is the common stock (HEI); same issuer and Wikidata ID Q5629432, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -317071,6 +317161,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5629432). label='HEICO'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of HEICO Corporation: common stock, ticker HEI in iShares DFND, New York Stock Exchange. Sibling entity IN-1372 is the Class A common stock (HEIA); same issuer and Wikidata ID Q5629432, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
