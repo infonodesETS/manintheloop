@@ -70092,6 +70092,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q6721006)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -70148,6 +70155,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q6721006). label='Maaden'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -248212,7 +248226,21 @@
       "sector": "Mining",
       "wikidata_id": "Q6721006",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "1211",
+            "stock_sector": "Materials",
+            "weight_pct": 1.63,
+            "location": "Saudi Arabia",
+            "exchange": "Saudi Stock Exchange",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -248270,7 +248298,7 @@
           "tax_id": "1010164391 (CR Number)",
           "main_focus": "Phosphate (Fertilizer), Aluminum, and Gold.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Maaden",
-          "website": null
+          "website": "https://www.maaden.com.sa/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -248518,6 +248546,154 @@
               }
             ]
           }
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6721006",
+          "description": "wikidata_id set via search: label='Maaden', description='Saudi mining company'. Search name used: 'Saudi Arabian Mining'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.maaden.com.sa/",
+          "description": "Official website (P856) fetched from Wikidata (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0319",
+          "note": "Unita IN-0319 (Saudi Arabian Mining) in questa entita. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/1211)",
+            "ATTENZIONE crunchbase: profili diversi (https://www.crunchbase.com/organization/ma-aden contro https://www.crunchbase.com/organization/saudi-arabian-mining-company): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano",
+            "sources.crunchbase: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Saudi Arabian Mining",
+          "preserved": {
+            "sources.crunchbase": {
+              "extracted_at": "2026-04-13",
+              "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+              "profile_url": "https://www.crunchbase.com/organization/saudi-arabian-mining-company",
+              "stage": "",
+              "description": "Saudi Arabian mining company is mining and metals company that explores for and produces a diversified portfolio of minerals and metals.",
+              "description_full": null,
+              "website": "https://www.maaden.com",
+              "cb_rank": 202451,
+              "headquarters": "Riyadh, Ar Riyad, Saudi Arabia",
+              "headquarters_regions": "Europe, Middle East, and Africa (EMEA), Gulf Cooperation Council (GCC), Middle East",
+              "operating_status": "Active",
+              "founded_date": "1997-01-01",
+              "company_type": "For Profit",
+              "investment_stage": null,
+              "investor_type": "",
+              "primary_industry": null,
+              "primary_industry_url": null,
+              "industry_groups": [
+                "Natural Resources",
+                "Sustainability"
+              ],
+              "industries": [
+                "Mining",
+                "Natural Resources",
+                "Precious Metals"
+              ],
+              "founders": [],
+              "num_funding_rounds": null,
+              "funding_status": null,
+              "last_funding_date": null,
+              "last_funding_amount_usd": null,
+              "last_funding_type": null,
+              "total_equity_funding_usd": null,
+              "total_funding_usd": null,
+              "total_funding_native": null,
+              "top_investors": [],
+              "num_investors": null,
+              "revenue_range": null,
+              "patents_granted": null,
+              "domain": null,
+              "acquired_by": null,
+              "acquired_by_url": null,
+              "board": []
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -248586,6 +248762,19 @@
           "description": "Entity IV-0730 (Ma’aden) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0319"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IN-0319 (Saudi Arabian Mining) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -381771,7 +381960,7 @@
     {
       "id": "REL-0240",
       "type": "ownership",
-      "source": "IN-0319",
+      "source": "IN-1307",
       "target": "IN-0178",
       "classe": "Common Stock",
       "holder_type": "company",
@@ -381785,7 +381974,18 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#251",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-0319 -> IN-1307 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "source",
+          "old": "IN-0319",
+          "new": "IN-1307"
+        }
+      ]
     },
     {
       "id": "REL-0241",
