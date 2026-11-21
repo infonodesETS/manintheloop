@@ -1,0 +1,432 @@
+{
+  "company": "Western Digital Corporation",
+  "ticker": "WDC",
+  "cik": "0000106040",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-10-05",
+    "accession": "0001628280-26-064909",
+    "meeting": null,
+    "ownership_as_of": "2026-09-08",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/106040/000162828026064909/wdc-20261005.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Kimberly E. Alexy",
+      "roles": [
+        "Director",
+        "Audit Committee Chair"
+      ],
+      "director_since": "2018-11",
+      "independent": true
+    },
+    {
+      "name": "Martin I. Cole",
+      "roles": [
+        "Director",
+        "Chair of the Board"
+      ],
+      "director_since": "2014-12",
+      "independent": true
+    },
+    {
+      "name": "Manuvir Das",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026-05",
+      "independent": true
+    },
+    {
+      "name": "Tunç Doluca",
+      "roles": [
+        "Director",
+        "Compensation and Talent Committee Chair"
+      ],
+      "director_since": "2018-08",
+      "independent": true
+    },
+    {
+      "name": "Bruce E. Kiddoo",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Matthew E. Massengill",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2000-01",
+      "independent": true
+    },
+    {
+      "name": "Roxanne Oulman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Stephanie A. Streeter",
+      "roles": [
+        "Director",
+        "Governance Committee Chair"
+      ],
+      "director_since": "2018-11",
+      "independent": true
+    },
+    {
+      "name": "Irving Tan",
+      "roles": [
+        "Director",
+        "Chief Executive Officer",
+        "Executive Committee Chair"
+      ],
+      "director_since": "2025-02",
+      "independent": false
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Kimberly E. Alexy",
+        "Manuvir Das",
+        "Bruce E. Kiddoo",
+        "Roxanne Oulman"
+      ],
+      "chair": "Kimberly E. Alexy",
+      "meetings": 8,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation and Talent Committee",
+      "members": [
+        "Tunç Doluca",
+        "Roxanne Oulman",
+        "Stephanie A. Streeter"
+      ],
+      "chair": "Tunç Doluca",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Governance Committee",
+      "members": [
+        "Stephanie A. Streeter",
+        "Martin I. Cole",
+        "Bruce E. Kiddoo"
+      ],
+      "chair": "Stephanie A. Streeter",
+      "meetings": 11,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Irving Tan",
+        "Kimberly E. Alexy",
+        "Martin I. Cole",
+        "Tunç Doluca",
+        "Stephanie A. Streeter"
+      ],
+      "chair": "Irving Tan",
+      "meetings": 1,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Irving Tan",
+      "age": 56,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Kris A. Sennesael",
+      "age": 57,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Vidyadhara K. Gubbi",
+      "age": 63,
+      "positions": [
+        "Executive Vice President and Chief of Global Operations"
+      ]
+    },
+    {
+      "name": "Ahmed M. Shihab",
+      "age": 54,
+      "positions": [
+        "Executive Vice President and Chief Product Officer"
+      ]
+    },
+    {
+      "name": "Cynthia L. Tregillis",
+      "age": 57,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer and Secretary"
+      ]
+    },
+    {
+      "name": "Brian Scott Davis",
+      "age": 64,
+      "positions": [
+        "Executive Vice President and Chief Sales and Marketing Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-08",
+    "note": "Percentuali calcolate su 373.567.980 azioni ordinarie in circolazione al 8 settembre 2026, salvo diversa indicazione in nota. * = meno dell'1%. Le azioni soggette a RSU con vesting entro 60 giorni e le DSU del piano di compensazione differita sono conteggiate per il titolare di tali diritti. — indica zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27712800,
+            "pct": 8.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed January 25, 2024 (dati al 31 dicembre 2023)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "FMR LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26361315,
+            "pct": 7.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed August 6, 2026 (dati al 30 giugno 2026)",
+        "address": "245 Summer Street, Boston, MA 02210"
+      },
+      {
+        "name": "Vanguard Capital Management",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25402917,
+            "pct": 7.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed April 30, 2026 (dati al 31 marzo 2026)",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "JPMorgan Chase & Co.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18496725,
+            "pct": 5.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed April 22, 2025 (dati al 31 marzo 2025)",
+        "address": "383 Madison Avenue, New York, NY 10179"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Kimberly E. Alexy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 25722,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martin I. Cole",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19518,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Manuvir Das",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tunç Doluca",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37849,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bruce E. Kiddoo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2318,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Matthew E. Massengill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27921,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roxanne Oulman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2278,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephanie A. Streeter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34807,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Irving Tan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 366678,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kris A. Sennesael",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 42735,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vidyadhara K. Gubbi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 21358,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ahmed M. Shihab",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 57965,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Cynthia L. Tregillis",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38738,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 732929,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Comitato Executive: Irving Tan (non indipendente, CEO) ne è presidente e membro. Il documento dichiara indipendenti solo i membri di Audit, Compensation and Talent e Governance, quindi il controllo 'comitati ⊆ indipendenti' non è violato per questo comitato, ma il dato è segnalato. Membro mantenuto.",
+    "Nessun comitato 'Nominating': la sezione Committees nomina solo Audit Committee, Compensation and Talent Committee, Governance Committee ed Executive Committee.",
+    "Riunioni: i valori indicati (Audit 8, Compensation and Talent 6, Governance 11, Executive 1) sono riferiti all'esercizio fiscale 2026 e sono riportati separatamente per ogni comitato.",
+    "Data dell'assemblea (meeting) non indicata nel testo fornito: campo lasciato null.",
+    "Percentuali in tabella non coerenti con il denominatore dichiarato di 373.567.980 azioni: BlackRock 27.712.800 azioni corrispondono a circa 7,4% (dichiarato 8,5%), FMR a circa 7,1% (dichiarato 7,2%), Vanguard a circa 6,8% (dichiarato 7,5%), JPMorgan a circa 5,0% (dichiarato 5,3%). Le percentuali sono riportate come dichiarate, probabilmente perché calcolate su dati dei 13G a date diverse.",
+    "BlackRock, Inc.: il dato deriva dallo Schedule 13G/A del 25 gennaio 2024 (dati al 31 dicembre 2023), potenzialmente non aggiornato rispetto alla data della tabella (8 settembre 2026).",
+    "Tabella individuale: compaiono 13 righe, mentre la riga di gruppo dichiara 14 persone. Brian Scott Davis (EVP e Chief Sales and Marketing Officer) non compare nella tabella individuale; è incluso nel conteggio di gruppo. Entrambi i numeri sono riportati.",
+    "Kris Sennesael appare nella tabella come 'Kris Sennesael'; il nome è riportato come 'Kris A. Sennesael', forma completa data nella sezione Executive Officers.",
+    "Dubbio holder_type: le azioni di Kimberly E. Alexy, Tunç Doluca e Stephanie A. Streeter sono detenute in un 'family trust account' con potere di voto/investimento della persona; sono classificate 'person' perché la riga è intestata al direttore.",
+    "Dubbio holder_type: 209.000 azioni di Irving Tan sono detenute in una società di investimento personale e 112.500 in un trust tramite una società di investimento; sono incluse nella riga di Tan, classificato 'person'.",
+    "Matthew E. Massengill: le 27.885 azioni... nel totale di 27.921 sono incluse 27.421 DSU (deferred stock units) del piano di compensazione differita, conteggiate come da nota (9).",
+    "Manuvir Das: 'Common Stock' con shares 0 perché la tabella riporta '—' (nessuna azione dichiarata). Nominato al consiglio il 26 maggio 2026.",
+    "Ownership: nessuna riga di aggregazione o subtotale è presente tra i detentori oltre il 5%. La riga di gruppo ha percentuale '*' (meno dell'1%), riportata come null."
+  ]
+}

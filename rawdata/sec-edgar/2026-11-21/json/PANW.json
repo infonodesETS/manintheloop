@@ -1,0 +1,444 @@
+{
+  "company": "Palo Alto Networks, Inc.",
+  "ticker": "PANW",
+  "cik": "0001327567",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2025-11-07",
+    "accession": "0001308179-25-000624",
+    "meeting": null,
+    "ownership_as_of": "2025-09-15",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1327567/000130817925000624/panw-20251107.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "John M. Donovan",
+      "roles": [
+        "Lead Independent Director"
+      ],
+      "director_since": "2012",
+      "independent": true
+    },
+    {
+      "name": "James J. Goetz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2005",
+      "independent": true
+    },
+    {
+      "name": "Helle Thorning-Schmidt",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    },
+    {
+      "name": "Nikesh Arora",
+      "roles": [
+        "Chair of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2018",
+      "independent": false
+    },
+    {
+      "name": "Aparna Bawa",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Carl Eschenbach",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2013",
+      "independent": true
+    },
+    {
+      "name": "John Key",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Lee Klarich",
+      "roles": [
+        "Chief Product and Technology Officer",
+        "Director"
+      ],
+      "director_since": "2025-08",
+      "independent": false
+    },
+    {
+      "name": "Mary Pat McCarthy",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Lorraine Twohill",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Ralph Hamers",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-02",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Mary Pat McCarthy",
+        "Aparna Bawa",
+        "James J. Goetz",
+        "Ralph Hamers",
+        "John Key"
+      ],
+      "chair": "Mary Pat McCarthy",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and People Committee",
+      "members": [
+        "John Key",
+        "Aparna Bawa",
+        "John M. Donovan"
+      ],
+      "chair": "John Key",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Development Committee",
+      "members": [
+        "John M. Donovan",
+        "Nikesh Arora",
+        "Aparna Bawa",
+        "James J. Goetz",
+        "Mary Pat McCarthy"
+      ],
+      "chair": "John M. Donovan",
+      "meetings": 1,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance and Sustainability Committee",
+      "members": [
+        "John M. Donovan",
+        "Lorraine Twohill",
+        "Helle Thorning-Schmidt"
+      ],
+      "chair": "John M. Donovan, Lorraine Twohill",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Security Committee",
+      "members": [
+        "Lee Klarich",
+        "Aparna Bawa",
+        "Carl Eschenbach",
+        "John M. Donovan",
+        "James J. Goetz",
+        "Ralph Hamers",
+        "John Key",
+        "Mary Pat McCarthy",
+        "Helle Thorning-Schmidt",
+        "Lorraine Twohill"
+      ],
+      "chair": "Lee Klarich",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Nikesh Arora",
+      "age": 57,
+      "positions": [
+        "Chief Executive Officer and Chairman"
+      ]
+    },
+    {
+      "name": "Dipak Golechha",
+      "age": 51,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "William \"BJ\" Jenkins",
+      "age": 59,
+      "positions": [
+        "President"
+      ]
+    },
+    {
+      "name": "Lee Klarich",
+      "age": 50,
+      "positions": [
+        "Chief Product and Technology Officer",
+        "Director"
+      ]
+    },
+    {
+      "name": "Nir Zuk",
+      "age": 54,
+      "positions": [
+        "Founder Emeritus",
+        "Former Chief Technology Officer",
+        "Former Director"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-09-15",
+    "note": "Percentuali calcolate su 673.720.207 azioni ordinarie in circolazione al 15 settembre 2025. Azioni includono quelle esercitabili o emettibili entro 60 giorni dal 15 settembre 2025. * indica meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 55137000,
+            "pct": 8.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49244010,
+            "pct": 7.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-01-26",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Nikesh Arora",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3065694,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William \"BJ\" Jenkins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 319558,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Dipak Golechha",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 381955,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lee Klarich",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1754032,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Nir Zuk",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3293136,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Aparna Bawa",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8142,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Donovan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 37976,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Carl Eschenbach",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 19796,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James J. Goetz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 402264,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ralph Hamers",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Key",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 18782,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mary Pat McCarthy",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52500,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Helle Thorning-Schmidt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lorraine Twohill",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41882,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 14,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 9395717,
+          "pct": 1.4
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Nir Zuk ha lasciato il consiglio nell'agosto 2025 (dichiarato: 'from March 2005 to August 2025'): escluso da board_of_directors, incluso in executive_officers come indicato dal documento e nella tabella NEO/direttori.",
+    "Nir Zuk: il documento dichiara che ha cessato di essere dirigente (executive officer) il 14 agosto 2025; è incluso nel roster per completezza, come indicato dal documento.",
+    "Ralph Hamers non è ricandidato all'assemblea (Director Not Standing for Reelection) ma è ancora in carica alla data del documento: incluso in board_of_directors.",
+    "Il nome 'Right Honorable Sir John Key' è riportato come 'John Key' secondo le regole di normalizzazione (titoli e qualifiche rimossi).",
+    "Sanity check comitati/indipendenza: Nikesh Arora (independent: false) è membro del Corporate Development Committee; mantenuto perché presente nella tabella dei comitati, ma incoerente con la regola che i membri siano indipendenti.",
+    "Sanity check comitati/indipendenza: Lee Klarich (independent: false) è Chair del Security Committee; mantenuto perché riportato dal documento, ma incoerente con la regola che i membri siano indipendenti.",
+    "Governance and Sustainability Committee: il documento indica due co-chair (John M. Donovan e Lorraine Twohill), riportati nel campo chair come stringa unica.",
+    "Lee Klarich: il documento dà 'Director Since: 2025' e nel testo 'a member of our Board since August 2025'; il campo director_since riporta 2025-08.",
+    "Riunioni dei comitati: il documento riporta il numero di riunioni per ciascun comitato nell'esercizio fiscale 2025 separatamente; nessuna somma effettuata.",
+    "Tabella di proprietà: il documento non indica la classe di azioni; la classe 'Common Stock' è stata attribuita in base alla frase 'beneficial ownership of our common stock'.",
+    "Le posizioni dei grandi azionisti Vanguard e BlackRock derivano da Schedule 13G/A del 2024 (rispettivamente 13 febbraio 2024 e 26 gennaio 2024), quindi precedenti alla data di riferimento della tabella (15 settembre 2025).",
+    "La riga di gruppo dichiara 14 persone; la tabella NEO/direttori contiene 14 nomi, incluso Nir Zuk che non è più direttore né dirigente. Il conteggio di direttori attuali e dirigenti in carica risulterebbe 13: il dato va verificato.",
+    "Nikesh Arora: la nota 3 indica che 846.408 PSO sono stati interamente esercitati e venduti il 23 settembre 2025, successivamente alla data di riferimento; il dato è riportato come dichiarato.",
+    "I nomi 'Lee Klarich', 'Nir Zuk' e i dati delle note 3-11 sono stati presi così come scritti; per 'William \"BJ\" Jenkins' il soprannome tra virgolette è stato mantenuto come nel documento."
+  ]
+}

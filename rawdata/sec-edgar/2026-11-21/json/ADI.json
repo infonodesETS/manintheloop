@@ -1,0 +1,429 @@
+{
+  "company": "Analog Devices, Inc.",
+  "ticker": "ADI",
+  "cik": "0000006281",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-01-23",
+    "accession": "0000006281-26-000010",
+    "meeting": null,
+    "ownership_as_of": "2026-01-08",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/6281/000000628126000010/adi-20260122.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Vincent Roche",
+      "roles": [
+        "Chief Executive Officer",
+        "Chair of the Board of Directors"
+      ],
+      "director_since": "2013",
+      "independent": false
+    },
+    {
+      "name": "Stephen M. Jennings",
+      "roles": [
+        "Lead Independent Director",
+        "Nominating and Corporate Governance Committee Chair"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "André Andonian",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Edward H. Frank",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Karen M. Golz",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Peter B. Henry",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Mercedes Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    },
+    {
+      "name": "Yoky Matsuoka",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2026",
+      "independent": true
+    },
+    {
+      "name": "Ray Stata",
+      "roles": [
+        "Co-founder",
+        "Director"
+      ],
+      "director_since": "1965",
+      "independent": false
+    },
+    {
+      "name": "Andrea F. Wainer",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Susie Wee",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Karen M. Golz",
+        "Peter B. Henry",
+        "Mercedes Johnson"
+      ],
+      "chair": "Karen M. Golz",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Talent Committee",
+      "members": [
+        "André Andonian",
+        "Edward H. Frank",
+        "Andrea F. Wainer"
+      ],
+      "chair": "André Andonian",
+      "meetings": 7,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Stephen M. Jennings",
+        "Andrea F. Wainer",
+        "Susie Wee"
+      ],
+      "chair": "Stephen M. Jennings",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Corporate Development Committee",
+      "members": [
+        "Edward H. Frank",
+        "André Andonian",
+        "Peter B. Henry",
+        "Yoky Matsuoka"
+      ],
+      "chair": "Edward H. Frank",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Vincent Roche",
+      "age": 65,
+      "positions": [
+        "Chief Executive Officer and Chair of the Board of Directors"
+      ]
+    },
+    {
+      "name": "Martin Cotter",
+      "age": 60,
+      "positions": [
+        "Senior Vice President, Vertical Business Units",
+        "President, Analog Devices EMEA"
+      ]
+    },
+    {
+      "name": "Vivek Jain",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Global Operations and Technology"
+      ]
+    },
+    {
+      "name": "Katsu Nakamura",
+      "age": 60,
+      "positions": [
+        "Senior Vice President and Chief Customer Officer"
+      ]
+    },
+    {
+      "name": "Richard C. Puccio, Jr.",
+      "age": 58,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-08",
+    "note": "Percentuali calcolate su 488.628.595 azioni in circolazione al 2026-01-08. '*' = meno dell'1%; '—' = zero. Nella tabella dei direttori e dirigenti, le azioni indicate sono il Total Beneficial Ownership (incluse le azioni acquisibili entro 60 giorni). Il dato dei >5% deriva da Schedule 13G e non è aggiornato alla data del proxy.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Vanguard Group Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 49618676,
+            "pct": 10.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 11 filed 2025-03-06 (dati al 2025-02-28)",
+        "address": "100 Vanguard Boulevard, Malvern, Pennsylvania 19355"
+      },
+      {
+        "name": "BlackRock Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 38733607,
+            "pct": 7.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G Amendment No. 11 filed 2024-01-26 (dati al 2023-12-31)",
+        "address": "55 East 52nd Street, New York, New York 10055"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "André Andonian",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3078,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Martin Cotter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 123998,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward H. Frank",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 9958,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Karen M. Golz",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 11112,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Peter B. Henry",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1519,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vivek Jain",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 12287,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stephen M. Jennings",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2093,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mercedes Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3041,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yoky Matsuoka",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Katsu Nakamura",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6093,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard C. Puccio, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6519,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Vincent Roche",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 790854,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Ray Stata",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 791897,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Andrea F. Wainer",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 468,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susie Wee",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8184,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 15,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1771101,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Susie Wee: la biografia non compare nella finestra board; director_since è null. È indicata come membro del Nominating and Corporate Governance Committee fino al 11 marzo 2026 e compare fra i direttori nella tabella di proprietà; è inclusa come direttore in carica.",
+    "Susie Wee: l'indipendenza è dichiarata dal consiglio nella sezione dei comitati (independent: true).",
+    "Yoky Matsuoka: nella biografia non compare l'etichetta di indipendenza; independent: true deriva dalla determinazione del consiglio nella sezione Determination of Independence. Nominata con effetto dal 20 gennaio 2026.",
+    "Ray Stata: non indipendente (co-fondatore ed ex Chair). Ha 652.221 azioni detenute dal coniuge, di cui disclaim; 643.396 di quelle del coniuge e 102.946 detenute direttamente sono in pegno per una linea di credito bancaria, dato non incluso separatamente nei campi.",
+    "Executive officers: il documento dichiara executive officer ai sensi della Rule 3b-7 solo Roche, Cotter, Jain, Puccio e Nakamura. Gli altri membri della tabella management (Janene Asgeirsson, età 55; Venu Gopinathan, età 62; Rob Oshana, età 65; Stephanie Sidelko, età 41; Mariya Trickett, età 43) non sono inclusi in executive_officers perché il documento non li dichiara executive officer.",
+    "Nei dati dei >5%, la fonte delle azioni è un Schedule 13G del 2025 (Vanguard) e del 2024 (BlackRock), quindi non riflette necessariamente la situazione al 2026-01-08 indicata come data della tabella.",
+    "Gruppo direttori e dirigenti: il documento dichiara 15 persone, e le righe nominative sono 15 (coerente). Il gruppo dichiara di disconoscere la titolarità di 652.221 azioni (quelle del coniuge di Ray Stata).",
+    "Data dell'assemblea annuale non indicata nelle sezioni fornite: meeting è null.",
+    "Nessuna riga di aggregazione o subtotale è presente fra i detentori oltre il 5%."
+  ]
+}

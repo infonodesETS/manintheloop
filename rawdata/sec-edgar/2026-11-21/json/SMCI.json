@@ -1,0 +1,371 @@
+{
+  "company": "Super Micro Computer, Inc.",
+  "ticker": "SMCI",
+  "cik": "0001375365",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-03",
+    "accession": "0001375365-26-000008",
+    "meeting": "2026-04-15",
+    "ownership_as_of": "2026-01-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000008/smci-20260303.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Charles Liang",
+      "roles": [
+        "Chairman of the Board",
+        "President",
+        "Chief Executive Officer"
+      ],
+      "director_since": "1993-09",
+      "independent": false
+    },
+    {
+      "name": "Sherman Tuan",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2007-02",
+      "independent": true
+    },
+    {
+      "name": "Tally Liu",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-01",
+      "independent": true
+    },
+    {
+      "name": "Scott Angel",
+      "roles": [
+        "Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2025-03",
+      "independent": true
+    },
+    {
+      "name": "Judy Lin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-04",
+      "independent": true
+    },
+    {
+      "name": "Sara Liu",
+      "roles": [
+        "Director",
+        "Co-Founder",
+        "Senior Vice President"
+      ],
+      "director_since": "1993-09",
+      "independent": false
+    },
+    {
+      "name": "Yih-Shyan Liaw",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-12",
+      "independent": false
+    },
+    {
+      "name": "Robert Blair",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022-12",
+      "independent": true
+    },
+    {
+      "name": "Susan Mogensen",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2024-08",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Tally Liu",
+        "Robert Blair",
+        "Scott Angel"
+      ],
+      "chair": "Tally Liu",
+      "meetings": 70,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Susan Mogensen",
+        "Sherman Tuan",
+        "Tally Liu"
+      ],
+      "chair": "Susan Mogensen",
+      "meetings": 14,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Judy Lin",
+        "Robert Blair",
+        "Sherman Tuan"
+      ],
+      "chair": "Judy Lin",
+      "meetings": 9,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Charles Liang",
+      "age": 68,
+      "positions": [
+        "President",
+        "Chief Executive Officer",
+        "Chairman of the Board"
+      ]
+    },
+    {
+      "name": "David Weigand",
+      "age": 67,
+      "positions": [
+        "Senior Vice President",
+        "Chief Financial Officer",
+        "Chief Compliance Officer"
+      ]
+    },
+    {
+      "name": "Don Clegg",
+      "age": 67,
+      "positions": [
+        "Senior Vice President of Worldwide Sales"
+      ]
+    },
+    {
+      "name": "Jin Xiao",
+      "age": 62,
+      "positions": [
+        "Senior Corporate Vice President of Engineering"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-01-31",
+    "note": "Percentuali calcolate su 598.989.428 azioni di Common Stock in circolazione al 31 gennaio 2026; le quote includono opzioni e RSU esercitabili/assegnabili entro 60 giorni. * = meno dell'1%.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Charles Liang",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 81398640,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": "980 Rock Avenue, San Jose, CA 95131"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 41338350,
+            "pct": 6.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 4) filed 2024-10-25",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 68848777,
+            "pct": 11.5
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A (Amendment No. 5) filed 2025-10-31",
+        "address": "100 Vanguard Blvd., Malvern, Pennsylvania 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Charles Liang & Sara Liu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82084339,
+            "pct": 13.4
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Don Clegg",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 123468,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "George Kao",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 134694,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David Weigand",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 366338,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sherman Tuan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 207156,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tally Liu",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 304657,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott Angel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1672,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Judy Lin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71490,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Robert Blair",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15940,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Yih-Shyan Liaw",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15546165,
+            "pct": 2.6
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Susan Mogensen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3280,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": null,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 99092937,
+          "pct": 16.1
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Board: sono inclusi i 9 direttori attuali; nessun direttore risulta uscito prima della data del documento. Charles Liang, Sara Liu e Yih-Shyan Liaw risultano non indipendenti per il documento (il testo indica sei indipendenti, elencati nominativamente).",
+    "Yih-Shyan Liaw: il documento riporta una precedente permanenza in consiglio dal 1993 al gennaio 2018 e una nuova nomina nel dicembre 2023 (rielezione gennaio 2024); director_since è stato valorizzato con la data della nomina attuale, 2023-12.",
+    "Yih-Shyan Liaw: il documento lo descrive anche come Senior Vice President, Business Development (dal 2022), ma non compare nel roster dei dirigenti; non è stato incluso fra executive_officers.",
+    "Sara Liu: il documento la indica come Co-Founder e Senior Vice President, ma non compare nel roster dei dirigenti; non è stata inclusa fra executive_officers.",
+    "Susan Mogensen: il nome riportato nel documento è 'Susan Mogensen (Susie Giordano)'; il soprannome/nome alternativo fra parentesi è stato omesso come da regole di normalizzazione.",
+    "Comitati: la tabella dei direttori (Audit/Compensation/Governance) è ambigua nella forma appiattita; l'appartenenza ai comitati è stata ricavata dalla tabella 'current members of each of the standing Board committees', coerente con il numero di membri dichiarato per ciascun comitato (tre).",
+    "Comitati: Compensation Committee e Nominating and Corporate Governance Committee (chiamato 'Governance Committee' nel documento) sono riportati con il nome ufficiale completo. Le riunioni (70, 14, 9) sono dell'esercizio 2025 e riguardano ciascun comitato separatamente.",
+    "Lead independent director: Scott Angel nominato a gennaio 2026 per un anno; il ruolo è riportato fra i suoi incarichi di consiglio.",
+    "George Kao: il documento indica che si è ritirato il 31 dicembre 2025 e non è più un dirigente in carica; non è incluso in executive_officers, né nel gruppo dei dirigenti/direttori, ma compare nella tabella NEO e direttori con le sue quote al 31 gennaio 2026, come da documento.",
+    "Charles Liang e Sara Liu: la riga congiunta 'Charles Liang & Sara Liu' (82.084.339 azioni, 13,4%) è riportata come nel documento nel blocco NEO e direttori. Charles Liang supera il 5% individualmente: nel blocco dei >5% è inserito con le quote individuali ricavate dalla nota (40.426.120 sue, 25.672.520 congiunte, 15.300.000 opzioni esercitabili), per un totale di 81.398.640; la percentuale individuale non è dichiarata nel documento e viene lasciata null. Sara Liu, individualmente pari a circa 26.358.219 azioni (ca. 4,4%), non supera il 5% e non è inclusa nel blocco dei >5%.",
+    "Riga di aggregazione: il documento riporta 'Total executive officers, directors & 5% or more stockholders' pari al 34,5%; è un totale aggregato e non è stato inserito fra i detentori.",
+    "BlackRock, Inc.: secondo il documento ha potere di voto esclusivo su 38.386.020 azioni (distinto dal potere di disposizione esclusivo di 41.338.350 azioni, quest'ultimo riportato in classes). Il valore di voto non è previsto dallo schema.",
+    "Gruppo dirigenti e direttori: il documento non dichiara un numero di persone ('N persons'); persons è null. Dalla composizione dei direttori (9) e dei dirigenti non direttori in carica (Weigand, Clegg, Xiao) il totale implicito sarebbe 12, ma questo conteggio non è dichiarato nel documento.",
+    "Gruppo dirigenti e direttori: la nota 12 include anche le quote di Jin Xiao (182.589 azioni dirette, 179.820 opzioni esercitabili, 5.970 RSU, 53 azioni del coniuge), ma Jin Xiao non compare come riga autonoma nella tabella NEO e direttori; non è stata aggiunta una riga.",
+    "Coerenza sanity check #3: la tabella NEO e direttori contiene 11 righe (inclusa la riga congiunta Liang & Liu), mentre il gruppo implicito conterebbe 12 persone; la differenza è dovuta a Jin Xiao, non elencato, e a Sara Liu, presente solo nella riga congiunta."
+  ]
+}

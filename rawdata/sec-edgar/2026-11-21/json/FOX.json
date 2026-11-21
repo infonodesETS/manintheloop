@@ -1,0 +1,394 @@
+{
+  "company": "Fox Corporation",
+  "ticker": "FOX",
+  "cik": "0001754301",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-17",
+    "accession": "0001628280-26-062480",
+    "meeting": "2026-11-04",
+    "ownership_as_of": "2026-09-14",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1754301/000162828026062480/fox-20260917.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Lachlan K. Murdoch",
+      "roles": [
+        "Director",
+        "Executive Chair",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Tony Abbott",
+      "roles": [
+        "Director",
+        "Member, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2023-11",
+      "independent": true
+    },
+    {
+      "name": "William A. Burck",
+      "roles": [
+        "Director",
+        "Chair, Compensation Committee",
+        "Member, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2021-06",
+      "independent": true
+    },
+    {
+      "name": "Chase Carey",
+      "roles": [
+        "Director",
+        "Lead Independent Director",
+        "Member, Audit Committee",
+        "Member, Compensation Committee"
+      ],
+      "director_since": "2019-03",
+      "independent": true
+    },
+    {
+      "name": "Roland A. Hernandez",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee",
+        "Member, Nominating and Corporate Governance Committee"
+      ],
+      "director_since": "2019-03",
+      "independent": true
+    },
+    {
+      "name": "Margaret L. Johnson",
+      "roles": [
+        "Director",
+        "Member, Audit Committee",
+        "Member, Compensation Committee"
+      ],
+      "director_since": "2023-11",
+      "independent": true
+    },
+    {
+      "name": "Paul D. Ryan",
+      "roles": [
+        "Director",
+        "Chair, Nominating and Corporate Governance Committee",
+        "Member, Compensation Committee"
+      ],
+      "director_since": "2019-03",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Roland A. Hernandez",
+        "Chase Carey",
+        "Margaret L. Johnson"
+      ],
+      "chair": "Roland A. Hernandez",
+      "meetings": 6,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "William A. Burck",
+        "Chase Carey",
+        "Margaret L. Johnson",
+        "Paul D. Ryan"
+      ],
+      "chair": "William A. Burck",
+      "meetings": 4,
+      "meetings_year": "2026"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Paul D. Ryan",
+        "Tony Abbott",
+        "William A. Burck",
+        "Roland A. Hernandez"
+      ],
+      "chair": "Paul D. Ryan",
+      "meetings": 4,
+      "meetings_year": "2026"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Lachlan K. Murdoch",
+      "age": 55,
+      "positions": [
+        "Executive Chair and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "John P. Nallen",
+      "age": 69,
+      "positions": [
+        "President and Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Adam G. Ciongoli",
+      "age": 58,
+      "positions": [
+        "Chief Legal and Policy Officer"
+      ]
+    },
+    {
+      "name": "Steven Tomsic",
+      "age": 56,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-14",
+    "note": "Percentuali calcolate su 201.424.858 azioni Class A e 220.248.764 azioni Class B in circolazione al 2026-09-14. '*' indica meno dell'1%; '—' indica zero. La colonna Option and DSU è riportata separatamente e non è sommata alle azioni. Il documento non dichiara una percentuale dei voti.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "LGC Holdco, LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 19000,
+            "pct": null
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 85372810,
+            "pct": 38.76
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Class A: Form 4 depositato il 2025-09-12 (dati al 2025-09-10); Class B: Schedule 13D/A depositato il 2026-06-16 (dati al 2026-06-16)",
+        "address": "c/o Maupin, Cox & LeGoy, 4785 Caughlin Parkway, Reno, Nevada 89519"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 17474836,
+            "pct": 8.68
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 14007987,
+            "pct": 6.36
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Class A: Schedule 13G depositato il 2026-08-07 (dati al 2026-06-30); Class B: Schedule 13G depositato il 2025-11-10 (dati al 2025-09-30)",
+        "address": "One Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 16990417,
+            "pct": 8.44
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 11421333,
+            "pct": 5.19
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Class A: Schedule 13G/A depositato il 2025-04-17 (dati al 2025-03-31); Class B: Schedule 13G depositato il 2026-04-27 (dati al 2026-03-31)",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Lachlan K. Murdoch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1420865,
+            "pct": 1.3
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 85374762,
+            "pct": 38.76
+          }
+        ],
+        "pct_of_votes": null,
+        "source": null,
+        "address": null
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Lachlan K. Murdoch",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 1420865,
+            "pct": 1.3
+          },
+          {
+            "class": "Class B Common Stock",
+            "shares": 85374762,
+            "pct": 38.76
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Tony Abbott",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 15080,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "William A. Burck",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 24122,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Chase Carey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 311743,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roland A. Hernandez",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 42654,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Margaret L. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 15080,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Paul D. Ryan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 21887,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John P. Nallen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 550421,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Adam G. Ciongoli",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 77173,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven Tomsic",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 220406,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 2699431,
+          "pct": 2.32
+        },
+        {
+          "class": "Class B Common Stock",
+          "shares": 85374762,
+          "pct": 38.76
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente nel documento: i comitati e le loro riunioni sono stati ricavati dalla prosa della sezione board.",
+    "I comitati non riportano riunioni cumulative: Audit Committee 6, Compensation Committee 4, Nominating and Corporate Governance Committee 4, tutte riferite all'esercizio fiscale 2026 (chiuso al 2026-06-30).",
+    "Il nome Margaret \"Peggy\" L. Johnson è stato normalizzato a Margaret L. Johnson, togliendo il soprannome tra virgolette.",
+    "Tony Abbott AC: la sigla onorifica AC è stata tolta dal nome.",
+    "Adam Ciongoli compare come Adam G. Ciongoli nella tabella di proprietà: è stata usata la forma completa in tutti i blocchi.",
+    "Lachlan K. Murdoch compare sia tra i direttori/NEO sia in greater_than_5pct_stockholders, perché detiene il 38,76% della Class B. Le sue 85.374.762 azioni Class B includono le 85.372.810 detenute da LGC Holdco, che compare anch'essa nel blocco dei >5%: le stesse azioni sono quindi riportate due volte, come indicato dal documento.",
+    "Le azioni di Murdoch includono anche 1.251.779 azioni Class A detenute dal LKM Family Trust.",
+    "Il dato di LGC Holdco per la Class B è al 2026-06-16, mentre quello per la Class A è al 2025-09-10: le date di riferimento differiscono.",
+    "Il dato di State Street e BlackRock è riferito a date diverse per Class A e Class B, come indicato nelle fonti.",
+    "Di LGC Holdco, 37.002.060 azioni Class B risultano impegnate in garanzia (pledge) su prestiti al 2026-09-14.",
+    "Per Chase Carey, 45.101 azioni Class A sono detenute da una fondazione benefica di cui è trustee; per Roland A. Hernandez, 3.000 azioni Class A sono detenute dall'Hernandez Family Trust. Sono incluse nei rispettivi totali.",
+    "La riga di gruppo indica 2,32% per la Class A: questa percentuale include anche le azioni Option and DSU (1.969.080), non solo le azioni dichiarate in colonna. La percentuale di gruppo e le altre percentuali non sono quindi direttamente confrontabili.",
+    "Nessuna riga di aggregazione o subtotale è presente nella tabella dei detentori oltre il 5%.",
+    "La percentuale dei voti (pct_of_votes) non è dichiarata nel documento e risulta null per tutti i detentori.",
+    "Nessun direttore risulta in uscita dal consiglio alla data del documento; tutti i sette nominee sono indicati come membri attuali."
+  ]
+}

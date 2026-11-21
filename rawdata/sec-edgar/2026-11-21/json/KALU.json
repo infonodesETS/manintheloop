@@ -1,0 +1,495 @@
+{
+  "company": "Kaiser Aluminum Corporation",
+  "ticker": "KALU",
+  "cik": "0000811596",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-28",
+    "accession": "0001193125-26-187425",
+    "meeting": "2026 Annual Meeting of stockholders",
+    "ownership_as_of": "2026-04-17",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/811596/000119312526187425/kalu-20260428.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "James D. Hoffman",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-09",
+      "independent": true
+    },
+    {
+      "name": "Glenda J. Minor",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-06",
+      "independent": true
+    },
+    {
+      "name": "Brett E. Wilcox",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2006-07",
+      "independent": true
+    },
+    {
+      "name": "Michael C. Arnold",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2021-09",
+      "independent": true
+    },
+    {
+      "name": "David A. Foster",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2009-06",
+      "independent": true
+    },
+    {
+      "name": "Richard P. Grimley",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023-04",
+      "independent": true
+    },
+    {
+      "name": "Kimberly T. Glas",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-01",
+      "independent": true
+    },
+    {
+      "name": "Keith A. Harvey",
+      "roles": [
+        "President and Chief Executive Officer",
+        "Chairman of the Board"
+      ],
+      "director_since": "2020",
+      "independent": false
+    },
+    {
+      "name": "Donald J. Stebbins",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2019-06",
+      "independent": true
+    },
+    {
+      "name": "Lauralee E. Martin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Teresa M. Sebastian",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Kevin W. Williams",
+      "roles": [
+        "Director"
+      ],
+      "director_since": null,
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Executive Committee",
+      "members": [
+        "Michael C. Arnold",
+        "Keith A. Harvey",
+        "Lauralee E. Martin",
+        "Donald J. Stebbins",
+        "Brett E. Wilcox"
+      ],
+      "chair": "Michael C. Arnold",
+      "meetings": 0,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Lauralee E. Martin",
+        "Kimberly T. Glas",
+        "Glenda J. Minor",
+        "Teresa M. Sebastian",
+        "Brett E. Wilcox",
+        "Kevin W. Williams"
+      ],
+      "chair": "Lauralee E. Martin",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "Donald J. Stebbins",
+        "Richard P. Grimley",
+        "James D. Hoffman",
+        "Lauralee E. Martin",
+        "Glenda J. Minor",
+        "Brett E. Wilcox",
+        "Kevin W. Williams"
+      ],
+      "chair": "Donald J. Stebbins",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Michael C. Arnold",
+        "David A. Foster",
+        "James D. Hoffman",
+        "Teresa M. Sebastian",
+        "Donald J. Stebbins"
+      ],
+      "chair": "Michael C. Arnold",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Sustainability Committee",
+      "members": [
+        "Brett E. Wilcox",
+        "David A. Foster",
+        "Kimberly T. Glas",
+        "Richard P. Grimley",
+        "Lauralee E. Martin",
+        "Teresa M. Sebastian"
+      ],
+      "chair": "Brett E. Wilcox",
+      "meetings": 4,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Keith A. Harvey",
+      "age": 66,
+      "positions": [
+        "President and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Neal E. West",
+      "age": 67,
+      "positions": [
+        "Executive Vice President and Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "John M. Donnan",
+      "age": 65,
+      "positions": [
+        "Executive Vice President - Legal, Compliance and Human Resources"
+      ]
+    },
+    {
+      "name": "Hugh J. Barger, III",
+      "age": 54,
+      "positions": [
+        "Executive Vice President - Sales and Marketing"
+      ]
+    },
+    {
+      "name": "Thomas H. Robb",
+      "age": 51,
+      "positions": [
+        "Executive Vice President - Manufacturing"
+      ]
+    },
+    {
+      "name": "Vijai Narayan",
+      "age": 48,
+      "positions": [
+        "Vice President, Corporate Controller and Chief Accounting Officer"
+      ]
+    },
+    {
+      "name": "Iulian Gheorghe",
+      "age": 56,
+      "positions": [
+        "Senior Vice President - Advanced Engineering and Innovation"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-17",
+    "note": "Percentuali calcolate su 16.340.606 azioni di common stock in circolazione al 17 aprile 2026. Non include le restricted stock unit detenute dai dirigenti. * = meno dell'1%. — = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2590775,
+            "pct": 15.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amendment No. 7 to Schedule 13G filed April 29, 2025",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 998042,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Amended Schedule 13G filed January 25, 2024",
+        "address": "State Street Financial Center, One Congress Street, Boston, Massachusetts 02114-2016"
+      },
+      {
+        "name": "Nomura Asset Management International, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 907078,
+            "pct": 5.6
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G jointly filed February 17, 2026 with Nomura Investment Management Business Trust",
+        "address": "100 Independence, 610 Market Street, Philadelphia, Pennsylvania 19106-2354"
+      },
+      {
+        "name": "Dimensional Fund Advisors LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 812146,
+            "pct": 5.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed April 15, 2025",
+        "address": "6300 Bee Cave Road, Building One, Austin, Texas 78746"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Keith A. Harvey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 71775,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Neal E. West",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 24091,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John M. Donnan",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 15021,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas H. Robb",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Blain A. Tiffany",
+        "holder_type": "person",
+        "classes": [],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jason Walsh",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 28339,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Michael C. Arnold",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 10659,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David A. Foster",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 23546,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Kimberly T. Glas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2680,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Richard P. Grimley",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 6102,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "James D. Hoffman",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 2385,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lauralee E. Martin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8345,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Glenda J. Minor",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3395,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Donald J. Stebbins",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 14040,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brett E. Wilcox",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26792,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 212127,
+          "pct": 1.3
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Il documento è di Kaiser Aluminum Corporation; il ticker KALU è quello fornito in input.",
+    "La finestra board non riporta lo stato di indipendenza: il valore 'independent' è stato dedotto. Keith A. Harvey è indicato come false perché Presidente, CEO e Chairman; tutti gli altri come true.",
+    "Lauralee E. Martin non compare nella finestra board. È indicata come direttore attuale nella tabella di proprietà e presidente dell'Audit Committee. Ha un asterisco (*) nelle tabelle dei comitati, che di norma indica un direttore non ricandidato o in uscita; non è fra i nominee. Director_since non disponibile.",
+    "Teresa M. Sebastian e Kevin W. Williams compaiono nella tabella dei comitati ma non nella finestra board né nella tabella di proprietà. Sono stati inclusi come direttori attuali perché sono membri di comitati, con director_since null e indipendenza dedotta. Le note (2) e (4) della tabella comitati non sono disponibili: verificare se abbiano lasciato il consiglio.",
+    "Brett E. Wilcox: la biografia indica i comitati Audit, Executive e Sustainability (Chair), mentre la tabella comitati lo elenca anche nel Compensation Committee (nota 5). Il dato è stato riportato da entrambe le fonti.",
+    "Il Compensation Committee è riportato come membro con asterisco Lauralee E. Martin (nota *): inclusa come da documento.",
+    "Executive Committee: il numero di riunioni è indicato come '—' e riportato come 0 per l'esercizio 2025.",
+    "Riga di gruppo: il documento dichiara 16 persone, ma nelle righe dei direttori e NEO compaiono 15 nominativi. Non risulta chi sia il sedicesimo; le due cifre sono state mantenute entrambe.",
+    "Nomura Asset Management International, Inc.: la tabella riporta 907.078 azioni, mentre la nota (9) riporta 907.978 azioni con sole voting power e sole dispositive power. È stato usato il valore della tabella.",
+    "Jason Walsh (NEO) è in congedo dal 17 novembre 2025 per motivi di salute (nota 3). Walsh e Blain A. Tiffany sono NEO nella tabella di proprietà ma non compaiono nel roster dei dirigenti.",
+    "Thomas H. Robb e Blain A. Tiffany: il documento riporta '—' per le azioni; 'classes' è lasciato vuoto perché non hanno azioni dichiarate.",
+    "John M. Donnan: il roster lo indica come Executive Vice President - Legal, Compliance and Human Resources, mentre la biografia lo descrive come EVP, Chief Administrative Officer e General Counsel. È stato usato il titolo del roster.",
+    "Hugh (Jack) J. Barger, III: il soprannome 'Jack' fra parentesi è stato rimosso dal nome.",
+    "Iulian Gheorghe: il titolo 'Ph.D.' è stato rimosso dal nome come da regole di normalizzazione.",
+    "Nessun direttore o dirigente risulta detenere oltre il 5% delle azioni, quindi nel blocco dei >5% compaiono solo i quattro grandi azionisti istituzionali.",
+    "Nella tabella proprietà non ci sono righe di subtotale o aggregazione da escludere dal blocco dei >5%."
+  ]
+}

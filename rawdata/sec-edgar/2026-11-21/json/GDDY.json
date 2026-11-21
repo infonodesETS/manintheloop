@@ -1,0 +1,365 @@
+{
+  "company": "GoDaddy Inc.",
+  "ticker": "GDDY",
+  "cik": "0001609711",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-04-24",
+    "accession": "0001609711-26-000030",
+    "meeting": null,
+    "ownership_as_of": "2026-04-07",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1609711/000160971126000030/gddy-20260423.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "Aman Bhutani",
+      "roles": [
+        "Chief Executive Officer",
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Brian Sharples",
+      "roles": [
+        "Board Chair"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Herald Chen",
+      "roles": [
+        "Director",
+        "Audit and Risk Committee Member"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Caroline Donahue",
+      "roles": [
+        "Director",
+        "Nominating and Governance Committee Chair",
+        "Compensation and Human Capital Committee Member"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Mark Garrett",
+      "roles": [
+        "Director",
+        "Audit and Risk Committee Chair"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Graham Smith",
+      "roles": [
+        "Director",
+        "Audit and Risk Committee Member",
+        "Compensation and Human Capital Committee Member"
+      ],
+      "director_since": "2024",
+      "independent": true
+    },
+    {
+      "name": "Leah Sweet",
+      "roles": [
+        "Director",
+        "Compensation and Human Capital Committee Chair",
+        "Nominating and Governance Committee Member"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Srini Tallapragada",
+      "roles": [
+        "Director",
+        "Nominating and Governance Committee Member"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Sigal Zarmi",
+      "roles": [
+        "Director",
+        "Audit and Risk Committee Member"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit and Risk Committee",
+      "members": [
+        "Mark Garrett",
+        "Herald Chen",
+        "Graham Smith",
+        "Sigal Zarmi"
+      ],
+      "chair": "Mark Garrett",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Caroline Donahue",
+        "Leah Sweet",
+        "Srini Tallapragada"
+      ],
+      "chair": "Caroline Donahue",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation and Human Capital Committee",
+      "members": [
+        "Leah Sweet",
+        "Caroline Donahue",
+        "Graham Smith"
+      ],
+      "chair": "Leah Sweet",
+      "meetings": 5,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "Aman Bhutani",
+      "age": 50,
+      "positions": [
+        "Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Mark McCaffrey",
+      "age": 60,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Roger Chen",
+      "age": 55,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    },
+    {
+      "name": "Jared Sine",
+      "age": 47,
+      "positions": [
+        "Chief Strategy and Legal Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-04-07",
+    "note": "Quote calcolate su 132.696.893 azioni in circolazione al 7 aprile 2026. '*' indica meno dell'1%. Il numero di azioni comprende le azioni emettibili entro 60 giorni tramite equity award (nota 1).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "Entities affiliated with Vanguard",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 18912812,
+            "pct": 14.3
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-30",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "Entities affiliated with BlackRock",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 14230205,
+            "pct": 10.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-11-07",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Aman Bhutani",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 734091,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Herald Chen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 18657,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Roger Chen",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 266354,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Caroline Donahue",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 21384,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark Garrett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 22364,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark McCaffrey",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 83875,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Brian Sharples",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 19957,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jared Sine",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 44348,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Graham Smith",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 3342,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Leah Sweet",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 11449,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Srini Tallapragada",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 6458,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Sigal Zarmi",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Class A Common Stock",
+            "shares": 6058,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Class A Common Stock",
+          "shares": 1238337,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La data e l'ora dell'assemblea (DATE AND TIME) risultano vuote nel testo fornito: meeting impostato a null.",
+    "Aman Bhutani compare sia fra i direttori sia fra i dirigenti: incluso in entrambi i blocchi; il documento rimanda la sua biografia alla sezione Director Nominees. Non è indicato come indipendente.",
+    "Il testo parla di 'common stock', ma l'intestazione della tabella di proprietà dice 'Class A Common Stock': il nome di classe è stato riportato come nella tabella.",
+    "Vanguard: il Schedule 13G/A del 2025-10-30 è segnalato come superato da un riallineamento interno (efficace dal 12 gennaio 2026, deposito del 26 marzo 2026) che disaggrega la titolarità fra le sussidiarie; il dato 18.912.812 azioni (14,3%) è quello del deposito citato e può non essere attuale né riferibile al solo soggetto Vanguard Group, Inc.",
+    "BlackRock: il dato deriva dal Schedule 13G/A del 2024-11-07, quindi più datato rispetto alla data della tabella (2026-04-07).",
+    "Le appartenenze ai comitati sono ricavate dalle liste 'Members' sotto ciascun comitato e dal riepilogo testuale, non dalla matrice (appiattita nel testo, senza posizioni di colonna leggibili); le riunioni sono riportate separatamente per ciascun comitato, senza somme.",
+    "Il documento indica che fino a giugno 2025 Leah Sweet era presidente del Nominating and Governance Committee e Herald Chen presidente del Compensation Committee; la composizione riportata è quella attuale. Nessun direttore risulta uscito dal consiglio alla data del documento.",
+    "Nella tabella di proprietà i numeri dei singoli dirigenti e direttori includono azioni emettibili entro 60 giorni tramite equity award (es. 319.288 per Aman Bhutani, 11.415 per Roger Chen, 352.745 per il gruppo); queste quote non sono separate nel campo shares."
+  ]
+}

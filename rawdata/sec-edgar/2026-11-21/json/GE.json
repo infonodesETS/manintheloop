@@ -1,0 +1,476 @@
+{
+  "company": "General Electric Company",
+  "ticker": "GE",
+  "cik": "0000040545",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-12",
+    "accession": "0000040545-26-000018",
+    "meeting": "2026 Annual Meeting",
+    "ownership_as_of": "2025-12-31",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000018/ge-20260312.htm",
+    "executive_officers_source": {
+      "form": "10-K",
+      "filed": "2026-01-29",
+      "accession": "0000040545-26-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/ge-20251231.htm",
+      "as_of": "2026-01-29"
+    }
+  },
+  "board_of_directors": [
+    {
+      "name": "Sébastien Bazin",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2016",
+      "independent": true
+    },
+    {
+      "name": "Margaret Billson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Wesley Bush",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2025-12",
+      "independent": true
+    },
+    {
+      "name": "H. Lawrence Culp, Jr.",
+      "roles": [
+        "Chairman of the Board",
+        "Chief Executive Officer"
+      ],
+      "director_since": "2018",
+      "independent": false
+    },
+    {
+      "name": "Edward Garden",
+      "roles": [
+        "Director (non ricandidato all'assemblea 2026)"
+      ],
+      "director_since": null,
+      "independent": true
+    },
+    {
+      "name": "Thomas Enders",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Isabella Goren",
+      "roles": [
+        "Director",
+        "Chair, Audit Committee"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Thomas Horton",
+      "roles": [
+        "Lead Director",
+        "Chair, Governance & Public Affairs Committee"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Catherine Lesjak",
+      "roles": [
+        "Director",
+        "Chair, Management Development & Compensation Committee"
+      ],
+      "director_since": "2019",
+      "independent": true
+    },
+    {
+      "name": "Darren McDew",
+      "roles": [
+        "Director",
+        "Chair, Classified Programs Committee"
+      ],
+      "director_since": "2023",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Isabella Goren",
+        "Wesley Bush",
+        "Edward Garden",
+        "Catherine Lesjak",
+        "Darren McDew"
+      ],
+      "chair": "Isabella Goren",
+      "meetings": 9,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Governance & Public Affairs Committee",
+      "members": [
+        "Thomas Horton",
+        "Sébastien Bazin",
+        "Margaret Billson",
+        "Darren McDew"
+      ],
+      "chair": "Thomas Horton",
+      "meetings": 4,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Management Development & Compensation Committee",
+      "members": [
+        "Catherine Lesjak",
+        "Sébastien Bazin",
+        "Thomas Enders",
+        "Edward Garden"
+      ],
+      "chair": "Catherine Lesjak",
+      "meetings": 5,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Classified Programs Committee",
+      "members": [
+        "Darren McDew",
+        "Wesley Bush",
+        "H. Lawrence Culp, Jr.",
+        "Thomas Horton"
+      ],
+      "chair": "Darren McDew",
+      "meetings": 1,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "H. Lawrence Culp, Jr.",
+      "age": 62,
+      "positions": [
+        "Chairman of the Board & Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "Rahul Ghai",
+      "age": 54,
+      "positions": [
+        "Senior Vice President & Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Mohamed Ali",
+      "age": 56,
+      "positions": [
+        "Senior Vice President & Chief Technology & Operations Officer"
+      ]
+    },
+    {
+      "name": "Christian Meisner",
+      "age": 56,
+      "positions": [
+        "Senior Vice President & Chief Human Resources Officer"
+      ]
+    },
+    {
+      "name": "John R. Phillips III",
+      "age": 48,
+      "positions": [
+        "Senior Vice President, General Counsel & Secretary"
+      ]
+    },
+    {
+      "name": "Russell Stokes",
+      "age": 54,
+      "positions": [
+        "Senior Vice President & CEO, Commercial Engines & Services"
+      ]
+    },
+    {
+      "name": "Amy Gowder",
+      "age": 50,
+      "positions": [
+        "Senior Vice President & CEO, Defense & Systems"
+      ]
+    },
+    {
+      "name": "Ricardo Procacci",
+      "age": 58,
+      "positions": [
+        "Senior Vice President & CEO, Propulsion & Additive Technologies"
+      ]
+    },
+    {
+      "name": "Robert Giglietti",
+      "age": 55,
+      "positions": [
+        "Vice President, Chief Accounting Officer, Controller and Treasurer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2025-12-31",
+    "note": "Dati al 31 dicembre 2025. * = meno dell'1% (nella tabella dei direttori); ** = meno dell'1% della classe. Le azioni dei direttori non includono DSU, Phantom Units, RSU non regolate né RSU vested ma differite, come da nota della tabella. Il documento non indica una percentuale di voto (pct_of_votes).",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "The Vanguard Group",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 88439179,
+            "pct": 8.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-13",
+        "address": "100 Vanguard Blvd., Malvern, PA 19355"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 82447476,
+            "pct": 7.9
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-01-31",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Fidelity Management & Research",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 66923455,
+            "pct": 6.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2024-02-09",
+        "address": "245 Summer Street, Boston, MA 02210"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Sébastien Bazin",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Margaret Billson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Wesley Bush",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 972,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Enders",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward Garden",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1082,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Isabella Goren",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Thomas Horton",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8078,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Catherine Lesjak",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1172,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Darren McDew",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "H. Lawrence Culp, Jr.",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 1612480,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Rahul Ghai",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 140216,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Russell Stokes",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 659867,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mohamed Ali",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 48480,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John Phillips III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7685,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 16,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 1964879,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "La sezione committees è assente come finestra dedicata: l'appartenenza ai comitati è stata letta dalla finestra board (tabelle e prosa sui comitati).",
+    "La sezione executives è assente nel documento: executive_officers è vuota e non è stata ricostruita dalle biografie.",
+    "Il ticker GE non compare nel testo fornito: valore inserito come da identificativo dell'azienda, non dal documento.",
+    "Edward Garden non è ricandidato all'assemblea 2026 ma risulta ancora fra i membri dei comitati alla data del proxy: incluso fra i direttori in carica. La data di inizio mandato non è indicata (director_since null). Il documento lo definisce 'former director' nella parte sull'indipendenza: stato da verificare.",
+    "Stephen Angel è indicato come ex direttore (former director) e non incluso fra i direttori in carica; data di uscita non indicata nel testo fornito.",
+    "Margaret Billson ha fatto parte dell'Audit Committee fino al dicembre 2025: esclusa dai membri correnti di quel comitato.",
+    "Catherine Lesjak è stata presidente del Governance Committee fino al dicembre 2025: la presidenza attuale del Governance & Public Affairs Committee è di Thomas Horton.",
+    "Wesley Bush è stato eletto nel consiglio con efficacia a dicembre 2025: director_since indicato come 2025-12.",
+    "H. Lawrence Culp, Jr. non è indipendente e siede nel Classified Programs Committee: il documento precisa che è l'unico membro non indipendente dei comitati. Incluso come da documento, ma viola il sanity check 1.",
+    "Il Classified Programs Committee è stato istituito a giugno 2025; riunioni: 1 nel 2025.",
+    "Riga 'Total' della tabella direttori (11.304 azioni) non è un detentore: non inclusa nei blocchi, riportata qui.",
+    "Riga 'Total' della tabella dirigenti con nome (2.468.728 azioni) è un subtotale: non inclusa come detentore.",
+    "Riga 'Total 22.7%' dei detentori oltre il 5% è un subtotale (somma delle tre percentuali): non inclusa come detentore.",
+    "Riga di gruppo dichiara 16 persone, ma nel blocco named_executive_officers_and_directors compaiono 14 nomi: il documento non elenca nominativamente tutte le 16 persone.",
+    "Le percentuali dei detentori oltre il 5% sono riportate come dichiarate nella tabella (8,4%, 7,9%, 6,4%).",
+    "Il documento riporta Fidelity come 'Fidelity Management & Research' e lo classifica come entità; le fonti 13G/A sono datate 2024-02-09 (Fidelity), 2024-02-13 (Vanguard) e 2025-01-31 (BlackRock), come riportato nella nota della tabella.",
+    "Tutte le azioni di direttori e dirigenti sono riportate come 'Common Stock', classe non esplicitamente denominata nella tabella ma indicata come 'our common stock'.",
+    "Il documento non indica una percentuale di voto (pct_of_votes) per nessun detentore.",
+    "executive_officers presi dal Form 10-K del 2026-01-29: il DEF 14A non li elenca.",
+    "10-K: Mohamed Ali: a partire dal 1° febbraio 2026 assumerà la carica di Senior Vice President & CEO, Commercial Engines & Services; l'elenco riporta la carica attuale alla data del 29 gennaio 2026.",
+    "10-K: Russell Stokes: il documento indica che prevede di ritirarsi a luglio 2026; la sua carica è riportata come attuale alla data dell'elenco.",
+    "10-K: Il documento rinvia al proxy statement 2026 per le altre informazioni su direttori e governance; eventuali dirigenti o direttori non elencati lì non sono stati estratti."
+  ]
+}

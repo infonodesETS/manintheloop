@@ -1,0 +1,338 @@
+{
+  "company": "VSE Corporation",
+  "ticker": "VSEC",
+  "cik": "0000102752",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-03-24",
+    "accession": "0000102752-26-000023",
+    "meeting": "Annual Meeting of Stockholders, 2026-05-07",
+    "ownership_as_of": "2026-03-10",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/102752/000010275226000023/vsec-20260324.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "John A. Cuomo",
+      "roles": [
+        "Chief Executive Officer",
+        "President",
+        "Director"
+      ],
+      "director_since": "2019",
+      "independent": false
+    },
+    {
+      "name": "Anita D. Britt",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Edward P. Dolanski",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Ralph E. Eberhart",
+      "roles": [
+        "Chair of the Board",
+        "Director"
+      ],
+      "director_since": "2007",
+      "independent": true
+    },
+    {
+      "name": "Mark E. Ferguson III",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Lloyd E. Johnson",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "John E. Potter",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "2014",
+      "independent": true
+    },
+    {
+      "name": "Bonnie K. Wachtel",
+      "roles": [
+        "Director"
+      ],
+      "director_since": "1991",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Anita D. Britt",
+        "Edward P. Dolanski",
+        "Mark E. Ferguson III",
+        "Bonnie K. Wachtel"
+      ],
+      "chair": "Anita D. Britt",
+      "meetings": 3,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Compensation Committee",
+      "members": [
+        "John E. Potter",
+        "Anita D. Britt",
+        "Edward P. Dolanski",
+        "Lloyd E. Johnson"
+      ],
+      "chair": "John E. Potter",
+      "meetings": 6,
+      "meetings_year": "2025"
+    },
+    {
+      "name": "Nominating and Corporate Governance Committee",
+      "members": [
+        "Mark E. Ferguson III",
+        "Lloyd E. Johnson",
+        "John E. Potter",
+        "Bonnie K. Wachtel"
+      ],
+      "chair": "Mark E. Ferguson III",
+      "meetings": 3,
+      "meetings_year": "2025"
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "John A. Cuomo",
+      "age": 52,
+      "positions": [
+        "Chief Executive Officer and President",
+        "Director"
+      ]
+    },
+    {
+      "name": "Adam R. Cohn",
+      "age": 39,
+      "positions": [
+        "Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Benjamin E. Thomas",
+      "age": 42,
+      "positions": [
+        "Chief Operating Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-03-10",
+    "note": "Percentuali calcolate su 28.055.393 azioni in circolazione alla record date del 10 marzo 2026. * = meno dell'1%. La tabella non fornisce una colonna separata per la percentuale di voto.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "T. Rowe Price Investment Management, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 2518084,
+            "pct": 9.0
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2026-02-17",
+        "address": "1307 Point Street, Baltimore, MD 21231"
+      },
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 1720403,
+            "pct": 6.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G/A filed 2025-10-17",
+        "address": "50 Hudson Yards, New York, NY 10001"
+      },
+      {
+        "name": "Durable Capital Partners LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 1619763,
+            "pct": 5.8
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-02-10",
+        "address": "4747 Bethesda Avenue, Suite 1002, Bethesda, Maryland 20814"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "Ralph E. Eberhart",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 47325,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Anita D. Britt",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 4582,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Edward P. Dolanski",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 8844,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Mark E. Ferguson III",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 17286,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lloyd E. Johnson",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 7451,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John E. Potter",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 25382,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Bonnie K. Wachtel",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 138534,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "John A. Cuomo",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 187037,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Adam R. Cohn",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 11818,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Benjamin E. Thomas",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Stock",
+            "shares": 49339,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 10,
+      "classes": [
+        {
+          "class": "Stock",
+          "shares": 497598,
+          "pct": 1.8
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Sezione committees assente nel documento: l'appartenenza ai comitati è stata letta dalla tabella 'Board Committees and Membership' nella finestra board.",
+    "Il generale Ralph E. Eberhart è membro ex-officio di Audit, Compensation e Nominating and Corporate Governance secondo la nota (1) della tabella; non è incluso nelle liste dei membri perché il testo elenca come membri solo i direttori con voto pieno.",
+    "Il nome del comitato di compensation compare come 'Compensation and Human Resources Committee' nel testo e nelle biografie e come 'Compensation Committee' nella tabella e nella sezione governance; è stato usato 'Compensation Committee'.",
+    "John A. Cuomo è sia CEO sia direttore: compare in board_of_directors (independent false), executive_officers e named_executive_officers_and_directors.",
+    "Il documento non dichiara uscite dal consiglio: tutti gli otto nominee sono in carica, nessun direttore in uscita è stato escluso.",
+    "La classe di azioni è indicata nel documento come 'Stock' (nessuna classe separata dichiarata); usato 'Stock' in tutti i blocchi.",
+    "Le quote di Mark E. Ferguson III (17.286 azioni) sono detenute in un trust account; holder_type è 'person' perché il nome è di una persona fisica, ma la titolarità è indiretta.",
+    "Le 138.534 azioni di Bonnie K. Wachtel includono 1.000 azioni detenute in un conto pensionistico (retirement account).",
+    "La riga di gruppo dichiara 10 persone; le righe named_executive_officers_and_directors sono 10: coerente.",
+    "Adam R. Cohn compare come 'Adam Cohn' nella tabella ownership; è stata usata la forma completa dal roster dirigenti.",
+    "Le percentuali delle righe individuali sono '*' (meno dell'1%) e sono state riportate come null; la percentuale del gruppo (1.8%) è riportata come dichiarata."
+  ]
+}

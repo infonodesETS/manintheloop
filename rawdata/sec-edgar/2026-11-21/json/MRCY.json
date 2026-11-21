@@ -1,0 +1,414 @@
+{
+  "company": "Mercury Systems, Inc.",
+  "ticker": "MRCY",
+  "cik": "0001049521",
+  "filing": {
+    "form": "DEF 14A",
+    "filed": "2026-09-17",
+    "accession": "0001049521-26-000077",
+    "meeting": "2026-10-28",
+    "ownership_as_of": "2026-09-01",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1049521/000104952126000077/mrcy-20260917.htm"
+  },
+  "board_of_directors": [
+    {
+      "name": "William L. Ballhaus",
+      "roles": [
+        "Chairman of the Board",
+        "President and Chief Executive Officer",
+        "Class I Director"
+      ],
+      "director_since": "2022",
+      "independent": false
+    },
+    {
+      "name": "Jean Bua",
+      "roles": [
+        "Class II Director (nominee for term ending 2029)"
+      ],
+      "director_since": "2025",
+      "independent": true
+    },
+    {
+      "name": "Orlando P. Carvalho",
+      "roles": [
+        "Class III Director"
+      ],
+      "director_since": "2020",
+      "independent": true
+    },
+    {
+      "name": "Gerard J. DeMuro",
+      "roles": [
+        "Class II Director (nominee for term ending 2029)"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Lisa S. Disbrow",
+      "roles": [
+        "Class I Director"
+      ],
+      "director_since": "2017",
+      "independent": true
+    },
+    {
+      "name": "Howard L. Lance",
+      "roles": [
+        "Class I Director"
+      ],
+      "director_since": "2022",
+      "independent": true
+    },
+    {
+      "name": "Barry R. Nearhos",
+      "roles": [
+        "Class III Director",
+        "Lead Independent Director"
+      ],
+      "director_since": "2018",
+      "independent": true
+    },
+    {
+      "name": "Scott Ostfeld",
+      "roles": [
+        "Class II Director (nominee for term ending 2029)"
+      ],
+      "director_since": "2023",
+      "independent": true
+    },
+    {
+      "name": "Debora A. Plunkett",
+      "roles": [
+        "Class III Director"
+      ],
+      "director_since": "2021",
+      "independent": true
+    }
+  ],
+  "committees": [
+    {
+      "name": "Audit Committee",
+      "members": [
+        "Jean Bua",
+        "Lisa S. Disbrow",
+        "Barry R. Nearhos",
+        "Debora A. Plunkett"
+      ],
+      "chair": "Barry R. Nearhos",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Human Capital and Compensation Committee",
+      "members": [
+        "Orlando P. Carvalho",
+        "Lisa S. Disbrow",
+        "Howard L. Lance",
+        "Scott Ostfeld"
+      ],
+      "chair": "Howard L. Lance",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Nominating and Governance Committee",
+      "members": [
+        "Orlando P. Carvalho",
+        "Howard L. Lance",
+        "Barry R. Nearhos",
+        "Debora A. Plunkett"
+      ],
+      "chair": "Barry R. Nearhos",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "Government Relations Committee",
+      "members": [
+        "Jean Bua",
+        "Gerard J. DeMuro",
+        "Lisa S. Disbrow",
+        "Debora A. Plunkett"
+      ],
+      "chair": "Lisa S. Disbrow",
+      "meetings": null,
+      "meetings_year": null
+    },
+    {
+      "name": "M&A and Finance Committee",
+      "members": [
+        "Orlando P. Carvalho",
+        "Gerard J. DeMuro",
+        "Howard L. Lance",
+        "Scott Ostfeld"
+      ],
+      "chair": "Orlando P. Carvalho",
+      "meetings": null,
+      "meetings_year": null
+    }
+  ],
+  "executive_officers": [
+    {
+      "name": "William L. Ballhaus",
+      "age": 59,
+      "positions": [
+        "Chairman of the Board, President, and Chief Executive Officer"
+      ]
+    },
+    {
+      "name": "David E. Farnsworth",
+      "age": 66,
+      "positions": [
+        "Executive Vice President, Chief Financial Officer"
+      ]
+    },
+    {
+      "name": "Stuart H. Kupinsky",
+      "age": 58,
+      "positions": [
+        "Executive Vice President, Chief Legal Officer, and Corporate Secretary"
+      ]
+    },
+    {
+      "name": "Steven V. Ratner",
+      "age": 50,
+      "positions": [
+        "Executive Vice President, Chief Human Resources Officer"
+      ]
+    }
+  ],
+  "security_ownership": {
+    "as_of": "2026-09-01",
+    "note": "Percent of Class calcolata sulle azioni in circolazione alla record date del 2026-09-01 (60.863.586). '*' = meno dell'1%; '—' = zero.",
+    "greater_than_5pct_stockholders": [
+      {
+        "name": "BlackRock, Inc.",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 8619527,
+            "pct": 14.2
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-07-29, dati al 2026-06-30",
+        "address": "50 Hudson Yards, New York, New York 10001"
+      },
+      {
+        "name": "JANA Management Partners, LP",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 4114618,
+            "pct": 6.7
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13D filed 2026-03-04, dati al 2026-03-03",
+        "address": "888 7th Avenue, 24th Floor, New York, New York 10106"
+      },
+      {
+        "name": "State Street Corporation",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3865719,
+            "pct": 6.4
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-05-12, dati al 2026-03-31",
+        "address": "1 Congress Street, Suite 1, Boston, MA 02114"
+      },
+      {
+        "name": "Vanguard Portfolio Management LLC",
+        "holder_type": "entity",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 3086142,
+            "pct": 5.1
+          }
+        ],
+        "pct_of_votes": null,
+        "source": "Schedule 13G filed 2026-07-31, dati al 2026-06-30",
+        "address": "100 Vanguard Boulevard, Malvern, PA 19355"
+      }
+    ],
+    "named_executive_officers_and_directors": [
+      {
+        "name": "William L. Ballhaus",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 323084,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Jean Bua",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 5089,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Orlando P. Carvalho",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 52448,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Gerard J. DeMuro",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 17481,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Lisa S. Disbrow",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 31236,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Howard L. Lance",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 27272,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Barry R. Nearhos",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 34994,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Scott Ostfeld",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 0,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Debora A. Plunkett",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 16833,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "David E. Farnsworth",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 58852,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Stuart H. Kupinsky",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 26047,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      },
+      {
+        "name": "Steven V. Ratner",
+        "holder_type": "person",
+        "classes": [
+          {
+            "class": "Common Stock",
+            "shares": 7970,
+            "pct": null
+          }
+        ],
+        "pct_of_votes": null
+      }
+    ],
+    "all_executive_officers_and_directors_as_group": {
+      "persons": 12,
+      "classes": [
+        {
+          "class": "Common Stock",
+          "shares": 601306,
+          "pct": null
+        }
+      ],
+      "pct_of_votes": null
+    }
+  },
+  "warnings": [
+    "Board: nessun direttore in uscita o già dimessosi alla data del documento; tutti e nove i direttori sono inclusi. Jean Bua, Gerard J. DeMuro e Scott Ostfeld sono nominee di Classe II per il mandato che termina nel 2029.",
+    "Committees: il documento non riporta il numero di riunioni per singolo comitato; 'meetings' è null per tutti. Il dato 'Board Meetings Held During Fiscal 2026: 9' si riferisce al consiglio e non è stato attribuito ad alcun comitato.",
+    "Committees: la tabella Committee Memberships è appiattita e le celle sono ambigue per posizione in alcune righe (Bua, Disbrow, Plunkett). L'attribuzione ai comitati è stata verificata incrociando la matrice con le biografie dei direttori; per Plunkett le tre 'M' sono state attribuite ad Audit, Nominating and Governance e Government Relations secondo la biografia.",
+    "Committees: Disbrow è membro del Audit Committee come financial expert ('M,F'); Bua è membro del Audit Committee come financial expert ('M,F'); Nearhos è Chair dell'Audit Committee e financial expert.",
+    "Ownership: Scott Ostfeld è Managing Partner di JANA Partners; le azioni di JANA Management Partners, LP (4.114.618) sono riportate solo nel blocco dei >5% come entità e non sono attribuite a Ostfeld, che nella propria riga ha zero azioni individuali (nota 9 del documento).",
+    "Ownership: nella riga di gruppo il valore di percentuale è riportato come '*%' (verosimilmente meno dell'1%); pct impostato a null.",
+    "Ownership: la nota dei 13G della tabella riporta 'Black Rock, Inc.'; nel nome è usata la forma della tabella 'BlackRock, Inc.'.",
+    "Ownership: il documento non indica la percentuale di voto (pct_of_votes) per nessun detentore; tutti i campi pct_of_votes sono null.",
+    "Ownership: le tabelle del management includono le unità (RSU, PSU, deferred stock units) solo quando vestano entro 60 giorni; i valori riportati sono quelli della colonna 'Number of Shares Beneficially Owned'.",
+    "Executive officers: il nome di Steven V. Ratner è preso dal roster ('Steven V. Ratner'); la biografia lo riporta come 'Steve V. Ratner'.",
+    "Executive officers: Ballhaus compare sia tra i direttori sia tra gli executive officer, come previsto dal documento; è incluso in entrambi i blocchi."
+  ]
+}
