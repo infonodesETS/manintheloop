@@ -21277,7 +21277,11 @@
      ],
      "pct_of_votes": null,
      "source": "Schedule 13G/A filed 2024-02-09",
-     "address": "Leonardo US Holding LLC: 1235 South Clark Street, Suite 700, Arlington, VA 22202; Leonardo S.p.A.: Piazza Monte Grappa n.4, 00195 Rome, Italy"
+     "address": "Leonardo US Holding LLC: 1235 South Clark Street, Suite 700, Arlington, VA 22202; Leonardo S.p.A.: Piazza Monte Grappa n.4, 00195 Rome, Italy",
+     "joint_holders": [
+      "Leonardo S.p.A.",
+      "Leonardo US Holding LLC"
+     ]
     }
    ],
    "named_executive_officers_and_directors": [
@@ -56990,18 +56994,22 @@
    "note": "Percentuali calcolate su 598.989.428 azioni di Common Stock in circolazione al 31 gennaio 2026; le quote includono opzioni e RSU esercitabili/assegnabili entro 60 giorni. * = meno dell'1%.",
    "greater_than_5pct_stockholders": [
     {
-     "name": "Charles Liang",
+     "name": "Charles Liang & Sara Liu",
      "holder_type": "person",
      "classes": [
       {
        "class": "Common Stock",
-       "shares": 81398640,
-       "pct": null
+       "shares": 82084339,
+       "pct": 13.4
       }
      ],
      "pct_of_votes": null,
      "source": null,
-     "address": "980 Rock Avenue, San Jose, CA 95131"
+     "address": "980 Rock Avenue, San Jose, CA 95131",
+     "joint_holders": [
+      "Charles Liang",
+      "Sara Liu"
+     ]
     },
     {
      "name": "BlackRock, Inc.",
@@ -57043,7 +57051,11 @@
        "pct": 13.4
       }
      ],
-     "pct_of_votes": null
+     "pct_of_votes": null,
+     "joint_holders": [
+      "Charles Liang",
+      "Sara Liu"
+     ]
     },
     {
      "name": "Don Clegg",
@@ -57188,7 +57200,7 @@
    "Comitati: Compensation Committee e Nominating and Corporate Governance Committee (chiamato 'Governance Committee' nel documento) sono riportati con il nome ufficiale completo. Le riunioni (70, 14, 9) sono dell'esercizio 2025 e riguardano ciascun comitato separatamente.",
    "Lead independent director: Scott Angel nominato a gennaio 2026 per un anno; il ruolo è riportato fra i suoi incarichi di consiglio.",
    "George Kao: il documento indica che si è ritirato il 31 dicembre 2025 e non è più un dirigente in carica; non è incluso in executive_officers, né nel gruppo dei dirigenti/direttori, ma compare nella tabella NEO e direttori con le sue quote al 31 gennaio 2026, come da documento.",
-   "Charles Liang e Sara Liu: la riga congiunta 'Charles Liang & Sara Liu' (82.084.339 azioni, 13,4%) è riportata come nel documento nel blocco NEO e direttori. Charles Liang supera il 5% individualmente: nel blocco dei >5% è inserito con le quote individuali ricavate dalla nota (40.426.120 sue, 25.672.520 congiunte, 15.300.000 opzioni esercitabili), per un totale di 81.398.640; la percentuale individuale non è dichiarata nel documento e viene lasciata null. Sara Liu, individualmente pari a circa 26.358.219 azioni (ca. 4,4%), non supera il 5% e non è inclusa nel blocco dei >5%.",
+   "Charles Liang & Sara Liu è una posizione congiunta (82.084.339 azioni, 13,4%) con una sola riga in tabella. Non sono state ricostruite le quote individuali dalle note (40.426.120 a nome di Liang, 607.399 di Liu, 25.672.520 in comune). La riga compare sia nel blocco dei NEO/direttori sia in quello dei detentori oltre il 5%, perché supera il 5%.",
    "Riga di aggregazione: il documento riporta 'Total executive officers, directors & 5% or more stockholders' pari al 34,5%; è un totale aggregato e non è stato inserito fra i detentori.",
    "BlackRock, Inc.: secondo il documento ha potere di voto esclusivo su 38.386.020 azioni (distinto dal potere di disposizione esclusivo di 41.338.350 azioni, quest'ultimo riportato in classes). Il valore di voto non è previsto dallo schema.",
    "Gruppo dirigenti e direttori: il documento non dichiara un numero di persone ('N persons'); persons è null. Dalla composizione dei direttori (9) e dei dirigenti non direttori in carica (Weigand, Clegg, Xiao) il totale implicito sarebbe 12, ma questo conteggio non è dichiarato nel documento.",
