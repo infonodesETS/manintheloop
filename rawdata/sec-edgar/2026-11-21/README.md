@@ -34,8 +34,9 @@ Cosa non cambia: le estrazioni delle altre 159 aziende sono quelle del 17 ottobr
 <a id="importare"></a>
 ## Come si importa
 
-Per chi ha già importato la release del 18 ottobre e aggiunge solo righe nuove:
+Per chi ha già importato la release del 18 ottobre:
 
+- **Con lo script del progetto** (`scripts/import_sec_ownership.py` nel repo Man in the Loop) si rilancia l'import con `--release 2026-11-21`, prima senza `--apply`. Lo script riconosce le quote già importate dalla chiave (titolare, azienda, classe), non dalla posizione della riga: aggiorna i valori cambiati tenendo quelli vecchi in `history[]` e segna come non correnti le righe scomparse. La prova del 21 novembre 2026, senza `--apply` su una copia del database di quel giorno, dà 2 quote nuove (Charles Liang e Sara Liu in SMCI, con due persone nuove) e nessuna quota cambiata. Per i ruoli di Liang e Liu servono tre diciture che non sono nella tabella dei ruoli rivista a mano; altri 47 ruoli risultano cambiati solo nel riferimento alla fonte, che porta il nome della release.
 - **`righe-cambiate.csv`** ha tre colonne: `file`, `esito` (`tolta` o `aggiunta`) e `riga`, la riga intera in JSON con le colonne del suo file. Una riga corretta compare come tolta, e la sua versione nuova come aggiunta: più di una riga, se è stata divisa per titolare (la riga di Liang del 18 ottobre è tolta, quelle di Liang e di Liu sono aggiunte). Le righe `tolta` si riconoscono confrontando tutte le colonne con la release del 18 ottobre, perché i CSV non hanno una chiave di riga.
 - **`riga_documento`** non è una chiave stabile: è `<ticker>-oltre5-<n>`, `<ticker>-quote-<n>` o `<ticker>-gruppo`, dove `n` è la posizione della riga nella tabella del proxy. Dentro una release identifica la riga del documento; fra una release e l'altra può cambiare, quindi non va usato per riconoscere le righe già importate.
 - Le colonne di prima sono tutte al loro posto: `riga_documento` è l'ultima, e chi non la usa può ignorarla.
