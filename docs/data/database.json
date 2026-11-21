@@ -40303,6 +40303,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1518015). label='Jiangxi Copper Company Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of Jiangxi Copper Company Limited: A shares, ticker 600362 on the Shanghai Stock Exchange (iShares PICK). Sibling entity IN-0184 is the Hong Kong-listed H shares (ticker 358); same issuer and Wikidata ID Q1518015, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -40575,6 +40581,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q1518015). label='Jiangxi Copper Company Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of Jiangxi Copper Company Limited: Hong Kong-listed H shares, ticker 358 (iShares PICK). Sibling entity IN-0183 is the A shares (600362, Shanghai Stock Exchange); same issuer and Wikidata ID Q1518015, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
