@@ -30135,6 +30135,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q60238941). label='Fox Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Fox Corporation: Class A common stock, ticker FOXA on Nasdaq (iShares IXP). Sibling entity IN-0136 is the Class B common stock (FOX); same issuer and Wikidata ID Q60238941, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -30316,6 +30322,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q60238941). label='Fox Corporation'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of Fox Corporation: Class B common stock, ticker FOX on Nasdaq (iShares IXP). Sibling entity IN-0135 is the Class A common stock (FOXA); same issuer and Wikidata ID Q60238941, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
