@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-20",
+  "_updated": "2026-11-21",
   "entities": [
     {
       "id": "IN-0001",
@@ -6667,9 +6667,10 @@
       "id": "IN-0033",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
-      "name": "Applied Material",
+      "name": "Applied Materials",
       "sector": null,
       "wikidata_id": "Q621610",
       "sources": {
@@ -6848,6 +6849,86 @@
           "old": null,
           "new": "sources.wikidata populated (Q621610)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q621610)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q621610, country=United States",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Applied Material",
+          "new_value": "Applied Materials",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IV-0032 (Applied Materials)."
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0032",
+          "note": "Unita IV-0032 (Applied Materials) in questa entita. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "nome del vincitore: 'Applied Material' -> 'Applied Materials'",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Applied Materials",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -6917,6 +6998,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q621610). label='Applied Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0032 (Applied Materials) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -18848,6 +18935,7 @@
       "id": "IN-0088",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
       "name": "Cisco Systems",
@@ -19037,6 +19125,76 @@
           "old": null,
           "new": "sources.wikidata populated (Q173395)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q173395)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0121"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q173395, country=United States",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0121"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q173395)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q173395)",
+          "from_entity": "IV-0121"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q173395)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q173395)",
+          "from_entity": "IV-0121"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q173395)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q173395)",
+          "from_entity": "IV-0121"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0121",
+          "note": "Unita IV-0121 (Cisco) in questa entita. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0121 'Cisco' was created from a Crunchbase top_investors list; both cards carry QID Q173395 (ISIN US17275R1023). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins and keeps the name Cisco Systems.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Cisco",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -19100,6 +19258,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q173395). label='Cisco'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0121 (Cisco) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -70092,6 +70256,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q6721006)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -70148,6 +70319,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q6721006). label='Maaden'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-1307 (Ma’aden). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "canonical": "IN-1307",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -129848,12 +130026,12 @@
       "roles": [
         "manufacturer"
       ],
-      "name": "Elliniki Aeroporiki Viomichania Anonymi Etaireia",
+      "name": "Hellenic Aerospace Industry",
       "sector": null,
       "wikidata_id": "Q838397",
       "sources": {
         "edf": {
-          "extracted_at": "2026-04-01",
+          "extracted_at": "2026-10-19",
           "pic": "999975232",
           "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/999975232",
           "activity_type": "Private for profit organisation",
@@ -129963,6 +130141,153 @@
           "old": null,
           "new": "sources.wikidata populated (Q838397)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q838397)"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from EDF calls data: PIC 999975232, 4 projects, €4,219,081 EU contribution",
+          "from_entity": "IN-1428"
+        },
+        {
+          "date": "2026-06-17",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 999975232, 4 projects, €4,219,081 EU contribution",
+          "from_entity": "IN-1428"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q838397",
+          "description": "wikidata_id set via search: label='Hellenic Aerospace Industry', description='company'. Search name used: 'Hellenic Aerospace Industry'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-1428"
+        },
+        {
+          "date": "2026-06-18",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q838397)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q838397)",
+          "from_entity": "IN-1428"
+        },
+        {
+          "date": "2026-10-19",
+          "source": "edf",
+          "author": "build_edf_entities.py",
+          "field": "sources.edf",
+          "old": null,
+          "new": null,
+          "description": "EDF participant data added: PIC 999975232, 4 projects, €4,219,081 EU contribution",
+          "from_entity": "IN-1428"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Elliniki Aeroporiki Viomichania Anonymi Etaireia",
+          "new_value": "Hellenic Aerospace Industry",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IN-1428 (Hellenic Aerospace Industry)."
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-1428",
+          "note": "Unita IN-1428 (Hellenic Aerospace Industry) in questa entita. Motivo: Same legal entity: both cards carry EDF PIC 999975232 (legal name HELLENIC AEROSPACE INDUSTRY SOCIETE ANONYME, Athina) and the same Wikidata QID Q838397; IN-1428 was created again by build_edf_entities.py on 2026-06-03 without recognising IN-0642, so the 4 edf_participation relationships (EDF-0017, EDF-0022, EDF-0025, EDF-0058, same roles and EU contributions) were duplicated. The raw data (rawdata/edf_calls.json) has the PIC once per project. IN-0642 is the original card (2026-04-01) and keeps the website; its name is corrected from the Greek transliteration to the English name used by the PIC and Wikidata.",
+          "absorbed": [
+            "sources.edf: tenuto il blocco piu recente del perdente (2026-10-19 contro 2026-04-01), il precedente conservato in history",
+            "sources.wikidata: blocco del perdente diverso, conservato in history",
+            "nome del vincitore: 'Elliniki Aeroporiki Viomichania Anonymi Etaireia' -> 'Hellenic Aerospace Industry'",
+            "relazioni: 4 identiche a quelle del vincitore, tolte e conservate in history"
+          ],
+          "loser_name": "Hellenic Aerospace Industry",
+          "preserved": {
+            "sources.edf (versione precedente del vincitore)": {
+              "extracted_at": "2026-04-01",
+              "pic": "999975232",
+              "eu_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/999975232",
+              "activity_type": "Private for profit organisation",
+              "type_code": "PRC",
+              "sme": false,
+              "country": "Greece",
+              "country_code": "EL",
+              "city": "ATHINA",
+              "web_link": "www.haicorp.com",
+              "total_eu_contribution": 4219080.83,
+              "project_count": 4,
+              "call_count": 4,
+              "coordinator_count": 0,
+              "source_file": "edf_calls.json"
+            },
+            "sources.wikidata": {
+              "retrieved_at": "2026-06-18",
+              "label": "Hellenic Aerospace Industry",
+              "description": "company",
+              "aliases": [
+                "Elliniki Aeroporiki Viomichania",
+                "ΕΑΒ"
+              ],
+              "instance_of": [
+                "business"
+              ],
+              "country": "Greece",
+              "inception": "1975-01-01",
+              "headquarters": "Tanagra",
+              "official_website": "http://www.haicorp.com",
+              "isin": null,
+              "employees": null,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Hellenic%20Aerospace%20Industry"
+            },
+            "relationships_dropped": [
+              {
+                "source": "IN-1428",
+                "target": "EDF-0017",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1234960.0,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1428",
+                "target": "EDF-0022",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1189462.5,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1428",
+                "target": "EDF-0025",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 1141858.33,
+                "created_at": "2026-06-03"
+              },
+              {
+                "source": "IN-1428",
+                "target": "EDF-0058",
+                "type": "edf_participation",
+                "role": "participant",
+                "eu_contribution": 652800.0,
+                "created_at": "2026-06-03"
+              }
+            ]
+          }
         }
       ],
       "validation": [
@@ -130007,6 +130332,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q838397). label='Hellenic Aerospace Industry'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IN-1428 (Hellenic Aerospace Industry) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -248059,7 +248390,21 @@
       "sector": "Mining",
       "wikidata_id": "Q6721006",
       "sources": {
-        "ishares": null,
+        "ishares": [
+          {
+            "extracted_at": "2026-04-01",
+            "etf_name": "iShares MSCI Global Metals & Mining Producers ETF",
+            "etf_ticker": "PICK",
+            "gics_code": "151040",
+            "stock_ticker": "1211",
+            "stock_sector": "Materials",
+            "weight_pct": 1.63,
+            "location": "Saudi Arabia",
+            "exchange": "Saudi Stock Exchange",
+            "currency": "USD",
+            "source_file": "ishares_metals_mining_gics151040.csv"
+          }
+        ],
         "edf": null,
         "crunchbase": {
           "extracted_at": "2026-04-13",
@@ -248117,7 +248462,7 @@
           "tax_id": "1010164391 (CR Number)",
           "main_focus": "Phosphate (Fertilizer), Aluminum, and Gold.",
           "wikipedia_url": "https://en.wikipedia.org/wiki/Maaden",
-          "website": null
+          "website": "https://www.maaden.com.sa/"
         },
         "wikidata": {
           "retrieved_at": "2026-06-03",
@@ -248365,6 +248710,154 @@
               }
             ]
           }
+        },
+        {
+          "date": "2026-04-01",
+          "source": "ishares",
+          "author": "build_database.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Initial import from iShares MSCI Global Metals & Mining Producers ETF (GICS 151040, ishares_metals_mining_gics151040.csv)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "search_missing_qids.py",
+          "field": "wikidata_id",
+          "old": null,
+          "new": "Q6721006",
+          "description": "wikidata_id set via search: label='Maaden', description='Saudi mining company'. Search name used: 'Saudi Arabian Mining'. Human-reviewed via qid_candidates.json before applying.",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-12",
+          "source": "wikidata",
+          "author": "fetch_wikidata_websites.py",
+          "field": "sources.infonodes.website",
+          "old": null,
+          "new": "https://www.maaden.com.sa/",
+          "description": "Official website (P856) fetched from Wikidata (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-04-13",
+          "source": "crunchbase",
+          "author": "import_crunchbase_csv.py",
+          "field": "sources.crunchbase",
+          "old": null,
+          "new": "extracted_at=2026-04-13, source=crunchbase-export-matches-csv-4-13-2026.csv",
+          "description": "sources.crunchbase populated from crunchbase-export-matches-csv-4-13-2026.csv",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q6721006)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q6721006)",
+          "from_entity": "IN-0319"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IN-0319",
+          "note": "Unita IN-0319 (Saudi Arabian Mining) in questa entita. Motivo: Same legal entity: IN-0319 'Saudi Arabian Mining' is the iShares entry (PICK, ticker 1211, Saudi Stock Exchange) of the Saudi Arabian Mining Company (Ma'aden); both cards carry QID Q6721006 (ISIN SA123GA0ITH7), the same Crunchbase headquarters (Riyadh) and the same website maaden.com.sa. IN-1307 is the richer card (CR number, sector, earlier merges of IV-0377 and IV-0730) and keeps the name Ma'aden. The two Crunchbase profiles (ma-aden, saudi-arabian-mining-company) describe the same company; the richer ma-aden profile is kept.",
+          "absorbed": [
+            "sources.ishares: +1 voci (PICK/1211)",
+            "ATTENZIONE crunchbase: profili diversi (https://www.crunchbase.com/organization/ma-aden contro https://www.crunchbase.com/organization/saudi-arabian-mining-company): tenuto quello del vincitore, l'altro conservato in history; DA DECIDERE a mano",
+            "sources.crunchbase: blocco del perdente diverso, conservato in history",
+            "sources.infonodes.website copiato dal perdente",
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Saudi Arabian Mining",
+          "preserved": {
+            "sources.crunchbase": {
+              "extracted_at": "2026-04-13",
+              "source_file": "crunchbase-export-matches-csv-4-13-2026.csv",
+              "profile_url": "https://www.crunchbase.com/organization/saudi-arabian-mining-company",
+              "stage": "",
+              "description": "Saudi Arabian mining company is mining and metals company that explores for and produces a diversified portfolio of minerals and metals.",
+              "description_full": null,
+              "website": "https://www.maaden.com",
+              "cb_rank": 202451,
+              "headquarters": "Riyadh, Ar Riyad, Saudi Arabia",
+              "headquarters_regions": "Europe, Middle East, and Africa (EMEA), Gulf Cooperation Council (GCC), Middle East",
+              "operating_status": "Active",
+              "founded_date": "1997-01-01",
+              "company_type": "For Profit",
+              "investment_stage": null,
+              "investor_type": "",
+              "primary_industry": null,
+              "primary_industry_url": null,
+              "industry_groups": [
+                "Natural Resources",
+                "Sustainability"
+              ],
+              "industries": [
+                "Mining",
+                "Natural Resources",
+                "Precious Metals"
+              ],
+              "founders": [],
+              "num_funding_rounds": null,
+              "funding_status": null,
+              "last_funding_date": null,
+              "last_funding_amount_usd": null,
+              "last_funding_type": null,
+              "total_equity_funding_usd": null,
+              "total_funding_usd": null,
+              "total_funding_native": null,
+              "top_investors": [],
+              "num_investors": null,
+              "revenue_range": null,
+              "patents_granted": null,
+              "domain": null,
+              "acquired_by": null,
+              "acquired_by_url": null,
+              "board": []
+            },
+            "sources.infonodes": {
+              "extracted_at": "2026-04-12"
+            }
+          }
         }
       ],
       "validation": [
@@ -248433,6 +248926,19 @@
           "description": "Entity IV-0730 (Ma’aden) merged into this one on 2026-11-15 and left as a retired entity.",
           "author": "merge_entities.py",
           "datestamp": "2026-11-15"
+        },
+        {
+          "status": "website_enriched",
+          "description": "Official website added from Wikidata P856 (official website property)",
+          "author": "fetch_wikidata_websites.py",
+          "datestamp": "2026-04-12",
+          "from_entity": "IN-0319"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IN-0319 (Saudi Arabian Mining) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -264570,6 +265076,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q621610)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q621610)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0033 (Applied Materials). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "canonical": "IN-0033",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -264609,6 +265122,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q621610). label='Applied Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0033 (Applied Materials). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "canonical": "IN-0033",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -271280,6 +271800,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q173395)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q173395)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0088 (Cisco Systems). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0121 'Cisco' was created from a Crunchbase top_investors list; both cards carry QID Q173395 (ISIN US17275R1023). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins and keeps the name Cisco Systems.",
+          "canonical": "IN-0088",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -271319,6 +271846,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q173395). label='Cisco'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0088 (Cisco Systems). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0121 'Cisco' was created from a Crunchbase top_investors list; both cards carry QID Q173395 (ISIN US17275R1023). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins and keeps the name Cisco Systems.",
+          "canonical": "IN-0088",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -320507,6 +321041,13 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 999975232, 4 projects, €4,219,081 EU contribution"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0642 (Hellenic Aerospace Industry). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: both cards carry EDF PIC 999975232 (legal name HELLENIC AEROSPACE INDUSTRY SOCIETE ANONYME, Athina) and the same Wikidata QID Q838397; IN-1428 was created again by build_edf_entities.py on 2026-06-03 without recognising IN-0642, so the 4 edf_participation relationships (EDF-0017, EDF-0022, EDF-0025, EDF-0058, same roles and EU contributions) were duplicated. The raw data (rawdata/edf_calls.json) has the PIC once per project. IN-0642 is the original card (2026-04-01) and keeps the website; its name is corrected from the Greek transliteration to the English name used by the PIC and Wikidata.",
+          "canonical": "IN-0642",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -320527,6 +321068,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q838397). label='Hellenic Aerospace Industry'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-18"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0642 (Hellenic Aerospace Industry). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Same legal entity: both cards carry EDF PIC 999975232 (legal name HELLENIC AEROSPACE INDUSTRY SOCIETE ANONYME, Athina) and the same Wikidata QID Q838397; IN-1428 was created again by build_edf_entities.py on 2026-06-03 without recognising IN-0642, so the 4 edf_participation relationships (EDF-0017, EDF-0022, EDF-0025, EDF-0058, same roles and EU contributions) were duplicated. The raw data (rawdata/edf_calls.json) has the PIC once per project. IN-0642 is the original card (2026-04-01) and keeps the website; its name is corrected from the Greek transliteration to the English name used by the PIC and Wikidata.",
+          "canonical": "IN-0642",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -350894,11 +351442,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0032",
+      "source": "IN-0033",
       "target": "IN-0051",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0032 -> IN-0033 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0045",
@@ -353688,11 +354243,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0121",
+      "source": "IN-0088",
       "target": "IN-0405",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0121 -> IN-0088 (merge)"
+        }
+      ]
     },
     {
       "source": "IN-0339",
@@ -371364,30 +371926,6 @@
       "created_at": "2026-06-03"
     },
     {
-      "source": "IN-1428",
-      "target": "EDF-0017",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1234960.0,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1428",
-      "target": "EDF-0022",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1189462.5,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1428",
-      "target": "EDF-0025",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 1141858.33,
-      "created_at": "2026-06-03"
-    },
-    {
       "source": "IN-1415",
       "target": "EDF-0041",
       "type": "edf_participation",
@@ -371425,14 +371963,6 @@
       "type": "edf_participation",
       "role": "participant",
       "eu_contribution": 1339557.04,
-      "created_at": "2026-06-03"
-    },
-    {
-      "source": "IN-1428",
-      "target": "EDF-0058",
-      "type": "edf_participation",
-      "role": "participant",
-      "eu_contribution": 652800.0,
       "created_at": "2026-06-03"
     },
     {
@@ -381636,7 +382166,7 @@
     {
       "id": "REL-0240",
       "type": "ownership",
-      "source": "IN-0319",
+      "source": "IN-1307",
       "target": "IN-0178",
       "classe": "Common Stock",
       "holder_type": "company",
@@ -381650,7 +382180,18 @@
       "current": true,
       "source_ref": "2026-10-17/detentori-oltre-5.csv#251",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IN-0319 -> IN-1307 (merge)",
+          "release": null,
+          "source_ref": "scripts/merge_entities.py",
+          "field": "source",
+          "old": "IN-0319",
+          "new": "IN-1307"
+        }
+      ]
     },
     {
       "id": "REL-0241",
