@@ -18,7 +18,7 @@
 
 1. Leggi questo file, poi la tabella «Stato di avanzamento» in fondo.
 2. Trova il **primo task non completato** (colonna Stato ☐ o ◐), in ordine di fase. Non saltare task, non anticipare task distruttivi o verso l'esterno.
-3. Riassumi a Nelson in 5-8 righe: dove siamo, qual è il prossimo task, cosa serve da lui. Poi **fermati e aspetta**.
+3. Riferisci a Nelson le due parti della sezione «Avvio della sessione» di `STATUS.md` (regola di Nelson, 2026-11-21): (1) riepilogo del piano di riorganizzazione, (2) blocco di ripartenza con le cose da fare e cosa serve da lui. Poi **fermati e aspetta**.
 4. Il hook di avvio (`.claude/session-status.sh`) fa `git fetch` e `git pull --ff-only`. Se segnala un branch divergente, **non risolverlo da solo**: riferiscilo e proponi.
 5. Se `inbox/` contiene file, proponi dove spostarli (non spostare prima dell'ok).
 
@@ -70,7 +70,7 @@ Si esegue **prima di `/clear`, prima di uscire e prima di cambiare lavoro**, olt
 
 1. **Log** (`reference/LOG-RIORGANIZZAZIONE.md`): l'ultimo task c'è, con branch, commit, controlli e aperti.
 2. **Piano**: «Stato di avanzamento» e «Registro» riportano ogni PR fusa dall'ultima voce (confronto: `git log --merges --format='%h %ad %s' --date=short`); la riga della fase corrente ha data e stato veri.
-3. **`STATUS.md`**: «Dove siamo» e «Prossimi lavori» riscritti (non accumulati); le voci finite sono sparite da lì e sono nel log.
+3. **`STATUS.md`**: «Riepilogo del piano» e «Ripartenza» (le due fonti dell'avvio) aggiornati; «Dove siamo» e «Prossimi lavori» riscritti (non accumulati); le voci finite sono sparite da lì e sono nel log.
 4. **Git**: working tree pulito; `main` locale uguale a `origin/main`; nessun branch creato dall'AI con commit non pushati senza averlo detto a Nelson.
 5. **Aperti**: l'elenco di ciò che resta (decisioni di Nelson, casi aperti) è in `STATUS.md`, non solo in chat.
 
