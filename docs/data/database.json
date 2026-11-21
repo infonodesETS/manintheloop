@@ -144327,6 +144327,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q127380521). label='Helsing'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "qid_restored",
+          "description": "QID Q127380521 checked and kept on IN-0723 Helsing GmbH. Decisive evidence: the item carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368', München; the legal name of EDF PIC 890415866 is 'HELSING GMBH'. It confirms the manual decision of 2026-04-23. The QID was removed from IN-0724 Helsing Germany GmbH (HRB 229885, subsidiary). Weak point: the item also describes the group (P31 includes group of companies; Wikipedia articles about the Helsing group), and since April 2026 Helsing GmbH is controlled by Helsing SE (HRB 135822, Frankfurt am Main, domination agreement per registercheck), which has no card in the database; no source places PIC 890415866 next to HRB 264368 (the link rests on the identical legal name).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21",
+          "wikidata_id": "Q127380521"
         }
       ],
       "tags": []
