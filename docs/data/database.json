@@ -75453,6 +75453,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q54075). label='SSAB'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of SSAB AB: A shares, ticker SSAB A on Nasdaq Stockholm (iShares PICK). Sibling entity IN-0344 is the B shares (SSAB B); same issuer and Wikidata ID Q54075, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -75710,6 +75716,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q54075). label='SSAB'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Share class variant of SSAB AB: B shares, ticker SSAB B on Nasdaq Stockholm (iShares PICK). Sibling entity IN-0343 is the A shares (SSAB A); same issuer and Wikidata ID Q54075, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
