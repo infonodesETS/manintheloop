@@ -144324,6 +144324,20 @@
           "old": null,
           "new": null,
           "description": "EDF participant data added: PIC 890415866, 1 projects, €255,686 EU contribution"
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_in",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0642"
+          ],
+          "other_entity": "IN-0724",
+          "description": "1 investment relationship(s) moved from IN-0724: Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
         }
       ],
       "validation": [
@@ -144412,6 +144426,12 @@
           "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
           "datestamp": "2026-11-21",
           "wikidata_id": "Q127380521"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_in): IV-0642. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -144658,6 +144678,82 @@
           },
           "new": null,
           "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_removed",
+          "field": "relationships",
+          "old": [
+            {
+              "source": "IV-0006",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0064",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0228",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": true
+              }
+            },
+            {
+              "source": "IV-0246",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            },
+            {
+              "source": "IV-0354",
+              "target": "IN-0724",
+              "type": "investment",
+              "source_ref": "legacy_db_migration",
+              "created_at": "2026-04-22",
+              "details": {
+                "lead": false
+              }
+            }
+          ],
+          "new": null,
+          "other_entity": "IN-0723",
+          "description": "5 investment relationship(s) removed: each duplicates a relationship already on IN-0723 (same source, type investment); full copies in old, details not on IN-0723 copied there. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_move_relationships.py",
+          "action": "relationships_moved_out",
+          "field": "relationships",
+          "old": null,
+          "new": null,
+          "relationship_sources": [
+            "IV-0642"
+          ],
+          "other_entity": "IN-0723",
+          "description": "1 investment relationship(s) moved to IN-0723: Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
         }
       ],
       "validation": [
@@ -144728,6 +144824,18 @@
           "cb_url_removed": "https://www.crunchbase.com/organization/helsing-munich",
           "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history.",
           "author": "patch_clear_crunchbase.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "relationships_removed",
+          "description": "Duplicate investment relationships removed (full copies in history): IV-0006, IV-0064, IV-0228, IV-0246, IV-0354; kept on IN-0723. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "confirmed",
+          "description": "Relationships moved (relationships_moved_out): IV-0642. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723.",
+          "author": "patch_move_relationships.py",
           "datestamp": "2026-11-21"
         }
       ],
@@ -357832,64 +357940,21 @@
       }
     },
     {
-      "source": "IV-0228",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": true
-      }
-    },
-    {
-      "source": "IV-0354",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0006",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0064",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
-      "source": "IV-0246",
-      "target": "IN-0724",
-      "type": "investment",
-      "source_ref": "legacy_db_migration",
-      "created_at": "2026-04-22",
-      "details": {
-        "lead": false
-      }
-    },
-    {
       "source": "IV-0642",
-      "target": "IN-0724",
+      "target": "IN-0723",
       "type": "investment",
       "source_ref": "legacy_db_migration",
       "created_at": "2026-04-22",
       "details": {
         "lead": true
-      }
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Target moved: IN-0724 -> IN-0723. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0501",
@@ -371600,35 +371665,85 @@
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0006 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0228",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": true
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0228 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": true}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0354",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0354 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0064",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0064 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IV-0246",
       "target": "IN-0723",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "details": {
+        "lead": false
+      },
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "patch_move_relationships.py",
+          "description": "Duplicate IV-0246 -> IN-0724 (source_ref legacy_db_migration, created_at 2026-04-22) removed; details added from it: {\"lead\": false}. Helsing Germany GmbH (HRB 229885) is a wholly owned subsidiary of Helsing GmbH (IN-0723). These investors funded the Helsing group, whose Crunchbase profile (legal name Helsing GmbH, live page checked on 2026-11-21: Prima Materia led the Series A of 2021 and the Series D of 2025) belongs on IN-0723. The relationships came from the legacy database (source_ref legacy_db_migration, 2026-04-22); five of them duplicate relationships already on IN-0723."
+        }
+      ]
     },
     {
       "source": "IN-1329",
