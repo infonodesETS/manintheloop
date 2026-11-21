@@ -5,7 +5,10 @@ add_validation.py - aggiunge UNA voce a validation[] di UNA entita, senza cambia
 Serve per registrare una revisione fatta da una persona (per esempio un field_conflict esaminato):
 la voce e append-only e non tocca valori, history, relazioni, altre entita. Dry-run di default.
 
-Stati ammessi (UPDATE_PROTOCOL.md, tabella degli stati): confirmed, bad_crunchbase_match, qid_restored.
+Stati ammessi (UPDATE_PROTOCOL.md, tabella degli stati): confirmed, bad_crunchbase_match, qid_restored,
+share_class_variant.
+`share_class_variant` (2026-11-21) marca una scheda che e una classe di azioni o una quotazione distinta della
+stessa societa (S3 R5): il testo nomina gli ID fratelli; nessun dato cambia e nulla si unisce (S3 R1).
 `qid_restored` (2026-11-19) registra che un wikidata_id tolto e poi rimesso e stato verificato e resta: richiede
 --wikidata-id uguale al wikidata_id attuale della scheda, e scrive il campo `wikidata_id` nella voce (lo leggono
 il controllo 12 di validate.py e search_missing_qids.py). Non cambia il wikidata_id.
@@ -21,7 +24,7 @@ import argparse, json, sys
 from datetime import date
 
 TODAY = date.today().isoformat()
-STATI = ("confirmed", "bad_crunchbase_match", "qid_restored")
+STATI = ("confirmed", "bad_crunchbase_match", "qid_restored", "share_class_variant")
 
 
 def main():
