@@ -36,6 +36,7 @@ LAV = RAIZ / "work/b5-release1"
 OUT = LAV / "dry-run"
 ISO = re.compile(r"\d{4}-\d{2}-\d{2}")
 CAMPI_VALORI = ("pct", "pct_voti", "shares", "as_of", "as_of_origine", "filing_date")
+CAMPI_RUOLI = ("roles", "as_of", "as_of_origine")   # source_ref no: cambia a ogni release anche a ruoli invariati (come per le quote)
 MESI = {m: i for i, m in enumerate("january february march april may june july august september october november december".split(), 1)}
 MESI.update({m: i for i, m in enumerate("gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre".split(), 1)})
 MESI.update({"aug": 8, "sept": 9, "sep": 9, "jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6, "jul": 7, "oct": 10, "nov": 11, "dec": 12})
@@ -352,6 +353,8 @@ def main():
             blocchi.append(f"scheda {target} ritirata o inesistente")
         if r["tipo"] != "person" and not source:
             blocchi.append(blocco)
+        elif source and not source.startswith("TMP-") and (source in ritirate or source not in ents):
+            blocchi.append(f"titolare {source} ritirato o inesistente")
         if blocchi:
             esito.append({**base, "esito": "bloccata", "motivo": "; ".join(blocchi)})
             continue
@@ -421,7 +424,8 @@ def main():
     visti_r = {(x["source"], x["target"]) for x in ruoli_rel}
     r_nuove = [x for x in ruoli_rel if (x["source"], x["target"]) not in esistenti_r]
     r_cambiate = [(esistenti_r[(x["source"], x["target"])], x) for x in ruoli_rel if (x["source"], x["target"]) in esistenti_r
-                  and any(esistenti_r[(x["source"], x["target"])].get(f) != x[f] for f in ("roles", "source_ref", "as_of", "as_of_origine"))]
+                  and (any(esistenti_r[(x["source"], x["target"])].get(f) != x[f] for f in CAMPI_RUOLI)
+                       or esistenti_r[(x["source"], x["target"])].get("current") is not True)]
     r_scomparse = [r for r in db["relationships"] if r.get("type") == "role" and r.get("current") is True
                    and (r["source"], r["target"]) not in visti_r]
     ruoli = {"nuove": r_nuove, "cambiate": r_cambiate, "scomparse": r_scomparse, "mancanti": ruoli_manc}
