@@ -79260,6 +79260,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q963101). label='Tata Steel'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Tata Steel Limited: ordinary shares, ticker TATASTEEL on the National Stock Exchange of India (iShares PICK). Sibling entity IN-0360 is the global depositary receipt (TTST, London Stock Exchange); same issuer and Wikidata ID Q963101, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -79524,6 +79530,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q963101). label='Tata Steel'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Tata Steel Limited: global depositary receipt, ticker TTST on the London Stock Exchange (iShares PICK). Sibling entity IN-0359 is the ordinary shares (TATASTEEL, National Stock Exchange of India); same issuer and Wikidata ID Q963101, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
