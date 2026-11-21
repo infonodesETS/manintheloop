@@ -144444,51 +144444,7 @@
           "source_file": "edf_calls.json"
         },
         "ishares": null,
-        "crunchbase": {
-          "extracted_at": "2026-04-24",
-          "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
-          "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
-          "stage": "",
-          "description": "Helsing Munich is a an information technology company.",
-          "description_full": null,
-          "website": "https://www.helsing.ai",
-          "cb_rank": 378156,
-          "headquarters": "Munich, Bayern, Germany",
-          "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
-          "operating_status": "Active",
-          "founded_date": "2021-01-01",
-          "company_type": "For Profit",
-          "investment_stage": null,
-          "investor_type": "",
-          "primary_industry": null,
-          "primary_industry_url": null,
-          "industry_groups": [
-            "Information Technology"
-          ],
-          "industries": [
-            "Information Technology"
-          ],
-          "founders": [
-            "Niklas Köhler",
-            "Torsten Reil"
-          ],
-          "num_funding_rounds": null,
-          "funding_status": null,
-          "last_funding_date": null,
-          "last_funding_amount_usd": null,
-          "last_funding_type": null,
-          "total_equity_funding_usd": null,
-          "total_funding_usd": null,
-          "total_funding_native": null,
-          "top_investors": [],
-          "num_investors": null,
-          "revenue_range": null,
-          "patents_granted": null,
-          "domain": null,
-          "acquired_by": null,
-          "acquired_by_url": null,
-          "board": []
-        },
+        "crunchbase": null,
         "infonodes": {
           "extracted_at": "2026-04-12",
           "sector": null,
@@ -144649,6 +144605,59 @@
             "employees": null,
             "wikipedia_url": "https://en.wikipedia.org/wiki/Helsing%20%28company%29"
           }
+        },
+        {
+          "date": "2026-11-21",
+          "source": "manual",
+          "author": "patch_clear_crunchbase.py",
+          "field": "sources.crunchbase",
+          "old": {
+            "extracted_at": "2026-04-24",
+            "source_file": "companies-no-cb-2026-04-24-csv-4-24-2026-matches.csv",
+            "profile_url": "https://www.crunchbase.com/organization/helsing-munich",
+            "stage": "",
+            "description": "Helsing Munich is a an information technology company.",
+            "description_full": null,
+            "website": "https://www.helsing.ai",
+            "cb_rank": 378156,
+            "headquarters": "Munich, Bayern, Germany",
+            "headquarters_regions": "European Union (EU), Europe, Middle East, and Africa (EMEA)",
+            "operating_status": "Active",
+            "founded_date": "2021-01-01",
+            "company_type": "For Profit",
+            "investment_stage": null,
+            "investor_type": "",
+            "primary_industry": null,
+            "primary_industry_url": null,
+            "industry_groups": [
+              "Information Technology"
+            ],
+            "industries": [
+              "Information Technology"
+            ],
+            "founders": [
+              "Niklas Köhler",
+              "Torsten Reil"
+            ],
+            "num_funding_rounds": null,
+            "funding_status": null,
+            "last_funding_date": null,
+            "last_funding_amount_usd": null,
+            "last_funding_type": null,
+            "total_equity_funding_usd": null,
+            "total_funding_usd": null,
+            "total_funding_native": null,
+            "top_investors": [],
+            "num_investors": null,
+            "revenue_range": null,
+            "patents_granted": null,
+            "domain": null,
+            "acquired_by": null,
+            "acquired_by_url": null,
+            "board": []
+          },
+          "new": null,
+          "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history."
         }
       ],
       "validation": [
@@ -144712,6 +144721,13 @@
           "wikidata_label": "Helsing",
           "description": "QID Q127380521 removed: on Wikidata it is 'Helsing'. Why the entity had it: set by search_missing_qids.py on 2026-04-12 (search name 'Helsing Germany'), removed by a manual patch on 2026-04-23 (QID moved to IN-0723 Helsing GmbH, IN-0724 is the subsidiary), set again on 2026-06-18 by search_missing_qids.py --apply from an older accepted candidate. The entity is: Helsing Germany GmbH (formerly Hellsicht GmbH, renamed 2022), Amtsgericht München HRB 229885, Mühldorfstr. 8, 81671 München, EDF PIC 892984620; shareholder Helsing GmbH (HRB 264368, 100%), which is controlled by Helsing SE (Frankfurt am Main, HRB 135822); the QID stays on IN-0723. No Wikidata item for Helsing Germany GmbH was found: a correct QID may not exist. Decisive evidence: Q127380521 carries LEI 391200QIYOWD36F0DU18, EU VAT DE343532716 and register ID DED2601V.HRB264368; GLEIF: LEI 391200QIYOWD36F0DU18 is 'Helsing GmbH', registeredAs 'HRB 264368' (München), the legal name of PIC 890415866 on IN-0723. Registercheck (Unternehmensregister data): 'Die Helsing Germany GmbH mit Sitz in München und Geschäftsanschrift Mühldorfstr. 8, 81671 München ist unter HRB 229885 im Handelsregister'; 'Firma geändert Hellsicht GmbH → Helsing Germany GmbH'; on Helsing GmbH: 'Helsing Germany GmbH HRB 229885 · München · aktiv 100 %'. Weak point: HRB 229885 and the 100% shareholding come only from registry aggregators (registercheck, northdata, online-handelsregister), not from the register itself; Helsing Germany GmbH has no LEI; both EDF PICs give Unterhaching as city while the registers give München.",
           "author": "patch_qid_removed.py",
+          "datestamp": "2026-11-21"
+        },
+        {
+          "status": "cb_wrong_entity",
+          "cb_url_removed": "https://www.crunchbase.com/organization/helsing-munich",
+          "description": "The Crunchbase profile helsing-munich (in the 2026-04-24 export 'Helsing Munich', CB rank 378,156, 1-10 employees, no funding data) was matched to this card only through the shared website helsing.ai (input row 'Helsing Germany GmbH, helsing.ai' of work/crunchbase/companies_no_cb_2026-04-24.csv). On 2026-11-21 the live Crunchbase page helsing-munich shows the same organization as helsing, legal name Helsing GmbH (card IN-0723); it does not describe Helsing Germany GmbH (HRB 229885, subsidiary). Removed here; the full block is kept in history.",
+          "author": "patch_clear_crunchbase.py",
           "datestamp": "2026-11-21"
         }
       ],
