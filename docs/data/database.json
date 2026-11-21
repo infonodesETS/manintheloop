@@ -33530,6 +33530,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q623591). label='Grupo México'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Listing variant of Grupo Mexico S.A.B. de C.V.: Series B shares, ticker GMEXICOB on the Bolsa Mexicana de Valores (iShares PICK). Sibling entity IN-1286 is the company card (Crunchbase, no iShares listing); same issuer and Wikidata ID Q623591, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -243034,6 +243040,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q623591). label='Grupo México'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Company card of Grupo Mexico S.A.B. de C.V. (Crunchbase, no iShares listing). Sibling entity IN-0151 is its Series B shares, ticker GMEXICOB on the Bolsa Mexicana de Valores (iShares PICK); same issuer and Wikidata ID Q623591, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
