@@ -6667,9 +6667,10 @@
       "id": "IN-0033",
       "type": "company",
       "roles": [
+        "investor",
         "manufacturer"
       ],
-      "name": "Applied Material",
+      "name": "Applied Materials",
       "sector": null,
       "wikidata_id": "Q621610",
       "sources": {
@@ -6848,6 +6849,86 @@
           "old": null,
           "new": "sources.wikidata populated (Q621610)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q621610)"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "crunchbase",
+          "author": "import_investors_crunchbase.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Investor entity created from crunchbase.top_investors reference",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-04-22",
+          "source": "wikidata",
+          "author": "import_investors_crunchbase.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "QID Q621610, country=United States",
+          "description": "Wikidata enrichment via SPARQL label search",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-05-07",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-05-14",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-06-03",
+          "source": "wikidata",
+          "author": "enrich_wikidata.py",
+          "field": "sources.wikidata",
+          "old": null,
+          "new": "sources.wikidata populated (Q621610)",
+          "description": "Wikidata entity data fetched via wbgetentities API (Q621610)",
+          "from_entity": "IV-0032"
+        },
+        {
+          "date": "2026-11-21",
+          "action": "field_corrected",
+          "field": "name",
+          "old_value": "Applied Material",
+          "new_value": "Applied Materials",
+          "author": "merge_entities.py",
+          "note": "Nome aggiornato in occasione dell'unione con IV-0032 (Applied Materials)."
+        },
+        {
+          "date": "2026-11-21",
+          "action": "dedup_decision",
+          "author": "merge_entities.py",
+          "field": "entity",
+          "old": null,
+          "new": "merged from IV-0032",
+          "note": "Unita IV-0032 (Applied Materials) in questa entita. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "absorbed": [
+            "sources.infonodes: 1 campi diversi conservati in history (extracted_at)",
+            "nome del vincitore: 'Applied Material' -> 'Applied Materials'",
+            "roles -> ['investor', 'manufacturer']",
+            "relazioni: 1 spostate sul vincitore"
+          ],
+          "loser_name": "Applied Materials",
+          "preserved": {
+            "sources.infonodes": {
+              "extracted_at": "2026-04-22"
+            }
+          }
         }
       ],
       "validation": [
@@ -6917,6 +6998,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q621610). label='Applied Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "merged_from",
+          "description": "Entity IV-0032 (Applied Materials) merged into this one on 2026-11-21 and left as a retired entity.",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -264912,6 +264999,13 @@
           "old": null,
           "new": "sources.wikidata populated (Q621610)",
           "description": "Wikidata entity data fetched via wbgetentities API (Q621610)"
+        },
+        {
+          "action": "entity_retired",
+          "note": "Duplicato di IN-0033 (Applied Materials). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "canonical": "IN-0033",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "validation": [
@@ -264951,6 +265045,13 @@
           "description": "sources.wikidata populated from Wikidata API (Q621610). label='Applied Materials'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "retired",
+          "description": "Duplicato di IN-0033 (Applied Materials). Unita il 2026-11-21: relazioni e dati spostati sul vincitore, contenuto originale conservato qui. Motivo: Dual-role entity, same legal entity (validation expected_iv_in_duplicate of 2026-04-23): IV-0032 'Applied Materials' was created from a Crunchbase top_investors list; both cards carry QID Q621610 (ISIN US0382221051). Rule of the dual-role merges (batches 4 and 5, 2026-11-15): the IN- card wins. The name of IN-0033 'Applied Material' (iShares truncation) is corrected to 'Applied Materials'.",
+          "canonical": "IN-0033",
+          "author": "merge_entities.py",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -351250,11 +351351,18 @@
       "created_at": "2026-04-22"
     },
     {
-      "source": "IV-0032",
+      "source": "IN-0033",
       "target": "IN-0051",
       "type": "investment",
       "source_ref": "crunchbase_top_investors",
-      "created_at": "2026-04-22"
+      "created_at": "2026-04-22",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "author": "merge_entities.py",
+          "description": "Entity reference redirected: IV-0032 -> IN-0033 (merge)"
+        }
+      ]
     },
     {
       "source": "IV-0045",
