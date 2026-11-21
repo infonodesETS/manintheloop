@@ -16,7 +16,7 @@ Aggiornalo dopo ogni sessione di lavoro. Per ogni voce: breve descrizione + prio
 ### 🚧 v.2026-c — Espansione del database con dati SEC  *(branch `v.2026-c`)*
 
 Nuove fonti (portale **SEC / EDGAR**) e nuovi tipi di dati. **Spec completa e schema:
-[`docs/dev-v2026c-sec.md`](docs/dev-v2026c-sec.md).**
+[`reference/dev-v2026c-sec.md`](reference/dev-v2026c-sec.md).**
 
 | Release | Cosa | Scadenza | Priorità |
 |---|---|---|---|
