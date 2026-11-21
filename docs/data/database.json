@@ -17814,6 +17814,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5099785). label='CMOC Group Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of CMOC Group Limited (listed in iShares as China Molybdenum A): A shares, ticker 603993 on the Shanghai Stock Exchange (iShares PICK). Sibling entity IN-0091 is the Hong Kong-listed shares (ticker 3993); same issuer and Wikidata ID Q5099785, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
@@ -20016,6 +20022,12 @@
           "description": "sources.wikidata populated from Wikidata API (Q5099785). label='CMOC Group Limited'",
           "author": "enrich_wikidata.py",
           "datestamp": "2026-06-03"
+        },
+        {
+          "status": "share_class_variant",
+          "description": "Exchange listing variant of CMOC Group Limited: Hong Kong-listed shares, ticker 3993 (iShares PICK). Sibling entity IN-0080 is the A shares (603993, Shanghai Stock Exchange, listed in iShares as China Molybdenum A); same issuer and Wikidata ID Q5099785, kept separate, no merge (S3 R1).",
+          "author": "nelsonmau (proposed by Claude, approved 2026-11-21)",
+          "datestamp": "2026-11-21"
         }
       ],
       "tags": []
