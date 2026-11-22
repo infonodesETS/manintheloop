@@ -35,7 +35,7 @@ DB = RAIZ / "docs/data/database.json"
 LAV = RAIZ / "work/b5-release1"
 OUT = LAV / "dry-run"
 ISO = re.compile(r"\d{4}-\d{2}-\d{2}")
-CAMPI_VALORI = ("pct", "pct_voti", "shares", "as_of", "as_of_origine", "filing_date")
+CAMPI_VALORI = ("pct", "pct_voti", "shares", "as_of", "as_of_origine", "filing_date", "riga_documento")
 CAMPI_RUOLI = ("roles", "as_of", "as_of_origine")   # source_ref no: cambia a ogni release anche a ruoli invariati (come per le quote)
 MESI = {m: i for i, m in enumerate("january february march april may june july august september october november december".split(), 1)}
 MESI.update({m: i for i, m in enumerate("gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre".split(), 1)})
@@ -198,7 +198,7 @@ def costruisci_ruoli(raw, release, per, scheda, quote_al, codici_fn):
     return rels, usi, mancanti, lette[0]
 
 
-def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli):
+def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli, cik_di, cik_agg):
     """Scrive nel database (solo con --apply). Si ferma prima di scrivere se qualcosa non torna."""
     if tot != righe_tot or cont.get("bloccata", 0) or dup or ruoli["mancanti"]:
         sys.exit(f"STOP: riconciliazione {tot}/{righe_tot}, bloccate {cont.get('bloccata', 0)}, chiavi duplicate {len(dup)}, "
@@ -209,6 +209,9 @@ def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, rig
         persona = e["prefisso"] == "PER"
         sec = {"release": a.release, "refs": [riga_di(n) for n in righe_di[eid]]}
         sec.update({k: e[k] for k in ("person_ids", "entity_ids") if k in e})
+        ciks = sorted({cik_di[p] for p in e.get("person_ids", []) if p in cik_di})
+        if ciks:
+            sec["ciks"] = ciks
         if persona:
             fonti = {"crunchbase": None, "infonodes": None, "wikidata": None, "sec": sec}
             tipo, desc = "person", f"Person added: holder of 5% or more of capital or votes in a SEC release {a.release} filing"
@@ -227,7 +230,7 @@ def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, rig
     for vecchio, nuovo_ in cambiate:     # S5 regola 2: il valore vecchio resta in history[]
         h = vecchio.setdefault("history", [])
         for f in CAMPI_VALORI + ("current",):
-            nv = True if f == "current" else nuovo_[f]
+            nv = True if f == "current" else nuovo_.get(f)
             if vecchio.get(f) != nv:
                 h.append({"date": oggi, "release": a.release, "source_ref": nuovo_["source_ref"], "field": f, "old": vecchio.get(f), "new": nv})
                 vecchio[f] = nv
@@ -236,6 +239,12 @@ def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, rig
         v.setdefault("history", []).append({"date": oggi, "release": a.release, "source_ref": v.get("source_ref"),
                                             "field": "current", "old": True, "new": False})
         v["current"] = False
+    for e, nuovi in cik_agg:             # CIK delle persone gia nel database (#23, #33), con la voce in history
+        sec = e["sources"]["sec"]
+        e.setdefault("history", []).append({"date": oggi, "source": "sec", "author": "import_sec_ownership.py", "field": "sources.sec.ciks",
+                                            "old": sec.get("ciks"), "new": nuovi,
+                                            "description": f"SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release {a.release}"})
+        sec["ciks"] = nuovi
     db["entities"].extend(nuove_schede)
     for vecchio, nuovo_ in ruoli["cambiate"]:     # S5 regola 2, anche per i ruoli
         h = vecchio.setdefault("history", [])
@@ -253,14 +262,14 @@ def applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, rig
         v["current"] = False
     db["relationships"].extend(rels)
     db["relationships"].extend(ruoli["nuove"])
-    if nuove_schede or rels or cambiate or scomparse or ruoli["nuove"] or ruoli["cambiate"] or ruoli["scomparse"]:
+    if nuove_schede or rels or cambiate or scomparse or ruoli["nuove"] or ruoli["cambiate"] or ruoli["scomparse"] or cik_agg:
         db["_updated"] = oggi
     with open(db_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(db, indent=2, ensure_ascii=False))
     riga = (f"apply {oggi}: {len(nuove_schede)} schede nuove ({sum(1 for e in nuove_schede if e['id'].startswith('PER'))} PER, "
             f"{sum(1 for e in nuove_schede if e['id'].startswith('IV'))} IV), {len(rels)} relazioni ownership, "
             f"{len(cambiate)} cambiate, {len(scomparse)} scomparse; ruoli: {len(ruoli['nuove'])} relazioni role nuove, "
-            f"{len(ruoli['cambiate'])} cambiate, {len(ruoli['scomparse'])} scomparse -> {db_path}")
+            f"{len(ruoli['cambiate'])} cambiate, {len(ruoli['scomparse'])} scomparse; CIK aggiunti a {len(cik_agg)} persone -> {db_path}")
     (out / "apply-report.md").write_text(riga + "\n", encoding="utf-8")
     print("\n" + riga)
     return 0
@@ -281,6 +290,8 @@ def main():
     oggi = datetime.date.today().isoformat()
     raw = RAIZ / "rawdata/sec-edgar" / a.release
     righe = leggi(raw / "detentori-oltre-5.csv")
+    n_riga_doc = collections.Counter(r.get("riga_documento") for r in righe if r.get("riga_documento"))
+    cik_di = {r["persona_id"]: r["cik"] for r in leggi(raw / "persone.csv") if r.get("cik")}   # vuoto se piu CIK non controllati
     aziende = {r["ticker"]: r for r in leggi(raw / "aziende.csv")}
     t_az = {r["ticker"]: r for r in leggi(LAV / "proposta-aziende.csv")}
     t_cl = {(r["ticker"], r["classe_nel_filing"]): r for r in leggi(LAV / "proposta-classi.csv")}
@@ -369,11 +380,13 @@ def main():
                "holder_type": htype, "pct": pct, "pct_voti": voti, "shares": az, "filing_date": filing,
                "as_of": as_of, "as_of_origine": orig, "release": a.release, "current": True,
                "source_ref": f"{a.release}/detentori-oltre-5.csv#{n}", "created_at": oggi, "history": []}
+        if n_riga_doc[r.get("riga_documento")] > 1:   # stessa riga del documento su piu righe: si conta una volta (SCHEMA.md)
+            rel["riga_documento"] = r["riga_documento"]
         k = (source, target, "ownership", r["classe"])
         viste.add(k)
         if k in esistenti:
             vecchio = esistenti[k]
-            uguale = all(vecchio.get(f) == rel[f] for f in CAMPI_VALORI) and vecchio.get("current") is True
+            uguale = all(vecchio.get(f) == rel.get(f) for f in CAMPI_VALORI) and vecchio.get("current") is True
             if not uguale:
                 cambiate.append((vecchio, rel))
             esito.append({**base, "esito": "gia nel DB (invariata)" if uguale else "gia nel DB (valori diversi: andrebbe in history)", "motivo": ""})
@@ -478,12 +491,25 @@ def main():
         print("  ruolo non risolto:", m)
     print(f"\nRe-import: relazioni cambiate {len(cambiate)}, scomparse dal file {len(scomparse)} (S5: report da guardare a mano)")
     for v, n_ in cambiate[:20]:
-        print("  cambiata:", v["source"], v["target"], v.get("classe"), {f: (v.get(f), n_[f]) for f in CAMPI_VALORI if v.get(f) != n_[f]})
+        print("  cambiata:", v["source"], v["target"], v.get("classe"), {f: (v.get(f), n_.get(f)) for f in CAMPI_VALORI if v.get(f) != n_.get(f)})
     for v in scomparse[:20]:
         print("  scomparsa:", v["source"], v["target"], v.get("classe"), v.get("source_ref"))
+    # CIK delle persone gia nel database: solo schede attive create dall'import (person_ids), solo se cambia
+    cik_agg = []
+    for e in db["entities"]:
+        sec = (e.get("sources") or {}).get("sec") or {}
+        if e["id"] in ritirate or not sec.get("person_ids"):
+            continue
+        nuovi = sorted({cik_di[p] for p in sec["person_ids"] if p in cik_di})
+        if nuovi and nuovi != sec.get("ciks"):
+            cik_agg.append((e, nuovi))
+    senza = [e["id"] for e in db["entities"] if e["id"] not in ritirate and ((e.get("sources") or {}).get("sec") or {}).get("person_ids")
+             and not any(p in cik_di for p in e["sources"]["sec"]["person_ids"])]
+    print(f"\nCIK delle persone: da aggiungere a {len(cik_agg)} schede gia nel database; senza CIK in persone.csv: {len(senza)} {senza}; "
+          f"persone nuove con CIK: {sum(1 for e in nuove.values() if any(p in cik_di for p in e.get('person_ids', [])))} su {sum(1 for i in nuove if i.startswith('PER'))}")
     if not a.apply:
         return 0
-    return applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli)
+    return applica(a, db, db_path, out, nuove, righe_di, rels, cambiate, scomparse, righe_tot, tot, cont, dup, oggi, ruoli, cik_di, cik_agg)
 
 
 if __name__ == "__main__":

@@ -464,6 +464,26 @@ def main():
                 continue
             seen.add(x)
             stack.extend(parent_of.get(x, ()))
+    # ownership rows from the same row of the source document (`riga_documento`, schema B1): same quantity per class,
+    # same voting share for the whole group; to sum, count one row per (release, riga_documento, classe)
+    gruppi = {}
+    for r in relationships:
+        if r.get("type") != "ownership" or "riga_documento" not in r:
+            continue
+        if not isinstance(r["riga_documento"], str) or not r["riga_documento"]:
+            bad(r, "riga_documento must be a non-empty string when present")
+            continue
+        gruppi.setdefault((r.get("release"), r["riga_documento"]), []).append(r)
+    for (rel_, rd), rs in gruppi.items():
+        if len({x.get("pct_voti") for x in rs}) > 1:
+            bad(rs[0], f"riga_documento {rd} ({rel_}): pct_voti differs inside the group")
+        per_classe = {}
+        for x in rs:
+            per_classe.setdefault(x.get("classe"), []).append(x)
+        for cl, xs in per_classe.items():
+            for f in ("target", "pct", "shares"):
+                if len({x.get(f) for x in xs}) > 1:
+                    bad(xs[0], f"riga_documento {rd} ({rel_}), classe {cl}: {f} differs inside the group")
     if new_errors:
         for m in new_errors[:30]:
             err(m)
@@ -485,6 +505,7 @@ def main():
                 yield from walk_keys(v)
 
     sec_errors = []
+    cik_di: dict[str, list[str]] = {}   # CIK of the person -> active cards (S7: one person, one card)
     for e in entities:
         sec = (e.get("sources") or {}).get("sec")
         if sec is None:
@@ -492,9 +513,20 @@ def main():
         if not isinstance(sec, dict):
             sec_errors.append(f"{e.get('id','?')}: sources.sec must be an object")
             continue
+        ciks = sec.get("ciks")
+        if ciks is not None:
+            if not isinstance(ciks, list) or not ciks or len(set(ciks)) != len(ciks) \
+                    or not all(isinstance(c, str) and re.fullmatch(r"\d{10}", c) for c in ciks):
+                sec_errors.append(f"{e.get('id','?')}: sources.sec.ciks must be a non-empty list of distinct 10-digit strings")
+            elif e.get("id") not in retired_ids:
+                for c in ciks:
+                    cik_di.setdefault(c, []).append(e["id"])
         bad_keys = {str(k).lower() for k in walk_keys(sec)} & FORBIDDEN_SEC_KEYS
         if bad_keys:
             sec_errors.append(f"{e.get('id','?')}: sources.sec contains address fields {sorted(bad_keys)} (S4: addresses stay out of the DB)")
+    for c, ids in sorted(cik_di.items()):
+        if len(ids) > 1:
+            sec_errors.append(f"CIK {c} on more than one active card {ids}: same person (manual check, S7)")
     for m in sec_errors:
         err(m)
         errors.append(m)
