@@ -1220,6 +1220,19 @@ function fmtPct(v) {
   return v == null ? null : Number(v).toLocaleString('en', { maximumFractionDigits: 2 }) + '%';
 }
 
+// righe della stessa riga del documento (`riga_documento`, SCHEMA.md): stessa quantita per classe, voti totali su tutte le classi
+let OWN_GROUPS = null;
+function ownGroup(rel) {
+  if (!rel.riga_documento) return [];
+  if (!OWN_GROUPS) {
+    OWN_GROUPS = {};
+    for (const r of (DB.relationships || [])) {
+      if (r.type === 'ownership' && r.riga_documento) (OWN_GROUPS[`${r.release}|${r.riga_documento}`] ||= []).push(r);
+    }
+  }
+  return OWN_GROUPS[`${rel.release}|${rel.riga_documento}`] || [];
+}
+
 function ownershipBody(list, side) {
   const sorted = [...list].sort((a, b) =>
     ((b.rel.pct ?? b.rel.pct_voti ?? -1) - (a.rel.pct ?? a.rel.pct_voti ?? -1)) ||
@@ -1231,7 +1244,11 @@ function ownershipBody(list, side) {
     const parts = [];
     if (rel.classe) parts.push(esc(rel.classe));
     if (rel.pct != null)      parts.push(`<strong>${esc(fmtPct(rel.pct))}</strong> of capital`);
-    if (rel.pct_voti != null) parts.push(`<strong>${esc(fmtPct(rel.pct_voti))}</strong> of votes`);
+    const group = ownGroup(rel);
+    const multiClass = new Set(group.map(r => r.classe)).size > 1;
+    if (rel.pct_voti != null) parts.push(`<strong>${esc(fmtPct(rel.pct_voti))}</strong> of votes${multiClass ? ' (all classes)' : ''}`);
+    const joint = group.filter(r => r.classe === rel.classe && r.source !== rel.source).map(r => ENTITY_MAP[r.source]?.name || r.source);
+    if (joint.length) parts.push(`joint position with ${esc(joint.join(', '))}, counted once`);
     if (rel.as_of) parts.push(`as of ${esc(rel.as_of)}${rel.as_of_origine ? ` (${ORIGIN[rel.as_of_origine] || esc(rel.as_of_origine)})` : ''}`);
     const name = other.id.startsWith('PER-')
       ? `<span class="cs-portfolio-name">${esc(other.name)}</span>`
