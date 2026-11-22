@@ -213,7 +213,8 @@ Added in B1 (decisions S1, S4, S7 in `reference/S1…S7`). **Reference to the so
 "sec": {
   "release": "2026-10-17",
   "refs": [{"file": "detentori-oltre-5.csv", "row": 12}],
-  "person_ids": ["P0551"]
+  "person_ids": ["P0551"],
+  "ciks": ["0001234567"]
 }
 ```
 
@@ -222,9 +223,10 @@ Added in B1 (decisions S1, S4, S7 in `reference/S1…S7`). **Reference to the so
 | `release` | Release date of the SEC data set (`rawdata/sec-edgar/<release>/`) |
 | `refs` | One entry per source row used to create or update the entity: file and row |
 | `person_ids` | `PER-` entities only: the `P####` of Andrea's registry. If two `P####` turn out to be the same person, **both** are kept (S7) |
+| `ciks` | `PER-` entities only, optional: the SEC CIK of the person, from the Forms 3, 4 and 5 (`cik` column of `persone.csv`, #33). A list of distinct 10-digit strings, because a person can have more than one. Absent when the release has none or more than one not yet checked by hand. `validate.py` rejects a CIK on two active cards: the same CIK means the same person, to be checked by hand before the second card is created (S7) |
 | `entity_ids` | `IV-` entities created by the import only: the `E####` of the SEC release (`entita_id`). Used by `import_sec_ownership.py` to recognise its own cards on a re-run (never by name) |
 
-> Field names confirmed by `scripts/import_sec_ownership.py` (B5, 2026-11-17, tried on a copy of the database). Not otherwise checked by `validate.py`.
+> Field names confirmed by `scripts/import_sec_ownership.py` (B5, 2026-11-17, tried on a copy of the database). Not otherwise checked by `validate.py`, except `ciks` (2026-11-22).
 
 ### `sources.infonodes`
 
@@ -368,6 +370,7 @@ These carry their **own `id`** (`REL-NNNN`, four digits or more, unique) and are
 | `filing_date`, `as_of`, `release` | `YYYY-MM-DD` or `null` |
 | `as_of_origine` | `proxy`, `testo` or `deposito`; required when `as_of` is set (S5) |
 | `current` | `true` while the row is in the latest imported release; `false` when it disappears (never delete, S5) |
+| `riga_documento` | optional string, from the release (`riga_documento` column, #80): set only when the same row of the source document produced more than one row, because it has more than one holder (Charles Liang and Sara Liu in SMCI) or more than one class (Alexander Karp in Palantir). **To sum**: rows with the same `release`, `riga_documento` and `classe` are the same quantity, counted once; `pct_voti` is the total voting share of the holder over all classes, counted once per `riga_documento`. `validate.py` checks that inside a group `target`, `pct` and `shares` match per class and `pct_voti` matches for the whole group |
 
 Unique key: `(source, target, type, classe)`.
 
