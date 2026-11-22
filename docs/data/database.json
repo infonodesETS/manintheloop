@@ -1,6 +1,6 @@
 {
   "_schema": "3.0",
-  "_updated": "2026-11-21",
+  "_updated": "2026-11-22",
   "entities": [
     {
       "id": "IN-0001",
@@ -348672,6 +348672,9 @@
           ],
           "person_ids": [
             "P0014"
+          ],
+          "ciks": [
+            "0001848395"
           ]
         }
       },
@@ -348684,6 +348687,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001848395"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -348727,6 +348741,9 @@
           ],
           "person_ids": [
             "P0044"
+          ],
+          "ciks": [
+            "0001823951"
           ]
         }
       },
@@ -348739,6 +348756,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001823951"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -348778,6 +348806,9 @@
           ],
           "person_ids": [
             "P0051"
+          ],
+          "ciks": [
+            "0001783984"
           ]
         }
       },
@@ -348790,6 +348821,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001783984"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -348825,6 +348867,9 @@
           ],
           "person_ids": [
             "P0093"
+          ],
+          "ciks": [
+            "0001874431"
           ]
         }
       },
@@ -348837,6 +348882,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001874431"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -348876,6 +348932,9 @@
           ],
           "person_ids": [
             "P0113"
+          ],
+          "ciks": [
+            "0001196579"
           ]
         }
       },
@@ -348888,6 +348947,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001196579"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -348970,6 +349040,9 @@
           ],
           "person_ids": [
             "P0232"
+          ],
+          "ciks": [
+            "0001063948"
           ]
         }
       },
@@ -348982,6 +349055,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001063948"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349021,6 +349105,9 @@
           ],
           "person_ids": [
             "P0249"
+          ],
+          "ciks": [
+            "0001210010"
           ]
         }
       },
@@ -349033,6 +349120,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001210010"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349068,6 +349166,9 @@
           ],
           "person_ids": [
             "P0247"
+          ],
+          "ciks": [
+            "0001318455"
           ]
         }
       },
@@ -349080,6 +349181,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001318455"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349119,6 +349231,9 @@
           ],
           "person_ids": [
             "P0255"
+          ],
+          "ciks": [
+            "0001138538"
           ]
         }
       },
@@ -349131,6 +349246,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001138538"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349170,6 +349296,9 @@
           ],
           "person_ids": [
             "P0299"
+          ],
+          "ciks": [
+            "0000904548"
           ]
         }
       },
@@ -349182,6 +349311,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000904548"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349221,6 +349361,9 @@
           ],
           "person_ids": [
             "P0420"
+          ],
+          "ciks": [
+            "0000938071"
           ]
         }
       },
@@ -349233,6 +349376,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000938071"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349268,6 +349422,9 @@
           ],
           "person_ids": [
             "P0413"
+          ],
+          "ciks": [
+            "0001292250"
           ]
         }
       },
@@ -349280,6 +349437,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001292250"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349319,6 +349487,9 @@
           ],
           "person_ids": [
             "P0522"
+          ],
+          "ciks": [
+            "0001963529"
           ]
         }
       },
@@ -349331,6 +349502,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001963529"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349370,6 +349552,9 @@
           ],
           "person_ids": [
             "P0521"
+          ],
+          "ciks": [
+            "0001963498"
           ]
         }
       },
@@ -349382,6 +349567,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001963498"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349468,6 +349664,9 @@
           ],
           "person_ids": [
             "P0551"
+          ],
+          "ciks": [
+            "0001651403"
           ]
         }
       },
@@ -349480,6 +349679,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001651403"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349515,6 +349725,9 @@
           ],
           "person_ids": [
             "P0671"
+          ],
+          "ciks": [
+            "0001878772"
           ]
         }
       },
@@ -349527,6 +349740,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001878772"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349613,6 +349837,9 @@
           ],
           "person_ids": [
             "P0803"
+          ],
+          "ciks": [
+            "0001831746"
           ]
         }
       },
@@ -349625,6 +349852,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001831746"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349664,6 +349902,9 @@
           ],
           "person_ids": [
             "P0867"
+          ],
+          "ciks": [
+            "0001671445"
           ]
         }
       },
@@ -349676,6 +349917,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001671445"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349758,6 +350010,9 @@
           ],
           "person_ids": [
             "P1126"
+          ],
+          "ciks": [
+            "0001475587"
           ]
         }
       },
@@ -349770,6 +350025,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001475587"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349805,6 +350071,9 @@
           ],
           "person_ids": [
             "P1132"
+          ],
+          "ciks": [
+            "0001812746"
           ]
         }
       },
@@ -349817,6 +350086,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001812746"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349856,6 +350136,9 @@
           ],
           "person_ids": [
             "P1197"
+          ],
+          "ciks": [
+            "0001242818"
           ]
         }
       },
@@ -349868,6 +350151,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001242818"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -349950,6 +350244,9 @@
           ],
           "person_ids": [
             "P1222"
+          ],
+          "ciks": [
+            "0000901999"
           ]
         }
       },
@@ -349962,6 +350259,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000901999"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350001,6 +350309,9 @@
           ],
           "person_ids": [
             "P1389"
+          ],
+          "ciks": [
+            "0001548760"
           ]
         }
       },
@@ -350013,6 +350324,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001548760"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350048,6 +350370,9 @@
           ],
           "person_ids": [
             "P1420"
+          ],
+          "ciks": [
+            "0001229197"
           ]
         }
       },
@@ -350060,6 +350385,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001229197"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350095,6 +350431,9 @@
           ],
           "person_ids": [
             "P1464"
+          ],
+          "ciks": [
+            "0001458423"
           ]
         }
       },
@@ -350107,6 +350446,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001458423"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350142,6 +350492,9 @@
           ],
           "person_ids": [
             "P1485"
+          ],
+          "ciks": [
+            "0001812551"
           ]
         }
       },
@@ -350154,6 +350507,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001812551"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350193,6 +350557,9 @@
           ],
           "person_ids": [
             "P1476"
+          ],
+          "ciks": [
+            "0000908724"
           ]
         }
       },
@@ -350205,6 +350572,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000908724"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350240,6 +350618,9 @@
           ],
           "person_ids": [
             "P1539"
+          ],
+          "ciks": [
+            "0001475586"
           ]
         }
       },
@@ -350252,6 +350633,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001475586"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350287,6 +350679,9 @@
           ],
           "person_ids": [
             "P1564"
+          ],
+          "ciks": [
+            "0001666771"
           ]
         }
       },
@@ -350299,6 +350694,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001666771"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350338,6 +350744,9 @@
           ],
           "person_ids": [
             "P1620"
+          ],
+          "ciks": [
+            "0001783990"
           ]
         }
       },
@@ -350350,6 +350759,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001783990"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350385,6 +350805,9 @@
           ],
           "person_ids": [
             "P1668"
+          ],
+          "ciks": [
+            "0001110176"
           ]
         }
       },
@@ -350397,6 +350820,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001110176"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350432,6 +350866,9 @@
           ],
           "person_ids": [
             "P1680"
+          ],
+          "ciks": [
+            "0001911036"
           ]
         }
       },
@@ -350444,6 +350881,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001911036"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350483,6 +350931,9 @@
           ],
           "person_ids": [
             "P1684"
+          ],
+          "ciks": [
+            "0001881842"
           ]
         }
       },
@@ -350495,6 +350946,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001881842"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350530,6 +350992,9 @@
           ],
           "person_ids": [
             "P1690"
+          ],
+          "ciks": [
+            "0001182854"
           ]
         }
       },
@@ -350542,6 +351007,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001182854"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350581,6 +351057,9 @@
           ],
           "person_ids": [
             "P1696"
+          ],
+          "ciks": [
+            "0001225207"
           ]
         }
       },
@@ -350593,6 +351072,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001225207"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350636,6 +351126,9 @@
           ],
           "person_ids": [
             "P1706"
+          ],
+          "ciks": [
+            "0001211060"
           ]
         }
       },
@@ -350648,6 +351141,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001211060"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350734,6 +351238,9 @@
           ],
           "person_ids": [
             "P1753"
+          ],
+          "ciks": [
+            "0001693822"
           ]
         }
       },
@@ -350746,6 +351253,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001693822"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350828,6 +351346,9 @@
           ],
           "person_ids": [
             "P1841"
+          ],
+          "ciks": [
+            "0000938198"
           ]
         }
       },
@@ -350840,6 +351361,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000938198"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350875,6 +351407,9 @@
           ],
           "person_ids": [
             "P1846"
+          ],
+          "ciks": [
+            "0001337084"
           ]
         }
       },
@@ -350887,6 +351422,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001337084"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350922,6 +351468,9 @@
           ],
           "person_ids": [
             "P1912"
+          ],
+          "ciks": [
+            "0001823522"
           ]
         }
       },
@@ -350934,6 +351483,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001823522"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -350973,6 +351533,9 @@
           ],
           "person_ids": [
             "P1966"
+          ],
+          "ciks": [
+            "0001295032"
           ]
         }
       },
@@ -350985,6 +351548,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001295032"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351024,6 +351598,9 @@
           ],
           "person_ids": [
             "P2028"
+          ],
+          "ciks": [
+            "0001963507"
           ]
         }
       },
@@ -351036,6 +351613,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001963507"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351075,6 +351663,9 @@
           ],
           "person_ids": [
             "P2031"
+          ],
+          "ciks": [
+            "0001823920"
           ]
         }
       },
@@ -351087,6 +351678,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001823920"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351122,6 +351724,9 @@
           ],
           "person_ids": [
             "P2182"
+          ],
+          "ciks": [
+            "0001562639"
           ]
         }
       },
@@ -351134,6 +351739,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0001562639"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351310,6 +351926,9 @@
           ],
           "person_ids": [
             "P2241"
+          ],
+          "ciks": [
+            "0000935577"
           ]
         }
       },
@@ -351322,6 +351941,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000935577"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351357,6 +351987,9 @@
           ],
           "person_ids": [
             "P2238"
+          ],
+          "ciks": [
+            "0000315090"
           ]
         }
       },
@@ -351369,6 +352002,17 @@
           "old": null,
           "new": null,
           "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-10-17 filing"
+        },
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "sources.sec.ciks",
+          "old": null,
+          "new": [
+            "0000315090"
+          ],
+          "description": "SEC CIK of the person (Forms 3, 4 and 5) from persone.csv, release 2026-11-21"
         }
       ],
       "validation": [
@@ -351424,6 +352068,106 @@
           "description": "Created by the SEC release 2026-10-17 import (B5); only the name comes from the source, no country or other data",
           "author": "import_sec_ownership.py",
           "datestamp": "2026-11-18"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "PER-0058",
+      "type": "person",
+      "roles": [
+        "investor"
+      ],
+      "name": "Charles Liang",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "crunchbase": null,
+        "infonodes": null,
+        "wikidata": null,
+        "sec": {
+          "release": "2026-11-21",
+          "refs": [
+            {
+              "file": "detentori-oltre-5.csv",
+              "row": 446
+            }
+          ],
+          "person_ids": [
+            "P0302"
+          ],
+          "ciks": [
+            "0001392942"
+          ]
+        }
+      },
+      "history": [
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-11-21 filing"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Created by the SEC release 2026-11-21 import (B5); only the name comes from the source, no country or other data",
+          "author": "import_sec_ownership.py",
+          "datestamp": "2026-11-22"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "PER-0059",
+      "type": "person",
+      "roles": [
+        "investor"
+      ],
+      "name": "Sara Liu",
+      "sector": null,
+      "wikidata_id": null,
+      "sources": {
+        "crunchbase": null,
+        "infonodes": null,
+        "wikidata": null,
+        "sec": {
+          "release": "2026-11-21",
+          "refs": [
+            {
+              "file": "detentori-oltre-5.csv",
+              "row": 447
+            }
+          ],
+          "person_ids": [
+            "P1938"
+          ],
+          "ciks": [
+            "0001392941"
+          ]
+        }
+      },
+      "history": [
+        {
+          "date": "2026-11-22",
+          "source": "sec",
+          "author": "import_sec_ownership.py",
+          "field": "*",
+          "old": null,
+          "new": null,
+          "description": "Person added: holder of 5% or more of capital or votes in a SEC release 2026-11-21 filing"
+        }
+      ],
+      "validation": [
+        {
+          "status": "needs_review",
+          "description": "Created by the SEC release 2026-11-21 import (B5); only the name comes from the source, no country or other data",
+          "author": "import_sec_ownership.py",
+          "datestamp": "2026-11-22"
         }
       ],
       "tags": []
@@ -378792,11 +379536,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#43",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#43",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#43",
+          "field": "riga_documento",
+          "old": null,
+          "new": "APP-oltre5-1"
+        }
+      ],
+      "riga_documento": "APP-oltre5-1"
     },
     {
       "id": "REL-0041",
@@ -378811,11 +379565,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#44",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#44",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#44",
+          "field": "riga_documento",
+          "old": null,
+          "new": "APP-oltre5-1"
+        }
+      ],
+      "riga_documento": "APP-oltre5-1"
     },
     {
       "id": "REL-0042",
@@ -378963,11 +379727,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#53",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#53",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#53",
+          "field": "riga_documento",
+          "old": null,
+          "new": "ATRO-oltre5-1"
+        }
+      ],
+      "riga_documento": "ATRO-oltre5-1"
     },
     {
       "id": "REL-0050",
@@ -378982,11 +379756,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#55",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#55",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#55",
+          "field": "riga_documento",
+          "old": null,
+          "new": "ATRO-oltre5-2"
+        }
+      ],
+      "riga_documento": "ATRO-oltre5-2"
     },
     {
       "id": "REL-0051",
@@ -380578,11 +381362,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#140",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#140",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#140",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DDOG-oltre5-4"
+        }
+      ],
+      "riga_documento": "DDOG-oltre5-4"
     },
     {
       "id": "REL-0135",
@@ -380597,11 +381391,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#141",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#141",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#141",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DDOG-oltre5-4"
+        }
+      ],
+      "riga_documento": "DDOG-oltre5-4"
     },
     {
       "id": "REL-0136",
@@ -380616,11 +381420,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#142",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#142",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#142",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DDOG-oltre5-5"
+        }
+      ],
+      "riga_documento": "DDOG-oltre5-5"
     },
     {
       "id": "REL-0137",
@@ -380635,11 +381449,21 @@
       "filing_date": null,
       "as_of": "2026-03-31",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#143",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#143",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#143",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DDOG-oltre5-5"
+        }
+      ],
+      "riga_documento": "DDOG-oltre5-5"
     },
     {
       "id": "REL-0138",
@@ -380654,11 +381478,21 @@
       "filing_date": null,
       "as_of": "2026-04-27",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#144",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#144",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#144",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DELL-oltre5-1"
+        }
+      ],
+      "riga_documento": "DELL-oltre5-1"
     },
     {
       "id": "REL-0139",
@@ -380673,11 +381507,21 @@
       "filing_date": null,
       "as_of": "2026-04-27",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#145",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#145",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#145",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DELL-oltre5-1"
+        }
+      ],
+      "riga_documento": "DELL-oltre5-1"
     },
     {
       "id": "REL-0140",
@@ -380692,11 +381536,21 @@
       "filing_date": "2024-02-13",
       "as_of": "2024-02-13",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#146",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#146",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#146",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DELL-oltre5-2"
+        }
+      ],
+      "riga_documento": "DELL-oltre5-2"
     },
     {
       "id": "REL-0141",
@@ -380711,11 +381565,21 @@
       "filing_date": "2026-03-19",
       "as_of": "2026-03-19",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#148",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#148",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#148",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DELL-oltre5-3"
+        }
+      ],
+      "riga_documento": "DELL-oltre5-3"
     },
     {
       "id": "REL-0142",
@@ -380730,11 +381594,21 @@
       "filing_date": "2026-03-19",
       "as_of": "2026-03-19",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#149",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#149",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#149",
+          "field": "riga_documento",
+          "old": null,
+          "new": "DELL-oltre5-3"
+        }
+      ],
+      "riga_documento": "DELL-oltre5-3"
     },
     {
       "id": "REL-0143",
@@ -380844,11 +381718,21 @@
       "filing_date": null,
       "as_of": null,
       "as_of_origine": null,
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#155",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#155",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#155",
+          "field": "riga_documento",
+          "old": null,
+          "new": "SATS-oltre5-1"
+        }
+      ],
+      "riga_documento": "SATS-oltre5-1"
     },
     {
       "id": "REL-0149",
@@ -380863,11 +381747,21 @@
       "filing_date": null,
       "as_of": null,
       "as_of_origine": null,
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#156",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#156",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#156",
+          "field": "riga_documento",
+          "old": null,
+          "new": "SATS-oltre5-1"
+        }
+      ],
+      "riga_documento": "SATS-oltre5-1"
     },
     {
       "id": "REL-0150",
@@ -380882,11 +381776,21 @@
       "filing_date": null,
       "as_of": null,
       "as_of_origine": null,
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#157",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#157",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#157",
+          "field": "riga_documento",
+          "old": null,
+          "new": "SATS-oltre5-2"
+        }
+      ],
+      "riga_documento": "SATS-oltre5-2"
     },
     {
       "id": "REL-0151",
@@ -380901,11 +381805,21 @@
       "filing_date": null,
       "as_of": null,
       "as_of_origine": null,
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#158",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#158",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#158",
+          "field": "riga_documento",
+          "old": null,
+          "new": "SATS-oltre5-2"
+        }
+      ],
+      "riga_documento": "SATS-oltre5-2"
     },
     {
       "id": "REL-0152",
@@ -381186,11 +382100,21 @@
       "filing_date": "2025-09-12",
       "as_of": "2026-06-16",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#174",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#174",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#174",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-1"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-1"
     },
     {
       "id": "REL-0167",
@@ -381205,11 +382129,21 @@
       "filing_date": "2026-08-07",
       "as_of": "2025-09-30",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#175",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#175",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#175",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-2"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-2"
     },
     {
       "id": "REL-0168",
@@ -381224,11 +382158,21 @@
       "filing_date": "2026-08-07",
       "as_of": "2025-09-30",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#176",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#176",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#176",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-2"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-2"
     },
     {
       "id": "REL-0169",
@@ -381243,11 +382187,21 @@
       "filing_date": "2025-04-17",
       "as_of": "2026-03-31",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#177",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#177",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#177",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-3"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-3"
     },
     {
       "id": "REL-0170",
@@ -381262,11 +382216,21 @@
       "filing_date": "2025-04-17",
       "as_of": "2026-03-31",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#178",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#178",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#178",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-3"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-3"
     },
     {
       "id": "REL-0171",
@@ -381281,11 +382245,21 @@
       "filing_date": null,
       "as_of": "2026-09-14",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#180",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#180",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#180",
+          "field": "riga_documento",
+          "old": null,
+          "new": "FOX-oltre5-4"
+        }
+      ],
+      "riga_documento": "FOX-oltre5-4"
     },
     {
       "id": "REL-0172",
@@ -381794,11 +382768,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#207",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#207",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#207",
+          "field": "riga_documento",
+          "old": null,
+          "new": "GOOG-oltre5-2"
+        }
+      ],
+      "riga_documento": "GOOG-oltre5-2"
     },
     {
       "id": "REL-0199",
@@ -381813,11 +382797,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#208",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#208",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#208",
+          "field": "riga_documento",
+          "old": null,
+          "new": "GOOG-oltre5-2"
+        }
+      ],
+      "riga_documento": "GOOG-oltre5-2"
     },
     {
       "id": "REL-0200",
@@ -381927,11 +382921,21 @@
       "filing_date": null,
       "as_of": "2026-01-16",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#214",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#214",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#214",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-1"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-1"
     },
     {
       "id": "REL-0206",
@@ -381946,11 +382950,21 @@
       "filing_date": null,
       "as_of": "2026-01-16",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#216",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#216",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#216",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-2"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-2"
     },
     {
       "id": "REL-0207",
@@ -381965,11 +382979,21 @@
       "filing_date": "2020-01-31",
       "as_of": "2020-01-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#218",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#218",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#218",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-3"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-3"
     },
     {
       "id": "REL-0208",
@@ -381984,11 +383008,21 @@
       "filing_date": "2020-01-31",
       "as_of": "2020-01-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#219",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#219",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#219",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-3"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-3"
     },
     {
       "id": "REL-0209",
@@ -382003,11 +383037,21 @@
       "filing_date": "2025-04-17",
       "as_of": "2025-04-17",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#220",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#220",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#220",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-4"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-4"
     },
     {
       "id": "REL-0210",
@@ -382022,11 +383066,21 @@
       "filing_date": "2025-04-17",
       "as_of": "2025-04-17",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#221",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#221",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#221",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-4"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-4"
     },
     {
       "id": "REL-0211",
@@ -382041,11 +383095,21 @@
       "filing_date": "2024-02-13",
       "as_of": "2024-02-13",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#222",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#222",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#222",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-5"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-5"
     },
     {
       "id": "REL-0212",
@@ -382060,11 +383124,21 @@
       "filing_date": "2024-02-13",
       "as_of": "2024-02-13",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#223",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#223",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#223",
+          "field": "riga_documento",
+          "old": null,
+          "new": "HEI-oltre5-5"
+        }
+      ],
+      "riga_documento": "HEI-oltre5-5"
     },
     {
       "id": "REL-0213",
@@ -383458,11 +384532,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#296",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#296",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#296",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-3"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-3"
     },
     {
       "id": "REL-0286",
@@ -383477,11 +384561,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#297",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#297",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#297",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-3"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-3"
     },
     {
       "id": "REL-0287",
@@ -383496,11 +384590,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#298",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#298",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#298",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-4"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-4"
     },
     {
       "id": "REL-0288",
@@ -383515,11 +384619,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#299",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#299",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#299",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-4"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-4"
     },
     {
       "id": "REL-0289",
@@ -383534,11 +384648,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#300",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#300",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#300",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-5"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-5"
     },
     {
       "id": "REL-0290",
@@ -383553,11 +384677,21 @@
       "filing_date": null,
       "as_of": "2026-04-10",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#301",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#301",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#301",
+          "field": "riga_documento",
+          "old": null,
+          "new": "LUNR-oltre5-5"
+        }
+      ],
+      "riga_documento": "LUNR-oltre5-5"
     },
     {
       "id": "REL-0291",
@@ -383667,11 +384801,21 @@
       "filing_date": null,
       "as_of": "2026-04-01",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#308",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#308",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#308",
+          "field": "riga_documento",
+          "old": null,
+          "new": "META-oltre5-1"
+        }
+      ],
+      "riga_documento": "META-oltre5-1"
     },
     {
       "id": "REL-0297",
@@ -383686,11 +384830,21 @@
       "filing_date": null,
       "as_of": "2026-04-01",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#309",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#309",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#309",
+          "field": "riga_documento",
+          "old": null,
+          "new": "META-oltre5-1"
+        }
+      ],
+      "riga_documento": "META-oltre5-1"
     },
     {
       "id": "REL-0298",
@@ -383743,11 +384897,21 @@
       "filing_date": "2026-03-25",
       "as_of": "2026-03-25",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#313",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#313",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#313",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-1"
+        }
+      ],
+      "riga_documento": "METC-oltre5-1"
     },
     {
       "id": "REL-0301",
@@ -383762,11 +384926,21 @@
       "filing_date": "2025-08-11",
       "as_of": "2025-08-11",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#315",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#315",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#315",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-2"
+        }
+      ],
+      "riga_documento": "METC-oltre5-2"
     },
     {
       "id": "REL-0302",
@@ -383781,11 +384955,21 @@
       "filing_date": "2026-03-31",
       "as_of": "2026-03-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#316",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#316",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#316",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-3"
+        }
+      ],
+      "riga_documento": "METC-oltre5-3"
     },
     {
       "id": "REL-0303",
@@ -383800,11 +384984,21 @@
       "filing_date": "2026-03-31",
       "as_of": "2026-03-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#317",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#317",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#317",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-3"
+        }
+      ],
+      "riga_documento": "METC-oltre5-3"
     },
     {
       "id": "REL-0304",
@@ -383876,11 +385070,21 @@
       "filing_date": null,
       "as_of": "2026-04-20",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#321",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#321",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#321",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-7"
+        }
+      ],
+      "riga_documento": "METC-oltre5-7"
     },
     {
       "id": "REL-0308",
@@ -383895,11 +385099,21 @@
       "filing_date": null,
       "as_of": "2026-04-20",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#322",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#322",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#322",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-7"
+        }
+      ],
+      "riga_documento": "METC-oltre5-7"
     },
     {
       "id": "REL-0309",
@@ -383914,11 +385128,21 @@
       "filing_date": "2026-03-31",
       "as_of": "2026-03-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#323",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#323",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#323",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-8"
+        }
+      ],
+      "riga_documento": "METC-oltre5-8"
     },
     {
       "id": "REL-0310",
@@ -383933,11 +385157,21 @@
       "filing_date": "2026-03-31",
       "as_of": "2026-03-31",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#324",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#324",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#324",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-8"
+        }
+      ],
+      "riga_documento": "METC-oltre5-8"
     },
     {
       "id": "REL-0311",
@@ -383952,11 +385186,21 @@
       "filing_date": "2025-08-11",
       "as_of": "2025-08-11",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#325",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#325",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#325",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-9"
+        }
+      ],
+      "riga_documento": "METC-oltre5-9"
     },
     {
       "id": "REL-0312",
@@ -383971,11 +385215,21 @@
       "filing_date": "2025-08-11",
       "as_of": "2025-08-11",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#326",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#326",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#326",
+          "field": "riga_documento",
+          "old": null,
+          "new": "METC-oltre5-9"
+        }
+      ],
+      "riga_documento": "METC-oltre5-9"
     },
     {
       "id": "REL-0313",
@@ -384085,11 +385339,21 @@
       "filing_date": null,
       "as_of": "2025-12-12",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#333",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#333",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#333",
+          "field": "riga_documento",
+          "old": null,
+          "new": "MOG-A-oltre5-6"
+        }
+      ],
+      "riga_documento": "MOG-A-oltre5-6"
     },
     {
       "id": "REL-0319",
@@ -385073,11 +386337,21 @@
       "filing_date": "2026-08-13",
       "as_of": "2026-06-30",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#385",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#385",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#385",
+          "field": "riga_documento",
+          "old": null,
+          "new": "NWS-oltre5-1"
+        }
+      ],
+      "riga_documento": "NWS-oltre5-1"
     },
     {
       "id": "REL-0371",
@@ -385092,11 +386366,21 @@
       "filing_date": "2026-08-13",
       "as_of": "2026-06-30",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#386",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#386",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#386",
+          "field": "riga_documento",
+          "old": null,
+          "new": "NWS-oltre5-1"
+        }
+      ],
+      "riga_documento": "NWS-oltre5-1"
     },
     {
       "id": "REL-0372",
@@ -385111,11 +386395,21 @@
       "filing_date": null,
       "as_of": "2025-09-10",
       "as_of_origine": "testo",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#388",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#388",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#388",
+          "field": "riga_documento",
+          "old": null,
+          "new": "NWS-oltre5-2"
+        }
+      ],
+      "riga_documento": "NWS-oltre5-2"
     },
     {
       "id": "REL-0373",
@@ -385149,11 +386443,21 @@
       "filing_date": null,
       "as_of": "2026-08-28",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#391",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#391",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#391",
+          "field": "riga_documento",
+          "old": null,
+          "new": "NWS-oltre5-4"
+        }
+      ],
+      "riga_documento": "NWS-oltre5-4"
     },
     {
       "id": "REL-0375",
@@ -385434,11 +386738,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#406",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#406",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#406",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-2"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-2"
     },
     {
       "id": "REL-0390",
@@ -385453,11 +386767,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#407",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#407",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#407",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-2"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-2"
     },
     {
       "id": "REL-0391",
@@ -385472,11 +386796,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#408",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#408",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#408",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-2"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-2"
     },
     {
       "id": "REL-0392",
@@ -385491,11 +386825,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#410",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#410",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#410",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-3"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-3"
     },
     {
       "id": "REL-0393",
@@ -385510,11 +386854,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#411",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#411",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#411",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-3"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-3"
     },
     {
       "id": "REL-0394",
@@ -385529,11 +386883,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#412",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#412",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#412",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-4"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-4"
     },
     {
       "id": "REL-0395",
@@ -385548,11 +386912,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#413",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#413",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#413",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-4"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-4"
     },
     {
       "id": "REL-0396",
@@ -385567,11 +386941,21 @@
       "filing_date": null,
       "as_of": "2026-04-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#414",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#414",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#414",
+          "field": "riga_documento",
+          "old": null,
+          "new": "PLTR-oltre5-4"
+        }
+      ],
+      "riga_documento": "PLTR-oltre5-4"
     },
     {
       "id": "REL-0397",
@@ -385719,11 +387103,21 @@
       "filing_date": "2026-03-26",
       "as_of": "2026-03-26",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#422",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#422",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#422",
+          "field": "riga_documento",
+          "old": null,
+          "new": "RDW-oltre5-1"
+        }
+      ],
+      "riga_documento": "RDW-oltre5-1"
     },
     {
       "id": "REL-0405",
@@ -385738,11 +387132,21 @@
       "filing_date": "2026-03-26",
       "as_of": "2026-03-26",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#423",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#423",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#423",
+          "field": "riga_documento",
+          "old": null,
+          "new": "RDW-oltre5-1"
+        }
+      ],
+      "riga_documento": "RDW-oltre5-1"
     },
     {
       "id": "REL-0406",
@@ -385757,11 +387161,21 @@
       "filing_date": null,
       "as_of": "2026-03-30",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#424",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#424",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#424",
+          "field": "riga_documento",
+          "old": null,
+          "new": "RKLB-oltre5-1"
+        }
+      ],
+      "riga_documento": "RKLB-oltre5-1"
     },
     {
       "id": "REL-0407",
@@ -385776,11 +387190,21 @@
       "filing_date": null,
       "as_of": "2026-03-30",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#425",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#425",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#425",
+          "field": "riga_documento",
+          "old": null,
+          "new": "RKLB-oltre5-1"
+        }
+      ],
+      "riga_documento": "RKLB-oltre5-1"
     },
     {
       "id": "REL-0408",
@@ -386865,11 +388289,21 @@
       "filing_date": "2026-01-02",
       "as_of": "2026-01-02",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#481",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#482",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#482",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-1"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-1"
     },
     {
       "id": "REL-0463",
@@ -386884,11 +388318,21 @@
       "filing_date": "2026-01-02",
       "as_of": "2026-01-02",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#482",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#483",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#483",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-1"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-1"
     },
     {
       "id": "REL-0464",
@@ -386903,11 +388347,21 @@
       "filing_date": "2025-06-04",
       "as_of": "2025-06-04",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#483",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#484",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#484",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-2"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-2"
     },
     {
       "id": "REL-0465",
@@ -386922,11 +388376,21 @@
       "filing_date": "2025-06-04",
       "as_of": "2025-06-04",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#484",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#485",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#485",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-2"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-2"
     },
     {
       "id": "REL-0466",
@@ -387017,11 +388481,21 @@
       "filing_date": "2026-01-02",
       "as_of": "2026-01-02",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#489",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#490",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#490",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-7"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-7"
     },
     {
       "id": "REL-0471",
@@ -387036,11 +388510,21 @@
       "filing_date": "2026-01-02",
       "as_of": "2026-01-02",
       "as_of_origine": "deposito",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#490",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#491",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#491",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TKO-oltre5-7"
+        }
+      ],
+      "riga_documento": "TKO-oltre5-7"
     },
     {
       "id": "REL-0472",
@@ -387359,11 +388843,21 @@
       "filing_date": null,
       "as_of": "2026-03-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#507",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#508",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#508",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TTD-oltre5-5"
+        }
+      ],
+      "riga_documento": "TTD-oltre5-5"
     },
     {
       "id": "REL-0489",
@@ -387378,11 +388872,21 @@
       "filing_date": null,
       "as_of": "2026-03-06",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#508",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#509",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#509",
+          "field": "riga_documento",
+          "old": null,
+          "new": "TTD-oltre5-5"
+        }
+      ],
+      "riga_documento": "TTD-oltre5-5"
     },
     {
       "id": "REL-0490",
@@ -387758,11 +389262,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#530",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#531",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#531",
+          "field": "riga_documento",
+          "old": null,
+          "new": "USAR-oltre5-2"
+        }
+      ],
+      "riga_documento": "USAR-oltre5-2"
     },
     {
       "id": "REL-0510",
@@ -387777,11 +389291,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#532",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#533",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#533",
+          "field": "riga_documento",
+          "old": null,
+          "new": "USAR-oltre5-3"
+        }
+      ],
+      "riga_documento": "USAR-oltre5-3"
     },
     {
       "id": "REL-0511",
@@ -387796,11 +389320,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#534",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#535",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#535",
+          "field": "riga_documento",
+          "old": null,
+          "new": "USAR-oltre5-4"
+        }
+      ],
+      "riga_documento": "USAR-oltre5-4"
     },
     {
       "id": "REL-0512",
@@ -387815,11 +389349,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#536",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#537",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#537",
+          "field": "riga_documento",
+          "old": null,
+          "new": "USAR-oltre5-5"
+        }
+      ],
+      "riga_documento": "USAR-oltre5-5"
     },
     {
       "id": "REL-0513",
@@ -387834,11 +389378,21 @@
       "filing_date": null,
       "as_of": "2026-04-08",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#538",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#539",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#539",
+          "field": "riga_documento",
+          "old": null,
+          "new": "USAR-oltre5-6"
+        }
+      ],
+      "riga_documento": "USAR-oltre5-6"
     },
     {
       "id": "REL-0514",
@@ -388138,11 +389692,21 @@
       "filing_date": null,
       "as_of": "2026-04-17",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#555",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#556",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#556",
+          "field": "riga_documento",
+          "old": null,
+          "new": "WDAY-oltre5-1"
+        }
+      ],
+      "riga_documento": "WDAY-oltre5-1"
     },
     {
       "id": "REL-0530",
@@ -388157,11 +389721,21 @@
       "filing_date": null,
       "as_of": "2026-04-17",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#556",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#557",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#557",
+          "field": "riga_documento",
+          "old": null,
+          "new": "WDAY-oltre5-1"
+        }
+      ],
+      "riga_documento": "WDAY-oltre5-1"
     },
     {
       "id": "REL-0531",
@@ -388176,11 +389750,21 @@
       "filing_date": null,
       "as_of": "2026-04-17",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#557",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#558",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#558",
+          "field": "riga_documento",
+          "old": null,
+          "new": "WDAY-oltre5-2"
+        }
+      ],
+      "riga_documento": "WDAY-oltre5-2"
     },
     {
       "id": "REL-0532",
@@ -388195,11 +389779,21 @@
       "filing_date": null,
       "as_of": "2026-04-17",
       "as_of_origine": "proxy",
-      "release": "2026-10-17",
+      "release": "2026-11-21",
       "current": true,
-      "source_ref": "2026-10-17/detentori-oltre-5.csv#558",
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#559",
       "created_at": "2026-11-18",
-      "history": []
+      "history": [
+        {
+          "date": "2026-11-22",
+          "release": "2026-11-21",
+          "source_ref": "2026-11-21/detentori-oltre-5.csv#559",
+          "field": "riga_documento",
+          "old": null,
+          "new": "WDAY-oltre5-2"
+        }
+      ],
+      "riga_documento": "WDAY-oltre5-2"
     },
     {
       "id": "REL-0533",
@@ -390260,6 +391854,121 @@
       "role": "coordinator",
       "eu_contribution": 1250733.5,
       "created_at": "2026-11-19"
+    },
+    {
+      "id": "REL-0594",
+      "type": "ownership",
+      "source": "PER-0058",
+      "target": "IN-0350",
+      "classe": "Common Stock",
+      "holder_type": "person",
+      "pct": 13.4,
+      "pct_voti": null,
+      "shares": 82084339.0,
+      "filing_date": null,
+      "as_of": "2026-01-31",
+      "as_of_origine": "proxy",
+      "release": "2026-11-21",
+      "current": true,
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#446",
+      "created_at": "2026-11-22",
+      "history": [],
+      "riga_documento": "SMCI-oltre5-1"
+    },
+    {
+      "id": "REL-0595",
+      "type": "ownership",
+      "source": "PER-0059",
+      "target": "IN-0350",
+      "classe": "Common Stock",
+      "holder_type": "person",
+      "pct": 13.4,
+      "pct_voti": null,
+      "shares": 82084339.0,
+      "filing_date": null,
+      "as_of": "2026-01-31",
+      "as_of_origine": "proxy",
+      "release": "2026-11-21",
+      "current": true,
+      "source_ref": "2026-11-21/detentori-oltre-5.csv#447",
+      "created_at": "2026-11-22",
+      "history": [],
+      "riga_documento": "SMCI-oltre5-1"
+    },
+    {
+      "id": "REL-0596",
+      "type": "role",
+      "source": "PER-0058",
+      "target": "IN-0350",
+      "current": true,
+      "as_of": "2026-01-31",
+      "as_of_origine": "proxy",
+      "release": "2026-11-21",
+      "roles": {
+        "ceo": {
+          "role_text": "President; Chief Executive Officer; Chairman of the Board",
+          "fonte": "DEF 14A",
+          "role_text_alt": [
+            "Chairman of the Board; President; Chief Executive Officer"
+          ]
+        },
+        "chair": {
+          "role_text": "President; Chief Executive Officer; Chairman of the Board",
+          "fonte": "DEF 14A",
+          "role_text_alt": [
+            "Chairman of the Board; President; Chief Executive Officer"
+          ]
+        },
+        "president": {
+          "role_text": "President; Chief Executive Officer; Chairman of the Board",
+          "fonte": "DEF 14A",
+          "role_text_alt": [
+            "Chairman of the Board; President; Chief Executive Officer"
+          ]
+        },
+        "director": {
+          "role_text": "Chairman of the Board; President; Chief Executive Officer",
+          "since_year": 1993,
+          "since_month": 9,
+          "independent": false,
+          "implied_by": "row listed as board member in consiglieri.csv"
+        }
+      },
+      "source_ref": [
+        "2026-11-21/dirigenti.csv#804",
+        "2026-11-21/consiglieri.csv#1271"
+      ],
+      "created_at": "2026-11-22",
+      "history": []
+    },
+    {
+      "id": "REL-0597",
+      "type": "role",
+      "source": "PER-0059",
+      "target": "IN-0350",
+      "current": true,
+      "as_of": "2026-01-31",
+      "as_of_origine": "proxy",
+      "release": "2026-11-21",
+      "roles": {
+        "founder": {
+          "role_text": "Director; Co-Founder; Senior Vice President"
+        },
+        "director": {
+          "role_text": "Director; Co-Founder; Senior Vice President",
+          "since_year": 1993,
+          "since_month": 9,
+          "independent": false
+        },
+        "other": {
+          "role_text": "Director; Co-Founder; Senior Vice President"
+        }
+      },
+      "source_ref": [
+        "2026-11-21/consiglieri.csv#1276"
+      ],
+      "created_at": "2026-11-22",
+      "history": []
     }
   ]
 }
