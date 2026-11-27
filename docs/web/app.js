@@ -1344,6 +1344,13 @@ function renderCards(item) {
   wireEdfParticipantBtns(container);
   wireInvestorPills(container);
 
+  container.querySelectorAll('.cs-portfolio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetItem = REGISTRY.find(r => r.dbEntity?.id === btn.dataset.id || r.id === btn.dataset.id);
+      if (targetItem) selectItem(targetItem);
+    });
+  });
+
   if (entityId && rels.length) {
     const canvas = container.querySelector('.ego-graph-canvas');
     if (canvas) {
