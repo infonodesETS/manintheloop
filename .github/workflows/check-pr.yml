@@ -1,0 +1,37 @@
+# Controlli automatici sulle pull request verso main (piano, fase F5).
+#
+# Per ora un solo controllo: scripts/validate.py sul database del sito.
+# Parte solo se la PR tocca i dati, gli script o questo file (decisione di
+# Nelson, 2026-11-27): le PR di sola documentazione non lo fanno partire.
+#
+# Attenzione: se un giorno questo controllo diventa obbligatorio per il merge
+# (regola su main nelle impostazioni, oggi rimandata: decisione D3), il filtro
+# `paths` va tolto o cambiato, altrimenti le PR di sola documentazione restano
+# in attesa di un controllo che non parte.
+
+name: Controlli PR
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/data/**"
+      - "scripts/**"
+      - "work/qid-rimessi-noti.json"
+      - ".github/workflows/check-pr.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate.py
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validazione del database
+        run: python3 scripts/validate.py
