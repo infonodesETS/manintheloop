@@ -1250,7 +1250,7 @@ function ownershipBody(list, side) {
     const joint = group.filter(r => r.classe === rel.classe && r.source !== rel.source).map(r => ENTITY_MAP[r.source]?.name || r.source);
     if (joint.length) parts.push(`joint position with ${esc(joint.join(', '))}, counted once`);
     if (rel.as_of) parts.push(`as of ${esc(rel.as_of)}${rel.as_of_origine ? ` (${ORIGIN[rel.as_of_origine] || esc(rel.as_of_origine)})` : ''}`);
-    const name = (other.id.startsWith('PER-') || other.id.startsWith('IV-'))
+    const name = other.id.startsWith('PER-')
       ? `<span class="cs-portfolio-name">${esc(other.name)}</span>`
       : `<button class="cs-portfolio-btn" data-id="${esc(other.id)}">${esc(other.name)}</button>`;
     h += `<li class="cs-portfolio-item"><div class="cs-elist-item-main">${name}
