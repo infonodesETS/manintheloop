@@ -1,7 +1,8 @@
 # Controlli automatici sulle pull request verso main (piano, fase F5).
 #
 # Controlli: scripts/validate.py sul database del sito (F5.7) e
-# scripts/checks/check_site_refs.py, i file locali richiamati dalle pagine (F5.1).
+# scripts/checks/check_site_refs.py, i file locali richiamati dalle pagine (F5.1),
+# scripts/checks/check_site_clean.py, solo file del sito in docs/ (F5.2).
 # Parte solo se la PR tocca il sito (docs/), gli script o questo file
 # (decisione di Nelson, 2026-11-27): le PR di sola documentazione
 # (STATUS.md, reference/) non lo fanno partire.
@@ -41,3 +42,6 @@ jobs:
       - name: Riferimenti del sito
         if: ${{ !cancelled() }}
         run: python3 scripts/checks/check_site_refs.py
+      - name: Solo file del sito in docs/
+        if: ${{ !cancelled() }}
+        run: python3 scripts/checks/check_site_clean.py
