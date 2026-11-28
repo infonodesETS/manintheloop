@@ -2,8 +2,13 @@
 #
 # Controlli: scripts/validate.py sul database del sito (F5.7) e
 # scripts/checks/check_site_refs.py, i file locali richiamati dalle pagine (F5.1),
-# scripts/checks/check_site_clean.py, solo file del sito in docs/ (F5.2).
-# Parte solo se la PR tocca il sito (docs/), gli script o questo file
+# scripts/checks/check_site_clean.py, solo file del sito in docs/ (F5.2);
+# scripts/sync_site_data.py --check, docs/data/edf_calls.json identico a
+# rawdata/edf_calls.json (F5.6);
+# scripts/checks/check_index.py, indice MARLA coerente con il database (F5.4):
+# blocca se l'indice è rotto, avvisa senza bloccare se è solo vecchio.
+# Parte solo se la PR tocca il sito (docs/), gli script, rawdata/edf_calls.json
+# (sorgente della copia servita dal sito) o questo file
 # (decisione di Nelson, 2026-11-27): le PR di sola documentazione
 # (STATUS.md, reference/) non lo fanno partire.
 #
@@ -20,6 +25,7 @@ on:
     paths:
       - "docs/**"
       - "scripts/**"
+      - "rawdata/edf_calls.json"
       - "work/qid-rimessi-noti.json"
       - ".github/workflows/check-pr.yml"
 
@@ -45,3 +51,9 @@ jobs:
       - name: Solo file del sito in docs/
         if: ${{ !cancelled() }}
         run: python3 scripts/checks/check_site_clean.py
+      - name: Copia di edf_calls.json
+        if: ${{ !cancelled() }}
+        run: python3 scripts/sync_site_data.py --check
+      - name: Indice MARLA
+        if: ${{ !cancelled() }}
+        run: python3 scripts/checks/check_index.py
