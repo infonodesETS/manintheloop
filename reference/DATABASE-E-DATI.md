@@ -85,7 +85,7 @@ Entità coperte = entità attive con il blocco della fonte non vuoto (misura del
 | **Map** (`docs/index.html`) | Il grafo navigabile, in due modalità: **Finanziamenti EU** (chi partecipa a quali progetti EDF) e **Investimenti globali** (chi investe in chi) | `database.json` (relazioni `edf_participation` e `investment`; `ownership` e `role` escluse per scelta, S4 regola 4) |
 | **Networks** (`docs/networks.html`) | Viste di rete/connessioni tra gli attori | `database.json` |
 | **Key Figures** (`docs/key-figures.html`) | Numeri e cifre chiave della mappatura | `database.json` |
-| **Search** (`docs/search.html`) | Ricerca libera tra entità; nella scheda di un'azienda i riquadri SEC «Shareholders ≥5%» e «Holdings ≥5%» | `database.json`; le persone non hanno una scheda propria e non compaiono nella ricerca; nei riquadri SEC i nomi non si aprono ancora con un clic (issue #118) |
+| **Search** (`docs/search.html`) | Ricerca libera tra entità; nella scheda di un'azienda i riquadri SEC «Shareholders ≥5%» e «Holdings ≥5%» | `database.json`; le persone non hanno una scheda propria e non compaiono nella ricerca; nei riquadri SEC aziende e gestori si aprono con un clic, le persone restano testo (issue #118, PR #124) |
 | **Publications** (`docs/publications.html`) | Articoli, inchieste e report prodotti con/su la piattaforma | `docs/data/publications.json` |
 | **About** (`docs/about.html`) | Metodo, scopo e contesto del progetto | `docs/data/about_why.json` |
 
