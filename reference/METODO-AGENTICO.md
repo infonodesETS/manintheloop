@@ -65,3 +65,46 @@ Prima di estenderlo: provarlo su un gruppo di schede **mai trattate** (pilota), 
 - **Più schede con lo stesso QID: guardare tutte e quattro insieme.** Con un solo agente per scheda emergono le differenze (qui: la scheda «canonica» era una controllata e la quotazione della capogruppo stava su un'altra). Il verdetto `unclear` con inclinazione a `remove_qid` è onesto quando la prova è solo secondaria.
 - **Le note manuali di aprile non sono prova.** Su tre schede, due erano giuste nella sostanza e una sbagliata (`IN-0831`, «nome doppio»).
 - **Indipendenza:** nei prompt, fonti esterne prima e `history`/`validation` dopo; non basta se il prompt contiene già la domanda («è la capogruppo?»).
+
+## Agenti che eseguono i task del piano (codice, controlli, documenti)
+
+> **BOZZA PROVVISORIA (2026-11-28), non ancora provata.** Decisa da Nelson il 2026-11-28: coordina l'AI della sessione principale (nessun agente orchestratore, perché ogni passo con effetti richiede l'ok di Nelson nello stesso turno); gli agenti relazionano **prima** del commit e Nelson approva. Vale per i task di `PIANO-RIORGANIZZAZIONE.md` che producono codice o testo (F5, F6); per i dati resta lo schema qui sopra.
+
+### 1. La consegna dichiara i risultati attesi
+
+Prima di avviare un agente, il coordinatore scrive la **scheda del task** e la mostra a Nelson. Senza risultati attesi dichiarati il task non parte. La scheda contiene:
+
+1. **Obiettivo** e riferimento al piano (es. «F5.4, §5»).
+2. **Da leggere:** i file che l'agente deve leggere per intero.
+3. **Perimetro:** l'elenco esatto dei file che può creare o modificare; tutto il resto è vietato.
+4. **Output attesi:** ogni file o comportamento atteso, uno per riga, con un identificativo (`O1`, `O2`…), formulato in modo che si possa dire «c'è / non c'è» (es. «`scripts/checks/check_index.py` esce con 0 sul repo pulito»).
+5. **Criteri di accettazione:** i comandi da eseguire e l'esito atteso di ciascuno, compreso **almeno un test negativo** (errore piantato in una copia nello scratchpad, il controllo deve fallire).
+6. **Divieti:** niente `docs/data/database.json` salvo dove detto, niente commit, niente push, niente GitHub né servizi esterni salvo dove detto; percorsi personali e segreti mai nei file.
+7. **Formato del resoconto** (punto 2).
+
+### 2. L'agente lavora e relaziona, non committa
+
+L'agente lavora in un worktree separato (`isolation: "worktree"`), con il nome di un nano. Alla fine consegna un resoconto con: per ogni output atteso, fatto o non fatto e dove; i comandi eseguiti con l'output reale (non riassunto); i file toccati (`git status` del worktree); ciò che ha fatto in più o in modo diverso dalla scheda, e perché; dubbi e punti deboli. Non deve cambiare un test o un criterio per farlo passare: se un criterio sembra sbagliato, lo dice e si ferma.
+
+### 3. Il coordinatore controlla l'esecuzione, non si fida del resoconto
+
+Per ogni task il coordinatore rifà da sé, nel worktree dell'agente:
+
+1. **Output attesi:** per ogni `O` della scheda, presente o assente, misurato.
+2. **Criteri:** rilancia i comandi, compreso il test negativo; l'esito che conta è il suo.
+3. **Perimetro (C3):** `git status` e `git diff --name-status` del worktree: nessun file fuori elenco; `git status` del repo principale invariato; nessun push (`git ls-remote`).
+4. **Controlli generali:** `validate.py`, `check_site_refs.py`, `check_site_clean.py`, `check_secrets_paths.py`.
+5. **Lettura del diff:** il codice o il testo fa ciò che dichiara.
+6. **Fedeltà del resoconto:** confronto tra ciò che l'agente ha dichiarato e ciò che è stato misurato.
+
+Poi prepara per Nelson una **tabella del task**: output atteso, esito misurato, scostamenti, punto debole. Nelson approva; solo allora il coordinatore fa il commit (con `Co-Authored-By`), e con un altro ok il push e il testo della PR. Una PR per task.
+
+### 4. Il controllo informa il metodo
+
+Ogni giro chiude con una riga nel **registro dei giri** qui sotto, in tre colonne: **andato bene**, **da rivedere**, **andato male** (con ciò che è accaduto durante il lavoro dell'agente: output mancanti, file fuori perimetro, test cambiati, dichiarazioni non vere, costo in token e tempo). Se una voce di «andato male» o «da rivedere» richiede di cambiare il metodo, la modifica si propone a Nelson e si scrive in questa sezione, con la data.
+
+### Registro dei giri
+
+| Data | Task | Agente | Output attesi raggiunti | Andato bene | Da rivedere | Andato male | Cambio al metodo |
+|---|---|---|---|---|---|---|---|
+| 2026-11-28 | F6.5, hook di avvio (`.claude/session-status.sh`) | Dotto (worktree, 74.000 token, circa 2,5 minuti, 11 chiamate) | 6 su 6 (O1-O6), confermati dal coordinatore su scenari propri (s1-s8, compresi HEAD staccato e `main` avanti) e su un clone del repo vero; con l'hook vecchio s4 riproduce il difetto («allineato» con `main` indietro), con il nuovo no | perimetro rispettato (un file, nessun commit né push, repo principale invariato); resoconto fedele alle misure; l'agente ha trovato da solo un caso in più (branch indietro dopo un pull fallito) e ha segnalato il contrasto con il piano invece di toccarlo | O4 come scritto nella consegna indicava F0.7, ferma dal 10 novembre: la consegna era giusta alla lettera ma poco utile (cambiato dal coordinatore con l'ok di Nelson: tutte le righe ◐ e la prima ☐); `.claude/worktrees/` non era in `.gitignore`; con HEAD staccato il messaggio dice «branch senza remoto»; costo sopra la stima (30-50.000) | niente di rilevante. Errore del coordinatore, non dell'agente: il branch della PR era partito da `main` senza il commit della #126, che tocca gli stessi documenti (rifatto sopra il branch della #126 prima di qualunque commit) | proposti a Nelson, non ancora approvati: (1) nella consegna, per un output che mostra dati del progetto, provarlo anche sui dati veri in sola lettura prima di dichiararlo atteso; (2) prima di creare il branch della PR, controllare le PR aperte che toccano gli stessi file (regola 0.3 del piano) |
